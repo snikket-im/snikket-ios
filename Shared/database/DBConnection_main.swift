@@ -24,8 +24,8 @@ import Foundation
 extension DBConnection {
 
     public static func mainDbURL() -> URL {
-        let containerURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.siskinim.shared")!;
-        return containerURL.appendingPathComponent("siskinim_main.db");
+        let containerURL = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.snikket.shared")!;
+        return containerURL.appendingPathComponent("snikket_main.db");
     }
     
     public private(set) static var createIfNotExist: Bool = false;

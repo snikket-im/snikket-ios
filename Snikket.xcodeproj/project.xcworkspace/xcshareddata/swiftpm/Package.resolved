@@ -1,0 +1,43 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "libsignal",
+        "repositoryURL": "https://github.com/tigase/libsignal",
+        "state": {
+          "branch": null,
+          "revision": "d23d5af0d729cf66b93cea607f3f84a34b9fddfd",
+          "version": "1.0.0"
+        }
+      },
+      {
+        "package": "OpenSSL",
+        "repositoryURL": "https://github.com/krzyzanowskim/OpenSSL",
+        "state": {
+          "branch": null,
+          "revision": "9ab1dc8f8da54c1b23a45fadd5f5357a250f9087",
+          "version": "1.1.171"
+        }
+      },
+      {
+        "package": "TigaseSwift",
+        "repositoryURL": "https://github.com/tigase/tigase-swift",
+        "state": {
+          "branch": null,
+          "revision": "0d713dbf3ca22bfde3bd36d16fc172a554094c48",
+          "version": "2.1.0"
+        }
+      },
+      {
+        "package": "TigaseSwiftOMEMO",
+        "repositoryURL": "https://github.com/tigase/tigase-swift-omemo/",
+        "state": {
+          "branch": "omemo-muc",
+          "revision": "365a7b6849fd259784014208e2391057fd5ef850",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
