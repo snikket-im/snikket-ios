@@ -11,15 +11,6 @@
         }
       },
       {
-        "package": "OpenSSL",
-        "repositoryURL": "https://github.com/krzyzanowskim/OpenSSL",
-        "state": {
-          "branch": null,
-          "revision": "9ab1dc8f8da54c1b23a45fadd5f5357a250f9087",
-          "version": "1.1.171"
-        }
-      },
-      {
         "package": "TigaseSwift",
         "repositoryURL": "https://github.com/tigase/tigase-swift",
         "state": {

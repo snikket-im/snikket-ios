@@ -24,17 +24,17 @@ import UIKit
 
 class CustomTabBarController: UITabBarController {
  
-    override func viewDidLoad() {
-        self.tabBar.unselectedItemTintColor = self.tabBar.barStyle == .black ? nil : UIColor.lightGray.lighter(ratio: 0.1);
-    }
-    
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection);
-        if #available(iOS 13.0, *) {
-            if previousTraitCollection?.hasDifferentColorAppearance(comparedTo: traitCollection) ?? false {
-                self.tabBar.unselectedItemTintColor = self.tabBar.barStyle == .black ? nil : UIColor.lightGray;
-            }
-        }
-    }
+//    override func viewDidLoad() {
+//        self.tabBar.unselectedItemTintColor = self.tabBar.barStyle == .black ? nil : UIColor.lightGray.lighter(ratio: 0.1);
+//    }
+//    
+//    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+//        super.traitCollectionDidChange(previousTraitCollection);
+//        if #available(iOS 13.0, *) {
+//            if previousTraitCollection?.hasDifferentColorAppearance(comparedTo: traitCollection) ?? false {
+//                self.tabBar.unselectedItemTintColor = self.tabBar.barStyle == .black ? nil : UIColor.lightGray;
+//            }
+//        }
+//    }
         
 }

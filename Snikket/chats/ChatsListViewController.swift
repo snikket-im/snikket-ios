@@ -69,7 +69,7 @@ class ChatsListViewController: UITableViewController {
     
     private func setColors() {
         navigationController?.navigationBar.barTintColor = UIColor(named: "chatslistBackground");
-        navigationController?.navigationBar.tintColor = UIColor.white;
+        navigationController?.navigationBar.tintColor = UIColor(named: "tintColor");
     }
 
     override func viewDidDisappear(_ animated: Bool) {

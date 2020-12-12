@@ -29,6 +29,7 @@ class RosterViewController: AbstractRosterViewController, UIGestureRecognizerDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchController.searchBar.tintColor = UIColor(named: "tintColor");
         searchController.searchBar.delegate = self;
         searchController.searchBar.scopeButtonTitles = ["By name", "By status"];
         
@@ -41,8 +42,10 @@ class RosterViewController: AbstractRosterViewController, UIGestureRecognizerDel
             tableView.addGestureRecognizer(lpgr);
         }
 
+        self.editButtonItem.tintColor = UIColor(named: "tintColor");
         navigationItem.leftBarButtonItem = self.editButtonItem
         availabilityFilterSelector = UISegmentedControl(items: ["All", "Available"]);
+        availabilityFilterSelector?.tintColor = UIColor(named: "tintColor");
         navigationItem.titleView = availabilityFilterSelector;
         availabilityFilterSelector?.selectedSegmentIndex = Settings.RosterAvailableOnly.getBool() ? 1 : 0;
         availabilityFilterSelector?.addTarget(self, action: #selector(RosterViewController.availabilityFilterChanged), for: .valueChanged);
@@ -70,10 +73,10 @@ class RosterViewController: AbstractRosterViewController, UIGestureRecognizerDel
     private func setColors() {
 //        navigationController?.navigationBar.barStyle = .black;
 //        navigationController?.navigationBar.isTranslucent = true;
-        searchController.searchBar.barStyle = .black;
-        searchController.searchBar.tintColor = UIColor.white;
+        //searchController.searchBar.barStyle = .black;
+        searchController.searchBar.tintColor = UIColor(named: "tintColor")!;
         navigationController?.navigationBar.barTintColor = UIColor(named: "chatslistBackground")?.withAlphaComponent(0.2);
-        navigationController?.navigationBar.tintColor = UIColor.white;
+        navigationController?.navigationBar.tintColor = UIColor(named: "tintColor")!;
         if #available(iOS 13.0, *) {
 //            (navigationItem.titleView as? UISegmentedControl)?.selectedSegmentTintColor =
         } else {
@@ -88,16 +91,20 @@ class RosterViewController: AbstractRosterViewController, UIGestureRecognizerDel
     func updateNavBarColors() {
         if #available(iOS 13.0, *) {
             if self.traitCollection.userInterfaceStyle == .dark {
-                availabilityFilterSelector?.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.white], for: .selected);
-                availabilityFilterSelector?.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.white], for: .normal);
-                searchController.searchBar.setScopeBarButtonTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.white], for: .selected)
-                searchController.searchBar.setScopeBarButtonTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.white], for: .normal);
+                availabilityFilterSelector?.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor(named: "tintColor")!], for: .selected);
+                availabilityFilterSelector?.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor(named: "tintColor")!], for: .normal);
+                searchController.searchBar.setScopeBarButtonTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor(named: "tintColor")!], for: .selected)
+                searchController.searchBar.setScopeBarButtonTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor(named: "tintColor")!], for: .normal);
             } else {
-                availabilityFilterSelector?.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor(named: "chatslistBackground")!], for: .selected);
-                availabilityFilterSelector?.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.white], for: .normal);
-                searchController.searchBar.setScopeBarButtonTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor(named: "chatslistBackground")!], for: .selected)
-                searchController.searchBar.setScopeBarButtonTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.white], for: .normal);
+                availabilityFilterSelector?.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor(named: "tintColor")!], for: .selected);
+                availabilityFilterSelector?.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor(named: "tintColor")!], for: .normal);
+                searchController.searchBar.setScopeBarButtonTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor(named: "tintColor")!], for: .selected)
+                searchController.searchBar.setScopeBarButtonTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor(named: "tintColor")!], for: .normal);
             }
+            let apperance = UINavigationBarAppearance();
+            apperance.backgroundColor = UIColor(named: "chatslistBackground")!;
+            navigationItem.standardAppearance = apperance;
+            navigationItem.scrollEdgeAppearance = apperance;
             searchController.searchBar.searchTextField.textColor = UIColor.white;
             searchController.searchBar.searchTextField.backgroundColor = (self.traitCollection.userInterfaceStyle != .dark ? UIColor.black : UIColor.white).withAlphaComponent(0.2);
             DispatchQueue.main.async {

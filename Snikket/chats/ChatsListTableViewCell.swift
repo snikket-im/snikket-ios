@@ -28,7 +28,11 @@ class ChatsListTableViewCell: UITableViewCell {
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var avatarStatusView: AvatarStatusView! {
         didSet {
-            avatarStatusView?.backgroundColor = UIColor(named: "chatslistBackground");
+            if #available(iOS 13.0, *) {
+                avatarStatusView?.backgroundColor = UIColor.systemBackground;
+            } else {
+                avatarStatusView?.backgroundColor = UIColor.white;
+            }
         }
     }
     @IBOutlet var lastMessageLabel: UILabel!
@@ -39,8 +43,13 @@ class ChatsListTableViewCell: UITableViewCell {
             return super.backgroundColor;
         }
         set {
-            super.backgroundColor = UIColor(named: "chatslistBackground");
-            avatarStatusView?.backgroundColor = UIColor(named: "chatslistBackground");
+            if #available(iOS 13.0, *) {
+                super.backgroundColor = UIColor.systemBackground;
+                avatarStatusView?.backgroundColor = UIColor.systemBackground;
+            } else {
+                super.backgroundColor = UIColor.white;
+                avatarStatusView?.backgroundColor = UIColor.white;
+            }
         }
     }    
 

@@ -18,7 +18,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="3ug-3t-4BD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" name="chatslistBackground"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ChatsListTableViewCellNew" rowHeight="66" id="0IJ-1b-Ma3" customClass="ChatsListTableViewCell" customModule="Siskin" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="66"/>
@@ -36,13 +36,11 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chat with" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qr0-8H-IJq">
                                                             <rect key="frame" x="0.0" y="0.0" width="73" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Timestamp" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ga8-2K-hxE">
                                                             <rect key="frame" x="266.5" y="0.0" width="71.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -58,7 +56,6 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="200" text="Last message" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="13" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wE7-Lf-1a4">
                                                     <rect key="frame" x="0.0" y="21.5" width="338" height="38.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -77,6 +74,7 @@
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e8L-U4-JYV" customClass="AvatarView" customModule="Siskin" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="56" height="56"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="first" translatesAutoresizingMaskIntoConstraints="NO" id="Qv8-HJ-XqL">
                                                     <rect key="frame" x="40" y="40" width="16" height="16"/>
@@ -105,7 +103,6 @@
                                             </connections>
                                         </view>
                                     </subviews>
-                                    <color key="backgroundColor" name="chatslistBackground"/>
                                     <constraints>
                                         <constraint firstItem="bw5-x2-Cry" firstAttribute="top" secondItem="f45-bS-0LJ" secondAttribute="top" constant="3" id="4YX-sH-dY4"/>
                                         <constraint firstItem="8Re-Fq-Luq" firstAttribute="leading" secondItem="f45-bS-0LJ" secondAttribute="leading" constant="6" id="Bxk-an-k7M"/>
@@ -117,7 +114,6 @@
                                     </constraints>
                                     <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" name="chatslistBackground"/>
                                 <edgeInsets key="layoutMargins" top="0.0" left="0.0" bottom="0.0" right="0.0"/>
                                 <connections>
                                     <outlet property="avatarStatusView" destination="8Re-Fq-Luq" id="64p-Gb-eti"/>
@@ -131,6 +127,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="LKO-PG-RwH">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="AHa-0l-wJt">
+                            <color key="tintColor" name="tintColor"/>
                             <connections>
                                 <action selector="addMucButtonClicked:" destination="9pv-A4-QxB" id="Fcb-M7-ynm"/>
                             </connections>
@@ -354,7 +351,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" name="chatslistBackground"/>
-                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" name="tintColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="JxF-gw-olp" kind="relationship" relationship="viewControllers" id="ifN-oQ-Gcj"/>
@@ -373,7 +370,8 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="dbg-Pp-Ujo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" name="chatslistBackground"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="separatorColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="RosterItemTableViewCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="RosterItemTableViewCell" rowHeight="48" id="ONc-pU-DYD" customClass="RosterItemTableViewCell" customModule="Siskin" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="48"/>
@@ -397,7 +395,7 @@
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
                                                     </subviews>
-                                                    <color key="backgroundColor" name="chatslistBackground"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="44" id="bhT-5q-V8P"/>
                                                     </constraints>
@@ -412,13 +410,11 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vEG-as-CLS">
                                                             <rect key="frame" x="0.0" y="0.0" width="356" height="26"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tRD-rd-7dm">
                                                             <rect key="frame" x="0.0" y="26" width="356" height="18"/>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -426,7 +422,6 @@
                                             </subviews>
                                         </stackView>
                                     </subviews>
-                                    <color key="backgroundColor" name="chatslistBackground"/>
                                     <constraints>
                                         <constraint firstItem="cbu-SQ-mtx" firstAttribute="leading" secondItem="UqK-Bi-A4U" secondAttribute="leading" constant="2" id="BAi-EZ-OZn"/>
                                         <constraint firstAttribute="trailing" secondItem="cbu-SQ-mtx" secondAttribute="trailing" constant="2" id="FjQ-IY-JEo"/>
@@ -434,7 +429,6 @@
                                         <constraint firstItem="cbu-SQ-mtx" firstAttribute="top" secondItem="UqK-Bi-A4U" secondAttribute="top" constant="2" id="zaP-Ho-3Uk"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" name="chatslistBackground"/>
                                 <connections>
                                     <outlet property="avatarStatusView" destination="PEi-Gx-E77" id="SdY-12-OFp"/>
                                     <outlet property="nameLabel" destination="vEG-as-CLS" id="eeO-Q0-Ttd"/>
@@ -449,6 +443,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="SEz-IM-IWL">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="cDx-St-aU8">
+                            <color key="tintColor" name="tintColor"/>
                             <connections>
                                 <action selector="addBtnClicked:" destination="mps-t3-QBq" id="MNQ-v3-5LQ"/>
                             </connections>
@@ -469,7 +464,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7zK-CH-Y1Y">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" name="tintColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="2jh-uX-arh">
@@ -525,7 +520,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QfB-Do-9or">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="chatslistBackground"/>
+                        <color key="tintColor" name="tintColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1189,10 +1185,10 @@
         <image name="messageArchiving" width="50" height="50"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="121"/>
         <namedColor name="chatslistBackground">
-            <color red="0.36862745098039218" green="0.36862745098039218" blue="0.54117647058823526" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.99607843137254903" green="0.85490196078431369" blue="0.023529411764705882" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="tintColor">
-            <color red="0.33000001311302185" green="0.33000001311302185" blue="0.48800000548362732" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.47058823529411764" green="0.40000000000000002" blue="0.0039215686274509803" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="groupTableViewBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
