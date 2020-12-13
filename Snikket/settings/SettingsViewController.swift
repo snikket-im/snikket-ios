@@ -189,18 +189,19 @@ class SettingsViewController: UITableViewController {
         if indexPath.section == 0 {
             let accounts = AccountManager.getAccounts();
             if indexPath.row == accounts.count {
-                let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet);
-                alert.addAction(UIAlertAction(title: "Create new", style: .default, handler: { (action) in
-                    self.showAddAccount(register: true);
-                }));
-                alert.addAction(UIAlertAction(title: "Add existing", style: .default, handler: { (action) in
-                    self.showAddAccount(register: false);
-                }));
-                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil));
-                alert.popoverPresentationController?.sourceView = self.tableView;
-                alert.popoverPresentationController?.sourceRect = self.tableView.rectForRow(at: indexPath);
-
-                self.present(alert, animated: true, completion: nil);
+                showAddAccount(register: false);
+//                let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet);
+//                alert.addAction(UIAlertAction(title: "Create new", style: .default, handler: { (action) in
+//                    self.showAddAccount(register: true);
+//                }));
+//                alert.addAction(UIAlertAction(title: "Add existing", style: .default, handler: { (action) in
+//                    self.showAddAccount(register: false);
+//                }));
+//                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil));
+//                alert.popoverPresentationController?.sourceView = self.tableView;
+//                alert.popoverPresentationController?.sourceRect = self.tableView.rectForRow(at: indexPath);
+//
+//                self.present(alert, animated: true, completion: nil);
             } else {
                 // show edit account dialog
                 let account = accounts[indexPath.row];

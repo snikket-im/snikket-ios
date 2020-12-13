@@ -285,15 +285,15 @@ class RegisterAccountController: DataFormController {
         task?.cancel();
         task = nil;
 
-        if self.view.window?.rootViewController is SetupViewController {
-            navigationController?.dismiss(animated: true, completion: nil);
-        } else {
-            let newController = navigationController?.popViewController(animated: true);
-            if newController == nil || newController != self {
-                let emptyDetailController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "emptyDetailViewController");
-                self.showDetailViewController(emptyDetailController, sender: self);
-            }
-        }
+        navigationController?.dismiss(animated: true, completion: nil);
+//        if self.view.window?.rootViewController is WelcomeController {
+//        } else {
+//            let newController = navigationController?.popViewController(animated: true);
+//            if newController == nil || newController != self {
+//                let emptyDetailController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "emptyDetailViewController");
+//                self.showDetailViewController(emptyDetailController, sender: self);
+//            }
+//        }
     }
     
     func showIndicator() {

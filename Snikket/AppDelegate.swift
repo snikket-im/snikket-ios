@@ -99,7 +99,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         (self.window?.rootViewController as? UISplitViewController)?.preferredDisplayMode = .allVisible;
         if AccountManager.getAccounts().isEmpty {
-            self.window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SetupViewController");
+            self.window?.rootViewController = UIStoryboard(name: "Welcome", bundle: nil).instantiateViewController(withIdentifier: "WelcomeScreenNavigationController");
         }
         
 //        let callConfig = CXProviderConfiguration(localizedName: "Tigase Messenger");
@@ -134,7 +134,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     if expNormalMode {
                         (UIApplication.shared.delegate as? AppDelegate)?.hideSetupGuide();
                     } else {
-                        self.window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SetupViewController");
+                        self.window?.rootViewController = UIStoryboard(name: "Welcome", bundle: nil).instantiateViewController(withIdentifier: "WelcomeScreenNavigationController");
                     }
                 }
             }

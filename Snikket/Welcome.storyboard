@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hng-iF-J9G">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Snikket-->
+        <scene sceneID="CR0-Jy-GsI">
+            <objects>
+                <viewController id="0Ih-Lt-06h" customClass="WelcomeController" customModule="Siskin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bgi-Je-nna">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" verticalHuggingPriority="249" image="appLogo" translatesAutoresizingMaskIntoConstraints="NO" id="hVw-uB-7RY">
+                                <rect key="frame" x="70" y="158" width="274" height="274"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="hVw-uB-7RY" secondAttribute="height" multiplier="1:1" id="fm5-3H-5RG"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MXd-x0-6pN">
+                                <rect key="frame" x="10" y="492" width="394" height="135.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Snikket">
+                                        <attributes>
+                                            <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" size="14" name="SFProText-Bold"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <font key="NSOriginalFont" size="14" name="SFProText-Medium"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                <tabStops>
+                                                    <textTab alignment="left" location="11">
+                                                        <options/>
+                                                    </textTab>
+                                                    <textTab alignment="natural" location="36">
+                                                        <options/>
+                                                    </textTab>
+                                                </tabStops>
+                                            </paragraphStyle>
+                                            <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content=" ">
+                                        <attributes>
+                                            <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" size="16" name="SFProText-Regular"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                <tabStops>
+                                                    <textTab alignment="left" location="11">
+                                                        <options/>
+                                                    </textTab>
+                                                    <textTab alignment="natural" location="36">
+                                                        <options/>
+                                                    </textTab>
+                                                </tabStops>
+                                            </paragraphStyle>
+                                            <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">is a secure, privacy-friendly chat app.
+ To get started, you need an invitation from another friend using Snikket. 
+ If you already have an invitation, now is a good time to open it up and tap the ‘open the app’ button! </string>
+                                        <attributes>
+                                            <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" size="14" name="SFProText-Regular"/>
+                                            <real key="NSKern" value="0.0"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                <tabStops>
+                                                    <textTab alignment="left" location="11">
+                                                        <options/>
+                                                    </textTab>
+                                                    <textTab alignment="natural" location="36">
+                                                        <options/>
+                                                    </textTab>
+                                                </tabStops>
+                                            </paragraphStyle>
+                                            <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Xm-uz-gIu">
+                                <rect key="frame" x="10" y="647.5" width="91" height="30"/>
+                                <state key="normal" title="Learn more..."/>
+                                <connections>
+                                    <action selector="learnMoreTapped:" destination="0Ih-Lt-06h" eventType="touchUpInside" id="2uK-13-bgl"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="kSv-EN-BcC"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hVw-uB-7RY" firstAttribute="top" secondItem="kSv-EN-BcC" secondAttribute="top" constant="70" id="1S3-lk-6V4"/>
+                            <constraint firstItem="kSv-EN-BcC" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="9Xm-uz-gIu" secondAttribute="bottom" priority="900" constant="100" id="5FU-nP-j0d"/>
+                            <constraint firstItem="kSv-EN-BcC" firstAttribute="leading" secondItem="MXd-x0-6pN" secondAttribute="leading" constant="-10" id="5Mt-jA-gXF"/>
+                            <constraint firstItem="9Xm-uz-gIu" firstAttribute="leading" secondItem="MXd-x0-6pN" secondAttribute="leading" id="KZY-2Q-hAf"/>
+                            <constraint firstItem="kSv-EN-BcC" firstAttribute="trailing" secondItem="hVw-uB-7RY" secondAttribute="trailing" constant="70" id="Vkd-Wn-Q17"/>
+                            <constraint firstItem="9Xm-uz-gIu" firstAttribute="top" secondItem="MXd-x0-6pN" secondAttribute="bottom" constant="20" id="dCm-uw-LsG"/>
+                            <constraint firstItem="kSv-EN-BcC" firstAttribute="trailing" secondItem="MXd-x0-6pN" secondAttribute="trailing" constant="10" id="fYi-KI-IDy"/>
+                            <constraint firstItem="hVw-uB-7RY" firstAttribute="leading" secondItem="kSv-EN-BcC" secondAttribute="leading" constant="70" id="gIh-kl-Kv8"/>
+                            <constraint firstItem="hVw-uB-7RY" firstAttribute="centerX" secondItem="kSv-EN-BcC" secondAttribute="centerX" id="iTM-jV-9LC"/>
+                            <constraint firstItem="MXd-x0-6pN" firstAttribute="top" secondItem="hVw-uB-7RY" secondAttribute="bottom" constant="60" id="naZ-iw-mnX"/>
+                            <constraint firstItem="9Xm-uz-gIu" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="MXd-x0-6pN" secondAttribute="trailing" id="yR5-q1-NRr"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Snikket" id="Pr0-Qp-NEQ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="i2u-OL-UUY">
+                            <color key="tintColor" name="tintColor"/>
+                            <connections>
+                                <action selector="startScan:" destination="0Ih-Lt-06h" id="06Q-v1-ogO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="textView" destination="MXd-x0-6pN" id="UPy-dK-hja"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ogR-9b-P4p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1073.913043478261" y="127.90178571428571"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="iBO-ne-46y">
+            <objects>
+                <navigationController storyboardIdentifier="WelcomeScreenNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="hng-iF-J9G" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1R5-Po-FM0">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="tintColor"/>
+                        <color key="barTintColor" name="chatslistBackground"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0Ih-Lt-06h" kind="relationship" relationship="rootViewController" id="c8E-e3-6EK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jmf-di-5w7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="163.768115942029" y="127.90178571428571"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="appLogo" width="1024" height="1024"/>
+        <namedColor name="chatslistBackground">
+            <color red="0.99607843137254903" green="0.85490196078431369" blue="0.023529411764705882" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="tintColor">
+            <color red="0.47058823529411764" green="0.40000000000000002" blue="0.0039215686274509803" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -132,6 +132,8 @@
 		FE75A008237585DC001E78D9 /* NotificationEncryptionKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE75A007237585DC001E78D9 /* NotificationEncryptionKeys.swift */; };
 		FE75A0102375F338001E78D9 /* PushEventHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE75A00E2375F324001E78D9 /* PushEventHandler.swift */; };
 		FE75A0122376E73C001E78D9 /* SiskinPushNotificationsModuleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE75A0112376E73C001E78D9 /* SiskinPushNotificationsModuleProvider.swift */; };
+		FE75AA792585440A002B59AE /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE75AA782585440A002B59AE /* Welcome.storyboard */; };
+		FE75AA7E25854DE2002B59AE /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE75AA7D25854DE2002B59AE /* WelcomeController.swift */; };
 		FE7D293423B919FF001A877D /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7D293323B919FF001A877D /* DownloadManager.swift */; };
 		FE7D293623BB5E0A001A877D /* LinkPreviewChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7D293523BB5E0A001A877D /* LinkPreviewChatTableViewCell.swift */; };
 		FE7F645B1D281B1C00B9DF56 /* DBCapabilitiesCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE7F645A1D281B1C00B9DF56 /* DBCapabilitiesCache.swift */; };
@@ -406,6 +408,8 @@
 		FE75A007237585DC001E78D9 /* NotificationEncryptionKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationEncryptionKeys.swift; sourceTree = "<group>"; };
 		FE75A00E2375F324001E78D9 /* PushEventHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushEventHandler.swift; sourceTree = "<group>"; };
 		FE75A0112376E73C001E78D9 /* SiskinPushNotificationsModuleProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiskinPushNotificationsModuleProvider.swift; sourceTree = "<group>"; };
+		FE75AA782585440A002B59AE /* Welcome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Welcome.storyboard; sourceTree = "<group>"; };
+		FE75AA7D25854DE2002B59AE /* WelcomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
 		FE7D293323B919FF001A877D /* DownloadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
 		FE7D293523BB5E0A001A877D /* LinkPreviewChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkPreviewChatTableViewCell.swift; sourceTree = "<group>"; };
 		FE7F645A1D281B1C00B9DF56 /* DBCapabilitiesCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBCapabilitiesCache.swift; sourceTree = "<group>"; };
@@ -697,6 +701,7 @@
 				FE65D62722E9F8EB0065DEA5 /* Markdown.swift */,
 				FE3E38892429364D00D3A8E8 /* UIImage.swift */,
 				FEF8255424BA0AFE00820108 /* MessageTextView.swift */,
+				FE75AA7D25854DE2002B59AE /* WelcomeController.swift */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -861,6 +866,7 @@
 				FEE49DCB2424C03200900BBB /* Conversation.storyboard */,
 				FEE49DD42426886500900BBB /* MIX.storyboard */,
 				FE80BDA91D92974C001914B0 /* Snikket.entitlements */,
+				FE75AA782585440A002B59AE /* Welcome.storyboard */,
 			);
 			path = Snikket;
 			sourceTree = "<group>";
@@ -1171,6 +1177,7 @@
 				FE8DD9C3221B118E0090F5AA /* Groupchat.storyboard in Resources */,
 				FEDC678C238AFB9F005C0FAB /* Settings.storyboard in Resources */,
 				FE94E52E1CCBA74F00FAE755 /* Assets.xcassets in Resources */,
+				FE75AA792585440A002B59AE /* Welcome.storyboard in Resources */,
 				FE4071E621E262D900F09B58 /* VoIP.storyboard in Resources */,
 				FE94E52C1CCBA74F00FAE755 /* Main.storyboard in Resources */,
 				FEE49DCC2424C03200900BBB /* Conversation.storyboard in Resources */,
@@ -1400,6 +1407,7 @@
 				FE74D510234A4E1F001A925B /* ChatTableViewSystemCell.swift in Sources */,
 				FE507A241CDB7B3B001A015C /* GlobalSplitViewController.swift in Sources */,
 				FEC79193241AAF55007BE572 /* DBRoomStore.swift in Sources */,
+				FE75AA7E25854DE2002B59AE /* WelcomeController.swift in Sources */,
 				FE233CD521E6846E00099281 /* CameraPreviewView.swift in Sources */,
 				FEF19F0E23479F4C005CFE9A /* ChatViewDataSource.swift in Sources */,
 				FE507A261CDB7B3B001A015C /* AvatarManager.swift in Sources */,
