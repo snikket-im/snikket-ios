@@ -12,7 +12,7 @@
 	</array>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>$(AppIdentifierPrefix)org.tigase.messenger.mobile</string>
+		<string>$(AppIdentifierPrefix)org.snikket.ios</string>
 	</array>
 </dict>
 </plist>

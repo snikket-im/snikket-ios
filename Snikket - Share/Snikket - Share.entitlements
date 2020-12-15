@@ -9,7 +9,7 @@
 	</array>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>$(AppIdentifierPrefix)org.tigase.messenger.mobile</string>
+		<string>$(AppIdentifierPrefix)org.snikket.ios.Share</string>
 	</array>
 </dict>
 </plist>
