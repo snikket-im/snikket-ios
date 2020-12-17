@@ -25,7 +25,7 @@ import AVFoundation
 class WelcomeController: UIViewController, QRScannerViewDelegate {
     
     @IBOutlet var textView: UITextView!
-    private var scannerView: QRScannerView?;
+    private var scannerViewController: UIViewController?;
     
     override func viewWillAppear(_ animated: Bool) {
         let text = NSMutableAttributedString(attributedString: textView.attributedText);
@@ -57,11 +57,12 @@ class WelcomeController: UIViewController, QRScannerViewDelegate {
     
     private func startScanning() {
         let scannerView = QRScannerView(frame: .zero);
-        scannerView.setContentHuggingPriority(.defaultLow, for: .vertical);
-        scannerView.setContentHuggingPriority(.defaultLow, for: .horizontal);
         scannerView.delegate = self;
-        self.view.addSubview(scannerView);
-        self.scannerView = scannerView;
+        
+        let controller = UIViewController();
+        controller.view = scannerView;
+        self.scannerViewController = controller;
+        self.navigationController?.pushViewController(controller, animated: true);
     }
     
     func found(code: String) {
@@ -78,8 +79,11 @@ class WelcomeController: UIViewController, QRScannerViewDelegate {
     }
     
     func scanningDidStop() {
-        scannerView?.removeFromSuperview();
-        scannerView = nil;
+        guard self.scannerViewController != nil else {
+            return;
+        }
+        navigationController?.popViewController(animated: true);
+        scannerViewController = nil;
     }
     
     func scanningDidFail() {
@@ -134,6 +138,7 @@ class QRScannerView: UIView, AVCaptureMetadataOutputObjectsDelegate {
         clipsToBounds = true;
         
         captureSession = AVCaptureSession();
+        captureSession?.beginConfiguration();
         
         guard let device = AVCaptureDevice.default(for: .video), let videoInput = try? AVCaptureDeviceInput(device: device) else {
             scanningDidFail();
@@ -157,7 +162,12 @@ class QRScannerView: UIView, AVCaptureMetadataOutputObjectsDelegate {
         metadataOutput.setMetadataObjectsDelegate(self, queue: .main);
         metadataOutput.metadataObjectTypes = [.qr];
 
+        captureSession?.commitConfiguration();
         captureSession?.startRunning();
+        
+        layer.session = captureSession;
+        layer.videoGravity = .resizeAspectFill;
+        layer.frame = self.bounds;
     }
     
     private func scanningDidFail() {
