@@ -29,7 +29,6 @@ public enum Settings: String {
     case StatusMessage
     case RosterType
     case RosterItemsOrder
-    case RosterAvailableOnly
     case RosterDisplayHiddenGroup
     case AutoSubscribeOnAcceptedSubscriptionRequest
     @available(swift, deprecated: 1.0)
@@ -73,7 +72,6 @@ public enum Settings: String {
             "enableMessageCarbons" : true,
             "RosterType" : "flat",
             "RosterItemsOrder" : RosterSortingOrder.alphabetical.rawValue,
-            "RosterAvailableOnly" : false,
             "RosterDisplayHiddenGroup" : false,
             "AutoSubscribeOnAcceptedSubscriptionRequest" : false,
             "NotificationsFromUnknown" : true,

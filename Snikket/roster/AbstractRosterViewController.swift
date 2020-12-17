@@ -45,9 +45,10 @@ class AbstractRosterViewController: UITableViewController, UISearchResultsUpdati
         searchController = UISearchController(searchResultsController: nil);
         searchController.dimsBackgroundDuringPresentation = false;
         searchController.hidesNavigationBarDuringPresentation = false;
+        searchController.obscuresBackgroundDuringPresentation = false;
         searchController.searchResultsUpdater = self;
         searchController.searchBar.searchBarStyle = .prominent;
-        searchController.searchBar.isOpaque = false;
+        //searchController.searchBar.isOpaque = false;
 //        searchController.searchBar.isTranslucent = true;
         refreshControl?.isOpaque = false;
         navigationItem.searchController = self.searchController;

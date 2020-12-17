@@ -128,21 +128,13 @@ class AddAccountController: UITableViewController, UITextFieldDelegate {
     }
     
     func dismissView() {
-        let dismiss = self.view.window?.rootViewController is SetupViewController;
         onAccountAdded = nil;
         accountValidatorTask?.finish();
         accountValidatorTask = nil;
-        
-        if dismiss {
+
+        if navigationController?.popViewController(animated: true) == nil {
             navigationController?.dismiss(animated: true, completion: nil);
-        } else {
-            let newController = navigationController?.popViewController(animated: true);
-            if newController == nil || newController != self {
-                let emptyDetailController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "emptyDetailViewController");
-                self.showDetailViewController(emptyDetailController, sender: self);
-            }
-        }
-        
+        }        
     }
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {

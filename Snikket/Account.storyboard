@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -102,6 +103,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5gB-HA-VJl">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="tintColor"/>
+                        <color key="barTintColor" name="chatslistBackground"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="tintColor"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -117,7 +123,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="AddAccountController" id="0fr-Ms-ALR" customClass="AddAccountController" customModule="Siskin" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="gb9-64-26F">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                         <sections>
@@ -303,6 +309,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jCZ-f1-mAZ">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="tintColor"/>
+                        <color key="barTintColor" name="chatslistBackground"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="tintColor"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -761,6 +772,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KTz-Pn-ljv">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" name="tintColor"/>
+                        <color key="barTintColor" name="chatslistBackground"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="tintColor"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <attributedString key="userComments">
@@ -1233,9 +1249,15 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="opM-M0-zrX"/>
+        <segue reference="ej2-9Z-vEb"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <namedColor name="chatslistBackground">
+            <color red="0.99607843137254903" green="0.85490196078431369" blue="0.023529411764705882" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="tintColor">
+            <color red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="groupTableViewBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

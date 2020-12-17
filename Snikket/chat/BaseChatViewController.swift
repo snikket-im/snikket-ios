@@ -171,11 +171,7 @@ class BaseChatViewController: UIViewController, UITextViewDelegate, ChatViewInpu
     }
     
     private func setColors() {
-        if #available(iOS 13.0, *) {
-            navigationController?.navigationBar.barTintColor = UIColor.systemBackground;
-        } else {
-            navigationController?.navigationBar.barTintColor = UIColor.white;
-        }
+        navigationController?.navigationBar.barTintColor = UIColor(named: "chatslistBackground");
         navigationController?.navigationBar.tintColor = UIColor(named: "tintColor");
     }
     

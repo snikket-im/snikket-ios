@@ -27,10 +27,24 @@ class WelcomeController: UIViewController, QRScannerViewDelegate {
     @IBOutlet var textView: UITextView!
     private var scannerViewController: UIViewController?;
     
+    @IBOutlet var signInButton: UIButton!;
+    @IBOutlet var learnMoreButton: UIButton!;
+    
     override func viewWillAppear(_ animated: Bool) {
         let text = NSMutableAttributedString(attributedString: textView.attributedText);
         text.addAttribute(.font, value: UIFont.systemFont(ofSize: UIFont.systemFontSize, weight: .semibold), range: NSRange(location: 0, length: 7));
-        textView.attributedText = text;
+        if #available(iOS 13.0, *) {
+            text.addAttribute(.foregroundColor, value: UIColor.label, range: NSRange(location: 0, length: text.length));
+            text.addAttribute(.backgroundColor, value: UIColor.systemBackground, range: NSRange(location: 0, length: text.length));
+            text.fixAttributes(in: NSRange(location: 0, length: text.length));
+            textView.attributedText = text;
+            textView.textColor = UIColor.label;
+        } else {
+            textView.attributedText = text;
+        }
+        learnMoreButton.layer.borderWidth = 1;
+        learnMoreButton.layer.borderColor = UIColor(named: "snikketBlue")!.cgColor;
+        orientationChanged();
         super.viewWillAppear(animated);
     }
     
@@ -38,6 +52,25 @@ class WelcomeController: UIViewController, QRScannerViewDelegate {
         UIApplication.shared.open(URL(string: "https://snikket.org/app/learn")!);
     }
     
+    @IBAction func signInTapped(_ sender: Any) {
+        let addAccountController = AddAccountController.instantiate(fromAppStoryboard: .Account);
+        addAccountController.hidesBottomBarWhenPushed = true;
+        let navigationController = UINavigationController(rootViewController: addAccountController);
+        navigationController.navigationBar.isOpaque = true;
+        navigationController.navigationBar.barTintColor = self.navigationController?.navigationBar.barTintColor;
+        navigationController.navigationBar.tintColor = self.navigationController?.navigationBar.tintColor;
+        self.showDetailViewController(navigationController, sender: self);
+    }
+    
+    @objc func orientationChanged(_ notification: Notification) {
+        orientationChanged();
+    }
+    
+    func orientationChanged() {
+        learnMoreButton.layer.cornerRadius = learnMoreButton.frame.height / 2;
+        signInButton.layer.cornerRadius = signInButton.frame.height / 2;
+    }
+
     @IBAction func startScan(_ sender: Any) {
         switch AVCaptureDevice.authorizationStatus(for: .video) {
         case .notDetermined:

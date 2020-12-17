@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hng-iF-J9G">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
@@ -15,17 +15,17 @@
             <objects>
                 <viewController id="0Ih-Lt-06h" customClass="WelcomeController" customModule="Siskin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bgi-Je-nna">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" verticalHuggingPriority="249" image="appLogo" translatesAutoresizingMaskIntoConstraints="NO" id="hVw-uB-7RY">
-                                <rect key="frame" x="70" y="158" width="274" height="274"/>
+                                <rect key="frame" x="70" y="114" width="235" height="235"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="hVw-uB-7RY" secondAttribute="height" multiplier="1:1" id="fm5-3H-5RG"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MXd-x0-6pN">
-                                <rect key="frame" x="10" y="492" width="394" height="135.5"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MXd-x0-6pN">
+                                <rect key="frame" x="10" y="409" width="355" height="90"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Snikket">
@@ -92,11 +92,27 @@
                                 </attributedString>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Xm-uz-gIu">
-                                <rect key="frame" x="10" y="647.5" width="91" height="30"/>
-                                <state key="normal" title="Learn more..."/>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Xm-uz-gIu">
+                                <rect key="frame" x="98.5" y="519" width="178" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <inset key="contentEdgeInsets" minX="50" minY="8" maxX="50" maxY="8"/>
+                                <state key="normal" title="Learn more">
+                                    <color key="titleColor" name="snikketBlue"/>
+                                </state>
                                 <connections>
                                     <action selector="learnMoreTapped:" destination="0Ih-Lt-06h" eventType="touchUpInside" id="2uK-13-bgl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="is0-gN-a4J">
+                                <rect key="frame" x="98.5" y="573" width="178" height="34"/>
+                                <color key="backgroundColor" name="snikketBlue"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <inset key="contentEdgeInsets" minX="50" minY="8" maxX="50" maxY="8"/>
+                                <state key="normal" title="Sign in">
+                                    <color key="titleColor" systemColor="systemBackgroundColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="signInTapped:" destination="0Ih-Lt-06h" eventType="touchUpInside" id="KPv-Ly-aE8"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -104,20 +120,23 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="hVw-uB-7RY" firstAttribute="top" secondItem="kSv-EN-BcC" secondAttribute="top" constant="70" id="1S3-lk-6V4"/>
-                            <constraint firstItem="kSv-EN-BcC" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="9Xm-uz-gIu" secondAttribute="bottom" priority="900" constant="100" id="5FU-nP-j0d"/>
                             <constraint firstItem="kSv-EN-BcC" firstAttribute="leading" secondItem="MXd-x0-6pN" secondAttribute="leading" constant="-10" id="5Mt-jA-gXF"/>
-                            <constraint firstItem="9Xm-uz-gIu" firstAttribute="leading" secondItem="MXd-x0-6pN" secondAttribute="leading" id="KZY-2Q-hAf"/>
+                            <constraint firstItem="kSv-EN-BcC" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="is0-gN-a4J" secondAttribute="bottom" constant="60" id="5vQ-FF-e19"/>
+                            <constraint firstItem="is0-gN-a4J" firstAttribute="centerX" secondItem="kSv-EN-BcC" secondAttribute="centerX" id="B3E-uH-Feu"/>
+                            <constraint firstItem="is0-gN-a4J" firstAttribute="top" secondItem="9Xm-uz-gIu" secondAttribute="bottom" constant="20" id="L3f-D4-pld"/>
+                            <constraint firstItem="9Xm-uz-gIu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="MXd-x0-6pN" secondAttribute="leading" id="UXJ-Hl-CcZ"/>
                             <constraint firstItem="kSv-EN-BcC" firstAttribute="trailing" secondItem="hVw-uB-7RY" secondAttribute="trailing" constant="70" id="Vkd-Wn-Q17"/>
+                            <constraint firstItem="is0-gN-a4J" firstAttribute="width" secondItem="9Xm-uz-gIu" secondAttribute="width" multiplier="1:1" id="aQi-Vq-HZp"/>
                             <constraint firstItem="9Xm-uz-gIu" firstAttribute="top" secondItem="MXd-x0-6pN" secondAttribute="bottom" constant="20" id="dCm-uw-LsG"/>
                             <constraint firstItem="kSv-EN-BcC" firstAttribute="trailing" secondItem="MXd-x0-6pN" secondAttribute="trailing" constant="10" id="fYi-KI-IDy"/>
                             <constraint firstItem="hVw-uB-7RY" firstAttribute="leading" secondItem="kSv-EN-BcC" secondAttribute="leading" constant="70" id="gIh-kl-Kv8"/>
                             <constraint firstItem="hVw-uB-7RY" firstAttribute="centerX" secondItem="kSv-EN-BcC" secondAttribute="centerX" id="iTM-jV-9LC"/>
-                            <constraint firstItem="MXd-x0-6pN" firstAttribute="top" secondItem="hVw-uB-7RY" secondAttribute="bottom" constant="60" id="naZ-iw-mnX"/>
-                            <constraint firstItem="9Xm-uz-gIu" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="MXd-x0-6pN" secondAttribute="trailing" id="yR5-q1-NRr"/>
+                            <constraint firstItem="9Xm-uz-gIu" firstAttribute="centerX" secondItem="kSv-EN-BcC" secondAttribute="centerX" id="nCm-7b-VAz"/>
+                            <constraint firstItem="MXd-x0-6pN" firstAttribute="top" secondItem="hVw-uB-7RY" secondAttribute="bottom" priority="900" constant="60" id="naZ-iw-mnX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Snikket" id="Pr0-Qp-NEQ">
-                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="i2u-OL-UUY">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="qrCode" id="i2u-OL-UUY">
                             <color key="tintColor" name="tintColor"/>
                             <connections>
                                 <action selector="startScan:" destination="0Ih-Lt-06h" id="06Q-v1-ogO"/>
@@ -125,6 +144,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="learnMoreButton" destination="9Xm-uz-gIu" id="oXV-d4-fzc"/>
+                        <outlet property="signInButton" destination="is0-gN-a4J" id="SnN-Xe-hE9"/>
                         <outlet property="textView" destination="MXd-x0-6pN" id="UPy-dK-hja"/>
                     </connections>
                 </viewController>
@@ -135,13 +156,16 @@
         <!--Navigation Controller-->
         <scene sceneID="iBO-ne-46y">
             <objects>
-                <navigationController storyboardIdentifier="WelcomeScreenNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="hng-iF-J9G" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="WelcomeScreenNavigationController" automaticallyAdjustsScrollViewInsets="NO" interfaceStyle="light" id="hng-iF-J9G" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1R5-Po-FM0">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" name="tintColor"/>
                         <color key="barTintColor" name="chatslistBackground"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" name="tintColor"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -155,11 +179,15 @@
     </scenes>
     <resources>
         <image name="appLogo" width="1024" height="1024"/>
+        <image name="qrCode" width="24" height="24"/>
         <namedColor name="chatslistBackground">
             <color red="0.99607843137254903" green="0.85490196078431369" blue="0.023529411764705882" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <namedColor name="snikketBlue">
+            <color red="0.25098039215686274" green="0.55294117647058827" blue="0.792156862745098" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="tintColor">
-            <color red="0.47058823529411764" green="0.40000000000000002" blue="0.0039215686274509803" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
