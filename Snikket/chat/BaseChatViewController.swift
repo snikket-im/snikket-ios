@@ -310,7 +310,7 @@ class ChatViewInputBar: UIView, UITextViewDelegate, NSTextStorageDelegate {
         if #available(iOS 13.0, *) {
             view.usesStandardTextScaling = false;
         }
-        view.isOpaque = false;
+        view.isOpaque = true;
         view.backgroundColor = UIColor(named: "white");
         view.translatesAutoresizingMaskIntoConstraints = false;
         view.layer.masksToBounds = true;
