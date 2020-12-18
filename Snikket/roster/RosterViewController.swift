@@ -24,7 +24,6 @@ import UIKit
 import TigaseSwift
 
 class RosterViewController: AbstractRosterViewController, UIGestureRecognizerDelegate {
-
     override func viewDidLoad() {
         super.viewDidLoad()
         searchController.searchBar.tintColor = UIColor(named: "tintColor");
@@ -91,20 +90,12 @@ class RosterViewController: AbstractRosterViewController, UIGestureRecognizerDel
     func updateNavBarColors() {
         if #available(iOS 13.0, *) {
             if self.traitCollection.userInterfaceStyle == .dark {
-                searchController.searchBar.setScopeBarButtonTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor(named: "chatslistBackground")!], for: .selected)
+                searchController.searchBar.setScopeBarButtonTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.white], for: .selected)
                 searchController.searchBar.setScopeBarButtonTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor(named: "tintColor")!], for: .normal);
             } else {
                 searchController.searchBar.setScopeBarButtonTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor(named: "chatslistBackground")!], for: .selected)
                 searchController.searchBar.setScopeBarButtonTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor(named: "tintColor")!], for: .normal);
             }
-//            let apperance = UINavigationBarAppearance();
-//            apperance.configureWithOpaqueBackground();
-//            let apperance = navigationController!.navigationBar.standardAppearance.copy();
-//            apperance.backgroundColor = UIColor(named: "chatslistBackground")!;
-//            apperance.titleTextAttributes = [.foregroundColor : UIColor(named: "tintColor")!];
-//            navigationItem.standardAppearance = apperance;
-//            navigationItem.compactAppearance = apperance;
-//            navigationItem.scrollEdgeAppearance = apperance;
             searchController.searchBar.searchTextField.textColor = UIColor.white;
             searchController.searchBar.searchTextField.backgroundColor = (self.traitCollection.userInterfaceStyle != .dark ? UIColor.black : UIColor.white).withAlphaComponent(0.2);
         }
