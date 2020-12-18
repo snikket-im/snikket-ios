@@ -1,55 +1,15 @@
-<p align="center">
-  <a href="https://siskin.im/">
-    <img
-      alt="SiskinIM"
-      src="https://siskin.im/img/services/colors.jpg"
-      width="600"
-    />
-  </a>
-</p>
+# Snikket iOS client
 
-<p align="center">
-  The XMPP client for iOS <img src="https://github.com/tigaseinc/website-assets/blob/master/tigase/images/tigase-logo.png?raw=true" width="25px"/>
-</p>
-
-<p align="center">
-  <a href="https://itunes.apple.com/us/app/tigase-messenger/id1153516838">
-    <img src="https://siskin.im/img/appstore-download.svg"/>
-  </a>
-</p>
-
-# What it is
-
-Siskin IM by Tigase, Inc. is a lightweight and powerful XMPP client for iPhone and iPad.
-
-# Features
-
-Siskin IM is easy to use and lightweight XMPP client. It has support for file and image sharing, group chats, end-to-end encryption and many [more](https://siskin.im).
-
-# Support
-
-When looking for support, please first search for answers to your question in the available online channels:
-
-* Our online documentation: [Tigase Docs](https://docs.tigase.net)
-* Our online forums: [Tigase Forums](https://help.tigase.net/portal/community)
-* Our online Knowledge Base [Tigase KB](https://help.tigase.net/portal/kb)
-
-If you didn't find an answer in the resources above, feel free to submit your question to either our
-[community portal](https://help.tigase.net/portal/community) or open a [support ticket](https://help.tigase.net/portal/newticket).
-
-# Downloads
-
-Sikin IM may be downloaded from the [App Store](https://itunes.apple.com/us/app/tigase-messenger/id1153516838).
-
-# Using software
-
-After installation of Siskin IM it will suggest you to add or register the XMPP account, which you should do.
-After that you can start chatting with your friends using your XMPP account.
+This is the source code for the Snikket iOS client.
 
 # License
 
-<img alt="Tigase Tigase Logo" src="https://github.com/tigase/website-assets/blob/master/tigase/images/tigase-logo.png?raw=true" width="25"/> Official <a href="https://tigase.net/">Tigase</a> repository is available at: https://github.com/tigase/siskin-im/.
+Snikket for iOS is based on [Siskin IM](https://siskin.im/) by <a href="https://tigase.net/"><img alt="Tigase Tigase Logo" src="https://github.com/tigase/website-assets/blob/master/tigase/images/tigase-logo.png?raw=true" width="25"/> Tigase</a>.
 
-Copyright (c) 2004 Tigase, Inc.
+The official Siskin IM repository is available at: https://github.com/tigase/siskin-im/
 
-Licensed under GPL License Version 3. Other licensing options available upon request.
+Copyright (c) 2004 Tigase, Inc. and Snikket Community Interest Company.
+
+Snikket and the Snikket logo are trademarks of Snikket Community Interest Company.
+
+Licensed under GPL License Version 3.
