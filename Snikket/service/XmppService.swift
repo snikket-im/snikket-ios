@@ -38,7 +38,7 @@ open class XmppService: Logger, EventHandler {
     open var fetchTimeLong: TimeInterval = 20;
     
     // TODO: adjust me!!
-    public static let pushServiceJid = JID("push.snikket.org");
+    public static let pushServiceJid = JID("push-ios.snikket.net");
     
     public static let instance = XmppService();
     public let tasksQueue = KeyedTasksQueue();
