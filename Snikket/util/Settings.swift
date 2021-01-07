@@ -78,10 +78,10 @@ public enum Settings: String {
             "RecentsMessageLinesNo" : 2,
             "RecentsOrder" : "byTime",
             "SendMessageOnReturn" : true,
-            "messageEncryption": "none",
+            "messageEncryption": "omemo",
             "linkPreviews": true,
             "appearance": "auto",
-            "usePublicStunServers": true,
+            "usePublicStunServers": false,
             "imageQuality": ImageQuality.medium.rawValue,
             "videoQuality": VideoQuality.medium.rawValue
         ];
