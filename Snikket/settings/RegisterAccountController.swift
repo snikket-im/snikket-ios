@@ -184,6 +184,7 @@ class RegisterAccountController: DataFormController {
         let account = AccountManager.getAccount(for: self.account!) ?? AccountManager.Account(name: self.account!);
         account.acceptCertificate(acceptedCertificate);
         AccountManager.save(account: account);
+        AccountManager.resetAccountSettingsToDefaults(account: account.name);
         account.password = self.password!;
         
         onAccountAdded?();

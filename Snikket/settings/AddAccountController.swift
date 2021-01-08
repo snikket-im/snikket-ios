@@ -117,6 +117,9 @@ class AddAccountController: UITableViewController, UITextFieldDelegate {
         let account = AccountManager.getAccount(for: jid) ?? AccountManager.Account(name: jid);
         account.acceptCertificate(acceptedCertificate);
         AccountManager.save(account: account);
+        if self.account == nil {
+            AccountManager.resetAccountSettingsToDefaults(account: account.name);
+        }
         account.password = passwordTextField.text!;
 
         onAccountAdded?();

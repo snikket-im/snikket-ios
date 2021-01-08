@@ -64,20 +64,61 @@ class NewFeaturesDetector: XmppServiceEventHandler {
             }
 
             let knownFeatures: [String] = AccountSettings.KnownServerFeatures(account).getStrings() ?? [];
-            let newFeatures = e.features.filter { (feature) -> Bool in
-                return !knownFeatures.contains(feature);
-            };
-            
-            suggestions.forEach { suggestion in
-                suggestion.handle(account: account, newServerFeatures: newFeatures, onNext: self.showNext, completionHandler: self.completionHandler);
+
+            if (e.features.contains(MessageArchiveManagementModule.MAM_XMLNS) || e.features.contains(MessageArchiveManagementModule.MAM_XMLNS)) && AccountSettings.messageSyncAuto(account).bool() {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+                    if let mamModule: MessageArchiveManagementModule = XmppService.instance.getClient(forJid: account)?.modulesManager.getModule(MessageArchiveManagementModule.ID) {
+                        mamModule.retrieveSettings(completionHandler: { result in
+                            switch result {
+                            case .success(let defValue, let always, let never):
+                                if defValue == .never {
+                                    mamModule.updateSettings(defaultValue: .always, always: always, never: never, completionHandler: { result in
+                                        switch result {
+                                        case .success(_, _, _):
+                                            print("ensured that MAM on the server side is enabled");
+                                        case .failure(_, _):
+                                            print("something went wrong while updating MAM settings..")
+                                        }
+                                    });
+                                }
+                            case .failure(let errorCondition, let response):
+                                print("something went wrong while retrieving MAM settings..")
+                            }
+                        });
+                    }
+                });
             }
             
+            // if known features is empty, this is the first time we connected to the XMPP server
+            if (e.features.contains(SiskinPushNotificationsModule.PUSH_NOTIFICATIONS_XMLNS)) && knownFeatures.isEmpty {
+                if let pushModule: SiskinPushNotificationsModule = XmppService.instance.getClient(forJid: account)?.modulesManager.getModule(SiskinPushNotificationsModule.ID), let deviceId = PushEventHandler.instance.deviceId {
+                    pushModule.registerDeviceAndEnable(deviceId: deviceId, pushkitDeviceId: PushEventHandler.instance.pushkitDeviceId, completionHandler: { result in
+                        switch result {
+                        case .success(_):
+                            break;
+                        case .failure(let errorCondition):
+                            print("it was not possible to enable push notifications..");
+                            break;
+                        }
+                    });
+                }
+            }
+            
+            
+//            let newFeatures = e.features.filter { (feature) -> Bool in
+//                return !knownFeatures.contains(feature);
+//            };
+//
+//            suggestions.forEach { suggestion in
+//                suggestion.handle(account: account, newServerFeatures: newFeatures, onNext: self.showNext, completionHandler: self.completionHandler);
+//            }
+//
             let newKnownFeatures = e.features.filter { feature -> Bool in
                 return suggestions.contains(where: { (suggestion) -> Bool in
                     return suggestion.isCapable(feature);
                 })
             }
-            
+//
             AccountSettings.KnownServerFeatures(account).set(strings: newKnownFeatures);
             
             break;

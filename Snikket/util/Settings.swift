@@ -83,7 +83,10 @@ public enum Settings: String {
             "appearance": "auto",
             "usePublicStunServers": false,
             "imageQuality": ImageQuality.medium.rawValue,
-            "videoQuality": VideoQuality.medium.rawValue
+            "videoQuality": VideoQuality.medium.rawValue,
+            "fileDownloadSizeLimit": 1,
+            "SharingViaHttpUpload": true,
+            "enableBookmarksSync": true
         ];
         store.register(defaults: defaults);
         ["EnableMessageCarbons": Settings.enableMessageCarbons, "MessageEncryption": .messageEncryption, "EnableBookmarksSync": Settings.enableBookmarksSync].forEach { (oldKey, newKey) in

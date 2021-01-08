@@ -163,6 +163,13 @@ open class AccountManager {
         return [ String(kSecClass) : kSecClassGenericPassword, String(kSecMatchLimit) : kSecMatchLimitOne, String(withData) : kCFBooleanTrue!, String(kSecAttrService) : "xmpp" as NSObject, String(kSecAttrAccount) : name as NSObject ];
     }
     
+    static func resetAccountSettingsToDefaults(account: BareJID) {
+        // set period of sync to last 3 days (no. of hours since now)
+        AccountSettings.messageSyncPeriod(account).set(double: 3 * 24);
+        // set automatic sync to "on"
+        AccountSettings.messageSyncAuto(account).set(bool: true);
+    }
+    
     open class Account {
         
         fileprivate var data:[String: Any];
