@@ -286,7 +286,10 @@ class RegisterAccountController: DataFormController {
         task?.cancel();
         task = nil;
 
-        navigationController?.dismiss(animated: true, completion: nil);
+        let newController = navigationController?.popViewController(animated: true);
+        if newController == nil || newController == self {
+            navigationController?.dismiss(animated: true, completion: nil);
+        }
 //        if self.view.window?.rootViewController is WelcomeController {
 //        } else {
 //            let newController = navigationController?.popViewController(animated: true);
