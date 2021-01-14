@@ -317,7 +317,7 @@ class ChatViewInputBar: UIView, UITextViewDelegate, NSTextStorageDelegate {
         view.layer.masksToBounds = true;
 //        view.delegate = self;
         view.isScrollEnabled = false;
-        view.font = UIFont.systemFont(ofSize: UIFont.systemFontSize);
+        view.font = UIFont.systemFont(ofSize: UIFont.systemFontSize + 4);
         if Settings.SendMessageOnReturn.getBool() {
             view.returnKeyType = .send;
         } else {
@@ -336,7 +336,7 @@ class ChatViewInputBar: UIView, UITextViewDelegate, NSTextStorageDelegate {
         } else {
             view.textColor = UIColor.darkGray;
         }
-        view.font = UIFont.systemFont(ofSize: UIFont.systemFontSize);
+        view.font = UIFont.systemFont(ofSize: UIFont.systemFontSize + 4);
         view.text = "Enter message...";
         view.backgroundColor = .clear;
         view.translatesAutoresizingMaskIntoConstraints = false;
@@ -459,7 +459,7 @@ class ChatViewInputBar: UIView, UITextViewDelegate, NSTextStorageDelegate {
         }
         
         if Settings.EnableMarkdownFormatting.bool() {
-            Markdown.applyStyling(attributedString: textStorage, font: UIFont.systemFont(ofSize: fontSize), showEmoticons: false);
+            Markdown.applyStyling(attributedString: textStorage, font: UIFont.systemFont(ofSize: fontSize + 4), showEmoticons: false);
         }
     }
 }
