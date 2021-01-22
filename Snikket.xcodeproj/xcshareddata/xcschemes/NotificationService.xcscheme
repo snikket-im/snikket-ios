@@ -30,7 +30,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FE94E5201CCBA74F00FAE755"
-               BuildableName = "Siskin.app"
+               BuildableName = "Snikket.app"
                BlueprintName = "Snikket"
                ReferencedContainer = "container:Snikket.xcodeproj">
             </BuildableReference>
@@ -66,7 +66,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FE94E5201CCBA74F00FAE755"
-            BuildableName = "Siskin.app"
+            BuildableName = "Snikket.app"
             BlueprintName = "Snikket"
             ReferencedContainer = "container:Snikket.xcodeproj">
          </BuildableReference>
@@ -84,7 +84,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FE94E5201CCBA74F00FAE755"
-            BuildableName = "Siskin.app"
+            BuildableName = "Snikket.app"
             BlueprintName = "Snikket"
             ReferencedContainer = "container:Snikket.xcodeproj">
          </BuildableReference>
