@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Suggest an idea to improve SiskinIM
+about: Suggest an idea to improve Snikket iOS
 title: ''
 labels: 'enhancement'
 assignees: ''

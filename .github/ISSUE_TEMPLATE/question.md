@@ -11,6 +11,6 @@ assignees: ''
 A clear and concise description of what the problem is.
 
 **Details (please complete the following information):**
- - Tigase version: [e.g. 8.1.0]
- - JVM flavour and version [e.g. AdoptOpenJDK11]
- - Operating system/distribution/version [e.g. Linux Ubuntu 20.04]
+ - App Version: [e.g. 1.0.0]
+ - iOS version [e.g. 11.0]
+ - iPhone model [e.g. iPhone 11]

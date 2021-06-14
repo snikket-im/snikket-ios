@@ -24,7 +24,7 @@ A clear and concise description of what you expected to happen.
 If applicable, add screenshots to help explain your problem.
 
 **Details (please complete the following information):**
- - Siskin Version: [e.g. 6.0.0]
+ - App Version: [e.g. 1.0.0]
  - iOS version [e.g. 11.0]
  - iPhone model [e.g. iPhone 11]
 
