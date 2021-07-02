@@ -97,6 +97,8 @@ class MucChatViewController: BaseChatViewControllerWithDataSourceAndContextMenuA
             }
         }
         
+        let incoming = dbItem.state.direction == .incoming;
+
         switch dbItem {
         case let item as ChatMessage:
             if item.message.starts(with: "/me ") {
@@ -106,8 +108,9 @@ class MucChatViewController: BaseChatViewControllerWithDataSourceAndContextMenuA
                 cell.set(item: item, nickname: name);
                 return cell;
             } else {
-                let id = continuation ? "ChatTableViewMessageContinuationCell" : "ChatTableViewMessageCell";
-                
+                let id = continuation ? (incoming ? "ChatTableViewMessageContinuationCell" : "ChatTableViewMessageContinuationCell2")
+                    : (incoming ? "ChatTableViewMessageCell" : "ChatTableViewMessageCell2");
+
                 let cell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! ChatTableViewCell;
                 cell.contentView.transform = dataSource.inverted ? CGAffineTransform(a: 1, b: 0, c: 0, d: -1, tx: 0, ty: 0) : CGAffineTransform.identity;
                 //        cell.nicknameLabel?.text = item.nickname;
@@ -138,10 +141,12 @@ class MucChatViewController: BaseChatViewControllerWithDataSourceAndContextMenuA
                 }
                 
                 cell.set(message: item);
+                cell.bubbleImageView.isHidden = false
                 return cell;
             }
         case let item as ChatAttachment:
-            let id = continuation ? "ChatTableViewAttachmentContinuationCell" : "ChatTableViewAttachmentCell";
+            let id = continuation ? (incoming ? "ChatTableViewAttachmentContinuationCell" : "ChatTableViewAttachmentContinuationCell2")
+                : (incoming ? "ChatTableViewAttachmentCell" : "ChatTableViewAttachmentCell2");
             let cell: AttachmentChatTableViewCell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! AttachmentChatTableViewCell;
             cell.contentView.transform = dataSource.inverted ? CGAffineTransform(a: 1, b: 0, c: 0, d: -1, tx: 0, ty: 0) : CGAffineTransform.identity;
             if cell.avatarView != nil {
@@ -173,7 +178,7 @@ class MucChatViewController: BaseChatViewControllerWithDataSourceAndContextMenuA
             cell.set(attachment: item);
             cell.setNeedsUpdateConstraints();
             cell.updateConstraintsIfNeeded();
-                
+            cell.bubbleImageView.isHidden = false
             return cell;
         case let item as ChatLinkPreview:
             let id = "ChatTableViewLinkPreviewCell";

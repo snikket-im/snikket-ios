@@ -146,7 +146,8 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
                 cell.set(item: item, nickname: name);
                 return cell;
             } else {
-                let id = continuation ? "ChatTableViewMessageContinuationCell" : "ChatTableViewMessageCell";
+                let id = continuation ? (incoming ? "ChatTableViewMessageContinuationCell" : "ChatTableViewMessageContinuationCell2")
+                    : (incoming ? "ChatTableViewMessageCell" : "ChatTableViewMessageCell2");
                 let cell: ChatTableViewCell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! ChatTableViewCell;
                 cell.contentView.transform = dataSource.inverted ? CGAffineTransform(a: 1, b: 0, c: 0, d: -1, tx: 0, ty: 0) : CGAffineTransform.identity;
                 let name = incoming ? self.titleView.name : localNickname;
@@ -155,11 +156,15 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
                 cell.set(message: item);
 //            cell.setNeedsUpdateConstraints();
 //            cell.updateConstraintsIfNeeded();
-            
+
+                cell.backgroundColor = .clear
+                cell.contentView.backgroundColor = .clear
+                cell.bubbleImageView.isHidden = false
                 return cell;
             }
         case let item as ChatAttachment:
-            let id = continuation ? "ChatTableViewAttachmentContinuationCell" : "ChatTableViewAttachmentCell" ;
+            let id = continuation ? (incoming ? "ChatTableViewAttachmentContinuationCell" : "ChatTableViewAttachmentContinuationCell2")
+                : (incoming ? "ChatTableViewAttachmentCell" : "ChatTableViewAttachmentCell2");
             let cell: AttachmentChatTableViewCell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! AttachmentChatTableViewCell;
             cell.contentView.transform = dataSource.inverted ? CGAffineTransform(a: 1, b: 0, c: 0, d: -1, tx: 0, ty: 0) : CGAffineTransform.identity;
             let name = incoming ? self.titleView.name : localNickname;
@@ -168,7 +173,7 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
             cell.set(attachment: item);
 //            cell.setNeedsUpdateConstraints();
 //            cell.updateConstraintsIfNeeded();
-            
+            cell.bubbleImageView.isHidden = false
             return cell;
         case let item as ChatLinkPreview:
             let id = "ChatTableViewLinkPreviewCell";
@@ -341,18 +346,18 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
             var buttons: [UIBarButtonItem] = [];
             if jingleSupported.contains(.video) {
                 //buttons.append(UIBarButtonItem(image: UIImage(named: "videoCall"), style: .plain, target: self, action: #selector(self.videoCall)));
-                buttons.append(self.smallBarButtinItem(image: UIImage(named: "videoCall")!, action: #selector(self.videoCall)));
+                buttons.append(self.smallBarButtonItem(image: UIImage(named: "videoCall")!, action: #selector(self.videoCall)));
             }
             if jingleSupported.contains(.audio) {
                 //buttons.append(UIBarButtonItem(image: UIImage(named: "audioCall"), style: .plain, target: self, action: #selector(self.audioCall)));
-                buttons.append(self.smallBarButtinItem(image: UIImage(named: "audioCall")!, action: #selector(self.audioCall)));
+                buttons.append(self.smallBarButtonItem(image: UIImage(named: "audioCall")!, action: #selector(self.audioCall)));
             }
             self.navigationItem.rightBarButtonItems = buttons;
         }
         #endif
     }
     
-    fileprivate func smallBarButtinItem(image: UIImage, action: Selector) -> UIBarButtonItem {
+    fileprivate func smallBarButtonItem(image: UIImage, action: Selector) -> UIBarButtonItem {
         let btn = UIButton(type: .custom);
         btn.setImage(image, for: .normal);
         btn.addTarget(self, action: action, for: .touchUpInside);
