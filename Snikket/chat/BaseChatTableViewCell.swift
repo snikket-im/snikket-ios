@@ -50,7 +50,8 @@ class BaseChatTableViewCell: UITableViewCell, UIDocumentInteractionControllerDel
     @IBOutlet var nicknameView: UILabel?;
     @IBOutlet var timestampView: UILabel?
     @IBOutlet var stateView: UILabel?;
-                    
+    @IBOutlet var bubbleImageView: UIImageView!
+
     var originalTimestampColor: UIColor!;
         
     func formatTimestamp(_ ts: Date) -> String {
