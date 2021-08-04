@@ -23,9 +23,9 @@
         "package": "TigaseSwiftOMEMO",
         "repositoryURL": "https://github.com/tigase/tigase-swift-omemo/",
         "state": {
-          "branch": null,
-          "revision": "9e2eaa1d631b8fc749a6f7e49b449072f79e5fbd",
-          "version": "1.1.1"
+          "branch": "stable",
+          "revision": "e50ca4ba2967bee0ebbc979f4228d0ebde557fd3",
+          "version": null
         }
       }
     ]
