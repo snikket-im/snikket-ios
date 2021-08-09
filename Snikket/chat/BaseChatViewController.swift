@@ -72,7 +72,7 @@ class BaseChatViewController: UIViewController, UITextViewDelegate, ChatViewInpu
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        chatViewInputBar.placeholder = "from \(account.stringValue)...";
+        chatViewInputBar.placeholder = "New Message";
 
         navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem;
         navigationItem.leftItemsSupplementBackButton = true;
@@ -100,6 +100,10 @@ class BaseChatViewController: UIViewController, UITextViewDelegate, ChatViewInpu
         sendMessageButton.contentEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 4);
         if #available(iOS 13.0, *) {
             sendMessageButton.setImage(UIImage(systemName: "paperplane.fill"), for: .normal);
+            NSLayoutConstraint.activate([
+                sendMessageButton.widthAnchor.constraint(equalTo: sendMessageButton.heightAnchor),
+                sendMessageButton.heightAnchor.constraint(equalToConstant: 30)
+            ]);
         } else {
             NSLayoutConstraint.activate([
                 sendMessageButton.widthAnchor.constraint(equalTo: sendMessageButton.heightAnchor),
@@ -146,6 +150,58 @@ class BaseChatViewController: UIViewController, UITextViewDelegate, ChatViewInpu
         
         animate();
         
+    }
+    
+    func presentSheet() {
+        let alertController = UIAlertController()
+        let camera = UIAlertAction(title: "Camera", style: .default) { (action: UIAlertAction!) in
+            self.selectPhoto(.camera)
+        }
+        let photo = UIAlertAction(title: "Photo & Video Library", style: .default) { (action: UIAlertAction!) in
+            if #available(iOS 14.0, *) {
+                self.selectPhotoFromLibrary();
+            } else {
+                self.selectPhoto(.photoLibrary)
+            }
+        }
+        let document = UIAlertAction(title: "Document", style: .default) { (action: UIAlertAction!) in
+            self.selectFile()
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action: UIAlertAction!) in
+        }
+        
+        let cameraImage = UIImage(named: "camera")
+        if let icon = cameraImage?.imageWithSize(scaledToSize: CGSize(width: 28, height: 28)) {
+            camera.setValue(icon, forKey: "image")
+        }
+        
+        let photoImage = UIImage(named: "photo")
+        if let icon = photoImage?.imageWithSize(scaledToSize: CGSize(width: 28, height: 28)) {
+            photo.setValue(icon, forKey: "image")
+        }
+        
+        
+        if #available(iOS 13.0, *) {
+            let documentImage = UIImage(systemName: "arrow.up.doc");
+            if let icon = documentImage?.imageWithSize(scaledToSize: CGSize(width: 28, height: 28)) {
+                document.setValue(icon, forKey: "image")
+            }
+        } else {
+            photo.setValue(UIImage(named: "arrow.up.doc"), forKey: "image")
+        }
+        
+        camera.setValue(CATextLayerAlignmentMode.left, forKey: "titleTextAlignment")
+        camera.setValue(UIColor.darkGray, forKey: "titleTextColor")
+        photo.setValue(CATextLayerAlignmentMode.left, forKey: "titleTextAlignment")
+        photo.setValue(UIColor.darkGray, forKey: "titleTextColor")
+        document.setValue(CATextLayerAlignmentMode.left, forKey: "titleTextAlignment")
+        document.setValue(UIColor.darkGray, forKey: "titleTextColor")
+        
+        alertController.addAction(camera)
+        alertController.addAction(photo)
+        alertController.addAction(document)
+        alertController.addAction(cancel)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     @objc func chatClosed(_ notification: Notification) {
@@ -290,14 +346,29 @@ class ChatViewInputBar: UIView, UITextViewDelegate, NSTextStorageDelegate {
         let view = UIStackView();
         view.translatesAutoresizingMaskIntoConstraints = false;
         view.axis = .horizontal;
-        view.alignment = .trailing;
+        view.alignment = .center;
         view.semanticContentAttribute = .forceRightToLeft;
-        //        view.distribution = .fillEqually;
+        view.distribution = .fillProportionally
         view.spacing = 7;
         view.setContentHuggingPriority(.defaultHigh, for: .horizontal);
         view.setContentCompressionResistancePriority(.defaultHigh, for: .vertical);
         return view;
     }();
+    
+    public let attachmentButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("", for: .normal)
+        if #available(iOS 13.0, *) {
+            button.setBackgroundImage(UIImage(systemName: "plus"), for: .normal)
+        } else {
+            button.setImage(UIImage(named: "plus"), for: .normal)
+        }
+        button.tintColor = .darkGray
+        button.imageView?.contentMode = .scaleToFill
+        button.translatesAutoresizingMaskIntoConstraints = false;
+        button.addTarget(self, action: #selector(attachmentTapped), for: .touchUpInside)
+        return button
+    }()
     
     public let inputTextView: UITextView = {
         let layoutManager = MessageTextView.CustomLayoutManager();
@@ -312,7 +383,9 @@ class ChatViewInputBar: UIView, UITextViewDelegate, NSTextStorageDelegate {
             view.usesStandardTextScaling = false;
         }
         view.isOpaque = true;
-        view.backgroundColor = UIColor(named: "white");
+        view.backgroundColor = .lightGray
+        view.layer.cornerRadius = 20
+        view.textContainerInset.left = 7
         view.translatesAutoresizingMaskIntoConstraints = false;
         view.layer.masksToBounds = true;
 //        view.delegate = self;
@@ -385,25 +458,34 @@ class ChatViewInputBar: UIView, UITextViewDelegate, NSTextStorageDelegate {
         setContentHuggingPriority(.defaultHigh, for: .horizontal);
         setContentCompressionResistancePriority(.defaultHigh, for: .vertical);
         addSubview(blurView);
+        addSubview(attachmentButton)
         addSubview(inputTextView);
         addSubview(bottomStackView);
         NSLayoutConstraint.activate([
+            attachmentButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 6),
+            attachmentButton.trailingAnchor.constraint(equalTo: inputTextView.leadingAnchor, constant: -6),
+            attachmentButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor,constant: 13),
+            attachmentButton.widthAnchor.constraint(equalToConstant: 25),
+            attachmentButton.heightAnchor.constraint(equalToConstant: 25),
+            
             blurView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             blurView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             blurView.topAnchor.constraint(equalTo: self.topAnchor),
             blurView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             
-            inputTextView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 6),
-            inputTextView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -6),
-            inputTextView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            inputTextView.bottomAnchor.constraint(equalTo: bottomStackView.topAnchor),
-            bottomStackView.leadingAnchor.constraint(greaterThanOrEqualTo: safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            //inputTextView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 6),
+            inputTextView.trailingAnchor.constraint(equalTo: bottomStackView.leadingAnchor, constant: -3),
+            inputTextView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 6),
+            inputTextView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            
+            //bottomStackView.leadingAnchor.constraint(greaterThanOrEqualTo: safeAreaLayoutGuide.leadingAnchor, constant: 10),
+            //bottomStackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 0)
             bottomStackView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -10),
-            bottomStackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 0)
+            bottomStackView.topAnchor.constraint(equalTo: inputTextView.topAnchor, constant: 5),
         ]);
         inputTextView.addSubview(placeholderLabel);
         NSLayoutConstraint.activate([
-            inputTextView.leadingAnchor.constraint(equalTo: placeholderLabel.leadingAnchor, constant: -4),
+            inputTextView.leadingAnchor.constraint(equalTo: placeholderLabel.leadingAnchor, constant: -10),
             inputTextView.trailingAnchor.constraint(equalTo: placeholderLabel.trailingAnchor, constant: 4),
             inputTextView.centerYAnchor.constraint(equalTo: placeholderLabel.centerYAnchor),
             inputTextView.topAnchor.constraint(equalTo: placeholderLabel.topAnchor),
@@ -462,6 +544,10 @@ class ChatViewInputBar: UIView, UITextViewDelegate, NSTextStorageDelegate {
             Markdown.applyStyling(attributedString: textStorage, font: UIFont.systemFont(ofSize: fontSize + 4), showEmoticons: false);
         }
     }
+    
+    @objc func attachmentTapped() {
+        delegate?.presentSheet()
+    }
 }
 
 protocol ChatViewInputBarDelegate: class {
@@ -469,5 +555,7 @@ protocol ChatViewInputBarDelegate: class {
     func sendMessage();
     
     func messageTextCleared();
+    
+    func presentSheet()
     
 }

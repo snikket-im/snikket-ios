@@ -73,7 +73,7 @@ class BaseChatTableViewCell: UITableViewCell, UIDocumentInteractionControllerDel
         // Initialization code
         if avatarView != nil {
             avatarView!.layer.masksToBounds = true;
-            avatarView!.layer.cornerRadius = avatarView!.frame.height / 2;
+            //avatarView!.layer.cornerRadius = avatarView!.frame.height / 2;
         }
         originalTimestampColor = timestampView?.textColor;
     }

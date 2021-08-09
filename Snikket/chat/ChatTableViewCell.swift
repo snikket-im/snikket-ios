@@ -25,6 +25,8 @@ import TigaseSwift
 
 class ChatTableViewCell: BaseChatTableViewCell, UITextViewDelegate {
 
+    @IBOutlet weak var messageWidthConstraint: NSLayoutConstraint!
+    
     @IBOutlet var messageTextView: MessageTextView!
         
     fileprivate var originalTextColor: UIColor!;
@@ -91,6 +93,16 @@ class ChatTableViewCell: BaseChatTableViewCell, UITextViewDelegate {
                 self.messageTextView.textColor = self.originalTextColor;
             }
         }
+        
+        let maxWidth = UIScreen.main.bounds.width * 0.60
+        let userFont = UIFont.systemFont(ofSize: 14)
+        var textWidth = (item.message).width(withConstrainedHeight: .greatestFiniteMagnitude, font: userFont)
+        textWidth = textWidth > maxWidth ? maxWidth : textWidth
+        textWidth = textWidth < 100 ? 100 : textWidth
+        
+        if let constraint = messageWidthConstraint {
+            constraint.constant = textWidth + 20
+        }
     }
     
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
@@ -115,4 +127,13 @@ fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [Stri
 // Helper function inserted by Swift 4.2 migrator.
 fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
 	return input.rawValue
+}
+
+extension String {
+    func width(withConstrainedHeight height: CGFloat, font: UIFont) -> CGFloat {
+        let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height)
+        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [.font: font], context: nil)
+        
+        return ceil(boundingBox.width)
+    }
 }

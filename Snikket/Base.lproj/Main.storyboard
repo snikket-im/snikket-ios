@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vAU-gJ-Tx3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vAU-gJ-Tx3">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -14,14 +14,14 @@
         <!--Chats-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController storyboardIdentifier="ChatsListViewController" title="Chats" id="9pv-A4-QxB" customClass="ChatsListViewController" customModule="Siskin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatsListViewController" title="Chats" id="9pv-A4-QxB" customClass="ChatsListViewController" customModule="Snikket" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="3ug-3t-4BD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ChatsListTableViewCellNew" rowHeight="66" id="0IJ-1b-Ma3" customClass="ChatsListTableViewCell" customModule="Siskin" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="66"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ChatsListTableViewCellNew" rowHeight="66" id="0IJ-1b-Ma3" customClass="ChatsListTableViewCell" customModule="Snikket" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0IJ-1b-Ma3" id="f45-bS-0LJ">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="66"/>
@@ -69,10 +69,10 @@
                                                 <constraint firstItem="wE7-Lf-1a4" firstAttribute="leading" secondItem="bw5-x2-Cry" secondAttribute="leading" id="zIf-rd-pSG"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="8Re-Fq-Luq" customClass="AvatarStatusView" customModule="Siskin" customModuleProvider="target">
+                                        <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="8Re-Fq-Luq" customClass="AvatarStatusView" customModule="Snikket" customModuleProvider="target">
                                             <rect key="frame" x="6" y="4" width="56" height="56"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e8L-U4-JYV" customClass="AvatarView" customModule="Siskin" customModuleProvider="target">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e8L-U4-JYV" customClass="AvatarView" customModule="Snikket" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="56" height="56"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 </imageView>
@@ -126,6 +126,7 @@
                         <sections/>
                     </tableView>
                     <navigationItem key="navigationItem" title="Chats" id="LKO-PG-RwH">
+                        <barButtonItem key="backBarButtonItem" title=" " id="YEU-rS-450"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="AHa-0l-wJt">
                             <color key="tintColor" name="tintColor"/>
                             <connections>
@@ -153,9 +154,9 @@
         <!--Chat-->
         <scene sceneID="fbZ-3e-zd8">
             <objects>
-                <viewController storyboardIdentifier="ChatViewController" title="Chat" id="WP2-Cp-7ZE" customClass="ChatViewController" customModule="Siskin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatViewController" title="Chat" id="WP2-Cp-7ZE" customClass="ChatViewController" customModule="Snikket" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="MXY-a0-pWq">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gYg-Wz-iZc">
@@ -176,42 +177,29 @@
                     <navigationItem key="navigationItem" id="5u6-YP-VV1">
                         <nil key="title"/>
                         <barButtonItem key="backBarButtonItem" title="Back" id="Dx3-QU-3cN"/>
-                        <view key="titleView" contentMode="scaleToFill" id="fc4-l0-VbW" customClass="ChatTitleView" customModule="Siskin" customModuleProvider="target">
+                        <view key="titleView" contentMode="scaleToFill" id="fc4-l0-VbW" customClass="ChatTitleView" customModule="Snikket" customModuleProvider="target">
                             <rect key="frame" x="12" y="2" width="390" height="40"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Jane Done" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWL-vQ-lxc">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Jane Done" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWL-vQ-lxc">
                                     <rect key="frame" x="154.5" y="2" width="81.5" height="20.5"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="Aor-Uo-cTW"/>
-                                    </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" name="tintColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" text="Here I'm again..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m0n-Ls-5LF">
                                     <rect key="frame" x="149" y="24.5" width="92" height="13.5"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="210" id="0gx-sb-tWN"/>
-                                    </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <color key="textColor" name="tintColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VeQ-bh-rcw">
-                                    <rect key="frame" x="242" y="0.5" width="25" height="24"/>
-                                    <inset key="imageEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
-                                </button>
                             </subviews>
                             <constraints>
                                 <constraint firstItem="m0n-Ls-5LF" firstAttribute="top" secondItem="UWL-vQ-lxc" secondAttribute="bottom" constant="2" id="0I3-5a-q5r"/>
                                 <constraint firstItem="m0n-Ls-5LF" firstAttribute="centerX" secondItem="fc4-l0-VbW" secondAttribute="centerX" id="4bX-aO-cEh"/>
                                 <constraint firstAttribute="bottom" secondItem="m0n-Ls-5LF" secondAttribute="bottom" constant="2" id="7Fh-13-ZoT"/>
-                                <constraint firstItem="UWL-vQ-lxc" firstAttribute="centerX" secondItem="fc4-l0-VbW" secondAttribute="centerX" id="8IY-u6-app"/>
                                 <constraint firstItem="UWL-vQ-lxc" firstAttribute="top" secondItem="fc4-l0-VbW" secondAttribute="top" constant="2" id="AaV-H3-qpe"/>
-                                <constraint firstItem="VeQ-bh-rcw" firstAttribute="leading" secondItem="UWL-vQ-lxc" secondAttribute="trailing" constant="6" id="TVa-Y5-EvV"/>
-                                <constraint firstItem="VeQ-bh-rcw" firstAttribute="centerY" secondItem="UWL-vQ-lxc" secondAttribute="centerY" id="aEY-Sp-pRN"/>
-                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="VeQ-bh-rcw" secondAttribute="trailing" constant="10" id="dKn-9A-zp4"/>
+                                <constraint firstItem="UWL-vQ-lxc" firstAttribute="centerX" secondItem="fc4-l0-VbW" secondAttribute="centerX" id="I1C-fU-AqR"/>
                             </constraints>
                             <connections>
                                 <outlet property="nameView" destination="UWL-vQ-lxc" id="EiA-33-ClS"/>
@@ -236,7 +224,7 @@
         <!--Empty View Controller-->
         <scene sceneID="hqR-ti-YNP">
             <objects>
-                <viewController storyboardIdentifier="emptyDetailViewController" id="sks-Bw-Z68" customClass="EmptyViewController" customModule="Siskin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="emptyDetailViewController" id="sks-Bw-Z68" customClass="EmptyViewController" customModule="Snikket" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2uN-Ke-AFc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -252,7 +240,7 @@
         <!--Setup View Controller-->
         <scene sceneID="8Jd-7O-58R">
             <objects>
-                <viewController restorationIdentifier="SetupViewController" storyboardIdentifier="SetupViewController" id="ib9-Sm-LTl" userLabel="Setup View Controller" customClass="SetupViewController" customModule="Siskin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="SetupViewController" storyboardIdentifier="SetupViewController" id="ib9-Sm-LTl" userLabel="Setup View Controller" customClass="SetupViewController" customModule="Snikket" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wsj-r3-ZjG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -332,7 +320,7 @@
         <!--Root View-->
         <scene sceneID="g0a-UN-HR6">
             <objects>
-                <splitViewController id="vAU-gJ-Tx3" customClass="GlobalSplitViewController" customModule="Siskin" customModuleProvider="target" sceneMemberID="viewController">
+                <splitViewController id="vAU-gJ-Tx3" customClass="GlobalSplitViewController" customModule="Snikket" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="Root View" id="8T3-uF-8vn"/>
                     <connections>
                         <segue destination="lx9-0R-yhg" kind="relationship" relationship="masterViewController" id="Xag-BS-h9G"/>
@@ -346,7 +334,7 @@
         <!--Main Tab Bar Controller-->
         <scene sceneID="Lw1-4q-gz0">
             <objects>
-                <tabBarController id="lx9-0R-yhg" customClass="MainTabBarController" customModule="Siskin" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="lx9-0R-yhg" customClass="MainTabBarController" customModule="Snikket" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" alpha="0.94999999999999996" contentMode="scaleToFill" id="MWg-yL-VNP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -365,15 +353,15 @@
         <!--Contacts-->
         <scene sceneID="x6U-yq-dO2">
             <objects>
-                <tableViewController id="mps-t3-QBq" customClass="RosterViewController" customModule="Siskin" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="mps-t3-QBq" customClass="RosterViewController" customModule="Snikket" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="dbg-Pp-Ujo">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="separatorColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="RosterItemTableViewCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="RosterItemTableViewCell" rowHeight="48" id="ONc-pU-DYD" customClass="RosterItemTableViewCell" customModule="Siskin" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="48"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="RosterItemTableViewCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="RosterItemTableViewCell" rowHeight="48" id="ONc-pU-DYD" customClass="RosterItemTableViewCell" customModule="Snikket" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="48"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="ONc-pU-DYD" id="UqK-Bi-A4U">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
@@ -382,10 +370,10 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cbu-SQ-mtx">
                                             <rect key="frame" x="2" y="2" width="410" height="44"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PEi-Gx-E77" customClass="AvatarStatusView" customModule="Siskin" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PEi-Gx-E77" customClass="AvatarStatusView" customModule="Snikket" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jqt-KR-cfI" customClass="AvatarView" customModule="Siskin" customModuleProvider="target">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jqt-KR-cfI" customClass="AvatarView" customModule="Snikket" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
@@ -442,6 +430,7 @@
                     </tableView>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" title="Contacts" id="SEz-IM-IWL">
+                        <barButtonItem key="backBarButtonItem" title=" " id="NYU-vU-24f"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="cDx-St-aU8">
                             <color key="tintColor" name="tintColor"/>
                             <connections>
@@ -571,7 +560,7 @@
         <!--Roster Item Edit View Controller-->
         <scene sceneID="7R8-sh-AnU">
             <objects>
-                <tableViewController id="WDE-Vb-oKK" customClass="RosterItemEditViewController" customModule="Siskin" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="WDE-Vb-oKK" customClass="RosterItemEditViewController" customModule="Snikket" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Ock-Af-3IY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -580,7 +569,7 @@
                             <tableViewSection headerTitle="Account" id="Mfv-HJ-QDO">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="mk1-zp-AU3">
-                                        <rect key="frame" x="0.0" y="55.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="49.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mk1-zp-AU3" id="Da1-kS-KYt">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -605,7 +594,7 @@
                             <tableViewSection headerTitle="JID" id="Qgj-eQ-geg">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ubC-3x-1ej">
-                                        <rect key="frame" x="0.0" y="155.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="143.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ubC-3x-1ej" id="6FY-Rq-hWY">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -630,7 +619,7 @@
                             <tableViewSection headerTitle="Name" id="Kfl-J5-hdD">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="bnU-C3-Ei1">
-                                        <rect key="frame" x="0.0" y="255.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="237.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bnU-C3-Ei1" id="sWs-wY-Vy8">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -655,7 +644,7 @@
                             <tableViewSection headerTitle="PRESENCE" id="Q28-Ig-9NP">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="yky-H4-cbk">
-                                        <rect key="frame" x="0.0" y="355.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="331.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yky-H4-cbk" id="Qga-yz-bXa">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -681,7 +670,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="GLY-Pk-gl9">
-                                        <rect key="frame" x="0.0" y="399.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="375.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GLY-Pk-gl9" id="P7U-6w-pcx">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -741,14 +730,14 @@
         <!--Informations-->
         <scene sceneID="kJ5-M5-UxC">
             <objects>
-                <tableViewController id="rSR-7g-CFO" customClass="ContactViewController" customModule="Siskin" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="rSR-7g-CFO" customClass="ContactViewController" customModule="Snikket" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="18" id="NKE-a4-JkF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BasicInfoCell" rowHeight="94" id="C58-uk-LaV" customClass="ContactBasicTableViewCell" customModule="Siskin" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="55.5" width="414" height="94"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BasicInfoCell" rowHeight="94" id="C58-uk-LaV" customClass="ContactBasicTableViewCell" customModule="Snikket" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="49.5" width="414" height="94"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="C58-uk-LaV" id="ZeZ-oS-SaN">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="94"/>
@@ -812,8 +801,8 @@
                                     <outlet property="nameView" destination="koS-ci-GqT" id="501-ZQ-wsO"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ContactFormCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactFormCell" rowHeight="51" id="pQL-wq-Sb9" customClass="ContactFormTableViewCell" customModule="Siskin" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="149.5" width="414" height="51"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ContactFormCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactFormCell" rowHeight="51" id="pQL-wq-Sb9" customClass="ContactFormTableViewCell" customModule="Snikket" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="143.5" width="414" height="51"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pQL-wq-Sb9" id="9Se-nj-MAA">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="51"/>
@@ -847,8 +836,8 @@
                                     <outlet property="typeView" destination="yxF-LM-meS" id="hZ3-sX-ToE"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddressCell" rowHeight="80" id="73R-lk-SWh" customClass="ContactFormTableViewCell" customModule="Siskin" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="200.5" width="414" height="80"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddressCell" rowHeight="80" id="73R-lk-SWh" customClass="ContactFormTableViewCell" customModule="Snikket" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="194.5" width="414" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="73R-lk-SWh" id="AoC-2k-RUL">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
@@ -883,7 +872,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BlockContactCell" textLabel="kwQ-p7-cX2" rowHeight="44" style="IBUITableViewCellStyleDefault" id="Mn6-i8-kwI">
-                                <rect key="frame" x="0.0" y="280.5" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="274.5" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mn6-i8-kwI" id="0S2-hp-vS3">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -900,7 +889,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MuteContactCell" textLabel="g8N-kr-fax" rowHeight="44" style="IBUITableViewCellStyleDefault" id="rXF-fn-cOY">
-                                <rect key="frame" x="0.0" y="324.5" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="318.5" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rXF-fn-cOY" id="Cfg-a8-bA5">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -916,11 +905,11 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="OMEMOEncryptionCell" textLabel="XZp-oZ-XpC" detailTextLabel="vIB-ar-uog" rowHeight="44" style="IBUITableViewCellStyleValue1" id="EPN-iV-X5r" customClass="OMEMOEncryptionSwitchTableViewCell" customModule="Siskin" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="368.5" width="414" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="OMEMOEncryptionCell" textLabel="XZp-oZ-XpC" detailTextLabel="vIB-ar-uog" rowHeight="44" style="IBUITableViewCellStyleValue1" id="EPN-iV-X5r" customClass="OMEMOEncryptionSwitchTableViewCell" customModule="Snikket" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="362.5" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EPN-iV-X5r" id="cx2-fQ-N3b">
-                                    <rect key="frame" x="0.0" y="0.0" width="383" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="384.5" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Message encryption" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XZp-oZ-XpC">
@@ -931,7 +920,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vIB-ar-uog">
-                                            <rect key="frame" x="331" y="12" width="44" height="20.5"/>
+                                            <rect key="frame" x="332.5" y="12" width="44" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" systemColor="secondaryLabelColor"/>
@@ -940,8 +929,8 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OMEMOIdentityCell" rowHeight="60" id="3q3-ov-q6z" customClass="OMEMOIdentityTableViewCell" customModule="Siskin" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="412.5" width="414" height="60"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OMEMOIdentityCell" rowHeight="60" id="3q3-ov-q6z" customClass="OMEMOIdentityTableViewCell" customModule="Snikket" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="406.5" width="414" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3q3-ov-q6z" id="ArO-fK-TDf">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
@@ -983,14 +972,14 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="AttachmentsCell" textLabel="EpU-tc-DIx" rowHeight="44" style="IBUITableViewCellStyleDefault" id="09h-vH-qSu">
-                                <rect key="frame" x="0.0" y="472.5" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="466.5" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="09h-vH-qSu" id="Khc-ES-FDl">
-                                    <rect key="frame" x="0.0" y="0.0" width="383" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="384.5" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Attachments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EpU-tc-DIx">
-                                            <rect key="frame" x="20" y="0.0" width="355" height="44"/>
+                                            <rect key="frame" x="20" y="0.0" width="356.5" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -1046,7 +1035,7 @@
         <!--New Feature Suggestion View-->
         <scene sceneID="8Dq-Md-MOo">
             <objects>
-                <viewController storyboardIdentifier="NewFeatureSuggestionView" modalPresentationStyle="formSheet" id="Z9W-jo-gSy" customClass="NewFeatureSuggestionView" customModule="Siskin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewFeatureSuggestionView" modalPresentationStyle="formSheet" id="Z9W-jo-gSy" customClass="NewFeatureSuggestionView" customModule="Snikket" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nB0-oQ-Zoc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1131,7 +1120,7 @@
         <!--Attachments-->
         <scene sceneID="LjN-O9-imb">
             <objects>
-                <collectionViewController storyboardIdentifier="ChatAttachmentsController" title="Attachments" id="N9z-ms-iaT" customClass="ChatAttachmentsController" customModule="Siskin" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="ChatAttachmentsController" title="Attachments" id="N9z-ms-iaT" customClass="ChatAttachmentsController" customModule="Snikket" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="cHc-Jl-VKK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1143,7 +1132,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AttachmentCellView" id="N8o-sn-l8d" customClass="ChatAttachmentsCellView" customModule="Siskin" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AttachmentCellView" id="N8o-sn-l8d" customClass="ChatAttachmentsCellView" customModule="Snikket" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rlN-au-jgK">
@@ -1208,9 +1197,6 @@
         <namedColor name="tintColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="groupTableViewBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="groupTableViewBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

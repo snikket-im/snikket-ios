@@ -76,11 +76,11 @@ extension BaseChatViewController: URLSessionDelegate {
     }
     
     func initializeSharing() {
-        self.chatViewInputBar.addBottomButton(ChatViewInputBar.ShareFileButton(controller: self));
-        self.chatViewInputBar.addBottomButton(ChatViewInputBar.ShareImageButton(controller: self));
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+        //self.chatViewInputBar.addBottomButton(ChatViewInputBar.ShareFileButton(controller: self));
+        //self.chatViewInputBar.addBottomButton(ChatViewInputBar.ShareImageButton(controller: self));
+        //if UIImagePickerController.isSourceTypeAvailable(.camera) {
             self.chatViewInputBar.addBottomButton(ChatViewInputBar.ShareCameraImageButton(controller: self));
-        }
+        //}
     }
         
     func showProgressBar() {

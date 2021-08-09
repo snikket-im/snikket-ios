@@ -39,7 +39,7 @@ class AvatarView: UIImageView {
     
     override var frame: CGRect {
         didSet {
-            self.layer.cornerRadius = min(frame.width, frame.height) / 2;
+            self.layer.cornerRadius = 2;
         }
     }
 //    override var image: UIImage? {
@@ -61,7 +61,7 @@ class AvatarView: UIImageView {
 //    }
     fileprivate(set) var initials: String?;
     
-    func set(name: String?, avatar: UIImage?, orDefault defAvatar: UIImage) {
+    func set(name: String?, avatar: UIImage?, orDefault defAvatar: UIImage, backColor: UIColor = UIColor.systemGray) {
         self.name = name;
         if avatar != nil {
             self.image = avatar;
@@ -70,7 +70,7 @@ class AvatarView: UIImageView {
                 self.name = name;
             }
             if let initials = self.initials {
-                self.image = self.prepareInitialsAvatar(for: initials);
+                self.image = self.prepareInitialsAvatar(for: initials, backColor: backColor);
             } else {
                  self.image = defAvatar;
             }
@@ -79,7 +79,7 @@ class AvatarView: UIImageView {
         }
     }
         
-    func prepareInitialsAvatar(for text: String) -> UIImage {
+    func prepareInitialsAvatar(for text: String, backColor: UIColor) -> UIImage {
         let scale = UIScreen.main.scale;
         var size = self.bounds.size;
         
@@ -94,7 +94,7 @@ class AvatarView: UIImageView {
         ctx.addPath(path);
         
         
-        ctx.setFillColor(UIColor.systemGray.cgColor);
+        ctx.setFillColor(backColor.cgColor);
         ctx.fill(CGRect(x: 0, y: 0, width: size.width, height: size.height));
         
         let textAttr: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.white.withAlphaComponent(0.9), .font: UIFont.systemFont(ofSize: size.width * 0.4, weight: .medium)];
