@@ -72,7 +72,8 @@ class ChatTableViewCell: BaseChatTableViewCell, UITextViewDelegate {
                 }
             }
         }
-        attrText.addAttribute(.foregroundColor, value: UIColor(named: "chatMessageText") as Any, range: NSRange(location: 0, length: attrText.length));
+        let fgcolor = item.state.direction == .incoming ? "chatMessageText" : "chatMessageTextOutgoing";
+        attrText.addAttribute(.foregroundColor, value: UIColor(named: fgcolor) as Any, range: NSRange(location: 0, length: attrText.length));
         if Settings.EnableMarkdownFormatting.getBool() {
             Markdown.applyStyling(attributedString: attrText, font: UIFont.systemFont(ofSize: self.messageTextView.fontSize + 2), showEmoticons:Settings.ShowEmoticons.getBool());
         } else {

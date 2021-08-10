@@ -99,6 +99,8 @@ class BaseChatTableViewCell: UITableViewCell, UIDocumentInteractionControllerDel
     
     
     func set(item: ChatViewItemProtocol) {
+        let fgcolor = item.state.direction == .incoming ? "chatMessageText" : "chatMessageTextOutgoing";
+        originalTimestampColor = UIColor(named: fgcolor);
         var timestamp = formatTimestamp(item.timestamp);
         switch item.encryption {
         case .decrypted, .notForThisDevice, .decryptionFailed:
