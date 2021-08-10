@@ -36,16 +36,6 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
     let log: Logger = Logger();
                     
     private var localNickname: String = "";
-
-    override var conversationLogController: ConversationLogController? {
-        didSet {
-            if conversationLogController != nil {
-                let refreshControl = UIRefreshControl();
-                refreshControl.addTarget(self, action: #selector(ChatViewController.refreshChatHistory), for: UIControl.Event.valueChanged);
-                self.conversationLogController?.refreshControl = refreshControl;
-            }
-        }
-    }
     
     override func conversationTableViewDelegate() -> UITableViewDelegate? {
         return self;
@@ -110,7 +100,7 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
         if count == 0 {
             if self.conversationLogController!.tableView.backgroundView == nil {
                 let label = UILabel(frame: CGRect(x: 0, y:0, width: self.view.bounds.size.width, height: self.view.bounds.size.height));
-                label.text = "No messages available. Pull up to refresh message history.";
+                label.text = "No messages yet. Say hi!";
                 label.font = UIFont.systemFont(ofSize: UIFont.systemFontSize + 2, weight: .medium);
                 label.numberOfLines = 0;
                 label.textAlignment = .center;
