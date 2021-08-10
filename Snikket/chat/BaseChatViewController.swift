@@ -107,7 +107,7 @@ class BaseChatViewController: UIViewController, UITextViewDelegate, ChatViewInpu
         } else {
             NSLayoutConstraint.activate([
                 sendMessageButton.widthAnchor.constraint(equalTo: sendMessageButton.heightAnchor),
-                sendMessageButton.heightAnchor.constraint(equalToConstant: 24)
+                sendMessageButton.heightAnchor.constraint(equalToConstant: 30)
             ]);
             sendMessageButton.setImage(UIImage(named: "send"), for: .normal);
         }
@@ -361,7 +361,7 @@ class ChatViewInputBar: UIView, UITextViewDelegate, NSTextStorageDelegate {
         if #available(iOS 13.0, *) {
             button.setBackgroundImage(UIImage(systemName: "plus"), for: .normal)
         } else {
-            button.setImage(UIImage(named: "plus"), for: .normal)
+            button.setBackgroundImage(UIImage(named: "plus"), for: .normal)
         }
         button.tintColor = .darkGray
         button.imageView?.contentMode = .scaleToFill
@@ -476,7 +476,7 @@ class ChatViewInputBar: UIView, UITextViewDelegate, NSTextStorageDelegate {
             //inputTextView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 6),
             inputTextView.trailingAnchor.constraint(equalTo: bottomStackView.leadingAnchor, constant: -3),
             inputTextView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 6),
-            inputTextView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
+            inputTextView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -6),
             
             //bottomStackView.leadingAnchor.constraint(greaterThanOrEqualTo: safeAreaLayoutGuide.leadingAnchor, constant: 10),
             //bottomStackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 0)

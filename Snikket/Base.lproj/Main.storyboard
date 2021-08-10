@@ -178,28 +178,33 @@
                         <nil key="title"/>
                         <barButtonItem key="backBarButtonItem" title="Back" id="Dx3-QU-3cN"/>
                         <view key="titleView" contentMode="scaleToFill" id="fc4-l0-VbW" customClass="ChatTitleView" customModule="Snikket" customModuleProvider="target">
-                            <rect key="frame" x="12" y="2" width="390" height="40"/>
+                            <rect key="frame" x="0.0" y="0.0" width="390" height="40"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Jane Done" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWL-vQ-lxc">
-                                    <rect key="frame" x="154.5" y="2" width="81.5" height="20.5"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="752" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="751" text="Jane Done" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWL-vQ-lxc">
+                                    <rect key="frame" x="15" y="2" width="365" height="36"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" name="tintColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" text="Here I'm again..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m0n-Ls-5LF">
-                                    <rect key="frame" x="149" y="24.5" width="92" height="13.5"/>
+                                    <rect key="frame" x="389" y="39" width="0.0" height="0.0"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" id="MFB-SX-GwB"/>
+                                        <constraint firstAttribute="height" id="QfL-mV-J2w"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <color key="textColor" name="tintColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                             <constraints>
-                                <constraint firstItem="m0n-Ls-5LF" firstAttribute="top" secondItem="UWL-vQ-lxc" secondAttribute="bottom" constant="2" id="0I3-5a-q5r"/>
-                                <constraint firstItem="m0n-Ls-5LF" firstAttribute="centerX" secondItem="fc4-l0-VbW" secondAttribute="centerX" id="4bX-aO-cEh"/>
-                                <constraint firstAttribute="bottom" secondItem="m0n-Ls-5LF" secondAttribute="bottom" constant="2" id="7Fh-13-ZoT"/>
+                                <constraint firstAttribute="trailing" secondItem="m0n-Ls-5LF" secondAttribute="trailing" constant="1" id="5ct-k1-HgT"/>
+                                <constraint firstAttribute="bottom" secondItem="UWL-vQ-lxc" secondAttribute="bottom" constant="2" id="5wK-P0-mVH"/>
                                 <constraint firstItem="UWL-vQ-lxc" firstAttribute="top" secondItem="fc4-l0-VbW" secondAttribute="top" constant="2" id="AaV-H3-qpe"/>
-                                <constraint firstItem="UWL-vQ-lxc" firstAttribute="centerX" secondItem="fc4-l0-VbW" secondAttribute="centerX" id="I1C-fU-AqR"/>
+                                <constraint firstItem="UWL-vQ-lxc" firstAttribute="leading" secondItem="fc4-l0-VbW" secondAttribute="leading" constant="15" id="QwM-vN-TVf"/>
+                                <constraint firstAttribute="trailing" secondItem="UWL-vQ-lxc" secondAttribute="trailing" constant="10" id="f3N-Ls-6ts"/>
+                                <constraint firstAttribute="bottom" secondItem="m0n-Ls-5LF" secondAttribute="bottom" constant="1" id="jkJ-xE-CAu"/>
                             </constraints>
                             <connections>
                                 <outlet property="nameView" destination="UWL-vQ-lxc" id="EiA-33-ClS"/>
@@ -219,7 +224,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4859.420289855073" y="-737.61160714285711"/>
+            <point key="canvasLocation" x="4859.420289855073" y="-737.94642857142856"/>
         </scene>
         <!--Empty View Controller-->
         <scene sceneID="hqR-ti-YNP">

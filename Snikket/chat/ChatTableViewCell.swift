@@ -93,6 +93,7 @@ class ChatTableViewCell: BaseChatTableViewCell, UITextViewDelegate {
                 self.messageTextView.textColor = self.originalTextColor;
             }
         }
+        self.messageTextView.textView.textAlignment = .left
         
         let maxWidth = UIScreen.main.bounds.width * 0.60
         let userFont = UIFont.systemFont(ofSize: 14)

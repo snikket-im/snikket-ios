@@ -77,13 +77,13 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eLy-Ru-KPW">
-                                            <rect key="frame" x="40" y="0.0" width="121" height="44"/>
+                                            <rect key="frame" x="40" y="0.0" width="125" height="44"/>
                                             <subviews>
                                                 <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message_bubble_received9" translatesAutoresizingMaskIntoConstraints="NO" id="Cdg-jt-Owd">
-                                                    <rect key="frame" x="0.0" y="0.0" width="121" height="44"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="125" height="44"/>
                                                 </imageView>
                                                 <view clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rr7-FM-H1v" customClass="MessageTextView" customModule="Snikket" customModuleProvider="target">
-                                                    <rect key="frame" x="5" y="4" width="100" height="34"/>
+                                                    <rect key="frame" x="20" y="4" width="100" height="34"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <accessibility key="accessibilityConfiguration">
                                                         <accessibilityTraits key="traits" notEnabled="YES"/>
@@ -93,9 +93,9 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6su-o4-Xbr">
-                                                    <rect key="frame" x="107" y="26" width="14" height="12"/>
+                                                    <rect key="frame" x="125" y="26" width="0.0" height="12"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="14" id="qUu-ca-jDG"/>
+                                                        <constraint firstAttribute="width" id="qUu-ca-jDG"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <color key="textColor" name="chatMessageText"/>
@@ -105,8 +105,8 @@
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="Cdg-jt-Owd" secondAttribute="trailing" id="7Bj-Va-qUM"/>
-                                                <constraint firstItem="rr7-FM-H1v" firstAttribute="leading" secondItem="eLy-Ru-KPW" secondAttribute="leading" constant="5" id="9wR-oh-cMS"/>
-                                                <constraint firstItem="6su-o4-Xbr" firstAttribute="leading" secondItem="rr7-FM-H1v" secondAttribute="trailing" constant="2" id="NeZ-Lx-AYx"/>
+                                                <constraint firstItem="rr7-FM-H1v" firstAttribute="leading" secondItem="eLy-Ru-KPW" secondAttribute="leading" constant="20" id="9wR-oh-cMS"/>
+                                                <constraint firstItem="6su-o4-Xbr" firstAttribute="leading" secondItem="rr7-FM-H1v" secondAttribute="trailing" constant="5" id="NeZ-Lx-AYx"/>
                                                 <constraint firstAttribute="bottom" secondItem="Cdg-jt-Owd" secondAttribute="bottom" id="Udh-eS-Aom"/>
                                                 <constraint firstItem="rr7-FM-H1v" firstAttribute="top" secondItem="eLy-Ru-KPW" secondAttribute="top" constant="4" id="eAk-aP-Brc"/>
                                                 <constraint firstItem="Cdg-jt-Owd" firstAttribute="top" secondItem="eLy-Ru-KPW" secondAttribute="top" id="eek-xB-jLH"/>
