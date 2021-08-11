@@ -36,16 +36,6 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
     let log: Logger = Logger();
                     
     private var localNickname: String = "";
-
-    override var conversationLogController: ConversationLogController? {
-        didSet {
-            if conversationLogController != nil {
-                let refreshControl = UIRefreshControl();
-                refreshControl.addTarget(self, action: #selector(ChatViewController.refreshChatHistory), for: UIControl.Event.valueChanged);
-                self.conversationLogController?.refreshControl = refreshControl;
-            }
-        }
-    }
     
     override func conversationTableViewDelegate() -> UITableViewDelegate? {
         return self;
@@ -110,7 +100,7 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
         if count == 0 {
             if self.conversationLogController!.tableView.backgroundView == nil {
                 let label = UILabel(frame: CGRect(x: 0, y:0, width: self.view.bounds.size.width, height: self.view.bounds.size.height));
-                label.text = "No messages available. Pull up to refresh message history.";
+                label.text = "No messages yet. Say hi!";
                 label.font = UIFont.systemFont(ofSize: UIFont.systemFontSize + 2, weight: .medium);
                 label.numberOfLines = 0;
                 label.textAlignment = .center;
@@ -151,8 +141,9 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
                 let cell: ChatTableViewCell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! ChatTableViewCell;
                 cell.contentView.transform = dataSource.inverted ? CGAffineTransform(a: 1, b: 0, c: 0, d: -1, tx: 0, ty: 0) : CGAffineTransform.identity;
                 let name = incoming ? self.titleView.name : localNickname;
-                cell.avatarView?.set(name: name, avatar: AvatarManager.instance.avatar(for: incoming ? jid : account, on: account), orDefault: AvatarManager.instance.defaultAvatar);
-                cell.nicknameView?.text = name;
+                let color = incoming ? #colorLiteral(red: 0.01663736999, green: 0.4700628519, blue: 0.6680073142, alpha: 1) : #colorLiteral(red: 0.4562267661, green: 0.4913363457, blue: 0, alpha: 1)
+                cell.avatarView?.set(name: name, avatar: AvatarManager.instance.avatar(for: incoming ? jid : account, on: account), orDefault: AvatarManager.instance.defaultAvatar, backColor: color);
+                cell.nicknameView?.text  = ""
                 cell.set(message: item);
 //            cell.setNeedsUpdateConstraints();
 //            cell.updateConstraintsIfNeeded();
@@ -168,8 +159,9 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
             let cell: AttachmentChatTableViewCell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! AttachmentChatTableViewCell;
             cell.contentView.transform = dataSource.inverted ? CGAffineTransform(a: 1, b: 0, c: 0, d: -1, tx: 0, ty: 0) : CGAffineTransform.identity;
             let name = incoming ? self.titleView.name : localNickname;
-            cell.avatarView?.set(name: name, avatar: AvatarManager.instance.avatar(for: incoming ? jid : account, on: account), orDefault: AvatarManager.instance.defaultAvatar);
-            cell.nicknameView?.text = name;
+            let color = incoming ? #colorLiteral(red: 0.01663736999, green: 0.4700628519, blue: 0.6680073142, alpha: 1) : #colorLiteral(red: 0.4562267661, green: 0.4913363457, blue: 0, alpha: 1)
+            cell.avatarView?.set(name: name, avatar: AvatarManager.instance.avatar(for: incoming ? jid : account, on: account), orDefault: AvatarManager.instance.defaultAvatar, backColor: color);
+            cell.nicknameView?.text = ""
             cell.set(attachment: item);
 //            cell.setNeedsUpdateConstraints();
 //            cell.updateConstraintsIfNeeded();
@@ -361,7 +353,7 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
         let btn = UIButton(type: .custom);
         btn.setImage(image, for: .normal);
         btn.addTarget(self, action: action, for: .touchUpInside);
-        btn.frame = CGRect(x: 0, y: 0, width: 30, height: 30);
+        btn.frame = CGRect(x: 0, y: 0, width: 40, height: 30);
         return UIBarButtonItem(customView: btn);
     }
     
@@ -478,15 +470,21 @@ class ChatTitleView: UIView {
     
     override func layoutSubviews() {
         if UIDevice.current.userInterfaceIdiom == .phone {
-            if UIDevice.current.orientation.isLandscape {
-                if statusViewHeight == nil {
-                    statusViewHeight = statusView.heightAnchor.constraint(equalToConstant: 0);
-                }
-                statusViewHeight?.isActive = true;
-            } else {
-                statusViewHeight?.isActive = false;
-                self.refresh();
+            
+//            if UIDevice.current.orientation.isLandscape {
+//                if statusViewHeight == nil {
+//                    statusViewHeight = statusView.heightAnchor.constraint(equalToConstant: 0);
+//                }
+//                statusViewHeight?.isActive = true;
+//            } else {
+//                statusViewHeight?.isActive = false;
+//                self.refresh();
+//            }
+            
+            if statusViewHeight == nil {
+                statusViewHeight = statusView.heightAnchor.constraint(equalToConstant: 0);
             }
+            statusViewHeight?.isActive = true;
         }
     }
     

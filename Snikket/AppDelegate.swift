@@ -123,6 +123,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            })
 //        }
 //
+        let stackViewAppearance = UIStackView.appearance(whenContainedInInstancesOf: [UINavigationBar.self])
+        stackViewAppearance.spacing = 5
         return true
     }
     

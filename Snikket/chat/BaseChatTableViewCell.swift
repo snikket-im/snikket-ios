@@ -73,7 +73,7 @@ class BaseChatTableViewCell: UITableViewCell, UIDocumentInteractionControllerDel
         // Initialization code
         if avatarView != nil {
             avatarView!.layer.masksToBounds = true;
-            avatarView!.layer.cornerRadius = avatarView!.frame.height / 2;
+            //avatarView!.layer.cornerRadius = avatarView!.frame.height / 2;
         }
         originalTimestampColor = timestampView?.textColor;
     }
@@ -99,6 +99,8 @@ class BaseChatTableViewCell: UITableViewCell, UIDocumentInteractionControllerDel
     
     
     func set(item: ChatViewItemProtocol) {
+        let fgcolor = item.state.direction == .incoming ? "chatMessageText" : "chatMessageTextOutgoing";
+        originalTimestampColor = UIColor(named: fgcolor);
         var timestamp = formatTimestamp(item.timestamp);
         switch item.encryption {
         case .decrypted, .notForThisDevice, .decryptionFailed:
