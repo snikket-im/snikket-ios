@@ -33,7 +33,9 @@ class ChatTableViewCell: BaseChatTableViewCell, UITextViewDelegate {
     
     override var backgroundColor: UIColor? {
         didSet {
-            self.messageTextView.backgroundColor = self.backgroundColor;
+            if self.messageTextView != nil {
+                self.messageTextView.backgroundColor = self.backgroundColor;
+            }
         }
     }
     
