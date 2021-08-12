@@ -51,7 +51,7 @@ class ChatTableViewCell: BaseChatTableViewCell, UITextViewDelegate {
                             
         let attrText = NSMutableAttributedString(string: item.message);
             
-        if let detect = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue | NSTextCheckingResult.CheckingType.phoneNumber.rawValue | NSTextCheckingResult.CheckingType.address.rawValue | NSTextCheckingResult.CheckingType.date.rawValue) {
+        if let detect = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue | NSTextCheckingResult.CheckingType.phoneNumber.rawValue) {
             let matches = detect.matches(in: item.message, options: .reportCompletion, range: NSMakeRange(0, item.message.count));
             for match in matches {
                 var url: URL? = nil;
@@ -60,14 +60,6 @@ class ChatTableViewCell: BaseChatTableViewCell, UITextViewDelegate {
                 }
                 if match.phoneNumber != nil {
                     url = URL(string: "tel:\(match.phoneNumber!.replacingOccurrences(of: " ", with: "-"))");
-                }
-                if match.addressComponents != nil {
-                    if let query = match.addressComponents!.values.joined(separator: ",").addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) {
-                        url = URL(string: "http://maps.apple.com/?q=\(query)");
-                    }
-                }
-                if match.date != nil {
-                    url = URL(string: "calshow:\(match.date!.timeIntervalSinceReferenceDate)");
                 }
                 if let url = url {
                     attrText.setAttributes([.link : url], range: match.range);
