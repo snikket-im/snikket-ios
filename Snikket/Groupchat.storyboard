@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -13,7 +13,7 @@
         <!--Room Controller-->
         <scene sceneID="Z00-oy-pAK">
             <objects>
-                <viewController title="Room Controller" id="uV2-vL-T54" customClass="MucChatViewController" customModule="Siskin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Room Controller" id="uV2-vL-T54" customClass="MucChatViewController" customModule="Snikket" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Sim-Jc-r23">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,7 +35,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="jz1-lz-vTl">
                         <nil key="title"/>
-                        <view key="titleView" contentMode="scaleToFill" id="Ht8-Rt-tH2" customClass="MucTitleView" customModule="Siskin" customModuleProvider="target">
+                        <view key="titleView" contentMode="scaleToFill" id="Ht8-Rt-tH2" customClass="MucTitleView" customModule="Snikket" customModuleProvider="target">
                             <rect key="frame" x="79.5" y="2" width="255" height="40"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -101,23 +101,23 @@
         <!--Muc Chat Occupants Table View Controller-->
         <scene sceneID="kjl-KP-Zw3">
             <objects>
-                <tableViewController id="EpF-TK-mfh" customClass="MucChatOccupantsTableViewController" customModule="Siskin" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="EpF-TK-mfh" customClass="MucChatOccupantsTableViewController" customModule="Snikket" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="xPb-sa-myB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MucChatOccupantsTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="MucChatOccupantsTableViewCell" id="7wm-Ue-Wm8" customClass="MucChatOccupantsTableViewCell" customModule="Siskin" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MucChatOccupantsTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="MucChatOccupantsTableViewCell" id="7wm-Ue-Wm8" customClass="MucChatOccupantsTableViewCell" customModule="Snikket" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7wm-Ue-Wm8" id="JkW-NK-c1c">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PgP-AH-o2M" customClass="AvatarStatusView" customModule="Siskin" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PgP-AH-o2M" customClass="AvatarStatusView" customModule="Snikket" customModuleProvider="target">
                                             <rect key="frame" x="2" y="2" width="40" height="40"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EEa-Ra-bcb" customClass="AvatarView" customModule="Siskin" customModuleProvider="target">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EEa-Ra-bcb" customClass="AvatarView" customModule="Snikket" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -219,7 +219,7 @@
         <!--Room details-->
         <scene sceneID="Z4v-kG-X80">
             <objects>
-                <tableViewController restorationIdentifier="MucChatSettingsViewController" storyboardIdentifier="MucChatSettingsViewController" title="Room details" id="IGA-uE-mHb" customClass="MucChatSettingsViewController" customModule="Siskin" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController restorationIdentifier="MucChatSettingsViewController" storyboardIdentifier="MucChatSettingsViewController" title="Room details" id="IGA-uE-mHb" customClass="MucChatSettingsViewController" customModule="Snikket" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="qNf-EW-iZr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -241,7 +241,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" image="defaultGroupchatAvatarDark" id="cYX-sP-oSZ" customClass="AvatarView" customModule="Siskin" customModuleProvider="target">
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" image="defaultGroupchatAvatarDark" id="cYX-sP-oSZ" customClass="AvatarView" customModule="Snikket" customModuleProvider="target">
                                                     <rect key="frame" x="20" y="0.0" width="60" height="60"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="medium"/>
@@ -254,7 +254,7 @@
                             <tableViewSection headerTitle="Subject" id="iYv-zL-tZT">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" textLabel="NK6-IG-GRa" style="IBUITableViewCellStyleDefault" id="MEa-vy-ELC">
-                                        <rect key="frame" x="0.0" y="134" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="128" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MEa-vy-ELC" id="64p-68-kX3">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -276,10 +276,10 @@
                                 <string key="footerTitle">Push notification support depends on the XMPP server which you are using and may not work in some cases even if it's supported and enabled on the group chat</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="02f-aw-3Zd" detailTextLabel="exK-ZH-jpA" style="IBUITableViewCellStyleValue1" id="KlQ-4F-rae">
-                                        <rect key="frame" x="0.0" y="241.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="229.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KlQ-4F-rae" id="ufE-bo-qG2">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="384.5" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="02f-aw-3Zd">
@@ -290,7 +290,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="When mentioned" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="exK-ZH-jpA">
-                                                    <rect key="frame" x="245" y="12" width="130" height="20.5"/>
+                                                    <rect key="frame" x="246.5" y="12" width="130" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" systemColor="secondaryLabelColor"/>
@@ -300,10 +300,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="DQk-sn-hKj" detailTextLabel="YT2-1I-RlM" style="IBUITableViewCellStyleValue1" id="xQZ-ou-qXC">
-                                        <rect key="frame" x="0.0" y="285.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="273.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xQZ-ou-qXC" id="LHJ-hk-TEJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="384.5" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Encryption" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DQk-sn-hKj">
@@ -314,7 +314,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="None" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YT2-1I-RlM">
-                                                    <rect key="frame" x="334" y="12" width="41" height="20.5"/>
+                                                    <rect key="frame" x="335.5" y="12" width="41" height="20.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" systemColor="secondaryLabelColor"/>
@@ -323,8 +323,8 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="4wI-c9-pBG" customClass="SwitchTableViewCell" customModule="Siskin" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="329.5" width="414" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="4wI-c9-pBG" customClass="SwitchTableViewCell" customModule="Snikket" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="317.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4wI-c9-pBG" id="R5e-gd-jsF">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -357,14 +357,14 @@
                             <tableViewSection headerTitle=" " id="2ZD-5S-4hK">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="wBw-1J-Xau" style="IBUITableViewCellStyleDefault" id="3IN-v0-ayC">
-                                        <rect key="frame" x="0.0" y="473.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="448" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3IN-v0-ayC" id="iXe-AG-FnD">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="384.5" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Attachments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wBw-1J-Xau">
-                                                    <rect key="frame" x="20" y="0.0" width="355" height="44"/>
+                                                    <rect key="frame" x="20" y="0.0" width="356.5" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -410,14 +410,14 @@
         <!--Invite to chat-->
         <scene sceneID="AmP-9Z-zZb">
             <objects>
-                <tableViewController restorationIdentifier="InviteViewController" storyboardIdentifier="InviteViewController" title="Invite to chat" id="SOJ-3n-8YB" customClass="InviteViewController" customModule="Siskin" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController restorationIdentifier="InviteViewController" storyboardIdentifier="InviteViewController" title="Invite to chat" id="SOJ-3n-8YB" customClass="InviteViewController" customModule="Snikket" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="EYb-W4-nW2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="RosterItemTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="RosterItemTableViewCell" rowHeight="48" id="mXn-Pc-kMI" customClass="RosterItemTableViewCell" customModule="Siskin" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="48"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="RosterItemTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="RosterItemTableViewCell" rowHeight="48" id="mXn-Pc-kMI" customClass="RosterItemTableViewCell" customModule="Snikket" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="48"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="mXn-Pc-kMI" id="bfL-M0-loC">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
@@ -426,10 +426,10 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="TJo-cT-fvx">
                                             <rect key="frame" x="2" y="2" width="410" height="44"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fY2-Td-KDv" customClass="AvatarStatusView" customModule="Siskin" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fY2-Td-KDv" customClass="AvatarStatusView" customModule="Snikket" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f12-QZ-Q6j" customClass="AvatarView" customModule="Siskin" customModuleProvider="target">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f12-QZ-Q6j" customClass="AvatarView" customModule="Snikket" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
@@ -527,7 +527,7 @@
             <color red="0.99607843137254903" green="0.85490196078431369" blue="0.023529411764705882" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="tintColor">
-            <color red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="groupTableViewBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

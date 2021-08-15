@@ -541,6 +541,12 @@ class CallManager: NSObject, CXProviderDelegate {
         action.fulfill();
     }
     
+    func provider(_ provider: CXProvider, perform action: CXPlayDTMFCallAction) {
+        delegate?.didSendDTMF(self, digit: action.digits)
+        
+        action.fulfill();
+    }
+    
     func provider(_ provider: CXProvider, timedOutPerforming action: CXAction) {
         print("operation timed out!");
     }
@@ -740,6 +746,7 @@ protocol CallManagerDelegate: class {
     func callDidStart(_ sender: CallManager);
     func callDidEnd(_ sender: CallManager);
     func callStateChanged(_ sender: CallManager);
+    func didSendDTMF(_ sender: CallManager, digit: String)
     
     func callManager(_ sender: CallManager, didReceiveLocalVideoCapturer localCapturer: RTCCameraVideoCapturer);
     func callManager(_ sender: CallManager, didReceiveRemoteVideoTrack remoteTrack: RTCVideoTrack);

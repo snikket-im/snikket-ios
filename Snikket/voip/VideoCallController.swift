@@ -29,6 +29,8 @@ import os
 public class VideoCallController: UIViewController, CallManagerDelegate {
 
     #if targetEnvironment(simulator)
+    func didSendDTMF(_ sender: CallManager, digit: String) {
+    }
     func callDidStart(_ sender: CallManager) {
     }
     func callDidEnd(_ sender: CallManager) {
@@ -41,6 +43,20 @@ public class VideoCallController: UIViewController, CallManagerDelegate {
     }
     #else
 
+    func didSendDTMF(_ sender: CallManager, digit: String) {
+        if let pc = sender.currentConnection {
+            for rtpSender in pc.senders {
+                if rtpSender.track?.kind == "audio" {
+                    
+                    dtmfQueue.addOperation {
+                        rtpSender.dtmfSender?.insertDtmf(digit, duration: TimeInterval(0.5), interToneGap: TimeInterval(0.5))
+                    }
+                    
+                }
+            }
+        }
+    }
+    
     func callDidStart(_ sender: CallManager) {
         DispatchQueue.main.async {
             self.call = sender.currentCall;
@@ -188,6 +204,10 @@ public class VideoCallController: UIViewController, CallManagerDelegate {
 
     fileprivate let hasMetal = MTLCreateSystemDefaultDevice() != nil;
     
+    let dtmfQueue = OperationQueue()
+    @IBOutlet weak var dialpadButton: RoundButton!
+    @IBOutlet weak var dialpadStackView: UIStackView!
+    
     @IBOutlet var titleLabel: UILabel?;
     
     @IBOutlet var remoteVideoView: RTCMTLVideoView!;
@@ -196,6 +216,8 @@ public class VideoCallController: UIViewController, CallManagerDelegate {
     @IBOutlet fileprivate var avatar: AvatarView?;
     @IBOutlet fileprivate var avatarWidthConstraint: NSLayoutConstraint!;
     @IBOutlet fileprivate var avatarHeightConstraint: NSLayoutConstraint!;
+    
+    var audioSender: RTCRtpSender?
         
     private var localVideoCapturer: RTCCameraVideoCapturer?;
     private var remoteVideoTrack: RTCVideoTrack? {
@@ -214,12 +236,10 @@ public class VideoCallController: UIViewController, CallManagerDelegate {
     }
     
     private var call: Call?;
-            
     public override func viewDidLoad() {
         super.viewDidLoad();
 
         self.updateTitleLabel();
-        self.updateAvatar();
         
         let mtkview = self.view.subviews.last!;
         self.view.sendSubviewToBack(mtkview);
@@ -228,6 +248,13 @@ public class VideoCallController: UIViewController, CallManagerDelegate {
         if CallManager.isAvailable {
             CallManager.instance?.delegate = self;
         }
+    }
+    
+    private func setAvatarAspectRatio() {
+        guard let avatar = avatar else { return }
+        avatar.heightAnchor.constraint(equalTo: avatar.widthAnchor, multiplier: 1).isActive = true
+        self.avatarHeightConstraint.isActive = false
+        self.avatarWidthConstraint.isActive = true
     }
     
     private func updateAvatar() {
@@ -242,9 +269,11 @@ public class VideoCallController: UIViewController, CallManagerDelegate {
 //    var timer: Foundation.Timer?;
     
     public override func viewWillAppear(_ animated: Bool) {
-        self.updateAvatar();
-        super.viewWillAppear(animated);
-        self.orientationChanged();
+        super.viewWillAppear(animated)
+        
+        setAvatarAspectRatio()
+        self.updateAvatar()
+        //self.orientationChanged();
         NotificationCenter.default.addObserver(self, selector: #selector(audioRouteChanged), name: AVAudioSession.routeChangeNotification, object: nil)
 //        timer = Foundation.Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { timer in
 //            CallManager.instance?.currentConnection?.statistics(completionHandler: { report in
@@ -260,6 +289,16 @@ public class VideoCallController: UIViewController, CallManagerDelegate {
         localVideoView.captureSession = nil;
         localVideoCapturer = nil;
         super.viewWillDisappear(animated);
+    }
+    
+    public override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        for i in 51...62 {
+            if let v = view.viewWithTag(i) {
+                v.layer.cornerRadius = v.frame.width / 2
+                v.backgroundColor = #colorLiteral(red: 0.1960784314, green: 0.1960784314, blue: 0.1960784314, alpha: 1)
+            }
+        }
     }
     
     @objc func audioRouteChanged(_ notification: Notification) {
@@ -281,7 +320,7 @@ public class VideoCallController: UIViewController, CallManagerDelegate {
     
     @objc func orientationChanged() {
         switch UIDevice.current.orientation {
-        case .portrait, .portraitUpsideDown:
+        case .portrait, .portraitUpsideDown, .faceUp:
             self.avatarHeightConstraint.isActive = false;
             self.avatarWidthConstraint.isActive = true;
         default:
@@ -324,6 +363,42 @@ public class VideoCallController: UIViewController, CallManagerDelegate {
         dismiss();
     }
     
+    @IBAction func dialpadTapped(_ sender: UIButton) {
+        self.dialpadStackView.isHidden = !self.dialpadStackView.isHidden
+        self.avatar?.isHidden = !self.dialpadStackView.isHidden
+    }
+    
+    
+    @IBAction func digitPressed(_ sender: UIButton) {
+        let tag = sender.tag
+        if(tag > 0 && tag < 10) {
+            sendDTMF(toneString: "\(tag)")
+        }
+        else if (tag == 10) {
+            sendDTMF(toneString: "*")
+        }
+        else if (tag == 11) {
+            sendDTMF(toneString: "0")
+        }
+        else {
+            sendDTMF(toneString: "#")
+        }
+    }
+    
+    func sendDTMF(toneString: String) {
+        if let cm = CallManager.instance, let pc = cm.currentConnection {
+            for rtpSender in pc.senders {
+                if rtpSender.track?.kind == "audio" {
+                    dtmfQueue.addOperation {
+                        rtpSender.dtmfSender?.insertDtmf(toneString, duration: TimeInterval(0.5), interToneGap: TimeInterval(0.5))
+                    }
+                    
+                }
+            }
+        }
+        
+    }
+    
     func dismiss() {
         DispatchQueue.main.async {
             self.dismiss(animated: true, completion: nil);
@@ -332,7 +407,10 @@ public class VideoCallController: UIViewController, CallManagerDelegate {
         
     
     private func updateAvatarVisibility() {
-        self.avatar?.isHidden = remoteVideoTrack != nil && (call?.state ?? .new) == .connected;
+        let isHidden = remoteVideoTrack != nil && (call?.state ?? .new) == .connected;
+        self.avatar?.isHidden = isHidden
+        self.localVideoView.isHidden = !isHidden
+        self.dialpadButton.isHidden = isHidden
     }
     
     fileprivate func updateTitleLabel() {

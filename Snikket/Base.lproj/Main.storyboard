@@ -178,7 +178,7 @@
                         <nil key="title"/>
                         <barButtonItem key="backBarButtonItem" title="Back" id="Dx3-QU-3cN"/>
                         <view key="titleView" contentMode="scaleToFill" id="fc4-l0-VbW" customClass="ChatTitleView" customModule="Snikket" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="390" height="40"/>
+                            <rect key="frame" x="12" y="2" width="390" height="40"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="752" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="751" text="Jane Done" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWL-vQ-lxc">
