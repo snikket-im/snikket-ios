@@ -452,7 +452,7 @@ public class DBChatHistoryStore {
         previewGenerationDispatcher.async {
             print("generating previews for master id:", masterId, "uuid:", uuid);
         // if we may have previews, we should add them here..
-        if let detector = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue | NSTextCheckingResult.CheckingType.address.rawValue) {
+        if let detector = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue) {
             let matches = detector.matches(in: data, range: NSMakeRange(0, data.utf16.count));
 
             guard self.dispatcher.sync(execute: {

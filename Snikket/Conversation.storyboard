@@ -16,7 +16,8 @@
                     <tableView key="view" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" allowsSelectionDuringEditing="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZHU-a8-qOo">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="conversationBackground"/>
+                        <color key="separatorColor" name="conversationBackground"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ChatTableViewSystemCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatTableViewSystemCell" rowHeight="33" id="9wb-BJ-QeF" customClass="ChatTableViewSystemCell" customModule="Snikket" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="24.5" width="414" height="33"/>
@@ -39,6 +40,7 @@
                                         <constraint firstAttribute="bottom" secondItem="L12-ol-EKe" secondAttribute="bottom" constant="6" id="zMj-x8-h2C"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="messageView" destination="L12-ol-EKe" id="tel-np-pPT"/>
                                 </connections>
@@ -52,7 +54,7 @@
                                     <subviews>
                                         <view clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7xC-sN-qDC" customClass="MessageTextView" customModule="Snikket" customModuleProvider="target">
                                             <rect key="frame" x="20" y="4" width="374" height="25"/>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <accessibility key="accessibilityConfiguration">
                                                 <accessibilityTraits key="traits" notEnabled="YES"/>
                                             </accessibility>
@@ -65,6 +67,7 @@
                                         <constraint firstItem="7xC-sN-qDC" firstAttribute="top" secondItem="kQM-yI-Mn0" secondAttribute="top" constant="4" id="UpX-jN-Fls"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="messageView" destination="7xC-sN-qDC" id="OAN-TU-jd1"/>
                                 </connections>
@@ -102,7 +105,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="Cdg-jt-Owd" secondAttribute="trailing" id="7Bj-Va-qUM"/>
                                                 <constraint firstItem="rr7-FM-H1v" firstAttribute="leading" secondItem="eLy-Ru-KPW" secondAttribute="leading" constant="20" id="9wR-oh-cMS"/>
@@ -124,6 +127,7 @@
                                         <constraint firstItem="eLy-Ru-KPW" firstAttribute="top" secondItem="V41-Eh-z9O" secondAttribute="top" id="rs0-Vk-DAw"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="bubbleImageView" destination="Cdg-jt-Owd" id="LBy-dv-bK0"/>
                                     <outlet property="messageTextView" destination="rr7-FM-H1v" id="Aux-iv-2qH"/>
@@ -164,7 +168,7 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="2c4-OB-h5D" firstAttribute="top" secondItem="pxX-Y2-ucz" secondAttribute="top" constant="4" id="20P-EL-vjq"/>
                                                 <constraint firstItem="FwZ-9u-qm8" firstAttribute="leading" secondItem="pxX-Y2-ucz" secondAttribute="leading" id="86z-bo-88g"/>
@@ -186,6 +190,7 @@
                                         <constraint firstAttribute="bottom" secondItem="pxX-Y2-ucz" secondAttribute="bottom" id="wI9-u0-e0n"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="bubbleImageView" destination="FwZ-9u-qm8" id="f2G-4g-UcR"/>
                                     <outlet property="messageTextView" destination="2c4-OB-h5D" id="ICv-ec-cRp"/>
@@ -211,6 +216,7 @@
                                         <constraint firstItem="eIg-UF-O2r" firstAttribute="top" secondItem="b4O-zc-oXg" secondAttribute="top" id="pg8-i2-hlf"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="bubbleImageView" destination="eIg-UF-O2r" id="L8l-wU-EXk"/>
                                 </connections>
@@ -251,6 +257,7 @@
                                         <constraint firstItem="WOv-AK-7Aw" firstAttribute="top" secondItem="dLL-EZ-lYx" secondAttribute="top" id="y0A-7U-6wq"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="bubbleImageView" destination="WOv-AK-7Aw" id="ZTA-88-D0g"/>
                                     <outlet property="customView" destination="epj-cu-6G0" id="ITN-rt-fWh"/>
@@ -293,6 +300,7 @@
                                         <constraint firstItem="4Fx-Ub-R9a" firstAttribute="leading" secondItem="DIf-G5-2Wm" secondAttribute="leading" id="orL-3H-ebI"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="bubbleImageView" destination="4Fx-Ub-R9a" id="2Pk-kd-QzD"/>
                                     <outlet property="customView" destination="LM9-x6-Uhr" id="vPy-nG-Dv1"/>
@@ -311,6 +319,7 @@
                                             <subviews>
                                                 <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message_bubble_received9" translatesAutoresizingMaskIntoConstraints="NO" id="8sp-sS-akf">
                                                     <rect key="frame" x="0.0" y="0.0" width="105" height="60"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ssl-Fo-PZ6">
                                                     <rect key="frame" x="20" y="5" width="36" height="17"/>
@@ -346,7 +355,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="QiQ-ly-TnA" secondAttribute="trailing" id="6xm-VP-IEm"/>
                                                 <constraint firstAttribute="trailing" secondItem="Qw2-0Z-3bH" secondAttribute="trailing" constant="5" id="KDd-NS-f7c"/>
@@ -381,6 +390,7 @@
                                         <constraint firstItem="bC4-tB-3tb" firstAttribute="leading" secondItem="017-Lx-5HC" secondAttribute="leading" constant="40" id="aTr-yV-ZNy"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="avatarView" destination="p4H-BR-fYt" id="xvT-jj-rW9"/>
                                     <outlet property="bubbleImageView" destination="8sp-sS-akf" id="Klk-uK-X4E"/>
@@ -438,7 +448,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="cFN-kT-7G4" firstAttribute="top" secondItem="cB9-D3-EFb" secondAttribute="bottom" constant="5" id="4tO-dO-apc"/>
                                                 <constraint firstItem="Yvn-Qh-y3C" firstAttribute="leading" secondItem="yzx-94-OMV" secondAttribute="leading" id="9F1-en-72i"/>
@@ -473,6 +483,7 @@
                                         <constraint firstAttribute="bottom" secondItem="2ue-2V-Z6N" secondAttribute="bottom" constant="3" id="kGW-pU-bJQ"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="avatarView" destination="2ue-2V-Z6N" id="S1w-Ra-gHE"/>
                                     <outlet property="bubbleImageView" destination="Yvn-Qh-y3C" id="RLJ-Q0-kbk"/>
@@ -524,7 +535,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="5td-rd-iuw" secondAttribute="trailing" id="2ZX-F0-c5X"/>
                                                 <constraint firstAttribute="bottom" secondItem="drR-8a-yrS" secondAttribute="bottom" id="DuR-Ns-DSm"/>
@@ -550,6 +561,7 @@
                                             </constraints>
                                         </imageView>
                                     </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="uqF-cV-3id" secondAttribute="trailing" constant="30" id="1y1-qv-Q3Q"/>
                                         <constraint firstItem="uqF-cV-3id" firstAttribute="leading" secondItem="3eM-Pw-ok6" secondAttribute="leading" constant="40" id="66b-SK-aFd"/>
@@ -559,6 +571,7 @@
                                         <constraint firstItem="txv-pU-gQT" firstAttribute="top" secondItem="3eM-Pw-ok6" secondAttribute="top" constant="5" id="v4t-Jt-qS0"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="avatarView" destination="txv-pU-gQT" id="Ki2-K6-hHe"/>
                                     <outlet property="bubbleImageView" destination="drR-8a-yrS" id="vsg-vp-X4s"/>
@@ -609,7 +622,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="QNW-kQ-dGn" firstAttribute="bottom" secondItem="6uy-ZB-6uf" secondAttribute="bottom" id="3cT-HY-N4p"/>
                                                 <constraint firstItem="06O-be-3eh" firstAttribute="top" secondItem="3eE-e9-J0V" secondAttribute="top" constant="5" id="BAs-0e-QoK"/>
@@ -644,6 +657,7 @@
                                         <constraint firstAttribute="trailing" secondItem="6o4-fX-daO" secondAttribute="trailing" constant="6" id="s1e-W1-wAP"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="avatarView" destination="6o4-fX-daO" id="DNd-ot-1qV"/>
                                     <outlet property="bubbleImageView" destination="Q0B-cS-AaR" id="GNf-8W-0C5"/>
@@ -734,6 +748,7 @@
                                         <constraint firstItem="dgn-EH-yKd" firstAttribute="top" secondItem="3vr-dl-Qiu" secondAttribute="top" id="yIq-PQ-upN"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="acceptButton" destination="kwJ-Pb-kCU" id="gpd-zR-EuB"/>
                                     <outlet property="avatarView" destination="3vr-dl-Qiu" id="Twc-y3-rGB"/>
@@ -760,7 +775,10 @@
         <image name="message_bubble_received9" width="16.5" height="14.5"/>
         <image name="message_bubble_sent9" width="16.5" height="13.5"/>
         <namedColor name="chatMessageText">
-            <color white="0.15000000596046448" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="conversationBackground">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="tintColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
