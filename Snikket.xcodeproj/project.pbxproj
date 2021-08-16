@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E9D384B426CA95FF009BEAF3 /* UIDeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D384B326CA95FF009BEAF3 /* UIDeviceExtension.swift */; };
 		FE00157D2017617B00490340 /* StreamFeaturesCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE00157C2017617B00490340 /* StreamFeaturesCache.swift */; };
 		FE00157F2019090300490340 /* ExperimentalSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE00157E2019090300490340 /* ExperimentalSettingsViewController.swift */; };
 		FE01ADA91E224CF400FA7E65 /* SiskinPushNotificationsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE01ADA81E224CF400FA7E65 /* SiskinPushNotificationsModule.swift */; };
@@ -286,6 +287,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E9D384B326CA95FF009BEAF3 /* UIDeviceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExtension.swift; sourceTree = "<group>"; };
 		FE00157C2017617B00490340 /* StreamFeaturesCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamFeaturesCache.swift; sourceTree = "<group>"; };
 		FE00157E2019090300490340 /* ExperimentalSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentalSettingsViewController.swift; sourceTree = "<group>"; };
 		FE01ADA81E224CF400FA7E65 /* SiskinPushNotificationsModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiskinPushNotificationsModule.swift; sourceTree = "<group>"; };
@@ -730,6 +732,7 @@
 				FE0E30FD253714050030F8C5 /* MediaHelper.swift */,
 				FE0E3102253714420030F8C5 /* ImageQuality.swift */,
 				FE0E3107253714570030F8C5 /* VideoQuality.swift */,
+				E9D384B326CA95FF009BEAF3 /* UIDeviceExtension.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -1289,6 +1292,7 @@
 				FE2332E1242CCDB400008ED4 /* InvitationChatTableViewCell.swift in Sources */,
 				FE3E38862428C21100D3A8E8 /* OSLog.swift in Sources */,
 				FECEF29423B7933A007EC323 /* MetadataCache.swift in Sources */,
+				E9D384B426CA95FF009BEAF3 /* UIDeviceExtension.swift in Sources */,
 				FEB62C501DA80956001500D5 /* AvatarStore.swift in Sources */,
 				FE7D293423B919FF001A877D /* DownloadManager.swift in Sources */,
 				FE137A4821F6464D006B7F7C /* UIColor_mix.swift in Sources */,

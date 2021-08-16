@@ -206,7 +206,7 @@ public class VideoCallController: UIViewController, CallManagerDelegate {
     
     let dtmfQueue = OperationQueue()
     @IBOutlet weak var dialpadButton: RoundButton!
-    @IBOutlet weak var dialpadStackView: UIStackView!
+    @IBOutlet weak var dialpadView: UIView!
     
     @IBOutlet var titleLabel: UILabel?;
     
@@ -216,8 +216,6 @@ public class VideoCallController: UIViewController, CallManagerDelegate {
     @IBOutlet fileprivate var avatar: AvatarView?;
     @IBOutlet fileprivate var avatarWidthConstraint: NSLayoutConstraint!;
     @IBOutlet fileprivate var avatarHeightConstraint: NSLayoutConstraint!;
-    
-    var audioSender: RTCRtpSender?
         
     private var localVideoCapturer: RTCCameraVideoCapturer?;
     private var remoteVideoTrack: RTCVideoTrack? {
@@ -297,6 +295,17 @@ public class VideoCallController: UIViewController, CallManagerDelegate {
             if let v = view.viewWithTag(i) {
                 v.layer.cornerRadius = v.frame.width / 2
                 v.backgroundColor = #colorLiteral(red: 0.1960784314, green: 0.1960784314, blue: 0.1960784314, alpha: 1)
+                
+                if UIDevice.modelName == "iPhone SE" || UIDevice.modelName == "Simulator iPhone SE" {
+                    if let stackview = v.subviews.first as? UIStackView {
+                        for label in stackview.subviews {
+                            let label = label as? UILabel
+                            var oldSize = label?.font.pointSize ?? 0
+                            oldSize = oldSize > 15 ? oldSize : 18
+                            label?.font = label?.font.withSize(oldSize - 5)
+                        }
+                    }
+                }
             }
         }
     }
@@ -364,8 +373,8 @@ public class VideoCallController: UIViewController, CallManagerDelegate {
     }
     
     @IBAction func dialpadTapped(_ sender: UIButton) {
-        self.dialpadStackView.isHidden = !self.dialpadStackView.isHidden
-        self.avatar?.isHidden = !self.dialpadStackView.isHidden
+        self.dialpadView.isHidden = !self.dialpadView.isHidden
+        self.avatar?.isHidden = !self.dialpadView.isHidden
     }
     
     
