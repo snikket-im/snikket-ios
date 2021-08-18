@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E9D384B426CA95FF009BEAF3 /* UIDeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D384B326CA95FF009BEAF3 /* UIDeviceExtension.swift */; };
+		E9D384B626CBB606009BEAF3 /* CustomUISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D384B526CBB606009BEAF3 /* CustomUISlider.swift */; };
+		E9D384B826CBBEB6009BEAF3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D384B726CBBEB6009BEAF3 /* Extensions.swift */; };
 		FE00157D2017617B00490340 /* StreamFeaturesCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE00157C2017617B00490340 /* StreamFeaturesCache.swift */; };
 		FE00157F2019090300490340 /* ExperimentalSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE00157E2019090300490340 /* ExperimentalSettingsViewController.swift */; };
 		FE01ADA91E224CF400FA7E65 /* SiskinPushNotificationsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE01ADA81E224CF400FA7E65 /* SiskinPushNotificationsModule.swift */; };
@@ -288,6 +290,8 @@
 
 /* Begin PBXFileReference section */
 		E9D384B326CA95FF009BEAF3 /* UIDeviceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExtension.swift; sourceTree = "<group>"; };
+		E9D384B526CBB606009BEAF3 /* CustomUISlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUISlider.swift; sourceTree = "<group>"; };
+		E9D384B726CBBEB6009BEAF3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		FE00157C2017617B00490340 /* StreamFeaturesCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamFeaturesCache.swift; sourceTree = "<group>"; };
 		FE00157E2019090300490340 /* ExperimentalSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentalSettingsViewController.swift; sourceTree = "<group>"; };
 		FE01ADA81E224CF400FA7E65 /* SiskinPushNotificationsModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiskinPushNotificationsModule.swift; sourceTree = "<group>"; };
@@ -704,6 +708,7 @@
 				FE3E38892429364D00D3A8E8 /* UIImage.swift */,
 				FEF8255424BA0AFE00820108 /* MessageTextView.swift */,
 				FE75AA7D25854DE2002B59AE /* WelcomeController.swift */,
+				E9D384B526CBB606009BEAF3 /* CustomUISlider.swift */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -733,6 +738,7 @@
 				FE0E3102253714420030F8C5 /* ImageQuality.swift */,
 				FE0E3107253714570030F8C5 /* VideoQuality.swift */,
 				E9D384B326CA95FF009BEAF3 /* UIDeviceExtension.swift */,
+				E9D384B726CBBEB6009BEAF3 /* Extensions.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -1345,6 +1351,7 @@
 				FE0E30E42535BA520030F8C5 /* HTTPFileUploadHelper.swift in Sources */,
 				FE507A171CDB7B3B001A015C /* ChatTableViewCell.swift in Sources */,
 				FE31DDE4201261A200C2AB1D /* DNSSrvDiskCache.swift in Sources */,
+				E9D384B626CBB606009BEAF3 /* CustomUISlider.swift in Sources */,
 				FE233CDD21EA062E00099281 /* AboutController.swift in Sources */,
 				FE2D481C24518C2800C13CE5 /* RTCCameraVideoCapturer_Format.swift in Sources */,
 				FE4071E421E2605900F09B58 /* VideoCallController.swift in Sources */,
@@ -1372,6 +1379,7 @@
 				FE507A1A1CDB7B3B001A015C /* DBChatStore.swift in Sources */,
 				FE80BDAB1D953FC4001914B0 /* SetupViewController.swift in Sources */,
 				FEE097621F1FCE1800B1CEAB /* TablePicketViewController.swift in Sources */,
+				E9D384B826CBBEB6009BEAF3 /* Extensions.swift in Sources */,
 				FEDE93941D0AC01200CA60A9 /* VCardEditEmailTableViewCell.swift in Sources */,
 				FEF8255524BA0AFE00820108 /* MessageTextView.swift in Sources */,
 				FEDE939B1D0C38B000CA60A9 /* ContactFormTableViewCell.swift in Sources */,

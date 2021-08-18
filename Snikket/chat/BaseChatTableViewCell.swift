@@ -20,6 +20,12 @@
 //
 
 import UIKit
+import AVKit
+
+protocol AudioPlayerDelegate {
+    func didPlayAudio(audioPlayer: AVAudioPlayer, audioTimer: Foundation.Timer, sliderTimer: Foundation.Timer, playButton: UIButton)
+    func didStopAudio()
+}
 
 class BaseChatTableViewCellFormatter {
     
@@ -51,6 +57,8 @@ class BaseChatTableViewCell: UITableViewCell, UIDocumentInteractionControllerDel
     @IBOutlet var timestampView: UILabel?
     @IBOutlet var stateView: UILabel?;
     @IBOutlet var bubbleImageView: UIImageView!
+    
+    var audioPlayerDelegate: AudioPlayerDelegate?
 
     var originalTimestampColor: UIColor!;
         

@@ -23,6 +23,7 @@ import UIKit
 import MobileCoreServices
 import LinkPresentation
 import TigaseSwift
+import AVKit
 
 class AttachmentChatTableViewCell: BaseChatTableViewCell, UIContextMenuInteractionDelegate {
     
@@ -75,6 +76,148 @@ class AttachmentChatTableViewCell: BaseChatTableViewCell, UIContextMenuInteracti
             customView.addGestureRecognizer(longPressGestureRecognizer!);
         }
     }
+    
+    lazy var playButton: UIButton = {
+        let playButton = UIButton()
+        playButton.setImage(UIImage(named: "play.fill"), for: .normal)
+        playButton.setImage(UIImage(named: "pause.fill"), for: .selected)
+        playButton.addTarget(self, action: #selector(playPauseTapped), for: .touchUpInside)
+        playButton.translatesAutoresizingMaskIntoConstraints = false
+        return playButton
+    }()
+    lazy var slider: CustomSlider = {
+        let slider = CustomSlider()
+        slider.setThumbRadius(radius: 15)
+        slider.addTarget(self, action: #selector(sliderScrubber(sender:)), for: .valueChanged)
+        slider.translatesAutoresizingMaskIntoConstraints = false
+        return slider
+    }()
+    lazy var audioTime: UILabel = {
+        let audioTime = UILabel()
+        audioTime.text = "00:00"
+        audioTime.textColor = .white
+        audioTime.font = UIFont.systemFont(ofSize: 12)
+        audioTime.setContentHuggingPriority(.required, for: .horizontal)
+        audioTime.translatesAutoresizingMaskIntoConstraints = false
+        return audioTime
+    }()
+    
+    var audioPlayer: AVAudioPlayer?
+    var audioTimer: Foundation.Timer?
+    var sliderTimer: Foundation.Timer?
+    
+    func setupAudioCell(item: ChatAttachment) {
+        self.customView.backgroundColor = .clear
+        self.customView.subviews.forEach { $0.removeFromSuperview() }
+        if let gesture = tapGestureRecognizer {
+            self.customView.removeGestureRecognizer(gesture)
+        }
+        
+        setupAudioPlayer()
+        
+        self.customView.addSubview(playButton)
+        self.customView.addSubview(slider)
+        self.customView.addSubview(audioTime)
+        
+        let sliderWidth = UIScreen.main.bounds.width * 0.30
+        
+        NSLayoutConstraint.activate([
+            playButton.topAnchor.constraint(equalTo: customView.topAnchor),
+            playButton.bottomAnchor.constraint(equalTo: customView.bottomAnchor),
+            playButton.leadingAnchor.constraint(equalTo: customView.leadingAnchor),
+            playButton.widthAnchor.constraint(equalToConstant: 17),
+            playButton.heightAnchor.constraint(equalToConstant: 17),
+            
+            slider.centerYAnchor.constraint(equalTo: playButton.centerYAnchor),
+            slider.leadingAnchor.constraint(equalTo: playButton.trailingAnchor, constant: 10),
+            slider.widthAnchor.constraint(equalToConstant: sliderWidth),
+            
+            audioTime.centerYAnchor.constraint(equalTo: slider.centerYAnchor),
+            audioTime.leadingAnchor.constraint(equalTo: slider.trailingAnchor, constant: 10),
+            audioTime.trailingAnchor.constraint(equalTo: customView.trailingAnchor, constant: -5)
+        ])
+    }
+    
+    func setupAudioPlayer() {
+        guard let item = self.item else { return }
+        
+        if let localUrl = DownloadStore.instance.url(for: "\(item.id)") {
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: localUrl)
+                audioPlayer?.prepareToPlay()
+                audioPlayer?.volume = 1.0
+                self.audioTime.text = audioPlayer?.duration.stringTime
+
+            }
+            catch let error as NSError {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    @objc func playPauseTapped() {
+        let isSelected = self.playButton.isSelected
+        self.playButton.isSelected = !isSelected
+        
+            if !isSelected {
+                    
+                audioTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateAudioTime), userInfo: nil, repeats: true)
+                sliderTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(updateSlider), userInfo: nil, repeats: true)
+                
+                audioPlayer?.play()
+                
+                if let player = self.audioPlayer, let audioTimer = self.audioTimer, let sliderTimer = self.sliderTimer {
+                    self.audioPlayerDelegate?.didPlayAudio(audioPlayer: player, audioTimer: audioTimer, sliderTimer: sliderTimer, playButton: self.playButton)
+                }
+                
+            }
+            else {
+                audioPlayer?.pause()
+                self.audioPlayerDelegate?.didStopAudio()
+            }
+    }
+    
+    @objc func sliderScrubber(sender: UISlider) {
+        guard let player = self.audioPlayer else { return }
+        
+        let value = Double(sender.value) * player.duration
+        player.currentTime = value
+    }
+    
+    @objc func updateSlider() {
+        guard let player = self.audioPlayer else {
+            sliderTimer?.invalidate()
+            return
+        }
+        if !player.isPlaying {
+            sliderTimer?.invalidate()
+        }
+        
+        slider.value = Float(player.currentTime/player.duration)
+        
+        if slider.value == 0.0, !player.isPlaying {
+            self.playButton.isSelected = false
+            self.audioPlayerDelegate?.didStopAudio()
+        }
+    }
+    
+    @objc func updateAudioTime() {
+        guard let player = audioPlayer else {
+            audioTimer?.invalidate()
+            return
+        }
+        if !player.isPlaying {
+            audioTimer?.invalidate()
+            return
+        }
+        
+        let currentTime = Int(player.currentTime)
+
+        let minutes = currentTime/60
+        let seconds = currentTime - minutes / 60
+
+        audioTime.text = NSString(format: "%02d:%02d", minutes,seconds) as String
+    }
         
     func set(attachment item: ChatAttachment) {
         self.item = item;
@@ -83,6 +226,11 @@ class AttachmentChatTableViewCell: BaseChatTableViewCell, UIContextMenuInteracti
         
         self.customView?.isOpaque = true;
         self.customView?.backgroundColor = self.backgroundColor;
+        
+        if let mime = item.appendix.mimetype, mime.contains("audio") {
+            setupAudioCell(item: item)
+            return
+        }
         
         if let localUrl = DownloadStore.instance.url(for: "\(item.id)") {
             documentController = UIDocumentInteractionController(url: localUrl);
@@ -129,12 +277,9 @@ class AttachmentChatTableViewCell: BaseChatTableViewCell, UIContextMenuInteracti
                 }
             } else {
                 let attachmentInfo = (self.linkView as? AttachmentInfoView) ?? AttachmentInfoView(frame: .zero);
-                //attachmentInfo.backgroundColor = self.backgroundColor;
-                //attachmentInfo.isOpaque = true;
 
                 self.linkView = attachmentInfo;
 
-                //attachmentInfo.cellView = self;
                 NSLayoutConstraint.activate([
                     customView.leadingAnchor.constraint(equalTo: attachmentInfo.leadingAnchor),
                     customView.trailingAnchor.constraint(greaterThanOrEqualTo: attachmentInfo.trailingAnchor),
