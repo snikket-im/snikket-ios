@@ -21,11 +21,17 @@
 
 
 import UIKit
+import AVKit
 import Shared
 import TigaseSwift
 import TigaseSwiftOMEMO
 
 class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAndToolbar {
+    
+    var cellAudioPlayer: AVAudioPlayer?
+    var cellAudioTimer: Foundation.Timer?
+    var cellSliderTimer: Foundation.Timer?
+    var cellAudioPlayButton: UIButton?
 
     var titleView: ChatTitleView! {
         get {
@@ -83,6 +89,16 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
         
         let presenceModule: PresenceModule? = XmppService.instance.getClient(forJid: account)?.modulesManager.getModule(PresenceModule.ID);
         titleView.status = presenceModule?.presenceStore.getBestPresence(for: jid);
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        if self.isMovingFromParent {
+            self.cellAudioPlayer?.pause()
+            self.cellAudioTimer?.invalidate()
+            self.cellSliderTimer?.invalidate()
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -163,6 +179,7 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
             cell.avatarView?.set(name: name, avatar: AvatarManager.instance.avatar(for: incoming ? jid : account, on: account), orDefault: AvatarManager.instance.defaultAvatar, backColor: color);
             cell.nicknameView?.text = ""
             cell.set(attachment: item);
+            cell.audioPlayerDelegate = self
 //            cell.setNeedsUpdateConstraints();
 //            cell.updateConstraintsIfNeeded();
             cell.bubbleImageView.isHidden = false
@@ -540,4 +557,27 @@ class ChatTitleView: UIView {
             }            
         }
     }
+}
+
+extension ChatViewController: AudioPlayerDelegate {
+    func didPlayAudio(audioPlayer: AVAudioPlayer, audioTimer: Foundation.Timer, sliderTimer: Foundation.Timer, playButton: UIButton) {
+        
+        self.cellAudioPlayer?.pause()
+        self.cellAudioTimer?.invalidate()
+        self.cellSliderTimer?.invalidate()
+        if let button = self.cellAudioPlayButton { button.isSelected = false }
+        
+        self.cellSliderTimer = sliderTimer
+        self.cellAudioTimer = audioTimer
+        self.cellAudioPlayer = audioPlayer
+        self.cellAudioPlayButton = playButton
+    }
+    
+    func didStopAudio() {
+        self.cellSliderTimer = nil
+        self.cellAudioTimer = nil
+        self.cellAudioPlayer = nil
+        self.cellAudioPlayButton = nil
+    }
+    
 }
