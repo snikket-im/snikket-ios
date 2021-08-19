@@ -419,7 +419,11 @@ public class VideoCallController: UIViewController, CallManagerDelegate {
         let isHidden = remoteVideoTrack != nil && (call?.state ?? .new) == .connected;
         self.avatar?.isHidden = isHidden
         self.localVideoView.isHidden = !isHidden
-        self.dialpadButton.isHidden = isHidden
+        
+        if call?.state == .connected , remoteVideoTrack == nil {
+            self.dialpadButton.isHidden = false
+        }
+        
     }
     
     fileprivate func updateTitleLabel() {
