@@ -57,7 +57,7 @@ import UIKit
     public override func awakeFromNib() {
         super.awakeFromNib();
         
-        self.backgroundColor = UIColor.blue;
+        self.backgroundColor = .clear
         let layoutManager = CustomLayoutManager();
         let textContainer = NSTextContainer(size: CGSize(width: 0, height: CGFloat.greatestFiniteMagnitude));
         textContainer.widthTracksTextView = true;
