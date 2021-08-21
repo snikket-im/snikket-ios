@@ -50,7 +50,7 @@ class ChannelViewController: BaseChatViewControllerWithDataSourceAndContextMenuA
         self.titleView?.isUserInteractionEnabled = true;
         self.navigationController?.navigationBar.addGestureRecognizer(recognizer);
 
-        initializeSharing();
+        //initializeSharing();
         NotificationCenter.default.addObserver(self, selector: #selector(channelUpdated(_:)), name: DBChatStore.CHAT_UPDATED, object: channel);
         NotificationCenter.default.addObserver(self, selector: #selector(avatarChanged(_:)), name: AvatarManager.AVATAR_CHANGED, object: nil);
         NotificationCenter.default.addObserver(self, selector: #selector(accountStateChanged(_:)), name: XmppService.ACCOUNT_STATE_CHANGED, object: nil)

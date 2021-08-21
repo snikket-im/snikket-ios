@@ -88,6 +88,10 @@ extension ChatViewInputBar {
             } else {
                 setImage(UIImage(named: "camera"), for: .normal);
             }
+            NSLayoutConstraint.activate([
+                self.widthAnchor.constraint(equalTo: self.heightAnchor),
+                self.heightAnchor.constraint(equalToConstant: 30)
+            ])
         }
     }
 
@@ -290,7 +294,7 @@ extension BaseChatViewController: UIImagePickerControllerDelegate, UINavigationC
         return (tmpUrl, filename, suffix);
     }
         
-    private func uploadFile(url fileUrl: URL, filename: String, deleteSource: Bool) {
+    func uploadFile(url fileUrl: URL, filename: String, deleteSource: Bool) {
         self.share(filename: filename, url: fileUrl, completionHandler: { result in
             switch result {
             case .success(let uploadedUrl, let filesize, let mimetype):

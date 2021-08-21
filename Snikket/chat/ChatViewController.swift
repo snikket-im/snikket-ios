@@ -58,7 +58,7 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
         self.titleView.isUserInteractionEnabled = true;
         self.navigationController?.navigationBar.addGestureRecognizer(recognizer);
 
-        initializeSharing();
+        //initializeSharing();
         
         NotificationCenter.default.addObserver(self, selector: #selector(ChatViewController.avatarChanged), name: AvatarManager.AVATAR_CHANGED, object: nil);
         NotificationCenter.default.addObserver(self, selector: #selector(accountStateChanged), name: XmppService.ACCOUNT_STATE_CHANGED, object: nil);
@@ -425,6 +425,8 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
     @IBAction func sendClicked(_ sender: UIButton) {
         sendMessage();
     }
+    
+    
     
     override func sendMessage() {
         let text = messageText;
