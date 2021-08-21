@@ -60,7 +60,7 @@ class MucChatViewController: BaseChatViewControllerWithDataSourceAndContextMenuA
         self.titleView?.isUserInteractionEnabled = true;
         self.navigationController?.navigationBar.addGestureRecognizer(recognizer);
         
-        initializeSharing();
+        //initializeSharing();
         
         NotificationCenter.default.addObserver(self, selector: #selector(MucChatViewController.roomStatusChanged), name: MucEventHandler.ROOM_NAME_CHANGED, object: nil);
         NotificationCenter.default.addObserver(self, selector: #selector(MucChatViewController.roomStatusChanged), name: MucEventHandler.ROOM_STATUS_CHANGED, object: nil);

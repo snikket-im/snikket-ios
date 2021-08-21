@@ -95,7 +95,7 @@ class AttachmentChatTableViewCell: BaseChatTableViewCell, UIContextMenuInteracti
     lazy var audioTime: UILabel = {
         let audioTime = UILabel()
         audioTime.text = "00:00"
-        audioTime.textColor = .white
+        audioTime.textColor = UIColor(named: "tintColor")
         audioTime.font = UIFont.systemFont(ofSize: 12)
         audioTime.setContentHuggingPriority(.required, for: .horizontal)
         audioTime.translatesAutoresizingMaskIntoConstraints = false
@@ -140,6 +140,15 @@ class AttachmentChatTableViewCell: BaseChatTableViewCell, UIContextMenuInteracti
     
     func setupAudioPlayer() {
         guard let item = self.item else { return }
+        
+        let session = AVAudioSession.sharedInstance()
+
+        do {
+            try session.setCategory(.playback, mode: .default)
+            try session.setActive(true)
+        } catch {
+            
+        }
         
         if let localUrl = DownloadStore.instance.url(for: "\(item.id)") {
             do {

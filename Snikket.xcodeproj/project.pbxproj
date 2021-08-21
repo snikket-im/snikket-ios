@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E9B25E2F26D0126800A54107 /* ChatViewInputBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B25E2E26D0126800A54107 /* ChatViewInputBar.swift */; };
 		E9D384B426CA95FF009BEAF3 /* UIDeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D384B326CA95FF009BEAF3 /* UIDeviceExtension.swift */; };
 		E9D384B626CBB606009BEAF3 /* CustomUISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D384B526CBB606009BEAF3 /* CustomUISlider.swift */; };
 		E9D384B826CBBEB6009BEAF3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D384B726CBBEB6009BEAF3 /* Extensions.swift */; };
@@ -289,6 +290,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E9B25E2E26D0126800A54107 /* ChatViewInputBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewInputBar.swift; sourceTree = "<group>"; };
 		E9D384B326CA95FF009BEAF3 /* UIDeviceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExtension.swift; sourceTree = "<group>"; };
 		E9D384B526CBB606009BEAF3 /* CustomUISlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUISlider.swift; sourceTree = "<group>"; };
 		E9D384B726CBBEB6009BEAF3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -625,6 +627,7 @@
 				FE2332DC242CB01600008ED4 /* ChatInvitation.swift */,
 				FE2332DE242CB02700008ED4 /* AppendixProtocol.swift */,
 				FE2332E0242CCDB400008ED4 /* InvitationChatTableViewCell.swift */,
+				E9B25E2E26D0126800A54107 /* ChatViewInputBar.swift */,
 			);
 			path = chat;
 			sourceTree = "<group>";
@@ -1407,6 +1410,7 @@
 				FE2D481A24505F1600C13CE5 /* CallManager.swift in Sources */,
 				FE3E388C2429FAC500D3A8E8 /* ChannelSettingsViewController.swift in Sources */,
 				FE00157D2017617B00490340 /* StreamFeaturesCache.swift in Sources */,
+				E9B25E2F26D0126800A54107 /* ChatViewInputBar.swift in Sources */,
 				FE2332DD242CB01600008ED4 /* ChatInvitation.swift in Sources */,
 				FE3E388E242A251E00D3A8E8 /* ChannelEditInfoController.swift in Sources */,
 				FEC514261CEB74F8003AF765 /* BaseChatViewController.swift in Sources */,
