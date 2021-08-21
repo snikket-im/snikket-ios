@@ -234,6 +234,7 @@ class BaseChatViewController: UIViewController, UITextViewDelegate, ChatViewInpu
         if let account = self.account, let jid = self.jid {
             XmppService.instance.dbChatStore.storeMessage(draft: messageText, for: account, with: jid);
         }
+        chatViewInputBar.stopRecording()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
