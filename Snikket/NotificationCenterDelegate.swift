@@ -38,6 +38,9 @@ class NotificationCenterDelegate: NSObject, UNUserNotificationCenterDelegate {
             } else {
                 completionHandler([.alert, .sound]);
             }
+        case .MUC_ROOM_INVITATION:
+            didReceive(mucInvitation: notification.request.content)
+            return
         default:
             completionHandler([.alert, .sound]);
         }
@@ -52,7 +55,8 @@ class NotificationCenterDelegate: NSObject, UNUserNotificationCenterDelegate {
         case .SUBSCRIPTION_REQUEST:
             didReceive(subscriptionRequest: content, withCompletionHandler: completionHandler);
         case .MUC_ROOM_INVITATION:
-            didReceive(mucInvitation: content, withCompletionHandler: completionHandler);
+            //didReceive(mucInvitation: content, withCompletionHandler: completionHandler);
+        break
         case .MESSAGE:
             didReceive(messageResponse: response, withCompletionHandler: completionHandler);
         case .CALL:
@@ -166,30 +170,17 @@ class NotificationCenterDelegate: NSObject, UNUserNotificationCenterDelegate {
         completionHandler();
     }
     
-    func didReceive(mucInvitation content: UNNotificationContent, withCompletionHandler completionHandler: @escaping () -> Void) {
+    func didReceive(mucInvitation content: UNNotificationContent) {
         guard let account = BareJID(content.userInfo["account"] as? String), let roomJid: BareJID = BareJID(content.userInfo["roomJid"] as? String) else {
             return;
         }
                 
         let password = content.userInfo["password"] as? String;
-                
-        let controller = UIStoryboard(name: "MIX", bundle: nil).instantiateViewController(withIdentifier: "ChannelJoinViewController") as! ChannelJoinViewController;
-    
-        controller.account = account;
-        controller.channelJid = roomJid;
-        controller.componentType = .muc;
-        controller.password = password;
 
-        controller.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: controller, action: #selector(ChannelJoinViewController.cancelClicked(_:)));
+
+        let nick = AccountManager.getAccount(for: account)?.nickname ?? ""
+        joinMUC(account: account, channelJid: roomJid, componentType: .muc, nick: nick, password: password)
         
-        var topController = UIApplication.shared.keyWindow?.rootViewController;
-        while (topController?.presentedViewController != nil) {
-            topController = topController?.presentedViewController;
-        }
-        let navController = UINavigationController(rootViewController: controller);
-        navController.modalPresentationStyle = .formSheet;
-        topController?.present(navController, animated: true, completion: nil);
-        completionHandler();
     }
     
     func didReceive(messageResponse response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
@@ -336,5 +327,32 @@ class NotificationCenterDelegate: NSObject, UNUserNotificationCenterDelegate {
         }
         #endif
         completionHandler();
+    }
+    
+    public func joinMUC(account: BareJID, channelJid: BareJID, componentType: ChannelsHelper.ComponentType, nick: String, password: String?) {
+        
+        switch componentType {
+         case .mix:
+             break
+         case .muc:
+            guard let client = XmppService.instance.getClient(for: account), let mucModule: MucModule = client.modulesManager.getModule(MucModule.ID), let discoModule: DiscoveryModule = client.modulesManager.getModule(DiscoveryModule.ID) else {
+                 return;
+             }
+             let room = channelJid;
+            _ = mucModule.join(roomName: room.localPart!, mucServer: room.domain, nickname: nick, password: password, onJoined: { room in
+                discoModule.getInfo(for: room.jid, node: nil, completionHandler: { result in
+                    switch result {
+                    case .success(_, _, let features):
+                        (room as! DBRoom).supportedFeatures = features;
+                    case .failure(_, _):
+                        break;
+                    }
+                });
+                room.registerForTigasePushNotification(true, completionHandler: { (result) in
+                    print("automatically enabled push for:", room.roomJid, "result:", result);
+                })
+            });
+             PEPBookmarksModule.updateOrAdd(for: account, bookmark: Bookmarks.Conference(name: room.localPart!, jid: JID(room), autojoin: true, nick: nick, password: password));
+         }
     }
 }
