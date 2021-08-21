@@ -636,6 +636,7 @@ class ChatViewInputBar: UIView, UITextViewDelegate, NSTextStorageDelegate {
                 self.cancelRecordingButton.alpha = 1
                 self.micButton.isHidden = true
                 self.sendMessageButton.isHidden = false
+                self.sendMessageButton.alpha = 1
                 self.isLocked = true
                 self.setRecordingCancelButtonTitle(slideToCancel: false)
             }
@@ -704,7 +705,6 @@ class ChatViewInputBar: UIView, UITextViewDelegate, NSTextStorageDelegate {
                 }
             } else {
                 timer.invalidate()
-                print("did invalidated timer")
             }
         }
     }
@@ -736,15 +736,6 @@ extension ChatViewInputBar : UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
      }
-    
-//    override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-//        if ChatViewInputBar.isRecordingAllowed {
-//            return true
-//        } else {
-//            print("returned no")
-//            return false
-//        }
-//    }
 }
 
 
