@@ -400,9 +400,9 @@ class SettingsViewController: UITableViewController {
         
         static let groups: [SettingsGroup] = {
             if #available(iOS 13.0, *) {
-                return [.appearance, .chat, .contacts, .notifications, .media, .experimental, .about]
+                return [.appearance, .chat, .contacts, .media, .about]
             } else {
-                return [.chat, .contacts, .notifications, .experimental, .media, .about]
+                return [.chat, .contacts, .media, .about]
             }
         }()
     }
