@@ -154,7 +154,10 @@ class MucEventHandler: XmppServiceEventHandler {
             e.bookmarks?.items.filter { bookmark in bookmark is Bookmarks.Conference }.map { bookmark in bookmark as! Bookmarks.Conference }.filter { bookmark in
                 return !mucModule.roomsManager.contains(roomJid: bookmark.jid.bareJid);
                 }.forEach({ (bookmark) in
-                    guard let nick = bookmark.nick, bookmark.autojoin else {
+                    guard bookmark.autojoin else {
+                        return;
+                    }
+                    guard let nick = bookmark.nick != nil ? bookmark.nick : e.sessionObject.userBareJid?.localPart else {
                         return;
                     }
                     _ = mucModule.join(roomName: bookmark.jid.localPart!, mucServer: bookmark.jid.domain, nickname: nick, password: bookmark.password);
