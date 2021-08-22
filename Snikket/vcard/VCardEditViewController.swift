@@ -437,7 +437,12 @@ class VCardEditViewController: UITableViewController, UIImagePickerControllerDel
                         pepUserAvatarModule.publishAvatar(data: data, mimeType: "image/png", onSuccess: {
                             print("PEP: user avatar published");
                             self.showAvatarSpinner(show: false)
-                            
+                        
+                            let avatarHash = Digest.sha1.digest(toHex: data);
+                            let presenceModule: PresenceModule = client.modulesManager.getModule(PresenceModule.ID)!;
+                            let x = Element(name: "x", xmlns: "vcard-temp:x:update");
+                            x.addChild(Element(name: "photo", cdata: avatarHash));
+                            presenceModule.setPresence(show: .online, status: nil, priority: nil, additionalElements: [x]);
                             }, onError: { (errorCondition, pubsubErrorCondition) in
                                 DispatchQueue.main.async {
                                     let alert = UIAlertController(title: "Error", message: "User avatar publication failed.\nReason: " + ((pubsubErrorCondition?.rawValue ?? errorCondition?.rawValue) ?? "unknown"), preferredStyle: .alert);
