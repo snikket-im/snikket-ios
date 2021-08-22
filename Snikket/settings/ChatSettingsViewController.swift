@@ -27,13 +27,13 @@ class ChatSettingsViewController: UITableViewController {
         if #available(iOS 13.0, *) {
             return [
             [SettingsEnum.recentsMessageLinesNo, SettingsEnum.recentsSortType],
-            [SettingsEnum.sendMessageOnReturn, SettingsEnum.deleteChatHistoryOnClose, SettingsEnum.enableMessageCarbons, SettingsEnum.messageDeliveryReceipts, SettingsEnum.messageEncryption, SettingsEnum.linkPreviews],
+            [SettingsEnum.sendMessageOnReturn, SettingsEnum.deleteChatHistoryOnClose, SettingsEnum.messageDeliveryReceipts, SettingsEnum.messageEncryption, SettingsEnum.linkPreviews],
                 [SettingsEnum.media]
                 ];
         } else {
             return [
             [SettingsEnum.recentsMessageLinesNo, SettingsEnum.recentsSortType],
-            [SettingsEnum.sendMessageOnReturn, SettingsEnum.deleteChatHistoryOnClose, SettingsEnum.enableMessageCarbons, SettingsEnum.messageDeliveryReceipts, SettingsEnum.messageEncryption],
+            [SettingsEnum.sendMessageOnReturn, SettingsEnum.deleteChatHistoryOnClose, SettingsEnum.messageDeliveryReceipts, SettingsEnum.messageEncryption],
                 [SettingsEnum.media]
                 ];
         }

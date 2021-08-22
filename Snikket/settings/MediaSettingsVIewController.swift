@@ -24,7 +24,7 @@ import UIKit
 class MediaSettingsViewController: UITableViewController {
     
     let tree: [[SettingsEnum]] = [
-        [SettingsEnum.sharingViaHttpUpload, SettingsEnum.maxImagePreviewSize],
+        [SettingsEnum.maxImagePreviewSize],
         [SettingsEnum.imageUploadQuality, SettingsEnum.videoUploadQuality],
         [SettingsEnum.clearDownloadStore]
     ];

@@ -73,6 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = UIColor(named: "tintColor");
         NotificationManager.instance.initialize(provider: MainNotificationManagerProvider());
         xmppService.initialize();
+        Settings.setDefaultSettings()
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
             // sending notifications not granted!
         }

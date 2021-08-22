@@ -24,6 +24,7 @@ import UIKit
 
 class VCardAvatarEditCell: UITableViewCell {
     
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet var avatarView: AvatarView!;
     @IBOutlet var changeBtn: UIButton!;
      

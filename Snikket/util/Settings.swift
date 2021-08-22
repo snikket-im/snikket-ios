@@ -147,6 +147,28 @@ public enum Settings: String {
         }
     }
     
+    public static func setDefaultSettings() {
+        let defaultSettings = ["enableBookmarksSync": true,
+                               "NotificationsFromUnknown":true,
+                               "SharingViaHttpUpload":true,
+                               "enableMessageCarbons":true,
+                               "markdown":false,
+                               "ShowEmoticons":false,
+                               "XmppPipelining":false,
+                               "usePublicStunServers":false]
+        
+        for (key,defaultValue) in defaultSettings {
+            if let value = store.object(forKey: key) as? Bool, value != defaultValue {
+                store.setValue(defaultValue, forKey: key)
+                if let key = Settings(rawValue: key) {
+                    valueChanged(forKey: key, oldValue: value, newValue: defaultValue)
+                }
+                    
+                
+            }
+        }
+    }
+    
     public func setValue(_ value: String?) {
         let currValue = getString();
         guard currValue != value else {
