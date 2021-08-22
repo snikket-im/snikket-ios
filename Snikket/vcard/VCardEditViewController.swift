@@ -400,20 +400,23 @@ class VCardEditViewController: UITableViewController, UIImagePickerControllerDel
         // saving photo
         let data = photo.pngData()
         
-        if data != nil {
-            vcard.photos = [VCard.Photo(type: "image/png", binval: data!.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0)))];
-            showAvatarSpinner(show: true)
-        }
-        
-        if let data = data, data.count > 256000 {
-            MediaHelper.resizeTo200KB(image: photo) { image in
-                if let image = image, let data = image.pngData() {
-                    self.publishAvatar(data: data)
-                } else {
-                    print("failed to resize")
+        if let data = data {
+            if data.count > 200000 {     // 200KB
+                MediaHelper.resizeTo200KB(image: photo) { image in
+                    if let image = image, let data = image.pngData() {
+                        self.publishAvatar(data: data)
+                        self.vcard.photos = [VCard.Photo(type: "image/png", binval: data.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0)))]
+                        self.showAvatarSpinner(show: true)
+                    } else {
+                        print("failed to resize")
+                    }
                 }
+            } else {
+                self.publishAvatar(data: data)
+                self.vcard.photos = [VCard.Photo(type: "image/png", binval: data.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0)))]
             }
         }
+            
         picker.dismiss(animated: true, completion: nil);
         
     }
