@@ -126,4 +126,37 @@ class MediaHelper {
         }
     }
     
+    static func resizeTo200KB(image: UIImage, completion: @escaping(UIImage?)->()) {
+        guard let imageData = image.pngData() else {
+            completion(nil)
+            return
+        }
+
+        var resizingImage = image
+        var imageSizeKB = Double(imageData.count) / 1000.0 // ! Or devide for 1024 if you need KB but not kB
+
+        while imageSizeKB > 200 { // ! Or use 1024 if you need KB but not kB
+            guard let resizedImage = resizingImage.resized(withPercentage: 0.9),
+                  let imageData = resizedImage.pngData()
+                else { completion(nil)
+                return }
+
+            resizingImage = resizedImage
+            imageSizeKB = Double(imageData.count) / 1000.0 // ! Or devide for 1024 if you need KB but not kB
+        }
+
+        return completion(resizingImage)
+    }
+    
+}
+
+extension UIImage {
+
+    func resized(withPercentage percentage: CGFloat) -> UIImage? {
+        let canvasSize = CGSize(width: size.width * percentage, height: size.height * percentage)
+        UIGraphicsBeginImageContextWithOptions(canvasSize, false, scale)
+        defer { UIGraphicsEndImageContext() }
+        draw(in: CGRect(origin: .zero, size: canvasSize))
+        return UIGraphicsGetImageFromCurrentImageContext()
+    }
 }
