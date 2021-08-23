@@ -807,16 +807,16 @@
         <scene sceneID="1Vu-99-WGf">
             <objects>
                 <tableViewController id="aoe-87-pHn" customClass="VCardEditViewController" customModule="Snikket" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="6Lb-xD-6si">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="6Lb-xD-6si">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AvatarEditCell" id="Jdf-2W-ONn" customClass="VCardAvatarEditCell" customModule="Snikket" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="49" width="600" height="246.33332824707031"/>
+                                <rect key="frame" x="0.0" y="49" width="600" height="246"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jdf-2W-ONn" id="Poh-qo-WJY">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="246.33332824707031"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="246"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dH0-8q-Wlh" customClass="AvatarView" customModule="Snikket" customModuleProvider="target">
@@ -827,7 +827,7 @@
                                             </constraints>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mo3-sc-7ss">
-                                            <rect key="frame" x="250" y="208" width="100" height="30.333333333333343"/>
+                                            <rect key="frame" x="250" y="208" width="100" height="30"/>
                                             <state key="normal" title="Change avatar"/>
                                         </button>
                                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Pbk-wt-euv">
@@ -852,26 +852,37 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextEditCell" id="V2q-7Y-AFD" customClass="VCardTextEditCell" customModule="Snikket" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="295.33332824707031" width="600" height="44.333332061767578"/>
+                                <rect key="frame" x="0.0" y="295" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="V2q-7Y-AFD" id="v2b-uZ-hel">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44.333332061767578"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F9p-Vm-8vJ">
-                                            <rect key="frame" x="20" y="0.0" width="560" height="44.333333333333336"/>
+                                            <rect key="frame" x="20" y="0.0" width="560" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="fxb-ku-bDE"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                         </textField>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="rQI-rm-8Af">
+                                            <rect key="frame" x="550" y="2" width="20" height="40.333333333333329"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="20" id="rWu-SF-cx1"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="F9p-Vm-8vJ" firstAttribute="top" secondItem="v2b-uZ-hel" secondAttribute="top" id="63M-ZW-dwb"/>
+                                        <constraint firstItem="rQI-rm-8Af" firstAttribute="bottom" secondItem="F9p-Vm-8vJ" secondAttribute="bottom" id="I1f-Ng-2Ln"/>
                                         <constraint firstItem="F9p-Vm-8vJ" firstAttribute="leading" secondItem="v2b-uZ-hel" secondAttribute="leadingMargin" id="V0j-Eo-9bF"/>
+                                        <constraint firstItem="rQI-rm-8Af" firstAttribute="trailing" secondItem="F9p-Vm-8vJ" secondAttribute="trailing" constant="-10" id="WwV-Zf-Rq6"/>
                                         <constraint firstAttribute="bottom" secondItem="F9p-Vm-8vJ" secondAttribute="bottom" id="g2q-76-E4B"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="F9p-Vm-8vJ" secondAttribute="trailing" id="p92-A7-Jei"/>
+                                        <constraint firstItem="rQI-rm-8Af" firstAttribute="top" secondItem="F9p-Vm-8vJ" secondAttribute="top" id="sKf-9V-RBI"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -879,7 +890,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhoneEditCell" rowHeight="44" id="pFr-oV-mlK" customClass="VCardEditPhoneTableViewCell" customModule="Snikket" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="339.66666030883789" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="339" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pFr-oV-mlK" id="VLP-0h-9c6">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -919,17 +930,17 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="PhoneAddCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhoneAddCell" id="PkJ-5b-L9A">
-                                <rect key="frame" x="0.0" y="383.66666030883789" width="600" height="50"/>
+                                <rect key="frame" x="0.0" y="383" width="600" height="49"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PkJ-5b-L9A" id="Kju-6c-Lhj">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9jf-N5-mdI">
-                                            <rect key="frame" x="20" y="14.000000000000002" width="20.666666666666671" height="22.666666666666671"/>
+                                            <rect key="frame" x="20" y="14.000000000000002" width="20.666666666666671" height="21.666666666666671"/>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" text="add phone" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jAE-vq-Vfj">
-                                            <rect key="frame" x="48.666666666666686" y="14.000000000000002" width="531.33333333333326" height="21.666666666666671"/>
+                                            <rect key="frame" x="48.666666666666686" y="14.000000000000002" width="531.33333333333326" height="20.666666666666671"/>
                                             <accessibility key="accessibilityConfiguration">
                                                 <accessibilityTraits key="traits" link="YES" staticText="YES"/>
                                             </accessibility>
@@ -950,7 +961,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EmailEditCell" rowHeight="44" id="GEd-A7-c44" customClass="VCardEditEmailTableViewCell" customModule="Snikket" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="433.66666030883789" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="432" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GEd-A7-c44" id="3nQ-Uq-yP5">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -990,7 +1001,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EmailAddCell" rowHeight="51.666667938232422" id="l4b-9l-fds">
-                                <rect key="frame" x="0.0" y="477.66666030883789" width="600" height="51.666667938232422"/>
+                                <rect key="frame" x="0.0" y="476" width="600" height="51.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="l4b-9l-fds" id="a6e-BR-Tpz">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="51.666667938232422"/>
@@ -1021,17 +1032,17 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddressAddCell" id="mi6-7L-CB9">
-                                <rect key="frame" x="0.0" y="529.33332824707031" width="600" height="50"/>
+                                <rect key="frame" x="0.0" y="527.66666793823242" width="600" height="49"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mi6-7L-CB9" id="Nkf-ag-U8r">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cHr-1G-C3e">
-                                            <rect key="frame" x="20" y="14.000000000000002" width="20.666666666666671" height="22.666666666666671"/>
+                                            <rect key="frame" x="20" y="14.000000000000002" width="20.666666666666671" height="21.666666666666671"/>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" text="add address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRX-fN-yOj">
-                                            <rect key="frame" x="48.666666666666686" y="14.000000000000002" width="531.33333333333326" height="21.666666666666671"/>
+                                            <rect key="frame" x="48.666666666666686" y="14.000000000000002" width="531.33333333333326" height="20.666666666666671"/>
                                             <accessibility key="accessibilityConfiguration">
                                                 <accessibilityTraits key="traits" link="YES" staticText="YES"/>
                                             </accessibility>
@@ -1052,14 +1063,14 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddressEditCell" id="Elb-gV-k9q" customClass="VCardEditAddressTableViewCell" customModule="Snikket" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="579.33332824707031" width="600" height="132.33332824707031"/>
+                                <rect key="frame" x="0.0" y="576.66666793823242" width="600" height="132"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Elb-gV-k9q" id="b8O-NZ-4fp">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="132.33332824707031"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="132"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NK4-tE-QSu">
-                                            <rect key="frame" x="20" y="0.0" width="60" height="132.33333333333334"/>
+                                            <rect key="frame" x="20" y="0.0" width="60" height="132"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="60" id="zJM-ta-WdX"/>
                                             </constraints>
@@ -1093,7 +1104,7 @@
                                             <textInputTraits key="textInputTraits" textContentType="address-level1+2"/>
                                         </textField>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Country" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4hs-GL-9fd">
-                                            <rect key="frame" x="88" y="88" width="492" height="44.333333333333343"/>
+                                            <rect key="frame" x="88" y="88" width="492" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="44" id="fZh-s9-1Id"/>
                                             </constraints>
@@ -1134,30 +1145,55 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="x9W-1f-lRq">
-                        <rightBarButtonItems>
-                            <barButtonItem systemItem="save" id="zgB-Bx-lxu">
-                                <connections>
-                                    <action selector="publishVCard:" destination="aoe-87-pHn" id="Dv0-KT-dot"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem systemItem="refresh" id="LwX-OM-LJn">
-                                <connections>
-                                    <action selector="refreshVCard:" destination="aoe-87-pHn" id="TQn-wv-Irk"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="x9W-1f-lRq"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="1500"/>
-                    <connections>
-                        <outlet property="saveBarButton" destination="zgB-Bx-lxu" id="Djv-j3-Mnh"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1qg-fn-RHu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6797" y="1967"/>
+        </scene>
+        <!--Display Name View Controller-->
+        <scene sceneID="FsV-4O-ZvF">
+            <objects>
+                <viewController storyboardIdentifier="DisplayNameViewController" id="IFP-7j-CLH" customClass="DisplayNameViewController" customModule="Snikket" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tQP-GI-IGr">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1500"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NMR-Vu-B8R">
+                                <rect key="frame" x="20" y="64" width="560" height="40"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="e2k-FJ-jGF"/>
+                                </constraints>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="IFP-7j-CLH" id="LOG-GU-4dU"/>
+                                </connections>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="pu1-DH-CNk"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="NMR-Vu-B8R" firstAttribute="leading" secondItem="pu1-DH-CNk" secondAttribute="leading" constant="20" id="2bE-Ni-hBc"/>
+                            <constraint firstItem="pu1-DH-CNk" firstAttribute="trailing" secondItem="NMR-Vu-B8R" secondAttribute="trailing" constant="20" id="QVu-mo-C8M"/>
+                            <constraint firstItem="NMR-Vu-B8R" firstAttribute="top" secondItem="pu1-DH-CNk" secondAttribute="top" constant="20" id="RNm-rL-5F0"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="1500"/>
+                    <connections>
+                        <outlet property="textView" destination="NMR-Vu-B8R" id="LLL-Lf-yrr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CGa-gb-mjX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7973" y="1968"/>
         </scene>
         <!--OMEMO fingerprints-->
         <scene sceneID="9pa-yB-KSS">
@@ -1259,9 +1295,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ej2-9Z-vEb"/>
+        <segue reference="opM-M0-zrX"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
         <namedColor name="chatslistBackground">
             <color red="0.99607843137254903" green="0.85490196078431369" blue="0.023529411764705882" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

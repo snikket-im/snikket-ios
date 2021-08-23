@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E95AA70226D38B6F00A38D44 /* DisplayNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95AA70126D38B6E00A38D44 /* DisplayNameViewController.swift */; };
 		E9B25E2F26D0126800A54107 /* ChatViewInputBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B25E2E26D0126800A54107 /* ChatViewInputBar.swift */; };
 		E9D384B426CA95FF009BEAF3 /* UIDeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D384B326CA95FF009BEAF3 /* UIDeviceExtension.swift */; };
 		E9D384B626CBB606009BEAF3 /* CustomUISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D384B526CBB606009BEAF3 /* CustomUISlider.swift */; };
@@ -290,6 +291,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E95AA70126D38B6E00A38D44 /* DisplayNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayNameViewController.swift; sourceTree = "<group>"; };
 		E9B25E2E26D0126800A54107 /* ChatViewInputBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewInputBar.swift; sourceTree = "<group>"; };
 		E9D384B326CA95FF009BEAF3 /* UIDeviceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExtension.swift; sourceTree = "<group>"; };
 		E9D384B526CBB606009BEAF3 /* CustomUISlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUISlider.swift; sourceTree = "<group>"; };
@@ -915,6 +917,7 @@
 				FEA8D65C1F2F6AF60077C12F /* VCardEntryTypeAwareTableViewCell.swift */,
 				FEA303AA24694447004A3B3E /* VCardAvatarEditCell.swift */,
 				FEA303AC24696604004A3B3E /* VCardTextEditCell.swift */,
+				E95AA70126D38B6E00A38D44 /* DisplayNameViewController.swift */,
 			);
 			path = vcard;
 			sourceTree = "<group>";
@@ -1308,6 +1311,7 @@
 				FE507A1E1CDB7B3B001A015C /* RosterViewController.swift in Sources */,
 				FE2332DF242CB02700008ED4 /* AppendixProtocol.swift in Sources */,
 				FEDCBF691D9C53BA00AE9129 /* RosterProviderGrouped.swift in Sources */,
+				E95AA70226D38B6F00A38D44 /* DisplayNameViewController.swift in Sources */,
 				FEDE938C1D08AFE800CA60A9 /* VCardEditViewController.swift in Sources */,
 				FEDC678E238B03C1005C0FAB /* AppStoryboard.swift in Sources */,
 				FEA303AD24696604004A3B3E /* VCardTextEditCell.swift in Sources */,

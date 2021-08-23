@@ -23,6 +23,7 @@ import Foundation
 import TigaseSwift
 
 public enum Settings: String {
+    case DisplayName
     case DeleteChatHistoryOnChatClose
     case enableMessageCarbons;
     case StatusType
