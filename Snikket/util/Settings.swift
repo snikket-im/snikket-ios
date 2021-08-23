@@ -23,7 +23,6 @@ import Foundation
 import TigaseSwift
 
 public enum Settings: String {
-    case DisplayName
     case DeleteChatHistoryOnChatClose
     case enableMessageCarbons;
     case StatusType
@@ -164,10 +163,12 @@ public enum Settings: String {
                 if let key = Settings(rawValue: key) {
                     valueChanged(forKey: key, oldValue: value, newValue: defaultValue)
                 }
-                    
-                
             }
         }
+    }
+    
+    public static func setStringValue(for key: String, value: String) {
+        store.set(value, forKey: key)
     }
     
     public func setValue(_ value: String?) {
@@ -245,6 +246,7 @@ public enum AccountSettings {
     case omemoRegistrationId(BareJID)
     case reconnectionLocation(BareJID)
     case pushHash(BareJID)
+    case displayName(BareJID)
     
     public var account: BareJID {
         switch self {
@@ -266,6 +268,8 @@ public enum AccountSettings {
             return account;
         case .pushHash(let account):
             return account;
+        case .displayName(let account):
+            return account
         }
     }
     
@@ -289,6 +293,8 @@ public enum AccountSettings {
             return "reconnectionLocation";
         case .pushHash(_):
             return "pushHash";
+        case .displayName(_):
+            return "displayName"
         }
     }
     
@@ -436,6 +442,13 @@ public enum AccountSettings {
         };
         toRemove.forEach { (key) in
             Settings.store.removeObject(forKey: key);
+        }
+        
+        accounts.forEach { account in
+            if AccountSettings.displayName(account).getString() == nil, let currentAccount = AccountManager.getAccount(for: account) {
+                
+                AccountSettings.displayName(account).set(string: currentAccount.nickname ?? currentAccount.name.stringValue)
+            }
         }
     }
     

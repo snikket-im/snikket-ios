@@ -57,12 +57,8 @@ class VCardEditViewController: UITableViewController, UIImagePickerControllerDel
     
     func setDisplayName() {
         
-        if let displayname = Settings.DisplayName.getString() {
-            self.displayname = displayname
-        }
-        else if let account = AccountManager.getAccount(for: account){
-            self.displayname = account.nickname ?? account.name.stringValue
-            Settings.DisplayName.setValue(self.displayname)
+        if let account = account, let displayName = AccountSettings.displayName(account).getString() {
+            self.displayname = displayName
         }
         self.tableView.reloadData()
     }
@@ -133,7 +129,7 @@ class VCardEditViewController: UITableViewController, UIImagePickerControllerDel
             self.photoClicked()
         } else {
             if let vc = UIStoryboard(name: "Account", bundle: nil).instantiateViewController(withIdentifier: "DisplayNameViewController") as? DisplayNameViewController {
-                vc.displayName = self.displayname
+                vc.account = self.account
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             

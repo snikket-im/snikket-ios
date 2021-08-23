@@ -157,9 +157,14 @@ class MucEventHandler: XmppServiceEventHandler {
                     guard bookmark.autojoin else {
                         return;
                     }
-                    guard let nick = bookmark.nick != nil ? bookmark.nick : e.sessionObject.userBareJid?.localPart else {
-                        return;
+                    
+                    var nick: String?
+                    if let account = e.sessionObject.userBareJid, let displayName = AccountSettings.displayName(account).getString() {
+                        nick = displayName
                     }
+                    
+                    guard let nick = bookmark.nick != nil ? bookmark.nick : nick
+                    else { return }
                     _ = mucModule.join(roomName: bookmark.jid.localPart!, mucServer: bookmark.jid.domain, nickname: nick, password: bookmark.password);
                 });
         default:

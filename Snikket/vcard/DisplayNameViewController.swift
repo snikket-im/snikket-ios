@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import TigaseSwift
 
 class DisplayNameViewController: UIViewController {
 
     @IBOutlet weak var textView: UITextView!
     
-    var displayName = ""
+    var account : BareJID?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +23,12 @@ class DisplayNameViewController: UIViewController {
     }
 
     func setupField() {
-        if displayName != "" {
+        textView.clipsToBounds = true
+        textView.layer.cornerRadius = 5
+        textView.layer.borderColor = UIColor.darkGray.cgColor
+        textView.layer.borderWidth = 1
+        
+        if let account = account, let displayName = AccountSettings.displayName(account).getString() {
             textView.text = displayName
             textView.textColor = .black
         } else {
@@ -30,10 +36,6 @@ class DisplayNameViewController: UIViewController {
             textView.textColor = .lightGray
         }
         
-        textView.clipsToBounds = true
-        textView.layer.cornerRadius = 5
-        textView.layer.borderColor = UIColor.darkGray.cgColor
-        textView.layer.borderWidth = 1
     }
     
     func setupNavigationBar() {
@@ -44,8 +46,8 @@ class DisplayNameViewController: UIViewController {
     }
     
     @objc func done() {
-        if !textView.text.isEmpty {
-            Settings.DisplayName.setValue(textView.text)
+        if !textView.text.isEmpty, let account = account {
+            AccountSettings.displayName(account).set(string: textView.text)
         }
         self.navigationController?.popViewController(animated: true)
     }
@@ -66,8 +68,8 @@ extension DisplayNameViewController: UITextViewDelegate {
         }
     }
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if text == "\n", !textView.text.isEmpty {
-            Settings.DisplayName.setValue(textView.text)
+        if text == "\n", !textView.text.isEmpty, let account = account {
+            AccountSettings.displayName(account).set(string: textView.text)
             self.navigationController?.popViewController(animated: true)
             textView.resignFirstResponder()
             return false
