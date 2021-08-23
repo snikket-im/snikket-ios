@@ -195,8 +195,8 @@ class VCardEditViewController: UITableViewController, UIImagePickerControllerDel
         let data = photo.pngData()
         
         if let data = data {
-            if data.count > 200000 {     // 200KB
-                MediaHelper.resizeTo200KB(image: photo) { image in
+            if data.count > 72000 { // 72KB
+                MediaHelper.resizeTo(image: photo, targetBytes: 72000) { image in
                     if let image = image, let data = image.pngData() {
                         self.publishAvatar(data: data)
                         self.vcard.photos = [VCard.Photo(type: "image/png", binval: data.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0)))]

@@ -126,23 +126,24 @@ class MediaHelper {
         }
     }
     
-    static func resizeTo200KB(image: UIImage, completion: @escaping(UIImage?)->()) {
+    static func resizeTo(image: UIImage, targetBytes: UInt, completion: @escaping(UIImage?)->()) {
         guard let imageData = image.pngData() else {
             completion(nil)
             return
         }
 
         var resizingImage = image
-        var imageSizeKB = Double(imageData.count) / 1000.0 // ! Or devide for 1024 if you need KB but not kB
-
-        while imageSizeKB > 200 { // ! Or use 1024 if you need KB but not kB
-            guard let resizedImage = resizingImage.resized(withPercentage: 0.9),
+        var imageSizeBytes = imageData.count
+        
+        while imageSizeBytes > targetBytes {
+            guard let resizedImage = resizingImage.resized(withPercentage: 0.75),
                   let imageData = resizedImage.pngData()
-                else { completion(nil)
-                return }
-
+            else {
+                completion(nil)
+                return
+            }
+            imageSizeBytes = imageData.count
             resizingImage = resizedImage
-            imageSizeKB = Double(imageData.count) / 1000.0 // ! Or devide for 1024 if you need KB but not kB
         }
 
         return completion(resizingImage)
