@@ -26,6 +26,7 @@ class VCardEditViewController: UITableViewController, UIImagePickerControllerDel
 
     var xmppService: XmppService!;
         
+    var avatarImage: UIImage?
     var displayname = ""
     var account: BareJID!;
     var vcard: VCard!;
@@ -37,12 +38,8 @@ class VCardEditViewController: UITableViewController, UIImagePickerControllerDel
         xmppService = (UIApplication.shared.delegate as! AppDelegate).xmppService;
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-        vcard = xmppService.dbVCardsCache.getVCard(for: account) ?? VCard();
-        if vcard != nil {
-            tableView.reloadData();
-        }
-        
+        avatarImage = AvatarManager.instance.avatar(for: account, on: account)
+        self.tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -67,17 +64,7 @@ class VCardEditViewController: UITableViewController, UIImagePickerControllerDel
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "AvatarEditCell") as! VCardAvatarEditCell;
             cell.avatarView.set(name: nil, avatar: nil, orDefault: AvatarManager.instance.defaultAvatar);
-            if let photo = vcard.photos.first {
-                xmppService.dbVCardsCache.fetchPhoto(photo: photo) { (photoData) in
-                    DispatchQueue.main.async {
-                        if let photoData = photoData, let image = UIImage(data: photoData) {
-                            cell.avatarView.set(name: nil, avatar: image, orDefault: AvatarManager.instance.defaultAvatar);
-                        } else {
-                            cell.avatarView.set(name: nil, avatar: nil, orDefault: AvatarManager.instance.defaultAvatar);
-                        }
-                    }
-                }
-            }
+            cell.avatarView.set(name: nil, avatar: avatarImage, orDefault: AvatarManager.instance.defaultAvatar)
             if isUpdatingAvatar { cell.spinner.startAnimating() }
             else { cell.spinner.stopAnimating() }
             cell.updateCornerRadius();
@@ -198,16 +185,19 @@ class VCardEditViewController: UITableViewController, UIImagePickerControllerDel
             if data.count > 72000 { // 72KB
                 MediaHelper.resizeTo(image: photo, targetBytes: 72000) { image in
                     if let image = image, let data = image.pngData() {
-                        self.publishAvatar(data: data)
-                        self.vcard.photos = [VCard.Photo(type: "image/png", binval: data.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0)))]
                         self.showAvatarSpinner(show: true)
+                        self.publishAvatar(data: data)
+                        self.avatarImage = photo
+                        self.tableView.reloadData()
                     } else {
                         print("failed to resize")
                     }
                 }
             } else {
+                self.showAvatarSpinner(show: true)
                 self.publishAvatar(data: data)
-                self.vcard.photos = [VCard.Photo(type: "image/png", binval: data.base64EncodedString(options: NSData.Base64EncodingOptions(rawValue: 0)))]
+                self.avatarImage = photo
+                self.tableView.reloadData()
             }
         }
             
@@ -229,14 +219,10 @@ class VCardEditViewController: UITableViewController, UIImagePickerControllerDel
                     question.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
                         
                         pepUserAvatarModule.publishAvatar(data: data, mimeType: "image/png", onSuccess: {
-                            print("PEP: user avatar published");
+                            
                             self.showAvatarSpinner(show: false)
-                        
-                            let avatarHash = Digest.sha1.digest(toHex: data);
-                            let presenceModule: PresenceModule = client.modulesManager.getModule(PresenceModule.ID)!;
-                            let x = Element(name: "x", xmlns: "vcard-temp:x:update");
-                            x.addChild(Element(name: "photo", cdata: avatarHash));
-                            presenceModule.setPresence(show: .online, status: nil, priority: nil, additionalElements: [x]);
+                            self.publishAvatarHash(data: data, client: client)
+                            
                             }, onError: { (errorCondition, pubsubErrorCondition) in
                                 DispatchQueue.main.async {
                                     let alert = UIAlertController(title: "Error", message: "User avatar publication failed.\nReason: " + ((pubsubErrorCondition?.rawValue ?? errorCondition?.rawValue) ?? "unknown"), preferredStyle: .alert);
@@ -263,6 +249,14 @@ class VCardEditViewController: UITableViewController, UIImagePickerControllerDel
                 }
             }
         }
+    }
+    
+    func publishAvatarHash(data: Data, client: XMPPClient) {
+        let avatarHash = Digest.sha1.digest(toHex: data)
+        let presenceModule: PresenceModule = client.modulesManager.getModule(PresenceModule.ID)!
+        let x = Element(name: "x", xmlns: "vcard-temp:x:update")
+        x.addChild(Element(name: "photo", cdata: avatarHash))
+        presenceModule.setPresence(show: .online, status: nil, priority: nil, additionalElements: [x])
     }
 }
 

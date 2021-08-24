@@ -75,7 +75,6 @@
 		FE43EB551F3CC55900A4CAAD /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE43EB541F3CC55900A4CAAD /* ImageCache.swift */; };
 		FE4DDF561F39E0B500A4CE5A /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4DDF551F39E0B500A4CE5A /* ShareViewController.swift */; };
 		FE4DDF591F39E0B500A4CE5A /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE4DDF571F39E0B500A4CE5A /* MainInterface.storyboard */; };
-		FE4DDF5D1F39E0B500A4CE5A /* Snikket - Share.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FE4DDF531F39E0B500A4CE5A /* Snikket - Share.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FE4DDF641F3A181B00A4CE5A /* AccountsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4DDF631F3A181B00A4CE5A /* AccountsTableViewController.swift */; };
 		FE4DDF661F3A207200A4CE5A /* AccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4DDF651F3A207200A4CE5A /* AccountTableViewCell.swift */; };
 		FE4DDF681F3A403900A4CE5A /* RecipientsSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4DDF671F3A403900A4CE5A /* RecipientsSelectionViewController.swift */; };
@@ -269,7 +268,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				FE4DDF5D1F39E0B500A4CE5A /* Snikket - Share.appex in Embed App Extensions */,
 				FE759FA82370ACA4001E78D9 /* NotificationService.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
