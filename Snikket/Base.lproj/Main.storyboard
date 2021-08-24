@@ -33,12 +33,12 @@
                                                 <view opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="200" translatesAutoresizingMaskIntoConstraints="NO" id="i0O-Zv-fEx">
                                                     <rect key="frame" x="0.0" y="0.0" width="338" height="20.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chat with" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qr0-8H-IJq">
-                                                            <rect key="frame" x="0.0" y="0.0" width="73" height="20.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chat with" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qr0-8H-IJq">
+                                                            <rect key="frame" x="0.0" y="0.0" width="266.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Timestamp" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ga8-2K-hxE">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Timestamp" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ga8-2K-hxE">
                                                             <rect key="frame" x="266.5" y="0.0" width="71.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                             <nil key="highlightedColor"/>
@@ -47,6 +47,7 @@
                                                     <constraints>
                                                         <constraint firstItem="ga8-2K-hxE" firstAttribute="top" secondItem="i0O-Zv-fEx" secondAttribute="top" id="0QG-zI-LV6"/>
                                                         <constraint firstAttribute="bottom" secondItem="Qr0-8H-IJq" secondAttribute="bottom" id="5AF-v3-SCd"/>
+                                                        <constraint firstItem="ga8-2K-hxE" firstAttribute="leading" secondItem="Qr0-8H-IJq" secondAttribute="trailing" id="9sY-fu-hvS"/>
                                                         <constraint firstItem="Qr0-8H-IJq" firstAttribute="top" secondItem="i0O-Zv-fEx" secondAttribute="top" id="R45-CA-F0x"/>
                                                         <constraint firstItem="Qr0-8H-IJq" firstAttribute="leading" secondItem="i0O-Zv-fEx" secondAttribute="leading" id="ZfK-Fb-tka"/>
                                                         <constraint firstAttribute="bottom" secondItem="ga8-2K-hxE" secondAttribute="bottom" id="bgV-vv-gyS"/>
