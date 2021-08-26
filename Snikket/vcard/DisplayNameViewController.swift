@@ -47,9 +47,20 @@ class DisplayNameViewController: UIViewController {
     
     @objc func done() {
         if !textView.text.isEmpty, let account = account {
-            AccountSettings.displayName(account).set(string: textView.text)
+            let nick = textView.text ?? ""
+            
+            if let pepModule: PEPDisplayNameModule = XmppService.instance.getClient(for: account)?.modulesManager.getModule(PEPDisplayNameModule.ID) {
+                
+                pepModule.publishNick(nick: nick, userJID: JID(account), completion: { success in
+                    AccountSettings.displayName(account).set(string: nick)
+                    DispatchQueue.main.async {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                    
+                })
+            }
         }
-        self.navigationController?.popViewController(animated: true)
+        
     }
     
 }
@@ -69,8 +80,17 @@ extension DisplayNameViewController: UITextViewDelegate {
     }
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if text == "\n", !textView.text.isEmpty, let account = account {
-            AccountSettings.displayName(account).set(string: textView.text)
-            self.navigationController?.popViewController(animated: true)
+            
+            if let pepModule: PEPDisplayNameModule = XmppService.instance.getClient(for: account)?.modulesManager.getModule(PEPDisplayNameModule.ID) {
+                
+                pepModule.publishNick(nick: textView.text ?? "", userJID: JID(account), completion: { success in
+                    AccountSettings.displayName(account).set(string: textView.text)
+                    DispatchQueue.main.async {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                    
+                })
+            }
             textView.resignFirstResponder()
             return false
         }
