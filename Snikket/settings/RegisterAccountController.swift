@@ -143,6 +143,12 @@ class RegisterAccountController: DataFormController {
             }
         }
         
+        if indexPath.section == 1 + form!.visibleFieldNames.count  {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "PrivacyPolicyCell", for: indexPath) as? PrivacyPolicyTableViewCell else { return UITableViewCell()}
+            cell.setupCell(domain: domain ?? "")
+            return cell
+        }
+        
         let cell = super.tableView(tableView, cellForRowAt: indexPath);
         if #available(iOS 11.0, *) {
             let fieldName = form!.visibleFieldNames[indexPath.row];
@@ -201,7 +207,7 @@ class RegisterAccountController: DataFormController {
                 self.bob = bob;
                 self.form = form;
                 
-                self.tableView.insertSections(IndexSet(0..<(form.visibleFieldNames.count + 1)), with: .fade);
+                self.tableView.insertSections(IndexSet(0..<(form.visibleFieldNames.count + 2)), with: .fade);
             }
         };
         let client: XMPPClient? = nil;

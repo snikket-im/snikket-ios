@@ -55,7 +55,7 @@ class DataFormController: UITableViewController {
         guard form != nil else {
             return 0;
         }
-        return 1 + form!.visibleFieldNames.count;
+        return 2 + form!.visibleFieldNames.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -63,27 +63,31 @@ class DataFormController: UITableViewController {
             return 0;
         }
         
-        let fieldName = form!.visibleFieldNames[section - 1];
+        let fieldName = form!.visibleFieldNames[(section - 2).clamped(to: 0...100)];
         let field = form!.getField(named: fieldName)!;
         return 1 + field.media.count;
         
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == (1 + form!.visibleFieldNames.count) {
+            return nil
+        }
         if section == 0 {
             let instructions: [String]? = form?.instructions as? [String];
         
             return (instructions == nil || instructions!.isEmpty) ? "Please fill this form" : instructions!.joined(separator: "\n");
         } else {
-            let fieldName = form!.visibleFieldNames[section - 1];
+            let fieldName = form!.visibleFieldNames[(section - 1)];
             return form?.getField(named: fieldName)?.label ?? fieldName;
         }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let fieldName = form!.visibleFieldNames[indexPath.section - 1];
+        let fieldName = form!.visibleFieldNames[(indexPath.section - 2).clamped(to: 0...100)];
         let field = form!.getField(named: fieldName)!;
         let medias = field.media;
+        
         if indexPath.row < medias.count {
             let media = medias[indexPath.row];
             let cell = tableView.dequeueReusableCell(withIdentifier: "FormViewCell-media", for: indexPath) as! MediaFieldCell;
@@ -118,7 +122,7 @@ class DataFormController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false);
         
-        guard indexPath.section > 0, let fieldName = form?.visibleFieldNames[indexPath.section - 1] else {
+        guard indexPath.section > 0, let fieldName = form?.visibleFieldNames[(indexPath.section - 2).clamped(to: 0...100)] else {
             return;
         }
         
