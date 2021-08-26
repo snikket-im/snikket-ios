@@ -131,7 +131,7 @@ class ContactViewController: UITableViewController {
         case .basic:
             return 1;
         case .settings:
-            return 2;
+            return 3;
         case .attachments:
             return 1;
         case .encryption:
@@ -193,6 +193,15 @@ class ContactViewController: UITableViewController {
                 btn.addTarget(self, action: #selector(blockContactChanged), for: .valueChanged);
                 cell.accessoryView = btn;
                 return cell;
+            case .blockAndReport:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "BlockContactCell", for: indexPath)
+                cell.contentView.subviews.forEach { view in
+                    if let label = view as? UILabel {
+                        label.text = "Report Contact"
+                        label.textColor = .red
+                    }
+                }
+                return cell
             }
         case .attachments:
             let cell = tableView.dequeueReusableCell(withIdentifier: "AttachmentsCell", for: indexPath);
@@ -305,7 +314,13 @@ class ContactViewController: UITableViewController {
         case .basic:
             return;
         case .settings:
-            return;
+            switch SettingsOptions(rawValue: indexPath.row)! {
+            case .blockAndReport:
+                self.presentBlockAndReportSheet()
+            default:
+                break
+            }
+            return
         case .attachments:
             return;
         case .encryption:
@@ -362,6 +377,43 @@ class ContactViewController: UITableViewController {
         }
     }
     
+    func presentBlockAndReportSheet() {
+        let alertController = UIAlertController(title: "Report", message: "The user will be reported and any calls, messages and status updates from them will be blocked.", preferredStyle: .actionSheet)
+        
+        let report = UIAlertAction(title: "Report and Block", style: .default) { (action: UIAlertAction!) in
+            self.reportAndBlockContact()
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action: UIAlertAction!) in
+            
+        }
+
+        alertController.addAction(report)
+        alertController.addAction(cancel)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func reportAndBlockContact() {
+        guard let client = XmppService.instance.getClient(for: account), let blockingModule: BlockingCommandModule = client.modulesManager.getModule(BlockingCommandModule.ID) else {
+            return;
+        }
+        blockingModule.blockAndReport(jids: [JID(jid)]) { [weak self] result in
+            switch result {
+            case .failure(_):
+                self?.showAlert(title: "Error", message: "Please try again!")
+            default:
+                break
+            }
+        }
+    }
+    
+    func showAlert(title: String, message: String) {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert);
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil);
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "chatShowAttachments" {
             if let attachmentsController = segue.destination as? ChatAttachmentsController {
@@ -384,6 +436,14 @@ class ContactViewController: UITableViewController {
         guard let client = XmppService.instance.getClient(for: account), let blockingModule: BlockingCommandModule = client.modulesManager.getModule(BlockingCommandModule.ID) else {
             sender.isOn = !sender.isOn;
             return;
+        }
+        blockingModule.blockAndReport(jids: [JID(jid!)]) { [weak sender] result in
+            switch result {
+            case .failure(_):
+                print(result)
+            default:
+                break;
+            }
         }
 
         if sender.isOn {
@@ -493,6 +553,7 @@ class ContactViewController: UITableViewController {
     enum SettingsOptions: Int {
         case mute = 0
         case block = 1
+        case blockAndReport = 2
     }
     
 }

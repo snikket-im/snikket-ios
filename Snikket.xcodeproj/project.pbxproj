@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E928AD4326D6A08A00F29F93 /* db-schema-14.sql in Resources */ = {isa = PBXBuildFile; fileRef = E928AD4226D6A08A00F29F93 /* db-schema-14.sql */; };
 		E95AA70226D38B6F00A38D44 /* DisplayNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95AA70126D38B6E00A38D44 /* DisplayNameViewController.swift */; };
+		E963721026D786D000332482 /* BlockingCommandModuleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E963720F26D786D000332482 /* BlockingCommandModuleExtension.swift */; };
 		E9B25E2F26D0126800A54107 /* ChatViewInputBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B25E2E26D0126800A54107 /* ChatViewInputBar.swift */; };
 		E9D384B426CA95FF009BEAF3 /* UIDeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D384B326CA95FF009BEAF3 /* UIDeviceExtension.swift */; };
 		E9D384B626CBB606009BEAF3 /* CustomUISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D384B526CBB606009BEAF3 /* CustomUISlider.swift */; };
@@ -293,6 +294,7 @@
 /* Begin PBXFileReference section */
 		E928AD4226D6A08A00F29F93 /* db-schema-14.sql */ = {isa = PBXFileReference; lastKnownFileType = text; path = "db-schema-14.sql"; sourceTree = "<group>"; };
 		E95AA70126D38B6E00A38D44 /* DisplayNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayNameViewController.swift; sourceTree = "<group>"; };
+		E963720F26D786D000332482 /* BlockingCommandModuleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingCommandModuleExtension.swift; sourceTree = "<group>"; };
 		E9B25E2E26D0126800A54107 /* ChatViewInputBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewInputBar.swift; sourceTree = "<group>"; };
 		E9D384B326CA95FF009BEAF3 /* UIDeviceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExtension.swift; sourceTree = "<group>"; };
 		E9D384B526CBB606009BEAF3 /* CustomUISlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUISlider.swift; sourceTree = "<group>"; };
@@ -907,6 +909,7 @@
 				FEDC6789238A9F16005C0FAB /* BlockedEventHandler.swift */,
 				FE3E3879242765E700D3A8E8 /* MixEventHandler.swift */,
 				E9EC2B3226D554C000222BB9 /* PEPDisplayNameModule.swift */,
+				E963720F26D786D000332482 /* BlockingCommandModuleExtension.swift */,
 			);
 			path = service;
 			sourceTree = "<group>";
@@ -1347,6 +1350,7 @@
 				FE31291C222C0D1500A92863 /* AvatarView.swift in Sources */,
 				FE719E7E2274D20D007CEEC9 /* OMEMOFingerprintsController.swift in Sources */,
 				FE759FFC23742CE5001E78D9 /* NotificationCenterDelegate.swift in Sources */,
+				E963721026D786D000332482 /* BlockingCommandModuleExtension.swift in Sources */,
 				FE3E388A2429364E00D3A8E8 /* UIImage.swift in Sources */,
 				FEF19F0C23476466005CFE9A /* MucEventHandler.swift in Sources */,
 				FE1DCCA21EA52CE200850563 /* DataFormController.swift in Sources */,
