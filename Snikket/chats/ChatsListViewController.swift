@@ -118,10 +118,8 @@ class ChatsListViewController: UITableViewController {
                 cell.nameLabel.text = channel.name ?? item.jid.localPart ?? item.jid.stringValue;
                 cell.avatarStatusView.setStatus(channel.state == .joined ? Presence.Show.online : nil)
             default:
-                let rosterModule: RosterModule? = xmppClient?.modulesManager.getModule(RosterModule.ID);
-                let rosterItem = rosterModule?.rosterStore.get(for: item.jid);
-                let name = rosterItem?.name ?? item.jid.bareJid.stringValue;
-                cell.nameLabel.text = name;
+                let name = PEPDisplayNameModule.getDisplayName(account: item.account, for: BareJID(item.jid))
+                cell.nameLabel.text = name
                 cell.avatarStatusView.set(name: name, avatar: AvatarManager.instance.avatar(for: item.jid.bareJid, on: item.account), orDefault: AvatarManager.instance.defaultAvatar);
                 let presenceModule: PresenceModule? = xmppClient?.modulesManager.getModule(PresenceModule.ID);
                 let presence = presenceModule?.presenceStore.getBestPresence(for: item.jid.bareJid);
@@ -471,6 +469,7 @@ class ChatsListViewController: UITableViewController {
             NotificationCenter.default.addObserver(self, selector: #selector(chatOpened), name: DBChatStore.CHAT_OPENED, object: nil);
             NotificationCenter.default.addObserver(self, selector: #selector(chatClosed), name: DBChatStore.CHAT_CLOSED, object: nil);
             NotificationCenter.default.addObserver(self, selector: #selector(chatUpdated), name: DBChatStore.CHAT_UPDATED, object: nil);
+            NotificationCenter.default.addObserver(self, selector: #selector(nickChanged(_:)), name: NickChangeEventHandler.NICK_CHANGED, object: nil)
             
             applyActionsQueue.async {
                 DispatchQueue.main.sync {
@@ -497,6 +496,11 @@ class ChatsListViewController: UITableViewController {
                 return;
             }
             self.refreshItem(for: account, with: jid);
+        }
+        
+        @objc func nickChanged(_ notification: Notification) {
+            guard let account = notification.userInfo?["account"] as? BareJID, let jid = notification.userInfo?["jid"] as? BareJID else { return }
+            self.refreshItem(for: account, with: jid)
         }
         
         @objc func chatOpened(_ notification: Notification) {
@@ -563,26 +567,6 @@ class ChatsListViewController: UITableViewController {
             print("XX: executing for", actions.count, "actions");
             
             var store = DispatchQueue.main.sync { return self.store };
-            
-//            let removeIndexes = store.indexes(for: actions.filter { (item) -> Bool in
-//                item.action == .remove;
-//            });
-//            let refreshActions = actions.filter { (item) -> Bool in
-//                item.action == .refresh;
-//            };
-//            let refreshIndexes = store.indexes(for: refreshActions);
-//
-//            store.remove(for: removeIndexes);
-//
-//            let addActions = actions.filter { (item) -> Bool in
-//                return item.action == .add;
-//            }
-//
-//            addActions.forEach { (item) in
-//                _ = store.add(for: item)
-//            }
-//
-//            let addIndexes = store.indexes(for: addActions + refreshActions);
 
             let removeIndexes = store.indexes(for: actions);
             

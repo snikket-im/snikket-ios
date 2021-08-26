@@ -39,26 +39,23 @@ class RosterItemEditViewController: UITableViewController, UIPickerViewDataSourc
     override func viewDidLoad() {
         xmppService = (UIApplication.shared.delegate as! AppDelegate).xmppService;
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view
+        
         let accountPicker = UIPickerView();
         accountPicker.dataSource = self;
         accountPicker.delegate = self;
         self.accountTextField.inputView = accountPicker;
-//        self.accountTextField.addTarget(self, action: #selector(RosterItemEditViewController.textFieldDidChange), for: UIControlEvents.editingChanged);
-//        self.jidTextField.addTarget(self, action: #selector(RosterItemEditViewController.textFieldDidChange), for: UIControlEvents.editingChanged);
         self.jidTextField.text = jid?.stringValue;
         self.accountTextField.text = account?.stringValue;
         self.sendPresenceUpdatesSwitch.isOn = true;
-        self.receivePresenceUpdatesSwitch.isOn = true;//Settings.AutoSubscribeOnAcceptedSubscriptionRequest.getBool();
-        if account != nil && jid != nil {
+        self.receivePresenceUpdatesSwitch.isOn = true   //Settings.AutoSubscribeOnAcceptedSubscriptionRequest.getBool();
+        if let account = account, let jid = jid {
             self.jidTextField.isEnabled = false;
             self.accountTextField.isEnabled = false;
             
-            if let sessionObject = xmppService.getClient(forJid: account!)?.sessionObject {
+            if let sessionObject = xmppService.getClient(forJid: account)?.sessionObject {
                 let rosterStore: RosterStore = RosterModule.getRosterStore(sessionObject)
-                if let rosterItem = rosterStore.get(for: jid!) {
-                    self.nameTextField.text = rosterItem.name;
+                if let rosterItem = rosterStore.get(for: jid) {
+                    self.nameTextField.text = PEPDisplayNameModule.getDisplayName(account: account, for: BareJID(jid))
                     self.sendPresenceUpdatesSwitch.isOn = rosterItem.subscription.isFrom;
                     self.receivePresenceUpdatesSwitch.isOn = rosterItem.subscription.isTo;
                 }
@@ -77,18 +74,6 @@ class RosterItemEditViewController: UITableViewController, UIPickerViewDataSourc
         // Dispose of any resources that can be recreated.
     }
     
-//    func textFieldDidChange(_ textField: UITextField) {
-//        if textField.text?.isEmpty != false {
-//            textField.superview?.backgroundColor = UIColor.red;
-////            textField.layer.borderColor = UIColor.red.cgColor;
-////            textField.layer.borderWidth = 1;
-//        } else {
-////            textField.layer.borderColor = UIColor(white: 1, alpha: 1).cgColor;
-////            textField.layer.borderWidth = 0;
-//            textField.superview?.backgroundColor = UIColor.white;
-//        }
-//    }
-
     @IBAction func saveBtnClicked(_ sender: UIBarButtonItem) {
         saveChanges()
     }
@@ -196,15 +181,6 @@ class RosterItemEditViewController: UITableViewController, UIPickerViewDataSourc
             }
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1;
