@@ -53,9 +53,7 @@ class MucChatViewController: BaseChatViewControllerWithDataSourceAndContextMenuA
         let mucModule: MucModule? = XmppService.instance.getClient(forJid: account)?.modulesManager?.getModule(MucModule.ID);
         room = mucModule?.roomsManager.getRoom(for: jid) as? DBRoom;
         super.viewDidLoad()
-        navigationItem.title = room?.name ?? jid.stringValue;
-        
-        titleView?.name = navigationItem.title;
+        setupGroupName()
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(MucChatViewController.roomInfoClicked));
         self.titleView?.isUserInteractionEnabled = true;
         self.navigationController?.navigationBar.addGestureRecognizer(recognizer);
@@ -83,6 +81,25 @@ class MucChatViewController: BaseChatViewControllerWithDataSourceAndContextMenuA
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func setupGroupName() {
+        if let name = room?.name {
+            titleView?.name = name
+        } else {
+            guard let jids = room?.members else { return }
+            
+            var name = ""
+            for (index,memberJid) in jids.enumerated() {
+                let memberName = PEPDisplayNameModule.getDisplayName(account: account, for: memberJid.bareJid)
+                if index != jids.count - 1 {
+                    name += memberName + ", "
+                } else {
+                    name += memberName
+                }
+            }
+            titleView?.name = name
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -448,7 +465,7 @@ class MucChatViewController: BaseChatViewControllerWithDataSourceAndContextMenuA
 
     func refreshRoomInfo(_ room: DBRoom) {
         titleView?.state = room.state;
-        titleView?.name = room.name ?? jid.stringValue;
+        setupGroupName()
     }
 
 }
