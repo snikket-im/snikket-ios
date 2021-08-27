@@ -312,7 +312,7 @@ class RosterViewController: AbstractRosterViewController, UIGestureRecognizerDel
         }
         if jingleSupport.contains(.audio) {
             items.append(UIAction(title: "Audio call", image: UIImage(systemName: "phone"), handler: { (action) in
-                VideoCallController.call(jid: item.jid.bareJid, from: item.account, media: [.audio, .video], sender: self);
+                VideoCallController.call(jid: item.jid.bareJid, from: item.account, media: [.audio], sender: self);
             }));
         }
         #endif
