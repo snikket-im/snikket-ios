@@ -85,6 +85,7 @@ open class DBChatStore {
     static let CHAT_OPENED = Notification.Name("CHAT_OPENED");
     static let CHAT_CLOSED = Notification.Name("CHAT_CLOSED");
     static let CHAT_UPDATED = Notification.Name("CHAT_UPDATED");
+    static let MUC_UPDATED = Notification.Name("MUC_UPDATED");
     
     static let UNREAD_MESSAGES_COUNT_CHANGED = Notification.Name("UNREAD_NOTIFICATIONS_COUNT_CHANGED");
     
@@ -829,6 +830,7 @@ class DBRoom: Room, DBChatProtocol {
                     }
                     group.notify(queue: DispatchQueue.main, execute: { [weak self] in
                         self?.members = members;
+                        NotificationCenter.default.post(name: DBChatStore.MUC_UPDATED, object: self)
                     })
                 }
             }

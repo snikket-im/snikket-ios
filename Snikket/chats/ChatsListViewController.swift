@@ -44,16 +44,11 @@ class ChatsListViewController: UITableViewController {
         tableView.estimatedRowHeight = 66.0;
         tableView.dataSource = self;
         NotificationCenter.default.addObserver(self, selector: #selector(ChatsListViewController.unreadCountChanged), name: DBChatStore.UNREAD_MESSAGES_COUNT_CHANGED, object: nil);
-//        NotificationCenter.default.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.didEnterBackgroundNotification, object: nil);
         self.updateBadge();
         setColors();
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        //self.navigationController?.navigationBar.backgroundColor = Appearance.current.controlBackgroundColor;
-//        if dataSource == nil {
-//            dataSource = ChatsDataSource(controller: self);
-//        }
         super.viewWillAppear(animated);
         animate();
     }
@@ -112,7 +107,7 @@ class ChatsListViewController: UITableViewController {
             case let room as DBRoom:
                 cell.avatarStatusView.set(name: nil, avatar: AvatarManager.instance.avatar(for: room.roomJid, on: room.account), orDefault: AvatarManager.instance.defaultGroupchatAvatar);
                 cell.avatarStatusView.setStatus(room.state == .joined ? Presence.Show.online : nil);
-                cell.nameLabel.text = room.name ?? item.jid.stringValue;
+                cell.nameLabel.text = groupName(item: item)
             case let channel as DBChannel:
                 cell.avatarStatusView.set(name: nil, avatar: AvatarManager.instance.avatar(for: channel.channelJid, on: channel.account), orDefault: AvatarManager.instance.defaultGroupchatAvatar);
                 cell.nameLabel.text = channel.name ?? item.jid.localPart ?? item.jid.stringValue;
@@ -415,6 +410,26 @@ class ChatsListViewController: UITableViewController {
         }
     }
     
+    fileprivate func groupName(item: DBChatProtocol) -> String {
+        guard let room = item as? DBRoom else { return "" }
+        if let name = room.name {
+            return name
+        } else {
+            guard let jids = room.members else { return "" }
+            
+            var name = ""
+            for (index,memberJid) in jids.enumerated() {
+                let memberName = PEPDisplayNameModule.getDisplayName(account: item.account, for: memberJid.bareJid)
+                if index != jids.count - 1 {
+                    name += memberName + ", "
+                } else {
+                    name += memberName
+                }
+            }
+            return name
+        }
+    }
+    
     fileprivate static let todaysFormatter = ({()-> DateFormatter in
         var f = DateFormatter();
         f.dateStyle = .none;
@@ -470,6 +485,7 @@ class ChatsListViewController: UITableViewController {
             NotificationCenter.default.addObserver(self, selector: #selector(chatClosed), name: DBChatStore.CHAT_CLOSED, object: nil);
             NotificationCenter.default.addObserver(self, selector: #selector(chatUpdated), name: DBChatStore.CHAT_UPDATED, object: nil);
             NotificationCenter.default.addObserver(self, selector: #selector(nickChanged(_:)), name: NickChangeEventHandler.NICK_CHANGED, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(mucUpdated(_:)), name: DBChatStore.MUC_UPDATED, object: nil)
             
             applyActionsQueue.async {
                 DispatchQueue.main.sync {
@@ -517,6 +533,14 @@ class ChatsListViewController: UITableViewController {
             }
             
             self.removeItem(for: opened.account, jid: opened.jid.bareJid, force: true);
+        }
+        
+        @objc func mucUpdated(_ notification: Notification) {
+            guard let e = notification.object as? DBChatProtocol else {
+                return;
+            }
+            
+            self.refreshItem(for: e.account, with: e.jid.bareJid);
         }
         
         @objc func chatUpdated(_ notification: Notification) {
