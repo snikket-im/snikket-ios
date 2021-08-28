@@ -14,7 +14,7 @@
         <scene sceneID="Brq-kb-iaT">
             <objects>
                 <tableViewController storyboardIdentifier="RegisterAccountController" id="d1F-TM-deh" customClass="RegisterAccountController" customModule="Snikket" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="6dR-ED-Qeg">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="6dR-ED-Qeg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
@@ -68,6 +68,37 @@
                                     <outlet property="serverDomain" destination="vjD-aw-Ugt" id="bcS-4B-Zvp"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="PrivacyPolicyTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="PrivacyPolicyCell" rowHeight="108" id="S6s-rz-GPI" customClass="PrivacyPolicyTableViewCell" customModule="Snikket" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="137" width="375" height="108"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="S6s-rz-GPI" id="89H-BZ-K5N">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="108"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="z4H-af-5KK">
+                                            <rect key="frame" x="20" y="0.0" width="335" height="108"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="100" id="U6A-en-coN"/>
+                                            </constraints>
+                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="z4H-af-5KK" firstAttribute="top" secondItem="89H-BZ-K5N" secondAttribute="top" id="4Kj-Mh-pdY"/>
+                                        <constraint firstItem="z4H-af-5KK" firstAttribute="leading" secondItem="89H-BZ-K5N" secondAttribute="leading" constant="20" id="sDy-NO-coT"/>
+                                        <constraint firstAttribute="trailing" secondItem="z4H-af-5KK" secondAttribute="trailing" constant="20" id="sXW-AY-7Ne"/>
+                                        <constraint firstAttribute="bottom" secondItem="z4H-af-5KK" secondAttribute="bottom" id="vEy-Oa-P5Z"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="policyTextView" destination="z4H-af-5KK" id="shZ-DT-uOj"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="d1F-TM-deh" id="2x7-V8-7aG"/>
@@ -93,7 +124,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ZP-Bh-joX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2904" y="1809"/>
+            <point key="canvasLocation" x="2903.1999999999998" y="1808.8669950738918"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Eaa-bF-K6Q">
@@ -1298,7 +1329,7 @@
         <segue reference="opM-M0-zrX"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="chevron.right" catalog="system" width="96" height="128"/>
+        <image name="chevron.right" catalog="system" width="32" height="32"/>
         <namedColor name="chatslistBackground">
             <color red="0.99607843137254903" green="0.85490196078431369" blue="0.023529411764705882" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

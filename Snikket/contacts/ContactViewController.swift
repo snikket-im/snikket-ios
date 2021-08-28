@@ -40,6 +40,7 @@ class ContactViewController: UITableViewController {
     }
     var chat: DBChat?;
     var omemoIdentities: [Identity] = [];
+    var isReporting = false
     
     var addresses: [VCard.Address] {
         return vcard?.addresses ?? [];
@@ -57,15 +58,6 @@ class ContactViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        if self.chat == nil {
-//            chat = DBChatStore.instance.getChat(for: account, with: jid) as? DBChat;
-//        }
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         vcard = XmppService.instance.dbVCardsCache.getVCard(for: jid);
         if vcard == nil {
             refreshVCard();
@@ -131,7 +123,7 @@ class ContactViewController: UITableViewController {
         case .basic:
             return 1;
         case .settings:
-            return 2;
+            return 3;
         case .attachments:
             return 1;
         case .encryption:
@@ -193,6 +185,15 @@ class ContactViewController: UITableViewController {
                 btn.addTarget(self, action: #selector(blockContactChanged), for: .valueChanged);
                 cell.accessoryView = btn;
                 return cell;
+            case .blockAndReport:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "BlockContactCell", for: indexPath)
+                cell.contentView.subviews.forEach { view in
+                    if let label = view as? UILabel {
+                        label.text = isReporting ? "Reporting..." : "Report Contact"
+                        label.textColor = .red
+                    }
+                }
+                return cell
             }
         case .attachments:
             let cell = tableView.dequeueReusableCell(withIdentifier: "AttachmentsCell", for: indexPath);
@@ -305,7 +306,13 @@ class ContactViewController: UITableViewController {
         case .basic:
             return;
         case .settings:
-            return;
+            switch SettingsOptions(rawValue: indexPath.row)! {
+            case .blockAndReport:
+                if !isReporting { self.presentBlockAndReportSheet() }
+            default:
+                break
+            }
+            return
         case .attachments:
             return;
         case .encryption:
@@ -359,6 +366,73 @@ class ContactViewController: UITableViewController {
             if let url = URL(string: "http://maps.apple.com/?q=" + query) {
                 UIApplication.shared.open(url);
             }
+        }
+    }
+    
+    func presentBlockAndReportSheet() {
+        let alertController = UIAlertController(title: "Report", message: "The user will be reported and any calls, messages and status updates from them will be blocked.", preferredStyle: .actionSheet)
+        
+        let report = UIAlertAction(title: "Report and Block", style: .default) { (action: UIAlertAction!) in
+            self.isReporting = true
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+            self.reportAndBlockContact { success in
+                self.isReporting = false
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+                if success {
+                    self.isReporting = true
+                    self.contactReported()
+                }
+            }
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        alertController.addAction(report)
+        alertController.addAction(cancel)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func contactReported() {
+        DispatchQueue.main.async {
+            for cell in self.tableView.visibleCells {
+                
+                if cell.reuseIdentifier == "BlockContactCell", let button = cell.accessoryView as? UISwitch {
+                    button.isOn = true
+                }
+                if cell.accessoryView == nil , cell.reuseIdentifier == "BlockContactCell" {
+                    cell.contentView.subviews.forEach { view in
+                        if let label = view as? UILabel {
+                            label.text = "Reported"
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func reportAndBlockContact(completion: @escaping (Bool)->Void) {
+        guard let client = XmppService.instance.getClient(for: account), let blockingModule: BlockingCommandModule = client.modulesManager.getModule(BlockingCommandModule.ID) else {
+            return;
+        }
+        blockingModule.blockAndReport(jids: [JID(jid)]) { [weak self] result in
+            switch result {
+            case .failure(_):
+                self?.showAlert(title: "Error", message: "Please try again!")
+                completion(false)
+            default:
+                completion(true)
+                break
+            }
+        }
+    }
+    
+    func showAlert(title: String, message: String) {
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert);
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil);
         }
     }
     
@@ -493,6 +567,7 @@ class ContactViewController: UITableViewController {
     enum SettingsOptions: Int {
         case mute = 0
         case block = 1
+        case blockAndReport = 2
     }
     
 }
