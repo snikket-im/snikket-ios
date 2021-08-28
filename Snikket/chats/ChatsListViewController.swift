@@ -105,7 +105,10 @@ class ChatsListViewController: UITableViewController {
             let xmppClient = self.xmppService.getClient(forJid: item.account);
             switch item {
             case let room as DBRoom:
-                cell.avatarStatusView.set(name: nil, avatar: AvatarManager.instance.avatar(for: room.roomJid, on: room.account), orDefault: AvatarManager.instance.defaultGroupchatAvatar);
+                //cell.avatarStatusView.set(name: nil, avatar: AvatarManager.instance.avatar(for: room.roomJid, on: room.account), orDefault: AvatarManager.instance.defaultGroupchatAvatar);
+                let memberNames = self.groupMemberNames(item: item)
+                let memberImages = self.groupMemberAvatars(item: item)
+                cell.avatarStatusView.setGroup(memberNames: memberNames,memberImages: memberImages, groupAvatar: AvatarManager.instance.avatar(for: room.roomJid, on: room.account), defAvatar: AvatarManager.instance.defaultGroupchatAvatar)
                 cell.avatarStatusView.setStatus(room.state == .joined ? Presence.Show.online : nil);
                 cell.nameLabel.text = groupName(item: item)
             case let channel as DBChannel:
@@ -428,6 +431,34 @@ class ChatsListViewController: UITableViewController {
             }
             return name
         }
+    }
+    
+    fileprivate func groupMemberNames(item: DBChatProtocol) -> [String] {
+        guard let room = item as? DBRoom, let jids = room.members else { return [] }
+        var names: [String] = []
+        
+        for jid in jids {
+            //if jids.count > 2, jid.bareJid == room.account { continue }
+            
+            let memberName = PEPDisplayNameModule.getDisplayName(account: item.account, for: jid.bareJid)
+            names.append(memberName)
+        }
+        return names
+    }
+    
+    fileprivate func groupMemberAvatars(item: DBChatProtocol) -> [UIImage] {
+        guard let room = item as? DBRoom, let jids = room.members else { return [] }
+        
+        var avatars: [UIImage] = []
+        
+        for jid in jids {
+            //if jids.count > 2, jid.bareJid == room.account { continue }
+            
+            if let avatar = AvatarManager.instance.avatar(for: jid.bareJid, on: room.account) {
+                avatars.append(avatar)
+            }
+        }
+        return avatars
     }
     
     fileprivate static let todaysFormatter = ({()-> DateFormatter in

@@ -41,14 +41,6 @@ class AvatarStatusView: UIView {
             statusImageView?.backgroundColor = newValue;
         }
     }
-    
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
-    }
-    */
 
     override func awakeFromNib() {
         super.awakeFromNib();
@@ -58,6 +50,10 @@ class AvatarStatusView: UIView {
     
     func set(name: String?, avatar: UIImage?, orDefault defAvatar: UIImage) {
         self.avatarImageView.set(name: name, avatar: avatar, orDefault: defAvatar);
+    }
+    
+    func setGroup(memberNames: [String], memberImages: [UIImage], groupAvatar: UIImage?, defAvatar: UIImage) {
+        self.avatarImageView.setGroup(memberNames: memberNames,memberImages: memberImages, avatar: groupAvatar, defAvatar: defAvatar)
     }
         
     func setStatus(_ status:Presence.Show?) {
@@ -89,11 +85,6 @@ class AvatarStatusView: UIView {
     static func drawStatusBorder(backgroundColor: UIColor, status: UIImage) -> UIImage {
         let scale = UIScreen.main.scale;
         let size = status.size;
-
-//        if self.contentMode == .redraw || contentMode == .scaleAspectFill || contentMode == .scaleAspectFit || contentMode == .scaleToFill {
-//            size.width = (size.width * scale);
-//            size.height = (size.height * scale);
-//        }
 
         UIGraphicsBeginImageContextWithOptions(size, false, scale);
         print("size:", size, "scale:", scale);
@@ -137,7 +128,7 @@ class AvatarStatusView: UIView {
     
     func updateCornerRadius() {
         avatarImageView.layer.masksToBounds = true;
-        avatarImageView.layer.cornerRadius = self.frame.height / 2;
+        avatarImageView.layer.cornerRadius = 3;
         statusImageView.layer.opacity = 1.0;
         statusImageView.layer.masksToBounds = true;
         statusImageView.layer.cornerRadius = self.statusImageView.frame.height / 2;
