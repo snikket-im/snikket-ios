@@ -142,11 +142,5 @@ class NickChangeEventHandler: XmppServiceEventHandler {
         
         NotificationCenter.default.post(name: NickChangeEventHandler.NICK_CHANGED, object: self, userInfo: ["account":account, "jid": BareJID(jid)])
         
-//        if let nickname = DBRosterStore.instance.getNickname(jid: jid.stringValue), nickname != nick, let account = event.sessionObject.userBareJid {
-//            NotificationCenter.default.post(name: NickChangeEventHandler.NICK_CHANGED, object: self, userInfo: ["account":account,"jid": BareJID(jid)])
-//        }
-        
-        
-        
     }
 }

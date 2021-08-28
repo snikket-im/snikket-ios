@@ -40,6 +40,7 @@ class ContactViewController: UITableViewController {
     }
     var chat: DBChat?;
     var omemoIdentities: [Identity] = [];
+    var isReporting = false
     
     var addresses: [VCard.Address] {
         return vcard?.addresses ?? [];
@@ -57,15 +58,6 @@ class ContactViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        if self.chat == nil {
-//            chat = DBChatStore.instance.getChat(for: account, with: jid) as? DBChat;
-//        }
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         vcard = XmppService.instance.dbVCardsCache.getVCard(for: jid);
         if vcard == nil {
             refreshVCard();
@@ -197,7 +189,7 @@ class ContactViewController: UITableViewController {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "BlockContactCell", for: indexPath)
                 cell.contentView.subviews.forEach { view in
                     if let label = view as? UILabel {
-                        label.text = "Report Contact"
+                        label.text = isReporting ? "Reporting..." : "Report Contact"
                         label.textColor = .red
                     }
                 }
@@ -316,7 +308,7 @@ class ContactViewController: UITableViewController {
         case .settings:
             switch SettingsOptions(rawValue: indexPath.row)! {
             case .blockAndReport:
-                self.presentBlockAndReportSheet()
+                if !isReporting { self.presentBlockAndReportSheet() }
             default:
                 break
             }
@@ -381,18 +373,46 @@ class ContactViewController: UITableViewController {
         let alertController = UIAlertController(title: "Report", message: "The user will be reported and any calls, messages and status updates from them will be blocked.", preferredStyle: .actionSheet)
         
         let report = UIAlertAction(title: "Report and Block", style: .default) { (action: UIAlertAction!) in
-            self.reportAndBlockContact()
+            self.isReporting = true
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+            self.reportAndBlockContact { success in
+                self.isReporting = false
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+                if success {
+                    self.isReporting = true
+                    self.contactReported()
+                }
+            }
         }
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action: UIAlertAction!) in
-            
-        }
-
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
         alertController.addAction(report)
         alertController.addAction(cancel)
         self.present(alertController, animated: true, completion: nil)
     }
     
-    func reportAndBlockContact() {
+    func contactReported() {
+        DispatchQueue.main.async {
+            for cell in self.tableView.visibleCells {
+                
+                if let button = cell.accessoryView as? UISwitch {
+                    button.isOn = true
+                }
+                if cell.accessoryView == nil , cell.reuseIdentifier == "BlockContactCell" {
+                    cell.contentView.subviews.forEach { view in
+                        if let label = view as? UILabel {
+                            label.text = "Reported"
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func reportAndBlockContact(completion: @escaping (Bool)->Void) {
         guard let client = XmppService.instance.getClient(for: account), let blockingModule: BlockingCommandModule = client.modulesManager.getModule(BlockingCommandModule.ID) else {
             return;
         }
@@ -400,7 +420,9 @@ class ContactViewController: UITableViewController {
             switch result {
             case .failure(_):
                 self?.showAlert(title: "Error", message: "Please try again!")
+                completion(false)
             default:
+                completion(true)
                 break
             }
         }
@@ -436,14 +458,6 @@ class ContactViewController: UITableViewController {
         guard let client = XmppService.instance.getClient(for: account), let blockingModule: BlockingCommandModule = client.modulesManager.getModule(BlockingCommandModule.ID) else {
             sender.isOn = !sender.isOn;
             return;
-        }
-        blockingModule.blockAndReport(jids: [JID(jid!)]) { [weak sender] result in
-            switch result {
-            case .failure(_):
-                print(result)
-            default:
-                break;
-            }
         }
 
         if sender.isOn {
