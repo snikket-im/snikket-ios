@@ -398,7 +398,7 @@ class ContactViewController: UITableViewController {
         DispatchQueue.main.async {
             for cell in self.tableView.visibleCells {
                 
-                if let button = cell.accessoryView as? UISwitch {
+                if cell.reuseIdentifier == "BlockContactCell", let button = cell.accessoryView as? UISwitch {
                     button.isOn = true
                 }
                 if cell.accessoryView == nil , cell.reuseIdentifier == "BlockContactCell" {
