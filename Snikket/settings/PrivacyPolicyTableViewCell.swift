@@ -23,7 +23,7 @@ class PrivacyPolicyTableViewCell: UITableViewCell {
         let urlRange = (textString as NSString).range(of: urlString)
         let attributedString = NSMutableAttributedString(string: textString)
         
-        let url = URL(string: "https://\(domain)/policies/")!
+        let url = URL(string: "https://\(domain)/policies")!
 
         attributedString.setAttributes([.link: url], range: urlRange)
 
