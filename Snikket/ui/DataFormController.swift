@@ -84,7 +84,7 @@ class DataFormController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let fieldName = form!.visibleFieldNames[(indexPath.section - 2).clamped(to: 0...100)];
+        let fieldName = form!.visibleFieldNames[(indexPath.section - 1)];
         let field = form!.getField(named: fieldName)!;
         let medias = field.media;
         
