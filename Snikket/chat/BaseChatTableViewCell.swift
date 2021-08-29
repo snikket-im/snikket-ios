@@ -57,6 +57,7 @@ class BaseChatTableViewCell: UITableViewCell, UIDocumentInteractionControllerDel
     @IBOutlet var timestampView: UILabel?
     @IBOutlet var stateView: UILabel?;
     @IBOutlet var bubbleImageView: UIImageView!
+    @IBOutlet weak var lockStateImageView: UIImageView?
     
     var audioPlayerDelegate: AudioPlayerDelegate?
 
@@ -108,11 +109,13 @@ class BaseChatTableViewCell: UITableViewCell, UIDocumentInteractionControllerDel
     
     func set(item: ChatViewItemProtocol) {
         let fgcolor = item.state.direction == .incoming ? "chatMessageText" : "chatMessageTextOutgoing";
+        let lockImage = item.state.direction == .incoming ? "lock-incoming" : "lock-outgoing"
         originalTimestampColor = UIColor(named: fgcolor);
         var timestamp = formatTimestamp(item.timestamp);
         switch item.encryption {
         case .decrypted, .notForThisDevice, .decryptionFailed:
-            timestamp = "\u{1F512} \(timestamp)";
+            //timestamp = "\u{1F512} \(timestamp)"
+            lockStateImageView?.image = UIImage(named: lockImage)
         default:
             break;
         }
