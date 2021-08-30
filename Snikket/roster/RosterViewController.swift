@@ -345,6 +345,18 @@ class RosterViewController: AbstractRosterViewController, UIGestureRecognizerDel
         contactView.jid = jid.bareJid;
         navigation.title = self.navigationItem.title;
         navigation.modalPresentationStyle = .formSheet;
+        
+        let chat = DBChatStore.instance.getChat(for: account, with: jid.bareJid)
+        if let chat = chat as? DBChat {
+            contactView.chat = chat
+        } else {
+            let xmppClient = XmppService.instance.getClient(forJid: account);
+            let messageModule:MessageModule? = xmppClient?.modulesManager.getModule(MessageModule.ID);
+            if let module = messageModule  {
+                let chat =  (module.chatManager!.getChatOrCreate(with: jid, thread: nil) as? DBChat)
+                contactView.chat = chat
+            }
+        }
         self.present(navigation, animated: true, completion: nil);
     }
     
