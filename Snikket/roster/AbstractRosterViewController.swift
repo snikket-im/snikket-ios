@@ -28,6 +28,8 @@ class AbstractRosterViewController: UITableViewController, UISearchResultsUpdati
     
     var searchController: UISearchController!;
     
+    var allowsMultipleSelection = false
+    
     var roster: RosterProvider? {
         didSet {
             if let value = oldValue {
@@ -113,7 +115,15 @@ class AbstractRosterViewController: UITableViewController, UISearchResultsUpdati
             cell.avatarStatusView.set(name: item.displayName, avatar: AvatarManager.instance.avatar(for: item.jid.bareJid, on: item.account), orDefault: AvatarManager.instance.defaultAvatar);
         }
         
-        return cell;
+        if allowsMultipleSelection {
+            cell.selectedBackground = false
+            if let selectedRows = tableView.indexPathsForSelectedRows, selectedRows.contains(indexPath) {
+                cell.accessoryType = .checkmark
+            } else {
+                cell.accessoryType = .none
+            }
+        }
+        return cell
     }
         
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
