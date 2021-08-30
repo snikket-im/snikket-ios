@@ -34,6 +34,7 @@ class DataFormController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad();
+        tableView.register(UserNameFieldCell.self, forCellReuseIdentifier: "FormViewCell-username");
         tableView.register(TextSingleFieldCell.self, forCellReuseIdentifier: "FormViewCell-text-single");
         tableView.register(TextPrivateFieldCell.self, forCellReuseIdentifier: "FormViewCell-text-private");
         tableView.register(TextMultiFieldCell.self, forCellReuseIdentifier: "FormViewCell-text-multi");
@@ -102,6 +103,12 @@ class DataFormController: UITableViewController {
             }
             return cell;
         } else {
+            
+            if field.name == "username" {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "FormViewCell-username", for: indexPath)
+                (cell as? FieldCell)?.field = field
+                return cell
+            }
             let cellId = "FormViewCell-" + ( field.type ?? "fixed" );
             let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath);
             (cell as? FieldCell)?.field = field;
@@ -206,7 +213,7 @@ class DataFormController: UITableViewController {
                 }
                 if #available(iOS 12.0, *) {
                     uiTextField?.textContentType = v ? .newPassword : .password;
-                } else if #available(iOS 11.0, *) {
+                } else {
                     if !v {
                         uiTextField?.textContentType = .password;
                     }
@@ -229,6 +236,43 @@ class DataFormController: UITableViewController {
             (field as? TextPrivateField)?.value = textField.text;
         }
         
+    }
+    
+    class UserNameFieldCell: AbstractTextSingleFieldCell {
+        
+        var userNameLabel: UILabel!
+        
+        override var field: Field? {
+            didSet {
+                guard let f: TextSingleField = field as? TextSingleField else {
+                    value = nil;
+                    return;
+                }
+                value = f.value;
+            }
+        }
+        
+        override func textDidChanged(textField: UITextField) {
+            (field as? TextSingleField)?.value = textField.text
+            self.userNameLabel.text = "Your address will be:   \(textField.text ?? "")@example.com"
+        }
+        
+        override func createFieldView() -> UIView? {
+            let field = UITextField();
+            field.autocorrectionType = .no;
+            field.autocapitalizationType = .none;
+            
+            userNameLabel = UILabel()
+            userNameLabel.translatesAutoresizingMaskIntoConstraints = false
+            userNameLabel.font = UIFont.systemFont(ofSize: 12)
+            userNameLabel.textColor = .darkGray
+            userNameLabel.text = "Your address will be:   @example.com"
+            contentView.addSubview(userNameLabel)
+            userNameLabel.topAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+            userNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+            
+            return field;
+        }
     }
     
     class AbstractTextSingleFieldCell: AbstractFieldCell {
