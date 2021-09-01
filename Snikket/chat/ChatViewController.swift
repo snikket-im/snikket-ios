@@ -509,11 +509,7 @@ class ChatTitleView: UIView {
     
     
     func reload(for account: BareJID, with jid: BareJID) {
-        if let rosterModule: RosterModule = XmppService.instance.getClient(for: account)?.modulesManager.getModule(RosterModule.ID) {
-            self.name = rosterModule.rosterStore.get(for: JID(jid))?.name ?? jid.stringValue;
-        } else {
-            self.name = jid.stringValue;
-        }
+        self.name = PEPDisplayNameModule.getDisplayName(account: account, for: jid)
         self.encryption = (DBChatStore.instance.getChat(for: account, with: jid) as? DBChat)?.options.encryption;
     }
     

@@ -46,6 +46,7 @@ class RosterViewController: AbstractRosterViewController, UIGestureRecognizerDel
         updateNavBarColors();
         
         NotificationCenter.default.addObserver(self, selector: #selector(settingsChanged(_:)), name: Settings.SETTINGS_CHANGED, object: nil);
+        NotificationCenter.default.addObserver(self, selector: #selector(self.nickChanged(_:)), name: NickChangeEventHandler.NICK_CHANGED, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -111,6 +112,19 @@ class RosterViewController: AbstractRosterViewController, UIGestureRecognizerDel
         }
     }
     
+    @objc func nickChanged(_ notification: Notification) {
+        guard let account = notification.userInfo?["account"] as? BareJID, let jid = notification.userInfo?["jid"] as? BareJID else { return }
+        
+        if let sessionObject = XmppService.instance.getClient(forJid: account)?.sessionObject {
+            let rosterStore: RosterStore = RosterModule.getRosterStore(sessionObject)
+            if let rosterItem = rosterStore.get(for: JID(jid)), rosterItem.name == nil {
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
+    }
+    
     override func initializeRosterProvider(availableOnly: Bool, sortOrder: RosterSortingOrder) {
         let order = RosterSortingOrder(rawValue: Settings.RosterItemsOrder.getString() ?? "") ?? .alphabetical;
         super.initializeRosterProvider(availableOnly: false, sortOrder: order);
@@ -128,7 +142,7 @@ class RosterViewController: AbstractRosterViewController, UIGestureRecognizerDel
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! RosterItemTableViewCell;
         
         if let item = roster?.item(at: indexPath) {
-            cell.nameLabel.text = item.displayName;
+            cell.nameLabel.text = PEPDisplayNameModule.getDisplayName(account: item.account, for: BareJID(item.jid))
             cell.statusLabel.text = item.presence?.status ?? item.jid.stringValue;
             cell.avatarStatusView.setStatus(item.presence?.show);
             cell.avatarStatusView.set(name: item.displayName, avatar: AvatarManager.instance.avatar(for: item.jid.bareJid, on: item.account), orDefault: AvatarManager.instance.defaultAvatar);

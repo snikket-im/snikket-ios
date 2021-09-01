@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E928AD4326D6A08A00F29F93 /* db-schema-14.sql in Resources */ = {isa = PBXBuildFile; fileRef = E928AD4226D6A08A00F29F93 /* db-schema-14.sql */; };
 		E95AA70226D38B6F00A38D44 /* DisplayNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95AA70126D38B6E00A38D44 /* DisplayNameViewController.swift */; };
 		E963721026D786D000332482 /* BlockingCommandModuleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E963720F26D786D000332482 /* BlockingCommandModuleExtension.swift */; };
 		E963721226D79D3A00332482 /* PrivacyPolicyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E963721126D79D3A00332482 /* PrivacyPolicyTableViewCell.swift */; };
@@ -14,6 +15,7 @@
 		E9D384B426CA95FF009BEAF3 /* UIDeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D384B326CA95FF009BEAF3 /* UIDeviceExtension.swift */; };
 		E9D384B626CBB606009BEAF3 /* CustomUISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D384B526CBB606009BEAF3 /* CustomUISlider.swift */; };
 		E9D384B826CBBEB6009BEAF3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D384B726CBBEB6009BEAF3 /* Extensions.swift */; };
+		E9EC2B3326D554C000222BB9 /* PEPDisplayNameModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9EC2B3226D554C000222BB9 /* PEPDisplayNameModule.swift */; };
 		FE00157D2017617B00490340 /* StreamFeaturesCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE00157C2017617B00490340 /* StreamFeaturesCache.swift */; };
 		FE00157F2019090300490340 /* ExperimentalSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE00157E2019090300490340 /* ExperimentalSettingsViewController.swift */; };
 		FE01ADA91E224CF400FA7E65 /* SiskinPushNotificationsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE01ADA81E224CF400FA7E65 /* SiskinPushNotificationsModule.swift */; };
@@ -291,6 +293,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E928AD4226D6A08A00F29F93 /* db-schema-14.sql */ = {isa = PBXFileReference; lastKnownFileType = text; path = "db-schema-14.sql"; sourceTree = "<group>"; };
 		E95AA70126D38B6E00A38D44 /* DisplayNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayNameViewController.swift; sourceTree = "<group>"; };
 		E963720F26D786D000332482 /* BlockingCommandModuleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingCommandModuleExtension.swift; sourceTree = "<group>"; };
 		E963721126D79D3A00332482 /* PrivacyPolicyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyTableViewCell.swift; sourceTree = "<group>"; };
@@ -298,6 +301,7 @@
 		E9D384B326CA95FF009BEAF3 /* UIDeviceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExtension.swift; sourceTree = "<group>"; };
 		E9D384B526CBB606009BEAF3 /* CustomUISlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUISlider.swift; sourceTree = "<group>"; };
 		E9D384B726CBBEB6009BEAF3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E9EC2B3226D554C000222BB9 /* PEPDisplayNameModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PEPDisplayNameModule.swift; sourceTree = "<group>"; };
 		FE00157C2017617B00490340 /* StreamFeaturesCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamFeaturesCache.swift; sourceTree = "<group>"; };
 		FE00157E2019090300490340 /* ExperimentalSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentalSettingsViewController.swift; sourceTree = "<group>"; };
 		FE01ADA81E224CF400FA7E65 /* SiskinPushNotificationsModule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SiskinPushNotificationsModule.swift; sourceTree = "<group>"; };
@@ -794,6 +798,7 @@
 				FEC79198241BE89E007BE572 /* db-schema-11.sql */,
 				FE3BA0BF24B61583000C80D4 /* db-schema-12.sql */,
 				FEBC12F124C70DE000689475 /* db-schema-13.sql */,
+				E928AD4226D6A08A00F29F93 /* db-schema-14.sql */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -906,6 +911,7 @@
 				FE75A00E2375F324001E78D9 /* PushEventHandler.swift */,
 				FEDC6789238A9F16005C0FAB /* BlockedEventHandler.swift */,
 				FE3E3879242765E700D3A8E8 /* MixEventHandler.swift */,
+				E9EC2B3226D554C000222BB9 /* PEPDisplayNameModule.swift */,
 				E963720F26D786D000332482 /* BlockingCommandModuleExtension.swift */,
 			);
 			path = service;
@@ -1179,6 +1185,7 @@
 				FECEF29823B7B838007EC323 /* db-schema-9.sql in Resources */,
 				FE3BA0C024B61583000C80D4 /* db-schema-12.sql in Resources */,
 				FE759FF02371F21C001E78D9 /* db-schema-4.sql in Resources */,
+				E928AD4326D6A08A00F29F93 /* db-schema-14.sql in Resources */,
 				FE759FF32371F21C001E78D9 /* db-schema-7.sql in Resources */,
 				FE759FF12371F21C001E78D9 /* db-schema-5.sql in Resources */,
 				FE759FF523741527001E78D9 /* db-schema-8.sql in Resources */,
@@ -1302,6 +1309,7 @@
 				FE3A45CF1CE49D3300C36264 /* RosterItemEditViewController.swift in Sources */,
 				FEE49DD7242688E100900BBB /* ChannelViewController.swift in Sources */,
 				FE507A211CDB7B3B001A015C /* SettingsViewController.swift in Sources */,
+				E9EC2B3326D554C000222BB9 /* PEPDisplayNameModule.swift in Sources */,
 				FE507A191CDB7B3B001A015C /* DBChatHistoryStore.swift in Sources */,
 				FEA8D65D1F2F6AF60077C12F /* VCardEntryTypeAwareTableViewCell.swift in Sources */,
 				FEBC12F524C70E7F00689475 /* DBChatHistorySyncStore.swift in Sources */,

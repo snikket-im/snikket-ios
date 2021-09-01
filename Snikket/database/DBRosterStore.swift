@@ -120,6 +120,9 @@ open class DBRosterStore: RosterCacheProvider {
     fileprivate let insertItemGroupStmt: DBStatement;
     fileprivate let deleteItemGroupsStmt: DBStatement;
     
+    fileprivate let updateNicknameStmt: DBStatement
+    fileprivate let getNicknameStmt: DBStatement
+    
     public init() {
         self.dispatcher = QueueDispatcher(label: "db_roster_store");
         
@@ -135,7 +138,26 @@ open class DBRosterStore: RosterCacheProvider {
         insertItemGroupStmt = try! DBConnection.main.prepareStatement("INSERT INTO roster_items_groups (item_id, group_id) VALUES (:item_id, :group_id)");
         deleteItemGroupsStmt = try! DBConnection.main.prepareStatement("DELETE FROM roster_items_groups WHERE item_id = :item_id");
         
+        updateNicknameStmt = try! DBConnection.main.prepareStatement("UPDATE roster_items SET nickname = :nickname WHERE jid = :jid")
+        getNicknameStmt = try! DBConnection.main.prepareStatement("SELECT nickname FROM roster_items WHERE jid = :jid")
+        
         NotificationCenter.default.addObserver(self, selector: #selector(DBRosterStore.accountRemoved), name: NSNotification.Name(rawValue: "accountRemoved"), object: nil);
+    }
+    
+    func updateNick(jid: String, nick: String) {
+        dispatcher.sync {
+            let params: [String: Any?] = ["jid": jid, "nickname": nick]
+            _ = try! self.updateNicknameStmt.update(params)
+        }
+    }
+    
+    func getNickname(jid: String) -> String? {
+        dispatcher.sync {
+            let params: [String: Any?] = ["jid":jid]
+            return try! getNicknameStmt.queryFirstMatching(params) { cursor in
+                return cursor["nickname"] as String?
+            }
+        }
     }
     
     func getAll(for account: BareJID) -> [DBRosterItem] {
