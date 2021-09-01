@@ -346,7 +346,7 @@
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ssl-Fo-PZ6">
-                                                    <rect key="frame" x="20" y="5" width="36" height="17"/>
+                                                    <rect key="frame" x="20" y="5" width="35.5" height="17"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -360,12 +360,6 @@
                                                         <constraint firstAttribute="width" constant="80" id="irG-ew-0nb"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="600" text="Temporary label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5oi-v1-E9H">
-                                                    <rect key="frame" x="37" y="35.5" width="89.5" height="14.5"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
-                                                    <color key="textColor" name="chatMessageText"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QiQ-ly-TnA">
                                                     <rect key="frame" x="91" y="48" width="14" height="12"/>
                                                     <constraints>
@@ -375,13 +369,24 @@
                                                     <color key="textColor" name="chatMessageText"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock_white" translatesAutoresizingMaskIntoConstraints="NO" id="sOy-Wx-jLK">
-                                                    <rect key="frame" x="20" y="36" width="14" height="14"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="14" id="d99-1g-UGS"/>
-                                                        <constraint firstAttribute="height" constant="14" id="ll2-ve-28R"/>
-                                                    </constraints>
-                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="dQN-q2-toj">
+                                                    <rect key="frame" x="20" y="36" width="80" height="14"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock_white" translatesAutoresizingMaskIntoConstraints="NO" id="sOy-Wx-jLK">
+                                                            <rect key="frame" x="0.0" y="0.0" width="14" height="14"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="14" id="d99-1g-UGS"/>
+                                                                <constraint firstAttribute="height" constant="14" id="ll2-ve-28R"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="600" text="Temporary label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5oi-v1-E9H">
+                                                            <rect key="frame" x="17" y="0.0" width="63" height="14"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                                            <color key="textColor" name="chatMessageText"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
@@ -390,15 +395,14 @@
                                                 <constraint firstItem="Qw2-0Z-3bH" firstAttribute="leading" secondItem="ssl-Fo-PZ6" secondAttribute="leading" id="KXf-Oi-ScK"/>
                                                 <constraint firstItem="Qw2-0Z-3bH" firstAttribute="top" secondItem="ssl-Fo-PZ6" secondAttribute="bottom" constant="2.5" id="LHo-DK-vOm"/>
                                                 <constraint firstAttribute="bottom" secondItem="QiQ-ly-TnA" secondAttribute="bottom" id="VdX-rj-qOg"/>
-                                                <constraint firstItem="5oi-v1-E9H" firstAttribute="leading" secondItem="sOy-Wx-jLK" secondAttribute="trailing" constant="3" id="asS-ZD-KNd"/>
+                                                <constraint firstItem="dQN-q2-toj" firstAttribute="top" secondItem="Qw2-0Z-3bH" secondAttribute="bottom" constant="3" id="aCx-kq-5c1"/>
+                                                <constraint firstItem="dQN-q2-toj" firstAttribute="trailing" secondItem="Qw2-0Z-3bH" secondAttribute="trailing" id="e7S-Wa-zDw"/>
                                                 <constraint firstItem="ssl-Fo-PZ6" firstAttribute="leading" secondItem="bC4-tB-3tb" secondAttribute="leading" constant="20" id="eoh-g0-SBQ"/>
-                                                <constraint firstAttribute="bottom" secondItem="5oi-v1-E9H" secondAttribute="bottom" constant="10" id="fSH-ra-1T8"/>
-                                                <constraint firstItem="sOy-Wx-jLK" firstAttribute="centerY" secondItem="5oi-v1-E9H" secondAttribute="centerY" id="gjR-9Y-BGV"/>
                                                 <constraint firstItem="ssl-Fo-PZ6" firstAttribute="top" secondItem="bC4-tB-3tb" secondAttribute="top" constant="5" id="iJV-0U-b5B"/>
                                                 <constraint firstAttribute="trailing" secondItem="8sp-sS-akf" secondAttribute="trailing" id="lC8-ij-cn4"/>
-                                                <constraint firstItem="sOy-Wx-jLK" firstAttribute="leading" secondItem="Qw2-0Z-3bH" secondAttribute="leading" id="nff-QV-XfN"/>
-                                                <constraint firstItem="5oi-v1-E9H" firstAttribute="top" secondItem="Qw2-0Z-3bH" secondAttribute="bottom" constant="2.5" id="ok2-fx-vnX"/>
+                                                <constraint firstAttribute="bottom" secondItem="dQN-q2-toj" secondAttribute="bottom" constant="10" id="uWf-uV-Ahb"/>
                                                 <constraint firstItem="8sp-sS-akf" firstAttribute="top" secondItem="bC4-tB-3tb" secondAttribute="top" id="vMA-xO-JUM"/>
+                                                <constraint firstItem="dQN-q2-toj" firstAttribute="leading" secondItem="Qw2-0Z-3bH" secondAttribute="leading" id="vzq-Ec-5mp"/>
                                                 <constraint firstAttribute="bottom" secondItem="8sp-sS-akf" secondAttribute="bottom" id="wSz-cV-veL"/>
                                                 <constraint firstItem="8sp-sS-akf" firstAttribute="leading" secondItem="bC4-tB-3tb" secondAttribute="leading" id="zyc-hE-gy6"/>
                                             </constraints>
@@ -446,7 +450,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="130" height="60"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="cB9-D3-EFb">
-                                                    <rect key="frame" x="5" y="0.0" width="36" height="17"/>
+                                                    <rect key="frame" x="5" y="0.0" width="35.5" height="17"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -552,14 +556,8 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ZH3-SQ-aI5">
-                                                    <rect key="frame" x="15" y="27" width="0.0" height="19.5"/>
+                                                    <rect key="frame" x="15" y="27" width="0.0" height="20"/>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="600" text="Temporary label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="32T-xF-1Fd">
-                                                    <rect key="frame" x="32" y="51.5" width="89.5" height="14.5"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
-                                                    <color key="textColor" name="chatMessageText"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5td-rd-iuw">
                                                     <rect key="frame" x="11" y="59" width="14" height="12"/>
                                                     <constraints>
@@ -569,29 +567,41 @@
                                                     <color key="textColor" name="chatMessageText"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hha-Hs-Qke">
-                                                    <rect key="frame" x="15" y="52" width="14" height="14"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="14" id="Gnb-rw-x5t"/>
-                                                        <constraint firstAttribute="width" constant="14" id="qGf-WZ-9qf"/>
-                                                    </constraints>
-                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="l09-03-R4v">
+                                                    <rect key="frame" x="15" y="52" width="137" height="14"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock_white" translatesAutoresizingMaskIntoConstraints="NO" id="hha-Hs-Qke">
+                                                            <rect key="frame" x="0.0" y="0.0" width="14" height="14"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="14" id="Gnb-rw-x5t"/>
+                                                                <constraint firstAttribute="width" constant="14" id="jwg-IY-lBE"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temporary label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="32T-xF-1Fd">
+                                                            <rect key="frame" x="17" y="0.0" width="120" height="14"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="120" id="3Xz-xB-e08"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                                            <color key="textColor" name="chatMessageText"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="5td-rd-iuw" secondAttribute="trailing" id="2ZX-F0-c5X"/>
-                                                <constraint firstItem="hha-Hs-Qke" firstAttribute="leading" secondItem="ZH3-SQ-aI5" secondAttribute="leading" id="D2C-Ws-rWC"/>
                                                 <constraint firstAttribute="bottom" secondItem="drR-8a-yrS" secondAttribute="bottom" id="DuR-Ns-DSm"/>
                                                 <constraint firstAttribute="trailing" secondItem="drR-8a-yrS" secondAttribute="trailing" id="O90-ov-qbp"/>
                                                 <constraint firstItem="drR-8a-yrS" firstAttribute="leading" secondItem="uqF-cV-3id" secondAttribute="leading" id="Um8-TL-rxy"/>
-                                                <constraint firstItem="32T-xF-1Fd" firstAttribute="centerY" secondItem="hha-Hs-Qke" secondAttribute="centerY" id="WLJ-rd-9QK"/>
-                                                <constraint firstItem="32T-xF-1Fd" firstAttribute="top" secondItem="ZH3-SQ-aI5" secondAttribute="bottom" constant="5" id="Xz3-jk-2Y1"/>
                                                 <constraint firstItem="tO3-cL-7Gp" firstAttribute="leading" secondItem="uqF-cV-3id" secondAttribute="leading" constant="15" id="YLd-sg-4Zn"/>
-                                                <constraint firstAttribute="bottom" secondItem="32T-xF-1Fd" secondAttribute="bottom" constant="5" id="csQ-Kp-q7C"/>
+                                                <constraint firstItem="l09-03-R4v" firstAttribute="leading" secondItem="ZH3-SQ-aI5" secondAttribute="leading" id="Zkz-qP-lxS"/>
+                                                <constraint firstAttribute="bottom" secondItem="l09-03-R4v" secondAttribute="bottom" constant="5" id="biT-Js-LXM"/>
                                                 <constraint firstAttribute="bottom" secondItem="5td-rd-iuw" secondAttribute="bottom" id="dcK-8N-Mm8"/>
                                                 <constraint firstItem="ZH3-SQ-aI5" firstAttribute="top" secondItem="tO3-cL-7Gp" secondAttribute="bottom" constant="5" id="mQK-xK-oer"/>
-                                                <constraint firstItem="32T-xF-1Fd" firstAttribute="leading" secondItem="hha-Hs-Qke" secondAttribute="trailing" constant="3" id="n12-hj-qEO"/>
                                                 <constraint firstItem="drR-8a-yrS" firstAttribute="top" secondItem="uqF-cV-3id" secondAttribute="top" id="pZA-eG-l9N"/>
+                                                <constraint firstItem="l09-03-R4v" firstAttribute="top" secondItem="ZH3-SQ-aI5" secondAttribute="bottom" constant="5" id="sja-sC-5JV"/>
                                                 <constraint firstAttribute="trailing" secondItem="ZH3-SQ-aI5" secondAttribute="trailing" constant="10" id="tPH-UO-OwD"/>
                                                 <constraint firstItem="ZH3-SQ-aI5" firstAttribute="leading" secondItem="tO3-cL-7Gp" secondAttribute="leading" id="wjH-G8-ebX"/>
                                                 <constraint firstItem="tO3-cL-7Gp" firstAttribute="top" secondItem="uqF-cV-3id" secondAttribute="top" constant="5" id="z6x-q2-7NJ"/>
