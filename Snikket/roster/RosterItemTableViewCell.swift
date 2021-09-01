@@ -43,17 +43,12 @@ class RosterItemTableViewCell: UITableViewCell {
     @IBOutlet var statusLabel: UILabel!
     
     private var originalBackgroundColor: UIColor?;
+    var selectedBackground = true
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-    
-//    override var isHighlighted: Bool {
-//        didSet {
-//            avatarStatusView?.backgroundColor = isHighlighted ? UIColor(named: "tintColor") :  self.backgroundColor;
-//        }
-//    }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         if originalBackgroundColor == nil {
@@ -65,6 +60,9 @@ class RosterItemTableViewCell: UITableViewCell {
                     self.backgroundColor = UIColor.white;
                 }
             }
+        }
+        if !selectedBackground {
+            return
         }
         if animated {
             UIView.animate(withDuration: 0.2) {

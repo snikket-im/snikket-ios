@@ -103,7 +103,7 @@ extension BaseChatViewController: PHPickerViewControllerDelegate {
         
     func selectPhotoFromLibrary() {
         var config = PHPickerConfiguration();
-        config.selectionLimit = 1;
+        config.selectionLimit = 0
         config.filter = .any(of: [.videos, .images]);
         config.preferredAssetRepresentationMode = .current;
                 
@@ -116,7 +116,8 @@ extension BaseChatViewController: PHPickerViewControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         picker.dismiss(animated: true);
         
-        if let provider = results.first?.itemProvider {
+        for result in results {
+            let provider = result.itemProvider
             if provider.canLoadObject(ofClass: UIImage.self) {
                 provider.loadFileRepresentation(forTypeIdentifier: "public.image", completionHandler: self.handleLoaded(imageUrl:error:));
             } else if provider.hasItemConformingToTypeIdentifier("public.movie") {
@@ -124,7 +125,9 @@ extension BaseChatViewController: PHPickerViewControllerDelegate {
             } else {
                 showAlert(shareError: .notSupported);
             }
+            
         }
+        
     }
     
     private func handleLoaded(imageUrl url: URL?, error: Error?) {

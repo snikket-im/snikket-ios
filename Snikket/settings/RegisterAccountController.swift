@@ -27,8 +27,6 @@ class RegisterAccountController: DataFormController {
     
     @IBOutlet var nextButton: UIBarButtonItem!
     
-    var domain: String? = nil;
-    
     var domainFieldValue: String? = nil;
 
     let trustedServers = [ "tigase.im", "sure.im", "jabber.today" ];

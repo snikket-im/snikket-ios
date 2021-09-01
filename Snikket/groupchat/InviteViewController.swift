@@ -27,7 +27,22 @@ class InviteViewController: AbstractRosterViewController {
     var room: Room!;
     
     var onNext: (([JID])->Void)? = nil;
-    var selected: [JID] = [];
+    
+    var selected: [JID] = [] {
+        didSet {
+            if selected.isEmpty {
+                self.navigationItem.rightBarButtonItem = nil
+            } else {
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Invite", style: .plain, target: self, action: #selector(inviteUsers))
+            }
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        allowsMultipleSelection = true
+        self.tableView.allowsMultipleSelection = true
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated);
@@ -52,27 +67,22 @@ class InviteViewController: AbstractRosterViewController {
             onNext(selected);
         }
     }
+    
+    @objc func inviteUsers() {
+        for user in selected {
+            room.invite(user, reason: "You are invied to join conversation at \(room.roomJid)")
+        }
+        self.navigationController?.dismiss(animated: true, completion: nil);
+    }
         
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        guard let item = roster?.item(at: indexPath) else {
-            return;
-        }
-        guard !tableView.allowsMultipleSelection else {
-            if selected.contains(item.jid) {
-                selected = selected.filter({ (jid) -> Bool in
-                    return jid != item.jid;
-                });
-                tableView.deselectRow(at: indexPath, animated: true);
-            } else {
-                selected.append(item.jid);
-            }
-            return;
-        }
-
-        room.invite(item.jid, reason: "You are invied to join conversation at \(room.roomJid)");
+        guard let item = roster?.item(at: indexPath) else { return }
         
-        self.navigationController?.dismiss(animated: true, completion: nil);
+        let cell = self.tableView.cellForRow(at: indexPath)
+        cell?.accessoryType = .checkmark
+        
+        self.selected.append(item.jid)
     }
  
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
@@ -82,5 +92,20 @@ class InviteViewController: AbstractRosterViewController {
         selected = selected.filter({ (jid) -> Bool in
             return jid != item.jid;
         });
+    }
+    
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        guard let item = roster?.item(at: indexPath) else { return nil }
+        
+        if let selectedRows = tableView.indexPathsForSelectedRows, selectedRows.contains(indexPath) { 
+            let cell = self.tableView.cellForRow(at: indexPath)
+            cell?.accessoryType = .none
+            tableView.deselectRow(at: indexPath, animated: true)
+            selected = selected.filter({ (jid) -> Bool in
+                return jid != item.jid;
+            })
+            return nil
+        }
+        return indexPath
     }
 }

@@ -28,7 +28,7 @@ class ChatTableViewCell: BaseChatTableViewCell, UITextViewDelegate {
     @IBOutlet weak var messageWidthConstraint: NSLayoutConstraint!
     
     @IBOutlet var messageTextView: MessageTextView!
-        
+    
     fileprivate var originalTextColor: UIColor!;
     
     override var backgroundColor: UIColor? {
@@ -90,11 +90,13 @@ class ChatTableViewCell: BaseChatTableViewCell, UITextViewDelegate {
         }
         self.messageTextView.textView.textAlignment = .left
         
+        var minWidth = timestampView?.intrinsicContentSize.width ?? 52
+        minWidth += 15 // lock icon width
         let maxWidth = UIScreen.main.bounds.width * 0.60
         let userFont = UIFont.systemFont(ofSize: 14)
         var textWidth = (item.message).width(withConstrainedHeight: .greatestFiniteMagnitude, font: userFont)
         textWidth = textWidth > maxWidth ? maxWidth : textWidth
-        textWidth = textWidth < 100 ? 100 : textWidth
+        textWidth = textWidth < minWidth ? minWidth : textWidth
         
         if let constraint = messageWidthConstraint {
             constraint.constant = textWidth + 20
