@@ -25,6 +25,7 @@ import TigaseSwift
 
 class DataFormController: UITableViewController {
     
+    var domain: String? = nil
     var bob: [BobData] = [];
     var form: JabberDataElement?;
     
@@ -107,6 +108,7 @@ class DataFormController: UITableViewController {
             if field.name == "username" {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "FormViewCell-username", for: indexPath)
                 (cell as? FieldCell)?.field = field
+                (cell as? UserNameFieldCell)?.domain = self.domain ?? "example.com"
                 return cell
             }
             let cellId = "FormViewCell-" + ( field.type ?? "fixed" );
@@ -240,6 +242,7 @@ class DataFormController: UITableViewController {
     
     class UserNameFieldCell: AbstractTextSingleFieldCell {
         
+        var domain = "example.com"
         var userNameLabel: UILabel!
         
         override var field: Field? {
@@ -254,7 +257,12 @@ class DataFormController: UITableViewController {
         
         override func textDidChanged(textField: UITextField) {
             (field as? TextSingleField)?.value = textField.text
-            self.userNameLabel.text = "Your address will be:   \(textField.text ?? "")@example.com"
+            if textField.text != "" {
+                self.userNameLabel.text = "Your address will be:   \(textField.text ?? "")@\(domain)"
+            } else {
+                self.userNameLabel.text = nil
+            }
+            
         }
         
         override func createFieldView() -> UIView? {
@@ -266,7 +274,7 @@ class DataFormController: UITableViewController {
             userNameLabel.translatesAutoresizingMaskIntoConstraints = false
             userNameLabel.font = UIFont.systemFont(ofSize: 12)
             userNameLabel.textColor = .darkGray
-            userNameLabel.text = "Your address will be:   @example.com"
+            userNameLabel.text = nil
             contentView.addSubview(userNameLabel)
             userNameLabel.topAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
             userNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
