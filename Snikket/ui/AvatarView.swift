@@ -101,7 +101,10 @@ class AvatarView: UIImageView {
         
         //Drawing in 1st half image or member letters
         if let image = member1Image {
-            image.draw(in: CGRect(x: 0, y: 0, width: (size.width / 2) - 2, height: size.height))
+            let targetRect = CGRect(x: 0, y: 0, width: (size.width / 2) - 2, height: size.height)
+            let centerRect = CGRect(x: (size.width / 2), y: 0, width: (size.width / 2) - 2, height: size.height)
+            let croppedImage = image.crop(rect: centerRect)
+            croppedImage.draw(in: targetRect)
         }
         else {
             ctx.fill(CGRect(x: 0, y: 0, width: (size.width / 2) - 2, height: size.height))
@@ -112,7 +115,10 @@ class AvatarView: UIImageView {
         
         //Drawing in 2nd half image or member letter
         if let image = member2Image {
-            image.draw(in: CGRect(x: (size.width / 2)+2, y: 0, width: (size.width / 2) - 2, height: size.height))
+            let targetRect = CGRect(x: (size.width / 2)+2, y: 0, width: (size.width / 2) - 2, height: size.height)
+            let centerRect = CGRect(x: (size.width / 2), y: 0, width: (size.width / 2) - 2, height: size.height)
+            let croppedImage = image.crop(rect: centerRect)
+            croppedImage.draw(in: targetRect)
         }
         else {
             ctx.fill(CGRect(x: (size.width / 2)+2, y: 0, width: size.width, height: size.height))
@@ -140,7 +146,7 @@ class AvatarView: UIImageView {
             image.draw(in: CGRect(x: 0, y: 0, width: (size.width / 2) - 2, height: (size.height / 2) - 2))
         } else {
             ctx.fill(CGRect(x: 0, y: 0, width: (size.width / 2) - 2, height: (size.height / 2) - 2))
-            let member1textAttr: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.white.withAlphaComponent(0.9), .font: UIFont.systemFont(ofSize: fontSize(text: member3, size: size), weight: .medium)]
+            let member1textAttr: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.white.withAlphaComponent(0.9), .font: UIFont.systemFont(ofSize: fontSize(text: member1, size: size), weight: .medium)]
             let member1textSize = member1.size(withAttributes: member1textAttr)
             member1.draw(in: CGRect(x: size.width/4 - member1textSize.width/2, y: size.height/4 - member1textSize.height/2, width: member1textSize.width, height: member1textSize.height), withAttributes: member1textAttr)
         }
@@ -150,7 +156,7 @@ class AvatarView: UIImageView {
             image.draw(in: CGRect(x: (size.width / 2)+2, y: 0, width: (size.width / 2) - 2, height: (size.height / 2) - 2))
         } else {
             ctx.fill(CGRect(x: (size.width / 2)+2, y: 0, width: size.width, height: (size.height / 2) - 2))
-            let member2textAttr: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.white.withAlphaComponent(0.9), .font: UIFont.systemFont(ofSize: fontSize(text: member3, size: size), weight: .medium)]
+            let member2textAttr: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.white.withAlphaComponent(0.9), .font: UIFont.systemFont(ofSize: fontSize(text: member2, size: size), weight: .medium)]
             let member2textSize = member2.size(withAttributes: member2textAttr)
             member2.draw(in: CGRect(x: size.width/2 + member2textSize.width/2, y: size.height/4 - member2textSize.height/2, width: member2textSize.width, height: member2textSize.height), withAttributes: member2textAttr)
         }
@@ -228,4 +234,13 @@ class AvatarView: UIImageView {
         return initials ?? "?"
     }
     
+}
+
+extension UIImage {
+    func crop(rect: CGRect) -> UIImage {
+        guard let cgImage = self.cgImage?.cropping(to: rect) else {
+            return UIImage(named: "moreImg")!
+        }
+        return UIImage(cgImage: cgImage)
+    }
 }
