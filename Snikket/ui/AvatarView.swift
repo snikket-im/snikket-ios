@@ -64,7 +64,7 @@ class AvatarView: UIImageView {
     }
     
     func setGroup(memberNames: [String], memberImages: [UIImage], avatar: UIImage?, defAvatar: UIImage, backColor: UIColor = .systemGray) {
-        
+        self.image = nil
         if avatar != nil {
             self.image = avatar
         }
@@ -72,14 +72,19 @@ class AvatarView: UIImageView {
             let memberInitials = memberNames.map { return self.getInitials(name: $0) }
             if memberInitials.count == 1 {
                 self.image = self.prepareInitialsAvatar(for: memberInitials.first!, backColor: backColor)
-            } else if memberInitials.count > 1, memberInitials.count < 4 {
+            } else if memberInitials.count == 2 {
                 //2
                 let image1 = memberImages.isEmpty ? nil : memberImages[0]
                 let image2 = memberImages.count > 1 ? memberImages[1] : nil
                 self.image = groupImagefor2(member1: memberInitials[0], member2: memberInitials[1], member1Image: image1, member2Image: image2)
+            } else if memberInitials.count == 3 {
+                //3
+                let image1 = memberImages.isEmpty ? nil : memberImages[0]
+                let image2 = memberImages.count > 1 ? memberImages[1] : nil
+                let image3 = memberImages.count > 2 ? memberImages[2] : nil
+                self.image = groupImagefor3(member1: memberInitials[0], member2: memberInitials[1], member3: memberInitials[2], member1Image: image1, member2Image: image2, member3Image: image3)
             } else {
                 //4
-                self.image = nil
                 let image1 = memberImages.isEmpty ? nil : memberImages[0]
                 let image2 = memberImages.count > 1 ? memberImages[1] : nil
                 let image3 = memberImages.count > 2 ? memberImages[2] : nil
@@ -94,19 +99,20 @@ class AvatarView: UIImageView {
     
     func groupImagefor2(member1: String, member2: String, member1Image: UIImage?, member2Image: UIImage?) -> UIImage {
         let (size,scale) = sizeAndScale()
+        let member1Image = resizeImage(image: member1Image, newWidth: size.width)
+        let member2Image = resizeImage(image: member2Image, newWidth: size.width)
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
         let ctx = UIGraphicsGetCurrentContext()!
-        
-        ctx.setFillColor(#colorLiteral(red: 0.01663736999, green: 0.4700628519, blue: 0.6680073142, alpha: 1).cgColor);
         
         //Drawing in 1st half image or member letters
         if let image = member1Image {
             let targetRect = CGRect(x: 0, y: 0, width: (size.width / 2) - 2, height: size.height)
-            let centerRect = CGRect(x: (size.width / 2), y: 0, width: (size.width / 2) - 2, height: size.height)
+            let centerRect = CGRect(x: (size.width / 4), y: 0, width: (size.width / 2) - 2, height: size.height)
             let croppedImage = image.crop(rect: centerRect)
             croppedImage.draw(in: targetRect)
         }
         else {
+            ctx.setFillColor(#colorLiteral(red: 0.01663736999, green: 0.4700628519, blue: 0.6680073142, alpha: 1).cgColor)
             ctx.fill(CGRect(x: 0, y: 0, width: (size.width / 2) - 2, height: size.height))
             let member1textAttr: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.white.withAlphaComponent(0.9), .font: UIFont.systemFont(ofSize: size.width * 0.4, weight: .medium)]
             let member1textSize = member1.size(withAttributes: member1textAttr)
@@ -116,11 +122,12 @@ class AvatarView: UIImageView {
         //Drawing in 2nd half image or member letter
         if let image = member2Image {
             let targetRect = CGRect(x: (size.width / 2)+2, y: 0, width: (size.width / 2) - 2, height: size.height)
-            let centerRect = CGRect(x: (size.width / 2), y: 0, width: (size.width / 2) - 2, height: size.height)
+            let centerRect = CGRect(x: (size.width / 4), y: 0, width: (size.width / 2) - 2, height: size.height)
             let croppedImage = image.crop(rect: centerRect)
             croppedImage.draw(in: targetRect)
         }
         else {
+            ctx.setFillColor(#colorLiteral(red: 0.01663736999, green: 0.4700628519, blue: 0.6680073142, alpha: 1).cgColor)
             ctx.fill(CGRect(x: (size.width / 2)+2, y: 0, width: size.width, height: size.height))
             let member2textAttr: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.white.withAlphaComponent(0.9), .font: UIFont.systemFont(ofSize: size.width * 0.4, weight: .medium)]
             let member2textSize = member2.size(withAttributes: member2textAttr)
@@ -133,18 +140,73 @@ class AvatarView: UIImageView {
         return image
     }
     
-    func groupImagefor4(member1: String, member2: String, member3: String, member1Image: UIImage?, member2Image: UIImage?, member3Image: UIImage?) -> UIImage {
+    func groupImagefor3(member1: String, member2: String, member3: String, member1Image: UIImage?, member2Image: UIImage?, member3Image: UIImage?) -> UIImage {
         let (size,scale) = sizeAndScale()
-        
+        let member1Image = resizeImage(image: member1Image, newWidth: size.width)
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
         let ctx = UIGraphicsGetCurrentContext()!
         
-        ctx.setFillColor(#colorLiteral(red: 0.01663736999, green: 0.4700628519, blue: 0.6680073142, alpha: 1).cgColor);
+        //Left
+        if let image = member1Image {
+            let targetRect = CGRect(x: 0, y: 0, width: (size.width / 2) - 2, height: size.height)
+            let centerRect = CGRect(x: (size.width / 4), y: 0, width: (size.width / 2) - 2, height: size.height)
+            let croppedImage = image.crop(rect: centerRect)
+            croppedImage.draw(in: targetRect)
+        } else {
+            ctx.setFillColor(#colorLiteral(red: 0.01663736999, green: 0.4700628519, blue: 0.6680073142, alpha: 1).cgColor)
+            ctx.fill(CGRect(x: 0, y: 0, width: (size.width / 2) - 2, height: (size.height / 2) - 2))
+            let member1textAttr: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.white.withAlphaComponent(0.9), .font: UIFont.systemFont(ofSize: fontSize(text: member1, size: size), weight: .medium)]
+            let member1textSize = member1.size(withAttributes: member1textAttr)
+            member1.draw(in: CGRect(x: size.width/4 - member1textSize.width/2,
+                                    y: size.height/4 - member1textSize.height/2,
+                                    width: member1textSize.width,
+                                    height: member1textSize.height), withAttributes: member1textAttr)
+        }
+        
+        //Top Right
+        if let image = member2Image {
+            image.draw(in: CGRect(x: (size.width / 2)+2, y: 0, width: (size.width / 2) - 2, height: (size.height / 2) - 2))
+        } else {
+            ctx.setFillColor(#colorLiteral(red: 0.01663736999, green: 0.4700628519, blue: 0.6680073142, alpha: 1).cgColor)
+            ctx.fill(CGRect(x: (size.width / 2)+2, y: 0, width: size.width, height: (size.height / 2) - 2))
+            let member2textAttr: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.white.withAlphaComponent(0.9), .font: UIFont.systemFont(ofSize: fontSize(text: member2, size: size), weight: .medium)]
+            let member2textSize = member2.size(withAttributes: member2textAttr)
+            member2.draw(in: CGRect(x: (size.width/4 + size.width/2) - member2textSize.width/2,
+                                    y: size.height/4 - member2textSize.height/2,
+                                    width: member2textSize.width,
+                                    height: member2textSize.height), withAttributes: member2textAttr)
+        }
+        
+        //Bottom Right
+        if let image = member3Image {
+            image.draw(in: CGRect(x: (size.width/2)+2, y: (size.height/2)+2, width: (size.width/2)-2, height: (size.height/2)-2))
+        } else {
+            ctx.setFillColor(#colorLiteral(red: 0.01663736999, green: 0.4700628519, blue: 0.6680073142, alpha: 1).cgColor)
+            ctx.fill(CGRect(x: (size.width/2)+2, y: (size.height/2)+2, width: (size.width/2)-2, height: (size.height/2)-2))
+            let member3textAttr: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.white.withAlphaComponent(0.9), .font: UIFont.systemFont(ofSize: fontSize(text: member3, size: size), weight: .medium)]
+            let member3textSize = member3.size(withAttributes: member3textAttr)
+            member3.draw(in: CGRect(x: (size.width/4 + size.width/2) - member3textSize.width/2 ,
+                                    y: (size.height/4 + size.height/2) - member3textSize.height/2,
+                                    width: member3textSize.width,
+                                    height: member3textSize.height), withAttributes: member3textAttr)
+        }
+        
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return image
+    }
+    
+    func groupImagefor4(member1: String, member2: String, member3: String, member1Image: UIImage?, member2Image: UIImage?, member3Image: UIImage?) -> UIImage {
+        let (size,scale) = sizeAndScale()
+        UIGraphicsBeginImageContextWithOptions(size, false, scale)
+        let ctx = UIGraphicsGetCurrentContext()!
         
         //Top Left
         if let image = member1Image {
             image.draw(in: CGRect(x: 0, y: 0, width: (size.width / 2) - 2, height: (size.height / 2) - 2))
         } else {
+            ctx.setFillColor(#colorLiteral(red: 0.01663736999, green: 0.4700628519, blue: 0.6680073142, alpha: 1).cgColor)
             ctx.fill(CGRect(x: 0, y: 0, width: (size.width / 2) - 2, height: (size.height / 2) - 2))
             let member1textAttr: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.white.withAlphaComponent(0.9), .font: UIFont.systemFont(ofSize: fontSize(text: member1, size: size), weight: .medium)]
             let member1textSize = member1.size(withAttributes: member1textAttr)
@@ -155,20 +217,30 @@ class AvatarView: UIImageView {
         if let image = member2Image {
             image.draw(in: CGRect(x: (size.width / 2)+2, y: 0, width: (size.width / 2) - 2, height: (size.height / 2) - 2))
         } else {
+            ctx.setFillColor(#colorLiteral(red: 0.01663736999, green: 0.4700628519, blue: 0.6680073142, alpha: 1).cgColor)
             ctx.fill(CGRect(x: (size.width / 2)+2, y: 0, width: size.width, height: (size.height / 2) - 2))
             let member2textAttr: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.white.withAlphaComponent(0.9), .font: UIFont.systemFont(ofSize: fontSize(text: member2, size: size), weight: .medium)]
             let member2textSize = member2.size(withAttributes: member2textAttr)
-            member2.draw(in: CGRect(x: size.width/2 + member2textSize.width/2, y: size.height/4 - member2textSize.height/2, width: member2textSize.width, height: member2textSize.height), withAttributes: member2textAttr)
+            member2.draw(in: CGRect(x: (size.width/4 + size.width/2) - member2textSize.width/2,
+                                    y: size.height/4 - member2textSize.height/2,
+                                    width: member2textSize.width,
+                                    height: member2textSize.height),
+                                    withAttributes: member2textAttr)
         }
         
         //Bottom Left
         if let image = member3Image {
             image.draw(in: CGRect(x: 0, y: (size.height / 2) + 2, width: (size.width / 2) - 2, height: (size.height / 2) - 2))
         } else {
+            ctx.setFillColor(#colorLiteral(red: 0.01663736999, green: 0.4700628519, blue: 0.6680073142, alpha: 1).cgColor)
             ctx.fill(CGRect(x: 0, y: (size.height / 2) + 2, width: (size.width / 2) - 2, height: (size.height / 2) - 2))
             let member3textAttr: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.white.withAlphaComponent(0.9), .font: UIFont.systemFont(ofSize: fontSize(text: member3, size: size), weight: .medium)]
             let member3textSize = member3.size(withAttributes: member3textAttr)
-            member3.draw(in: CGRect(x: size.width/4 - member3textSize.width/2, y: size.height/2 + member3textSize.height/2, width: member3textSize.width, height: member3textSize.height), withAttributes: member3textAttr)
+            
+            member3.draw(in: CGRect(x: size.width/4 - member3textSize.width/2,
+                                    y: (size.height/4 + size.height/2) - member3textSize.height/2,
+                                    width: member3textSize.width,
+                                    height: member3textSize.height), withAttributes: member3textAttr)
         }
         
         //Bottom Right
@@ -194,7 +266,7 @@ class AvatarView: UIImageView {
     
     func fontSize(text: String, size: CGSize) -> CGFloat {
         if text.count > 1 {
-            return size.width * 0.2
+            return size.width * 0.3
         } else {
             return size.width * 0.4
         }
@@ -234,6 +306,19 @@ class AvatarView: UIImageView {
         return initials ?? "?"
     }
     
+    func resizeImage(image: UIImage?, newWidth: CGFloat) -> UIImage? {
+
+        guard let image = image else { return nil }
+        let scale = newWidth / image.size.width
+        let newHeight = image.size.height * scale
+        UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
+        image.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: newHeight))
+
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return newImage
+    }
 }
 
 extension UIImage {
@@ -241,6 +326,6 @@ extension UIImage {
         guard let cgImage = self.cgImage?.cropping(to: rect) else {
             return UIImage(named: "moreImg")!
         }
-        return UIImage(cgImage: cgImage)
+        return UIImage(cgImage: cgImage, scale: UIScreen.main.scale, orientation: .up)
     }
 }
