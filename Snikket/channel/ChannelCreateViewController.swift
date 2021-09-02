@@ -28,6 +28,14 @@ class ChannelCreateViewController: UITableViewController, ChannelSelectAccountAn
     @IBOutlet var statusView: ChannelJoinStatusView!;
     @IBOutlet var channelNameField: UITextField!;
     @IBOutlet var channelIdField: UITextField!;
+    @IBOutlet weak var accountSelectorField: UITextField!
+    
+    lazy var accountPicker : UIPickerView = {
+        let picker = UIPickerView()
+        picker.dataSource = self
+        picker.delegate = self
+        return picker
+    }()
     
     var account: BareJID? {
         didSet {
@@ -41,6 +49,7 @@ class ChannelCreateViewController: UITableViewController, ChannelSelectAccountAn
             needRefresh = true;
         }
     }
+    
     var kind: ChannelKind = .adhoc;
     
     private var components: [ChannelsHelper.Component] = [] {
@@ -53,7 +62,7 @@ class ChannelCreateViewController: UITableViewController, ChannelSelectAccountAn
     private var needRefresh = false;
     
     override func viewDidLoad() {
-        super.viewDidLoad();
+        super.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,66 +74,45 @@ class ChannelCreateViewController: UITableViewController, ChannelSelectAccountAn
             self.refresh();
             needRefresh = false;
         }
+        
+        accountSelectorField.inputView = accountPicker
+        accountSelectorField.text = self.account?.stringValue ?? ""
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = super.tableView(tableView, cellForRowAt: indexPath);
-        if indexPath.section == 1 {
-            let view = UISwitch();
-            view.isOn = self.invitationOnly;
-            view.addTarget(self, action: #selector(invitationOnlySwitchChanged(_:)), for: .valueChanged);
-            cell.accessoryView = view;
+        
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
+        
+        if cell.reuseIdentifier == "SelectAccountCell" {
         }
-        if indexPath.section == 3 {
+        else if cell.reuseIdentifier == "ChannelNameCell" {
+        }
+        else if cell.reuseIdentifier == "AccessSwitchCell" {
+            let view = UISwitch()
+            view.isOn = self.invitationOnly
+            view.addTarget(self, action: #selector(invitationOnlySwitchChanged(_:)), for: .valueChanged)
+            cell.accessoryView = view
+        }
+        else if cell.reuseIdentifier == "ChannelIDCell" {
+            
+        }
+        else if cell.reuseIdentifier == "ExperimentalCell" {
             let view = UISwitch();
             view.isOn = self.useMix;
             view.addTarget(self, action: #selector(mixSwitchChanged(_:)), for: .valueChanged);
             cell.accessoryView = view;
         }
-        return cell;
+        
+        return cell
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        let count = super.numberOfSections(in: tableView);
+        var count = super.numberOfSections(in: tableView)
+        if kind == .adhoc { count -= 2 }
         if components.map({ $0.type }).contains(.mix) {
             return count;
         }
-        return count - 1;
-    }
-
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if kind == .adhoc && section == 2 {
-            return 0.1;
-        }
-        return super.tableView(tableView, heightForHeaderInSection: section);
-    }
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if kind == .adhoc && section == 2 {
-            return nil;
-        }
-        return super.tableView(tableView, titleForHeaderInSection: section);
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if kind == .adhoc && section == 2 {
-            return 0;
-        }
-        return super.tableView(tableView, numberOfRowsInSection: section);
-    }
-    
-    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        if kind == .adhoc && section == 2 {
-            return 0.1;
-        }
-        return super.tableView(tableView, heightForFooterInSection: section);
-    }
-    
-    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        if kind == .adhoc && section == 2 {
-            return nil;
-        }
-        return super.tableView(tableView, titleForFooterInSection: section);
+        return count - 1
     }
     
     @objc func invitationOnlySwitchChanged(_ sender: UISwitch) {
@@ -178,9 +166,9 @@ class ChannelCreateViewController: UITableViewController, ChannelSelectAccountAn
     }
     
     private func updateJoinButtonStatus() {
-        let name = self.channelNameField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "";
+        if kind != .adhoc { self.joinButton.title = "Next" }
         let channelId = self.channelIdField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? "";
-        self.joinButton.isEnabled = (!name.isEmpty) && (kind == .adhoc || !channelId.isEmpty) && self.components.contains(where: { $0.type == (useMix ? .mix : .muc) });
+        self.joinButton.isEnabled = (kind == .adhoc || !channelId.isEmpty) && self.components.contains(where: { $0.type == (useMix ? .mix : .muc) })
     }
 
     private func refresh() {
@@ -211,6 +199,178 @@ class ChannelCreateViewController: UITableViewController, ChannelSelectAccountAn
     enum ChannelKind {
         case stable
         case adhoc
+    }
+    
+    @IBAction func createChannel(_ sender: UIBarButtonItem) {
+        if kind == .adhoc {
+            let component = self.components.first(where: { $0.type == (useMix ? .mix : .muc) })!
+            let channelJid = BareJID(domain: component.jid.domain)
+            let account = accountSelectorField.text ?? ""
+            let nick = AccountSettings.displayName(BareJID(account)).getString() ?? BareJID(account).localPart
+            self.create(account: BareJID(account), channelJid: channelJid, componentType: useMix ? .mix : .muc, name: channelNameField.text ?? "", description: nil, nick: nick ?? "", isPublic: false, invitationOnly: true, avatar: nil)
+        }
+        else {
+            if let destination = UIStoryboard(name: "MIX", bundle: nil).instantiateViewController(withIdentifier: "ChannelJoinViewController") as? ChannelJoinViewController {
+                destination.action = .create(isPublic: kind == .stable, invitationOnly: invitationOnly, description: nil, avatar: nil);
+                destination.account = self.account;
+                let component = self.components.first(where: { $0.type == (useMix ? .mix : .muc) })!;
+                destination.channelJid = BareJID(domain: component.jid.domain);
+                if kind == .stable {
+                    if let val = self.channelIdField.text, !val.isEmpty {
+                        destination.channelJid = BareJID(localPart: val, domain: component.jid.domain);
+                    }
+                }
+                destination.name = channelNameField.text!;
+                destination.componentType = useMix ? .mix : .muc
+                destination.modalPresentationStyle = .formSheet
+                self.navigationController?.pushViewController(destination, animated: true)
+            }
+        }
+    }
+    
+    private func create(account: BareJID, channelJid: BareJID, componentType: ChannelsHelper.ComponentType, name: String, description: String?, nick: String, isPublic: Bool, invitationOnly: Bool, avatar: UIImage?) {
+        switch componentType {
+        case .mix:
+            guard let client = XmppService.instance.getClient(for: account) else {
+                return;
+            }
+            
+            guard let mixModule: MixModule = client.modulesManager.getModule(MixModule.ID), let avatarModule: PEPUserAvatarModule = client.modulesManager.getModule(PEPUserAvatarModule.ID) else {
+                return;
+            }
+            self.operationStarted(message: "Creating channel...")
+                
+            mixModule.create(channel: channelJid.localPart, at: BareJID(domain: channelJid.domain), completionHandler: { [weak self] result in
+                switch result {
+                case .success(let channelJid):
+                        mixModule.join(channel: channelJid, withNick: nick, completionHandler: { result in
+                            DispatchQueue.main.async {
+                                self?.operationEnded();
+                            }
+                            switch result {
+                            case .success(_):
+                                DispatchQueue.main.async {
+                                    self?.dismiss(animated: true, completion: nil);
+                                }
+                            case .failure(let errorCondition, _):
+                                DispatchQueue.main.async {
+                                    guard let that = self else {
+                                        return;
+                                    }
+                                    let alert = UIAlertController(title: "Error occurred", message: "Could not join newly created channel '\(channelJid)' on the server. Got following error: \(errorCondition.rawValue)", preferredStyle: .alert);
+                                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil));
+                                    that.present(alert, animated: true, completion: nil);
+                                }
+                            }
+                        })
+                        mixModule.publishInfo(for: channelJid, info: ChannelInfo(name: name, description: description, contact: []), completionHandler: nil);
+                        if let avatarData = avatar?.scaled(maxWidthOrHeight: 512.0)?.jpegData(compressionQuality: 0.8) {
+                            avatarModule.publishAvatar(at: channelJid, data: avatarData, mimeType: "image/jpeg", completionHandler: { result in
+                                print("avatar publication result:", result);
+                            });
+                        }
+                        if invitationOnly {
+                            mixModule.changeAccessPolicy(of: channelJid, isPrivate: invitationOnly, completionHandler: { result in
+                                print("changed channel access policy:", result);
+                            })
+                        }
+                    case .failure(let errorCondition):
+                        DispatchQueue.main.async {
+                            self?.operationEnded();
+                            guard let that = self else {
+                                return;
+                            }
+                            let alert = UIAlertController(title: "Error occurred", message: "Could not create channel on the server. Got following error: \(errorCondition.rawValue)", preferredStyle: .alert);
+                            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil));
+                            that.present(alert, animated: true, completion: nil);
+                        }
+                    }
+                })
+                break;
+        case .muc:
+            guard let client = XmppService.instance.getClient(for: account), let mucModule: MucModule = client.modulesManager.getModule(MucModule.ID) else {
+                return;
+            }
+            let roomName = isPublic ? channelJid.localPart! : UUID().uuidString;
+            _ = mucModule.join(roomName: roomName, mucServer: channelJid.domain, nickname: nick, ifCreated: { room in
+                mucModule.getRoomConfiguration(roomJid: room.jid, onSuccess: { (config) in
+                    if let roomNameField: TextSingleField = config.getField(named: "muc#roomconfig_roomname") {
+                        roomNameField.value = name;
+                    }
+                    if let membersOnlyField: BooleanField = config.getField(named: "muc#roomconfig_membersonly") {
+                        membersOnlyField.value = invitationOnly;
+                        if invitationOnly {
+                            if let anonimityField: ListSingleField = config.getField(named: "muc#roomconfig_anonymity") {
+                                anonimityField.value = "nonanonymous";
+                            }
+                        }
+                    }
+                    if let whoisField: ListSingleField = config.getField(named: "muc#roomconfig_whois") {
+                        if invitationOnly && whoisField.options.contains(where: { $0.value == "anyone" }) {
+                            whoisField.value = "anyone";
+                        }
+                        if !invitationOnly && whoisField.options.contains(where: { $0.value == "moderators" }) {
+                            whoisField.value = "moderators";
+                        }
+                    }
+                    if let persistantField: BooleanField = config.getField(named: "muc#roomconfig_persistentroom") {
+                        persistantField.value = true;
+                    }
+                    if let publicallySeachableField: BooleanField = config.getField(named: "muc#roomconfig_publicroom") {
+                        publicallySeachableField.value = isPublic;
+                    }
+                    mucModule.setRoomConfiguration(roomJid: room.jid, configuration: config, onSuccess: {
+                        PEPBookmarksModule.updateOrAdd(for: account, bookmark: Bookmarks.Conference(name: roomName, jid: room.jid, autojoin: true, nick: nick, password: nil));
+                    }, onError: nil);
+                }, onError: nil);
+            }, onJoined: { room in
+                DispatchQueue.main.async { [weak self] in
+                    weak var pvc = self?.presentingViewController
+                    (room as! DBRoom).supportedFeatures = []
+                    self?.dismiss(animated: true, completion: {
+                        if let vc = UIStoryboard(name: "Groupchat", bundle: nil).instantiateViewController(withIdentifier: "InviteViewController") as? InviteViewController {
+                            vc.room = room
+                            vc.modalPresentationStyle = .formSheet
+                            vc.title = "Add Participants"
+                            pvc?.present(UINavigationController(rootViewController: vc), animated: true, completion: nil)
+                        }
+                    })
+                }
+                if let vCardTempModule: VCardTempModule = client.modulesManager.getModule(VCardTempModule.ID) {
+                    let vcard = VCard();
+                    if let binval = avatar?.scaled(maxWidthOrHeight: 512.0)?.jpegData(compressionQuality: 0.8)?.base64EncodedString(options: []) {
+                        vcard.photos = [VCard.Photo(uri: nil, type: "image/jpeg", binval: binval, types: [.home])];
+                    }
+                    vCardTempModule.publishVCard(vcard, to: room.roomJid);
+                }
+                if description != nil {
+                    mucModule.setRoomSubject(roomJid: room.roomJid, newSubject: description);
+                }
+                room.registerForTigasePushNotification(true, completionHandler: { (result) in
+                    print("automatically enabled push for:", room.roomJid, "result:", result);
+                })
+            })
+        }
+    }
+    
+}
+
+extension ChannelCreateViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return AccountManager.getActiveAccounts().count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return AccountManager.getActiveAccounts()[row].stringValue;
+    }
+    
+    func  pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        accountSelectorField.text = self.pickerView(pickerView, titleForRow: row, forComponent: component)
+        self.view.endEditing(true)
     }
     
 }
