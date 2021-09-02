@@ -157,6 +157,20 @@ class RosterViewController: AbstractRosterViewController, UIGestureRecognizerDel
         }
         createChat(for: item);
     }
+    
+    override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? RosterItemTableViewCell else { return }
+        cell.backgroundColor = .lightGray
+    }
+    
+    override func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) as? RosterItemTableViewCell else { return }
+        cell.backgroundColor = .white
+    }
 
     private func createChat(for item: RosterProviderItem) {
         let xmppClient = XmppService.instance.getClient(forJid: item.account);
