@@ -39,8 +39,8 @@
                             <rect key="frame" x="79.5" y="2" width="255" height="40"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" text="very long group name written here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="az1-E9-Dy7">
-                                    <rect key="frame" x="41" y="2" width="173" height="19"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" text="very long group name written here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="az1-E9-Dy7">
+                                    <rect key="frame" x="0.0" y="2" width="219" height="19"/>
                                     <color key="tintColor" name="tintColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" name="tintColor"/>
@@ -56,16 +56,17 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eec-Rr-KiG">
-                                    <rect key="frame" x="220" y="-0.5" width="25" height="24"/>
+                                    <rect key="frame" x="225" y="1.5" width="20" height="20"/>
                                     <inset key="imageEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
                                 </button>
                             </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="az1-E9-Dy7" firstAttribute="top" secondItem="Ht8-Rt-tH2" secondAttribute="top" constant="2" id="0kL-lQ-dCC"/>
-                                <constraint firstItem="az1-E9-Dy7" firstAttribute="centerX" secondItem="Ht8-Rt-tH2" secondAttribute="centerX" id="6o2-bM-4SK"/>
                                 <constraint firstItem="Eec-Rr-KiG" firstAttribute="centerY" secondItem="az1-E9-Dy7" secondAttribute="centerY" id="E4v-Cj-cQJ"/>
                                 <constraint firstItem="az1-E9-Dy7" firstAttribute="trailing" secondItem="Eec-Rr-KiG" secondAttribute="leading" constant="-6" id="PBS-kR-0z1"/>
-                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Eec-Rr-KiG" secondAttribute="trailing" constant="10" id="bxJ-ht-BJq"/>
+                                <constraint firstAttribute="trailing" secondItem="Eec-Rr-KiG" secondAttribute="trailing" constant="10" id="bxJ-ht-BJq"/>
+                                <constraint firstItem="az1-E9-Dy7" firstAttribute="leading" secondItem="Ht8-Rt-tH2" secondAttribute="leading" id="ik7-GX-j81"/>
                                 <constraint firstItem="54Z-E5-MZp" firstAttribute="centerX" secondItem="Ht8-Rt-tH2" secondAttribute="centerX" id="jVY-Iw-g2X"/>
                                 <constraint firstItem="54Z-E5-MZp" firstAttribute="top" secondItem="az1-E9-Dy7" secondAttribute="bottom" constant="2" id="kn5-Si-1pl"/>
                                 <constraint firstAttribute="bottom" secondItem="54Z-E5-MZp" secondAttribute="bottom" constant="2" id="mXc-f8-Rde"/>

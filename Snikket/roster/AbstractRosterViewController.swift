@@ -116,7 +116,6 @@ class AbstractRosterViewController: UITableViewController, UISearchResultsUpdati
         }
         
         if allowsMultipleSelection {
-            cell.selectedBackground = false
             if let selectedRows = tableView.indexPathsForSelectedRows, selectedRows.contains(indexPath) {
                 cell.accessoryType = .checkmark
             } else {

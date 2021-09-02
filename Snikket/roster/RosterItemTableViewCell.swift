@@ -42,34 +42,12 @@ class RosterItemTableViewCell: UITableViewCell {
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var statusLabel: UILabel!
     
-    private var originalBackgroundColor: UIColor?;
-    var selectedBackground = true
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
-        if originalBackgroundColor == nil {
-            originalBackgroundColor = self.backgroundColor;
-            if originalBackgroundColor == nil {
-                if #available(iOS 13.0, *) {
-                    self.backgroundColor = UIColor.systemBackground;
-                } else {
-                    self.backgroundColor = UIColor.white;
-                }
-            }
-        }
-        if !selectedBackground {
-            return
-        }
-        if animated {
-            UIView.animate(withDuration: 0.2) {
-                self.backgroundColor = selected ? UIColor.lightGray : self.originalBackgroundColor;
-            }
-        } else {
-            self.backgroundColor = selected ? UIColor.lightGray : originalBackgroundColor;
-        }
+        return
     }
 }
