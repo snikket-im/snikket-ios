@@ -227,6 +227,80 @@
             </objects>
             <point key="canvasLocation" x="4859.420289855073" y="-737.94642857142856"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Q1F-tR-kAo">
+            <objects>
+                <navigationController id="Vme-Fz-tNU" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3da-sf-ndC">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" name="chatslistBackground"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Dpu-gT-0aH" kind="relationship" relationship="rootViewController" id="bwq-hB-0K9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9ie-QL-gwO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4333" y="291"/>
+        </scene>
+        <!--Send Location-->
+        <scene sceneID="S4w-n2-2u9">
+            <objects>
+                <viewController storyboardIdentifier="SendLocationViewController" id="Dpu-gT-0aH" customClass="SendLocationViewController" customModule="Snikket" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7e8-2E-mCc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="1f2-gi-WCW">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5tI-9V-tVB">
+                                <rect key="frame" x="83" y="776" width="248" height="36"/>
+                                <color key="backgroundColor" name="chatslistBackground"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Send Current Location">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendCurrentLocationTapped:" destination="Dpu-gT-0aH" eventType="touchUpInside" id="IRY-eT-AoB"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ehj-VJ-JZ0"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ehj-VJ-JZ0" firstAttribute="bottom" secondItem="5tI-9V-tVB" secondAttribute="bottom" constant="50" id="02P-su-xWP"/>
+                            <constraint firstItem="1f2-gi-WCW" firstAttribute="top" secondItem="7e8-2E-mCc" secondAttribute="top" id="JtP-jG-mTT"/>
+                            <constraint firstAttribute="trailing" secondItem="1f2-gi-WCW" secondAttribute="trailing" id="QFc-OR-hFz"/>
+                            <constraint firstItem="5tI-9V-tVB" firstAttribute="centerX" secondItem="7e8-2E-mCc" secondAttribute="centerX" id="Rg9-VE-uL4"/>
+                            <constraint firstItem="5tI-9V-tVB" firstAttribute="width" secondItem="7e8-2E-mCc" secondAttribute="width" multiplier="0.6" id="S5Y-XL-ivF"/>
+                            <constraint firstAttribute="bottom" secondItem="1f2-gi-WCW" secondAttribute="bottom" id="ZuF-c1-uIf"/>
+                            <constraint firstItem="1f2-gi-WCW" firstAttribute="leading" secondItem="7e8-2E-mCc" secondAttribute="leading" id="uhi-Vz-ifL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Send Location" largeTitleDisplayMode="never" id="e6z-jk-XtN">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="5rV-Py-OBY">
+                            <connections>
+                                <action selector="cancelTapped:" destination="Dpu-gT-0aH" id="c5D-DV-ibm"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Send" id="KVp-Fz-U23">
+                            <connections>
+                                <action selector="sendTapped:" destination="Dpu-gT-0aH" id="iTq-sT-BkF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mapView" destination="1f2-gi-WCW" id="sK3-or-g01"/>
+                        <outlet property="sendButton" destination="KVp-Fz-U23" id="2b3-Hq-jvc"/>
+                        <outlet property="sendCurrentLocationButton" destination="5tI-9V-tVB" id="eU9-cZ-RF0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CAw-Zx-c9H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5243" y="293"/>
+        </scene>
         <!--Empty View Controller-->
         <scene sceneID="hqR-ti-YNP">
             <objects>
