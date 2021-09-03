@@ -131,7 +131,7 @@ class AvatarView: UIImageView {
             ctx.fill(CGRect(x: (size.width / 2)+2, y: 0, width: size.width, height: size.height))
             let member2textAttr: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.white.withAlphaComponent(0.9), .font: UIFont.systemFont(ofSize: size.width * 0.4, weight: .medium)]
             let member2textSize = member2.size(withAttributes: member2textAttr)
-            member2.draw(in: CGRect(x: size.width/2 + member2textSize.width/2, y: size.height/2 - member2textSize.height/2, width: member2textSize.width, height: member2textSize.height), withAttributes: member2textAttr)
+            member2.draw(in: CGRect(x: (size.width/4 + size.width/2) - member2textSize.width/2, y: size.height/2 - member2textSize.height/2, width: member2textSize.width, height: member2textSize.height), withAttributes: member2textAttr)
         }
         
         let image = UIGraphicsGetImageFromCurrentImageContext()!
