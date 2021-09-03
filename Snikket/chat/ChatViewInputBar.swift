@@ -68,8 +68,6 @@ class ChatViewInputBar: UIView, UITextViewDelegate, NSTextStorageDelegate {
             button.setImage(UIImage(named: "camera"), for: .normal)
         }
         button.tintColor = UIColor(named: "tintColor")
-        button.addTarget(self, action: #selector(cameraTapped), for: .touchUpInside)
-        
         button.translatesAutoresizingMaskIntoConstraints = false
         button.widthAnchor.constraint(equalTo: button.heightAnchor).isActive = true
         button.heightAnchor.constraint(equalToConstant: 30).isActive = true
@@ -99,7 +97,6 @@ class ChatViewInputBar: UIView, UITextViewDelegate, NSTextStorageDelegate {
         button.tintColor = .darkGray
         button.imageView?.contentMode = .scaleToFill
         button.translatesAutoresizingMaskIntoConstraints = false;
-        button.addTarget(self, action: #selector(attachmentTapped), for: .touchUpInside)
         return button
     }()
     
@@ -219,6 +216,9 @@ class ChatViewInputBar: UIView, UITextViewDelegate, NSTextStorageDelegate {
         longTap.delegate = self
         let pan = UIPanGestureRecognizer(target: self, action: #selector(self.handlePan(_:)))
         micButton.addGestureRecognizer(pan)
+        
+        attachmentButton.addTarget(self, action: #selector(attachmentTapped), for: .touchUpInside)
+        cameraButton.addTarget(self, action: #selector(cameraTapped), for: .touchUpInside)
         
         self.micTapErrorView = makeMicErrorView()
         self.voiceRecordingView = makeVoiceRecordingView()
