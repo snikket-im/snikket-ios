@@ -24,7 +24,7 @@ extension MKMapView {
 
 extension CLLocation {
     func makeGeoURL() -> String {
-        return "geo:\(self.coordinate.latitude),\(self.coordinate.longitude)"
+        return self.coordinate.makeGeoURL()
     }
 }
 

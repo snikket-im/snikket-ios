@@ -133,6 +133,8 @@ class BaseChatViewController: UIViewController, UITextViewDelegate, ChatViewInpu
     func selectLocation() {
         if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SendLocationViewController") as? SendLocationViewController {
             vc.chat = self.chat
+            vc.account = self.account
+            vc.jid = self.jid
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
