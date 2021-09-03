@@ -386,7 +386,7 @@
         <!--Create channel-->
         <scene sceneID="zqn-Mi-T1c">
             <objects>
-                <tableViewController id="WY1-fo-0Qj" customClass="ChannelCreateViewController" customModule="Snikket" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController hidesBottomBarWhenPushed="YES" id="WY1-fo-0Qj" customClass="ChannelCreateViewController" customModule="Snikket" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Qrv-EC-7Uw">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -568,7 +568,7 @@
         <!--Navigation Controller-->
         <scene sceneID="x1o-tb-RWk">
             <objects>
-                <navigationController storyboardIdentifier="ChannelCreateNavigationViewController" toolbarHidden="NO" id="m0E-H8-hCl" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ChannelCreateNavigationViewController" id="m0E-H8-hCl" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="D6M-Wt-yHV">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -579,7 +579,6 @@
                         </textAttributes>
                     </navigationBar>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="raq-RM-rL8">
-                        <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" name="tintColor"/>
                     </toolbar>
