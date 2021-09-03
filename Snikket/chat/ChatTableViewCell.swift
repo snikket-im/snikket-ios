@@ -37,6 +37,9 @@ class ChatTableViewCell: BaseChatTableViewCell, UITextViewDelegate {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.clipsToBounds = true
         view.layer.cornerRadius = 3
+        view.isZoomEnabled = false
+        view.isScrollEnabled = false
+        view.isRotateEnabled = false
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(openMaps))
         view.addGestureRecognizer(tapGesture)
         return view
