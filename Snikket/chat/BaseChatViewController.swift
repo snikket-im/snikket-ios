@@ -130,6 +130,15 @@ class BaseChatViewController: UIViewController, UITextViewDelegate, ChatViewInpu
         
     }
     
+    func selectLocation() {
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SendLocationViewController") as? SendLocationViewController {
+            vc.chat = self.chat
+            vc.account = self.account
+            vc.jid = self.jid
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
     func presentSheet() {
         let alertController = UIAlertController()
         let camera = UIAlertAction(title: "Camera", style: .default) { (action: UIAlertAction!) in
@@ -145,6 +154,9 @@ class BaseChatViewController: UIViewController, UITextViewDelegate, ChatViewInpu
         let document = UIAlertAction(title: "Document", style: .default) { (action: UIAlertAction!) in
             self.selectFile()
         }
+        let location = UIAlertAction(title: "Location", style: .default) { (action: UIAlertAction!) in
+            self.selectLocation()
+        }
         let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action: UIAlertAction!) in
         }
         
@@ -156,6 +168,11 @@ class BaseChatViewController: UIViewController, UITextViewDelegate, ChatViewInpu
         let photoImage = UIImage(named: "photo")
         if let icon = photoImage?.imageWithSize(scaledToSize: CGSize(width: 28, height: 28)) {
             photo.setValue(icon, forKey: "image")
+        }
+        
+        let mapImage = UIImage(named: "map")
+        if let icon = mapImage?.imageWithSize(scaledToSize: CGSize(width: 28, height: 28)) {
+            location.setValue(icon, forKey: "image")
         }
         
         
@@ -174,10 +191,13 @@ class BaseChatViewController: UIViewController, UITextViewDelegate, ChatViewInpu
         photo.setValue(UIColor.darkGray, forKey: "titleTextColor")
         document.setValue(CATextLayerAlignmentMode.left, forKey: "titleTextAlignment")
         document.setValue(UIColor.darkGray, forKey: "titleTextColor")
+        location.setValue(CATextLayerAlignmentMode.left, forKey: "titleTextAlignment")
+        location.setValue(UIColor.darkGray, forKey: "titleTextColor")
         
         alertController.addAction(camera)
         alertController.addAction(photo)
         alertController.addAction(document)
+        alertController.addAction(location)
         alertController.addAction(cancel)
         self.present(alertController, animated: true, completion: nil)
     }

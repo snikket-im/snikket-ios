@@ -21,6 +21,7 @@
 
 
 import UIKit
+import MapKit
 import TigaseSwift
 
 class ChatTableViewCell: BaseChatTableViewCell, UITextViewDelegate {
@@ -28,6 +29,21 @@ class ChatTableViewCell: BaseChatTableViewCell, UITextViewDelegate {
     @IBOutlet weak var messageWidthConstraint: NSLayoutConstraint!
     
     @IBOutlet var messageTextView: MessageTextView!
+    
+    var item: ChatMessage?
+    
+    lazy var mapView: MKMapView = {
+        let view = MKMapView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 3
+        view.isZoomEnabled = false
+        view.isScrollEnabled = false
+        view.isRotateEnabled = false
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(openMaps))
+        view.addGestureRecognizer(tapGesture)
+        return view
+    }()
     
     fileprivate var originalTextColor: UIColor!;
     
@@ -47,8 +63,15 @@ class ChatTableViewCell: BaseChatTableViewCell, UITextViewDelegate {
     
     func set(message item: ChatMessage) {
         messageTextView.textView.delegate = self;
-        super.set(item: item);
-                            
+        super.set(item: item)
+                
+        mapView.removeFromSuperview()
+        if isGeoLocation(message: item.message) {
+            setupLocationCell(message: item.message)
+            self.item = item
+            return
+        }
+        
         let attrText = NSMutableAttributedString(string: item.message);
             
         if let detect = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue | NSTextCheckingResult.CheckingType.phoneNumber.rawValue) {
@@ -106,6 +129,69 @@ class ChatTableViewCell: BaseChatTableViewCell, UITextViewDelegate {
     func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
         UIApplication.shared.open(URL);
         return false;
+    }
+    
+    @objc func openMaps() {
+        guard let item = self.item else { return }
+        let extractRegex = try! NSRegularExpression(pattern: "\\-?[0-9]+\\.?[0-9]*")
+        let (lat,long) = matches(for: extractRegex, in: item.message)
+        guard let lat = Double(lat), let long = Double(long) else { return }
+        
+        let regionDistance:CLLocationDistance = 1000
+        let coordinates = CLLocationCoordinate2DMake(lat, long)
+        let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
+        let options = [
+            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+        ]
+        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = item.authorNickname ?? PEPDisplayNameModule.getDisplayName(account: item.account, for: item.jid)
+        mapItem.openInMaps(launchOptions: options)
+        
+    }
+    
+    func isGeoLocation(message: String) -> Bool {
+        let range = NSRange(location: 0, length: message.count)
+        let regex = try! NSRegularExpression(pattern: "geo:\\-?[0-9]+\\.?[0-9]*,\\-?[0-9]+\\.?[0-9]*")
+        
+        if regex.firstMatch(in: message, options: [], range: range) != nil {
+            
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func matches(for regex: NSRegularExpression, in text: String) -> (String,String) {
+        let results = regex.matches(in: text, range: NSRange(text.startIndex..., in: text))
+        let coordinates = results.map {
+            String(text[Range($0.range, in: text)!])
+        }
+        if coordinates.count == 2 {
+            return (coordinates[0], coordinates[1])
+        } else { return("","") }
+    }
+    
+    func setupLocationCell(message: String) {
+        let extractRegex = try! NSRegularExpression(pattern: "\\-?[0-9]+\\.?[0-9]*")
+        let (lat,long) = matches(for: extractRegex, in: message)
+        guard let lat = Double(lat), let long = Double(long) else { return }
+        
+        self.messageTextView.addSubview(mapView)
+        mapView.topAnchor.constraint(equalTo: messageTextView.topAnchor).isActive = true
+        mapView.bottomAnchor.constraint(equalTo: messageTextView.bottomAnchor).isActive = true
+        mapView.leadingAnchor.constraint(equalTo: messageTextView.leadingAnchor).isActive = true
+        mapView.trailingAnchor.constraint(equalTo: messageTextView.trailingAnchor, constant: -5).isActive = true
+        mapView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        if let constraint = messageWidthConstraint {
+            constraint.constant = UIScreen.main.bounds.width * 0.60
+        }
+        let location = CLLocation(latitude: lat, longitude: long)
+        mapView.centerToLocation(location)
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
+        mapView.addAnnotation(annotation)
     }
     
 }

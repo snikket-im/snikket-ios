@@ -11,6 +11,8 @@
 		E95AA70226D38B6F00A38D44 /* DisplayNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95AA70126D38B6E00A38D44 /* DisplayNameViewController.swift */; };
 		E963721026D786D000332482 /* BlockingCommandModuleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E963720F26D786D000332482 /* BlockingCommandModuleExtension.swift */; };
 		E963721226D79D3A00332482 /* PrivacyPolicyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E963721126D79D3A00332482 /* PrivacyPolicyTableViewCell.swift */; };
+		E9AA502F26E1277D0005F497 /* MKMapExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AA502E26E1277D0005F497 /* MKMapExtension.swift */; };
+		E9AA503126E12F5E0005F497 /* SendLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AA503026E12F5E0005F497 /* SendLocationViewController.swift */; };
 		E9B25E2F26D0126800A54107 /* ChatViewInputBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B25E2E26D0126800A54107 /* ChatViewInputBar.swift */; };
 		E9D384B426CA95FF009BEAF3 /* UIDeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D384B326CA95FF009BEAF3 /* UIDeviceExtension.swift */; };
 		E9D384B626CBB606009BEAF3 /* CustomUISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D384B526CBB606009BEAF3 /* CustomUISlider.swift */; };
@@ -297,6 +299,8 @@
 		E95AA70126D38B6E00A38D44 /* DisplayNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayNameViewController.swift; sourceTree = "<group>"; };
 		E963720F26D786D000332482 /* BlockingCommandModuleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingCommandModuleExtension.swift; sourceTree = "<group>"; };
 		E963721126D79D3A00332482 /* PrivacyPolicyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyTableViewCell.swift; sourceTree = "<group>"; };
+		E9AA502E26E1277D0005F497 /* MKMapExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMapExtension.swift; sourceTree = "<group>"; };
+		E9AA503026E12F5E0005F497 /* SendLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendLocationViewController.swift; sourceTree = "<group>"; };
 		E9B25E2E26D0126800A54107 /* ChatViewInputBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewInputBar.swift; sourceTree = "<group>"; };
 		E9D384B326CA95FF009BEAF3 /* UIDeviceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExtension.swift; sourceTree = "<group>"; };
 		E9D384B526CBB606009BEAF3 /* CustomUISlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUISlider.swift; sourceTree = "<group>"; };
@@ -636,6 +640,7 @@
 				FE2332DE242CB02700008ED4 /* AppendixProtocol.swift */,
 				FE2332E0242CCDB400008ED4 /* InvitationChatTableViewCell.swift */,
 				E9B25E2E26D0126800A54107 /* ChatViewInputBar.swift */,
+				E9AA503026E12F5E0005F497 /* SendLocationViewController.swift */,
 			);
 			path = chat;
 			sourceTree = "<group>";
@@ -721,6 +726,7 @@
 				FEF8255424BA0AFE00820108 /* MessageTextView.swift */,
 				FE75AA7D25854DE2002B59AE /* WelcomeController.swift */,
 				E9D384B526CBB606009BEAF3 /* CustomUISlider.swift */,
+				E9AA502E26E1277D0005F497 /* MKMapExtension.swift */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -1396,6 +1402,7 @@
 				FEA8D6621F30F54B0077C12F /* XmppService.swift in Sources */,
 				FEF19F0A2347619D005CFE9A /* TasksQueue.swift in Sources */,
 				FE8DD9C7221B15DC0090F5AA /* AbstractRosterViewController.swift in Sources */,
+				E9AA502F26E1277D0005F497 /* MKMapExtension.swift in Sources */,
 				FEA7BF5D21E50CAB00D9E36C /* JingleManager_Session.swift in Sources */,
 				FE507A1A1CDB7B3B001A015C /* DBChatStore.swift in Sources */,
 				FE80BDAB1D953FC4001914B0 /* SetupViewController.swift in Sources */,
@@ -1430,6 +1437,7 @@
 				FE00157D2017617B00490340 /* StreamFeaturesCache.swift in Sources */,
 				E9B25E2F26D0126800A54107 /* ChatViewInputBar.swift in Sources */,
 				FE2332DD242CB01600008ED4 /* ChatInvitation.swift in Sources */,
+				E9AA503126E12F5E0005F497 /* SendLocationViewController.swift in Sources */,
 				FE3E388E242A251E00D3A8E8 /* ChannelEditInfoController.swift in Sources */,
 				FEC514261CEB74F8003AF765 /* BaseChatViewController.swift in Sources */,
 				FE507A1D1CDB7B3B001A015C /* RosterItemTableViewCell.swift in Sources */,
