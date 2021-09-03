@@ -77,6 +77,7 @@ class ChannelCreateViewController: UITableViewController, ChannelSelectAccountAn
         
         accountSelectorField.inputView = accountPicker
         accountSelectorField.text = self.account?.stringValue ?? ""
+        accountSelectorField.delegate = self
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -370,7 +371,14 @@ extension ChannelCreateViewController: UIPickerViewDataSource, UIPickerViewDeleg
     
     func  pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         accountSelectorField.text = self.pickerView(pickerView, titleForRow: row, forComponent: component)
+        self.account = BareJID(accountSelectorField.text)
+        self.refresh()
         self.view.endEditing(true)
     }
-    
+}
+
+extension ChannelCreateViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return false
+    }
 }
