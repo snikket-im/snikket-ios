@@ -119,7 +119,6 @@ class SendLocationViewController: UIViewController {
     }
     
     func showCurrentLocationPin() {
-        self.locationManager.requestAlwaysAuthorization()
         self.locationManager.requestWhenInUseAuthorization()
         self.mapView.showsUserLocation = true
         self.mapView.delegate = self
