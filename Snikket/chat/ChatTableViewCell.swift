@@ -35,11 +35,10 @@ class ChatTableViewCell: BaseChatTableViewCell, UITextViewDelegate {
     lazy var mapView: MKMapView = {
         let view = MKMapView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.isUserInteractionEnabled = false
         view.clipsToBounds = true
         view.layer.cornerRadius = 3
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(openMaps))
-        mapView.addGestureRecognizer(tapGesture)
+        view.addGestureRecognizer(tapGesture)
         return view
     }()
     
@@ -145,9 +144,7 @@ class ChatTableViewCell: BaseChatTableViewCell, UITextViewDelegate {
         let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
         let mapItem = MKMapItem(placemark: placemark)
         mapItem.name = item.authorNickname ?? PEPDisplayNameModule.getDisplayName(account: item.account, for: item.jid)
-        DispatchQueue.main.async {
-            mapItem.openInMaps(launchOptions: options)
-        }
+        mapItem.openInMaps(launchOptions: options)
         
     }
     
@@ -192,7 +189,6 @@ class ChatTableViewCell: BaseChatTableViewCell, UITextViewDelegate {
         let annotation = MKPointAnnotation()
         annotation.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
         mapView.addAnnotation(annotation)
-        
     }
     
 }
