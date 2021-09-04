@@ -85,6 +85,7 @@ class BaseChatTableViewCell: UITableViewCell, UIDocumentInteractionControllerDel
             //avatarView!.layer.cornerRadius = avatarView!.frame.height / 2;
         }
         originalTimestampColor = timestampView?.textColor;
+        timestampView?.setContentHuggingPriority(.defaultHigh, for: .vertical)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

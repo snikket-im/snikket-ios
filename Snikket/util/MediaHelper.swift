@@ -149,6 +149,29 @@ class MediaHelper {
         return completion(resizingImage)
     }
     
+    static func fileSizeToString(_ sizeIn: UInt64?) -> String {
+        guard let size = sizeIn else {
+            return "";
+        }
+        let formatter = ByteCountFormatter();
+        formatter.countStyle = .file;
+        return formatter.string(fromByteCount: Int64(size));
+    }
+    
+    static func generateThumbnail(url: URL) -> UIImage? {
+        do {
+            let asset = AVURLAsset(url: url)
+            let imageGenerator = AVAssetImageGenerator(asset: asset)
+            imageGenerator.appliesPreferredTrackTransform = true
+            let cgImage = try imageGenerator.copyCGImage(at: .zero,
+                                                         actualTime: nil)
+            return UIImage(cgImage: cgImage)
+        } catch {
+            print(error.localizedDescription)
+            return nil
+        }
+    }
+    
 }
 
 extension UIImage {

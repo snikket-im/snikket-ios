@@ -51,6 +51,7 @@ class AttachmentChatTableViewCell: BaseChatTableViewCell, UIContextMenuInteracti
                 view.removeFromSuperview();
             }
             if let view = linkView {
+                view.translatesAutoresizingMaskIntoConstraints = false
                 self.customView.addSubview(view);
                 if #available(iOS 13.0, *) {
                     view.addInteraction(UIContextMenuInteraction(delegate: self));
@@ -63,7 +64,7 @@ class AttachmentChatTableViewCell: BaseChatTableViewCell, UIContextMenuInteracti
         super.awakeFromNib();
         tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapGestureDidFire));
         tapGestureRecognizer?.cancelsTouchesInView = false;
-        tapGestureRecognizer?.numberOfTapsRequired = 2;
+        tapGestureRecognizer?.numberOfTapsRequired = 1;
         customView.addGestureRecognizer(tapGestureRecognizer!);
         
         if #available(iOS 13.0, *) {
@@ -243,72 +244,27 @@ class AttachmentChatTableViewCell: BaseChatTableViewCell, UIContextMenuInteracti
         
         if let localUrl = DownloadStore.instance.url(for: "\(item.id)") {
             documentController = UIDocumentInteractionController(url: localUrl);
-            if #available(iOS 13.0, *) {
-                //self.longPressGestureRecognizer?.isEnabled = false;
-                var metadata = MetadataCache.instance.metadata(for: "\(item.id)");
-                let isNew = metadata == nil;
-                if metadata == nil {
-                    metadata = LPLinkMetadata();
-                    metadata!.originalURL = localUrl;
-                } else {
-                    metadata!.originalURL = nil;
-                    //metadata!.url = nil;
-                    //metadata!.title = "";
-                    //metadata!.originalURL = localUrl;
-                    metadata!.url = localUrl;
-                }
-                
-                let linkView = /*(self.linkView as? LPLinkView) ??*/ LPLinkView(metadata: metadata!);
-                linkView.setContentHuggingPriority(.defaultHigh, for: .vertical);
-                linkView.setContentCompressionResistancePriority(.defaultHigh, for: .vertical);
-                linkView.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal);
-                linkView.translatesAutoresizingMaskIntoConstraints = false;
-                linkView.isUserInteractionEnabled = false;
-
-                self.linkView = linkView;
-
-                NSLayoutConstraint.activate([
-                    linkView.topAnchor.constraint(equalTo: self.customView.topAnchor, constant: 0),
-                    linkView.bottomAnchor.constraint(equalTo: self.customView.bottomAnchor, constant: 0),
-                    linkView.leadingAnchor.constraint(equalTo: self.customView.leadingAnchor, constant: 0),
-                    linkView.trailingAnchor.constraint(equalTo: self.customView.trailingAnchor, constant: 0),
-                    linkView.heightAnchor.constraint(lessThanOrEqualToConstant: 350)
-                ]);
-                
-                if isNew {
-                    MetadataCache.instance.generateMetadata(for: localUrl, withId: "\(item.id)", completionHandler: { meta1 in
-                        guard meta1 != nil else {
-                            return;
-                        }
-                        DBChatHistoryStore.instance.updateItem(for: item.account, with: item.jid, id: item.id, updateAppendix: { appendix in
-                        });
-                    })
-                }
-            } else {
-                let attachmentInfo = (self.linkView as? AttachmentInfoView) ?? AttachmentInfoView(frame: .zero);
-
-                self.linkView = attachmentInfo;
-
-                NSLayoutConstraint.activate([
-                    customView.leadingAnchor.constraint(equalTo: attachmentInfo.leadingAnchor),
-                    customView.trailingAnchor.constraint(greaterThanOrEqualTo: attachmentInfo.trailingAnchor),
-                    customView.topAnchor.constraint(equalTo: attachmentInfo.topAnchor),
-                    customView.bottomAnchor.constraint(equalTo: attachmentInfo.bottomAnchor)
-                ])
-                attachmentInfo.set(item: item);
-            }
+            let attachmentInfo = (self.linkView as? AttachmentInfoView) ?? AttachmentInfoView(frame: .zero);
+            attachmentInfo.translatesAutoresizingMaskIntoConstraints = false
+            self.linkView = attachmentInfo;
+            NSLayoutConstraint.activate([
+                attachmentInfo.leadingAnchor.constraint(equalTo: customView.leadingAnchor),
+                attachmentInfo.trailingAnchor.constraint(equalTo: customView.trailingAnchor),
+                attachmentInfo.topAnchor.constraint(equalTo: customView.topAnchor),
+                attachmentInfo.bottomAnchor.constraint(equalTo: customView.bottomAnchor)
+            ])
+            attachmentInfo.set(item: item)
+            let fileSize = MediaHelper.fileSizeToString(try! FileManager.default.attributesOfItem(atPath: localUrl.path)[.size] as? UInt64)
+            let time = timestampView?.text ?? ""
+            timestampView?.text = item.state.direction == .incoming ? "\(time) · \(fileSize)" : "\(fileSize) · \(time)"
         } else {
             documentController = nil;
 
             let attachmentInfo = (self.linkView as? AttachmentInfoView) ?? AttachmentInfoView(frame: .zero);
-            //attachmentInfo.backgroundColor = self.backgroundColor;
-            //attachmentInfo.isOpaque = true;
-
-            //attachmentInfo.cellView = self;
             self.linkView = attachmentInfo;
             NSLayoutConstraint.activate([
                 customView.leadingAnchor.constraint(equalTo: attachmentInfo.leadingAnchor),
-                customView.trailingAnchor.constraint(greaterThanOrEqualTo: attachmentInfo.trailingAnchor),
+                customView.trailingAnchor.constraint(equalTo: attachmentInfo.trailingAnchor),
                 customView.topAnchor.constraint(equalTo: attachmentInfo.topAnchor),
                 customView.bottomAnchor.constraint(equalTo: attachmentInfo.bottomAnchor)
             ])
@@ -447,27 +403,11 @@ class AttachmentChatTableViewCell: BaseChatTableViewCell, UIContextMenuInteracti
         (self.linkView as? AttachmentInfoView)?.progress(show: true);
     }
     
-//    func documentInteractionControllerViewForPreview(_ controller: UIDocumentInteractionController) -> UIView? {
-//        return self;
-//    }
-    
-//    func documentInteractionControllerDidDismissOptionsMenu(_ controller: UIDocumentInteractionController) {
-//        print("file sharing cancelled!");
-//        self.documentController = nil;
-//    }
-//
-//    func documentInteractionController(_ controller: UIDocumentInteractionController, didEndSendingToApplication application: String?) {
-//        print("file shared with:", application);
-//        self.documentController = nil;
-//    }
-    
     private func downloadOrOpen() {
         guard let item = self.item else {
             return;
         }
         if let localUrl = DownloadStore.instance.url(for: "\(item.id)") {
-//            let tmpUrl = FileManager.default.temporaryDirectory.appendingPathComponent(localUrl.lastPathComponent);
-//            try? FileManager.default.copyItem(at: localUrl, to: tmpUrl);
             open(url: localUrl, preview: true);
         } else {
             let alert = UIAlertController(title: "Download", message: "File is not available locally. Should it be downloaded?", preferredStyle: .alert);
@@ -483,9 +423,13 @@ class AttachmentChatTableViewCell: BaseChatTableViewCell, UIContextMenuInteracti
         
     class AttachmentInfoView: UIView {
         
+        var imageWidthConstraint: NSLayoutConstraint?
+        var imageHeightConstraint: NSLayoutConstraint?
+        
         let iconView: ImageAttachmentPreview;
         let filename: UILabel;
         let details: UILabel;
+        let playImage: UIImageView
         
         private var viewType: ViewType = .none {
             didSet {
@@ -497,19 +441,31 @@ class AttachmentChatTableViewCell: BaseChatTableViewCell, UIContextMenuInteracti
                     break;
                 case .file:
                     NSLayoutConstraint.deactivate(fileViewConstraints);
-                case .imagePreview:
+                case .imagePreview, .videoPreview:
                     NSLayoutConstraint.deactivate(imagePreviewConstraints);
                 }
                 switch viewType {
-                    case .none:
-                        break;
-                    case .file:
-                        NSLayoutConstraint.activate(fileViewConstraints);
-                    case .imagePreview:
-                        NSLayoutConstraint.activate(imagePreviewConstraints);
+                case .none:
+                    break;
+                case .file:
+                    addSubview(filename)
+                    addSubview(details)
+                    self.imageWidthConstraint?.isActive = false
+                    self.imageHeightConstraint?.isActive = false
+                    NSLayoutConstraint.activate(fileViewConstraints);
+                case .imagePreview:
+                    filename.removeFromSuperview()
+                    details.removeFromSuperview()
+                    playImage.removeFromSuperview()
+                    NSLayoutConstraint.activate(imagePreviewConstraints)
+                case .videoPreview:
+                    filename.removeFromSuperview()
+                    details.removeFromSuperview()
+                    NSLayoutConstraint.activate(imagePreviewConstraints)
+                    addPlayImage()
                 }
-                iconView.contentMode = viewType == .imagePreview ? .scaleAspectFill : .scaleAspectFit;
-                iconView.isImagePreview = viewType == .imagePreview;
+                iconView.contentMode = .scaleAspectFit
+                iconView.isImagePreview = true
             }
         }
         
@@ -517,14 +473,9 @@ class AttachmentChatTableViewCell: BaseChatTableViewCell, UIContextMenuInteracti
         private var imagePreviewConstraints: [NSLayoutConstraint] = [];
         
         override init(frame: CGRect) {
-            iconView = ImageAttachmentPreview(frame: .zero);
+            iconView = ImageAttachmentPreview(frame: .zero)
             iconView.clipsToBounds = true
-            iconView.image = UIImage(named: "defaultAvatar")!;
             iconView.translatesAutoresizingMaskIntoConstraints = false;
-            iconView.setContentHuggingPriority(.defaultHigh, for: .vertical);
-            iconView.setContentHuggingPriority(.defaultHigh, for: .horizontal);
-            iconView.setContentCompressionResistancePriority(.defaultHigh, for: .vertical);
-            iconView.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal);
 
             filename = UILabel(frame: .zero);
             filename.font = UIFont.systemFont(ofSize: UIFont.systemFontSize - 1, weight: .semibold);
@@ -537,6 +488,12 @@ class AttachmentChatTableViewCell: BaseChatTableViewCell, UIContextMenuInteracti
             details.translatesAutoresizingMaskIntoConstraints = false;
             details.setContentHuggingPriority(.defaultHigh, for: .horizontal)
             details.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal);
+            
+            playImage = UIImageView()
+            playImage.image = UIImage(named: "play.fill")
+            playImage.translatesAutoresizingMaskIntoConstraints = false
+            playImage.widthAnchor.constraint(equalToConstant: 30).isActive = true
+            playImage.heightAnchor.constraint(equalToConstant: 30).isActive = true
 
             super.init(frame: frame);
             self.clipsToBounds = true
@@ -544,8 +501,6 @@ class AttachmentChatTableViewCell: BaseChatTableViewCell, UIContextMenuInteracti
             self.isOpaque = false;
             
             addSubview(iconView);
-            addSubview(filename);
-            addSubview(details);
             
             fileViewConstraints = [
                 iconView.heightAnchor.constraint(equalToConstant: 30),
@@ -558,7 +513,7 @@ class AttachmentChatTableViewCell: BaseChatTableViewCell, UIContextMenuInteracti
                 filename.leadingAnchor.constraint(equalTo: iconView.trailingAnchor, constant: 12),
                 filename.topAnchor.constraint(equalTo: self.topAnchor, constant: 8),
                 filename.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -12),
-                
+
                 details.leadingAnchor.constraint(equalTo: iconView.trailingAnchor, constant: 12),
                 details.topAnchor.constraint(equalTo: filename.bottomAnchor, constant: 0),
                 details.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8),
@@ -568,25 +523,37 @@ class AttachmentChatTableViewCell: BaseChatTableViewCell, UIContextMenuInteracti
             ];
             
             imagePreviewConstraints = [
-                iconView.widthAnchor.constraint(lessThanOrEqualToConstant: 350),
-                iconView.heightAnchor.constraint(lessThanOrEqualToConstant: 350),
-                iconView.widthAnchor.constraint(lessThanOrEqualTo: self.widthAnchor),
-                iconView.heightAnchor.constraint(lessThanOrEqualTo: self.widthAnchor),
-                
                 iconView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
                 iconView.topAnchor.constraint(equalTo: self.topAnchor),
+                iconView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
                 iconView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
                 
-                filename.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12),
-                filename.topAnchor.constraint(equalTo: iconView.bottomAnchor, constant: 4),
-                filename.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -12),
-                
-                details.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 12),
-                details.topAnchor.constraint(equalTo: filename.bottomAnchor, constant: 0),
-                details.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8),
-                details.trailingAnchor.constraint(lessThanOrEqualTo: self.trailingAnchor, constant: -12),
-                details.heightAnchor.constraint(equalTo: filename.heightAnchor)
             ];
+            self.imageWidthConstraint = iconView.widthAnchor.constraint(equalToConstant: 0)
+            self.imageHeightConstraint = iconView.heightAnchor.constraint(equalToConstant: 0)
+        }
+        
+        func addPlayImage() {
+            self.addSubview(playImage)
+            playImage.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+            playImage.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        }
+        
+        func setImageConstraints(image: UIImage?) {
+            guard let image = image else { return }
+            if viewType == .file { return }
+            
+            var scale: CGFloat = 0.0
+            if image.size.width > image.size.height {
+                scale = 280 / image.size.width
+            } else {
+                scale = 350 / image.size.height
+            }
+            
+            self.imageWidthConstraint?.constant = image.size.width * scale
+            self.imageHeightConstraint?.constant = image.size.height * scale
+            self.imageWidthConstraint?.isActive = true
+            self.imageHeightConstraint?.isActive = true
         }
         
         required init?(coder: NSCoder) {
@@ -594,7 +561,7 @@ class AttachmentChatTableViewCell: BaseChatTableViewCell, UIContextMenuInteracti
         }
         
         override func draw(_ rect: CGRect) {
-            let path = UIBezierPath(roundedRect: rect, cornerRadius: 10);
+            let path = UIBezierPath(roundedRect: rect, cornerRadius: 5);
             path.addClip();
             if #available(iOS 13.0, *) {
                 UIColor.secondarySystemBackground.setFill();
@@ -602,20 +569,25 @@ class AttachmentChatTableViewCell: BaseChatTableViewCell, UIContextMenuInteracti
                 UIColor.lightGray.withAlphaComponent(0.5).setFill();
             }
             path.fill();
-            
+
             super.draw(rect);
         }
         
         func set(item: ChatAttachment) {
             if let fileUrl = DownloadStore.instance.url(for: "\(item.id)") {
                 filename.text = fileUrl.lastPathComponent;
-                let fileSize = fileSizeToString(try! FileManager.default.attributesOfItem(atPath: fileUrl.path)[.size] as? UInt64);
+                let fileSize = MediaHelper.fileSizeToString(try! FileManager.default.attributesOfItem(atPath: fileUrl.path)[.size] as? UInt64);
                 if let uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, fileUrl.pathExtension as CFString, nil)?.takeRetainedValue(), let typeName = UTTypeCopyDescription(uti)?.takeRetainedValue() as String? {
                     details.text = "\(typeName) - \(fileSize)";
+                    
                     if UTTypeConformsTo(uti, kUTTypeImage) {
+                        iconView.image = UIImage(contentsOfFile: fileUrl.path)!
                         self.viewType = .imagePreview;
-                        print("preview of:" , fileUrl, fileUrl.path);
-                        iconView.image = UIImage(contentsOfFile: fileUrl.path)!;
+                        self.setImageConstraints(image: iconView.image)
+                    } else if UTTypeConformsTo(uti, kUTTypeMovie) {
+                        iconView.image = MediaHelper.generateThumbnail(url: fileUrl)
+                        self.viewType = .videoPreview
+                        self.setImageConstraints(image: iconView.image)
                     } else {
                         self.viewType = .file;
                         iconView.image = UIImage.icon(forFile: fileUrl, mimeType: item.appendix.mimetype);
@@ -634,11 +606,11 @@ class AttachmentChatTableViewCell: BaseChatTableViewCell, UIContextMenuInteracti
                 }
                 if let size = item.appendix.filesize {
                     if let mimetype = item.appendix.mimetype, let uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassMIMEType, mimetype as CFString, nil)?.takeRetainedValue(), let typeName = UTTypeCopyDescription(uti)?.takeRetainedValue() as String? {
-                        let fileSize = size >= 0 ? fileSizeToString(UInt64(size)) : "";
+                        let fileSize = size >= 0 ? MediaHelper.fileSizeToString(UInt64(size)) : "";
                         details.text = "\(typeName) - \(fileSize)";
                         iconView.image = UIImage.icon(forUTI: uti as String);
                     } else {
-                        details.text = fileSizeToString(UInt64(size));
+                        details.text = MediaHelper.fileSizeToString(UInt64(size));
                         iconView.image = UIImage.icon(forUTI: "public.content");
                     }
                 } else {
@@ -675,21 +647,12 @@ class AttachmentChatTableViewCell: BaseChatTableViewCell, UIContextMenuInteracti
                 view.removeFromSuperview();
             }
         }
-
-        
-        func fileSizeToString(_ sizeIn: UInt64?) -> String {
-            guard let size = sizeIn else {
-                return "";
-            }
-            let formatter = ByteCountFormatter();
-            formatter.countStyle = .file;
-            return formatter.string(fromByteCount: Int64(size));
-        }
         
         enum ViewType {
             case none
             case file
             case imagePreview
+            case videoPreview
         }
         
     }
@@ -701,14 +664,33 @@ class ImageAttachmentPreview: UIImageView {
         didSet {
             if isImagePreview != oldValue {
                 if isImagePreview {
-                    self.layer.cornerRadius = 10;
-                    self.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner];
+                    self.layer.cornerRadius = 5
+                    //self.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner];
                 } else {
                     self.layer.cornerRadius = 0;
                     self.layer.maskedCorners = [];
                 }
             }
         }
+    }
+    
+    var contentClippingRect: CGRect {
+        guard let image = image else { return bounds }
+        guard contentMode == .scaleAspectFit else { return bounds }
+        guard image.size.width > 0 && image.size.height > 0 else { return bounds }
+
+        let scale: CGFloat
+        if image.size.width > image.size.height {
+            scale = bounds.width / image.size.width
+        } else {
+            scale = bounds.height / image.size.height
+        }
+
+        let size = CGSize(width: image.size.width * scale, height: image.size.height * scale)
+        let x = (bounds.width - size.width) / 2.0
+        let y = (bounds.height - size.height) / 2.0
+
+        return CGRect(x: x, y: y, width: size.width, height: size.height)
     }
     
     override init(frame: CGRect) {
