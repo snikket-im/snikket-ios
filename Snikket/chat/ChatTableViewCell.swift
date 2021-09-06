@@ -153,7 +153,7 @@ class ChatTableViewCell: BaseChatTableViewCell, UITextViewDelegate {
     
     func isGeoLocation(message: String) -> Bool {
         let range = NSRange(location: 0, length: message.count)
-        let regex = try! NSRegularExpression(pattern: "geo:\\-?[0-9]+\\.?[0-9]*,\\-?[0-9]+\\.?[0-9]*")
+        let regex = try! NSRegularExpression(pattern: "^geo:\\-?[0-9]+\\.?[0-9]*,\\-?[0-9]+\\.?[0-9]*$")
         
         if regex.firstMatch(in: message, options: [], range: range) != nil {
             
@@ -188,7 +188,7 @@ class ChatTableViewCell: BaseChatTableViewCell, UITextViewDelegate {
             constraint.constant = UIScreen.main.bounds.width * 0.60
         }
         let location = CLLocation(latitude: lat, longitude: long)
-        mapView.centerToLocation(location)
+        mapView.centerToLocation(location, animated: false)
         let annotation = MKPointAnnotation()
         annotation.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
         mapView.addAnnotation(annotation)
