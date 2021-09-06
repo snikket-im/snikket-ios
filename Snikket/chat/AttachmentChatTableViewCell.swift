@@ -42,11 +42,11 @@ class AttachmentChatTableViewCell: BaseChatTableViewCell, UIContextMenuInteracti
     
     private var linkView: UIView? {
         didSet {
-            if let old = oldValue, let new = linkView {
-                guard old != new else {
-                    return;
-                }
-            }
+//            if let old = oldValue, let new = linkView {
+//                guard old != new else {
+//                    return;
+//                }
+//            }
             if let view = oldValue {
                 view.removeFromSuperview();
             }
@@ -231,6 +231,9 @@ class AttachmentChatTableViewCell: BaseChatTableViewCell, UIContextMenuInteracti
         
     func set(attachment item: ChatAttachment) {
         self.item = item;
+        self.customView.subviews.forEach { view in
+            view.removeFromSuperview()
+        }
         
         super.set(item: item);
         
