@@ -53,7 +53,6 @@ class ChatViewInputBar: UIView, UITextViewDelegate, NSTextStorageDelegate {
             ]);
             button.setImage(UIImage(named: "send"), for: .normal);
         }
-        button.addTarget(self, action: #selector(sendMessage), for: .touchUpInside);
         button.contentMode = .scaleToFill;
         button.tintColor = UIColor(named: "tintColor");
         button.isHidden = true
@@ -219,6 +218,7 @@ class ChatViewInputBar: UIView, UITextViewDelegate, NSTextStorageDelegate {
         
         attachmentButton.addTarget(self, action: #selector(attachmentTapped), for: .touchUpInside)
         cameraButton.addTarget(self, action: #selector(cameraTapped), for: .touchUpInside)
+        sendMessageButton.addTarget(self, action: #selector(sendMessage), for: .touchUpInside)
         
         self.micTapErrorView = makeMicErrorView()
         self.voiceRecordingView = makeVoiceRecordingView()
