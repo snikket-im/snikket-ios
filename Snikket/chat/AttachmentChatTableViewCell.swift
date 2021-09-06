@@ -544,10 +544,14 @@ class AttachmentChatTableViewCell: BaseChatTableViewCell, UIContextMenuInteracti
             if viewType == .file { return }
             
             var scale: CGFloat = 0.0
+            var width = UIScreen.main.bounds.width
+            var height = UIScreen.main.bounds.height
+            width *= 0.7
+            height *= 0.4
             if image.size.width > image.size.height {
-                scale = 280 / image.size.width
+                scale = width / image.size.width
             } else {
-                scale = 350 / image.size.height
+                scale = height / image.size.height
             }
             
             self.imageWidthConstraint?.constant = image.size.width * scale

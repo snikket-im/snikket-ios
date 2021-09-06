@@ -169,7 +169,11 @@ class RosterViewController: AbstractRosterViewController, UIGestureRecognizerDel
     
     override func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) as? RosterItemTableViewCell else { return }
-        cell.backgroundColor = .white
+        if #available(iOS 13.0, *) {
+            cell.backgroundColor = .systemBackground
+        } else {
+            cell.backgroundColor = .white
+        }
     }
 
     private func createChat(for item: RosterProviderItem) {
