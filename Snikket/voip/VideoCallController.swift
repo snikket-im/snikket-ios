@@ -461,7 +461,7 @@ public class VideoCallController: UIViewController, CallManagerDelegate {
         configuration.rtcpMuxPolicy = .require;
         configuration.iceCandidatePoolSize = 5;
         
-        return JingleManager.instance.connectionFactory.peerConnection(with: configuration, constraints: defaultCallConstraints, delegate: delegate);
+        return JingleManager.instance.connectionFactory.peerConnection(with: configuration, constraints: defaultCallConstraints, delegate: delegate)!;
     }
 
 }

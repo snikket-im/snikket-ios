@@ -57,10 +57,3 @@ if [ "$result" != "0" ]; then
 	echo "Could not update $OPENSSL_FRAMEWORK";
 	exit $result;
 fi
-
-downloadIfNeeded $WEBRTC_FRAMEWORK $WEBRTC_CHECKSUM $WEBRTC_REPO $WEBRTC_VERSION
-result=$?
-if [ "$result" != "0" ]; then
-	echo "Could not update $WEBRTC_FRAMEWORK";
-	exit $result;
-fi

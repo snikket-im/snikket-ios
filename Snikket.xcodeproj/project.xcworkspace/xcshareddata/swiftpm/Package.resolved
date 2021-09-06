@@ -27,6 +27,15 @@
           "revision": "4c997df9a3a686b7e522ddffa4d2f2c070a94fa0",
           "version": "1.1.3"
         }
+      },
+      {
+        "package": "WebRTC",
+        "repositoryURL": "https://github.com/alexpiezo/WebRTC.git",
+        "state": {
+          "branch": null,
+          "revision": "36691d2de8bc760b5283126c85ee040b6539f764",
+          "version": "93.4577.0"
+        }
       }
     ]
   },

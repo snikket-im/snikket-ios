@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37DC2EAB26E65D9800CA39D9 /* WebRTC in Frameworks */ = {isa = PBXBuildFile; productRef = 37DC2EAA26E65D9800CA39D9 /* WebRTC */; };
 		E928AD4326D6A08A00F29F93 /* db-schema-14.sql in Resources */ = {isa = PBXBuildFile; fileRef = E928AD4226D6A08A00F29F93 /* db-schema-14.sql */; };
 		E95AA70226D38B6F00A38D44 /* DisplayNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95AA70126D38B6E00A38D44 /* DisplayNameViewController.swift */; };
 		E963721026D786D000332482 /* BlockingCommandModuleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E963720F26D786D000332482 /* BlockingCommandModuleExtension.swift */; };
@@ -37,8 +38,6 @@
 		FE1908AB2584D6BC00CA049F /* OpenSSL.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FE1908962584D69400CA049F /* OpenSSL.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FE1908B72584D70300CA049F /* OpenSSL.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE1908962584D69400CA049F /* OpenSSL.xcframework */; };
 		FE1A07482525EDD4004F38A0 /* ExternalServiceDiscovery_Service_extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1A07472525EDD4004F38A0 /* ExternalServiceDiscovery_Service_extension.swift */; };
-		FE1A34A7258CD3EE0058B86A /* WebRTC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE1A349F258CD3E10058B86A /* WebRTC.xcframework */; };
-		FE1A34A8258CD3EE0058B86A /* WebRTC.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FE1A349F258CD3E10058B86A /* WebRTC.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FE1AC8F7216B8AB700D4CDAB /* NewFeaturesDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1AC8F6216B8AB700D4CDAB /* NewFeaturesDetector.swift */; };
 		FE1DCCA21EA52CE200850563 /* DataFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE1DCCA11EA52CE200850563 /* DataFormController.swift */; };
 		FE2332DB242B9C2300008ED4 /* ChannelInviteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2332DA242B9C2300008ED4 /* ChannelInviteController.swift */; };
@@ -287,7 +286,6 @@
 			files = (
 				FE1908AB2584D6BC00CA049F /* OpenSSL.xcframework in Embed Frameworks */,
 				FE759FCD2370B2A4001E78D9 /* Shared.framework in Embed Frameworks */,
-				FE1A34A8258CD3EE0058B86A /* WebRTC.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -555,8 +553,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE1A34A7258CD3EE0058B86A /* WebRTC.xcframework in Frameworks */,
 				FE5079F01CD3CA91001A015C /* Security.framework in Frameworks */,
+				37DC2EAB26E65D9800CA39D9 /* WebRTC in Frameworks */,
 				FE759FCC2370B2A4001E78D9 /* Shared.framework in Frameworks */,
 				FE1908AA2584D6BC00CA049F /* OpenSSL.xcframework in Frameworks */,
 			);
@@ -1081,6 +1079,7 @@
 			);
 			name = Snikket;
 			packageProductDependencies = (
+				37DC2EAA26E65D9800CA39D9 /* WebRTC */,
 			);
 			productName = SiskinIM;
 			productReference = FE94E5211CCBA74F00FAE755 /* Snikket.app */;
@@ -1149,6 +1148,7 @@
 			mainGroup = FE94E5181CCBA74F00FAE755;
 			packageReferences = (
 				FEC9B1122440E79D00A484EE /* XCRemoteSwiftPackageReference "tigase-swift-omemo" */,
+				37DC2EA926E65D9800CA39D9 /* XCRemoteSwiftPackageReference "WebRTC" */,
 			);
 			productRefGroup = FE94E5221CCBA74F00FAE755 /* Products */;
 			projectDirPath = "";
@@ -2007,6 +2007,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		37DC2EA926E65D9800CA39D9 /* XCRemoteSwiftPackageReference "WebRTC" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alexpiezo/WebRTC.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 93.4577.0;
+			};
+		};
 		FEC9B1122440E79D00A484EE /* XCRemoteSwiftPackageReference "tigase-swift-omemo" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/tigase/tigase-swift-omemo/";
@@ -2018,6 +2026,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		37DC2EAA26E65D9800CA39D9 /* WebRTC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 37DC2EA926E65D9800CA39D9 /* XCRemoteSwiftPackageReference "WebRTC" */;
+			productName = WebRTC;
+		};
 		FEC9B1152440E7B500A484EE /* TigaseSwiftOMEMO */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FEC9B1122440E79D00A484EE /* XCRemoteSwiftPackageReference "tigase-swift-omemo" */;
