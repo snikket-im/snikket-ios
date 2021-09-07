@@ -216,6 +216,10 @@ class MucChatSettingsViewController: UITableViewController, UIImagePickerControl
                 self.navigationController?.pushViewController(controller, animated: true);
             }
         }
+        
+        if indexPath.section == 4 {
+            clearChatHistory()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -225,6 +229,27 @@ class MucChatSettingsViewController: UITableViewController, UIImagePickerControl
                 attachmentsController.jid = self.room.roomJid;
             }
         }
+    }
+    
+    func clearChatHistory() {
+        let alert = UIAlertController(title: "Clear History", message: "This will delete all the message history for this chat. Continue?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { (action) in
+            DBChatHistoryStore.instance.removeHistory(for: self.account, with: self.room.roomJid)
+            self.dismiss(animated: true, completion: {
+                if let vc = UIApplication.topViewController() as? MucChatViewController {
+                    vc.dataSource.refreshData(unread: 0) { _ in
+                        
+                        vc.conversationLogController?.tableView.reloadData()
+                        let chat = DBChatStore.instance.getChat(for: self.account, with: self.room.roomJid) as? DBRoom
+                        chat?.removeLastMessage()
+                        NotificationCenter.default.post(name: DBChatStore.CHAT_UPDATED, object: vc.chat)
+                        
+                    }
+                }
+            })
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     @objc func editClicked(_ sender: UIBarButtonItem) {

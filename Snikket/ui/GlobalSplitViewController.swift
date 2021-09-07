@@ -62,4 +62,13 @@ class GlobalSplitViewController: UISplitViewController, UISplitViewControllerDel
         return nil;
     }
     
+    var _detailViewController: UIViewController? {
+        get {
+            if viewControllers.count > 1 {
+                return viewControllers[1]
+            }
+            return nil
+        }
+    }
+    
 }

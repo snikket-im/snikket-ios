@@ -729,6 +729,10 @@ class DBChat: Chat, DBChatProtocol {
         return true;
     }
     
+    func removeLastMessage() {
+        lastActivity = LastChatActivity.message("", direction: MessageDirection.outgoing, sender: nil)
+    }
+    
     func markAsRead(count: Int) -> Bool {
         guard unread > 0 else {
             return false;
@@ -850,6 +854,10 @@ class DBRoom: Room, DBChatProtocol {
         self.options = options;
         super.init(context: context, roomJid: roomJid, nickname: nickname);
         setPassword(password);
+    }
+    
+    func removeLastMessage() {
+        lastActivity = LastChatActivity.message("", direction: MessageDirection.outgoing, sender: nil)
     }
     
     fileprivate func setPassword(_ pass: String?) {
