@@ -54,11 +54,19 @@ class MucEventHandler: XmppServiceEventHandler {
                                 room.supportedFeatures = [];
                                 break;
                             }
+                            let account = e.sessionObject.userBareJid!;
                             if let timestamp = room.lastMessageDate, !mamVersions.isEmpty {
-                                let account = e.sessionObject.userBareJid!;
                                 room.onRoomJoined = { room in
                                     MessageEventHandler.syncMessages(for: account, version: mamVersions.contains(.MAM2) ? .MAM2 : .MAM1, componentJID: room.jid, since: timestamp);
                                 }
+                                _ = room.rejoin(skipHistoryFetch: true);
+                                NotificationCenter.default.post(name: MucEventHandler.ROOM_STATUS_CHANGED, object: room);
+                            } else if let lastMessageRecieved = DBLastMessageSyncStore.instance.getLastMessage(account: account, jid: room.roomJid), let afterId = lastMessageRecieved.receivedId {
+                                
+                                room.onRoomJoined = { room in
+                                    MessageEventHandler.syncMessagesAfterID(for: account, version: mamVersions.contains(.MAM2) ? .MAM2 : .MAM1, componentJID: room.jid, afterId: afterId)
+                                }
+                                room.lastMessageDate = Date()
                                 _ = room.rejoin(skipHistoryFetch: true);
                                 NotificationCenter.default.post(name: MucEventHandler.ROOM_STATUS_CHANGED, object: room);
                             } else {
@@ -101,7 +109,9 @@ class MucEventHandler: XmppServiceEventHandler {
                 }
             }
 
-            DBChatHistoryStore.instance.append(for: room.account, message: e.message, source: .stream);
+            DBChatHistoryStore.instance.append(for: room.account, message: e.message, source: .stream)
+            
+            DBLastMessageSyncStore.instance.updateOrInsertLastMessage(account: room.account, jid: room.roomJid, receivedId: e.message.id, readId: nil)
         case let e as MucModule.AbstractOccupantEvent:
             if let room = e.room as? DBRoom, room.isOMEMOCapable, let jid = e.occupant.jid {
                 if (e.occupant.affiliation == .none || e.occupant.affiliation == .outcast) {

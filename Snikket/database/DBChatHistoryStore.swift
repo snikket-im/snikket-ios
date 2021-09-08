@@ -450,7 +450,6 @@ public class DBChatHistoryStore {
             let uuid = UUID();
             previewsInProgress[masterId] = uuid;
         previewGenerationDispatcher.async {
-            print("generating previews for master id:", masterId, "uuid:", uuid);
         // if we may have previews, we should add them here..
         if let detector = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue) {
             let matches = detector.matches(in: data, range: NSMakeRange(0, data.utf16.count));
@@ -464,7 +463,6 @@ public class DBChatHistoryStore {
             }) else {
                 return;
             }
-            print("adding previews for master id:", masterId, "uuid:", uuid);
             matches.forEach { match in
                 if let url = match.url, let scheme = url.scheme, ["https", "http"].contains(scheme) {
                     if (data as NSString).range(of: "http", options: .caseInsensitive, range: match.range).location == match.range.location {

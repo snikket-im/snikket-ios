@@ -362,6 +362,30 @@ class MessageEventHandler: XmppServiceEventHandler {
             syncMessages(for: account, since: syncMessagesSince);
         }
     }
+    
+    static func syncMessagesAfterID(for account: BareJID, version: MessageArchiveManagementModule.Version?, componentJID: JID, afterId: String) {
+        guard let client = XmppService.instance.getClient(for: account), let mamModule: MessageArchiveManagementModule = client.modulesManager.getModule(MessageArchiveManagementModule.ID)  else { return }
+        
+        let queryId = UUID().uuidString
+        
+        let query = JabberDataElement(type: .submit)
+        let formTypeField = HiddenField(name: "FORM_TYPE")
+        formTypeField.value = version?.rawValue
+        query.addField(formTypeField)
+        
+        let withField = JidSingleField(name: "with")
+        withField.value = componentJID
+        query.addField(withField)
+        
+        let startField = TextSingleField(name: "after-id")
+        startField.value = afterId
+        query.addField(startField)
+        
+        mamModule.queryItems(version: version, componentJid: componentJID, node: nil, query: query, queryId: queryId, rsm: RSM.Query(after:afterId ,max: 150)) { responseStanza in
+            return
+        }
+        
+    }
 
     static func syncMessages(for account: BareJID, version: MessageArchiveManagementModule.Version? = nil, componentJID: JID? = nil, since: Date, rsmQuery: RSM.Query? = nil) {
         let period = DBChatHistorySyncStore.Period(account: account, component: componentJID?.bareJid, from: since, after: nil);
