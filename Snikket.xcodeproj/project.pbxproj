@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		379D914A26E8A0E300B877CA /* db-schema-15.sql in Resources */ = {isa = PBXBuildFile; fileRef = 379D914926E8A0E300B877CA /* db-schema-15.sql */; };
+		379D914C26E8A29800B877CA /* DBLastMessageSyncStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379D914B26E8A29800B877CA /* DBLastMessageSyncStore.swift */; };
 		E928AD4326D6A08A00F29F93 /* db-schema-14.sql in Resources */ = {isa = PBXBuildFile; fileRef = E928AD4226D6A08A00F29F93 /* db-schema-14.sql */; };
 		E95AA70226D38B6F00A38D44 /* DisplayNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95AA70126D38B6E00A38D44 /* DisplayNameViewController.swift */; };
 		E963721026D786D000332482 /* BlockingCommandModuleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E963720F26D786D000332482 /* BlockingCommandModuleExtension.swift */; };
@@ -295,6 +297,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		379D914926E8A0E300B877CA /* db-schema-15.sql */ = {isa = PBXFileReference; lastKnownFileType = text; path = "db-schema-15.sql"; sourceTree = "<group>"; };
+		379D914B26E8A29800B877CA /* DBLastMessageSyncStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBLastMessageSyncStore.swift; sourceTree = "<group>"; };
 		E928AD4226D6A08A00F29F93 /* db-schema-14.sql */ = {isa = PBXFileReference; lastKnownFileType = text; path = "db-schema-14.sql"; sourceTree = "<group>"; };
 		E95AA70126D38B6E00A38D44 /* DisplayNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayNameViewController.swift; sourceTree = "<group>"; };
 		E963720F26D786D000332482 /* BlockingCommandModuleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingCommandModuleExtension.swift; sourceTree = "<group>"; };
@@ -659,6 +663,7 @@
 				FEE49DCF2426485500900BBB /* DBConnection_main.swift */,
 				FE3E387B242766A900D3A8E8 /* DBChannelStore.swift */,
 				FEBC12F324C70E2900689475 /* DBChatHistorySyncStore.swift */,
+				379D914B26E8A29800B877CA /* DBLastMessageSyncStore.swift */,
 			);
 			path = database;
 			sourceTree = "<group>";
@@ -805,6 +810,7 @@
 				FE3BA0BF24B61583000C80D4 /* db-schema-12.sql */,
 				FEBC12F124C70DE000689475 /* db-schema-13.sql */,
 				E928AD4226D6A08A00F29F93 /* db-schema-14.sql */,
+				379D914926E8A0E300B877CA /* db-schema-15.sql */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -1183,6 +1189,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				379D914A26E8A0E300B877CA /* db-schema-15.sql in Resources */,
 				FE10BCF323FD4EF000E214F3 /* db-schema-10.sql in Resources */,
 				FE759FF22371F21C001E78D9 /* db-schema-6.sql in Resources */,
 				FE759FEF2371F21C001E78D9 /* db-schema-3.sql in Resources */,
@@ -1415,6 +1422,7 @@
 				FE0E30F12535BB530030F8C5 /* BaseChatViewController+ShareFile.swift in Sources */,
 				FE507A251CDB7B3B001A015C /* AccountManager.swift in Sources */,
 				FEC79195241ABEF4007BE572 /* MessageState.swift in Sources */,
+				379D914C26E8A29800B877CA /* DBLastMessageSyncStore.swift in Sources */,
 				FE719E7C22730DC3007CEEC9 /* OMEMOIdentityTableViewCell.swift in Sources */,
 				FEDE93901D09BB8300CA60A9 /* VCardEditPhoneTableViewCell.swift in Sources */,
 				FE507A221CDB7B3B001A015C /* AvatarStatusView.swift in Sources */,

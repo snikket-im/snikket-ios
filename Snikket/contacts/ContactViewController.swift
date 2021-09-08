@@ -98,6 +98,7 @@ class ContactViewController: UITableViewController {
             sections.append(.settings);
             sections.append(.attachments);
             sections.append(.encryption);
+            sections.append(.clearHistory)
         }
         if phones.count > 0 {
             sections.append(.phones);
@@ -112,6 +113,25 @@ class ContactViewController: UITableViewController {
         tableView.reloadData();
     }
     
+    func clearChatHistory() {
+        let alert = UIAlertController(title: "Clear History", message: "This will delete all the message history for this chat. Continue?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { (action) in
+            DBChatHistoryStore.instance.removeHistory(for: self.account, with: self.jid)
+            self.dismiss(animated: true, completion: {
+                if let vc = UIApplication.topViewController() as? ChatViewController {
+                    vc.conversationLogController?.dataSource.refreshData(unread: 0) { _ in
+                        vc.conversationLogController?.tableView.reloadData()
+                        let chat = DBChatStore.instance.getChat(for: self.account, with: self.jid) as? DBChat
+                        chat?.removeLastMessage()
+                        NotificationCenter.default.post(name: DBChatStore.CHAT_UPDATED, object: vc.chat)
+                    }
+                }
+            })
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in: UITableView) -> Int {
@@ -120,12 +140,10 @@ class ContactViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection sectionNo: Int) -> Int {
         switch sections[sectionNo] {
-        case .basic:
+        case .basic, .clearHistory, .attachments:
             return 1;
         case .settings:
             return 3;
-        case .attachments:
-            return 1;
         case .encryption:
             return omemoIdentities.count + 1;
         case .phones:
@@ -162,6 +180,9 @@ class ContactViewController: UITableViewController {
             cell.vcard = vcard;
         
             return cell;
+        case .clearHistory:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ClearHistoryCell", for: indexPath)
+            return cell
         case .settings:
             switch SettingsOptions(rawValue: indexPath.row)! {
             case .mute:
@@ -287,9 +308,6 @@ class ContactViewController: UITableViewController {
             cell.labelView.text = text;
             
             return cell;
-//        default:
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "ContactFormCell", for: indexPath as IndexPath) as! ContactFormTableViewCell;
-//            return cell;
         }
     }
 
@@ -305,6 +323,8 @@ class ContactViewController: UITableViewController {
         switch sections[indexPath.section] {
         case .basic:
             return;
+        case .clearHistory:
+            clearChatHistory()
         case .settings:
             switch SettingsOptions(rawValue: indexPath.row)! {
             case .blockAndReport:
@@ -543,6 +563,7 @@ class ContactViewController: UITableViewController {
         case phones
         case emails
         case addresses
+        case clearHistory
         
         var label: String {
             switch self {
@@ -560,6 +581,8 @@ class ContactViewController: UITableViewController {
                 return "Emails";
             case .addresses:
                 return "Addresses";
+            case .clearHistory:
+                return "History"
             }
         }
     }
@@ -571,3 +594,5 @@ class ContactViewController: UITableViewController {
     }
     
 }
+
+

@@ -24,7 +24,7 @@ import TigaseSwift
 
 public class DBSchemaManager {
     
-    static let CURRENT_VERSION = 14;
+    static let CURRENT_VERSION = 15;
     
     fileprivate let dbConnection: DBConnection;
     
@@ -68,32 +68,6 @@ public class DBSchemaManager {
         } catch {
             try dbConnection.execute("ALTER TABLE chat_history ADD COLUMN error TEXT;");
         }
-        
-//        let queryStmt = try dbConnection.prepareStatement("SELECT account, jid, encryption FROM chats WHERE encryption IS NOT NULL AND options IS NULL");
-//        let toConvert = try queryStmt.query { (cursor) -> (BareJID, BareJID, ChatEncryption)? in
-//            let account: BareJID = cursor["account"]!;
-//            let jid: BareJID = cursor["jid"]!;
-//            guard let encryptionStr: String = cursor["encryption"] else {
-//                return nil;
-//            }
-//            guard let encryption = ChatEncryption(rawValue: encryptionStr) else {
-//                return nil;
-//            }
-//
-//            return (account, jid, encryption);
-//        }
-//        if !toConvert.isEmpty {
-//            let updateStmt = try dbConnection.prepareStatement("UPDATE chats SET options = ?, encryption = null WHERE account = ? AND jid = ?");
-//            try toConvert.forEach { (arg0) in
-//                let (account, jid, encryption) = arg0
-//                var options = ChatOptions();
-//                options.encryption = encryption;
-//                let data = try? JSONEncoder().encode(options);
-//                let dataStr = data != nil ? String(data: data!, encoding: .utf8)! : nil;
-//                _ = try updateStmt.update(dataStr, account, jid);
-//            }
-//        }
-        
         
         let toRemove: [(String,String,Int32)] = try dbConnection.prepareStatement("SELECT sess.account as account, sess.name as name, sess.device_id as deviceId FROM omemo_sessions sess WHERE NOT EXISTS (select 1 FROM omemo_identities i WHERE i.account = sess.account and i.name = sess.name and i.device_id = sess.device_id)").query([:] as [String: Any?], map: { (cursor:DBCursor) -> (String, String, Int32)? in
             return (cursor["account"]!, cursor["name"]!, cursor["deviceId"]!);
