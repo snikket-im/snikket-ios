@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3797D5BD26E9E42E0091DAF8 /* AvatarColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3797D5BC26E9E42E0091DAF8 /* AvatarColors.swift */; };
+		3797D5C026EA456F0091DAF8 /* HSLuvSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3797D5BF26EA456F0091DAF8 /* HSLuvSwift */; };
 		379D914A26E8A0E300B877CA /* db-schema-15.sql in Resources */ = {isa = PBXBuildFile; fileRef = 379D914926E8A0E300B877CA /* db-schema-15.sql */; };
 		379D914C26E8A29800B877CA /* DBLastMessageSyncStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379D914B26E8A29800B877CA /* DBLastMessageSyncStore.swift */; };
 		E928AD4326D6A08A00F29F93 /* db-schema-14.sql in Resources */ = {isa = PBXBuildFile; fileRef = E928AD4226D6A08A00F29F93 /* db-schema-14.sql */; };
@@ -563,6 +564,7 @@
 			files = (
 				FE1A34A7258CD3EE0058B86A /* WebRTC.xcframework in Frameworks */,
 				FE5079F01CD3CA91001A015C /* Security.framework in Frameworks */,
+				3797D5C026EA456F0091DAF8 /* HSLuvSwift in Frameworks */,
 				FE759FCC2370B2A4001E78D9 /* Shared.framework in Frameworks */,
 				FE1908AA2584D6BC00CA049F /* OpenSSL.xcframework in Frameworks */,
 			);
@@ -1090,6 +1092,7 @@
 			);
 			name = Snikket;
 			packageProductDependencies = (
+				3797D5BF26EA456F0091DAF8 /* HSLuvSwift */,
 			);
 			productName = SiskinIM;
 			productReference = FE94E5211CCBA74F00FAE755 /* Snikket.app */;
@@ -1158,6 +1161,7 @@
 			mainGroup = FE94E5181CCBA74F00FAE755;
 			packageReferences = (
 				FEC9B1122440E79D00A484EE /* XCRemoteSwiftPackageReference "tigase-swift-omemo" */,
+				3797D5BE26EA456F0091DAF8 /* XCRemoteSwiftPackageReference "hsluv-swift" */,
 			);
 			productRefGroup = FE94E5221CCBA74F00FAE755 /* Products */;
 			projectDirPath = "";
@@ -2019,6 +2023,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3797D5BE26EA456F0091DAF8 /* XCRemoteSwiftPackageReference "hsluv-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hsluv/hsluv-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.0;
+			};
+		};
 		FEC9B1122440E79D00A484EE /* XCRemoteSwiftPackageReference "tigase-swift-omemo" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/tigase/tigase-swift-omemo/";
@@ -2030,6 +2042,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3797D5BF26EA456F0091DAF8 /* HSLuvSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3797D5BE26EA456F0091DAF8 /* XCRemoteSwiftPackageReference "hsluv-swift" */;
+			productName = HSLuvSwift;
+		};
 		FEC9B1152440E7B500A484EE /* TigaseSwiftOMEMO */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FEC9B1122440E79D00A484EE /* XCRemoteSwiftPackageReference "tigase-swift-omemo" */;
