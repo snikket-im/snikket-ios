@@ -91,8 +91,11 @@ class ChatTableViewCell: BaseChatTableViewCell, UITextViewDelegate {
         }
         let fgcolor = item.state.direction == .incoming ? "chatMessageText" : "chatMessageTextOutgoing";
         attrText.addAttribute(.foregroundColor, value: UIColor(named: fgcolor) as Any, range: NSRange(location: 0, length: attrText.length));
+        
         if Settings.EnableMarkdownFormatting.getBool() {
             Markdown.applyStyling(attributedString: attrText, font: UIFont.systemFont(ofSize: self.messageTextView.fontSize + 2), showEmoticons:Settings.ShowEmoticons.getBool());
+        } else if Settings.messageStyling.getBool() {
+            MessageStyling.applyStyling(attributedString: attrText, font: .systemFont(ofSize: self.messageTextView.fontSize + 2), showEmoticons: Settings.ShowEmoticons.getBool())
         } else {
             attrText.addAttribute(.font, value: UIFont.systemFont(ofSize: self.messageTextView.fontSize + 2), range: NSRange(location: 0, length: attrText.length));
             attrText.fixAttributes(in: NSRange(location: 0, length: attrText.length));
