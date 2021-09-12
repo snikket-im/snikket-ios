@@ -113,8 +113,10 @@ class ChatTableViewCell: BaseChatTableViewCell, UITextViewDelegate {
         }
         self.messageTextView.textView.textAlignment = .left
         
-        var minWidth = timestampView?.intrinsicContentSize.width ?? 52
-        minWidth += 15 // lock icon width
+        var minWidth = (timestampView?.intrinsicContentSize.width ?? 52)
+        if item.state.direction == .incoming { minWidth += (nicknameView?.intrinsicContentSize.width ?? 0) }
+         
+        if let lockImageHidden = lockStateImageView?.isHidden, !lockImageHidden {minWidth += 15 }
         let maxWidth = UIScreen.main.bounds.width * 0.60
         let userFont = UIFont.systemFont(ofSize: 14)
         var textWidth = (item.message).width(withConstrainedHeight: .greatestFiniteMagnitude, font: userFont)
