@@ -29,20 +29,16 @@ class MucChatOccupantsTableViewController: UITableViewController {
     var account: BareJID!;
     var room: DBRoom! {
         didSet {
-            self.participants.removeAll();
-            room?.presences.values.forEach { occupant in
-                self.participants.append(occupant);
-            }
-            self.participants.sort(by: { (i1, i2) -> Bool in
-                return i1.nickname.caseInsensitiveCompare(i2.nickname) == .orderedAscending;
-            });
-            tableView?.reloadData();
+            self.members = room.roomOccupants ?? []
+            tableView?.reloadData()
         }
     }
     
+    private var members: [MucModule.RoomAffiliation] = []
+    
     var mentionOccupant: ((String)->Void)? = nil;
     
-    private var participants: [MucOccupant] = [];
+    //private var participants: [MucOccupant] = [];
     
     override func viewDidLoad() {
         xmppService = (UIApplication.shared.delegate as! AppDelegate).xmppService;
@@ -56,6 +52,8 @@ class MucChatOccupantsTableViewController: UITableViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(occupantsChanged(_:)), name: MucEventHandler.ROOM_OCCUPANTS_CHANGED, object: nil);
         NotificationCenter.default.addObserver(self, selector: #selector(roomStatusChanged), name: MucEventHandler.ROOM_STATUS_CHANGED, object: nil);
+        NotificationCenter.default.addObserver(self, selector: #selector(mucUpdated), name: DBChatStore.MUC_UPDATED, object: nil);
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -65,6 +63,12 @@ class MucChatOccupantsTableViewController: UITableViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated);
+        self.members.sort(by: { (i1, i2) -> Bool in
+            let nick1 = i1.nickname ?? PEPDisplayNameModule.getDisplayName(account: self.account, for: i1.jid.bareJid)
+            let nick2 = i2.nickname ?? PEPDisplayNameModule.getDisplayName(account: self.account, for: i2.jid.bareJid)
+            return nick1.caseInsensitiveCompare(nick2) == .orderedAscending
+        })
+        tableView.reloadData()
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated);
@@ -77,23 +81,22 @@ class MucChatOccupantsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return participants.count;
+        return members.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MucChatOccupantsTableViewCell", for: indexPath as IndexPath) as! MucChatOccupantsTableViewCell;
         
-        let occupant = participants[indexPath.row];
-        cell.nicknameLabel.text = occupant.nickname;
-        if let jid = occupant.jid, let avatar = AvatarManager.instance.avatar(for: jid.bareJid, on: self.account) {
-            cell.avatarStatusView.set(name: occupant.nickname, avatar: avatar, orDefault: AvatarManager.instance.defaultAvatar);
-        } else if let photoHash = occupant.presence.vcardTempPhoto {
-            cell.avatarStatusView.set(name: occupant.nickname, avatar: AvatarManager.instance.avatar(withHash: photoHash), orDefault: AvatarManager.instance.defaultAvatar);
-        } else {
-            cell.avatarStatusView.set(name: occupant.nickname, avatar: nil, orDefault: AvatarManager.instance.defaultAvatar);
+        let occupant = members[indexPath.row]
+        let nick = occupant.nickname ?? PEPDisplayNameModule.getDisplayName(account: self.account, for: occupant.jid.bareJid)
+        cell.nicknameLabel.text = nick
+        if let avatar = AvatarManager.instance.avatar(for: occupant.jid.bareJid, on: self.account) {
+            cell.avatarStatusView.set(name: nick, avatar: avatar, orDefault: AvatarManager.instance.defaultAvatar);
+        }  else {
+            cell.avatarStatusView.set(name: nick, avatar: nil, orDefault: AvatarManager.instance.defaultAvatar);
         }
-        cell.avatarStatusView.setStatus(occupant.presence.show);
-        cell.statusLabel.text = occupant.presence.status;
+        cell.avatarStatusView.statusImageView.isHidden = true
+        cell.statusLabel.text = occupant.role?.rawValue ?? "Member"
         
         return cell
     }
@@ -105,10 +108,10 @@ class MucChatOccupantsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true);
         
-        let occupant = participants[indexPath.row];
+        let occupant = members[indexPath.row];
 
         if let fn = mentionOccupant {
-            fn(occupant.nickname);
+            fn(occupant.nickname ?? occupant.jid.stringValue);
         }
         self.navigationController?.popViewController(animated: true);
     }
@@ -119,33 +122,33 @@ class MucChatOccupantsTableViewController: UITableViewController {
             return nil;
         }
         
-        let participant = self.participants[indexPath.row];
+        let participant = self.members[indexPath.row];
         return UIContextMenuConfiguration(identifier: nil, previewProvider: nil, actionProvider: { suggestedActions in
             var actions: [UIAction] = [];
             actions.append(UIAction(title: "Private message", handler: { action in
-                let alert = UIAlertController(title: "Send message", message: "Enter message to send to: \(participant.nickname)", preferredStyle: .alert);
+                let alert = UIAlertController(title: "Send message", message: "Enter message to send to: \(participant.nickname ?? participant.jid.stringValue)", preferredStyle: .alert);
                 alert.addTextField(configurationHandler: nil);
                 alert.addAction(UIAlertAction(title: "Send", style: .default, handler: { action in
                     guard let text = alert.textFields?.first?.text else {
                         return;
                     }
-                    MucEventHandler.instance.sendPrivateMessage(room: self.room, recipientNickname: participant.nickname, body: text);
+                    MucEventHandler.instance.sendPrivateMessage(room: self.room, recipientNickname: participant.nickname ?? participant.jid.stringValue, body: text);
                 }));
                 alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil));
                 self.present(alert, animated: true, completion: nil);
             }));
-            if let jid = participant.jid, self.room.presences[self.room.nickname]?.affiliation == MucAffiliation.admin {
+            if self.room.presences[self.room.nickname]?.affiliation == MucAffiliation.admin {
                 actions.append(UIAction(title: "Ban user", handler: { action in
                     guard let mucModule: MucModule = XmppService.instance.getClient(for: self.room.account)?.modulesManager.getModule(MucModule.ID) else {
                         return;
                     }
-                    let alert = UIAlertController(title: "Banning user", message: "Do you want to ban user \(participant.nickname)?", preferredStyle: .alert);
+                    let alert = UIAlertController(title: "Banning user", message: "Do you want to ban user \(participant.nickname ?? participant.jid.stringValue)?", preferredStyle: .alert);
                     alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { action in
-                        mucModule.setRoomAffiliations(to: self.room, changedAffiliations: [MucModule.RoomAffiliation(jid: jid, affiliation: .outcast)], completionHandler: { error in
+                        mucModule.setRoomAffiliations(to: self.room, changedAffiliations: [MucModule.RoomAffiliation(jid: participant.jid, affiliation: .outcast)], completionHandler: { error in
                             guard let err = error else {
                                 return;
                             }
-                            let alert = UIAlertController(title: "Banning user \(participant.nickname) failed", message: "Server returned an error: \(err.rawValue)", preferredStyle: .alert);
+                            let alert = UIAlertController(title: "Banning user \(participant.nickname ?? participant.jid.stringValue) failed", message: "Server returned an error: \(err.rawValue)", preferredStyle: .alert);
                             alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil));
                             self.present(alert, animated: true, completion: nil);
                         })
@@ -178,21 +181,22 @@ class MucChatOccupantsTableViewController: UITableViewController {
     
     @objc func occupantsChanged(_ notification: Notification) {
         guard let event = notification.object as? MucModule.AbstractOccupantEvent else {
-            guard let occupant = notification.object as? MucOccupant else {
+            guard let occupant = notification.object as? MucOccupant, let jid = occupant.jid else {
                 return;
             }
+            let member = MucModule.RoomAffiliation(jid: jid, affiliation: occupant.affiliation, nickname: occupant.nickname, role: occupant.role)
             DispatchQueue.main.async {
-                var tmp = self.participants;
-                tmp.append(occupant);
+                var tmp = self.members
+                tmp.append(member)
                 tmp.sort(by: { (i1, i2) -> Bool in
-                    return i1.nickname.caseInsensitiveCompare(i2.nickname) == .orderedAscending;
+                    return i1.nickname?.caseInsensitiveCompare(i2.nickname ?? "") == .orderedAscending;
                 })
                 guard let idx = tmp.firstIndex(where: { (i) -> Bool in
                     i.nickname == occupant.nickname;
                 }) else {
                     return;
                 }
-                self.participants = tmp;
+                self.members = tmp
                 self.tableView?.insertRows(at: [IndexPath(row: idx, section: 0)], with: .automatic);
             }
             return;
@@ -204,63 +208,66 @@ class MucChatOccupantsTableViewController: UITableViewController {
         switch event {
         case let e as MucModule.OccupantComesEvent:
             DispatchQueue.main.async {
-                var tmp = self.participants;
+                var tmp = self.members
+                let member = MucModule.RoomAffiliation(jid: e.occupant.jid!, affiliation: e.occupant.affiliation, nickname: e.occupant.nickname, role: e.occupant.role)
                 if let idx = tmp.firstIndex(where: { (i) -> Bool in
                     i.nickname == e.occupant.nickname;
                 }) {
-                    tmp[idx] = e.occupant;
-                    self.participants = tmp;
+                    tmp[idx] = member
+                    self.members = tmp
                     self.tableView?.reloadRows(at: [IndexPath(row: idx, section: 0)], with: .automatic);
                 } else {
-                    tmp.append(e.occupant);
+                    tmp.append(member)
                     tmp.sort(by: { (i1, i2) -> Bool in
-                        return i1.nickname.caseInsensitiveCompare(i2.nickname) == .orderedAscending;
+                        return i1.nickname?.caseInsensitiveCompare(i2.nickname ?? "") == .orderedAscending;
                     })
                     guard let idx = tmp.firstIndex(where: { (i) -> Bool in
                         i.nickname == e.occupant.nickname;
                     }) else {
                         return;
                     }
-                    self.participants = tmp;
+                    self.members = tmp
                     self.tableView?.insertRows(at: [IndexPath(row: idx, section: 0)], with: .automatic);
                 }
             }
         case let e as MucModule.OccupantLeavedEvent:
             DispatchQueue.main.async {
-                var tmp = self.participants;
+                var tmp = self.members
                 guard let idx = tmp.firstIndex(where: { (i) -> Bool in
                     i.nickname == e.occupant.nickname;
                 }) else {
                     return;
                 }
                 tmp.remove(at: idx);
-                self.participants = tmp;
+                self.members = tmp
                 self.tableView?.deleteRows(at: [IndexPath(row: idx, section: 0)], with: .automatic);
             }
         case let e as MucModule.OccupantChangedPresenceEvent:
             DispatchQueue.main.async {
-                var tmp = self.participants;
+                var tmp = self.members
+                let member = MucModule.RoomAffiliation(jid: e.occupant.jid!, affiliation: e.occupant.affiliation, nickname: e.occupant.nickname, role: e.occupant.role)
                 guard let idx = tmp.firstIndex(where: { (i) -> Bool in
                     i.nickname == e.occupant.nickname;
                 }) else {
                     return;
                 }
-                tmp[idx] = e.occupant;
-                self.participants = tmp;
+                tmp[idx] = member
+                self.members = tmp
                 self.tableView?.reloadRows(at: [IndexPath(row: idx, section: 0)], with: .automatic);
             }
         case let e as MucModule.OccupantChangedNickEvent:
             DispatchQueue.main.async {
-                var tmp = self.participants;
+                var tmp = self.members
+                let member = MucModule.RoomAffiliation(jid: e.occupant.jid!, affiliation: e.occupant.affiliation, nickname: e.occupant.nickname, role: e.occupant.role)
                 guard let oldIdx = tmp.firstIndex(where: { (i) -> Bool in
                     i.nickname == e.nickname;
                 }) else {
                     return;
                 }
                 tmp.remove(at: oldIdx);
-                tmp.append(e.occupant);
+                tmp.append(member)
                 tmp.sort(by: { (i1, i2) -> Bool in
-                    return i1.nickname.caseInsensitiveCompare(i2.nickname) == .orderedAscending;
+                    return i1.nickname?.caseInsensitiveCompare(i2.nickname ?? "") == .orderedAscending;
                 })
                 guard let newIdx = tmp.firstIndex(where: { (i) -> Bool in
                     i.nickname == e.occupant.nickname;
@@ -268,7 +275,7 @@ class MucChatOccupantsTableViewController: UITableViewController {
                     return;
                 }
                 
-                self.participants = tmp;
+                self.members = tmp
                 self.tableView?.moveRow(at: IndexPath(row: oldIdx, section: 0), to: IndexPath(row: newIdx, section: 0));
                 self.tableView?.reloadRows(at: [IndexPath(row: newIdx, section: 0)], with: .automatic);
             }
@@ -284,10 +291,20 @@ class MucChatOccupantsTableViewController: UITableViewController {
         
         if room.state != .joined {
             DispatchQueue.main.async {
-                self.participants.removeAll();
+                self.members.removeAll()
                 self.tableView?.reloadData();
             }
         }
+    }
+    
+    @objc func mucUpdated() {
+        self.members = room.roomOccupants ?? []
+        self.members.sort(by: { (i1, i2) -> Bool in
+            let nick1 = i1.nickname ?? PEPDisplayNameModule.getDisplayName(account: self.account, for: i1.jid.bareJid)
+            let nick2 = i2.nickname ?? PEPDisplayNameModule.getDisplayName(account: self.account, for: i2.jid.bareJid)
+            return nick1.caseInsensitiveCompare(nick2) == .orderedAscending
+        })
+        tableView.reloadData()
     }
 
 }
