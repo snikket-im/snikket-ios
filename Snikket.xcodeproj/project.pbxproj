@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3776C43526EDC5F00047750B /* MessageStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3776C43426EDC5F00047750B /* MessageStyling.swift */; };
+		3797D5BD26E9E42E0091DAF8 /* AvatarColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3797D5BC26E9E42E0091DAF8 /* AvatarColors.swift */; };
+		3797D5C026EA456F0091DAF8 /* HSLuvSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3797D5BF26EA456F0091DAF8 /* HSLuvSwift */; };
 		379D914A26E8A0E300B877CA /* db-schema-15.sql in Resources */ = {isa = PBXBuildFile; fileRef = 379D914926E8A0E300B877CA /* db-schema-15.sql */; };
 		379D914C26E8A29800B877CA /* DBLastMessageSyncStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379D914B26E8A29800B877CA /* DBLastMessageSyncStore.swift */; };
 		E928AD4326D6A08A00F29F93 /* db-schema-14.sql in Resources */ = {isa = PBXBuildFile; fileRef = E928AD4226D6A08A00F29F93 /* db-schema-14.sql */; };
@@ -297,6 +300,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3776C43426EDC5F00047750B /* MessageStyling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageStyling.swift; sourceTree = "<group>"; };
+		3797D5BC26E9E42E0091DAF8 /* AvatarColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarColors.swift; sourceTree = "<group>"; };
 		379D914926E8A0E300B877CA /* db-schema-15.sql */ = {isa = PBXFileReference; lastKnownFileType = text; path = "db-schema-15.sql"; sourceTree = "<group>"; };
 		379D914B26E8A29800B877CA /* DBLastMessageSyncStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBLastMessageSyncStore.swift; sourceTree = "<group>"; };
 		E928AD4226D6A08A00F29F93 /* db-schema-14.sql */ = {isa = PBXFileReference; lastKnownFileType = text; path = "db-schema-14.sql"; sourceTree = "<group>"; };
@@ -561,6 +566,7 @@
 			files = (
 				FE1A34A7258CD3EE0058B86A /* WebRTC.xcframework in Frameworks */,
 				FE5079F01CD3CA91001A015C /* Security.framework in Frameworks */,
+				3797D5C026EA456F0091DAF8 /* HSLuvSwift in Frameworks */,
 				FE759FCC2370B2A4001E78D9 /* Shared.framework in Frameworks */,
 				FE1908AA2584D6BC00CA049F /* OpenSSL.xcframework in Frameworks */,
 			);
@@ -732,6 +738,8 @@
 				FE75AA7D25854DE2002B59AE /* WelcomeController.swift */,
 				E9D384B526CBB606009BEAF3 /* CustomUISlider.swift */,
 				E9AA502E26E1277D0005F497 /* MKMapExtension.swift */,
+				3797D5BC26E9E42E0091DAF8 /* AvatarColors.swift */,
+				3776C43426EDC5F00047750B /* MessageStyling.swift */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -1087,6 +1095,7 @@
 			);
 			name = Snikket;
 			packageProductDependencies = (
+				3797D5BF26EA456F0091DAF8 /* HSLuvSwift */,
 			);
 			productName = SiskinIM;
 			productReference = FE94E5211CCBA74F00FAE755 /* Snikket.app */;
@@ -1155,6 +1164,7 @@
 			mainGroup = FE94E5181CCBA74F00FAE755;
 			packageReferences = (
 				FEC9B1122440E79D00A484EE /* XCRemoteSwiftPackageReference "tigase-swift-omemo" */,
+				3797D5BE26EA456F0091DAF8 /* XCRemoteSwiftPackageReference "hsluv-swift" */,
 			);
 			productRefGroup = FE94E5221CCBA74F00FAE755 /* Products */;
 			projectDirPath = "";
@@ -1334,6 +1344,7 @@
 				FEB62C501DA80956001500D5 /* AvatarStore.swift in Sources */,
 				FE7D293423B919FF001A877D /* DownloadManager.swift in Sources */,
 				FE137A4821F6464D006B7F7C /* UIColor_mix.swift in Sources */,
+				3797D5BD26E9E42E0091DAF8 /* AvatarColors.swift in Sources */,
 				FE507A1E1CDB7B3B001A015C /* RosterViewController.swift in Sources */,
 				FE2332DF242CB02700008ED4 /* AppendixProtocol.swift in Sources */,
 				FEDCBF691D9C53BA00AE9129 /* RosterProviderGrouped.swift in Sources */,
@@ -1386,6 +1397,7 @@
 				FE507A171CDB7B3B001A015C /* ChatTableViewCell.swift in Sources */,
 				FE31DDE4201261A200C2AB1D /* DNSSrvDiskCache.swift in Sources */,
 				E9D384B626CBB606009BEAF3 /* CustomUISlider.swift in Sources */,
+				3776C43526EDC5F00047750B /* MessageStyling.swift in Sources */,
 				FE233CDD21EA062E00099281 /* AboutController.swift in Sources */,
 				FE2D481C24518C2800C13CE5 /* RTCCameraVideoCapturer_Format.swift in Sources */,
 				FE4071E421E2605900F09B58 /* VideoCallController.swift in Sources */,
@@ -2015,6 +2027,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3797D5BE26EA456F0091DAF8 /* XCRemoteSwiftPackageReference "hsluv-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hsluv/hsluv-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.0;
+			};
+		};
 		FEC9B1122440E79D00A484EE /* XCRemoteSwiftPackageReference "tigase-swift-omemo" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/tigase/tigase-swift-omemo/";
@@ -2026,6 +2046,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3797D5BF26EA456F0091DAF8 /* HSLuvSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3797D5BE26EA456F0091DAF8 /* XCRemoteSwiftPackageReference "hsluv-swift" */;
+			productName = HSLuvSwift;
+		};
 		FEC9B1152440E7B500A484EE /* TigaseSwiftOMEMO */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FEC9B1122440E79D00A484EE /* XCRemoteSwiftPackageReference "tigase-swift-omemo" */;

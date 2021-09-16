@@ -25,19 +25,17 @@ class ChatSettingsViewController: UITableViewController {
 
     let tree: [[SettingsEnum]] = {
         if #available(iOS 13.0, *) {
-            return [
-            [SettingsEnum.recentsMessageLinesNo, SettingsEnum.recentsSortType],
-            [SettingsEnum.sendMessageOnReturn, SettingsEnum.deleteChatHistoryOnClose, SettingsEnum.messageDeliveryReceipts, SettingsEnum.messageEncryption, SettingsEnum.linkPreviews],
-                [SettingsEnum.media]
-                ];
+            return
+                [[SettingsEnum.recentsMessageLinesNo, SettingsEnum.recentsSortType],
+                [SettingsEnum.sendMessageOnReturn, SettingsEnum.deleteChatHistoryOnClose, SettingsEnum.messageDeliveryReceipts, SettingsEnum.messageEncryption, SettingsEnum.linkPreviews],
+                [SettingsEnum.media],
+                [.messageStyling]]
         } else {
-            return [
-            [SettingsEnum.recentsMessageLinesNo, SettingsEnum.recentsSortType],
-            [SettingsEnum.sendMessageOnReturn, SettingsEnum.deleteChatHistoryOnClose, SettingsEnum.messageDeliveryReceipts, SettingsEnum.messageEncryption],
-                [SettingsEnum.media]
-                ];
-        }
-        }();
+            return
+                [[SettingsEnum.recentsMessageLinesNo, SettingsEnum.recentsSortType],
+                [SettingsEnum.sendMessageOnReturn, SettingsEnum.deleteChatHistoryOnClose, SettingsEnum.messageDeliveryReceipts, SettingsEnum.messageEncryption],
+                [SettingsEnum.media],
+                [.messageStyling]]}}()
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return tree.count;
@@ -55,6 +53,8 @@ class ChatSettingsViewController: UITableViewController {
             return "Messages";
         case 2:
             return "Attachments";
+        case 3:
+            return "Media"
         default:
             return nil;
         }
@@ -128,6 +128,13 @@ class ChatSettingsViewController: UITableViewController {
         case .media:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MediaSettingsViewCell", for: indexPath);
             return cell;
+        case .messageStyling:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MessageStylingCell", for: indexPath) as! SwitchTableViewCell;
+            cell.switchView.isOn = Settings.messageStyling.getBool()
+            cell.valueChangedListener = {(switchView: UISwitch) in
+                Settings.messageStyling.setValue(switchView.isOn)
+            }
+            return cell
         }
     }
     
@@ -180,7 +187,8 @@ class ChatSettingsViewController: UITableViewController {
         case linkPreviews = 8;
         case sendMessageOnReturn = 9;
         case messageEncryption = 10;
-        case media
+        case media = 11
+        case messageStyling = 12
     }
     
     internal class MessageEncryptionItem: TablePickerViewItemsProtocol {

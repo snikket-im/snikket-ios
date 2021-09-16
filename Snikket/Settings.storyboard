@@ -161,14 +161,14 @@
                                 <accessibility key="accessibilityConfiguration" identifier="maxImagePreviewSizeTableViewCell"/>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="clearImagePreviewTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="ClearDownloadStoreTableViewCell" id="tua-q1-OwE" userLabel="ClearImagePreviewTableViewCell">
-                                <rect key="frame" x="0.0" y="223.5" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="223.5" width="414" height="43"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tua-q1-OwE" id="Zpy-kb-3zH">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clear download cache" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hu1-2i-RSO">
-                                            <rect key="frame" x="20" y="11" width="374" height="21.5"/>
+                                            <rect key="frame" x="20" y="11" width="374" height="21"/>
                                             <accessibility key="accessibilityConfiguration" identifier="accountName"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -834,6 +834,40 @@
                                     <segue destination="8xt-1O-cb0" kind="show" id="TOL-19-lPZ"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MessageStylingCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageStylingCell" id="j35-dx-Zo1" customClass="SwitchTableViewCell" customModule="Snikket" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="445.5" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="j35-dx-Zo1" id="Wtj-Fi-nOG">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message Styling" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qu4-Mf-tz4">
+                                            <rect key="frame" x="20" y="11.5" width="125" height="21"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="accountName"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ozv-Rx-EMC">
+                                            <rect key="frame" x="345" y="6.5" width="51" height="31"/>
+                                            <connections>
+                                                <action selector="valueChanged:" destination="j35-dx-Zo1" eventType="valueChanged" id="plH-8N-uQs"/>
+                                            </connections>
+                                        </switch>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Ozv-Rx-EMC" secondAttribute="trailing" id="H9O-rl-Dif"/>
+                                        <constraint firstItem="Ozv-Rx-EMC" firstAttribute="centerY" secondItem="Wtj-Fi-nOG" secondAttribute="centerY" id="IHe-rs-Llk"/>
+                                        <constraint firstItem="Ozv-Rx-EMC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Qu4-Mf-tz4" secondAttribute="trailing" constant="8" id="ae6-Pw-wtL"/>
+                                        <constraint firstItem="Qu4-Mf-tz4" firstAttribute="centerY" secondItem="Wtj-Fi-nOG" secondAttribute="centerY" id="cAH-fR-Xmr"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="Qu4-Mf-tz4" secondAttribute="leading" id="u0N-Ss-cIe"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration" identifier="sendMessageOnReturnTableViewCell"/>
+                                <connections>
+                                    <outlet property="switchView" destination="Ozv-Rx-EMC" id="fb0-1e-pXG"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <sections/>
                         <connections>
@@ -1299,7 +1333,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="cof-sd-KJv"/>
+        <segue reference="TOL-19-lPZ"/>
     </inferredMetricsTieBreakers>
     <resources>
         <namedColor name="chatslistBackground">

@@ -48,12 +48,12 @@ class AvatarStatusView: UIView {
         updateCornerRadius();
     }
     
-    func set(name: String?, avatar: UIImage?, orDefault defAvatar: UIImage) {
-        self.avatarImageView.set(name: name, avatar: avatar, orDefault: defAvatar);
+    func set(bareJID: BareJID? = nil, name: String?, avatar: UIImage?, orDefault defAvatar: UIImage) {
+        self.avatarImageView.set(bareJID: bareJID, name: name, avatar: avatar, orDefault: defAvatar);
     }
     
-    func setGroup(memberNames: [String], memberImages: [UIImage], groupAvatar: UIImage?, defAvatar: UIImage) {
-        self.avatarImageView.setGroup(memberNames: memberNames,memberImages: memberImages, avatar: groupAvatar, defAvatar: defAvatar)
+    func setGroup(bareJIDS:[BareJID], memberNames: [String], memberImages: [UIImage], groupAvatar: UIImage?, defAvatar: UIImage) {
+        self.avatarImageView.setGroup(bareJIDS: bareJIDS, memberNames: memberNames,memberImages: memberImages, avatar: groupAvatar, defAvatar: defAvatar)
     }
         
     func setStatus(_ status:Presence.Show?) {

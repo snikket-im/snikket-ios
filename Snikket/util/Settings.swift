@@ -49,6 +49,7 @@ public enum Settings: String {
     case messageEncryption
     case EnableMarkdownFormatting = "markdown"
     case ShowEmoticons
+    case messageStyling
     
     @available(iOS 13.0, *)
     case linkPreviews
@@ -86,8 +87,9 @@ public enum Settings: String {
             "videoQuality": VideoQuality.medium.rawValue,
             "fileDownloadSizeLimit": 1,
             "SharingViaHttpUpload": true,
-            "enableBookmarksSync": true
-        ];
+            "enableBookmarksSync": true,
+            "messageStyling": true
+        ]
         store.register(defaults: defaults);
         ["EnableMessageCarbons": Settings.enableMessageCarbons, "MessageEncryption": .messageEncryption, "EnableBookmarksSync": Settings.enableBookmarksSync].forEach { (oldKey, newKey) in
             if let val = store.object(forKey: oldKey) {

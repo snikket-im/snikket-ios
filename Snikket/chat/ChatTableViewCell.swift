@@ -91,8 +91,11 @@ class ChatTableViewCell: BaseChatTableViewCell, UITextViewDelegate {
         }
         let fgcolor = item.state.direction == .incoming ? "chatMessageText" : "chatMessageTextOutgoing";
         attrText.addAttribute(.foregroundColor, value: UIColor(named: fgcolor) as Any, range: NSRange(location: 0, length: attrText.length));
+        
         if Settings.EnableMarkdownFormatting.getBool() {
             Markdown.applyStyling(attributedString: attrText, font: UIFont.systemFont(ofSize: self.messageTextView.fontSize + 2), showEmoticons:Settings.ShowEmoticons.getBool());
+        } else if Settings.messageStyling.getBool() {
+            MessageStyling.applyStyling(attributedString: attrText, font: .systemFont(ofSize: self.messageTextView.fontSize + 2), showEmoticons: Settings.ShowEmoticons.getBool())
         } else {
             attrText.addAttribute(.font, value: UIFont.systemFont(ofSize: self.messageTextView.fontSize + 2), range: NSRange(location: 0, length: attrText.length));
             attrText.fixAttributes(in: NSRange(location: 0, length: attrText.length));
@@ -113,8 +116,10 @@ class ChatTableViewCell: BaseChatTableViewCell, UITextViewDelegate {
         }
         self.messageTextView.textView.textAlignment = .left
         
-        var minWidth = timestampView?.intrinsicContentSize.width ?? 52
-        minWidth += 15 // lock icon width
+        var minWidth = (timestampView?.intrinsicContentSize.width ?? 52)
+        if item.state.direction == .incoming { minWidth += (nicknameView?.intrinsicContentSize.width ?? 0) }
+         
+        if let lockImageHidden = lockStateImageView?.isHidden, !lockImageHidden {minWidth += 15 }
         let maxWidth = UIScreen.main.bounds.width * 0.60
         let userFont = UIFont.systemFont(ofSize: 14)
         var textWidth = (item.message).width(withConstrainedHeight: .greatestFiniteMagnitude, font: userFont)

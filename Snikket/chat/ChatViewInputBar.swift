@@ -381,6 +381,10 @@ class ChatViewInputBar: UIView, UITextViewDelegate, NSTextStorageDelegate {
         if Settings.EnableMarkdownFormatting.bool() {
             Markdown.applyStyling(attributedString: textStorage, font: UIFont.systemFont(ofSize: fontSize + 4), showEmoticons: false);
         }
+        
+        if Settings.messageStyling.getBool() {
+            MessageStyling.applyStyling(attributedString: textStorage, font: .systemFont(ofSize: fontSize + 4), showEmoticons: Settings.ShowEmoticons.getBool())
+        }
     }
     
     @objc func attachmentTapped() {

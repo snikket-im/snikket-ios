@@ -154,7 +154,7 @@ class MucChatViewController: BaseChatViewControllerWithDataSourceAndContextMenuA
                     
                     cell.nicknameView?.attributedText = val;
                 } else {
-                    cell.nicknameView?.text = sender;
+                    cell.nicknameView?.text = item.state.direction == .incoming ? "· " + sender : ""
                 }
                 
                 cell.set(message: item);
@@ -189,7 +189,7 @@ class MucChatViewController: BaseChatViewControllerWithDataSourceAndContextMenuA
 
                 cell.nicknameView?.attributedText = val;
             } else {
-                cell.nicknameView?.text = sender;
+                cell.nicknameView?.text = item.state.direction == .incoming ? "· " + sender : ""
             }
 
             cell.set(attachment: item);
