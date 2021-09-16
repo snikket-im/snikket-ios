@@ -822,18 +822,21 @@ class DBRoom: Room, DBChatProtocol {
             if isOMEMOCapable {
                 if let mucModule: MucModule = XmppService.instance.getClient(for: account)?.modulesManager.getModule(MucModule.ID) {
                     var members: [JID] = [];
+                    var roomOccupants = [MucModule.RoomAffiliation]()
                     let group = DispatchGroup();
                     for affiliation in [MucAffiliation.member, MucAffiliation.admin, MucAffiliation.owner] {
                         group.enter();
                         mucModule.getRoomAffiliations(from: self, with: affiliation, completionHandler: { (affiliations, error) in
                             if let affiliations = affiliations {
                                 members.append(contentsOf: affiliations.map({ $0.jid }));
+                                roomOccupants.append(contentsOf: affiliations)
                             }
                             group.leave();
                         });
                     }
                     group.notify(queue: DispatchQueue.main, execute: { [weak self] in
                         self?.members = members;
+                        self?.roomOccupants = roomOccupants
                         NotificationCenter.default.post(name: DBChatStore.MUC_UPDATED, object: self)
                     })
                 }
@@ -843,6 +846,7 @@ class DBRoom: Room, DBChatProtocol {
     }
     
     var members: [JID]?;
+    var roomOccupants: [MucModule.RoomAffiliation]?
     
     init(id: Int, context: Context, account: BareJID, roomJid: BareJID, name: String?, nickname: String, password: String?, timestamp: Date, lastActivity: LastChatActivity?, unread: Int, options: RoomOptions) {
         self.id = id;

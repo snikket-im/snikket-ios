@@ -161,22 +161,40 @@ class MucEventHandler: XmppServiceEventHandler {
                 return;
             }
             
-            e.bookmarks?.items.filter { bookmark in bookmark is Bookmarks.Conference }.map { bookmark in bookmark as! Bookmarks.Conference }.filter { bookmark in
+            let bookmarksConferences = e.bookmarks?.items.filter { bookmark in bookmark is Bookmarks.Conference } as? [Bookmarks.Conference]
+            guard var bookmarksConferences = bookmarksConferences else { return }
+            
+            bookmarksConferences = bookmarksConferences.filter { bookmark in
                 return !mucModule.roomsManager.contains(roomJid: bookmark.jid.bareJid);
-                }.forEach({ (bookmark) in
-                    guard bookmark.autojoin else {
-                        return;
-                    }
-                    
-                    var nick: String?
-                    if let account = e.sessionObject.userBareJid, let displayName = AccountSettings.displayName(account).getString() {
-                        nick = displayName
-                    }
-                    
-                    guard let nick = bookmark.nick != nil ? bookmark.nick : nick
-                    else { return }
-                    _ = mucModule.join(roomName: bookmark.jid.localPart!, mucServer: bookmark.jid.domain, nickname: nick, password: bookmark.password);
-                });
+                }
+            
+            bookmarksConferences.forEach { bookmark in
+                guard bookmark.autojoin else { return }
+                var nick: String?
+                if let account = e.sessionObject.userBareJid, let displayName = AccountSettings.displayName(account).getString() {
+                    nick = displayName
+                }
+
+                guard let nick = bookmark.nick != nil ? bookmark.nick : nick
+                else { return }
+                _ = mucModule.join(roomName: bookmark.jid.localPart!, mucServer: bookmark.jid.domain, nickname: nick, password: bookmark.password);
+            }
+//            e.bookmarks?.items.filter { bookmark in bookmark is Bookmarks.Conference }.map { bookmark in bookmark as! Bookmarks.Conference }.filter { bookmark in
+//                return !mucModule.roomsManager.contains(roomJid: bookmark.jid.bareJid);
+//                }.forEach({ (bookmark) in
+//                    guard bookmark.autojoin else {
+//                        return;
+//                    }
+//
+//                    var nick: String?
+//                    if let account = e.sessionObject.userBareJid, let displayName = AccountSettings.displayName(account).getString() {
+//                        nick = displayName
+//                    }
+//
+//                    guard let nick = bookmark.nick != nil ? bookmark.nick : nick
+//                    else { return }
+//                    _ = mucModule.join(roomName: bookmark.jid.localPart!, mucServer: bookmark.jid.domain, nickname: nick, password: bookmark.password);
+//                });
         default:
             break;
         }
