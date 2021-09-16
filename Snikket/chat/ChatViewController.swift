@@ -158,12 +158,9 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
                 cell.contentView.transform = dataSource.inverted ? CGAffineTransform(a: 1, b: 0, c: 0, d: -1, tx: 0, ty: 0) : CGAffineTransform.identity;
                 let name = incoming ? self.titleView.name : localNickname;
                 let color = incoming ? #colorLiteral(red: 0.01663736999, green: 0.4700628519, blue: 0.6680073142, alpha: 1) : #colorLiteral(red: 0.4562267661, green: 0.4913363457, blue: 0, alpha: 1)
-                cell.avatarView?.set(name: name, avatar: AvatarManager.instance.avatar(for: incoming ? jid : account, on: account), orDefault: AvatarManager.instance.defaultAvatar, backColor: color);
+                cell.avatarView?.set(bareJID: jid, name: name, avatar: AvatarManager.instance.avatar(for: incoming ? jid : account, on: account), orDefault: AvatarManager.instance.defaultAvatar, backColor: color);
                 cell.nicknameView?.text  = ""
                 cell.set(message: item);
-//            cell.setNeedsUpdateConstraints();
-//            cell.updateConstraintsIfNeeded();
-
                 cell.backgroundColor = .clear
                 cell.contentView.backgroundColor = .clear
                 cell.bubbleImageView.isHidden = false
@@ -176,12 +173,10 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
             cell.contentView.transform = dataSource.inverted ? CGAffineTransform(a: 1, b: 0, c: 0, d: -1, tx: 0, ty: 0) : CGAffineTransform.identity;
             let name = incoming ? self.titleView.name : localNickname;
             let color = incoming ? #colorLiteral(red: 0.01663736999, green: 0.4700628519, blue: 0.6680073142, alpha: 1) : #colorLiteral(red: 0.4562267661, green: 0.4913363457, blue: 0, alpha: 1)
-            cell.avatarView?.set(name: name, avatar: AvatarManager.instance.avatar(for: incoming ? jid : account, on: account), orDefault: AvatarManager.instance.defaultAvatar, backColor: color);
+            cell.avatarView?.set(bareJID: jid, name: name, avatar: AvatarManager.instance.avatar(for: incoming ? jid : account, on: account), orDefault: AvatarManager.instance.defaultAvatar, backColor: color);
             cell.nicknameView?.text = ""
             cell.set(attachment: item);
             cell.audioPlayerDelegate = self
-//            cell.setNeedsUpdateConstraints();
-//            cell.updateConstraintsIfNeeded();
             cell.bubbleImageView.isHidden = false
             return cell;
         case let item as ChatLinkPreview:
@@ -200,7 +195,7 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
             let cell: InvitationChatTableViewCell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! InvitationChatTableViewCell;
             cell.contentView.transform = dataSource.inverted ? CGAffineTransform(a: 1, b: 0, c: 0, d: -1, tx: 0, ty: 0) : CGAffineTransform.identity;
             let name = incoming ? self.titleView.name : localNickname;
-            cell.avatarView?.set(name: name, avatar: AvatarManager.instance.avatar(for: incoming ? jid : account, on: account), orDefault: AvatarManager.instance.defaultAvatar);
+            cell.avatarView?.set(bareJID: jid, name: name, avatar: AvatarManager.instance.avatar(for: incoming ? jid : account, on: account), orDefault: AvatarManager.instance.defaultAvatar);
             cell.nicknameView?.text = name;
             cell.set(invitation: item);
             return cell;

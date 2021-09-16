@@ -42,7 +42,7 @@ class XEP0392Helper {
         hsluv.append(100)
         hsluv.append(50)
         
-        return UIColor(hue: hsluv[0], pastelSaturation: hsluv[1], lightness: hsluv[2], alpha: 1.0)
+        return UIColor(hue: hsluv[0], saturation: hsluv[1], lightness: hsluv[2], alpha: 1.0)
     }
 }
 

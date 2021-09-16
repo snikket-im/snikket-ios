@@ -45,7 +45,7 @@ class AvatarView: UIImageView {
 
     fileprivate(set) var initials: String?;
     
-    func set(name: String?, avatar: UIImage?, orDefault defAvatar: UIImage, backColor: UIColor = UIColor.systemGray) {
+    func set(bareJID: BareJID? = nil, name: String?, avatar: UIImage?, orDefault defAvatar: UIImage, backColor: UIColor = UIColor.systemGray) {
         self.name = name;
         if avatar != nil {
             self.image = avatar;
@@ -54,7 +54,7 @@ class AvatarView: UIImageView {
                 self.name = name;
             }
             if let initials = self.initials {
-                self.image = self.prepareInitialsAvatar(for: initials, backColor: AvatarColors.getColorForName(name: name ?? ""));
+                self.image = self.prepareInitialsAvatar(for: initials, backColor: AvatarColors.getColorForName(name: bareJID?.stringValue ?? (name ?? "")));
             } else {
                  self.image = defAvatar;
             }
@@ -63,7 +63,7 @@ class AvatarView: UIImageView {
         }
     }
     
-    func setGroup(memberNames: [String], memberImages: [UIImage], avatar: UIImage?, defAvatar: UIImage, backColor: UIColor = .systemGray) {
+    func setGroup(bareJIDS: [BareJID], memberNames: [String], memberImages: [UIImage], avatar: UIImage?, defAvatar: UIImage, backColor: UIColor = .systemGray) {
         self.image = nil
         if avatar != nil {
             self.image = avatar
@@ -71,15 +71,15 @@ class AvatarView: UIImageView {
         else if !memberNames.isEmpty {
             let memberInitials = memberNames.map { return self.getInitials(name: $0) }
             if memberInitials.count == 1 {
-                let memberColor = AvatarColors.getColorForName(name: memberNames[0])
+                let memberColor = AvatarColors.getColorForName(name: bareJIDS[0].stringValue)
                 self.image = self.prepareInitialsAvatar(for: memberInitials.first!, backColor: memberColor)
             } else if memberInitials.count == 2 {
                 //2
                 let image1 = memberImages.isEmpty ? nil : memberImages[0]
                 let image2 = memberImages.count > 1 ? memberImages[1] : nil
                 
-                let member1Color = AvatarColors.getColorForName(name: memberNames[0])
-                let member2Color = AvatarColors.getColorForName(name: memberNames[1])
+                let member1Color = AvatarColors.getColorForName(name: bareJIDS[0].stringValue)
+                let member2Color = AvatarColors.getColorForName(name: bareJIDS[1].stringValue)
                 
                 self.image = groupImagefor2(member1: memberInitials[0], member2: memberInitials[1], member1Image: image1, member2Image: image2, member1Color: member1Color, member2Color: member2Color)
             } else if memberInitials.count == 3 {
@@ -88,9 +88,9 @@ class AvatarView: UIImageView {
                 let image2 = memberImages.count > 1 ? memberImages[1] : nil
                 let image3 = memberImages.count > 2 ? memberImages[2] : nil
                 
-                let member1Color = AvatarColors.getColorForName(name: memberNames[0])
-                let member2Color = AvatarColors.getColorForName(name: memberNames[1])
-                let member3Color = AvatarColors.getColorForName(name: memberNames[2])
+                let member1Color = AvatarColors.getColorForName(name: bareJIDS[0].stringValue)
+                let member2Color = AvatarColors.getColorForName(name: bareJIDS[1].stringValue)
+                let member3Color = AvatarColors.getColorForName(name: bareJIDS[2].stringValue)
                 
                 self.image = groupImagefor3(member1: memberInitials[0], member2: memberInitials[1], member3: memberInitials[2], member1Image: image1, member2Image: image2, member3Image: image3, member1Color: member1Color, member2Color: member2Color, member3Color: member3Color)
             } else {
@@ -99,9 +99,9 @@ class AvatarView: UIImageView {
                 let image2 = memberImages.count > 1 ? memberImages[1] : nil
                 let image3 = memberImages.count > 2 ? memberImages[2] : nil
                 
-                let member1Color = AvatarColors.getColorForName(name: memberNames[0])
-                let member2Color = AvatarColors.getColorForName(name: memberNames[1])
-                let member3Color = AvatarColors.getColorForName(name: memberNames[2])
+                let member1Color = AvatarColors.getColorForName(name: bareJIDS[0].stringValue)
+                let member2Color = AvatarColors.getColorForName(name: bareJIDS[1].stringValue)
+                let member3Color = AvatarColors.getColorForName(name: bareJIDS[2].stringValue)
                 
                 self.image = groupImagefor4(member1: memberInitials[0], member2: memberInitials[1], member3: memberInitials[2], member1Image: image1, member2Image: image2, member3Image: image3, member1Color: member1Color, member2Color: member2Color, member3Color: member3Color)
             }

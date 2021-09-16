@@ -105,10 +105,10 @@ class ChatsListViewController: UITableViewController {
             let xmppClient = self.xmppService.getClient(forJid: item.account);
             switch item {
             case let room as DBRoom:
-                //cell.avatarStatusView.set(name: nil, avatar: AvatarManager.instance.avatar(for: room.roomJid, on: room.account), orDefault: AvatarManager.instance.defaultGroupchatAvatar);
                 let memberNames = self.groupMemberNames(item: item)
                 let memberImages = self.groupMemberAvatars(item: item)
-                cell.avatarStatusView.setGroup(memberNames: memberNames,memberImages: memberImages, groupAvatar: AvatarManager.instance.avatar(for: room.roomJid, on: room.account), defAvatar: AvatarManager.instance.defaultGroupchatAvatar)
+                let memberBareJIDS = self.groupMembersJIDS(item: item)
+                cell.avatarStatusView.setGroup(bareJIDS: memberBareJIDS, memberNames: memberNames,memberImages: memberImages, groupAvatar: AvatarManager.instance.avatar(for: room.roomJid, on: room.account), defAvatar: AvatarManager.instance.defaultGroupchatAvatar)
                 cell.avatarStatusView.setStatus(room.state == .joined ? Presence.Show.online : nil);
                 cell.nameLabel.text = groupName(item: item)
             case let channel as DBChannel:
@@ -118,7 +118,7 @@ class ChatsListViewController: UITableViewController {
             default:
                 let name = PEPDisplayNameModule.getDisplayName(account: item.account, for: BareJID(item.jid))
                 cell.nameLabel.text = name
-                cell.avatarStatusView.set(name: name, avatar: AvatarManager.instance.avatar(for: item.jid.bareJid, on: item.account), orDefault: AvatarManager.instance.defaultAvatar);
+                cell.avatarStatusView.set(bareJID: item.jid.bareJid ,name: name, avatar: AvatarManager.instance.avatar(for: item.jid.bareJid, on: item.account), orDefault: AvatarManager.instance.defaultAvatar);
                 let presenceModule: PresenceModule? = xmppClient?.modulesManager.getModule(PresenceModule.ID);
                 let presence = presenceModule?.presenceStore.getBestPresence(for: item.jid.bareJid);
                 cell.avatarStatusView.setStatus(presence?.show);
@@ -437,8 +437,9 @@ class ChatsListViewController: UITableViewController {
     }
     
     fileprivate func groupMemberNames(item: DBChatProtocol) -> [String] {
-        guard let room = item as? DBRoom, let jids = room.members else { return [] }
+        guard let room = item as? DBRoom, var jids = room.members else { return [] }
         var names: [String] = []
+        jids.sort { $0.stringValue < $1.stringValue }
         
         for jid in jids {
             //if jids.count > 2, jid.bareJid == room.account { continue }
@@ -450,9 +451,10 @@ class ChatsListViewController: UITableViewController {
     }
     
     fileprivate func groupMemberAvatars(item: DBChatProtocol) -> [UIImage] {
-        guard let room = item as? DBRoom, let jids = room.members else { return [] }
+        guard let room = item as? DBRoom, var jids = room.members else { return [] }
         
         var avatars: [UIImage] = []
+        jids.sort { $0.stringValue < $1.stringValue }
         
         for jid in jids {
             //if jids.count > 2, jid.bareJid == room.account { continue }
@@ -462,6 +464,15 @@ class ChatsListViewController: UITableViewController {
             }
         }
         return avatars
+    }
+    
+    fileprivate func groupMembersJIDS(item: DBChatProtocol) -> [BareJID] {
+        guard let room = item as? DBRoom, var jids = room.members else { return [] }
+        
+        var bareJIDS = [BareJID]()
+        jids.sort { $0.stringValue < $1.stringValue }
+        _ = jids.map { bareJIDS.append($0.bareJid) }
+        return bareJIDS
     }
     
     fileprivate static let todaysFormatter = ({()-> DateFormatter in
