@@ -53,6 +53,7 @@ class MucChatOccupantsTableViewController: UITableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(occupantsChanged(_:)), name: MucEventHandler.ROOM_OCCUPANTS_CHANGED, object: nil);
         NotificationCenter.default.addObserver(self, selector: #selector(roomStatusChanged), name: MucEventHandler.ROOM_STATUS_CHANGED, object: nil);
         NotificationCenter.default.addObserver(self, selector: #selector(mucUpdated), name: DBChatStore.MUC_UPDATED, object: nil);
+        allowInvites()
         
     }
 
@@ -72,6 +73,54 @@ class MucChatOccupantsTableViewController: UITableViewController {
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated);
+    }
+    
+    func allowInvites(){
+        self.navigationItem.rightBarButtonItem = nil
+        
+        let presence = self.room.presences[self.room.nickname]
+        let currentAffiliation = presence?.affiliation ?? .none
+        
+        if currentAffiliation == .admin || currentAffiliation == .owner {
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(inviteToGroup))
+            return
+        }
+        
+        isInvitesAllowed(account: self.room.account, room: self.room.jid) { isAllowed in
+            if isAllowed {
+                DispatchQueue.main.async {
+                    self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(self.inviteToGroup))
+                }
+            }
+        }
+    }
+    
+    @objc func inviteToGroup() {
+        
+        if let vc = UIStoryboard(name: "Groupchat", bundle: nil).instantiateViewController(withIdentifier: "InviteViewController") as? InviteViewController {
+            vc.room = self.room
+            let navigation = UINavigationController(rootViewController: vc)
+            self.present(navigation, animated: true, completion: nil)
+        }
+    }
+    
+    func isInvitesAllowed(account: BareJID, room: JID, completion: @escaping (Bool)->Void) {
+        if let module: DiscoveryModule = XmppService.instance.getClient(for: account)?.modulesManager.getModule(DiscoveryModule.ID) {
+            
+            module.getInfo(for: room, node: nil, callback: { result in
+                guard let stanza = result else { return }
+                
+                let data = JabberDataElement(from: stanza.findChild(name: "query", xmlns: "http://jabber.org/protocol/disco#info")?.findChild(name: "x", xmlns: "jabber:x:data"))
+                
+                if let isTrue = (data?.getField(named: "muc#roomconfig_allowinvites") as? BooleanField)?.value {
+                    completion(isTrue)
+                } else {
+                    completion(false)
+                }
+                
+            })
+
+        }
     }
     
     // MARK: - Table view data source
@@ -172,12 +221,6 @@ class MucChatOccupantsTableViewController: UITableViewController {
         }    
     }
     */
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let invitationController = segue.destination as? InviteViewController ?? (segue.destination as? UINavigationController)?.visibleViewController as? InviteViewController {
-            invitationController.room = self.room;
-        }
-    }
     
     @objc func occupantsChanged(_ notification: Notification) {
         guard let event = notification.object as? MucModule.AbstractOccupantEvent else {
