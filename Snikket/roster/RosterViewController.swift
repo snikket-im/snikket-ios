@@ -28,7 +28,7 @@ class RosterViewController: AbstractRosterViewController, UIGestureRecognizerDel
         super.viewDidLoad()
         searchController.searchBar.tintColor = UIColor(named: "tintColor");
         searchController.searchBar.delegate = self;
-        searchController.searchBar.scopeButtonTitles = ["By name", "By status"];
+        searchController.searchBar.scopeButtonTitles = [NSLocalizedString("By name", comment: ""), NSLocalizedString("By status", comment: "")]
         
         // Do any additional setup after loading the view, typically from a nib.
         if #available(iOS 13.0, *) {            
@@ -230,10 +230,10 @@ class RosterViewController: AbstractRosterViewController, UIGestureRecognizerDel
         guard let item = self.roster?.item(at: indexPath) else {
             return nil;
         }
-        return [UITableViewRowAction(style: .destructive, title: "Delete", handler: {(action, path) in
+        return [UITableViewRowAction(style: .destructive, title: NSLocalizedString("Delete", comment: ""), handler: {(action, path) in
             print("deleting record at", path);
             self.deleteItem(for: item.account, jid: item.jid);
-        }),UITableViewRowAction(style: .normal, title: "Edit", handler: {(action, path) in
+        }),UITableViewRowAction(style: .normal, title: NSLocalizedString("Edit", comment: ""), handler: {(action, path) in
             print("editing record at ", path);
             self.openEditItem(for: item.account, jid: item.jid);
         })];
@@ -265,31 +265,31 @@ class RosterViewController: AbstractRosterViewController, UIGestureRecognizerDel
                 return;
             }
             
-            let alert = UIAlertController(title: item.displayName, message: "using \(item.account.stringValue)", preferredStyle: .actionSheet);
-            alert.addAction(UIAlertAction(title: "Chat", style: .default, handler: { (action) in
+            let alert = UIAlertController(title: item.displayName, message: NSLocalizedString("using", comment: "") + " \(item.account.stringValue)", preferredStyle: .actionSheet);
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Chat", comment: ""), style: .default, handler: { (action) in
                 self.tableView(self.tableView, didSelectRowAt: indexPath);
             }));
             #if targetEnvironment(simulator)
             #else
             let jingleSupport = JingleManager.instance.support(for: item.jid, on: item.account);
             if jingleSupport.contains(.audio) && jingleSupport.contains(.video) {
-                alert.addAction(UIAlertAction(title: "Video call", style: .default, handler: { (action) in
+                alert.addAction(UIAlertAction(title: "Video call".localized, style: .default, handler: { (action) in
                     VideoCallController.call(jid: item.jid.bareJid, from: item.account, media: [.audio, .video], sender: self);
                 }));
             }
             if jingleSupport.contains(.audio) {
-                alert.addAction(UIAlertAction(title: "Audio call", style: .default, handler: { (action) in
+                alert.addAction(UIAlertAction(title: "Audio call".localized, style: .default, handler: { (action) in
                     VideoCallController.call(jid: item.jid.bareJid, from: item.account, media: [.audio], sender: self);
                 }));
             }
             #endif
-            alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: {(action) in
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Edit", comment: ""), style: .default, handler: {(action) in
                 self.openEditItem(for: item.account, jid: item.jid);
             }));
-            alert.addAction(UIAlertAction(title: "Info", style: .default, handler: {(alert) in
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Info", comment: ""), style: .default, handler: {(alert) in
                 self.showItemInfo(for: item.account, jid: item.jid);
             }));
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil));
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil));
             alert.popoverPresentationController?.sourceView = self.tableView;
             alert.popoverPresentationController?.sourceRect = self.tableView.rectForRow(at: indexPath);
             self.present(alert, animated: true, completion: nil);
@@ -317,7 +317,7 @@ class RosterViewController: AbstractRosterViewController, UIGestureRecognizerDel
     @available(iOS 13.0, *)
     func prepareContextMenu(item: RosterProviderItem) -> UIMenu {
         var items = [
-            UIAction(title: "Chat", image: UIImage(systemName: "message"), handler: { action in
+            UIAction(title: NSLocalizedString("Chat", comment: ""), image: UIImage(systemName: "message"), handler: { action in
                 self.createChat(for: item);
             })
         ];
@@ -325,21 +325,21 @@ class RosterViewController: AbstractRosterViewController, UIGestureRecognizerDel
         #else
         let jingleSupport = JingleManager.instance.support(for: item.jid, on: item.account);
         if jingleSupport.contains(.audio) && jingleSupport.contains(.video) {
-            items.append(UIAction(title: "Video call", image: UIImage(systemName: "video"), handler: { (action) in
+            items.append(UIAction(title: NSLocalizedString("Video call", comment: ""), image: UIImage(systemName: "video"), handler: { (action) in
                 VideoCallController.call(jid: item.jid.bareJid, from: item.account, media: [.audio, .video], sender: self);
             }));
         }
         if jingleSupport.contains(.audio) {
-            items.append(UIAction(title: "Audio call", image: UIImage(systemName: "phone"), handler: { (action) in
+            items.append(UIAction(title: NSLocalizedString("Audio call", comment: ""), image: UIImage(systemName: "phone"), handler: { (action) in
                 VideoCallController.call(jid: item.jid.bareJid, from: item.account, media: [.audio], sender: self);
             }));
         }
         #endif
         items.append(contentsOf: [
-            UIAction(title: "Edit", image: UIImage(systemName: "pencil"), handler: {(action) in
+            UIAction(title: NSLocalizedString("Edit", comment: ""), image: UIImage(systemName: "pencil"), handler: {(action) in
                 self.openEditItem(for: item.account, jid: item.jid);
             }),
-            UIAction(title: "Info", image: UIImage(systemName: "info.circle"), handler: { action in
+            UIAction(title: NSLocalizedString("Info", comment: ""), image: UIImage(systemName: "info.circle"), handler: { action in
                 self.showItemInfo(for: item.account, jid: item.jid);
             })
         ]);
@@ -353,8 +353,8 @@ class RosterViewController: AbstractRosterViewController, UIGestureRecognizerDel
     func deleteItem(for account: BareJID, jid: JID) {
         if let rosterModule:RosterModule = XmppService.instance.getClient(forJid: account)?.modulesManager.getModule(RosterModule.ID) {
             rosterModule.rosterStore.remove(jid: jid, onSuccess: nil, onError: { (errorCondition) in
-                let alert = UIAlertController.init(title: "Failure", message: "Server returned error: " + (errorCondition?.rawValue ?? "Operation timed out"), preferredStyle: .alert);
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil));
+                let alert = UIAlertController.init(title: NSLocalizedString("Failure", comment: ""), message: NSLocalizedString("Server returned error:", comment: "") + (errorCondition?.rawValue ?? NSLocalizedString("Operation timed out", comment: "")), preferredStyle: .alert);
+                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil));
                 self.present(alert, animated: true, completion: nil);
             })
         }

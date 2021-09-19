@@ -53,7 +53,7 @@ class AddAccountController: UITableViewController, UITextFieldDelegate {
             navigationController?.navigationItem.leftBarButtonItem = nil;
         }
 
-        saveButton.title = "Save";
+        saveButton.title = NSLocalizedString("Save",comment: "")
         jidTextField.delegate = self;
         passwordTextField.delegate = self;
 
@@ -168,12 +168,12 @@ class AddAccountController: UITableViewController, UITextFieldDelegate {
             var error = "";
             switch errorCondition! {
             case .not_authorized:
-                error = "Login and password do not match.";
+                error = NSLocalizedString("Login and password do not match.",comment: "")
             default:
-                error = "It was not possible to contact XMPP server and sign in.";
+                error = NSLocalizedString("It was not possible to contact XMPP server and sign in.",comment: "")
             }
-            let alert = UIAlertController(title: "Error", message:  error, preferredStyle: .alert);
-            alert.addAction(UIAlertAction(title: "Close", style: .cancel, handler: nil));
+            let alert = UIAlertController(title: NSLocalizedString("Error",comment: ""), message:  error, preferredStyle: .alert);
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Close",comment: ""), style: .cancel, handler: nil));
             self.present(alert, animated: true, completion: nil);
         } else {
             self.saveAccount(acceptedCertificate: acceptedCertificate);

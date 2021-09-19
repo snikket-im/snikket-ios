@@ -26,11 +26,11 @@ import TigaseSwift
 class SettingsViewController: UITableViewController {
    
     var statusNames = [
-        "chat" : "Chat",
-        "online" : "Online",
-        "away" : "Away",
-        "xa" : "Extended away",
-        "dnd" : "Do not disturb"
+        "chat" : NSLocalizedString("Chat", comment: "Status Options"),
+        "online" : NSLocalizedString("Online", comment: "Status Options"),
+        "away" : NSLocalizedString("Away", comment: "Status Options"),
+        "xa" : NSLocalizedString("Extended away", comment: "Status Options"),
+        "dnd" : NSLocalizedString("Do not disturb", comment: "Status Options")
     ];
     
     override func viewDidLoad() {
@@ -54,11 +54,11 @@ class SettingsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
-            return "Accounts";
+            return NSLocalizedString("Accounts", comment: "")
         case 1:
-            return "Status";
+            return NSLocalizedString("Status", comment: "")
         case 2:
-            return "Settings";
+            return NSLocalizedString("Settings", comment: "")
         default:
             return "";
         }
@@ -113,7 +113,7 @@ class SettingsViewController: UITableViewController {
                 }
                 cell.avatarStatusView.updateCornerRadius();
             } else {
-                cell.nameLabel.text = "Add account";
+                cell.nameLabel.text = NSLocalizedString("Add account", comment: "")
                 cell.avatarStatusView.avatarImageView.image = nil;
                 cell.avatarStatusView.isHidden = true;
             }
@@ -133,7 +133,7 @@ class SettingsViewController: UITableViewController {
                 } else {
                     (cell.contentView.subviews[0] as? UIImageView)?.isHidden = true;
                 }
-                (cell.contentView.subviews[1] as? UILabel)?.text = type != nil ? self.statusNames[type!] : "Automatic";
+                (cell.contentView.subviews[1] as? UILabel)?.text = type != nil ? self.statusNames[type!] : NSLocalizedString("Automatic", comment: "Status Option")
                 cell.accessoryType = .disclosureIndicator;
                 return cell;
             }
@@ -212,9 +212,9 @@ class SettingsViewController: UITableViewController {
             }
         } else if indexPath.section == 1 {
             if indexPath.row == 0 {
-                let alert = UIAlertController(title: "Select status", message: nil, preferredStyle: .actionSheet);
+                let alert = UIAlertController(title: NSLocalizedString("Select status", comment: ""), message: nil, preferredStyle: .actionSheet);
                 [nil, "chat", "online", "away", "xa", "dnd"].forEach { (type)->Void in
-                    let name = type == nil ? "Automatic" : self.statusNames[type!];
+                    let name = type == nil ? NSLocalizedString("Automatic", comment: "Status Options") : self.statusNames[type!];
                     let action = UIAlertAction(title: name, style: .default) { (a) in
                         Settings.StatusType.setValue(type);
                         self.tableView.reloadData();                        
@@ -225,7 +225,7 @@ class SettingsViewController: UITableViewController {
                     alert.addAction(action);
                 }
             
-                let action = UIAlertAction(title: "Cancel", style: .cancel, handler: nil);
+                let action = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil);
                 alert.addAction(action);
                 
                 alert.popoverPresentationController?.sourceView = self.tableView;
@@ -234,11 +234,11 @@ class SettingsViewController: UITableViewController {
                 self.present(alert, animated: true, completion: nil);
             }
             else if indexPath.row == 1 {
-                let alert = UIAlertController(title: "Status", message: "Enter status message", preferredStyle: .alert);
+                let alert = UIAlertController(title: NSLocalizedString("Status", comment: ""), message: NSLocalizedString("Enter status message", comment: ""), preferredStyle: .alert);
                 alert.addTextField(configurationHandler: { (textField) in
                     textField.text = Settings.StatusMessage.getString();
                 })
-                alert.addAction(UIAlertAction(title: "Set", style: .default, handler: { (action) -> Void in
+                alert.addAction(UIAlertAction(title: NSLocalizedString("Set", comment: ""), style: .default, handler: { (action) -> Void in
                     Settings.StatusMessage.setValue((alert.textFields![0] as UITextField).text);
                     self.tableView.reloadData();
                 }));
@@ -285,13 +285,13 @@ class SettingsViewController: UITableViewController {
     public static func description(of value: UIUserInterfaceStyle) -> String {
         switch value {
         case .unspecified:
-            return "Auto";
+            return NSLocalizedString("Auto", comment: "App Theme Type")
         case .light:
-            return "Light";
+            return NSLocalizedString("Light", comment: "App Theme Type")
         case .dark:
-            return "Dark";
+            return NSLocalizedString("Dark", comment: "App Theme Type")
         default:
-            return "Auto";
+            return NSLocalizedString("Auto", comment: "App Theme Type")
         }
     }
     

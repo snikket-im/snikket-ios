@@ -42,7 +42,7 @@ class MediaSettingsViewController: UITableViewController {
         case 0:
             return "";
         case 1:
-            return "Quality of uploaded media";
+            return NSLocalizedString("Quality of uploaded media", comment: "")
         case 2:
             return "";
         default:
@@ -53,9 +53,9 @@ class MediaSettingsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         switch section {
         case 0:
-            return "Limits the size of the files sent to you which may be automatically downloaded";
+            return NSLocalizedString("Limits the size of the files sent to you which may be automatically downloaded", comment: "")
         case 1:
-            return "Used image and video quality may impact storage and network usage"
+            return NSLocalizedString("Used image and video quality may impact storage and network usage", comment: "")
         default:
             return nil;
         }
@@ -77,11 +77,11 @@ class MediaSettingsViewController: UITableViewController {
             cell.switchView.isOn = Settings.SharingViaHttpUpload.getBool();
             cell.valueChangedListener = {(switchView: UISwitch) in
                 if switchView.isOn {
-                    let alert = UIAlertController(title: nil, message: "When you share files using HTTP, they are uploaded to HTTP server with unique URL. Anyone who knows the unique URL to the file is able to download it.\nDo you wish to enable?",preferredStyle: .alert);
-                    alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
+                    let alert = UIAlertController(title: nil, message: NSLocalizedString("When you share files using HTTP, they are uploaded to HTTP server with unique URL. Anyone who knows the unique URL to the file is able to download it.\nDo you wish to enable?", comment: ""),preferredStyle: .alert);
+                    alert.addAction(UIAlertAction(title: NSLocalizedString("Yes",comment: ""), style: .default, handler: { (action) in
                         Settings.SharingViaHttpUpload.setValue(true);
                     }));
-                    alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: { (action) in
+                    alert.addAction(UIAlertAction(title: NSLocalizedString("No",comment: ""), style: .cancel, handler: { (action) in
                         switchView.isOn = false;
                     }));
                     self.present(alert, animated: true, completion: nil);
@@ -119,25 +119,26 @@ class MediaSettingsViewController: UITableViewController {
             };
             self.navigationController?.pushViewController(controller, animated: true);
         case .clearDownloadStore:
-            let alert = UIAlertController(title: "Download storage", message: "We are using \(DownloadStore.instance.size/(1024*1014)) MB of storage.", preferredStyle: .actionSheet);
-            alert.addAction(UIAlertAction(title: "Flush", style: .destructive, handler: {(action) in
+            let alert = UIAlertController(title: NSLocalizedString("Download storage", comment: ""), message: String.localizedStringWithFormat(NSLocalizedString("We are using %d MB of storage.",comment: "Placeholder is the Number in MBs"), DownloadStore.instance.size/(1024*1014)), preferredStyle: .actionSheet);
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Flush", comment: ""), style: .destructive, handler: {(action) in
                 DispatchQueue.global(qos: .background).async {
                     DownloadStore.instance.clear();
                 }
+                
             }));
-            alert.addAction(UIAlertAction(title: "Older than 7 days", style: .destructive, handler: {(action) in
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Older than 7 days", comment: ""), style: .destructive, handler: {(action) in
                 DispatchQueue.global(qos: .background).async {
                     DownloadStore.instance.clear(olderThan: Date().addingTimeInterval(7*24*60*60.0*(-1.0)));
                 }
             }));
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil));
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil));
             alert.popoverPresentationController?.sourceView = self.tableView;
             alert.popoverPresentationController?.sourceRect = self.tableView.rectForRow(at: indexPath);
 
             self.present(alert, animated: true, completion: nil);
             break;
         case .imageUploadQuality:
-            let controller = TablePickerViewController(style: .grouped, message: "Select quality of the image to use for sharing", footer: "Original quality will share image in the format in which it is stored on your phone and it may not be supported by every device.");
+            let controller = TablePickerViewController(style: .grouped, message: NSLocalizedString("Select quality of the image to use for sharing", comment: ""), footer: NSLocalizedString("Original quality will share image in the format in which it is stored on your phone and it may not be supported by every device.", comment: ""));
             let values: [ImageQuality] = [.original, .highest, .high, .medium, .low];
             controller.selected = values.firstIndex(of: ImageQuality.current ?? .medium ) ?? 3;
             controller.items = values.map({ (it)->TablePickerViewItemsProtocol in
@@ -151,7 +152,7 @@ class MediaSettingsViewController: UITableViewController {
             };
             self.navigationController?.pushViewController(controller, animated: true);
         case .videoUploadQuality:
-            let controller = TablePickerViewController(style: .grouped, message: "Select quality of the video to use for sharing", footer: "Original quality will share video in the format in which video is stored on your phone and it may not be supported by every device.");
+            let controller = TablePickerViewController(style: .grouped, message: NSLocalizedString("Select quality of the video to use for sharing", comment: ""), footer: NSLocalizedString("Original quality will share video in the format in which video is stored on your phone and it may not be supported by every device.", comment: ""));
             let values: [VideoQuality] = [.original, .high, .medium, .low];
             controller.selected = values.firstIndex(of: VideoQuality.current ?? .medium ) ?? 2;
             controller.items = values.map({ (it)->TablePickerViewItemsProtocol in
@@ -181,9 +182,9 @@ class MediaSettingsViewController: UITableViewController {
         
         public static func description(of value: Int) -> String {
             if value == Int.max {
-                return "Unlimited";
+                return NSLocalizedString("Unlimited", comment: "")
             } else {
-                return "\(value) MB";
+                return String.localizedStringWithFormat(NSLocalizedString("%d MB",comment: "Placeholder is the MBs Download Limit"), value)
             }
         }
         
