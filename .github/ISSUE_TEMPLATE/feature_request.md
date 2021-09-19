@@ -7,14 +7,13 @@ assignees: ''
 
 ---
 
+**Describe your feature proposal**
+A cleare and concise description of your feature request.
+
 **Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
-
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
-
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+Explain what problem this feature would solve for you, and what value it would
+bring to the app. For example, explain how you would use the feature in a real
+situation.
 
 **Additional context**
 Add any other context or screenshots about the feature request here.

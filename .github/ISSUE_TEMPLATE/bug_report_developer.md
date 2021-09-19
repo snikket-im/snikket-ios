@@ -17,18 +17,15 @@ Steps to reproduce the behavior:
 3. Do '....'
 4. See error
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
-
 **Screenshots**
 If applicable, add screenshots to help explain your problem.
 
 **Details (please complete the following information):**
  - App Version: [e.g. 1.0.0]
- - Branch: [e.g. master]
- - Xcode version: [e.g. 11]
  - iOS version [e.g. 11.0]
  - iPhone model [e.g. iPhone 11]
+
+Please also include versions of any other relevant software.
 
 **Additional context**
 Add any other context about the problem here.
