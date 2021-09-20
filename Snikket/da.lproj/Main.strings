@@ -3,7 +3,7 @@
 "0rT-oB-jot.text" = "Company, Inc.";
 
 /* Class = "UILabel"; text = "Your server for account \\(account) supports message archiving. Would you like to enable this feature?"; ObjectID = "1dk-YA-RVu"; */
-"1dk-YA-RVu.text" = "Your server for account \\(account) supports message archiving. Would you like to enable this feature?";
+"1dk-YA-RVu.text" = "Your server for account \(account) supports message archiving. Would you like to enable this feature?";
 
 /* Class = "UIButton"; normalTitle = "Send Current Location"; ObjectID = "5tI-9V-tVB"; */
 "5tI-9V-tVB.normalTitle" = "Send Current Location";
