@@ -273,12 +273,12 @@ class RosterViewController: AbstractRosterViewController, UIGestureRecognizerDel
             #else
             let jingleSupport = JingleManager.instance.support(for: item.jid, on: item.account);
             if jingleSupport.contains(.audio) && jingleSupport.contains(.video) {
-                alert.addAction(UIAlertAction(title: "Video call".localized, style: .default, handler: { (action) in
+                alert.addAction(UIAlertAction(title: NSLocalizedString("Video call",comment: ""), style: .default, handler: { (action) in
                     VideoCallController.call(jid: item.jid.bareJid, from: item.account, media: [.audio, .video], sender: self);
                 }));
             }
             if jingleSupport.contains(.audio) {
-                alert.addAction(UIAlertAction(title: "Audio call".localized, style: .default, handler: { (action) in
+                alert.addAction(UIAlertAction(title: NSLocalizedString("Audio call",comment: ""), style: .default, handler: { (action) in
                     VideoCallController.call(jid: item.jid.bareJid, from: item.account, media: [.audio], sender: self);
                 }));
             }
