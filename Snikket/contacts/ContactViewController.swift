@@ -114,8 +114,8 @@ class ContactViewController: UITableViewController {
     }
     
     func clearChatHistory() {
-        let alert = UIAlertController(title: "Clear History", message: "This will delete all the message history for this chat. Continue?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { (action) in
+        let alert = UIAlertController(title: NSLocalizedString("Clear History",comment: ""), message: NSLocalizedString("This will delete all the message history for this chat. Continue?",comment: ""), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Continue",comment: ""), style: .default, handler: { (action) in
             DBChatHistoryStore.instance.removeHistory(for: self.account, with: self.jid)
             self.dismiss(animated: true, completion: {
                 if let vc = UIApplication.topViewController() as? ChatViewController {
@@ -128,7 +128,7 @@ class ContactViewController: UITableViewController {
                 }
             })
         }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel",comment: ""), style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -210,7 +210,7 @@ class ContactViewController: UITableViewController {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "BlockContactCell", for: indexPath)
                 cell.contentView.subviews.forEach { view in
                     if let label = view as? UILabel {
-                        label.text = isReporting ? "Reporting..." : "Report Contact"
+                        label.text = isReporting ? NSLocalizedString("Reporting...",comment: "") : NSLocalizedString("Report Contact",comment: "")
                         label.textColor = .red
                     }
                 }
@@ -225,12 +225,12 @@ class ContactViewController: UITableViewController {
                 if self.encryption != nil {
                     switch self.encryption! {
                     case .none:
-                        cell.detailTextLabel?.text = "None";
+                        cell.detailTextLabel?.text = NSLocalizedString("None",comment: "")
                     case .omemo:
-                        cell.detailTextLabel?.text = "OMEMO";
+                        cell.detailTextLabel?.text = NSLocalizedString("OMEMO",comment: "")
                     }
                 } else {
-                    cell.detailTextLabel?.text = "Default";
+                    cell.detailTextLabel?.text = NSLocalizedString("Default",comment: "")
                 }
                 return cell;
             } else {
@@ -390,9 +390,9 @@ class ContactViewController: UITableViewController {
     }
     
     func presentBlockAndReportSheet() {
-        let alertController = UIAlertController(title: "Report", message: "The user will be reported and any calls, messages and status updates from them will be blocked.", preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: NSLocalizedString("Report",comment: ""), message: NSLocalizedString("The user will be reported and any calls, messages and status updates from them will be blocked.",comment: ""), preferredStyle: .actionSheet)
         
-        let report = UIAlertAction(title: "Report and Block", style: .default) { (action: UIAlertAction!) in
+        let report = UIAlertAction(title: NSLocalizedString("Report and Block",comment: ""), style: .default) { (action: UIAlertAction!) in
             self.isReporting = true
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -408,7 +408,7 @@ class ContactViewController: UITableViewController {
                 }
             }
         }
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        let cancel = UIAlertAction(title: NSLocalizedString("Cancel",comment: ""), style: .cancel)
         alertController.addAction(report)
         alertController.addAction(cancel)
         self.present(alertController, animated: true, completion: nil)
@@ -424,7 +424,7 @@ class ContactViewController: UITableViewController {
                 if cell.accessoryView == nil , cell.reuseIdentifier == "BlockContactCell" {
                     cell.contentView.subviews.forEach { view in
                         if let label = view as? UILabel {
-                            label.text = "Reported"
+                            label.text = NSLocalizedString("Reported",comment: "")
                         }
                     }
                 }
@@ -439,7 +439,7 @@ class ContactViewController: UITableViewController {
         blockingModule.blockAndReport(jids: [JID(jid)]) { [weak self] result in
             switch result {
             case .failure(_):
-                self?.showAlert(title: "Error", message: "Please try again!")
+                self?.showAlert(title: NSLocalizedString("Error",comment: ""), message: NSLocalizedString("Please try again!",comment: ""))
                 completion(false)
             default:
                 completion(true)
@@ -451,7 +451,7 @@ class ContactViewController: UITableViewController {
     func showAlert(title: String, message: String) {
         DispatchQueue.main.async {
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert);
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK",comment: ""), style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil);
         }
     }
@@ -570,19 +570,19 @@ class ContactViewController: UITableViewController {
             case .basic:
                 return "";
             case .settings:
-                return "Settings";
+                return NSLocalizedString("Settings",comment: "")
             case .attachments:
                 return "";
             case .encryption:
-                return "Encryption";
+                return NSLocalizedString("Encryption",comment: "")
             case .phones:
-                return "Phones";
+                return NSLocalizedString("Phones",comment: "")
             case .emails:
-                return "Emails";
+                return NSLocalizedString("Emails",comment: "")
             case .addresses:
-                return "Addresses";
+                return NSLocalizedString("Addresses",comment: "")
             case .clearHistory:
-                return "History"
+                return NSLocalizedString("History",comment: "")
             }
         }
     }

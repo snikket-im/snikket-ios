@@ -102,8 +102,8 @@ class WelcomeController: UIViewController, QRScannerViewDelegate {
         print("found code: \(code)");
         
         guard let url = URL(string: code), let xmppUri = AppDelegate.XmppUri(url: url), (xmppUri.action == .register || xmppUri.action == .roster) else {
-            let alert = UIAlertController(title: "Error", message: "Scanned QR code is not valid for Snikket.", preferredStyle: .alert);
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil));
+            let alert = UIAlertController(title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString("Scanned QR code is not valid for Snikket.", comment: ""), preferredStyle: .alert);
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil));
             self.present(alert, animated: true, completion: nil);
             return;
         }
@@ -121,8 +121,8 @@ class WelcomeController: UIViewController, QRScannerViewDelegate {
     
     func scanningDidFail() {
         scanningDidStop();
-        let alert = UIAlertController(title: "Error", message: "It was not possible to access camera. Please check in privacy settings that you have granted Snikket access to the camera.", preferredStyle: .alert);
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil));
+        let alert = UIAlertController(title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString("It was not possible to access camera. Please check in privacy settings that you have granted Snikket access to the camera.", comment: ""), preferredStyle: .alert);
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil));
         self.present(alert, animated: true, completion: nil);
     }
     

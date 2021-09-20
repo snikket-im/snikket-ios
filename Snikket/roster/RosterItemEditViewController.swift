@@ -114,11 +114,11 @@ class RosterItemEditViewController: UITableViewController, UIPickerViewDataSourc
         account = BareJID(accountTextField.text!);
         let client = xmppService.getClient(forJid: account!);
         guard client?.state == SocketConnector.State.connected else {
-            let alert = UIAlertController.init(title: "Warning", message: "Before changing roster you need to connect to server. Do you wish to do this now?", preferredStyle: .alert);
-            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: {(alertAction) in
+            let alert = UIAlertController.init(title: NSLocalizedString("Warning",comment: ""), message: NSLocalizedString("Before changing roster you need to connect to server. Do you wish to do this now?",comment: ""), preferredStyle: .alert);
+            alert.addAction(UIAlertAction(title: NSLocalizedString("No",comment: ""), style: .cancel, handler: {(alertAction) in
                 _ = self.navigationController?.popViewController(animated: true);
             }));
-            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: {(alertAction) in
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Yes",comment: ""), style: .default, handler: {(alertAction) in
                 if let account = AccountManager.getAccount(for: self.account!) {
                     account.active = true;
                     AccountManager.save(account: account);
@@ -136,8 +136,8 @@ class RosterItemEditViewController: UITableViewController, UIPickerViewDataSourc
         };
         let onError = {(errorCondition:ErrorCondition?)->Void in
             DispatchQueue.main.async {
-                let alert = UIAlertController.init(title: "Failure", message: "Server returned error: " + (errorCondition?.rawValue ?? "Operation timed out"), preferredStyle: .alert);
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil));
+                let alert = UIAlertController.init(title: NSLocalizedString("Failure",comment: ""), message: NSLocalizedString("Server returned error",comment: "") + (errorCondition?.rawValue ?? NSLocalizedString("Operation timed out",comment: "")), preferredStyle: .alert);
+                alert.addAction(UIAlertAction(title: NSLocalizedString("OK",comment: ""), style: .default, handler: nil));
                 self.present(alert, animated: true, completion: nil);
             }
         };

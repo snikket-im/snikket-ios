@@ -116,7 +116,7 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
         if count == 0 {
             if self.conversationLogController!.tableView.backgroundView == nil {
                 let label = UILabel(frame: CGRect(x: 0, y:0, width: self.view.bounds.size.width, height: self.view.bounds.size.height));
-                label.text = "No messages yet. Say hi!";
+                label.text = NSLocalizedString("No messages yet. Say hi!", comment: "")
                 label.font = UIFont.systemFont(ofSize: UIFont.systemFontSize + 2, weight: .medium);
                 label.numberOfLines = 0;
                 label.textAlignment = .center;
@@ -211,8 +211,8 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
         }
         
         DispatchQueue.main.async {
-            let alert = UIAlertController(title: "Details", message: item.error ?? "Unknown error occurred", preferredStyle: .alert);
-            alert.addAction(UIAlertAction(title: "Resend", style: .default, handler: {(action) in
+            let alert = UIAlertController(title: NSLocalizedString("Details", comment: ""), message: item.error ?? NSLocalizedString("Unkown error occured", comment: ""), preferredStyle: .alert);
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Resend", comment: ""), style: .default, handler: {(action) in
                 //print("resending message with body", item.message);
                 
                 switch item {
@@ -228,7 +228,7 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
                     break;
                 }
             }));
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil));
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil));
             self.present(alert, animated: true, completion: nil);
         }
     }
@@ -520,19 +520,19 @@ class ChatTitleView: UIView {
                 if desc == nil {
                     let show = self.status?.show;
                     if show == nil {
-                        desc = "Offline";
+                        desc = NSLocalizedString("Offline", comment: "")
                     } else {
                         switch(show!) {
                         case .online:
-                            desc = "Online";
+                            desc = NSLocalizedString("Online", comment: "")
                         case .chat:
-                            desc = "Free for chat";
+                            desc = NSLocalizedString("Free for chat", comment: "")
                         case .away:
-                            desc = "Be right back";
+                            desc = NSLocalizedString("Be right back", comment: "")
                         case .xa:
-                            desc = "Away";
+                            desc = NSLocalizedString("Away", comment: "")
                         case .dnd:
-                            desc = "Do not disturb";
+                            desc = NSLocalizedString("Do not disturb", comment: "")
                         }
                     }
                 }
@@ -543,9 +543,9 @@ class ChatTitleView: UIView {
             } else {
                 switch encryption {
                 case .omemo:
-                    self.statusView.text = "\u{1F512} \u{26A0} Not connected!";
+                    self.statusView.text = "\u{1F512} \u{26A0} " + NSLocalizedString("Not connected!", comment: "")
                 case .none:
-                    self.statusView.text = "\u{26A0} Not connected!";
+                    self.statusView.text = "\u{26A0} " + NSLocalizedString("Not connected!", comment: "")
                 }
             }            
         }

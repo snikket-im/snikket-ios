@@ -33,7 +33,7 @@ class InviteViewController: AbstractRosterViewController {
             if selected.isEmpty {
                 self.navigationItem.rightBarButtonItem = nil
             } else {
-                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Invite", style: .plain, target: self, action: #selector(inviteUsers))
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Invite", comment: ""), style: .plain, target: self, action: #selector(inviteUsers))
             }
         }
     }
@@ -48,7 +48,7 @@ class InviteViewController: AbstractRosterViewController {
         super.viewWillAppear(animated);
         
         if onNext != nil {
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Create", style: .plain, target: self, action: #selector(selectionFinished(_:)))
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: NSLocalizedString("Create", comment: ""), style: .plain, target: self, action: #selector(selectionFinished(_:)))
         } else {
             self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancel(_:)));
         }
@@ -70,7 +70,7 @@ class InviteViewController: AbstractRosterViewController {
     
     @objc func inviteUsers() {
         for user in selected {
-            room.invite(user, reason: "You are invied to join conversation at \(room.roomJid)")
+            room.invite(user, reason: NSLocalizedString("You are invited to join conversation at", comment: "") + " \(room.roomJid)")
         }
         self.navigationController?.dismiss(animated: true, completion: nil);
     }

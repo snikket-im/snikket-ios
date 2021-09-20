@@ -48,13 +48,13 @@ class SendLocationViewController: UIViewController {
         self.mapView.addAnnotation(currentAnnotation)
         
         self.removePinButton.isHidden = false
-        self.sendCurrentLocationButton.setTitle("Send Pin Location", for: .normal)
+        self.sendCurrentLocationButton.setTitle(NSLocalizedString("Send Pin Location", comment: ""), for: .normal)
     }
 
     @IBAction func removePinTapped(_ sender: UIButton) {
         self.mapView.removeAnnotation(currentAnnotation)
         self.removePinButton.isHidden = true
-        self.sendCurrentLocationButton.setTitle("Send Current Location", for: .normal)
+        self.sendCurrentLocationButton.setTitle(NSLocalizedString("Send Current Location", comment: ""), for: .normal)
     }
     
     @IBAction func sendCurrentLocationTapped(_ sender: Any) {
@@ -82,8 +82,8 @@ class SendLocationViewController: UIViewController {
         let encryption: ChatEncryption = room.options.encryption ?? (canEncrypt ? (ChatEncryption(rawValue: Settings.messageEncryption.string() ?? "") ?? .none) : .none)
         guard encryption == .none || canEncrypt else {
             if encryption == .omemo && !canEncrypt {
-                let alert = UIAlertController(title: "Warning", message: "This room is not capable of sending encrypted messages. Please change encryption settings to be able to send messages", preferredStyle: .alert);
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil));
+                let alert = UIAlertController(title: NSLocalizedString("Warning", comment: ""), message: NSLocalizedString("This room is not capable of sending encrypted messages. Please change encryption settings to be able to send messages", comment: ""), preferredStyle: .alert);
+                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil));
                 self.present(alert, animated: true, completion: nil);
             }
             return;

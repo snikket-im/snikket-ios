@@ -30,7 +30,7 @@
                                                     <constraint firstAttribute="height" constant="300" id="Qqq-so-ere"/>
                                                 </constraints>
                                             </imageView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="251" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mPG-6l-dPm">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="251" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mPG-6l-dPm">
                                                 <rect key="frame" x="10" y="430" width="408" height="150"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -41,7 +41,7 @@
                                                         <attributes>
                                                             <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <font key="NSFont" size="14" name="SFProText-Bold"/>
+                                                            <font key="NSFont" metaFont="system" size="14"/>
                                                             <real key="NSKern" value="0.0"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
                                                                 <tabStops>
@@ -59,7 +59,7 @@
                                                         <attributes>
                                                             <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <font key="NSFont" size="16" name="SFProText-Regular"/>
+                                                            <font key="NSFont" metaFont="system" size="16"/>
                                                             <real key="NSKern" value="0.0"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
                                                                 <tabStops>
@@ -80,7 +80,7 @@
                                                         <attributes>
                                                             <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <font key="NSFont" size="14" name="SFProText-Regular"/>
+                                                            <font key="NSFont" metaFont="system" size="14"/>
                                                             <real key="NSKern" value="0.0"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
                                                                 <tabStops>

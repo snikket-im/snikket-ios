@@ -64,7 +64,7 @@ class ChannelSelectToJoinViewController: UITableViewController, UISearchResultsU
         searchController.searchBar.searchBarStyle = .prominent;
         searchController.searchBar.isOpaque = false;
         searchController.searchBar.isTranslucent = true;
-        searchController.searchBar.placeholder = "Search channels";
+        searchController.searchBar.placeholder = NSLocalizedString("Search channels", comment: "")
         self.navigationItem.searchController = searchController;
 //        definesPresentationContext = true;
     }
