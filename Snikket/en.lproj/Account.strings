@@ -90,7 +90,7 @@
 "XLZ-oR-88H.text" = "Last 24 hours";
 
 /* Class = "UILabel"; text = "Enabled"; ObjectID = "ZHc-Ml-5eX"; */
-"ZHc-Ml-5eX.text" = "Enabled";
+"ZHc-Ml-5eX.text" = "Re-register for push notifications";
 
 /* Class = "UILabel"; text = "When in Away/XA/DND state"; ObjectID = "aKW-CM-bl2"; */
 "aKW-CM-bl2.text" = "When in Away/XA/DND state";
