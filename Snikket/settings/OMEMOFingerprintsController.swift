@@ -56,9 +56,9 @@ class OMEMOFingerprintsController: UITableViewController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
-            return "Fingerprint of this device";
+            return NSLocalizedString("Fingerprint of this device", comment: "")
         default:
-            return "Other devices fingerprints";
+            return NSLocalizedString("Other devices fingerprints", comment: "")
         }
     }
     
@@ -88,7 +88,7 @@ class OMEMOFingerprintsController: UITableViewController {
         }
         
         let account = self.account!;
-        return [.init(style: .destructive, title: "Delete", handler: { [weak self] (action, indexPath) in
+        return [.init(style: .destructive, title: NSLocalizedString("Delete", comment: ""), handler: { [weak self] (action, indexPath) in
             guard let identity = self?.otherIdentities[indexPath.row] else {
                 return;
             }

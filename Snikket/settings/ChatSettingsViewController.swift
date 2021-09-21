@@ -48,13 +48,13 @@ class ChatSettingsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
-            return "List of messages"
+            return NSLocalizedString("List of Messages", comment: "")
         case 1:
-            return "Messages";
+            return NSLocalizedString("Messages", comment: "")
         case 2:
-            return "Attachments";
+            return NSLocalizedString("Attachments", comment: "")
         case 3:
-            return "Media"
+            return NSLocalizedString("Media", comment: "")
         default:
             return nil;
         }
@@ -81,9 +81,9 @@ class ChatSettingsViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "RecentsMessageLinesNoTableViewCell", for: indexPath ) as! StepperTableViewCell;
             cell.updateLabel = { (val) -> String? in
                 if val == 1 {
-                    return "1 line of preview";
+                    return NSLocalizedString("1 line of preview", comment: "")
                 } else {
-                    return Int(val).description + " lines of preview";
+                    return Int(val).description + " " + NSLocalizedString("lines of preview", comment: "")
                 }
             };
             cell.setValue(Double(Settings.RecentsMessageLinesNo.getInt()));
@@ -196,9 +196,9 @@ class ChatSettingsViewController: UITableViewController {
         public static func description(of value: ChatEncryption) -> String {
             switch value {
             case .omemo:
-                return "OMEMO";
+                return NSLocalizedString("OMEMO", comment: "")
             case .none:
-                return "None";
+                return NSLocalizedString("None", comment: "")
             }
         }
         
@@ -217,9 +217,9 @@ class ChatSettingsViewController: UITableViewController {
         public static func description(of value: ChatsListViewController.SortOrder) -> String {
             switch value {
             case .byTime:
-                return "By time";
+                return NSLocalizedString("By time", comment: "Sorting Chat Messages")
             case .byAvailablityAndTime:
-                return "By availability and time";
+                return NSLocalizedString("By availability and time", comment: "Sorting Chat Messages")
             }
         }
         

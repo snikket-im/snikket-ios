@@ -82,7 +82,7 @@ class AccountSettingsViewController: UITableViewController {
             }
             omemoFingerprint.text = fingerprint;
         } else {
-            omemoFingerprint.text = "Key not generated!";
+            omemoFingerprint.text = NSLocalizedString("Key not generated!",comment: "")
         }
     }
     
@@ -125,11 +125,11 @@ class AccountSettingsViewController: UITableViewController {
             self.navigationController?.pushViewController(controller, animated: true);
         }
         if indexPath.section == 1 && indexPath.row == 3 {
-            let controller = UIAlertController(title: "Nickname", message: "Enter default nickname to use in chats", preferredStyle: .alert);
+            let controller = UIAlertController(title: NSLocalizedString("Nickname",comment: ""), message: NSLocalizedString("Enter default nickname to use in chats",comment: ""), preferredStyle: .alert);
             controller.addTextField(configurationHandler: { textField in
                 textField.text = AccountManager.getAccount(for: self.account)?.nickname ?? "";
             });
-            controller.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+            controller.addAction(UIAlertAction(title: NSLocalizedString("OK",comment: ""), style: .default, handler: { _ in
                 let nickname = controller.textFields?.first?.text?.trimmingCharacters(in: .whitespacesAndNewlines);
                 if let account = AccountManager.getAccount(for: self.account) {
                     account.nickname = nickname;
@@ -240,9 +240,9 @@ class AccountSettingsViewController: UITableViewController {
     }
     
     func reRegisterPushNotifications() {
-        let alert = UIAlertController(title: "Push Notifications", message: "Snikket can be automatically notified by compatible XMPP servers about new messages when it is in background or stopped.\nIf enabled, notifications about new messages will be forwarded to our push component and delivered to the device. These notifications may contain message senders jid and part of a message.\nDo you want to enable push notifications?", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: self.enablePushNotifications))
-        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        let alert = UIAlertController(title: NSLocalizedString("Push Notifications",comment: ""), message: NSLocalizedString("Snikket can be automatically notified by compatible XMPP servers about new messages when it is in background or stopped.\nIf enabled, notifications about new messages will be forwarded to our push component and delivered to the device. These notifications may contain message senders jid and part of a message.\nDo you want to enable push notifications?",comment: ""), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Yes",comment: ""), style: .default, handler: self.enablePushNotifications))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("No",comment: ""), style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -296,9 +296,9 @@ class AccountSettingsViewController: UITableViewController {
                     }
                     let syncPeriod = AccountSettings.messageSyncPeriod(self.account).getDouble();
                     if !AccountSettings.messageSyncAuto(self.account).getBool() || syncPeriod < 12 {
-                        let alert = UIAlertController(title: "Enable automatic message synchronization", message: "For best experience it is suggested to enable Message Archving with automatic message synchronization of at least last 12 hours.\nDo you wish to do this now?", preferredStyle: .alert);
-                        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil));
-                        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: {(action) in
+                        let alert = UIAlertController(title: NSLocalizedString("Enable automatic message synchronization",comment: ""), message: NSLocalizedString("For best experience it is suggested to enable Message Archving with automatic message synchronization of at least last 12 hours.\nDo you wish to do this now?",comment: ""), preferredStyle: .alert);
+                        alert.addAction(UIAlertAction(title: NSLocalizedString("No",comment: ""), style: .cancel, handler: nil));
+                        alert.addAction(UIAlertAction(title: NSLocalizedString("Yes",comment: ""), style: .default, handler: {(action) in
                             AccountSettings.messageSyncAuto(self.account).set(bool: true);
                             if (syncPeriod < 12) {
                                 AccountSettings.messageSyncPeriod(self.account).set(double: 12.0);
@@ -424,8 +424,8 @@ class AccountSettingsViewController: UITableViewController {
                     })
                 } else {
                     DispatchQueue.main.async {
-                        let alert = UIAlertController(title: "Account removal", message: "Could not delete account as it was not possible to connect to the XMPP server. Please try again later.", preferredStyle: .alert);
-                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                        let alert = UIAlertController(title: NSLocalizedString("Account removal",comment: ""), message: NSLocalizedString("Could not delete account as it was not possible to connect to the XMPP server. Please try again later.",comment: ""), preferredStyle: .alert);
+                        alert.addAction(UIAlertAction(title: NSLocalizedString("OK",comment: ""), style: .default, handler: { _ in
                             self.tableView.reloadData();
                         }));
                         self.present(alert, animated: true, completion: nil);
@@ -459,8 +459,9 @@ class AccountSettingsViewController: UITableViewController {
                                         case .success(_):
                                             removeAccount(account, removeFromServer);
                                         case .failure(let _):
-                                            let alert = UIAlertController(title: "Account removal", message: "Push notifications are enabled for \(account). They need to be disabled before account can be removed and it is not possible to at this time. Please try again later.", preferredStyle: .alert);
-                                            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil));
+                                            
+                                            let alert = UIAlertController(title: NSLocalizedString("Account removal",comment: ""), message: String.localizedStringWithFormat(NSLocalizedString("Push notifications are enabled for %@. They need to be disabled before account can be removed and it is not possible to at this time. Please try again later.", comment: ""), account.stringValue), preferredStyle: .alert);
+                                            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil));
                                             self.present(alert, animated: true, completion: nil);
                                         }
                                     }
@@ -476,8 +477,8 @@ class AccountSettingsViewController: UITableViewController {
                                     AccountManager.save(account: config);
                                     removeAccount(account, removeFromServer);
                                 case .failure(let _):
-                                    let alert = UIAlertController(title: "Account removal", message: "Push notifications are enabled for \(account). They need to be disabled before account can be removed and it is not possible to at this time. Please try again later.", preferredStyle: .alert);
-                                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil));
+                                    let alert = UIAlertController(title: NSLocalizedString("Account removal", comment: ""), message: String.localizedStringWithFormat(NSLocalizedString("Push notifications are enabled for %@. They need to be disabled before account can be removed and it is not possible to at this time. Please try again later.", comment: ""), account.stringValue), preferredStyle: .alert);
+                                    alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil));
                                     self.present(alert, animated: true, completion: nil);
                                 }
                             }
@@ -494,16 +495,16 @@ class AccountSettingsViewController: UITableViewController {
         
     func askAboutAccountRemoval(account: BareJID, atRow indexPath: IndexPath, completionHandler: @escaping (Result<Bool, Error>)->Void) {
         let client = XmppService.instance.getClient(forJid: BareJID(account))
-        let alert = UIAlertController(title: "Account removal", message: client != nil ? "Should account be removed from server as well?" : "Remove account from application?", preferredStyle: .actionSheet);
+        let alert = UIAlertController(title: NSLocalizedString("Account removal", comment: ""), message: client != nil ? NSLocalizedString("Should account be removed from server as well?", comment: "") : NSLocalizedString("Remove account from application?", comment: ""), preferredStyle: .actionSheet);
         if client?.state == .connected {
-            alert.addAction(UIAlertAction(title: "Remove from server", style: .destructive, handler: { (action) in
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Remove from server", comment: ""), style: .destructive, handler: { (action) in
                 completionHandler(.success(true));
             }));
         }
-        alert.addAction(UIAlertAction(title: "Remove from application", style: .default, handler: { (action) in
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Remove from application", comment: ""), style: .default, handler: { (action) in
             completionHandler(.success(false));
         }));
-        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: nil));
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .default, handler: nil));
         alert.popoverPresentationController?.sourceView = self.tableView;
         alert.popoverPresentationController?.sourceRect = self.tableView.rectForRow(at: indexPath);
 
@@ -514,13 +515,13 @@ class AccountSettingsViewController: UITableViewController {
         
         public static func descriptionFromHours(hours: Double) -> String {
             if (hours == 0) {
-                return "Nothing";
+                return NSLocalizedString("Nothing", comment: "")
             } else if (hours >= 24*365) {
-                return "All";
+                return NSLocalizedString("All", comment: "")
             } else if (hours > 24) {
-                return "Last \(Int(hours/24)) days"
+                return String.localizedStringWithFormat(NSLocalizedString("Last %d days", comment: "Placeholder is number of days"), Int(hours/24))
             } else {
-                return "Last \(Int(hours)) hours";
+                return String.localizedStringWithFormat(NSLocalizedString("Last %d hours", comment: "Placeholder is hours value"), Int(hours))
             }
         }
         

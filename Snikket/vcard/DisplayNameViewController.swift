@@ -32,14 +32,14 @@ class DisplayNameViewController: UIViewController {
             textView.text = displayName
             textView.textColor = .black
         } else {
-            textView.text = "Name"
+            textView.text = NSLocalizedString("Name", comment: "")
             textView.textColor = .lightGray
         }
         
     }
     
     func setupNavigationBar() {
-        self.title = "Your Name"
+        self.title = NSLocalizedString("Your Name", comment: "")
         
         let righButton  = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(done))
         self.navigationItem.rightBarButtonItem = righButton
@@ -74,7 +74,7 @@ extension DisplayNameViewController: UITextViewDelegate {
     }
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
-            textView.text = "Name"
+            textView.text = NSLocalizedString("Name", comment: "")
             textView.textColor = UIColor.lightGray
         }
     }

@@ -84,7 +84,7 @@ class BlockedContactsController: UITableViewController {
         guard items.count > 0 else {
             return nil;
         }
-        let unblock = UITableViewRowAction(style: .destructive, title: "Unblock", handler: { action, indexPath in
+        let unblock = UITableViewRowAction(style: .destructive, title: NSLocalizedString("Unblock", comment: ""), handler: { action, indexPath in
             self.unblock(at: indexPath);
         })
         return [unblock];

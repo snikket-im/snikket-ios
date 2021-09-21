@@ -142,18 +142,18 @@ public class VideoCallController: UIViewController, CallManagerDelegate {
             case .success(_):
                 break;
             case .failure(let err):
-                var message = "It was not possible to establish call";
+                var message = NSLocalizedString("It was not possible to establish call",comment: "")
                 if let e = err as? ErrorCondition {
                     switch e {
                     case .forbidden:
-                        message = "It was not possible to access camera or microphone. Please check privacy settings";
+                        message = NSLocalizedString("It was not possible to access camera or microphone. Please check privacy settings",comment: "")
                     default:
                         break;
                     }
                 }
                 DispatchQueue.main.async {
-                    let alert = UIAlertController(title: "Call failed", message: message, preferredStyle: .alert);
-                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil));
+                    let alert = UIAlertController(title: NSLocalizedString("Call failed",comment: ""), message: message, preferredStyle: .alert);
+                    alert.addAction(UIAlertAction(title: NSLocalizedString("OK",comment: ""), style: .default, handler: nil));
                     sender.present(alert, animated: true, completion: nil);
                 }
             }
@@ -453,15 +453,15 @@ public class VideoCallController: UIViewController, CallManagerDelegate {
     fileprivate func updateTitleLabel() {
         switch call?.state ?? .new {
         case .new:
-            self.titleLabel?.text = "New call...";
+            self.titleLabel?.text = NSLocalizedString("New call...",comment: "")
         case .ringing:
-            self.titleLabel?.text = "Ringing...";
+            self.titleLabel?.text = NSLocalizedString("Ringing...",comment: "")
         case .connecting:
-            self.titleLabel?.text = "Connecting...";
+            self.titleLabel?.text = NSLocalizedString("Connecting...",comment: "")
         case .connected:
             self.titleLabel?.text = nil;
         case .ended:
-            self.titleLabel?.text = "Call ended";
+            self.titleLabel?.text = NSLocalizedString("Call ended",comment: "")
         }
     }
     #endif

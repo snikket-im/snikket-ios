@@ -145,7 +145,7 @@ class MucChatOccupantsTableViewController: UITableViewController {
             cell.avatarStatusView.set(name: nick, avatar: nil, orDefault: AvatarManager.instance.defaultAvatar);
         }
         cell.avatarStatusView.statusImageView.isHidden = true
-        cell.statusLabel.text = occupant.role?.rawValue ?? "Member"
+        cell.statusLabel.text = occupant.role?.rawValue ?? NSLocalizedString("Member",comment: "")
         
         return cell
     }
@@ -174,35 +174,35 @@ class MucChatOccupantsTableViewController: UITableViewController {
         let participant = self.members[indexPath.row];
         return UIContextMenuConfiguration(identifier: nil, previewProvider: nil, actionProvider: { suggestedActions in
             var actions: [UIAction] = [];
-            actions.append(UIAction(title: "Private message", handler: { action in
-                let alert = UIAlertController(title: "Send message", message: "Enter message to send to: \(participant.nickname ?? participant.jid.stringValue)", preferredStyle: .alert);
+            actions.append(UIAction(title: NSLocalizedString("Private message",comment: ""), handler: { action in
+                let alert = UIAlertController(title: NSLocalizedString("Send message",comment: ""), message: NSLocalizedString("Enter message to send to:",comment: "") + "  \(participant.nickname ?? participant.jid.stringValue)", preferredStyle: .alert);
                 alert.addTextField(configurationHandler: nil);
-                alert.addAction(UIAlertAction(title: "Send", style: .default, handler: { action in
+                alert.addAction(UIAlertAction(title: NSLocalizedString("Send",comment: ""), style: .default, handler: { action in
                     guard let text = alert.textFields?.first?.text else {
                         return;
                     }
                     MucEventHandler.instance.sendPrivateMessage(room: self.room, recipientNickname: participant.nickname ?? participant.jid.stringValue, body: text);
                 }));
-                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil));
+                alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel",comment: ""), style: .cancel, handler: nil));
                 self.present(alert, animated: true, completion: nil);
             }));
             if self.room.presences[self.room.nickname]?.affiliation == MucAffiliation.admin {
-                actions.append(UIAction(title: "Ban user", handler: { action in
+                actions.append(UIAction(title: NSLocalizedString("Ban user",comment: ""), handler: { action in
                     guard let mucModule: MucModule = XmppService.instance.getClient(for: self.room.account)?.modulesManager.getModule(MucModule.ID) else {
                         return;
                     }
-                    let alert = UIAlertController(title: "Banning user", message: "Do you want to ban user \(participant.nickname ?? participant.jid.stringValue)?", preferredStyle: .alert);
-                    alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { action in
+                    let alert = UIAlertController(title: NSLocalizedString("Banning user",comment: ""), message: NSLocalizedString("Do you want to ban user",comment: "") + "  \(participant.nickname ?? participant.jid.stringValue)?", preferredStyle: .alert);
+                    alert.addAction(UIAlertAction(title: NSLocalizedString("Yes",comment: ""), style: .destructive, handler: { action in
                         mucModule.setRoomAffiliations(to: self.room, changedAffiliations: [MucModule.RoomAffiliation(jid: participant.jid, affiliation: .outcast)], completionHandler: { error in
                             guard let err = error else {
                                 return;
                             }
-                            let alert = UIAlertController(title: "Banning user \(participant.nickname ?? participant.jid.stringValue) failed", message: "Server returned an error: \(err.rawValue)", preferredStyle: .alert);
-                            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil));
+                            let alert = UIAlertController(title: "Banning user \(participant.nickname ?? participant.jid.stringValue) failed", message: NSLocalizedString("Server returned an error:",comment: "") + " \(err.rawValue)", preferredStyle: .alert);
+                            alert.addAction(UIAlertAction(title: NSLocalizedString("OK",comment: ""), style: .cancel, handler: nil));
                             self.present(alert, animated: true, completion: nil);
                         })
                     }))
-                    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil));
+                    alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel",comment: ""), style: .cancel, handler: nil));
                     self.present(alert, animated: true, completion: nil);
                 }));
             }

@@ -142,7 +142,7 @@ class ChannelSettingsViewController: UITableViewController {
             self.navigationController?.pushViewController(controller, animated: true);
         }
         if indexPath.section == 3 && indexPath.row == 0, let channel = self.channel {
-            let alertController = UIAlertController(title: "Delete channel?", message: "All messages will be deleted and all participants will be kicked out. Are you sure?", preferredStyle: .actionSheet);
+            let alertController = UIAlertController(title: NSLocalizedString("Delete channel?", comment: ""), message: NSLocalizedString("All messages will be deleted and all participants will be kicked out. Are you sure?",comment: ""), preferredStyle: .actionSheet);
             alertController.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { action in
                 guard let mixModule: MixModule = XmppService.instance.getClient(for: channel.account)?.modulesManager.getModule(MixModule.ID) else {
                     return;
@@ -157,14 +157,14 @@ class ChannelSettingsViewController: UITableViewController {
                             guard let that = self else {
                                 return;
                             }
-                            let alert = UIAlertController(title: "Channel destruction failed!", message: "It was not possible to destroy channel \(channel.name ?? channel.channelJid.stringValue). Server returned an error: \(errorCondition.rawValue)", preferredStyle: .alert);
-                            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil));
+                            let alert = UIAlertController(title: NSLocalizedString("Channel destruction failed!", comment: ""), message: String.localizedStringWithFormat(NSLocalizedString("It was not possible to destroy channel %@. Server returned an error:", comment: ""), channel.name ?? channel.channelJid.stringValue) + " \(errorCondition.rawValue)", preferredStyle: .alert);
+                            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil));
                             that.present(alert, animated: true, completion: nil);
                         }
                     }
                 });
             }));
-            alertController.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil));
+            alertController.addAction(UIAlertAction(title: NSLocalizedString("No", comment: ""), style: .cancel, handler: nil));
             alertController.popoverPresentationController?.sourceView = self.tableView;
             alertController.popoverPresentationController?.sourceRect = self.tableView.rectForRow(at: indexPath);
             self.present(alertController, animated: true, completion: nil);

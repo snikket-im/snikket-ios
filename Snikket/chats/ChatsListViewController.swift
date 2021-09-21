@@ -151,7 +151,7 @@ class ChatsListViewController: UITableViewController {
                 case .invitation(_, _, let sender):
                     if let fieldfont = cell.lastMessageLabel.font {
                         let font = UIFont(descriptor: UIFontDescriptor.preferredFontDescriptor(withTextStyle: .body).withSymbolicTraits([.traitItalic, .traitBold, .traitCondensed])!, size: fieldfont.fontDescriptor.pointSize);
-                        let msg = NSAttributedString(string: "📨 Invitation", attributes: [.font:  font, .foregroundColor: cell.lastMessageLabel.textColor!.withAlphaComponent(0.8)]);
+                        let msg = NSAttributedString(string: "📨 " + NSLocalizedString("Invitation", comment: ""), attributes: [.font:  font, .foregroundColor: cell.lastMessageLabel.textColor!.withAlphaComponent(0.8)]);
 
                         if let prefix = sender != nil ? NSMutableAttributedString(string: "\(sender!): ") : nil {
                             prefix.append(msg);
@@ -160,7 +160,7 @@ class ChatsListViewController: UITableViewController {
                             cell.lastMessageLabel.attributedText = msg;
                         }
                     } else {
-                        let msg = NSAttributedString(string: "📨 Invitation", attributes: [.foregroundColor: cell.lastMessageLabel.textColor!.withAlphaComponent(0.8)]);
+                        let msg = NSAttributedString(string: "📨 " + NSLocalizedString("Invitation", comment: ""), attributes: [.foregroundColor: cell.lastMessageLabel.textColor!.withAlphaComponent(0.8)]);
                             
                         if let prefix = sender != nil ? NSMutableAttributedString(string: "\(sender!): ") : nil {
                             prefix.append(msg);
@@ -172,7 +172,7 @@ class ChatsListViewController: UITableViewController {
                 case .attachment(_, _, let sender):
                     if let fieldfont = cell.lastMessageLabel.font {
                         let font = UIFont(descriptor: UIFontDescriptor.preferredFontDescriptor(withTextStyle: .body).withSymbolicTraits([.traitItalic, .traitBold, .traitCondensed])!, size: fieldfont.fontDescriptor.pointSize);
-                        let msg = NSAttributedString(string: "📎 Attachment", attributes: [.font:  font, .foregroundColor: cell.lastMessageLabel.textColor!.withAlphaComponent(0.8)]);
+                        let msg = NSAttributedString(string: "📎 " + NSLocalizedString("Attachment", comment: ""), attributes: [.font:  font, .foregroundColor: cell.lastMessageLabel.textColor!.withAlphaComponent(0.8)]);
 
                         if let prefix = sender != nil ? NSMutableAttributedString(string: "\(sender!): ") : nil {
                             prefix.append(msg);
@@ -181,7 +181,7 @@ class ChatsListViewController: UITableViewController {
                             cell.lastMessageLabel.attributedText = msg;
                         }
                     } else {
-                        let msg = NSAttributedString(string: "📎 Attachment", attributes: [.foregroundColor: cell.lastMessageLabel.textColor!.withAlphaComponent(0.8)]);
+                        let msg = NSAttributedString(string: "📎 " + NSLocalizedString("Attachment", comment: ""), attributes: [.foregroundColor: cell.lastMessageLabel.textColor!.withAlphaComponent(0.8)]);
                             
                         if let prefix = sender != nil ? NSMutableAttributedString(string: "\(sender!): ") : nil {
                             prefix.append(msg);
@@ -236,13 +236,13 @@ class ChatsListViewController: UITableViewController {
                     let mucModule: MucModule? = xmppClient?.modulesManager.getModule(MucModule.ID);
                     
                     if room.presences[room.nickname]?.affiliation == .owner {
-                        let alert = UIAlertController(title: "Delete group chat?", message: "You are leaving the group chat \(room.name ?? room.roomJid.stringValue)", preferredStyle: .actionSheet);
-                        alert.addAction(UIAlertAction(title: "Leave chat", style: .default, handler: { (action) in
+                        let alert = UIAlertController(title: NSLocalizedString("Delete group chat?", comment: ""), message: NSLocalizedString("You are leaving the group chat", comment: "") + " \(room.name ?? room.roomJid.stringValue)", preferredStyle: .actionSheet);
+                        alert.addAction(UIAlertAction(title: NSLocalizedString("Leave chat", comment: ""), style: .default, handler: { (action) in
                             PEPBookmarksModule.remove(from: item.account, bookmark: Bookmarks.Conference(name: item.jid.localPart!, jid: room.jid, autojoin: false));
                             mucModule?.leave(room: room);
                             self.discardNotifications(for: item);
                         }))
-                        alert.addAction(UIAlertAction(title: "Delete chat", style: .destructive, handler: { (action) in
+                        alert.addAction(UIAlertAction(title: NSLocalizedString("Delete chat", comment: ""), style: .destructive, handler: { (action) in
                             PEPBookmarksModule.remove(from: item.account, bookmark: Bookmarks.Conference(name: item.jid.localPart!, jid: room.jid, autojoin: false));
                                 mucModule?.destroy(room: room);
                                 self.discardNotifications(for: item);
@@ -265,8 +265,9 @@ class ChatsListViewController: UITableViewController {
                                 }
                                 room.registerForTigasePushNotification(false, completionHandler: { (regResult) in
                                     DispatchQueue.main.async {
-                                        let alert = UIAlertController(title: "Push notifications", message: "You've left there room \(room.name ?? room.roomJid.stringValue) and push notifications for this room were disabled!\nYou may need to reenable them on other devices.", preferredStyle: .actionSheet);
-                                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil));
+                                        let alert = UIAlertController(title: NSLocalizedString("Push notifications", comment: ""), message: String.localizedStringWithFormat(NSLocalizedString("You've left there room %@ and push notifications for this room were disabled!\nYou may need to reenable them on other devices.",comment: "Placeholder is the Group Name"), room.name ?? room.roomJid.stringValue), preferredStyle: .actionSheet)
+                                        
+                                        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil));
                                         alert.popoverPresentationController?.sourceView = self.view;
                                         alert.popoverPresentationController?.sourceRect = tableView.rectForRow(at: indexPath);
                                         self.present(alert, animated: true, completion: nil);
@@ -356,26 +357,26 @@ class ChatsListViewController: UITableViewController {
         let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet);
         controller.popoverPresentationController?.barButtonItem = sender;
         
-        controller.addAction(UIAlertAction(title: "New private group chat", style: .default, handler: { action in
+        controller.addAction(UIAlertAction(title: NSLocalizedString("New private group chat", comment: ""), style: .default, handler: { action in
             let navigation = UIStoryboard(name: "MIX", bundle: nil).instantiateViewController(withIdentifier: "ChannelCreateNavigationViewController") as! UINavigationController;
             (navigation.visibleViewController as? ChannelCreateViewController)?.kind = .adhoc;
             navigation.modalPresentationStyle = .formSheet;
             self.present(navigation, animated: true, completion: nil);
         }));
-        controller.addAction(UIAlertAction(title: "New public group chat", style: .default, handler: { action in
+        controller.addAction(UIAlertAction(title: NSLocalizedString("New public group chat", comment: ""), style: .default, handler: { action in
             let navigation = UIStoryboard(name: "MIX", bundle: nil).instantiateViewController(withIdentifier: "ChannelCreateNavigationViewController") as! UINavigationController;
             (navigation.visibleViewController as? ChannelCreateViewController)?.kind = .stable;
             navigation.modalPresentationStyle = .formSheet;
             self.present(navigation, animated: true, completion: nil);
         }));
         
-        controller.addAction(UIAlertAction(title: "Join group chat", style: .default, handler: { action in
+        controller.addAction(UIAlertAction(title: NSLocalizedString("Join group chat", comment: ""), style: .default, handler: { action in
             let navigation = UIStoryboard(name: "MIX", bundle: nil).instantiateViewController(withIdentifier: "ChannelJoinNavigationViewController") as! UINavigationController;
             navigation.modalPresentationStyle = .formSheet;
             self.present(navigation, animated: true, completion: nil);
         }));
         
-        controller.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil));
+        controller.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil));
         
         self.present(controller, animated: true, completion: nil);
     }
@@ -498,7 +499,7 @@ class ChatsListViewController: UITableViewController {
         let flags: Set<Calendar.Component> = [.day, .year];
         let components = Calendar.current.dateComponents(flags, from: ts, to: Date());
         if (components.day! == 1) {
-            return "Yesterday";
+            return NSLocalizedString("Yesterday", comment: "")
         } else if (components.day! < 1) {
             return ChatsListViewController.todaysFormatter.string(from: ts);
         }
