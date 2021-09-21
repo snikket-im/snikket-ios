@@ -176,13 +176,7 @@
                             <outlet property="delegate" destination="EpF-TK-mfh" id="7Gc-t1-xXG"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="QKG-6F-9HH">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="cT8-oK-tqV">
-                            <connections>
-                                <segue destination="5ac-xr-CM7" kind="presentation" modalPresentationStyle="formSheet" id="kiz-Mg-MHo"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="QKG-6F-9HH"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XMc-s6-w0e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -514,10 +508,10 @@
         <!--Navigation Controller-->
         <scene sceneID="fPT-Jp-7Ya">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5ac-xr-CM7" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="InviteToChatViewController" automaticallyAdjustsScrollViewInsets="NO" id="5ac-xr-CM7" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GMz-fx-OCz">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -527,7 +521,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mUE-5o-b9H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6677.6000000000004" y="-614.84257871064472"/>
+            <point key="canvasLocation" x="6693" y="-615"/>
         </scene>
         <!--ConversationLogController-->
         <scene sceneID="vZA-SB-m2U">

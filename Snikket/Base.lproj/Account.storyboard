@@ -154,7 +154,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="AddAccountController" id="0fr-Ms-ALR" customClass="AddAccountController" customModule="Snikket" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="gb9-64-26F">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                         <sections>
@@ -447,7 +447,6 @@
                                                 <constraint firstItem="LhN-Xx-9am" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="wbI-5v-vug" secondAttribute="trailing" constant="8" id="83t-Tv-X3S"/>
                                                 <constraint firstItem="LhN-Xx-9am" firstAttribute="centerY" secondItem="UtO-LI-Gqd" secondAttribute="centerY" id="9Qv-cf-hOf"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="wbI-5v-vug" secondAttribute="leading" id="Xmn-Ou-rLo"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="LhN-Xx-9am" secondAttribute="trailing" id="m0E-r8-1DW"/>
                                                 <constraint firstItem="wbI-5v-vug" firstAttribute="centerY" secondItem="UtO-LI-Gqd" secondAttribute="centerY" id="odL-gM-ptG"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -538,30 +537,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enabled" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZHc-Ml-5eX">
-                                                    <rect key="frame" x="16" y="11.666666666666666" width="62" height="20.666666666666671"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Re-register push notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZHc-Ml-5eX">
+                                                    <rect key="frame" x="16" y="11.666666666666666" width="225" height="20.666666666666671"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="syG-Ul-0Xl">
-                                                    <rect key="frame" x="318" y="6.6666666666666679" width="51" height="31.000000000000004"/>
-                                                    <connections>
-                                                        <action selector="pushNotificationSwitchChangedValue:" destination="6yM-ZG-ryL" eventType="valueChanged" id="x1S-1g-Skb"/>
-                                                    </connections>
-                                                </switch>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="syG-Ul-0Xl" firstAttribute="centerY" secondItem="xoJ-Lu-9Eg" secondAttribute="centerY" id="6j2-C3-Kda"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="syG-Ul-0Xl" secondAttribute="trailing" id="acn-el-SDD"/>
-                                                <constraint firstItem="syG-Ul-0Xl" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ZHc-Ml-5eX" secondAttribute="trailing" constant="8" id="g3L-mv-GZ2"/>
                                                 <constraint firstItem="ZHc-Ml-5eX" firstAttribute="centerY" secondItem="xoJ-Lu-9Eg" secondAttribute="centerY" id="gEv-W8-QeJ"/>
                                                 <constraint firstItem="ZHc-Ml-5eX" firstAttribute="leading" secondItem="xoJ-Lu-9Eg" secondAttribute="leadingMargin" id="zYd-vW-RPf"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="syG-Ul-0Xl" secondAttribute="trailing" constant="8" id="xNK-XV-R4Y"/>
-                                        </constraints>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="opT-Sn-Rio">
                                         <rect key="frame" x="0.0" y="417.33333206176758" width="375" height="44"/>
@@ -585,7 +572,6 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="cdb-o8-Y70" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="aKW-CM-bl2" secondAttribute="trailing" constant="8" id="UO0-FD-Gsk"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="cdb-o8-Y70" secondAttribute="trailing" id="gVr-tR-ZHO"/>
                                                 <constraint firstItem="aKW-CM-bl2" firstAttribute="leading" secondItem="7Lw-8e-1Ol" secondAttribute="leadingMargin" id="l86-do-mbn"/>
                                                 <constraint firstItem="aKW-CM-bl2" firstAttribute="centerY" secondItem="7Lw-8e-1Ol" secondAttribute="centerY" id="rPu-Em-VFa"/>
                                                 <constraint firstItem="cdb-o8-Y70" firstAttribute="centerY" secondItem="7Lw-8e-1Ol" secondAttribute="centerY" id="s0n-kn-9rS"/>
@@ -622,7 +608,6 @@
                                             <constraints>
                                                 <constraint firstItem="GTa-Ee-HQT" firstAttribute="centerY" secondItem="s6M-Zf-HWI" secondAttribute="centerY" id="830-wL-H2z"/>
                                                 <constraint firstItem="f1h-xR-qOY" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GTa-Ee-HQT" secondAttribute="trailing" constant="8" id="PQx-NG-e7N"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="f1h-xR-qOY" secondAttribute="trailing" id="PsU-0J-87L"/>
                                                 <constraint firstAttribute="leadingMargin" secondItem="GTa-Ee-HQT" secondAttribute="leading" id="QFD-5D-MFu"/>
                                                 <constraint firstItem="f1h-xR-qOY" firstAttribute="centerY" secondItem="s6M-Zf-HWI" secondAttribute="centerY" id="e9z-sL-qJ5"/>
                                             </constraints>
@@ -655,7 +640,6 @@
                                                 <constraint firstAttribute="leadingMargin" secondItem="J9o-cf-vMy" secondAttribute="leading" id="QAw-ON-EK6"/>
                                                 <constraint firstItem="CcC-Ej-dJL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="J9o-cf-vMy" secondAttribute="trailing" constant="8" id="Vyh-FX-bjh"/>
                                                 <constraint firstItem="J9o-cf-vMy" firstAttribute="centerY" secondItem="Egv-qe-B19" secondAttribute="centerY" id="gaC-rV-i9A"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="CcC-Ej-dJL" secondAttribute="trailing" id="qbA-uO-A9X"/>
                                                 <constraint firstItem="CcC-Ej-dJL" firstAttribute="centerY" secondItem="Egv-qe-B19" secondAttribute="centerY" id="yY7-nf-Q6T"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -787,7 +771,6 @@
                         <outlet property="messageSyncPeriodLabel" destination="XLZ-oR-88H" id="WTf-SJ-NC0"/>
                         <outlet property="nicknameLabel" destination="JkB-3h-A61" id="LTW-2n-tC2"/>
                         <outlet property="omemoFingerprint" destination="BE2-bI-S0Z" id="HXB-VX-Pvv"/>
-                        <outlet property="pushNotificationSwitch" destination="syG-Ul-0Xl" id="PWY-NA-sOx"/>
                         <outlet property="pushNotificationsForAwaySwitch" destination="cdb-o8-Y70" id="GgR-H7-wXn"/>
                     </connections>
                 </tableViewController>
