@@ -1,4 +1,3 @@
-
 /* Class = "UILabel"; text = "add email"; ObjectID = "06Y-Cg-0Q3"; */
 "06Y-Cg-0Q3.text" = "add email";
 
@@ -11,17 +10,23 @@
 /* Class = "UILabel"; text = "Change account settings"; ObjectID = "70p-aF-3x5"; */
 "70p-aF-3x5.text" = "Change account settings";
 
-/* Class = "UITextField"; placeholder = "Required"; ObjectID = "7KN-S3-8XR"; */
-"7KN-S3-8XR.placeholder" = "Required";
-
 /* Class = "UILabel"; text = "Scan QR Code to add me as a buddy"; ObjectID = "7cH-MH-cya"; */
 "7cH-MH-cya.text" = "Scan QR Code to add me as a buddy";
+
+/* Class = "UITextField"; placeholder = "Required"; ObjectID = "7KN-S3-8XR"; */
+"7KN-S3-8XR.placeholder" = "Required";
 
 /* Class = "UITableViewSection"; headerTitle = "Message Archiving"; ObjectID = "9PW-Rb-rop"; */
 "9PW-Rb-rop.headerTitle" = "Message Archiving";
 
 /* Class = "UITableViewController"; title = "OMEMO fingerprints"; ObjectID = "A24-eF-tzh"; */
 "A24-eF-tzh.title" = "OMEMO fingerprints";
+
+/* Class = "UILabel"; text = "When in Away/XA/DND state"; ObjectID = "aKW-CM-bl2"; */
+"aKW-CM-bl2.text" = "When in Away/XA/DND state";
+
+/* Class = "UILabel"; text = "John Doe"; ObjectID = "bDD-UG-Fxr"; */
+"bDD-UG-Fxr.text" = "John Doe";
 
 /* Class = "UILabel"; text = "9dfacd3d 410d52bc 35f8e816 c7efc5b6 efe138e5 452a9e96 f30c2839 63b46241 "; ObjectID = "BE2-bI-S0Z"; */
 "BE2-bI-S0Z.text" = "9dfacd3d 410d52bc 35f8e816 c7efc5b6 efe138e5 452a9e96 f30c2839 63b46241 ";
@@ -38,17 +43,35 @@
 /* Class = "UILabel"; text = "Subtitle"; ObjectID = "FeX-5F-H2m"; */
 "FeX-5F-H2m.text" = "Subtitle";
 
+/* Class = "UILabel"; text = "add address"; ObjectID = "fRX-fN-yOj"; */
+"fRX-fN-yOj.text" = "add address";
+
 /* Class = "UILabel"; text = "Synchronization"; ObjectID = "GNS-EF-AqY"; */
 "GNS-EF-AqY.text" = "Synchronization";
 
 /* Class = "UILabel"; text = "Enabled"; ObjectID = "GTa-Ee-HQT"; */
 "GTa-Ee-HQT.text" = "Enabled";
 
+/* Class = "UILabel"; text = "OMEMO fingerprint"; ObjectID = "gUr-GY-P3A"; */
+"gUr-GY-P3A.text" = "OMEMO fingerprint";
+
 /* Class = "UILabel"; text = "Delete"; ObjectID = "GWw-NK-6oU"; */
 "GWw-NK-6oU.text" = "Delete";
 
+/* Class = "UINavigationItem"; title = "Account settings"; ObjectID = "gzC-dB-kIF"; */
+"gzC-dB-kIF.title" = "Account settings";
+
+/* Class = "UILabel"; text = "Address"; ObjectID = "i2f-mN-qTd"; */
+"i2f-mN-qTd.text" = "Address";
+
+/* Class = "UIBarButtonItem"; title = "Done"; ObjectID = "ijD-Kb-uyj"; */
+"ijD-Kb-uyj.title" = "Done";
+
 /* Class = "UILabel"; text = "Automatic synchronization"; ObjectID = "J9o-cf-vMy"; */
 "J9o-cf-vMy.text" = "Automatic synchronization";
+
+/* Class = "UILabel"; text = "add phone"; ObjectID = "jAE-vq-Vfj"; */
+"jAE-vq-Vfj.text" = "add phone";
 
 /* Class = "UILabel"; text = "Detail"; ObjectID = "JkB-3h-A61"; */
 "JkB-3h-A61.text" = "Detail";
@@ -71,6 +94,9 @@
 /* Class = "UITableViewSection"; headerTitle = "Push Notifications"; ObjectID = "PvC-LX-0Sp"; */
 "PvC-LX-0Sp.headerTitle" = "Push Notifications";
 
+/* Class = "UITextField"; placeholder = "user@domain.com"; ObjectID = "qTN-JT-Mcr"; */
+"qTN-JT-Mcr.placeholder" = "user@domain.com";
+
 /* Class = "UIBarButtonItem"; title = "Next"; ObjectID = "R0m-k2-q64"; */
 "R0m-k2-q64.title" = "Next";
 
@@ -83,44 +109,11 @@
 /* Class = "UITextField"; placeholder = "Phone number"; ObjectID = "T1r-DU-iqs"; */
 "T1r-DU-iqs.placeholder" = "Phone number";
 
-/* Class = "UITextField"; placeholder = "Type"; ObjectID = "UQ1-rc-tuY"; */
-"UQ1-rc-tuY.placeholder" = "Type";
-
-/* Class = "UILabel"; text = "Last 24 hours"; ObjectID = "XLZ-oR-88H"; */
-"XLZ-oR-88H.text" = "Last 24 hours";
-
-/* Class = "UILabel"; text = "Enabled"; ObjectID = "ZHc-Ml-5eX"; */
-"ZHc-Ml-5eX.text" = "Re-register for push notifications";
-
-/* Class = "UILabel"; text = "When in Away/XA/DND state"; ObjectID = "aKW-CM-bl2"; */
-"aKW-CM-bl2.text" = "When in Away/XA/DND state";
-
-/* Class = "UILabel"; text = "John Doe"; ObjectID = "bDD-UG-Fxr"; */
-"bDD-UG-Fxr.text" = "John Doe";
-
-/* Class = "UILabel"; text = "add address"; ObjectID = "fRX-fN-yOj"; */
-"fRX-fN-yOj.text" = "add address";
-
-/* Class = "UILabel"; text = "OMEMO fingerprint"; ObjectID = "gUr-GY-P3A"; */
-"gUr-GY-P3A.text" = "OMEMO fingerprint";
-
-/* Class = "UINavigationItem"; title = "Account settings"; ObjectID = "gzC-dB-kIF"; */
-"gzC-dB-kIF.title" = "Account settings";
-
-/* Class = "UILabel"; text = "Address"; ObjectID = "i2f-mN-qTd"; */
-"i2f-mN-qTd.text" = "Address";
-
-/* Class = "UIBarButtonItem"; title = "Done"; ObjectID = "ijD-Kb-uyj"; */
-"ijD-Kb-uyj.title" = "Done";
-
-/* Class = "UILabel"; text = "add phone"; ObjectID = "jAE-vq-Vfj"; */
-"jAE-vq-Vfj.text" = "add phone";
-
-/* Class = "UITextField"; placeholder = "user@domain.com"; ObjectID = "qTN-JT-Mcr"; */
-"qTN-JT-Mcr.placeholder" = "user@domain.com";
-
 /* Class = "UILabel"; text = "Server features"; ObjectID = "t3T-uh-mob"; */
 "t3T-uh-mob.text" = "Server features";
+
+/* Class = "UITextField"; placeholder = "Type"; ObjectID = "UQ1-rc-tuY"; */
+"UQ1-rc-tuY.placeholder" = "Type";
 
 /* Class = "UITableViewSection"; headerTitle = "General"; ObjectID = "v8B-ee-zAk"; */
 "v8B-ee-zAk.headerTitle" = "General";
@@ -131,14 +124,20 @@
 /* Class = "UILabel"; text = "Label"; ObjectID = "vjD-aw-Ugt"; */
 "vjD-aw-Ugt.text" = "Label";
 
-/* Class = "UITableViewController"; title = "Server Features"; ObjectID = "wW7-3f-Kck"; */
-"wW7-3f-Kck.title" = "Server Features";
-
 /* Class = "UILabel"; text = "Enabled"; ObjectID = "wbI-5v-vug"; */
 "wbI-5v-vug.text" = "Enabled";
 
+/* Class = "UITableViewController"; title = "Server Features"; ObjectID = "wW7-3f-Kck"; */
+"wW7-3f-Kck.title" = "Server Features";
+
+/* Class = "UILabel"; text = "Last 24 hours"; ObjectID = "XLZ-oR-88H"; */
+"XLZ-oR-88H.text" = "Last 24 hours";
+
 /* Class = "UITextField"; placeholder = "Email address"; ObjectID = "ynp-RE-XlY"; */
 "ynp-RE-XlY.placeholder" = "Email address";
+
+/* Class = "UILabel"; text = "Re-register push notifications"; ObjectID = "ZHc-Ml-5eX"; */
+"ZHc-Ml-5eX.text" = "Re-register for push notifications";
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "zhp-jp-Aoq"; */
 "zhp-jp-Aoq.text" = "Title";
