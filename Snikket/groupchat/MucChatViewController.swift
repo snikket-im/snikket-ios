@@ -157,7 +157,7 @@ class MucChatViewController: BaseChatViewControllerWithDataSourceAndContextMenuA
                     cell.nicknameView?.text = item.state.direction == .incoming ? "· " + sender : ""
                 }
                 
-                cell.set(message: item);
+                cell.set(message: item, maxMessageWidth: self.view.frame.width * 0.60)
                 cell.bubbleImageView.isHidden = false
                 return cell;
             }
@@ -192,7 +192,7 @@ class MucChatViewController: BaseChatViewControllerWithDataSourceAndContextMenuA
                 cell.nicknameView?.text = item.state.direction == .incoming ? "· " + sender : ""
             }
 
-            cell.set(attachment: item);
+            cell.set(attachment: item, maxImageWidth: self.view.frame.width * 0.60)
             cell.setNeedsUpdateConstraints();
             cell.updateConstraintsIfNeeded();
             cell.bubbleImageView.isHidden = false

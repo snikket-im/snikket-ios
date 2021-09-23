@@ -98,7 +98,7 @@ class ChannelViewController: BaseChatViewControllerWithDataSourceAndContextMenuA
                 }
                 cell.nicknameView?.text = item.authorNickname;
                 
-                cell.set(message: item);
+                cell.set(message: item, maxMessageWidth: self.view.frame.width * 0.60)
             return cell;
             }
         case let item as ChatAttachment:
@@ -116,7 +116,7 @@ class ChannelViewController: BaseChatViewControllerWithDataSourceAndContextMenuA
             }
             cell.nicknameView?.text = item.authorNickname;
 
-            cell.set(attachment: item);
+            cell.set(attachment: item, maxImageWidth: self.view.frame.width * 0.60)
             cell.setNeedsUpdateConstraints();
             cell.updateConstraintsIfNeeded();
                 
