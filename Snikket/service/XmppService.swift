@@ -566,8 +566,15 @@ open class XmppService: Logger, EventHandler {
         client.connectionConfiguration.setUserPassword(account.password);
         SslCertificateValidator.setAcceptedSslCertificate(client.sessionObject, fingerprint: ((account.serverCertificate?["accepted"] as? Bool) ?? false) ? (account.serverCertificate?["cert-hash-sha1"] as? String) : nil);
 
-        // Setting resource to use - using device name
-        client.sessionObject.setUserProperty(SessionObject.RESOURCE, value: UIDevice.current.name);
+        // Setting resource to use
+        if let resource = account.resource {
+            client.sessionObject.setUserProperty(SessionObject.RESOURCE, value: resource)
+        } else {
+            let resource = "Snikket." + String.randomString(length: 4)
+            account.resource = resource
+            AccountManager.save(account: account)
+            client.sessionObject.setUserProperty(SessionObject.RESOURCE, value: resource)
+        }
 
         // Setting software name, version and OS name
         client.sessionObject.setUserProperty(SoftwareVersionModule.NAME_KEY, value: Bundle.main.infoDictionary!["CFBundleName"] as! String);

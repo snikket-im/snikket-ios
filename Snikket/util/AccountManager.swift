@@ -223,6 +223,15 @@ open class AccountManager {
             }
         }
         
+        open var resource:String? {
+            get {
+                return data["resource"] as? String
+            }
+            set {
+                data["resource"] = newValue as AnyObject?
+            }
+        }
+        
         open var rosterVersion:String? {
             get {
                 return data["rosterVersion"] as? String;
