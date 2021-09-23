@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,7 @@
 		3759638D26F7320F00831F4C /* MIX.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3759638F26F7320F00831F4C /* MIX.storyboard */; };
 		3759A58C26F8C7CC002987B2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3759A58E26F8C7CC002987B2 /* Localizable.strings */; };
 		3776C43526EDC5F00047750B /* MessageStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3776C43426EDC5F00047750B /* MessageStyling.swift */; };
+		3795F92426FB69370067361A /* BartyCrouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3795F92326FB69370067361A /* BartyCrouch.swift */; };
 		3797D5BD26E9E42E0091DAF8 /* AvatarColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3797D5BC26E9E42E0091DAF8 /* AvatarColors.swift */; };
 		3797D5C026EA456F0091DAF8 /* HSLuvSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3797D5BF26EA456F0091DAF8 /* HSLuvSwift */; };
 		379D914A26E8A0E300B877CA /* db-schema-15.sql in Resources */ = {isa = PBXBuildFile; fileRef = 379D914926E8A0E300B877CA /* db-schema-15.sql */; };
@@ -331,6 +332,7 @@
 		3759A58D26F8C7CC002987B2 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3759A58F26F8C7CF002987B2 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3776C43426EDC5F00047750B /* MessageStyling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageStyling.swift; sourceTree = "<group>"; };
+		3795F92326FB69370067361A /* BartyCrouch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BartyCrouch.swift; sourceTree = "<group>"; };
 		3797D5BC26E9E42E0091DAF8 /* AvatarColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarColors.swift; sourceTree = "<group>"; };
 		379D914926E8A0E300B877CA /* db-schema-15.sql */ = {isa = PBXFileReference; lastKnownFileType = text; path = "db-schema-15.sql"; sourceTree = "<group>"; };
 		379D914B26E8A29800B877CA /* DBLastMessageSyncStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBLastMessageSyncStore.swift; sourceTree = "<group>"; };
@@ -932,6 +934,7 @@
 				FE80BDA91D92974C001914B0 /* Snikket.entitlements */,
 				3759636126F72F1900831F4C /* Welcome.storyboard */,
 				3759A58E26F8C7CC002987B2 /* Localizable.strings */,
+				3795F92326FB69370067361A /* BartyCrouch.swift */,
 			);
 			path = Snikket;
 			sourceTree = "<group>";
@@ -1101,6 +1104,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FE94E54B1CCBA74F00FAE755 /* Build configuration list for PBXNativeTarget "Snikket" */;
 			buildPhases = (
+				3795F91E26FB55270067361A /* BartyCrouch */,
 				FE94E51D1CCBA74F00FAE755 /* Sources */,
 				FE94E51E1CCBA74F00FAE755 /* Frameworks */,
 				FE94E51F1CCBA74F00FAE755 /* Resources */,
@@ -1264,6 +1268,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3795F91E26FB55270067361A /* BartyCrouch */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = BartyCrouch;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which bartycrouch > /dev/null; then\n    bartycrouch update -x\n    bartycrouch lint -x\nelse\n    echo \"warning: BartyCrouch not installed, download it from https://github.com/Flinesoft/BartyCrouch\"\nfi\n";
+		};
 		FE0473391D86CEE700E6D6CE /* Trim Framework Executables */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1407,6 +1430,7 @@
 				FE3E388A2429364E00D3A8E8 /* UIImage.swift in Sources */,
 				FEF19F0C23476466005CFE9A /* MucEventHandler.swift in Sources */,
 				FE1DCCA21EA52CE200850563 /* DataFormController.swift in Sources */,
+				3795F92426FB69370067361A /* BartyCrouch.swift in Sources */,
 				FE7D293623BB5E0A001A877D /* LinkPreviewChatTableViewCell.swift in Sources */,
 				FE6545641E9E8B67006A14AC /* ServerSelectorTableViewCell.swift in Sources */,
 				FE0E3103253714420030F8C5 /* ImageQuality.swift in Sources */,
