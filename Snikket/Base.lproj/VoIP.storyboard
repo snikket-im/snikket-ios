@@ -39,23 +39,57 @@
                                     <action selector="disconnectClicked:" destination="sh6-q3-LhK" eventType="touchUpInside" id="CwP-y4-9QG"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Bd-jb-OvO">
+                                <rect key="frame" x="195" y="493" width="120" height="50"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="SZo-Sa-nJk">
+                                        <rect key="frame" x="2.5" y="0.0" width="115" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nxo-vV-t7I" customClass="RoundButton" customModule="Snikket" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="nxo-vV-t7I" secondAttribute="height" multiplier="1:1" id="bSj-t1-0y3"/>
+                                                    <constraint firstAttribute="width" constant="50" id="tHt-sd-aLa"/>
+                                                </constraints>
+                                                <color key="tintColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                                <state key="normal" image="mute"/>
+                                                <connections>
+                                                    <action selector="mute:" destination="sh6-q3-LhK" eventType="touchUpInside" id="UDP-Lg-cgw"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="74l-a9-cse" customClass="RoundButton" customModule="Snikket" customModuleProvider="target">
+                                                <rect key="frame" x="65" y="0.0" width="50" height="50"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" id="0Gk-te-wym"/>
+                                                    <constraint firstAttribute="width" secondItem="74l-a9-cse" secondAttribute="height" multiplier="1:1" id="o5w-oY-iDB"/>
+                                                </constraints>
+                                                <color key="tintColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                                <state key="normal" image="speaker.slash.fill"/>
+                                                <state key="selected" image="speaker.wave.3.fill"/>
+                                                <connections>
+                                                    <action selector="switchSpeaker:" destination="sh6-q3-LhK" eventType="touchUpInside" id="qWN-LZ-oy6"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="74l-a9-cse" firstAttribute="width" secondItem="74l-a9-cse" secondAttribute="height" multiplier="1:1" id="PUw-Td-C3v"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="SZo-Sa-nJk" secondAttribute="bottom" id="Dzn-Ah-gVM"/>
+                                    <constraint firstItem="SZo-Sa-nJk" firstAttribute="centerX" secondItem="1Bd-jb-OvO" secondAttribute="centerX" id="e1O-Pb-k5P"/>
+                                    <constraint firstItem="SZo-Sa-nJk" firstAttribute="top" secondItem="1Bd-jb-OvO" secondAttribute="top" id="pbi-bW-NT9"/>
+                                </constraints>
+                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appLogo" translatesAutoresizingMaskIntoConstraints="NO" id="clf-Xd-Ao5" customClass="AvatarView" customModule="Snikket" customModuleProvider="target">
                                 <rect key="frame" x="48" y="85" width="224" height="398"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nxo-vV-t7I" customClass="RoundButton" customModule="Snikket" customModuleProvider="target">
-                                <rect key="frame" x="226" y="488" width="60" height="60"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="nxo-vV-t7I" secondAttribute="height" multiplier="1:1" id="bSj-t1-0y3"/>
-                                    <constraint firstAttribute="width" constant="60" id="tHt-sd-aLa"/>
-                                </constraints>
-                                <color key="tintColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                                <state key="normal" image="mute"/>
-                                <connections>
-                                    <action selector="mute:" destination="sh6-q3-LhK" eventType="touchUpInside" id="UDP-Lg-cgw"/>
-                                </connections>
-                            </button>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y7M-xP-ttn">
                                 <rect key="frame" x="0.0" y="75" width="320" height="363"/>
                                 <subviews>
@@ -734,11 +768,11 @@
                                 </constraints>
                             </view>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MTM-UH-y19" customClass="RoundButton" customModule="Snikket" customModuleProvider="target">
-                                <rect key="frame" x="34" y="488" width="60" height="60"/>
+                                <rect key="frame" x="39" y="493" width="50" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="MTM-UH-y19" secondAttribute="height" multiplier="1:1" id="AZO-jl-VTV"/>
-                                    <constraint firstAttribute="width" constant="60" id="QH0-f4-zkg"/>
+                                    <constraint firstAttribute="width" constant="50" id="QH0-f4-zkg"/>
                                 </constraints>
                                 <state key="normal" image="dialpad"/>
                                 <connections>
@@ -750,15 +784,16 @@
                         <color key="backgroundColor" systemColor="scrollViewTexturedBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="i9e-aU-c5F" firstAttribute="top" secondItem="yOG-l9-hEB" secondAttribute="top" id="4DE-FQ-v2x"/>
+                            <constraint firstAttribute="trailing" secondItem="1Bd-jb-OvO" secondAttribute="trailing" constant="5" id="4t9-rL-t68"/>
                             <constraint firstItem="JSs-fW-wDJ" firstAttribute="centerX" secondItem="yOG-l9-hEB" secondAttribute="centerX" id="5yM-zB-pky"/>
                             <constraint firstItem="Y7M-xP-ttn" firstAttribute="leading" secondItem="Y9t-qn-5HE" secondAttribute="leading" id="AS6-in-P4I"/>
                             <constraint firstItem="TkT-yH-yAj" firstAttribute="leading" secondItem="yOG-l9-hEB" secondAttribute="leading" id="Atr-ec-e4K"/>
+                            <constraint firstItem="JSs-fW-wDJ" firstAttribute="centerY" secondItem="1Bd-jb-OvO" secondAttribute="centerY" id="Cpr-Bq-1IP"/>
                             <constraint firstItem="i9e-aU-c5F" firstAttribute="leading" secondItem="yOG-l9-hEB" secondAttribute="leading" constant="16" id="FdQ-FM-LSt"/>
                             <constraint firstItem="Y7M-xP-ttn" firstAttribute="top" secondItem="i9e-aU-c5F" secondAttribute="bottom" constant="50" id="GHp-Rs-0Dk"/>
-                            <constraint firstItem="nxo-vV-t7I" firstAttribute="centerX" secondItem="Y9t-qn-5HE" secondAttribute="centerX" multiplier="1.6" id="IvL-M3-pSC"/>
+                            <constraint firstItem="1Bd-jb-OvO" firstAttribute="leading" secondItem="JSs-fW-wDJ" secondAttribute="trailing" constant="5" id="LLN-QA-tua"/>
                             <constraint firstAttribute="trailing" secondItem="Y7M-xP-ttn" secondAttribute="trailing" id="LcR-my-09P"/>
                             <constraint firstItem="MTM-UH-y19" firstAttribute="centerY" secondItem="JSs-fW-wDJ" secondAttribute="centerY" id="OZo-nL-rOs"/>
-                            <constraint firstItem="nxo-vV-t7I" firstAttribute="centerY" secondItem="JSs-fW-wDJ" secondAttribute="centerY" id="PuF-3c-1M3"/>
                             <constraint firstItem="DHt-FL-iNf" firstAttribute="bottom" secondItem="yOG-l9-hEB" secondAttribute="bottom" id="bWM-4D-93B"/>
                             <constraint firstItem="clf-Xd-Ao5" firstAttribute="width" secondItem="Y9t-qn-5HE" secondAttribute="width" multiplier="0.7" id="c1l-ue-4CS"/>
                             <constraint firstItem="yOG-l9-hEB" firstAttribute="bottom" secondItem="TkT-yH-yAj" secondAttribute="bottom" id="frd-Qz-RWO"/>
@@ -779,12 +814,13 @@
                         <outlet property="dialpadView" destination="Y7M-xP-ttn" id="yT1-XK-YO6"/>
                         <outlet property="localVideoView" destination="TkT-yH-yAj" id="Ug2-5f-GnG"/>
                         <outlet property="remoteVideoView" destination="Y9t-qn-5HE" id="WGG-c0-XYz"/>
+                        <outlet property="speakerSwitchButton" destination="74l-a9-cse" id="0EU-7P-Ph8"/>
                         <outlet property="titleLabel" destination="i9e-aU-c5F" id="6aw-dN-eRw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yO6-3f-vJ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="63" y="-310"/>
+            <point key="canvasLocation" x="61.682242990654203" y="-310.36717062634989"/>
         </scene>
     </scenes>
     <resources>
@@ -792,6 +828,8 @@
         <image name="dialpad" width="41" height="41"/>
         <image name="endCall" width="30" height="30"/>
         <image name="mute" width="30" height="30"/>
+        <image name="speaker.slash.fill" width="18" height="19.5"/>
+        <image name="speaker.wave.3.fill" width="26" height="19"/>
         <image name="switchCamera" width="30" height="30"/>
         <systemColor name="scrollViewTexturedBackgroundColor">
             <color red="0.43529411764705878" green="0.44313725490196082" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

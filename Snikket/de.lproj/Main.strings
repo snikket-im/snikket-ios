@@ -29,7 +29,7 @@
 "b03-5W-Imh.text" = "Label";
 
 /* Class = "UITextField"; placeholder = "Enter jid"; ObjectID = "BM3-28-huR"; */
-"BM3-28-huR.placeholder" = "Enter JID";
+"BM3-28-huR.placeholder" = "Enter jid";
 
 /* Class = "UITextField"; text = "local_user@example.com"; ObjectID = "BM3-28-huR"; */
 "BM3-28-huR.text" = "local_user@example.com";

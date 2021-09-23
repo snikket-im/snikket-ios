@@ -1,12 +1,11 @@
-
 /* Class = "UIButton"; normalTitle = "Learn more"; ObjectID = "9Xm-uz-gIu"; */
 "9Xm-uz-gIu.normalTitle" = "Learn more";
-
-/* Class = "UINavigationItem"; title = "Snikket"; ObjectID = "Pr0-Qp-NEQ"; */
-"Pr0-Qp-NEQ.title" = "Snikket";
 
 /* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "i2u-OL-UUY"; */
 "i2u-OL-UUY.title" = "Item";
 
 /* Class = "UIButton"; normalTitle = "Sign in"; ObjectID = "is0-gN-a4J"; */
 "is0-gN-a4J.normalTitle" = "Sign in";
+
+/* Class = "UINavigationItem"; title = "Snikket"; ObjectID = "Pr0-Qp-NEQ"; */
+"Pr0-Qp-NEQ.title" = "Snikket";

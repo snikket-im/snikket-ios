@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,7 +14,9 @@
 		3759637F26F7312A00831F4C /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3759638126F7312A00831F4C /* Settings.storyboard */; };
 		3759638626F7317D00831F4C /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3759638826F7317D00831F4C /* Account.storyboard */; };
 		3759638D26F7320F00831F4C /* MIX.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3759638F26F7320F00831F4C /* MIX.storyboard */; };
+		3759A58C26F8C7CC002987B2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3759A58E26F8C7CC002987B2 /* Localizable.strings */; };
 		3776C43526EDC5F00047750B /* MessageStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3776C43426EDC5F00047750B /* MessageStyling.swift */; };
+		3795F92426FB69370067361A /* BartyCrouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3795F92326FB69370067361A /* BartyCrouch.swift */; };
 		3797D5BD26E9E42E0091DAF8 /* AvatarColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3797D5BC26E9E42E0091DAF8 /* AvatarColors.swift */; };
 		3797D5C026EA456F0091DAF8 /* HSLuvSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3797D5BF26EA456F0091DAF8 /* HSLuvSwift */; };
 		379D914A26E8A0E300B877CA /* db-schema-15.sql in Resources */ = {isa = PBXBuildFile; fileRef = 379D914926E8A0E300B877CA /* db-schema-15.sql */; };
@@ -327,10 +329,37 @@
 		3759639126F7322300831F4C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MIX.strings; sourceTree = "<group>"; };
 		3759639326F7325100831F4C /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/MIX.strings; sourceTree = "<group>"; };
 		3759639426F7481200831F4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
+		3759A58D26F8C7CC002987B2 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3759A58F26F8C7CF002987B2 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3776C43426EDC5F00047750B /* MessageStyling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageStyling.swift; sourceTree = "<group>"; };
+		3795F92326FB69370067361A /* BartyCrouch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BartyCrouch.swift; sourceTree = "<group>"; };
 		3797D5BC26E9E42E0091DAF8 /* AvatarColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarColors.swift; sourceTree = "<group>"; };
 		379D914926E8A0E300B877CA /* db-schema-15.sql */ = {isa = PBXFileReference; lastKnownFileType = text; path = "db-schema-15.sql"; sourceTree = "<group>"; };
 		379D914B26E8A29800B877CA /* DBLastMessageSyncStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBLastMessageSyncStore.swift; sourceTree = "<group>"; };
+		591D5EFC26FCA0AC00B2F114 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		591D5EFD26FCA0AC00B2F114 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/VoIP.strings; sourceTree = "<group>"; };
+		591D5EFE26FCA0AD00B2F114 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Groupchat.strings; sourceTree = "<group>"; };
+		591D5EFF26FCA0AD00B2F114 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Info.strings; sourceTree = "<group>"; };
+		591D5F0026FCA0AD00B2F114 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Settings.strings; sourceTree = "<group>"; };
+		591D5F0126FCA0AE00B2F114 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Account.strings; sourceTree = "<group>"; };
+		591D5F0226FCA0AE00B2F114 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/MIX.strings; sourceTree = "<group>"; };
+		591D5F0326FCA0AE00B2F114 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Welcome.strings; sourceTree = "<group>"; };
+		591D5F0426FCA0AF00B2F114 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/MainInterface.strings; sourceTree = "<group>"; };
+		591D5F0526FCA0AF00B2F114 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = de; path = de.lproj/Info.plist; sourceTree = "<group>"; };
+		591D5F0626FCA0B000B2F114 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		591D5F0726FCA2B300B2F114 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		591D5F0826FCA2E100B2F114 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/VoIP.strings; sourceTree = "<group>"; };
+		591D5F0926FCA2E100B2F114 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Groupchat.strings; sourceTree = "<group>"; };
+		591D5F0A26FCA2E200B2F114 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Info.strings; sourceTree = "<group>"; };
+		591D5F0B26FCA2E200B2F114 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Settings.strings; sourceTree = "<group>"; };
+		591D5F0C26FCA2E200B2F114 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Account.strings; sourceTree = "<group>"; };
+		591D5F0D26FCA2E300B2F114 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/MIX.strings; sourceTree = "<group>"; };
+		591D5F0E26FCA2E300B2F114 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Welcome.strings; sourceTree = "<group>"; };
+		591D5F0F26FCA2E300B2F114 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/MainInterface.strings; sourceTree = "<group>"; };
+		591D5F1026FCA2E400B2F114 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/Info.plist; sourceTree = "<group>"; };
+		591D5F1126FCA2E400B2F114 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		591D5F1326FCB5B900B2F114 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		591D5F1526FCB62600B2F114 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		E928AD4226D6A08A00F29F93 /* db-schema-14.sql */ = {isa = PBXFileReference; lastKnownFileType = text; path = "db-schema-14.sql"; sourceTree = "<group>"; };
 		E95AA70126D38B6E00A38D44 /* DisplayNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayNameViewController.swift; sourceTree = "<group>"; };
 		E963720F26D786D000332482 /* BlockingCommandModuleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingCommandModuleExtension.swift; sourceTree = "<group>"; };
@@ -928,6 +957,8 @@
 				3759638F26F7320F00831F4C /* MIX.storyboard */,
 				FE80BDA91D92974C001914B0 /* Snikket.entitlements */,
 				3759636126F72F1900831F4C /* Welcome.storyboard */,
+				3759A58E26F8C7CC002987B2 /* Localizable.strings */,
+				3795F92326FB69370067361A /* BartyCrouch.swift */,
 			);
 			path = Snikket;
 			sourceTree = "<group>";
@@ -1097,6 +1128,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FE94E54B1CCBA74F00FAE755 /* Build configuration list for PBXNativeTarget "Snikket" */;
 			buildPhases = (
+				3795F91E26FB55270067361A /* BartyCrouch */,
 				FE94E51D1CCBA74F00FAE755 /* Sources */,
 				FE94E51E1CCBA74F00FAE755 /* Frameworks */,
 				FE94E51F1CCBA74F00FAE755 /* Resources */,
@@ -1180,6 +1212,8 @@
 				en,
 				Base,
 				da,
+				de,
+				fr,
 			);
 			mainGroup = FE94E5181CCBA74F00FAE755;
 			packageReferences = (
@@ -1250,6 +1284,7 @@
 				3759637126F7303100831F4C /* VoIP.storyboard in Resources */,
 				FE94E52C1CCBA74F00FAE755 /* Main.storyboard in Resources */,
 				FEE49DCC2424C03200900BBB /* Conversation.storyboard in Resources */,
+				3759A58C26F8C7CC002987B2 /* Localizable.strings in Resources */,
 				3759638626F7317D00831F4C /* Account.storyboard in Resources */,
 				3759638D26F7320F00831F4C /* MIX.storyboard in Resources */,
 				FE2809812167CE18002F5BD0 /* server_features_list.xml in Resources */,
@@ -1259,6 +1294,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3795F91E26FB55270067361A /* BartyCrouch */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = BartyCrouch;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which bartycrouch > /dev/null; then\n    bartycrouch update -x\n    bartycrouch lint -x\nelse\n    echo \"warning: BartyCrouch not installed, download it from https://github.com/Flinesoft/BartyCrouch\"\nfi\n";
+		};
 		FE0473391D86CEE700E6D6CE /* Trim Framework Executables */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1402,6 +1456,7 @@
 				FE3E388A2429364E00D3A8E8 /* UIImage.swift in Sources */,
 				FEF19F0C23476466005CFE9A /* MucEventHandler.swift in Sources */,
 				FE1DCCA21EA52CE200850563 /* DataFormController.swift in Sources */,
+				3795F92426FB69370067361A /* BartyCrouch.swift in Sources */,
 				FE7D293623BB5E0A001A877D /* LinkPreviewChatTableViewCell.swift in Sources */,
 				FE6545641E9E8B67006A14AC /* ServerSelectorTableViewCell.swift in Sources */,
 				FE0E3103253714420030F8C5 /* ImageQuality.swift in Sources */,
@@ -1535,6 +1590,8 @@
 				3759636026F72F1900831F4C /* Base */,
 				3759636326F72F2500831F4C /* da */,
 				3759636526F72F7000831F4C /* en */,
+				591D5F0326FCA0AE00B2F114 /* de */,
+				591D5F0E26FCA2E300B2F114 /* fr */,
 			);
 			name = Welcome.storyboard;
 			sourceTree = "<group>";
@@ -1545,6 +1602,8 @@
 				3759636B26F72FD700831F4C /* Base */,
 				3759636E26F72FE200831F4C /* da */,
 				3759637026F7301100831F4C /* en */,
+				591D5EFE26FCA0AD00B2F114 /* de */,
+				591D5F0926FCA2E100B2F114 /* fr */,
 			);
 			name = Groupchat.storyboard;
 			sourceTree = "<group>";
@@ -1555,6 +1614,8 @@
 				3759637226F7303100831F4C /* Base */,
 				3759637526F7303700831F4C /* en */,
 				3759637726F7306500831F4C /* da */,
+				591D5EFD26FCA0AC00B2F114 /* de */,
+				591D5F0826FCA2E100B2F114 /* fr */,
 			);
 			name = VoIP.storyboard;
 			sourceTree = "<group>";
@@ -1565,6 +1626,8 @@
 				3759637926F7309100831F4C /* Base */,
 				3759637C26F7309500831F4C /* en */,
 				3759637E26F730C400831F4C /* da */,
+				591D5EFF26FCA0AD00B2F114 /* de */,
+				591D5F0A26FCA2E200B2F114 /* fr */,
 			);
 			name = Info.storyboard;
 			sourceTree = "<group>";
@@ -1575,6 +1638,8 @@
 				3759638026F7312A00831F4C /* Base */,
 				3759638326F7313400831F4C /* en */,
 				3759638526F7316600831F4C /* da */,
+				591D5F0026FCA0AD00B2F114 /* de */,
+				591D5F0B26FCA2E200B2F114 /* fr */,
 			);
 			name = Settings.storyboard;
 			sourceTree = "<group>";
@@ -1585,6 +1650,8 @@
 				3759638726F7317D00831F4C /* Base */,
 				3759638A26F7318F00831F4C /* en */,
 				3759638C26F731C700831F4C /* da */,
+				591D5F0126FCA0AE00B2F114 /* de */,
+				591D5F0C26FCA2E200B2F114 /* fr */,
 			);
 			name = Account.storyboard;
 			sourceTree = "<group>";
@@ -1595,6 +1662,8 @@
 				3759638E26F7320F00831F4C /* Base */,
 				3759639126F7322300831F4C /* en */,
 				3759639326F7325100831F4C /* da */,
+				591D5F0226FCA0AE00B2F114 /* de */,
+				591D5F0D26FCA2E300B2F114 /* fr */,
 			);
 			name = MIX.storyboard;
 			sourceTree = "<group>";
@@ -1603,8 +1672,21 @@
 			isa = PBXVariantGroup;
 			children = (
 				3759639426F7481200831F4C /* Base */,
+				591D5F0526FCA0AF00B2F114 /* de */,
+				591D5F1026FCA2E400B2F114 /* fr */,
 			);
 			name = Info.plist;
+			sourceTree = "<group>";
+		};
+		3759A58E26F8C7CC002987B2 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3759A58D26F8C7CC002987B2 /* en */,
+				3759A58F26F8C7CF002987B2 /* da */,
+				591D5F0626FCA0B000B2F114 /* de */,
+				591D5F1126FCA2E400B2F114 /* fr */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		FE4DDF571F39E0B500A4CE5A /* MainInterface.storyboard */ = {
@@ -1612,6 +1694,8 @@
 			children = (
 				FE4DDF581F39E0B500A4CE5A /* Base */,
 				3759635E26F72ED700831F4C /* da */,
+				591D5F0426FCA0AF00B2F114 /* de */,
+				591D5F0F26FCA2E300B2F114 /* fr */,
 			);
 			name = MainInterface.storyboard;
 			sourceTree = "<group>";
@@ -1622,6 +1706,8 @@
 				FE94E52B1CCBA74F00FAE755 /* Base */,
 				3759635D26F72ED700831F4C /* da */,
 				3759636726F72F9600831F4C /* en */,
+				591D5F1326FCB5B900B2F114 /* fr */,
+				591D5F1526FCB62600B2F114 /* de */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1632,6 +1718,8 @@
 				FE94E5301CCBA74F00FAE755 /* Base */,
 				3759635C26F72EAA00831F4C /* da */,
 				3759636926F72FC300831F4C /* en */,
+				591D5EFC26FCA0AC00B2F114 /* de */,
+				591D5F0726FCA2B300B2F114 /* fr */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1648,7 +1736,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Snikket - Share/Snikket - Share.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 2YH6MCD3C8;
 				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = (
@@ -1681,7 +1769,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Snikket - Share/Snikket - Share.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 2YH6MCD3C8;
 				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = (
@@ -1716,7 +1804,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 2YH6MCD3C8;
 				ENABLE_BITCODE = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1756,7 +1844,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = 2YH6MCD3C8;
 				ENABLE_BITCODE = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1795,7 +1883,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2YH6MCD3C8;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1845,7 +1933,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2YH6MCD3C8;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -2007,7 +2095,7 @@
 				CODE_SIGN_ENTITLEMENTS = Snikket/Snikket.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEAD_CODE_STRIPPING = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 2YH6MCD3C8;
@@ -2048,7 +2136,7 @@
 				CODE_SIGN_ENTITLEMENTS = Snikket/Snikket.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 2YH6MCD3C8;
 				ENABLE_BITCODE = NO;
