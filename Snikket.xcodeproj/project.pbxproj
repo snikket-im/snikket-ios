@@ -358,6 +358,8 @@
 		591D5F0F26FCA2E300B2F114 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		591D5F1026FCA2E400B2F114 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = fr; path = fr.lproj/Info.plist; sourceTree = "<group>"; };
 		591D5F1126FCA2E400B2F114 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		591D5F1326FCB5B900B2F114 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		591D5F1526FCB62600B2F114 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		E928AD4226D6A08A00F29F93 /* db-schema-14.sql */ = {isa = PBXFileReference; lastKnownFileType = text; path = "db-schema-14.sql"; sourceTree = "<group>"; };
 		E95AA70126D38B6E00A38D44 /* DisplayNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayNameViewController.swift; sourceTree = "<group>"; };
 		E963720F26D786D000332482 /* BlockingCommandModuleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingCommandModuleExtension.swift; sourceTree = "<group>"; };
@@ -1704,6 +1706,8 @@
 				FE94E52B1CCBA74F00FAE755 /* Base */,
 				3759635D26F72ED700831F4C /* da */,
 				3759636726F72F9600831F4C /* en */,
+				591D5F1326FCB5B900B2F114 /* fr */,
+				591D5F1526FCB62600B2F114 /* de */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
