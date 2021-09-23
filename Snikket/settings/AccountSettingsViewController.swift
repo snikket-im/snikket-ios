@@ -495,13 +495,13 @@ class AccountSettingsViewController: UITableViewController {
         
     func askAboutAccountRemoval(account: BareJID, atRow indexPath: IndexPath, completionHandler: @escaping (Result<Bool, Error>)->Void) {
         let client = XmppService.instance.getClient(forJid: BareJID(account))
-        let alert = UIAlertController(title: NSLocalizedString("Account removal", comment: ""), message: client != nil ? NSLocalizedString("Should account be removed from server as well?", comment: "") : NSLocalizedString("Remove account from application?", comment: ""), preferredStyle: .actionSheet);
+        let alert = UIAlertController(title: NSLocalizedString("Account removal", comment: "Account deletion alert title"), message: client != nil ? NSLocalizedString("Should account be removed from server as well?", comment: "") : NSLocalizedString("Remove account from application?", comment: ""), preferredStyle: .actionSheet);
         if client?.state == .connected {
-            alert.addAction(UIAlertAction(title: NSLocalizedString("Remove from server", comment: ""), style: .destructive, handler: { (action) in
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Remove from server", comment: "Account deletion action"), style: .destructive, handler: { (action) in
                 completionHandler(.success(true));
             }));
         }
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Remove from application", comment: ""), style: .default, handler: { (action) in
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Remove from application", comment: "Account deletion action"), style: .default, handler: { (action) in
             completionHandler(.success(false));
         }));
         alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .default, handler: nil));
@@ -515,13 +515,13 @@ class AccountSettingsViewController: UITableViewController {
         
         public static func descriptionFromHours(hours: Double) -> String {
             if (hours == 0) {
-                return NSLocalizedString("Nothing", comment: "")
+                return NSLocalizedString("Nothing", comment: "How many messages to fetch from the server")
             } else if (hours >= 24*365) {
-                return NSLocalizedString("All", comment: "")
+                return NSLocalizedString("All", comment: "How many messages to fetch from the server")
             } else if (hours > 24) {
-                return String.localizedStringWithFormat(NSLocalizedString("Last %d days", comment: "Placeholder is number of days"), Int(hours/24))
+                return String.localizedStringWithFormat(NSLocalizedString("Last %d days", comment: "Placeholder is number of days (sync period)"), Int(hours/24))
             } else {
-                return String.localizedStringWithFormat(NSLocalizedString("Last %d hours", comment: "Placeholder is hours value"), Int(hours))
+                return String.localizedStringWithFormat(NSLocalizedString("Last %d hours", comment: "Placeholder is hours value (sync period)"), Int(hours))
             }
         }
         
