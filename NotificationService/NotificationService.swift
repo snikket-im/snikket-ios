@@ -162,26 +162,75 @@ class ExtensionNotificationManagerProvider: NotificationManagerProvider {
     func countBadge(withThreadId: String?, completionHandler: @escaping (Int) -> Void) {
         NotificationManager.unreadChatsThreadIds { (result) in
             var unreadChats = result;
-
+            let activeAccounts = self.getActiveAccounts()
+            
             try? DBConnection.main(execute: { conn in
                 try conn.prepareStatement(ExtensionNotificationManagerProvider.GET_UNREAD_CHATS).query(forEach: { cursor in
                     if let account: BareJID = cursor["account"], let jid: BareJID = cursor["jid"] {
-                        unreadChats.insert("account=\(account.stringValue)|sender=\(jid.stringValue)");
+                        if activeAccounts.contains(account) {
+                            unreadChats.insert("account=\(account.stringValue)|sender=\(jid.stringValue)")
+                        }
                     }
                 })
             });
-
+            
             if let threadId = withThreadId {
                 unreadChats.insert(threadId);
             }
-
+            
             completionHandler(unreadChats.count);
         }
-        completionHandler(-1);
     }
-    
+        
     func shouldShowNotification(account: BareJID, sender: BareJID?, body: String?, completionHandler: @escaping (Bool)->Void) {
         completionHandler(true);
+    }
+        
+    func getActiveAccounts() -> [BareJID] {
+        let query = [ String(kSecClass) : kSecClassGenericPassword, String(kSecMatchLimit) : kSecMatchLimitAll, String(kSecReturnAttributes) : kCFBooleanTrue as Any, String(kSecAttrService) : "xmpp" ] as [String : Any];
+        var result: CFTypeRef?;
+        
+        guard SecItemCopyMatching(query as CFDictionary, &result) == noErr else {
+            return [];
+        }
+        
+        guard let results = result as? [[String: NSObject]] else {
+            return [];
+        }
+        
+        let accounts =  results.map { item -> BareJID in
+            return BareJID(item[kSecAttrAccount as String] as! String);
+        }.sorted(by: { (j1, j2) -> Bool in
+            j1.stringValue.compare(j2.stringValue) == .orderedAscending
+        })
+        
+        return accounts.filter { account in
+            let query = getAccountQuery(account.stringValue)
+            var result: CFTypeRef?
+            
+            guard SecItemCopyMatching(query as CFDictionary, &result) == noErr else { return false }
+            
+            guard let r = result as? [String: NSObject] else { return false }
+            
+            var dict: [String: Any]? = nil;
+            if let data = r[String(kSecAttrGeneric)] as? NSData {
+                do {
+                    dict = try NSKeyedUnarchiver.unarchivedObject(ofClass: NSDictionary.self, from: data as Data) as? [String : Any]
+                } catch {
+                    // failed to get account object
+                }
+            }
+            
+            if (dict?["active"] as? Bool) ?? false {
+                return true
+            } else {
+                return false
+            }
+        }
+    }
+        
+    func getAccountQuery(_ name:String, withData:CFString = kSecReturnAttributes) -> [String: Any] {
+        return [ String(kSecClass) : kSecClassGenericPassword, String(kSecMatchLimit) : kSecMatchLimitOne, String(withData) : kCFBooleanTrue!, String(kSecAttrService) : "xmpp" as NSObject, String(kSecAttrAccount) : name as NSObject ];
     }
 }
 
