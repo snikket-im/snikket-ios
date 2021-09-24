@@ -10,8 +10,14 @@
 /* No comment provided by engineer. */
 "1 line of preview" = "1 line of preview";
 
-/* No comment provided by engineer. */
-"Account removal" = "Account removal";
+/* Alert dialog title - account is offline */
+"Account Offline" = "Account Offline";
+
+/* Account deletion alert title */
+"Account Removal" = "Account Removal";
+
+/* Alert title */
+"Account Removal Failed" = "Account Removal Failed";
 
 /* No comment provided by engineer. */
 "Accounts" = "Accounts";
@@ -56,9 +62,6 @@
 /* No comment provided by engineer. */
 "Be right back" = "Be right back";
 
-/* No comment provided by engineer. */
-"Before changing roster you need to connect to server. Do you wish to do this now?" = "Before changing roster you need to connect to server. Do you wish to do this now?";
-
 /* Sorting Chat Messages */
 "By availability and time" = "By availability and time";
 
@@ -101,6 +104,9 @@
 /* No comment provided by engineer. */
 "Close" = "Close";
 
+/* Action button */
+"Connect" = "Connect";
+
 /* No comment provided by engineer. */
 "Connecting..." = "Connecting...";
 
@@ -108,7 +114,7 @@
 "Continue" = "Continue";
 
 /* No comment provided by engineer. */
-"Could not delete account as it was not possible to connect to the XMPP server. Please try again later." = "Could not delete account as it was not possible to connect to the XMPP server. Please try again later.";
+"Could not connect to the service. Check your network connectivity or try again later." = "Could not connect to the service. Check your network connectivity or try again later.";
 
 /* No comment provided by engineer. */
 "Could not rename group chat. The server responded with an error:" = "Could not rename group chat. The server responded with an error:";
@@ -127,6 +133,12 @@
 
 /* No comment provided by engineer. */
 "Delete" = "Delete";
+
+/* Account deletion action - destructive */
+"Delete account permanently" = "Delete account permanently";
+
+/* Action: Delete all downloaded files */
+"Delete all" = "Delete all";
 
 /* No comment provided by engineer. */
 "Delete channel?" = "Delete channel?";
@@ -148,9 +160,6 @@
 
 /* No comment provided by engineer. */
 "Do you want to ban user" = "Do you want to ban user";
-
-/* No comment provided by engineer. */
-"Download storage" = "Download storage";
 
 /* No comment provided by engineer. */
 "Edit" = "Edit";
@@ -186,13 +195,13 @@
 "Extended away" = "Extended away";
 
 /* No comment provided by engineer. */
+"Failed To Update Contact List" = "Failed To Update Contact List";
+
+/* No comment provided by engineer. */
 "Failure" = "Failure";
 
 /* No comment provided by engineer. */
 "Fingerprint of this device" = "Fingerprint of this device";
-
-/* No comment provided by engineer. */
-"Flush" = "Flush";
 
 /* No comment provided by engineer. */
 "For best experience it is suggested to enable Message Archving with automatic message synchronization of at least last 12 hours.\nDo you wish to do this now?" = "For best experience it is suggested to enable Message Archving with automatic message synchronization of at least last 12 hours.\nDo you wish to do this now?";
@@ -205,9 +214,6 @@
 
 /* No comment provided by engineer. */
 "History" = "History";
-
-/* No comment provided by engineer. */
-"If you don't know any XMPP server domain names, then select one of our trusted servers." = "If you don't know any XMPP server domain names, then select one of our trusted servers.";
 
 /* No comment provided by engineer. */
 "Info" = "Info";
@@ -269,6 +275,9 @@
 /* No comment provided by engineer. */
 "Login and password do not match." = "Login and password do not match.";
 
+/* Alert title for storage usage */
+"Manage Storage" = "Manage Storage";
+
 /* No comment provided by engineer. */
 "Media" = "Media";
 
@@ -312,9 +321,6 @@
 "No messages yet. Say hi!" = "No messages yet. Say hi!";
 
 /* No comment provided by engineer. */
-"NONE" = "NONE";
-
-/* No comment provided by engineer. */
 "None" = "None";
 
 /* No comment provided by engineer. */
@@ -345,6 +351,9 @@
 "Operation timed out" = "Operation timed out";
 
 /* No comment provided by engineer. */
+"operation timed out" = "operation timed out";
+
+/* No comment provided by engineer. */
 "Original quality will share image in the format in which it is stored on your phone and it may not be supported by every device." = "Original quality will share image in the format in which it is stored on your phone and it may not be supported by every device.";
 
 /* No comment provided by engineer. */
@@ -358,9 +367,6 @@
 
 /* No comment provided by engineer. */
 "Please try again!" = "Please try again!";
-
-/* No comment provided by engineer. */
-"Preferred domain name" = "Preferred domain name";
 
 /* No comment provided by engineer. */
 "Private message" = "Private message";
@@ -381,13 +387,16 @@
 "Push Notifications Error" = "Push Notifications Error";
 
 /* No comment provided by engineer. */
-"Quality of uploaded media" = "Quality of uploaded media";
+"Quality of shared media" = "Quality of shared media";
+
+/* Placeholder is the number in MBs */
+"Received files are using %d MB of storage." = "Received files are using %d MB of storage.";
 
 /* No comment provided by engineer. */
 "Register" = "Register";
 
-/* No comment provided by engineer. */
-"Registration failure" = "Registration failure";
+/* Alert title */
+"Registration Failure" = "Registration Failure";
 
 /* No comment provided by engineer. */
 "Registration is not supported by this server" = "Registration is not supported by this server";
@@ -397,9 +406,6 @@
 
 /* No comment provided by engineer. */
 "Remove from application" = "Remove from application";
-
-/* No comment provided by engineer. */
-"Remove from server" = "Remove from server";
 
 /* No comment provided by engineer. */
 "Rename" = "Rename";
@@ -462,16 +468,13 @@
 "Send Pin Location" = "Send Pin Location";
 
 /* No comment provided by engineer. */
-"Server did not respond on registration request" = "Server did not respond on registration request";
+"Server did not respond to registration request" = "Server did not respond to registration request";
 
 /* No comment provided by engineer. */
 "server returned an error on the request to enable archiving. You can try to enable this feature later on from the account settings." = "server returned an error on the request to enable archiving. You can try to enable this feature later on from the account settings.";
 
 /* No comment provided by engineer. */
 "Server returned an error:" = "Server returned an error:";
-
-/* No comment provided by engineer. */
-"Server returned error" = "Server returned error";
 
 /* No comment provided by engineer. */
 "Server returned error:" = "Server returned error:";
@@ -497,6 +500,12 @@
 /* No comment provided by engineer. */
 "Take photo" = "Take photo";
 
+/* followed by a space and error condition */
+"The server returned an error:" = "The server returned an error:";
+
+/* No comment provided by engineer. */
+"The server returned an error: " = "The server returned an error: ";
+
 /* No comment provided by engineer. */
 "The user will be reported and any calls, messages and status updates from them will be blocked." = "The user will be reported and any calls, messages and status updates from them will be blocked.";
 
@@ -505,9 +514,6 @@
 
 /* No comment provided by engineer. */
 "This will delete all the message history for this chat. Continue?" = "This will delete all the message history for this chat. Continue?";
-
-/* No comment provided by engineer. */
-"Trusted servers" = "Trusted servers";
 
 /* No comment provided by engineer. */
 "Unblock" = "Unblock";
@@ -533,9 +539,6 @@
 /* No comment provided by engineer. */
 "Warning" = "Warning";
 
-/* Placeholder is the Number in MBs */
-"We are using %d MB of storage." = "We are using %d MB of storage.";
-
 /* No comment provided by engineer. */
 "When you share files using HTTP, they are uploaded to HTTP server with unique URL. Anyone who knows the unique URL to the file is able to download it.\nDo you wish to enable?" = "When you share files using HTTP, they are uploaded to HTTP server with unique URL. Anyone who knows the unique URL to the file is able to download it.\nDo you wish to enable?";
 
@@ -556,6 +559,9 @@
 
 /* No comment provided by engineer. */
 "You are not joined to the channel." = "You are not joined to the channel.";
+
+/* No comment provided by engineer. */
+"You need to connect to your account before you can update your contact list. Do you wish to connect now?" = "You need to connect to your account before you can update your contact list. Do you wish to connect now?";
 
 /* Placeholder is the Group Name */
 "You've left there room %@ and push notifications for this room were disabled!\nYou may need to reenable them on other devices." = "You've left there room %@ and push notifications for this room were disabled!\nYou may need to reenable them on other devices.";
