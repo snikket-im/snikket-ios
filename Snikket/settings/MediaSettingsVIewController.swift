@@ -42,7 +42,7 @@ class MediaSettingsViewController: UITableViewController {
         case 0:
             return "";
         case 1:
-            return NSLocalizedString("Quality of uploaded media", comment: "")
+            return NSLocalizedString("Quality of shared media", comment: "")
         case 2:
             return "";
         default:
@@ -119,14 +119,14 @@ class MediaSettingsViewController: UITableViewController {
             };
             self.navigationController?.pushViewController(controller, animated: true);
         case .clearDownloadStore:
-            let alert = UIAlertController(title: NSLocalizedString("Download storage", comment: ""), message: String.localizedStringWithFormat(NSLocalizedString("We are using %d MB of storage.",comment: "Placeholder is the Number in MBs"), DownloadStore.instance.size/(1024*1014)), preferredStyle: .actionSheet);
-            alert.addAction(UIAlertAction(title: NSLocalizedString("Flush", comment: ""), style: .destructive, handler: {(action) in
+            let alert = UIAlertController(title: NSLocalizedString("Manage Storage", comment: "Alert title for storage usage"), message: String.localizedStringWithFormat(NSLocalizedString("Received files are using %d MB of storage.",comment: "Placeholder is the number in MBs"), DownloadStore.instance.size/(1024*1014)), preferredStyle: .actionSheet);
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Delete all", comment: "Action: Delete all downloaded files"), style: .destructive, handler: {(action) in
                 DispatchQueue.global(qos: .background).async {
                     DownloadStore.instance.clear();
                 }
                 
             }));
-            alert.addAction(UIAlertAction(title: NSLocalizedString("Older than 7 days", comment: ""), style: .destructive, handler: {(action) in
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Older than 7 days", comment: "Action: Delete all downloaded files over 7 days old"), style: .destructive, handler: {(action) in
                 DispatchQueue.global(qos: .background).async {
                     DownloadStore.instance.clear(olderThan: Date().addingTimeInterval(7*24*60*60.0*(-1.0)));
                 }

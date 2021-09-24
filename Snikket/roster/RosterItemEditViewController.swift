@@ -114,11 +114,11 @@ class RosterItemEditViewController: UITableViewController, UIPickerViewDataSourc
         account = BareJID(accountTextField.text!);
         let client = xmppService.getClient(forJid: account!);
         guard client?.state == SocketConnector.State.connected else {
-            let alert = UIAlertController.init(title: NSLocalizedString("Warning",comment: ""), message: NSLocalizedString("Before changing roster you need to connect to server. Do you wish to do this now?",comment: ""), preferredStyle: .alert);
-            alert.addAction(UIAlertAction(title: NSLocalizedString("No",comment: ""), style: .cancel, handler: {(alertAction) in
+            let alert = UIAlertController.init(title: NSLocalizedString("Account Offline",comment: "Alert dialog title - account is offline"), message: NSLocalizedString("You need to connect to your account before you can update your contact list. Do you wish to connect now?", comment: ""), preferredStyle: .alert);
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel",comment: ""), style: .cancel, handler: {(alertAction) in
                 _ = self.navigationController?.popViewController(animated: true);
             }));
-            alert.addAction(UIAlertAction(title: NSLocalizedString("Yes",comment: ""), style: .default, handler: {(alertAction) in
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Connect",comment: "Action button"), style: .default, handler: {(alertAction) in
                 if let account = AccountManager.getAccount(for: self.account!) {
                     account.active = true;
                     AccountManager.save(account: account);
@@ -136,7 +136,7 @@ class RosterItemEditViewController: UITableViewController, UIPickerViewDataSourc
         };
         let onError = {(errorCondition:ErrorCondition?)->Void in
             DispatchQueue.main.async {
-                let alert = UIAlertController.init(title: NSLocalizedString("Failure",comment: ""), message: NSLocalizedString("Server returned error",comment: "") + (errorCondition?.rawValue ?? NSLocalizedString("Operation timed out",comment: "")), preferredStyle: .alert);
+                let alert = UIAlertController.init(title: NSLocalizedString("Failed To Update Contact List",comment: ""), message: NSLocalizedString("The server returned an error: ",comment: "") + (errorCondition?.rawValue ?? NSLocalizedString("operation timed out",comment: "")), preferredStyle: .alert);
                 alert.addAction(UIAlertAction(title: NSLocalizedString("OK",comment: ""), style: .default, handler: nil));
                 self.present(alert, animated: true, completion: nil);
             }

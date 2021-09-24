@@ -65,7 +65,7 @@ class RegisterAccountController: DataFormController {
     func updateDomain(_ newValue: String?) {
         if newValue != nil && !newValue!.isEmpty && domain != newValue {
             nextButton.isEnabled = false;
-            nextButton.title = NSLocalizedString("Register", comment: "")
+            nextButton.title = NSLocalizedString("Register", comment: "Action button")
             let count = self.numberOfSections(in: tableView);
             self.domain = newValue;
             tableView.deleteSections(IndexSet(0..<count), with: .fade);
@@ -116,9 +116,9 @@ class RegisterAccountController: DataFormController {
         guard domain != nil else {
             switch section {
             case 0:
-                return NSLocalizedString("Preferred domain name", comment: "")
+                return NSLocalizedString("Preferred domain name", comment: "IBR: Unused in Snikket #bc-ignore!")
             case 1:
-                return NSLocalizedString("Trusted servers", comment: "")
+                return NSLocalizedString("Trusted servers", comment: "IBR: Unused in Snikket #bc-ignore!")
             default:
                 return "";
             }
@@ -162,7 +162,7 @@ class RegisterAccountController: DataFormController {
         guard domain != nil else {
             switch section {
             case 0:
-                return NSLocalizedString("If you don't know any XMPP server domain names, then select one of our trusted servers.", comment: "")
+                return NSLocalizedString("If you don't know any XMPP server domain names, then select one of our trusted servers.", comment: "IBR: Unused in Snikket #bc-ignore!")
             default:
                 return nil;
             }
@@ -233,7 +233,7 @@ class RegisterAccountController: DataFormController {
         var msg = message;
         
         if errorCondition == nil {
-            msg = NSLocalizedString("Server did not respond on registration request", comment: "")
+            msg = NSLocalizedString("Server did not respond to registration request", comment: "")
         } else {
             if msg == nil || msg == "Unsuccessful registration attempt"  {
                 switch errorCondition! {
@@ -246,7 +246,7 @@ class RegisterAccountController: DataFormController {
                 case .service_unavailable:
                     msg = NSLocalizedString("Service is not available at this time.", comment: "")
                 default:
-                    msg = NSLocalizedString("Server returned error:", comment: "") + " \(errorCondition!.rawValue)";
+                    msg = NSLocalizedString("The server returned an error:", comment: "followed by a space and error condition") + " \(errorCondition!.rawValue)";
                 }
             }
         }
@@ -258,7 +258,7 @@ class RegisterAccountController: DataFormController {
             };
         }
         
-        let alert = UIAlertController(title: NSLocalizedString("Registration failure",comment: ""), message: msg, preferredStyle: .alert);
+        let alert = UIAlertController(title: NSLocalizedString("Registration Failure",comment: "Alert title"), message: msg, preferredStyle: .alert);
         alert.addAction(UIAlertAction(title: NSLocalizedString("OK",comment: ""), style: .default, handler: handler));
         
         DispatchQueue.main.async {

@@ -424,7 +424,7 @@ class AccountSettingsViewController: UITableViewController {
                     })
                 } else {
                     DispatchQueue.main.async {
-                        let alert = UIAlertController(title: NSLocalizedString("Account removal",comment: ""), message: NSLocalizedString("Could not delete account as it was not possible to connect to the XMPP server. Please try again later.",comment: ""), preferredStyle: .alert);
+                        let alert = UIAlertController(title: NSLocalizedString("Account Removal Failed",comment: "Alert title"), message: NSLocalizedString("Could not connect to the service. Check your network connectivity or try again later.",comment: ""), preferredStyle: .alert);
                         alert.addAction(UIAlertAction(title: NSLocalizedString("OK",comment: ""), style: .default, handler: { _ in
                             self.tableView.reloadData();
                         }));
@@ -460,7 +460,7 @@ class AccountSettingsViewController: UITableViewController {
                                             removeAccount(account, removeFromServer);
                                         case .failure(let _):
                                             
-                                            let alert = UIAlertController(title: NSLocalizedString("Account removal",comment: ""), message: String.localizedStringWithFormat(NSLocalizedString("Push notifications are enabled for %@. They need to be disabled before account can be removed and it is not possible to at this time. Please try again later.", comment: ""), account.stringValue), preferredStyle: .alert);
+                                            let alert = UIAlertController(title: NSLocalizedString("Account Removal Failed",comment: "Alert title"), message: String.localizedStringWithFormat(NSLocalizedString("Push notifications are enabled for %@. They need to be disabled before account can be removed and it is not possible to at this time. Please try again later.", comment: ""), account.stringValue), preferredStyle: .alert);
                                             alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil));
                                             self.present(alert, animated: true, completion: nil);
                                         }
@@ -477,7 +477,7 @@ class AccountSettingsViewController: UITableViewController {
                                     AccountManager.save(account: config);
                                     removeAccount(account, removeFromServer);
                                 case .failure(let _):
-                                    let alert = UIAlertController(title: NSLocalizedString("Account removal", comment: ""), message: String.localizedStringWithFormat(NSLocalizedString("Push notifications are enabled for %@. They need to be disabled before account can be removed and it is not possible to at this time. Please try again later.", comment: ""), account.stringValue), preferredStyle: .alert);
+                                    let alert = UIAlertController(title: NSLocalizedString("Account Removal Failed", comment: "Alert title"), message: String.localizedStringWithFormat(NSLocalizedString("Push notifications are enabled for %@. They need to be disabled before account can be removed and it is not possible to at this time. Please try again later.", comment: ""), account.stringValue), preferredStyle: .alert);
                                     alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil));
                                     self.present(alert, animated: true, completion: nil);
                                 }
@@ -495,9 +495,9 @@ class AccountSettingsViewController: UITableViewController {
         
     func askAboutAccountRemoval(account: BareJID, atRow indexPath: IndexPath, completionHandler: @escaping (Result<Bool, Error>)->Void) {
         let client = XmppService.instance.getClient(forJid: BareJID(account))
-        let alert = UIAlertController(title: NSLocalizedString("Account removal", comment: "Account deletion alert title"), message: client != nil ? NSLocalizedString("Should account be removed from server as well?", comment: "") : NSLocalizedString("Remove account from application?", comment: ""), preferredStyle: .actionSheet);
+        let alert = UIAlertController(title: NSLocalizedString("Account Removal", comment: "Account deletion alert title"), message: ( client != nil && client?.state == .connected ) ? NSLocalizedString("Should account be removed from server as well?", comment: "") : NSLocalizedString("Remove account from application?", comment: ""), preferredStyle: .actionSheet);
         if client?.state == .connected {
-            alert.addAction(UIAlertAction(title: NSLocalizedString("Remove from server", comment: "Account deletion action"), style: .destructive, handler: { (action) in
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Delete account permanently", comment: "Account deletion action - destructive"), style: .destructive, handler: { (action) in
                 completionHandler(.success(true));
             }));
         }
