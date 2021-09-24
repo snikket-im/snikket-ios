@@ -309,7 +309,6 @@
 
 /* No comment provided by engineer. */
 "server returned an error on the request to enable archiving. You can try to enable this feature later on from the account settings." = "server returned an error on the request to enable archiving. You can try to enable this feature later on from the account settings.";
-"Server returned an error:" = "Server returned an error:";
 
 /* No comment provided by engineer. */
 "Server returned an error:" = "Serverns felmeddelande:";
