@@ -41,7 +41,7 @@
 "gXY-yq-Y2K.placeholder" = "Select account";
 
 /* Class = "UITabBarItem"; title = "Settings"; ObjectID = "kee-Xk-ORJ"; */
-"kee-Xk-ORJ.title" = "Settings";
+"kee-Xk-ORJ.title" = "Paramètres";
 
 /* Class = "UITableViewSection"; headerTitle = "Name"; ObjectID = "Kfl-J5-hdD"; */
 "Kfl-J5-hdD.headerTitle" = "Name";

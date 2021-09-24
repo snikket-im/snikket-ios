@@ -169,11 +169,11 @@ class AvatarView: UIImageView {
             croppedImage.draw(in: targetRect)
         } else {
             ctx.setFillColor(member1Color.cgColor)
-            ctx.fill(CGRect(x: 0, y: 0, width: (size.width / 2) - 2, height: (size.height / 2) - 2))
+            ctx.fill(CGRect(x: 0, y: 0, width: (size.width / 2) - 2, height: size.height))
             let member1textAttr: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor.white.withAlphaComponent(0.9), .font: UIFont.systemFont(ofSize: fontSize(text: member1, size: size), weight: .medium)]
             let member1textSize = member1.size(withAttributes: member1textAttr)
             member1.draw(in: CGRect(x: size.width/4 - member1textSize.width/2,
-                                    y: size.height/4 - member1textSize.height/2,
+                                    y: size.height/2 - member1textSize.height/2,
                                     width: member1textSize.width,
                                     height: member1textSize.height), withAttributes: member1textAttr)
         }

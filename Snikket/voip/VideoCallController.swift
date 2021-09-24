@@ -216,6 +216,9 @@ public class VideoCallController: UIViewController, CallManagerDelegate {
     @IBOutlet fileprivate var avatar: AvatarView?;
     @IBOutlet fileprivate var avatarWidthConstraint: NSLayoutConstraint!;
     @IBOutlet fileprivate var avatarHeightConstraint: NSLayoutConstraint!;
+    @IBOutlet weak var speakerSwitchButton: RoundButton!
+    
+    let audioQueue = DispatchQueue(label: "audio")
         
     private var localVideoCapturer: RTCCameraVideoCapturer?;
     private var remoteVideoTrack: RTCVideoTrack? {
@@ -271,18 +274,11 @@ public class VideoCallController: UIViewController, CallManagerDelegate {
         
         setAvatarAspectRatio()
         self.updateAvatar()
-        //self.orientationChanged();
-        NotificationCenter.default.addObserver(self, selector: #selector(audioRouteChanged), name: AVAudioSession.routeChangeNotification, object: nil)
-//        timer = Foundation.Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { timer in
-//            CallManager.instance?.currentConnection?.statistics(completionHandler: { report in
-//                print("stats: \(report.statistics.description)");
-//            });
-//        })
+        //NotificationCenter.default.addObserver(self, selector: #selector(audioRouteChanged), name: AVAudioSession.routeChangeNotification, object: nil)
+        SetEarSepeakerOn()
     }
 
     public override func viewWillDisappear(_ animated: Bool) {
-//        timer?.invalidate();
-//        timer = nil;
         remoteVideoTrack = nil;
         localVideoView.captureSession = nil;
         localVideoCapturer = nil;
@@ -307,6 +303,32 @@ public class VideoCallController: UIViewController, CallManagerDelegate {
                     }
                 }
             }
+        }
+    }
+    @IBAction func switchSpeaker(_ sender: Any) {
+        guard let button = sender as? UIButton else { return }
+        
+        button.isSelected = !button.isSelected
+        
+        setSpeaker(button.isSelected)
+    }
+    
+    func setSpeaker(_ isEnabled: Bool) {
+        audioQueue.async {
+            do {
+                try AVAudioSession.sharedInstance().overrideOutputAudioPort(isEnabled ? .speaker : .none)
+            } catch {
+                debugPrint(error.localizedDescription)
+            }
+        }
+    }
+    
+    func SetEarSepeakerOn(){
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playAndRecord, mode: .voiceChat)
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch let error {
+            print(error)
         }
     }
     
@@ -419,6 +441,8 @@ public class VideoCallController: UIViewController, CallManagerDelegate {
         let isHidden = remoteVideoTrack != nil && (call?.state ?? .new) == .connected;
         self.avatar?.isHidden = isHidden
         self.localVideoView.isHidden = !isHidden
+        self.speakerSwitchButton.isHidden = isHidden
+        self.setSpeaker(isHidden)
         
         if call?.state == .connected , remoteVideoTrack == nil {
             self.dialpadButton.isHidden = false

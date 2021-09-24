@@ -265,7 +265,7 @@ class RosterViewController: AbstractRosterViewController, UIGestureRecognizerDel
                 return;
             }
             
-            let alert = UIAlertController(title: item.displayName, message: NSLocalizedString("using", comment: "") + " \(item.account.stringValue)", preferredStyle: .actionSheet);
+            let alert = UIAlertController(title: item.displayName, message: NSLocalizedString("using", comment: "followed by account name to select") + " \(item.account.stringValue)", preferredStyle: .actionSheet);
             alert.addAction(UIAlertAction(title: NSLocalizedString("Chat", comment: ""), style: .default, handler: { (action) in
                 self.tableView(self.tableView, didSelectRowAt: indexPath);
             }));

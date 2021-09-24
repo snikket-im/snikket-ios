@@ -1,120 +1,35 @@
-
-/* Class = "UILabel"; text = "Company, Inc."; ObjectID = "0rT-oB-jot"; */
-"0rT-oB-jot.text" = "Company, Inc.";
-
 /* Class = "UILabel"; text = "Your server for account \\(account) supports message archiving. Would you like to enable this feature?"; ObjectID = "1dk-YA-RVu"; */
 "1dk-YA-RVu.text" = "Your server for account \(account) supports message archiving. Would you like to enable this feature?";
 
 /* Class = "UIButton"; normalTitle = "Send Current Location"; ObjectID = "5tI-9V-tVB"; */
 "5tI-9V-tVB.normalTitle" = "Send Current Location";
 
-/* Class = "UILabel"; text = "using test@example.com"; ObjectID = "6Zq-Ql-WA0"; */
-"6Zq-Ql-WA0.text" = "using test@example.com";
-
-/* Class = "UINavigationItem"; title = "Root View"; ObjectID = "8T3-uF-8vn"; */
-"8T3-uF-8vn.title" = "Root View";
-
-/* Class = "UILabel"; text = "by Tigase, Inc."; ObjectID = "8ba-yZ-XRA"; */
-"8ba-yZ-XRA.text" = "by Tigase, Inc.";
-
 /* Class = "UIViewController"; title = "Chats"; ObjectID = "9pv-A4-QxB"; */
 "9pv-A4-QxB.title" = "Chats";
 
-/* Class = "UITextField"; placeholder = "Enter jid"; ObjectID = "BM3-28-huR"; */
-"BM3-28-huR.placeholder" = "Enter jid";
+/* Class = "UITabBarItem"; title = "Chats"; ObjectID = "acW-dT-cKf"; */
+"acW-dT-cKf.title" = "Chats";
 
-/* Class = "UITextField"; text = "local_user@example.com"; ObjectID = "BM3-28-huR"; */
-"BM3-28-huR.text" = "local_user@example.com";
+/* Class = "UITextField"; placeholder = "Enter chat address"; ObjectID = "BM3-28-huR"; */
+"BM3-28-huR.placeholder" = "Enter chat address";
 
-/* Class = "UINavigationItem"; title = "Attachments"; ObjectID = "C1j-4i-HDP"; */
+/* Class = "UINavigationItem"; title = "Details"; ObjectID = "bNp-S8-ulX"; Note = "Contact info screen title"; */
+"bNp-S8-ulX.title" = "Informations";
+
+/* Class = "UINavigationItem"; title = "Attachments"; ObjectID = "C1j-4i-HDP"; Note = "Conversation shared media gallery title"; */
 "C1j-4i-HDP.title" = "Attachments";
 
 /* Class = "UILabel"; text = "Message Archiving"; ObjectID = "Ckp-Mb-v0c"; */
 "Ckp-Mb-v0c.text" = "Message Archiving";
 
-/* Class = "UILabel"; text = "Address"; ObjectID = "DZS-A8-CWS"; */
-"DZS-A8-CWS.text" = "Address";
-
 /* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "Dx3-QU-3cN"; */
 "Dx3-QU-3cN.title" = "Back";
 
-/* Class = "UILabel"; text = "Attachments"; ObjectID = "EpU-tc-DIx"; */
-"EpU-tc-DIx.text" = "Attachments";
-
-/* Class = "UITableViewSection"; headerTitle = "Name"; ObjectID = "Kfl-J5-hdD"; */
-"Kfl-J5-hdD.headerTitle" = "Name";
-
-/* Class = "UINavigationItem"; title = "Chats"; ObjectID = "LKO-PG-RwH"; */
-"LKO-PG-RwH.title" = "Chats";
-
-/* Class = "UITableViewSection"; headerTitle = "Account"; ObjectID = "Mfv-HJ-QDO"; */
-"Mfv-HJ-QDO.headerTitle" = "Account";
-
-/* Class = "UICollectionViewController"; title = "Attachments"; ObjectID = "N9z-ms-iaT"; */
-"N9z-ms-iaT.title" = "Attachments";
-
-/* Class = "UIBarButtonItem"; title = " "; ObjectID = "NYU-vU-24f"; */
-"NYU-vU-24f.title" = " ";
-
-/* Class = "UINavigationController"; title = "Contacts"; ObjectID = "Ndx-if-NHK"; */
-"Ndx-if-NHK.title" = "Contacts";
-
-/* Class = "UITextField"; placeholder = "Enter display name"; ObjectID = "OGf-mX-8z3"; */
-"OGf-mX-8z3.placeholder" = "Enter display name";
-
-/* Class = "UITextField"; text = "Juliet Capulet"; ObjectID = "OGf-mX-8z3"; */
-"OGf-mX-8z3.text" = "Juliet Capulet";
-
-/* Class = "UITableViewSection"; headerTitle = "PRESENCE"; ObjectID = "Q28-Ig-9NP"; */
-"Q28-Ig-9NP.headerTitle" = "PRESENCE";
-
-/* Class = "UITableViewSection"; headerTitle = "JID"; ObjectID = "Qgj-eQ-geg"; */
-"Qgj-eQ-geg.headerTitle" = "JID";
-
-/* Class = "UILabel"; text = "Chat with"; ObjectID = "Qr0-8H-IJq"; */
-"Qr0-8H-IJq.text" = "Chat with";
-
-/* Class = "UINavigationItem"; title = "Contacts"; ObjectID = "SEz-IM-IWL"; */
-"SEz-IM-IWL.title" = "Contacts";
-
-/* Class = "UILabel"; text = "Jane Done"; ObjectID = "UWL-vQ-lxc"; */
-"UWL-vQ-lxc.text" = "Jane Done";
-
-/* Class = "UILabel"; text = "Siskin IM"; ObjectID = "V18-Iv-6Re"; */
-"V18-Iv-6Re.text" = "Siskin IM";
-
-/* Class = "UITabBarItem"; title = "Contacts"; ObjectID = "W52-LN-wzX"; */
-"W52-LN-wzX.title" = "Contacts";
-
-/* Class = "UIViewController"; title = "Chat"; ObjectID = "WP2-Cp-7ZE"; */
-"WP2-Cp-7ZE.title" = "Chat";
-
-/* Class = "UIButton"; normalTitle = "Create new XMPP account"; ObjectID = "WyQ-cb-VAl"; */
-"WyQ-cb-VAl.normalTitle" = "Create new XMPP account";
-
-/* Class = "UILabel"; text = "Message encryption"; ObjectID = "XZp-oZ-XpC"; */
-"XZp-oZ-XpC.text" = "Message encryption";
-
-/* Class = "UIBarButtonItem"; title = " "; ObjectID = "YEU-rS-450"; */
-"YEU-rS-450.title" = " ";
-
-/* Class = "UIButton"; normalTitle = "Sign in to an existing XMPP account"; ObjectID = "ZzM-t7-zvW"; */
-"ZzM-t7-zvW.normalTitle" = "Sign in to an existing XMPP account";
-
-/* Class = "UITabBarItem"; title = "Chats"; ObjectID = "acW-dT-cKf"; */
-"acW-dT-cKf.title" = "Chats";
-
-/* Class = "UILabel"; text = "Type"; ObjectID = "agd-7n-AkX"; */
-"agd-7n-AkX.text" = "Type";
-
-/* Class = "UILabel"; text = "Label"; ObjectID = "b03-5W-Imh"; */
-"b03-5W-Imh.text" = "Label";
-
-/* Class = "UINavigationItem"; title = "Informations"; ObjectID = "bNp-S8-ulX"; */
-"bNp-S8-ulX.title" = "Informations";
-
 /* Class = "UINavigationItem"; title = "Send Location"; ObjectID = "e6z-jk-XtN"; */
 "e6z-jk-XtN.title" = "Send Location";
+
+/* Class = "UILabel"; text = "Attachments"; ObjectID = "EpU-tc-DIx"; */
+"EpU-tc-DIx.text" = "Attachments";
 
 /* Class = "UILabel"; text = "Receive presence updates"; ObjectID = "ffo-7n-Tn2"; */
 "ffo-7n-Tn2.text" = "Receive presence updates";
@@ -125,50 +40,62 @@
 /* Class = "UITextField"; placeholder = "Select account"; ObjectID = "gXY-yq-Y2K"; */
 "gXY-yq-Y2K.placeholder" = "Select account";
 
-/* Class = "UITextField"; text = "local_user@example.com"; ObjectID = "gXY-yq-Y2K"; */
-"gXY-yq-Y2K.text" = "local_user@example.com";
-
-/* Class = "UILabel"; text = "Timestamp"; ObjectID = "ga8-2K-hxE"; */
-"ga8-2K-hxE.text" = "Timestamp";
-
 /* Class = "UITabBarItem"; title = "Settings"; ObjectID = "kee-Xk-ORJ"; */
 "kee-Xk-ORJ.title" = "Settings";
 
-/* Class = "UILabel"; text = "John Doe"; ObjectID = "koS-ci-GqT"; */
-"koS-ci-GqT.text" = "John Doe";
+/* Class = "UITableViewSection"; headerTitle = "Name"; ObjectID = "Kfl-J5-hdD"; */
+"Kfl-J5-hdD.headerTitle" = "Name";
 
 /* Class = "UILabel"; text = "Block contact"; ObjectID = "kwQ-p7-cX2"; */
 "kwQ-p7-cX2.text" = "Block contact";
 
+/* Class = "UINavigationItem"; title = "Chats"; ObjectID = "LKO-PG-RwH"; */
+"LKO-PG-RwH.title" = "Chats";
+
 /* Class = "UILabel"; text = "Here I'm again..."; ObjectID = "m0n-Ls-5LF"; */
 "m0n-Ls-5LF.text" = "Here I'm again...";
+
+/* Class = "UITableViewSection"; headerTitle = "Account"; ObjectID = "Mfv-HJ-QDO"; */
+"Mfv-HJ-QDO.headerTitle" = "Account";
+
+/* Class = "UICollectionViewController"; title = "Attachments"; ObjectID = "N9z-ms-iaT"; */
+"N9z-ms-iaT.title" = "Attachments";
+
+/* Class = "UINavigationController"; title = "Contacts"; ObjectID = "Ndx-if-NHK"; */
+"Ndx-if-NHK.title" = "Contacts";
+
+/* Class = "UITextField"; placeholder = "Enter contact name"; ObjectID = "OGf-mX-8z3"; */
+"OGf-mX-8z3.placeholder" = "Enter contact name";
+
+/* Class = "UITableViewSection"; headerTitle = "PRESENCE"; ObjectID = "Q28-Ig-9NP"; */
+"Q28-Ig-9NP.headerTitle" = "PRESENCE";
+
+/* Class = "UITableViewSection"; headerTitle = "JID"; ObjectID = "Qgj-eQ-geg"; */
+"Qgj-eQ-geg.headerTitle" = "JID";
 
 /* Class = "UILabel"; text = "Clear History"; ObjectID = "qjs-BY-Nid"; */
 "qjs-BY-Nid.text" = "Clear History";
 
-/* Class = "UILabel"; text = "user@example.com"; ObjectID = "rOe-Pg-XBh"; */
-"rOe-Pg-XBh.text" = "user@example.com";
+/* Class = "UILabel"; text = "Chat with"; ObjectID = "Qr0-8H-IJq"; */
+"Qr0-8H-IJq.text" = "Chat with";
 
-/* Class = "UILabel"; text = "Label"; ObjectID = "tRD-rd-7dm"; */
-"tRD-rd-7dm.text" = "Label";
+/* Class = "UINavigationItem"; title = "Contacts"; ObjectID = "SEz-IM-IWL"; */
+"SEz-IM-IWL.title" = "Contacts";
 
 /* Class = "UILabel"; text = "Send presence updates"; ObjectID = "upM-mW-rMZ"; */
 "upM-mW-rMZ.text" = "Send presence updates";
 
-/* Class = "UILabel"; text = "Label"; ObjectID = "vEG-as-CLS"; */
-"vEG-as-CLS.text" = "Label";
+/* Class = "UITabBarItem"; title = "Contacts"; ObjectID = "W52-LN-wzX"; */
+"W52-LN-wzX.title" = "Contacts";
 
-/* Class = "UILabel"; text = "Detail"; ObjectID = "vIB-ar-uog"; */
-"vIB-ar-uog.text" = "Detail";
-
-/* Class = "UILabel"; text = "Last message"; ObjectID = "wE7-Lf-1a4"; */
-"wE7-Lf-1a4.text" = "Last message";
+/* Class = "UIViewController"; title = "Chat"; ObjectID = "WP2-Cp-7ZE"; */
+"WP2-Cp-7ZE.title" = "Chat";
 
 /* Class = "UIButton"; normalTitle = "Not now"; ObjectID = "wvT-dz-RVz"; */
 "wvT-dz-RVz.normalTitle" = "Not now";
 
+/* Class = "UILabel"; text = "Message encryption"; ObjectID = "XZp-oZ-XpC"; */
+"XZp-oZ-XpC.text" = "Message encryption";
+
 /* Class = "UIButton"; normalTitle = "Enable"; ObjectID = "yJk-Px-1oo"; */
 "yJk-Px-1oo.normalTitle" = "Enable";
-
-/* Class = "UILabel"; text = "Type"; ObjectID = "yxF-LM-meS"; */
-"yxF-LM-meS.text" = "Type";

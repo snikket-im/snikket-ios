@@ -33,7 +33,6 @@ class AccountSettingsViewController: UITableViewController {
     
     @IBOutlet var enabledSwitch: UISwitch!
     @IBOutlet var nicknameLabel: UILabel!;
-    @IBOutlet var pushNotificationSwitch: UISwitch!;
     @IBOutlet var pushNotificationsForAwaySwitch: UISwitch!
     
     @IBOutlet var archivingEnabledSwitch: UISwitch!;
@@ -58,10 +57,8 @@ class AccountSettingsViewController: UITableViewController {
         let config = AccountManager.getAccount(for: account);
         enabledSwitch.isOn = config?.active ?? false;
         nicknameLabel.text = config?.nickname;
-        pushNotificationSwitch.isOn = config?.pushNotifications ?? false;
-        archivingEnabledSwitch.isOn = false;
         messageSyncAutomaticSwitch.isEnabled = false;
-        pushNotificationsForAwaySwitch.isOn = pushNotificationSwitch.isOn && AccountSettings.PushNotificationsForAway(account).getBool();
+        pushNotificationsForAwaySwitch.isOn = AccountSettings.PushNotificationsForAway(account).getBool();
 
         updateView();
         
@@ -145,6 +142,13 @@ class AccountSettingsViewController: UITableViewController {
         if indexPath.section == 5 && indexPath.row == 0 {
             self.deleteAccount();
         }
+        if indexPath.section == 2 && indexPath.row == 0 {
+            let client = XmppService.instance.getClient(for: account)
+            let pushModule: SiskinPushNotificationsModule? = client?.modulesManager.getModule(SiskinPushNotificationsModule.ID)
+            if (PushEventHandler.instance.deviceId != nil) && (pushModule?.isAvailable ?? false) {
+                self.reRegisterPushNotifications()
+            }
+        }
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -164,9 +168,7 @@ class AccountSettingsViewController: UITableViewController {
     func updateView() {
         let client = XmppService.instance.getClient(for: account);
         let pushModule: SiskinPushNotificationsModule? = client?.modulesManager.getModule(SiskinPushNotificationsModule.ID);
-        pushNotificationSwitch.isEnabled = (PushEventHandler.instance.deviceId != nil) && (pushModule?.isAvailable ?? false);
-        pushNotificationsForAwaySwitch.isEnabled = pushNotificationSwitch.isEnabled && (pushModule?.isSupported(extension: TigasePushNotificationsModule.PushForAway.self) ?? false);
-        
+        pushNotificationsForAwaySwitch.isEnabled = (pushModule?.isSupported(extension: TigasePushNotificationsModule.PushForAway.self) ?? false);
         messageSyncAutomaticSwitch.isOn = AccountSettings.messageSyncAuto(account).getBool();
         archivingEnabledSwitch.isEnabled = false;
         
@@ -237,19 +239,11 @@ class AccountSettingsViewController: UITableViewController {
         }
     }
     
-    @IBAction func pushNotificationSwitchChangedValue(_ sender: AnyObject) {
-        let value = pushNotificationSwitch.isOn;
-        if !value {
-            self.setPushNotificationsEnabled(forJid: account, value: value);
-            pushNotificationsForAwaySwitch.isOn = false;
-        } else {
-            let alert = UIAlertController(title: NSLocalizedString("Push Notifications",comment: ""), message: NSLocalizedString("Snikket can be automatically notified by compatible XMPP servers about new messages when it is in background or stopped.\nIf enabled, notifications about new messages will be forwarded to our push component and delivered to the device. These notifications may contain message senders jid and part of a message.\nDo you want to enable push notifications?",comment: ""), preferredStyle: .alert);
-            alert.addAction(UIAlertAction(title: NSLocalizedString("Yes",comment: ""), style: .default, handler: self.enablePushNotifications));
-            alert.addAction(UIAlertAction(title: NSLocalizedString("No",comment: ""), style: .cancel, handler: {(action) in
-                self.pushNotificationSwitch.isOn = false;
-            }));
-            self.present(alert, animated: true, completion: nil);
-        }
+    func reRegisterPushNotifications() {
+        let alert = UIAlertController(title: NSLocalizedString("Push Notifications",comment: ""), message: NSLocalizedString("Snikket can be automatically notified by compatible XMPP servers about new messages when it is in background or stopped.\nIf enabled, notifications about new messages will be forwarded to our push component and delivered to the device. These notifications may contain message senders jid and part of a message.\nDo you want to enable push notifications?",comment: ""), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Yes",comment: ""), style: .default, handler: self.enablePushNotifications))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("No",comment: ""), style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     fileprivate func enablePushNotifications(action: UIAlertAction) {
@@ -271,24 +265,18 @@ class AccountSettingsViewController: UITableViewController {
                     break;
                 case .failure(let errorCondition):
                     DispatchQueue.main.async {
-                        self.pushNotificationSwitch.isOn = false;
                         self.pushNotificationsForAwaySwitch.isOn = false;
                     }
                     onError(errorCondition);
                 }
             });
         } else {
-            pushNotificationSwitch.isOn = false;
             pushNotificationsForAwaySwitch.isOn = false;
             onError(ErrorCondition.service_unavailable);
         }
     }
     
     @IBAction func pushNotificationsForAwaySwitchChangedValue(_ sender: Any) {
-        guard self.pushNotificationSwitch.isOn else {
-            self.pushNotificationsForAwaySwitch.isOn = false;
-            return;
-        }
         
         AccountSettings.PushNotificationsForAway(account).set(bool: self.pushNotificationsForAwaySwitch.isOn);
         guard let pushModule: SiskinPushNotificationsModule = XmppService.instance.getClient(for: account)?.modulesManager.getModule(SiskinPushNotificationsModule.ID) else {
@@ -331,7 +319,7 @@ class AccountSettingsViewController: UITableViewController {
     
     func setPushNotificationsEnabled(forJid account: BareJID, value: Bool) {
         if let config = AccountManager.getAccount(for: account) {
-            config.pushNotifications = pushNotificationSwitch.isOn;
+            config.pushNotifications = value
             AccountManager.save(account: config);
         }
     }
@@ -507,13 +495,13 @@ class AccountSettingsViewController: UITableViewController {
         
     func askAboutAccountRemoval(account: BareJID, atRow indexPath: IndexPath, completionHandler: @escaping (Result<Bool, Error>)->Void) {
         let client = XmppService.instance.getClient(forJid: BareJID(account))
-        let alert = UIAlertController(title: NSLocalizedString("Account removal", comment: ""), message: client != nil ? NSLocalizedString("Should account be removed from server as well?", comment: "") : NSLocalizedString("Remove account from application?", comment: ""), preferredStyle: .actionSheet);
+        let alert = UIAlertController(title: NSLocalizedString("Account removal", comment: "Account deletion alert title"), message: client != nil ? NSLocalizedString("Should account be removed from server as well?", comment: "") : NSLocalizedString("Remove account from application?", comment: ""), preferredStyle: .actionSheet);
         if client?.state == .connected {
-            alert.addAction(UIAlertAction(title: NSLocalizedString("Remove from server", comment: ""), style: .destructive, handler: { (action) in
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Remove from server", comment: "Account deletion action"), style: .destructive, handler: { (action) in
                 completionHandler(.success(true));
             }));
         }
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Remove from application", comment: ""), style: .default, handler: { (action) in
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Remove from application", comment: "Account deletion action"), style: .default, handler: { (action) in
             completionHandler(.success(false));
         }));
         alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .default, handler: nil));
@@ -527,13 +515,13 @@ class AccountSettingsViewController: UITableViewController {
         
         public static func descriptionFromHours(hours: Double) -> String {
             if (hours == 0) {
-                return NSLocalizedString("Nothing", comment: "")
+                return NSLocalizedString("Nothing", comment: "How many messages to fetch from the server")
             } else if (hours >= 24*365) {
-                return NSLocalizedString("All", comment: "")
+                return NSLocalizedString("All", comment: "How many messages to fetch from the server")
             } else if (hours > 24) {
-                return String.localizedStringWithFormat(NSLocalizedString("Last %d days", comment: "Placeholder is number of days"), Int(hours/24))
+                return String.localizedStringWithFormat(NSLocalizedString("Last %d days", comment: "Placeholder is number of days (sync period)"), Int(hours/24))
             } else {
-                return String.localizedStringWithFormat(NSLocalizedString("Last %d hours", comment: "Placeholder is hours value"), Int(hours))
+                return String.localizedStringWithFormat(NSLocalizedString("Last %d hours", comment: "Placeholder is hours value (sync period)"), Int(hours))
             }
         }
         

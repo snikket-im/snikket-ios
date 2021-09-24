@@ -14,7 +14,7 @@
 "BM3-28-huR.placeholder" = "Enter chat address";
 
 /* Class = "UINavigationItem"; title = "Details"; ObjectID = "bNp-S8-ulX"; Note = "Contact info screen title"; */
-"bNp-S8-ulX.title" = "Informations";
+"bNp-S8-ulX.title" = "Details";
 
 /* Class = "UINavigationItem"; title = "Attachments"; ObjectID = "C1j-4i-HDP"; Note = "Conversation shared media gallery title"; */
 "C1j-4i-HDP.title" = "Attachments";
