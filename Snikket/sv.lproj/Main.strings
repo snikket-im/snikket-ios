@@ -2,13 +2,13 @@
 "1dk-YA-RVu.text" = "Your server for account \\(account) supports message archiving. Would you like to enable this feature?";
 
 /* Class = "UIButton"; normalTitle = "Send Current Location"; ObjectID = "5tI-9V-tVB"; */
-"5tI-9V-tVB.normalTitle" = "Send Current Location";
+"5tI-9V-tVB.normalTitle" = "Skicka Nuvarande Plats";
 
 /* Class = "UIViewController"; title = "Chats"; ObjectID = "9pv-A4-QxB"; */
-"9pv-A4-QxB.title" = "Chats";
+"9pv-A4-QxB.title" = "Chattar";
 
 /* Class = "UITabBarItem"; title = "Chats"; ObjectID = "acW-dT-cKf"; */
-"acW-dT-cKf.title" = "Chats";
+"acW-dT-cKf.title" = "Chattar";
 
 /* Class = "UITextField"; placeholder = "Enter chat address"; ObjectID = "BM3-28-huR"; */
 "BM3-28-huR.placeholder" = "Enter chat address";
@@ -17,19 +17,19 @@
 "bNp-S8-ulX.title" = "Details";
 
 /* Class = "UINavigationItem"; title = "Attachments"; ObjectID = "C1j-4i-HDP"; Note = "Conversation shared media gallery title"; */
-"C1j-4i-HDP.title" = "Attachments";
+"C1j-4i-HDP.title" = "Bilagor";
 
 /* Class = "UILabel"; text = "Message Archiving"; ObjectID = "Ckp-Mb-v0c"; */
-"Ckp-Mb-v0c.text" = "Message Archiving";
+"Ckp-Mb-v0c.text" = "Meddelandearkivering";
 
 /* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "Dx3-QU-3cN"; */
-"Dx3-QU-3cN.title" = "Back";
+"Dx3-QU-3cN.title" = "Tillbaka";
 
 /* Class = "UINavigationItem"; title = "Send Location"; ObjectID = "e6z-jk-XtN"; */
-"e6z-jk-XtN.title" = "Send Location";
+"e6z-jk-XtN.title" = "Skicka Plats";
 
 /* Class = "UILabel"; text = "Attachments"; ObjectID = "EpU-tc-DIx"; */
-"EpU-tc-DIx.text" = "Attachments";
+"EpU-tc-DIx.text" = "Bilagor";
 
 /* Class = "UILabel"; text = "Receive presence updates"; ObjectID = "ffo-7n-Tn2"; */
 "ffo-7n-Tn2.text" = "Receive presence updates";
@@ -38,10 +38,10 @@
 "g8N-kr-fax.text" = "Mute contact";
 
 /* Class = "UITextField"; placeholder = "Select account"; ObjectID = "gXY-yq-Y2K"; */
-"gXY-yq-Y2K.placeholder" = "Select account";
+"gXY-yq-Y2K.placeholder" = "Välj konto";
 
 /* Class = "UITabBarItem"; title = "Settings"; ObjectID = "kee-Xk-ORJ"; */
-"kee-Xk-ORJ.title" = "Settings";
+"kee-Xk-ORJ.title" = "Inställningar";
 
 /* Class = "UITableViewSection"; headerTitle = "Name"; ObjectID = "Kfl-J5-hdD"; */
 "Kfl-J5-hdD.headerTitle" = "Name";
@@ -50,7 +50,7 @@
 "kwQ-p7-cX2.text" = "Block contact";
 
 /* Class = "UINavigationItem"; title = "Chats"; ObjectID = "LKO-PG-RwH"; */
-"LKO-PG-RwH.title" = "Chats";
+"LKO-PG-RwH.title" = "Chattar";
 
 /* Class = "UILabel"; text = "Here I'm again..."; ObjectID = "m0n-Ls-5LF"; */
 "m0n-Ls-5LF.text" = "Here I'm again...";
@@ -59,7 +59,7 @@
 "Mfv-HJ-QDO.headerTitle" = "Account";
 
 /* Class = "UICollectionViewController"; title = "Attachments"; ObjectID = "N9z-ms-iaT"; */
-"N9z-ms-iaT.title" = "Attachments";
+"N9z-ms-iaT.title" = "Bilagor";
 
 /* Class = "UINavigationController"; title = "Contacts"; ObjectID = "Ndx-if-NHK"; */
 "Ndx-if-NHK.title" = "Contacts";
@@ -74,7 +74,7 @@
 "Qgj-eQ-geg.headerTitle" = "JID";
 
 /* Class = "UILabel"; text = "Clear History"; ObjectID = "qjs-BY-Nid"; */
-"qjs-BY-Nid.text" = "Clear History";
+"qjs-BY-Nid.text" = "Rensa historik";
 
 /* Class = "UILabel"; text = "Chat with"; ObjectID = "Qr0-8H-IJq"; */
 "Qr0-8H-IJq.text" = "Chat with";
@@ -92,10 +92,10 @@
 "WP2-Cp-7ZE.title" = "Chat";
 
 /* Class = "UIButton"; normalTitle = "Not now"; ObjectID = "wvT-dz-RVz"; */
-"wvT-dz-RVz.normalTitle" = "Not now";
+"wvT-dz-RVz.normalTitle" = "Inte nu";
 
 /* Class = "UILabel"; text = "Message encryption"; ObjectID = "XZp-oZ-XpC"; */
-"XZp-oZ-XpC.text" = "Message encryption";
+"XZp-oZ-XpC.text" = "Meddelandekryptering";
 
 /* Class = "UIButton"; normalTitle = "Enable"; ObjectID = "yJk-Px-1oo"; */
-"yJk-Px-1oo.normalTitle" = "Enable";
+"yJk-Px-1oo.normalTitle" = "Aktivera";
