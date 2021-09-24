@@ -1,5 +1,5 @@
 /* Class = "UILabel"; text = "Notifications"; ObjectID = "02f-aw-3Zd"; */
-"02f-aw-3Zd.text" = "Notifications";
+"02f-aw-3Zd.text" = "Notifikationer";
 
 /* Class = "UITableViewSection"; headerTitle = " "; ObjectID = "2ZD-5S-4hK"; */
 "2ZD-5S-4hK.headerTitle" = " ";
@@ -23,19 +23,19 @@
 "bRu-vo-fpu.headerTitle" = " Settings";
 
 /* Class = "UILabel"; text = "Encryption"; ObjectID = "DQk-sn-hKj"; */
-"DQk-sn-hKj.text" = "Encryption";
+"DQk-sn-hKj.text" = "Kryptering";
 
 /* Class = "UILabel"; text = "When mentioned"; ObjectID = "exK-ZH-jpA"; */
-"exK-ZH-jpA.text" = "When mentioned";
+"exK-ZH-jpA.text" = "Vid omnämnande";
 
 /* Class = "UITableViewController"; title = "Room details"; ObjectID = "IGA-uE-mHb"; */
 "IGA-uE-mHb.title" = "Room details";
 
 /* Class = "UITableViewSection"; headerTitle = "Subject"; ObjectID = "iYv-zL-tZT"; */
-"iYv-zL-tZT.headerTitle" = "Subject";
+"iYv-zL-tZT.headerTitle" = "Ämne";
 
 /* Class = "UILabel"; text = "Push notifications"; ObjectID = "jMz-qR-fJ6"; */
-"jMz-qR-fJ6.text" = "Push notifications";
+"jMz-qR-fJ6.text" = "Push-notiser";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "kFB-wJ-yDE"; */
 "kFB-wJ-yDE.text" = "Label";
@@ -47,7 +47,7 @@
 "NK6-IG-GRa.text" = "When the value of this property is false, the queue actively starts operations that are in the queue and ready to execute.";
 
 /* Class = "UITableViewController"; title = "Invite to chat"; ObjectID = "SOJ-3n-8YB"; */
-"SOJ-3n-8YB.title" = "Invite to chat";
+"SOJ-3n-8YB.title" = "Bjud in till chatt";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "t0j-TN-qOY"; */
 "t0j-TN-qOY.text" = "Label";
@@ -59,10 +59,10 @@
 "WaG-aF-FTg.text" = "Label";
 
 /* Class = "UILabel"; text = "Attachments"; ObjectID = "wBw-1J-Xau"; */
-"wBw-1J-Xau.text" = "Attachments";
+"wBw-1J-Xau.text" = "Bilagor";
 
 /* Class = "UILabel"; text = "Delete History"; ObjectID = "wNk-Ce-zfI"; */
-"wNk-Ce-zfI.text" = "Delete History";
+"wNk-Ce-zfI.text" = "Radera Historik";
 
 /* Class = "UILabel"; text = "None"; ObjectID = "YT2-1I-RlM"; */
 "YT2-1I-RlM.text" = "None";
