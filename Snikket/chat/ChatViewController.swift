@@ -160,7 +160,7 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
                 let color = incoming ? #colorLiteral(red: 0.01663736999, green: 0.4700628519, blue: 0.6680073142, alpha: 1) : #colorLiteral(red: 0.4562267661, green: 0.4913363457, blue: 0, alpha: 1)
                 cell.avatarView?.set(bareJID: jid, name: name, avatar: AvatarManager.instance.avatar(for: incoming ? jid : account, on: account), orDefault: AvatarManager.instance.defaultAvatar, backColor: color);
                 cell.nicknameView?.text  = ""
-                cell.set(message: item);
+                cell.set(message: item, maxMessageWidth: self.view.frame.width * 0.60)
                 cell.backgroundColor = .clear
                 cell.contentView.backgroundColor = .clear
                 cell.bubbleImageView.isHidden = false
@@ -175,7 +175,7 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
             let color = incoming ? #colorLiteral(red: 0.01663736999, green: 0.4700628519, blue: 0.6680073142, alpha: 1) : #colorLiteral(red: 0.4562267661, green: 0.4913363457, blue: 0, alpha: 1)
             cell.avatarView?.set(bareJID: jid, name: name, avatar: AvatarManager.instance.avatar(for: incoming ? jid : account, on: account), orDefault: AvatarManager.instance.defaultAvatar, backColor: color);
             cell.nicknameView?.text = ""
-            cell.set(attachment: item);
+            cell.set(attachment: item, maxImageWidth: self.view.frame.width * 0.60)
             cell.audioPlayerDelegate = self
             cell.bubbleImageView.isHidden = false
             return cell;

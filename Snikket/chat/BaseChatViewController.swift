@@ -199,6 +199,10 @@ class BaseChatViewController: UIViewController, UITextViewDelegate, ChatViewInpu
         alertController.addAction(document)
         alertController.addAction(location)
         alertController.addAction(cancel)
+        
+        alertController.popoverPresentationController?.sourceView = self.view
+        alertController.popoverPresentationController?.sourceRect = chatViewInputBar.frame
+        
         self.present(alertController, animated: true, completion: nil)
     }
     

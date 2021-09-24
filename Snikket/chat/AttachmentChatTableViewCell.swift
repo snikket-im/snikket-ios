@@ -229,7 +229,7 @@ class AttachmentChatTableViewCell: BaseChatTableViewCell, UIContextMenuInteracti
         audioTime.text = NSString(format: "%02d:%02d", minutes,seconds) as String
     }
         
-    func set(attachment item: ChatAttachment) {
+    func set(attachment item: ChatAttachment, maxImageWidth: CGFloat) {
         self.item = item;
         self.customView.subviews.forEach { view in
             view.removeFromSuperview()
@@ -256,7 +256,7 @@ class AttachmentChatTableViewCell: BaseChatTableViewCell, UIContextMenuInteracti
                 attachmentInfo.topAnchor.constraint(equalTo: customView.topAnchor),
                 attachmentInfo.bottomAnchor.constraint(equalTo: customView.bottomAnchor)
             ])
-            attachmentInfo.set(item: item)
+            attachmentInfo.set(item: item, maxImageWidth: maxImageWidth)
             let fileSize = MediaHelper.fileSizeToString(try! FileManager.default.attributesOfItem(atPath: localUrl.path)[.size] as? UInt64)
             let time = timestampView?.text ?? ""
             timestampView?.text = item.state.direction == .incoming ? "\(time) · \(fileSize)" : "\(fileSize) · \(time)"
@@ -271,7 +271,7 @@ class AttachmentChatTableViewCell: BaseChatTableViewCell, UIContextMenuInteracti
                 customView.topAnchor.constraint(equalTo: attachmentInfo.topAnchor),
                 customView.bottomAnchor.constraint(equalTo: attachmentInfo.bottomAnchor)
             ])
-            attachmentInfo.set(item: item);
+            attachmentInfo.set(item: item, maxImageWidth: maxImageWidth)
 
             switch item.appendix.state {
             case .new:
@@ -542,17 +542,15 @@ class AttachmentChatTableViewCell: BaseChatTableViewCell, UIContextMenuInteracti
             playImage.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         }
         
-        func setImageConstraints(image: UIImage?) {
+        func setImageConstraints(image: UIImage?, maxImageWidth: CGFloat) {
             guard let image = image else { return }
             if viewType == .file { return }
             
             var scale: CGFloat = 0.0
-            var width = UIScreen.main.bounds.width
             var height = UIScreen.main.bounds.height
-            width *= 0.7
             height *= 0.4
             if image.size.width > image.size.height {
-                scale = width / image.size.width
+                scale = maxImageWidth / image.size.width
             } else {
                 scale = height / image.size.height
             }
@@ -580,7 +578,7 @@ class AttachmentChatTableViewCell: BaseChatTableViewCell, UIContextMenuInteracti
             super.draw(rect);
         }
         
-        func set(item: ChatAttachment) {
+        func set(item: ChatAttachment, maxImageWidth: CGFloat) {
             if let fileUrl = DownloadStore.instance.url(for: "\(item.id)") {
                 filename.text = fileUrl.lastPathComponent;
                 let fileSize = MediaHelper.fileSizeToString(try! FileManager.default.attributesOfItem(atPath: fileUrl.path)[.size] as? UInt64);
@@ -590,11 +588,11 @@ class AttachmentChatTableViewCell: BaseChatTableViewCell, UIContextMenuInteracti
                     if UTTypeConformsTo(uti, kUTTypeImage) {
                         iconView.image = UIImage(contentsOfFile: fileUrl.path)!
                         self.viewType = .imagePreview;
-                        self.setImageConstraints(image: iconView.image)
+                        self.setImageConstraints(image: iconView.image, maxImageWidth: maxImageWidth)
                     } else if UTTypeConformsTo(uti, kUTTypeMovie) {
                         iconView.image = MediaHelper.generateThumbnail(url: fileUrl)
                         self.viewType = .videoPreview
-                        self.setImageConstraints(image: iconView.image)
+                        self.setImageConstraints(image: iconView.image, maxImageWidth: maxImageWidth)
                     } else {
                         self.viewType = .file;
                         iconView.image = UIImage.icon(forFile: fileUrl, mimeType: item.appendix.mimetype);

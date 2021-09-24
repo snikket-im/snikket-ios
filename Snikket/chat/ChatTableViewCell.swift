@@ -61,13 +61,13 @@ class ChatTableViewCell: BaseChatTableViewCell, UITextViewDelegate {
         originalTextColor = messageTextView.textColor;
     }
     
-    func set(message item: ChatMessage) {
+    func set(message item: ChatMessage, maxMessageWidth: CGFloat) {
         messageTextView.textView.delegate = self;
         super.set(item: item)
                 
         mapView.removeFromSuperview()
         if isGeoLocation(message: item.message) {
-            setupLocationCell(message: item.message)
+            setupLocationCell(message: item.message, maxWidth: maxMessageWidth)
             self.item = item
             return
         }
@@ -120,10 +120,10 @@ class ChatTableViewCell: BaseChatTableViewCell, UITextViewDelegate {
         if item.state.direction == .incoming { minWidth += (nicknameView?.intrinsicContentSize.width ?? 0) }
          
         if let lockImageHidden = lockStateImageView?.isHidden, !lockImageHidden {minWidth += 15 }
-        let maxWidth = UIScreen.main.bounds.width * 0.60
+        
         let userFont = UIFont.systemFont(ofSize: 14)
         var textWidth = (item.message).width(withConstrainedHeight: .greatestFiniteMagnitude, font: userFont)
-        textWidth = textWidth > maxWidth ? maxWidth : textWidth
+        textWidth = textWidth > maxMessageWidth ? maxMessageWidth : textWidth
         textWidth = textWidth < minWidth ? minWidth : textWidth
         
         if let constraint = messageWidthConstraint {
@@ -178,7 +178,7 @@ class ChatTableViewCell: BaseChatTableViewCell, UITextViewDelegate {
         } else { return("","") }
     }
     
-    func setupLocationCell(message: String) {
+    func setupLocationCell(message: String, maxWidth: CGFloat) {
         let extractRegex = try! NSRegularExpression(pattern: "\\-?[0-9]+\\.?[0-9]*")
         let (lat,long) = matches(for: extractRegex, in: message)
         guard let lat = Double(lat), let long = Double(long) else { return }
@@ -190,7 +190,7 @@ class ChatTableViewCell: BaseChatTableViewCell, UITextViewDelegate {
         mapView.trailingAnchor.constraint(equalTo: messageTextView.trailingAnchor, constant: -5).isActive = true
         mapView.heightAnchor.constraint(equalToConstant: 200).isActive = true
         if let constraint = messageWidthConstraint {
-            constraint.constant = UIScreen.main.bounds.width * 0.60
+            constraint.constant = maxWidth
         }
         let location = CLLocation(latitude: lat, longitude: long)
         mapView.centerToLocation(location, animated: false)
@@ -198,6 +198,8 @@ class ChatTableViewCell: BaseChatTableViewCell, UITextViewDelegate {
         annotation.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
         mapView.addAnnotation(annotation)
     }
+    
+    
     
 }
 
