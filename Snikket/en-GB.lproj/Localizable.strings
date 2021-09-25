@@ -8,7 +8,7 @@
 "(private message)" = "(private message)";
 
 /* No comment provided by engineer. */
-"1 line of preview" = "En rads förhandsvisning";
+"1 line of preview" = "1 line of preview";
 
 /* Alert dialog title - account is offline */
 "Account Offline" = "Account Offline";
@@ -20,50 +20,50 @@
 "Account Removal Failed" = "Account Removal Failed";
 
 /* No comment provided by engineer. */
-"Accounts" = "Konton";
+"Accounts" = "Accounts";
 
 /* No comment provided by engineer. */
 "Add account" = "Add account";
 
 /* No comment provided by engineer. */
-"Addresses" = "Adresser";
-
-/* How many messages to fetch from the server */
-"All" = "Alla";
+"Addresses" = "Addresses";
 
 /* No comment provided by engineer. */
-"All messages will be deleted and all participants will be kicked out. Are you sure?" = "Alla meddelanden kommer raderas och alla deltagare blir utsparkade. Är du säker?";
+"All" = "All";
 
 /* No comment provided by engineer. */
-"Attachment" = "Bilaga";
+"All messages will be deleted and all participants will be kicked out. Are you sure?" = "All messages will be deleted and all participants will be kicked out. Are you sure?";
 
 /* No comment provided by engineer. */
-"Attachments" = "Bilagor";
+"Attachment" = "Attachment";
 
 /* No comment provided by engineer. */
-"Audio call" = "Ljudsamtal";
+"Attachments" = "Attachments";
+
+/* No comment provided by engineer. */
+"Audio call" = "Audio call";
 
 /* App Theme Type */
 "Auto" = "Auto";
 
 /* Status Option
    Status Options */
-"Automatic" = "Automatiskt";
+"Automatic" = "Automatic";
 
 /* Status Options */
-"Away" = "Borta";
+"Away" = "Away";
 
 /* No comment provided by engineer. */
 "Ban user" = "Ban user";
 
 /* No comment provided by engineer. */
-"Banning user" = "Portar användare";
+"Banning user" = "Banning user";
 
 /* No comment provided by engineer. */
-"Be right back" = "Strax tillbaka";
+"Be right back" = "Be right back";
 
 /* Sorting Chat Messages */
-"By availability and time" = "Efter tillgänglighet och tid";
+"By availability and time" = "By availability and time";
 
 /* No comment provided by engineer. */
 "By name" = "By name";
@@ -72,61 +72,61 @@
 "By status" = "By status";
 
 /* Sorting Chat Messages */
-"By time" = "Efter tid";
+"By time" = "By time";
 
 /* No comment provided by engineer. */
-"Call ended" = "Samtalet avslutades";
+"Call ended" = "Call ended";
 
 /* No comment provided by engineer. */
-"Call failed" = "Samtal misslyckades";
+"Call failed" = "Call failed";
 
 /* No comment provided by engineer. */
-"Cancel" = "Avbryt";
+"Cancel" = "Cancel";
 
 /* No comment provided by engineer. */
-"Change" = "Ändra";
+"Change" = "Change";
 
 /* No comment provided by engineer. */
-"Change avatar" = "Ändra profilbild";
+"Change avatar" = "Change avatar";
 
 /* No comment provided by engineer. */
-"Change subject" = "Ändra ämne";
+"Change subject" = "Change subject";
 
 /* No comment provided by engineer. */
-"Channel destruction failed!" = "Kanalförstörelsen misslyckades!";
+"Channel destruction failed!" = "Channel destruction failed!";
 
 /* Status Options */
 "Chat" = "Chat";
 
 /* No comment provided by engineer. */
-"Clear History" = "Rensa historik";
+"Clear History" = "Clear History";
 
 /* No comment provided by engineer. */
-"Close" = "Stäng";
+"Close" = "Close";
 
 /* Action button */
 "Connect" = "Connect";
 
 /* No comment provided by engineer. */
-"Connecting..." = "Ansluter...";
+"Connecting..." = "Connecting...";
 
 /* No comment provided by engineer. */
-"Continue" = "Fortsätt";
+"Continue" = "Continue";
 
 /* No comment provided by engineer. */
 "Could not connect to the service. Check your network connectivity or try again later." = "Could not connect to the service. Check your network connectivity or try again later.";
 
 /* No comment provided by engineer. */
-"Could not rename group chat. The server responded with an error:" = "Kunde inte döpa om chatt.Servern svarade med ett felmeddelande:";
+"Could not rename group chat. The server responded with an error:" = "Could not rename group chat. The server responded with an error:";
 
 /* No comment provided by engineer. */
 "Could not set group chat avatar. The server responded with an error:" = "Could not set group chat avatar. The server responded with an error:";
 
 /* No comment provided by engineer. */
-"Create" = "Skapa";
+"Create" = "Create";
 
 /* App Theme Type */
-"Dark" = "Mörk";
+"Dark" = "Dark";
 
 /* No comment provided by engineer. */
 "Default" = "Default";
@@ -141,13 +141,13 @@
 "Delete all" = "Delete all";
 
 /* No comment provided by engineer. */
-"Delete channel?" = "Radera kanal?";
+"Delete channel?" = "Delete channel?";
 
 /* No comment provided by engineer. */
 "Delete chat" = "Delete chat";
 
 /* No comment provided by engineer. */
-"Delete group chat?" = "Radera gruppchatt?";
+"Delete group chat?" = "Delete group chat?";
 
 /* No comment provided by engineer. */
 "Details" = "Details";
@@ -156,13 +156,13 @@
 "Display" = "Display";
 
 /* Status Options */
-"Do not disturb" = "Stör ej";
+"Do not disturb" = "Do not disturb";
 
 /* No comment provided by engineer. */
-"Do you want to ban user" = "Vill du porta användaren";
+"Do you want to ban user" = "Do you want to ban user";
 
 /* No comment provided by engineer. */
-"Edit" = "Redigera";
+"Edit" = "Edit";
 
 /* No comment provided by engineer. */
 "Emails" = "Emails";
@@ -171,19 +171,19 @@
 "Enable automatic message synchronization" = "Enable automatic message synchronization";
 
 /* No comment provided by engineer. */
-"Encryption" = "Kryptering";
+"Encryption" = "Encryption";
 
 /* No comment provided by engineer. */
-"Enter default nickname to use in chats" = "Ange visningsnamn att använda i chattar";
+"Enter default nickname to use in chats" = "Enter default nickname to use in chats";
 
 /* No comment provided by engineer. */
 "Enter message to send to:" = "Enter message to send to:";
 
 /* No comment provided by engineer. */
-"Enter new name for group chat" = "Ange nytt namn för gruppchatt";
+"Enter new name for group chat" = "Enter new name for group chat";
 
 /* No comment provided by engineer. */
-"Enter new subject for group chat" = "Ange nytt ämne för gruppchatt";
+"Enter new subject for group chat" = "Enter new subject for group chat";
 
 /* No comment provided by engineer. */
 "Enter status message" = "Enter status message";
@@ -192,16 +192,16 @@
 "Error" = "Error";
 
 /* Status Options */
-"Extended away" = "Borta en längre stund";
+"Extended away" = "Extended away";
 
 /* No comment provided by engineer. */
 "Failed To Update Contact List" = "Failed To Update Contact List";
 
 /* No comment provided by engineer. */
-"Failure" = "Fel";
+"Failure" = "Failure";
 
 /* No comment provided by engineer. */
-"Fingerprint of this device" = "Den här enhetens fingeravtryck";
+"Fingerprint of this device" = "Fingerprint of this device";
 
 /* No comment provided by engineer. */
 "For best experience it is suggested to enable Message Archving with automatic message synchronization of at least last 12 hours.\nDo you wish to do this now?" = "For best experience it is suggested to enable Message Archving with automatic message synchronization of at least last 12 hours.\nDo you wish to do this now?";
@@ -213,19 +213,19 @@
 "General" = "General";
 
 /* No comment provided by engineer. */
-"History" = "Historia";
+"History" = "History";
 
 /* No comment provided by engineer. */
 "Info" = "Info";
 
 /* No comment provided by engineer. */
-"Invitation" = "Inbjudan";
+"Invitation" = "Invitation";
 
 /* No comment provided by engineer. */
-"Invite" = "Inbjudan";
+"Invite" = "Invite";
 
 /* No comment provided by engineer. */
-"It was not possible to access camera or microphone. Please check privacy settings" = "Kunde inte komma åt kamera eller mikrofon. Kontrollera integritetsinställningarna";
+"It was not possible to access camera or microphone. Please check privacy settings" = "It was not possible to access camera or microphone. Please check privacy settings";
 
 /* No comment provided by engineer. */
 "It was not possible to access camera. Please check in privacy settings that you have granted Snikket access to the camera." = "It was not possible to access camera. Please check in privacy settings that you have granted Snikket access to the camera.";
@@ -237,37 +237,37 @@
 "It was not possible to destroy channel %@. Server returned an error:" = "It was not possible to destroy channel %@. Server returned an error:";
 
 /* No comment provided by engineer. */
-"It was not possible to establish call" = "Kunde inte etablera samtal";
+"It was not possible to establish call" = "It was not possible to establish call";
 
 /* No comment provided by engineer. */
-"Join group chat" = "Gå med i gruppchatt";
+"Join group chat" = "Join group chat";
 
 /* No comment provided by engineer. */
-"Joined" = "Gick med";
+"Joined" = "Joined";
 
 /* No comment provided by engineer. */
-"Joining..." = "Går med...";
+"Joining..." = "Joining...";
 
 /* No comment provided by engineer. */
-"Key not generated!" = "Nyckel ej genererad!";
+"Key not generated!" = "Key not generated!";
 
 /* Placeholder is number of days */
-"Last %d days" = "Senaste %d dagarna";
+"Last %d days" = "Last %d days";
 
 /* Placeholder is hours value */
-"Last %d hours" = "Senaste %d timmarna";
+"Last %d hours" = "Last %d hours";
 
 /* No comment provided by engineer. */
-"Leave chat" = "Lämna chatt";
+"Leave chat" = "Leave chat";
 
 /* App Theme Type */
-"Light" = "Ljus";
+"Light" = "Light";
 
 /* No comment provided by engineer. */
 "Limits the size of the files sent to you which may be automatically downloaded" = "Limits the size of the files sent to you which may be automatically downloaded";
 
 /* No comment provided by engineer. */
-"lines of preview" = "förhandsvisade rader";
+"lines of preview" = "lines of preview";
 
 /* No comment provided by engineer. */
 "List of Messages" = "List of Messages";
@@ -282,16 +282,16 @@
 "Media" = "Media";
 
 /* No comment provided by engineer. */
-"Member" = "Medlem";
+"Member" = "Member";
 
 /* No comment provided by engineer. */
-"Message Archiving" = "Meddelandearkivering";
+"Message Archiving" = "Message Archiving";
 
 /* No comment provided by engineer. */
-"Message Archiving Error" = "Meddelandearkiveringsfel";
+"Message Archiving Error" = "Message Archiving Error";
 
 /* No comment provided by engineer. */
-"Message Synchronization" = "Meddelandesynkronisering";
+"Message Synchronization" = "Message Synchronization";
 
 /* No comment provided by engineer. */
 "Messages" = "Messages";
@@ -300,37 +300,37 @@
 "Name" = "Name";
 
 /* No comment provided by engineer. */
-"New call..." = "Nytt samtal...";
+"New call..." = "New call...";
 
 /* No comment provided by engineer. */
-"New private group chat" = "Ny privat gruppchatt";
+"New private group chat" = "New private group chat";
 
 /* No comment provided by engineer. */
-"New public group chat" = "Ny publik gruppchatt";
+"New public group chat" = "New public group chat";
 
 /* No comment provided by engineer. */
-"Nickname" = "Visningsnamn";
+"Nickname" = "Nickname";
 
 /* No comment provided by engineer. */
 "No" = "No";
 
 /* No comment provided by engineer. */
-"No attachments" = "Inga bilagor";
+"No attachments" = "No attachments";
 
 /* No comment provided by engineer. */
-"No messages yet. Say hi!" = "Inga meddelanden än. Säg hej!";
+"No messages yet. Say hi!" = "No messages yet. Say hi!";
 
 /* No comment provided by engineer. */
 "None" = "None";
 
 /* No comment provided by engineer. */
-"Not connected!" = "Inte ansluten!";
+"Not connected!" = "Not connected!";
 
 /* No comment provided by engineer. */
 "Not Joined" = "Not Joined";
 
-/* How many messages to fetch from the server */
-"Nothing" = "Ingenting";
+/* No comment provided by engineer. */
+"Nothing" = "Nothing";
 
 /* No comment provided by engineer. */
 "Offline" = "Offline";
@@ -338,20 +338,20 @@
 /* No comment provided by engineer. */
 "OK" = "OK";
 
-/* Action: Delete all downloaded files over 7 days old */
+/* No comment provided by engineer. */
 "Older than 7 days" = "Older than 7 days";
 
-/* Encryption mode */
+/* No comment provided by engineer. */
 "OMEMO" = "OMEMO";
 
 /* Status Options */
 "Online" = "Online";
 
 /* No comment provided by engineer. */
-"Operation timed out" = "Operationen fick time out";
+"Operation timed out" = "Operation timed out";
 
 /* No comment provided by engineer. */
-"operation timed out" = "operationen fick time out";
+"operation timed out" = "operation timed out";
 
 /* No comment provided by engineer. */
 "Original quality will share image in the format in which it is stored on your phone and it may not be supported by every device." = "Original quality will share image in the format in which it is stored on your phone and it may not be supported by every device.";
@@ -360,13 +360,13 @@
 "Original quality will share video in the format in which video is stored on your phone and it may not be supported by every device." = "Original quality will share video in the format in which video is stored on your phone and it may not be supported by every device.";
 
 /* No comment provided by engineer. */
-"Other devices fingerprints" = "Andra enheters fingeravtryck";
+"Other devices fingerprints" = "Other devices fingerprints";
 
 /* No comment provided by engineer. */
-"Phones" = "Telefoner";
+"Phones" = "Phones";
 
 /* No comment provided by engineer. */
-"Please try again!" = "Vänligen försök igen!";
+"Please try again!" = "Please try again!";
 
 /* No comment provided by engineer. */
 "Private message" = "Private message";
@@ -387,79 +387,79 @@
 "Push Notifications Error" = "Push Notifications Error";
 
 /* No comment provided by engineer. */
-"Quality of shared media" = "Kvalité på delad media";
+"Quality of shared media" = "Quality of shared media";
 
 /* Placeholder is the number in MBs */
 "Received files are using %d MB of storage." = "Received files are using %d MB of storage.";
 
 /* No comment provided by engineer. */
-"Register" = "Registrera";
+"Register" = "Register";
 
 /* Alert title */
-"Registration Failure" = "Misslyckad Registrering";
+"Registration Failure" = "Registration Failure";
 
 /* No comment provided by engineer. */
 "Registration is not supported by this server" = "Registration is not supported by this server";
 
 /* No comment provided by engineer. */
-"Remove account from application?" = "Ta bort konto från applikation?";
+"Remove account from application?" = "Remove account from application?";
 
 /* No comment provided by engineer. */
-"Remove from application" = "Ta bort från applikationen";
+"Remove from application" = "Remove from application";
 
 /* No comment provided by engineer. */
-"Rename" = "Byt namn";
+"Rename" = "Rename";
 
 /* No comment provided by engineer. */
-"Rename chat" = "Döp om chatt";
+"Rename chat" = "Rename chat";
 
 /* No comment provided by engineer. */
 "Report" = "Report";
 
 /* No comment provided by engineer. */
-"Report and Block" = "Rapportera och blockera";
+"Report and Block" = "Report and Block";
 
 /* No comment provided by engineer. */
 "Report Contact" = "Report Contact";
 
 /* No comment provided by engineer. */
-"Reported" = "Rapporterad";
+"Reported" = "Reported";
 
 /* No comment provided by engineer. */
-"Reporting..." = "Rapporterar...";
+"Reporting..." = "Reporting...";
 
 /* No comment provided by engineer. */
-"Resend" = "Skicka igen";
+"Resend" = "Resend";
 
 /* No comment provided by engineer. */
-"Ringing..." = "Ringer...";
+"Ringing..." = "Ringing...";
 
 /* No comment provided by engineer. */
-"Save" = "Spara";
+"Save" = "Save";
 
 /* No comment provided by engineer. */
-"Scanned QR code is not valid for Snikket." = "Skannad QR-kod är inte giltig för Snikket.";
+"Scanned QR code is not valid for Snikket." = "Scanned QR code is not valid for Snikket.";
 
 /* No comment provided by engineer. */
-"Search channels" = "Sök efter kanaler";
+"Search channels" = "Search channels";
 
 /* No comment provided by engineer. */
-"Select photo" = "Välj foto";
+"Select photo" = "Select photo";
 
 /* No comment provided by engineer. */
-"Select quality of the image to use for sharing" = "Välj kvalité på bild för delning";
+"Select quality of the image to use for sharing" = "Select quality of the image to use for sharing";
 
 /* No comment provided by engineer. */
 "Select quality of the video to use for sharing" = "Select quality of the video to use for sharing";
 
 /* No comment provided by engineer. */
-"Select status" = "Välj status";
+"Select status" = "Select status";
 
 /* No comment provided by engineer. */
 "Send" = "Send";
 
 /* No comment provided by engineer. */
-"Send Current Location" = "Skicka nuvarande plats";
+"Send Current Location" = "Send Current Location";
 
 /* No comment provided by engineer. */
 "Send message" = "Send message";
@@ -474,10 +474,10 @@
 "server returned an error on the request to enable archiving. You can try to enable this feature later on from the account settings." = "server returned an error on the request to enable archiving. You can try to enable this feature later on from the account settings.";
 
 /* No comment provided by engineer. */
-"Server returned an error:" = "Serverns felmeddelande:";
+"Server returned an error:" = "Server returned an error:";
 
 /* No comment provided by engineer. */
-"Server returned error:" = "Serverns felmeddelande:";
+"Server returned error:" = "Server returned error:";
 
 /* No comment provided by engineer. */
 "Service is not available at this time." = "Service is not available at this time.";
@@ -486,10 +486,10 @@
 "Set" = "Set";
 
 /* No comment provided by engineer. */
-"Settings" = "Inställningar";
+"Settings" = "Settings";
 
 /* No comment provided by engineer. */
-"Should account be removed from server as well?" = "Ska kontot tas bort från servern också?";
+"Should account be removed from server as well?" = "Should account be removed from server as well?";
 
 /* No comment provided by engineer. */
 "Snikket can be automatically notified by compatible XMPP servers about new messages when it is in background or stopped.\nIf enabled, notifications about new messages will be forwarded to our push component and delivered to the device. These notifications may contain message senders jid and part of a message.\nDo you want to enable push notifications?" = "Snikket can be automatically notified by compatible XMPP servers about new messages when it is in background or stopped.\nIf enabled, notifications about new messages will be forwarded to our push component and delivered to the device. These notifications may contain message senders jid and part of a message.\nDo you want to enable push notifications?";
@@ -498,13 +498,13 @@
 "Status" = "Status";
 
 /* No comment provided by engineer. */
-"Take photo" = "Ta foto";
+"Take photo" = "Take photo";
 
 /* followed by a space and error condition */
 "The server returned an error:" = "The server returned an error:";
 
 /* No comment provided by engineer. */
-"The server returned an error: " = "Serverns felmeddelande: ";
+"The server returned an error: " = "The server returned an error: ";
 
 /* No comment provided by engineer. */
 "The user will be reported and any calls, messages and status updates from them will be blocked." = "The user will be reported and any calls, messages and status updates from them will be blocked.";
@@ -513,52 +513,52 @@
 "This room is not capable of sending encrypted messages. Please change encryption settings to be able to send messages" = "This room is not capable of sending encrypted messages. Please change encryption settings to be able to send messages";
 
 /* No comment provided by engineer. */
-"This will delete all the message history for this chat. Continue?" = "Detta raderar all meddelandehistorik för den här chatten. Fortsätta?";
+"This will delete all the message history for this chat. Continue?" = "This will delete all the message history for this chat. Continue?";
 
 /* No comment provided by engineer. */
-"Unblock" = "Avblockera";
+"Unblock" = "Unblock";
 
 /* No comment provided by engineer. */
-"Unkown error occured" = "Okänt fel uppstod";
+"Unkown error occured" = "Unkown error occured";
 
 /* No comment provided by engineer. */
-"Unlimited" = "Obegränsad";
+"Unlimited" = "Unlimited";
 
 /* No comment provided by engineer. */
-"Used image and video quality may impact storage and network usage" = "Vald bild- och videokvalité kan påverka lagring och dataanvändning";
+"Used image and video quality may impact storage and network usage" = "Used image and video quality may impact storage and network usage";
 
 /* No comment provided by engineer. */
 "User with provided username already exists" = "User with provided username already exists";
 
-/* followed by account name to select */
-"using" = "använder";
+/* No comment provided by engineer. */
+"using" = "using";
 
 /* No comment provided by engineer. */
-"Video call" = "Videosamtal";
+"Video call" = "Video call";
 
 /* No comment provided by engineer. */
-"Warning" = "Varning";
+"Warning" = "Warning";
 
 /* No comment provided by engineer. */
 "When you share files using HTTP, they are uploaded to HTTP server with unique URL. Anyone who knows the unique URL to the file is able to download it.\nDo you wish to enable?" = "When you share files using HTTP, they are uploaded to HTTP server with unique URL. Anyone who knows the unique URL to the file is able to download it.\nDo you wish to enable?";
 
 /* No comment provided by engineer. */
-"Yes" = "Ja";
+"Yes" = "Yes";
 
 /* No comment provided by engineer. */
-"Yesterday" = "Igår";
+"Yesterday" = "Yesterday";
 
 /* No comment provided by engineer. */
-"You are invited to join conversation at" = "Du är inbjuden till konversationen i";
+"You are invited to join conversation at" = "You are invited to join conversation at";
 
 /* No comment provided by engineer. */
-"You are leaving the group chat" = "Du lämnar gruppchatten";
+"You are leaving the group chat" = "You are leaving the group chat";
 
 /* No comment provided by engineer. */
 "You are not connected to room.\nPlease wait reconnection to room" = "You are not connected to room.\nPlease wait reconnection to room";
 
 /* No comment provided by engineer. */
-"You are not joined to the channel." = "Du är inte med i kanalen.";
+"You are not joined to the channel." = "You are not joined to the channel.";
 
 /* No comment provided by engineer. */
 "You need to connect to your account before you can update your contact list. Do you wish to connect now?" = "You need to connect to your account before you can update your contact list. Do you wish to connect now?";
@@ -567,4 +567,4 @@
 "You've left there room %@ and push notifications for this room were disabled!\nYou may need to reenable them on other devices." = "You've left there room %@ and push notifications for this room were disabled!\nYou may need to reenable them on other devices.";
 
 /* No comment provided by engineer. */
-"Your Name" = "Ditt Namn";
+"Your Name" = "Your Name";
