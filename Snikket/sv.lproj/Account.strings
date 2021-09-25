@@ -1,29 +1,29 @@
 /* Class = "UILabel"; text = "add email"; ObjectID = "06Y-Cg-0Q3"; */
-"06Y-Cg-0Q3.text" = "add email";
+"06Y-Cg-0Q3.text" = "lägg till epost";
 
 /* Class = "UILabel"; text = "Nickname"; ObjectID = "27D-rn-4zp"; */
-"27D-rn-4zp.text" = "Nickname";
+"27D-rn-4zp.text" = "Visningsnamn";
 
 /* Class = "UITextField"; placeholder = "Country"; ObjectID = "4hs-GL-9fd"; */
-"4hs-GL-9fd.placeholder" = "Country";
+"4hs-GL-9fd.placeholder" = "Land";
 
 /* Class = "UILabel"; text = "Change account settings"; ObjectID = "70p-aF-3x5"; */
-"70p-aF-3x5.text" = "Change account settings";
+"70p-aF-3x5.text" = "Ändra kontoinställningar";
 
 /* Class = "UILabel"; text = "Scan QR Code to add me as a buddy"; ObjectID = "7cH-MH-cya"; */
 "7cH-MH-cya.text" = "Scan QR Code to add me as a buddy";
 
 /* Class = "UITextField"; placeholder = "Required"; ObjectID = "7KN-S3-8XR"; */
-"7KN-S3-8XR.placeholder" = "Required";
+"7KN-S3-8XR.placeholder" = "Måste anges";
 
 /* Class = "UITableViewSection"; headerTitle = "Message Archiving"; ObjectID = "9PW-Rb-rop"; */
-"9PW-Rb-rop.headerTitle" = "Message Archiving";
+"9PW-Rb-rop.headerTitle" = "Meddelandearkivering";
 
 /* Class = "UITableViewController"; title = "OMEMO fingerprints"; ObjectID = "A24-eF-tzh"; */
-"A24-eF-tzh.title" = "OMEMO fingerprints";
+"A24-eF-tzh.title" = "OMEMO-fingeravtryck";
 
 /* Class = "UILabel"; text = "When in Away/XA/DND state"; ObjectID = "aKW-CM-bl2"; */
-"aKW-CM-bl2.text" = "When in Away/XA/DND state";
+"aKW-CM-bl2.text" = "I Borta/Stör ej-läge";
 
 /* Class = "UILabel"; text = "John Doe"; ObjectID = "bDD-UG-Fxr"; */
 "bDD-UG-Fxr.text" = "John Doe";
@@ -32,73 +32,73 @@
 "BE2-bI-S0Z.text" = "9dfacd3d 410d52bc 35f8e816 c7efc5b6 efe138e5 452a9e96 f30c2839 63b46241 ";
 
 /* Class = "UITextField"; placeholder = "Type"; ObjectID = "Clb-vT-t5A"; */
-"Clb-vT-t5A.placeholder" = "Type";
+"Clb-vT-t5A.placeholder" = "Typ";
 
 /* Class = "UITextField"; placeholder = "City"; ObjectID = "Cmz-iN-c4d"; */
-"Cmz-iN-c4d.placeholder" = "City";
+"Cmz-iN-c4d.placeholder" = "Stad";
 
 /* Class = "UITableViewSection"; headerTitle = "Encryption"; ObjectID = "Et5-H6-t7C"; */
-"Et5-H6-t7C.headerTitle" = "Encryption";
+"Et5-H6-t7C.headerTitle" = "Kryptering";
 
 /* Class = "UILabel"; text = "Subtitle"; ObjectID = "FeX-5F-H2m"; */
-"FeX-5F-H2m.text" = "Subtitle";
+"FeX-5F-H2m.text" = "Undertitel";
 
 /* Class = "UILabel"; text = "add address"; ObjectID = "fRX-fN-yOj"; */
-"fRX-fN-yOj.text" = "add address";
+"fRX-fN-yOj.text" = "lägg till adress";
 
 /* Class = "UILabel"; text = "Synchronization"; ObjectID = "GNS-EF-AqY"; */
-"GNS-EF-AqY.text" = "Synchronization";
+"GNS-EF-AqY.text" = "Synkronisering";
 
 /* Class = "UILabel"; text = "Enabled"; ObjectID = "GTa-Ee-HQT"; */
-"GTa-Ee-HQT.text" = "Enabled";
+"GTa-Ee-HQT.text" = "Aktiverad";
 
 /* Class = "UILabel"; text = "OMEMO fingerprint"; ObjectID = "gUr-GY-P3A"; */
-"gUr-GY-P3A.text" = "OMEMO fingerprint";
+"gUr-GY-P3A.text" = "OMEMO-fingeravtryck";
 
 /* Class = "UILabel"; text = "Delete"; ObjectID = "GWw-NK-6oU"; */
-"GWw-NK-6oU.text" = "Delete";
+"GWw-NK-6oU.text" = "Radera";
 
 /* Class = "UINavigationItem"; title = "Account settings"; ObjectID = "gzC-dB-kIF"; */
-"gzC-dB-kIF.title" = "Account settings";
+"gzC-dB-kIF.title" = "Kontoinställningar";
 
 /* Class = "UILabel"; text = "Address"; ObjectID = "i2f-mN-qTd"; */
-"i2f-mN-qTd.text" = "Address";
+"i2f-mN-qTd.text" = "Adress";
 
 /* Class = "UIBarButtonItem"; title = "Done"; ObjectID = "ijD-Kb-uyj"; */
-"ijD-Kb-uyj.title" = "Done";
+"ijD-Kb-uyj.title" = "Klar";
 
 /* Class = "UILabel"; text = "Automatic synchronization"; ObjectID = "J9o-cf-vMy"; */
-"J9o-cf-vMy.text" = "Automatic synchronization";
+"J9o-cf-vMy.text" = "Automatisk synkronisering";
 
 /* Class = "UILabel"; text = "add phone"; ObjectID = "jAE-vq-Vfj"; */
-"jAE-vq-Vfj.text" = "add phone";
+"jAE-vq-Vfj.text" = "lägg till telefon";
 
 /* Class = "UILabel"; text = "Detail"; ObjectID = "JkB-3h-A61"; */
-"JkB-3h-A61.text" = "Detail";
+"JkB-3h-A61.text" = "Detalj";
 
 /* Class = "UITextField"; placeholder = "Street"; ObjectID = "KgL-GY-IFp"; */
-"KgL-GY-IFp.placeholder" = "Street";
+"KgL-GY-IFp.placeholder" = "Gata";
 
 /* Class = "UITableViewSection"; headerTitle = " Password"; ObjectID = "LO4-Ys-cek"; */
-"LO4-Ys-cek.headerTitle" = " Password";
+"LO4-Ys-cek.headerTitle" = " Lösenord";
 
 /* Class = "UIButton"; normalTitle = "Change avatar"; ObjectID = "Mo3-sc-7ss"; */
-"Mo3-sc-7ss.normalTitle" = "Change avatar";
+"Mo3-sc-7ss.normalTitle" = "Ändra profilbild";
 
 /* Class = "UITextField"; placeholder = "Type"; ObjectID = "NK4-tE-QSu"; */
-"NK4-tE-QSu.placeholder" = "Type";
+"NK4-tE-QSu.placeholder" = "Typ";
 
 /* Class = "UITextField"; placeholder = "Code"; ObjectID = "NUu-KT-QM5"; */
-"NUu-KT-QM5.placeholder" = "Code";
+"NUu-KT-QM5.placeholder" = "Kod";
 
 /* Class = "UITableViewSection"; headerTitle = "Push Notifications"; ObjectID = "PvC-LX-0Sp"; */
-"PvC-LX-0Sp.headerTitle" = "Push Notifications";
+"PvC-LX-0Sp.headerTitle" = "Push-Notiser";
 
 /* Class = "UITextField"; placeholder = "user@domain.com"; ObjectID = "qTN-JT-Mcr"; */
 "qTN-JT-Mcr.placeholder" = "user@domain.com";
 
 /* Class = "UIBarButtonItem"; title = "Next"; ObjectID = "R0m-k2-q64"; */
-"R0m-k2-q64.title" = "Next";
+"R0m-k2-q64.title" = "Nästa";
 
 /* Class = "UITableViewSection"; footerTitle = "Enter your account JID"; ObjectID = "SKG-bP-NPK"; */
 "SKG-bP-NPK.footerTitle" = "Enter your account JID";
@@ -107,37 +107,37 @@
 "SKG-bP-NPK.headerTitle" = " XMPP ID";
 
 /* Class = "UITextField"; placeholder = "Phone number"; ObjectID = "T1r-DU-iqs"; */
-"T1r-DU-iqs.placeholder" = "Phone number";
+"T1r-DU-iqs.placeholder" = "Telefonnummer";
 
 /* Class = "UILabel"; text = "Server features"; ObjectID = "t3T-uh-mob"; */
 "t3T-uh-mob.text" = "Server features";
 
 /* Class = "UITextField"; placeholder = "Type"; ObjectID = "UQ1-rc-tuY"; */
-"UQ1-rc-tuY.placeholder" = "Type";
+"UQ1-rc-tuY.placeholder" = "Typ";
 
 /* Class = "UITableViewSection"; headerTitle = "General"; ObjectID = "v8B-ee-zAk"; */
-"v8B-ee-zAk.headerTitle" = "General";
+"v8B-ee-zAk.headerTitle" = "Generellt";
 
 /* Class = "UILabel"; text = "Company, Inc."; ObjectID = "vF4-tE-C74"; */
-"vF4-tE-C74.text" = "Company, Inc.";
+"vF4-tE-C74.text" = "Företag AB";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "vjD-aw-Ugt"; */
 "vjD-aw-Ugt.text" = "Label";
 
 /* Class = "UILabel"; text = "Enabled"; ObjectID = "wbI-5v-vug"; */
-"wbI-5v-vug.text" = "Enabled";
+"wbI-5v-vug.text" = "Aktiverad";
 
 /* Class = "UITableViewController"; title = "Server Features"; ObjectID = "wW7-3f-Kck"; */
 "wW7-3f-Kck.title" = "Server Features";
 
 /* Class = "UILabel"; text = "Last 24 hours"; ObjectID = "XLZ-oR-88H"; */
-"XLZ-oR-88H.text" = "Last 24 hours";
+"XLZ-oR-88H.text" = "Senaste 24 timmarna";
 
 /* Class = "UITextField"; placeholder = "Email address"; ObjectID = "ynp-RE-XlY"; */
-"ynp-RE-XlY.placeholder" = "Email address";
+"ynp-RE-XlY.placeholder" = "Epostadress";
 
 /* Class = "UILabel"; text = "Re-register push notifications"; ObjectID = "ZHc-Ml-5eX"; */
 "ZHc-Ml-5eX.text" = "Re-register push notifications";
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "zhp-jp-Aoq"; */
-"zhp-jp-Aoq.text" = "Title";
+"zhp-jp-Aoq.text" = "Titel";
