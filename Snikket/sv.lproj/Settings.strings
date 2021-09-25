@@ -1,23 +1,23 @@
 /* Class = "UINavigationController"; title = "Settings"; ObjectID = "15C-WY-qrp"; */
-"15C-WY-qrp.title" = "Settings";
+"15C-WY-qrp.title" = "Inställningar";
 
 /* Class = "UILabel"; text = "Request delivery receipts"; ObjectID = "32B-bc-CHX"; */
-"32B-bc-CHX.text" = "Request delivery receipts";
+"32B-bc-CHX.text" = "Be om mottagarkvitto";
 
 /* Class = "UILabel"; text = "Show emoticons"; ObjectID = "3a8-1d-3PR"; */
-"3a8-1d-3PR.text" = "Show emoticons";
+"3a8-1d-3PR.text" = "Visa emojis";
 
 /* Class = "UILabel"; text = "Notifications"; ObjectID = "3pd-ay-sAI"; */
-"3pd-ay-sAI.text" = "Notifications";
+"3pd-ay-sAI.text" = "Notifikationer";
 
 /* Class = "UILabel"; text = "About"; ObjectID = "3vM-ad-4ap"; */
-"3vM-ad-4ap.text" = "About";
+"3vM-ad-4ap.text" = "Om";
 
 /* Class = "UILabel"; text = "Account name"; ObjectID = "7ho-Mu-thd"; */
-"7ho-Mu-thd.text" = "Account name";
+"7ho-Mu-thd.text" = "Namn på kontot";
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "7tC-Eh-kK5"; */
-"7tC-Eh-kK5.text" = "Title";
+"7tC-Eh-kK5.text" = "Titel";
 
 /* Class = "UILabel"; text = "Media"; ObjectID = "8G3-tm-sCO"; */
 "8G3-tm-sCO.text" = "Media";
@@ -26,97 +26,97 @@
 "8K5-bS-ddh.text" = "Enable markdown";
 
 /* Class = "UILabel"; text = "Encryption"; ObjectID = "9Gl-4Z-f2X"; */
-"9Gl-4Z-f2X.text" = "Encryption";
+"9Gl-4Z-f2X.text" = "Kryptering";
 
 /* Class = "UILabel"; text = "No blocked contacts"; ObjectID = "Aki-gv-qus"; */
-"Aki-gv-qus.text" = "No blocked contacts";
+"Aki-gv-qus.text" = "Inga blockerade kontakter";
 
 /* Class = "UILabel"; text = "Photos quality"; ObjectID = "bbT-7s-6ph"; */
-"bbT-7s-6ph.text" = "Photos quality";
+"bbT-7s-6ph.text" = "Kvalité på foton";
 
 /* Class = "UILabel"; text = "Send message on return"; ObjectID = "Bd4-qf-OsU"; */
 "Bd4-qf-OsU.text" = "Send message on return";
 
 /* Class = "UILabel"; text = "File download limit"; ObjectID = "bj6-vP-3A7"; */
-"bj6-vP-3A7.text" = "File download limit";
+"bj6-vP-3A7.text" = "Nedladdningsgräns";
 
 /* Class = "UILabel"; text = "Videos quality"; ObjectID = "bKW-ln-Kez"; */
-"bKW-ln-Kez.text" = "Videos quality";
+"bKW-ln-Kez.text" = "Kvalité på video";
 
 /* Class = "UILabel"; text = "None"; ObjectID = "bPa-aU-WFn"; */
 "bPa-aU-WFn.text" = "None";
 
 /* Class = "UILabel"; text = "Use public STUN servers"; ObjectID = "BSa-RZ-M7L"; */
-"BSa-RZ-M7L.text" = "Use public STUN servers";
+"BSa-RZ-M7L.text" = "Använd publika STUN-servrar";
 
 /* Class = "UILabel"; text = "Contacts in groups"; ObjectID = "BSk-tI-BDM"; */
-"BSk-tI-BDM.text" = "Contacts in groups";
+"BSk-tI-BDM.text" = "Kontakter i grupper";
 
 /* Class = "UILabel"; text = "Notifications from unknown"; ObjectID = "cyb-st-Bmw"; */
-"cyb-st-Bmw.text" = "Notifications from unknown";
+"cyb-st-Bmw.text" = "Notiser från okänd";
 
 /* Class = "UILabel"; text = "XMPP Quickstart / Pipelining"; ObjectID = "dbq-Tl-d6b"; */
 "dbq-Tl-d6b.text" = "XMPP Quickstart / Pipelining";
 
 /* Class = "UILabel"; text = "Chats"; ObjectID = "etv-3w-9lA"; */
-"etv-3w-9lA.text" = "Chats";
+"etv-3w-9lA.text" = "Chattar";
 
 /* Class = "UILabel"; text = "File sharing via HTTP"; ObjectID = "eZJ-fR-LPh"; */
 "eZJ-fR-LPh.text" = "File sharing via HTTP";
 
 /* Class = "UILabel"; text = "Subtitle"; ObjectID = "fB5-hb-x8m"; */
-"fB5-hb-x8m.text" = "Subtitle";
+"fB5-hb-x8m.text" = "Undertitel";
 
 /* Class = "UITableViewController"; title = "Experimental"; ObjectID = "FGQ-GL-dYt"; */
-"FGQ-GL-dYt.title" = "Experimental";
+"FGQ-GL-dYt.title" = "Experimentell";
 
 /* Class = "UILabel"; text = "Appearance"; ObjectID = "fxY-aA-n0i"; */
-"fxY-aA-n0i.text" = "Appearance";
+"fxY-aA-n0i.text" = "Visning";
 
 /* Class = "UIBarButtonItem"; title = "Close"; ObjectID = "G2W-rB-KuE"; */
-"G2W-rB-KuE.title" = "Close";
+"G2W-rB-KuE.title" = "Stäng";
 
 /* Class = "UILabel"; text = "2 lines"; ObjectID = "g4v-o5-nXZ"; */
-"g4v-o5-nXZ.text" = "2 lines";
+"g4v-o5-nXZ.text" = "2 rader";
 
 /* Class = "UITableViewController"; title = "Notification settings"; ObjectID = "GfS-6V-cuc"; */
-"GfS-6V-cuc.title" = "Notification settings";
+"GfS-6V-cuc.title" = "Notisinställningar";
 
 /* Class = "UILabel"; text = "Contacts"; ObjectID = "hGX-FI-YNj"; */
-"hGX-FI-YNj.text" = "Contacts";
+"hGX-FI-YNj.text" = "Kontakter";
 
 /* Class = "UILabel"; text = "Clear download cache"; ObjectID = "Hu1-2i-RSO"; */
-"Hu1-2i-RSO.text" = "Clear download cache";
+"Hu1-2i-RSO.text" = "Töm nedladdningscache";
 
 /* Class = "UILabel"; text = "Media"; ObjectID = "ieE-mK-uEm"; */
 "ieE-mK-uEm.text" = "Media";
 
 /* Class = "UILabel"; text = "Clear chat on close"; ObjectID = "ioL-eS-dDk"; */
-"ioL-eS-dDk.text" = "Clear chat on close";
+"ioL-eS-dDk.text" = "Töm chatt vid stängning";
 
 /* Class = "UINavigationItem"; title = "Settings"; ObjectID = "jeY-X9-tWB"; */
-"jeY-X9-tWB.title" = "Settings";
+"jeY-X9-tWB.title" = "Inställningar";
 
 /* Class = "UILabel"; text = "Light"; ObjectID = "L2t-Ud-Fkc"; */
-"L2t-Ud-Fkc.text" = "Light";
+"L2t-Ud-Fkc.text" = "Ljus";
 
 /* Class = "UILabel"; text = "By presence and time"; ObjectID = "LAc-oF-22z"; */
-"LAc-oF-22z.text" = "By presence and time";
+"LAc-oF-22z.text" = "Efter tillgänglighet och tid";
 
 /* Class = "UILabel"; text = "Auto-authorize contacts"; ObjectID = "MGl-L6-Fs3"; */
-"MGl-L6-Fs3.text" = "Auto-authorize contacts";
+"MGl-L6-Fs3.text" = "Godkänn kontaktförfrågningar automatiskt";
 
 /* Class = "UILabel"; text = "Blocked contacts"; ObjectID = "MJ0-kw-1Kl"; */
-"MJ0-kw-1Kl.text" = "Blocked contacts";
+"MJ0-kw-1Kl.text" = "Blockerade kontakter";
 
 /* Class = "UILabel"; text = "\"Hidden\" group"; ObjectID = "P82-B8-768"; */
-"P82-B8-768.text" = "\"Hidden\" group";
+"P82-B8-768.text" = "\"Dold\" grupp";
 
 /* Class = "UITableViewController"; title = "Chat settings"; ObjectID = "pFo-ox-4gT"; */
-"pFo-ox-4gT.title" = "Chat settings";
+"pFo-ox-4gT.title" = "Chattinställningar";
 
 /* Class = "UILabel"; text = "Message Styling"; ObjectID = "Qu4-Mf-tz4"; */
-"Qu4-Mf-tz4.text" = "Message Styling";
+"Qu4-Mf-tz4.text" = "Formatering av Meddelanden";
 
 /* Class = "UILabel"; text = "Groupchats bookmarks sync"; ObjectID = "Tbt-L3-jpa"; */
 "Tbt-L3-jpa.text" = "Groupchats bookmarks sync";
@@ -131,19 +131,19 @@
 "UuL-li-3gA.text" = "20 MB";
 
 /* Class = "UITableViewController"; title = "Contacts settings"; ObjectID = "xRS-v5-T5C"; */
-"xRS-v5-T5C.title" = "Contacts settings";
+"xRS-v5-T5C.title" = "Inställningar för kontakter";
 
 /* Class = "UILabel"; text = "Sorting"; ObjectID = "Y0J-o4-ADK"; */
-"Y0J-o4-ADK.text" = "Sorting";
+"Y0J-o4-ADK.text" = "Sortering";
 
 /* Class = "UILabel"; text = "Status Type"; ObjectID = "Y3q-SX-IhN"; */
-"Y3q-SX-IhN.text" = "Status Type";
+"Y3q-SX-IhN.text" = "Statustyp";
 
 /* Class = "UILabel"; text = "Show link previews"; ObjectID = "ybc-mt-hVG"; */
-"ybc-mt-hVG.text" = "Show link previews";
+"ybc-mt-hVG.text" = "Förhandsvisning av länkar";
 
 /* Class = "UILabel"; text = "Experimental"; ObjectID = "YDd-q8-r7f"; */
-"YDd-q8-r7f.text" = "Experimental";
+"YDd-q8-r7f.text" = "Experimentell";
 
 /* Class = "UILabel"; text = "Message carbons"; ObjectID = "zwR-jn-5u6"; */
 "zwR-jn-5u6.text" = "Message carbons";
