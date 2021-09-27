@@ -245,10 +245,12 @@ class BaseChatViewController: UIViewController, UITextViewDelegate, ChatViewInpu
                     toRemove.append(notification.request.identifier);
                 }
             }
-            UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: toRemove);
-//            self.xmppService.dbChatHistoryStore.markAsRead(for: self.account, with: self.jid);
+            if !toRemove.isEmpty {
+                UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: toRemove)
+                NotificationCenter.default.post(name: DBChatStore.UNREAD_MESSAGES_COUNT_CHANGED, object: nil)
+            }
+            
         }
-        print("size:", chatViewInputBar.intrinsicContentSize, chatViewInputBar.frame.size);
     }
         
     override func viewWillDisappear(_ animated: Bool) {
