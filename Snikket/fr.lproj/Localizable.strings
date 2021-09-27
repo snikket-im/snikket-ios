@@ -1,8 +1,13 @@
+/* No comment provided by engineer. */
 " server returned an error on the request to enable push notifications. You can try to enable this feature later on from the account settings." = " server returned an error on the request to enable push notifications. You can try to enable this feature later on from the account settings.";
 
 /* Placeholder is the MBs Download Limit */
 "%d MB" = "%d Mio";
+
+/* No comment provided by engineer. */
 "(private message)" = "(message privé)";
+
+/* No comment provided by engineer. */
 "1 line of preview" = "Une ligne de preview";
 
 /* Alert dialog title - account is offline */
@@ -13,15 +18,29 @@
 
 /* Alert title */
 "Account Removal Failed" = "Échec de la suppression du compte";
+
+/* No comment provided by engineer. */
 "Accounts" = "Comptes";
+
+/* No comment provided by engineer. */
 "Add account" = "Ajouter un compte";
+
+/* No comment provided by engineer. */
 "Addresses" = "Adresses";
 
 /* How many messages to fetch from the server */
 "All" = "All";
+
+/* No comment provided by engineer. */
 "All messages will be deleted and all participants will be kicked out. Are you sure?" = "Tous les messages vont être supprimés et les participants éjectés. Êtes-vous sur·e ?";
+
+/* No comment provided by engineer. */
 "Attachment" = "Pièce-jointe";
+
+/* No comment provided by engineer. */
 "Attachments" = "Pièces-jointes";
+
+/* No comment provided by engineer. */
 "Audio call" = "Appel audio";
 
 /* App Theme Type */
@@ -33,42 +52,86 @@
 
 /* Status Options */
 "Away" = "Absent·e";
+
+/* No comment provided by engineer. */
 "Ban user" = "Bannir l’utilisateur";
+
+/* No comment provided by engineer. */
 "Banning user" = "Banning user";
+
+/* No comment provided by engineer. */
 "Be right back" = "Bientôt de retour";
 
 /* Sorting Chat Messages */
 "By availability and time" = "Par disponibilité et temps";
+
+/* No comment provided by engineer. */
 "By name" = "Par nom";
+
+/* No comment provided by engineer. */
 "By status" = "Par statut";
 
 /* Sorting Chat Messages */
 "By time" = "Par date";
+
+/* No comment provided by engineer. */
 "Call ended" = "Appel fini";
+
+/* No comment provided by engineer. */
 "Call failed" = "Appel échoué";
+
+/* No comment provided by engineer. */
 "Cancel" = "Annuler";
+
+/* No comment provided by engineer. */
 "Change" = "Changer";
+
+/* No comment provided by engineer. */
 "Change avatar" = "Changer de photo";
+
+/* No comment provided by engineer. */
 "Change subject" = "Changer le sujet";
+
+/* No comment provided by engineer. */
 "Channel destruction failed!" = "Échec de la destruction de ce salon !";
 
 /* Status Options */
 "Chat" = "Chat";
+
+/* No comment provided by engineer. */
 "Clear History" = "Effacer l’historique";
+
+/* No comment provided by engineer. */
 "Close" = "Fermer";
 
 /* Action button */
 "Connect" = "Connecter";
+
+/* No comment provided by engineer. */
 "Connecting..." = "Connexion…";
+
+/* No comment provided by engineer. */
 "Continue" = "Continuer";
+
+/* No comment provided by engineer. */
 "Could not connect to the service. Check your network connectivity or try again later." = "Échec de la connexion au service. Vérifiez votre connectivité réseau ou réessayez plus tard.";
+
+/* No comment provided by engineer. */
 "Could not rename group chat. The server responded with an error:" = "Impossible de renommer ce salon. Le serveur a répondu par une erreur :";
+
+/* No comment provided by engineer. */
 "Could not set group chat avatar. The server responded with an error:" = "Impossible de définir la photo de ce salon. Le serveur a répondu par une erreur :";
+
+/* No comment provided by engineer. */
 "Create" = "Créer";
 
 /* App Theme Type */
 "Dark" = "Sombre";
+
+/* No comment provided by engineer. */
 "Default" = "Default";
+
+/* No comment provided by engineer. */
 "Delete" = "Supprimer";
 
 /* Account deletion action - destructive */
@@ -76,46 +139,116 @@
 
 /* Action: Delete all downloaded files */
 "Delete all" = "Tout supprimer";
+
+/* No comment provided by engineer. */
 "Delete channel?" = "Supprimer ce salon ?";
+
+/* No comment provided by engineer. */
 "Delete chat" = "Supprimer cette discussion";
+
+/* No comment provided by engineer. */
 "Delete group chat?" = "Supprimer ce salon ?";
+
+/* No comment provided by engineer. */
 "Details" = "Details";
+
+/* No comment provided by engineer. */
 "Display" = "Affichage";
 
 /* Status Options */
 "Do not disturb" = "Ne pas déranger";
+
+/* No comment provided by engineer. */
 "Do you want to ban user" = "Voulez-vous bannir cet utilisateur";
+
+/* No comment provided by engineer. */
 "Edit" = "Éditer";
+
+/* No comment provided by engineer. */
 "Emails" = "E-mails";
+
+/* No comment provided by engineer. */
 "Enable automatic message synchronization" = "Activer la synchronisation automatique des messages";
+
+/* No comment provided by engineer. */
 "Encryption" = "Chiffrement";
+
+/* No comment provided by engineer. */
 "Enter default nickname to use in chats" = "Entrez le pseudonyme à utiliser par défaut dans les discussions";
+
+/* No comment provided by engineer. */
 "Enter message to send to:" = "Entrer un message à envoyer à :";
+
+/* No comment provided by engineer. */
 "Enter new name for group chat" = "Entrez un nouveau nom pour ce salon";
+
+/* No comment provided by engineer. */
 "Enter new subject for group chat" = "Entrez le nouveau sujet de ce salon";
+
+/* No comment provided by engineer. */
 "Enter status message" = "Entrer un message de statut";
+
+/* No comment provided by engineer. */
 "Error" = "Erreur";
 
 /* Status Options */
 "Extended away" = "Non disponible";
+
+/* No comment provided by engineer. */
 "Failed To Update Contact List" = "Échec de la mise à jour de la liste de contact";
+
+/* No comment provided by engineer. */
 "Failure" = "Échec";
+
+/* No comment provided by engineer. */
 "Fingerprint of this device" = "Empreinte de ce client";
+
+/* No comment provided by engineer. */
 "For best experience it is suggested to enable Message Archving with automatic message synchronization of at least last 12 hours.\nDo you wish to do this now?" = "For best experience it is suggested to enable Message Archving with automatic message synchronization of at least last 12 hours.\nDo you wish to do this now?";
+
+/* No comment provided by engineer. */
 "Free for chat" = "Disponible pour discuter";
+
+/* No comment provided by engineer. */
 "General" = "Général";
+
+/* No comment provided by engineer. */
 "History" = "Historique";
+
+/* No comment provided by engineer. */
 "Info" = "Info";
+
+/* No comment provided by engineer. */
 "Invitation" = "Invitation";
+
+/* No comment provided by engineer. */
 "Invite" = "Inviter";
+
+/* No comment provided by engineer. */
 "It was not possible to access camera or microphone. Please check privacy settings" = "L’accès à la caméra ou au microphone a échoué. Veuillez vérifier les paramètres de vie privée";
+
+/* No comment provided by engineer. */
 "It was not possible to access camera. Please check in privacy settings that you have granted Snikket access to the camera." = "It was not possible to access camera. Please check in privacy settings that you have granted Snikket access to the camera.";
+
+/* No comment provided by engineer. */
 "It was not possible to contact XMPP server and sign in." = "Impossible de contacter le serveur XMPP et de se connecter.";
+
+/* No comment provided by engineer. */
 "It was not possible to destroy channel %@. Server returned an error:" = "It was not possible to destroy channel %@. Server returned an error:";
+
+/* No comment provided by engineer. */
 "It was not possible to establish call" = "Il n’a pas été possible de mener à bien cet appel";
+
+/* No comment provided by engineer. */
 "Join group chat" = "Rejoindre un salon";
+
+/* No comment provided by engineer. */
 "Joined" = "Rejoint";
+
+/* No comment provided by engineer. */
 "Joining..." = "Connexion…";
+
+/* No comment provided by engineer. */
 "Key not generated!" = "Clé non-générée !";
 
 /* Placeholder is number of days */
@@ -123,40 +256,86 @@
 
 /* Placeholder is hours value */
 "Last %d hours" = "Dernières %d heures";
+
+/* No comment provided by engineer. */
 "Leave chat" = "Quitter cette discussion";
 
 /* App Theme Type */
 "Light" = "Clair";
+
+/* No comment provided by engineer. */
 "Limits the size of the files sent to you which may be automatically downloaded" = "Limite la taille du téléchargement automatique des fichiers qui vous sont envoyés";
+
+/* No comment provided by engineer. */
 "lines of preview" = "lignes de preview";
+
+/* No comment provided by engineer. */
 "List of Messages" = "Liste de messages";
+
+/* No comment provided by engineer. */
 "Login and password do not match." = "Login and password do not match.";
 
 /* Alert title for storage usage */
 "Manage Storage" = "Gestion du stockage";
+
+/* No comment provided by engineer. */
 "Media" = "Média";
+
+/* No comment provided by engineer. */
 "Member" = "Membre";
+
+/* No comment provided by engineer. */
 "Message Archiving" = "Archivage des messages";
+
+/* No comment provided by engineer. */
 "Message Archiving Error" = "Erreur d’archivage de message";
+
+/* No comment provided by engineer. */
 "Message Synchronization" = "Synchronisation des messages";
+
+/* No comment provided by engineer. */
 "Messages" = "Messages";
+
+/* No comment provided by engineer. */
 "Name" = "Nom";
+
+/* No comment provided by engineer. */
 "New call..." = "Nouvel appel…";
+
+/* No comment provided by engineer. */
 "New private group chat" = "Nouveau salon privé";
+
+/* No comment provided by engineer. */
 "New public group chat" = "Nouveau salon public";
+
+/* No comment provided by engineer. */
 "Nickname" = "Pseudonyme";
+
+/* No comment provided by engineer. */
 "No" = "Non";
+
+/* No comment provided by engineer. */
 "No attachments" = "Aucune pièce jointe";
+
+/* No comment provided by engineer. */
 "No messages yet. Say hi!" = "Aucun message, dites bonjour !";
 
 /* Encryption mode */
 "None" = "None";
+
+/* No comment provided by engineer. */
 "Not connected!" = "Pas connecté !";
+
+/* No comment provided by engineer. */
 "Not Joined" = "Pas connecté";
 
 /* How many messages to fetch from the server */
 "Nothing" = "Rien";
+
+/* No comment provided by engineer. */
 "Offline" = "Hors-ligne";
+
+/* No comment provided by engineer. */
 "OK" = "OK";
 
 /* Action: Delete all downloaded files over 7 days old */
@@ -167,19 +346,47 @@
 
 /* Status Options */
 "Online" = "En-ligne";
+
+/* No comment provided by engineer. */
 "Operation timed out" = "Délais d’attente dépassé";
+
+/* No comment provided by engineer. */
 "operation timed out" = "délais d’attente dépassé";
+
+/* No comment provided by engineer. */
 "Original quality will share image in the format in which it is stored on your phone and it may not be supported by every device." = "Original quality will share image in the format in which it is stored on your phone and it may not be supported by every device.";
+
+/* No comment provided by engineer. */
 "Original quality will share video in the format in which video is stored on your phone and it may not be supported by every device." = "Original quality will share video in the format in which video is stored on your phone and it may not be supported by every device.";
+
+/* No comment provided by engineer. */
 "Other devices fingerprints" = "Empreintes des autres clients";
+
+/* No comment provided by engineer. */
 "Phones" = "Téléphones";
+
+/* No comment provided by engineer. */
 "Please try again!" = "Merci de réessayer !";
+
+/* No comment provided by engineer. */
 "Private message" = "Message privé";
+
+/* No comment provided by engineer. */
 "Provided values are not acceptable" = "Les valeurs fournies ne sont pas acceptables";
+
+/* No comment provided by engineer. */
 "Push Notifications" = "Notifications de push";
+
+/* No comment provided by engineer. */
 "Push notifications" = "Notifications de push";
+
+/* No comment provided by engineer. */
 "Push notifications are enabled for %@. They need to be disabled before account can be removed and it is not possible to at this time. Please try again later." = "Push notifications are enabled for %@. They need to be disabled before account can be removed and it is not possible to at this time. Please try again later.";
+
+/* No comment provided by engineer. */
 "Push Notifications Error" = "Erreur de notification de push";
+
+/* No comment provided by engineer. */
 "Quality of shared media" = "Qualité des média partagés";
 
 /* Placeholder is the number in MBs */
@@ -190,68 +397,174 @@
 
 /* Alert title */
 "Registration Failure" = "Échec de l’inscription";
+
+/* No comment provided by engineer. */
 "Registration is not supported by this server" = "Les inscriptions sont désactivées sur ce serveur";
+
+/* No comment provided by engineer. */
 "Remove account from application?" = "Supprimer ce compte de l’application ?";
 
 /* Account deletion action */
 "Remove from application" = "Supprimer de l’application";
+
+/* No comment provided by engineer. */
 "Rename" = "Renommer";
+
+/* No comment provided by engineer. */
 "Rename chat" = "Renommer la discussion";
+
+/* No comment provided by engineer. */
 "Report" = "Rapporter";
+
+/* No comment provided by engineer. */
 "Report and Block" = "Rapporter et bloquer";
+
+/* No comment provided by engineer. */
 "Report Contact" = "Rapporter ce contact";
+
+/* No comment provided by engineer. */
 "Reported" = "Rapporté";
+
+/* No comment provided by engineer. */
 "Reporting..." = "Reporting...";
+
+/* No comment provided by engineer. */
 "Resend" = "Ré-envoyer";
+
+/* No comment provided by engineer. */
 "Ringing..." = "Ça sonne…";
+
+/* No comment provided by engineer. */
 "Save" = "Enregistrer";
+
+/* No comment provided by engineer. */
 "Scanned QR code is not valid for Snikket." = "Le QR code scanné n’est pas valide pour Snikket.";
+
+/* No comment provided by engineer. */
 "Search channels" = "Recherche de salons";
+
+/* No comment provided by engineer. */
 "Select photo" = "Sélectionner une photo";
+
+/* No comment provided by engineer. */
 "Select quality of the image to use for sharing" = "Sélectionner la qualité d’image à utiliser pour partager";
+
+/* No comment provided by engineer. */
 "Select quality of the video to use for sharing" = "Sélectionner la qualité vidéo à utiliser pour le partage";
+
+/* No comment provided by engineer. */
 "Select status" = "Sélectionner votre statut";
+
+/* No comment provided by engineer. */
 "Send" = "Envoyer";
+
+/* No comment provided by engineer. */
 "Send Current Location" = "Envoyer la position courante";
+
+/* No comment provided by engineer. */
 "Send message" = "Envoyer le message";
+
+/* No comment provided by engineer. */
 "Send Pin Location" = "Envoyer la position prédéfinie";
+
+/* No comment provided by engineer. */
 "Server did not respond to registration request" = "Le serveur n’a pas répondu à la requête d’inscription";
+
+/* No comment provided by engineer. */
 "server returned an error on the request to enable archiving. You can try to enable this feature later on from the account settings." = "server returned an error on the request to enable archiving. You can try to enable this feature later on from the account settings.";
+
+/* No comment provided by engineer. */
 "Server returned an error:" = "Le serveur a renvoyé une erreur :";
+
+/* No comment provided by engineer. */
 "Server returned error:" = "Erreur renvoyée par le serveur :";
+
+/* No comment provided by engineer. */
 "Service is not available at this time." = "Ce service n’est pas disponible pour l’instant.";
+
+/* No comment provided by engineer. */
 "Set" = "Définir";
+
+/* No comment provided by engineer. */
 "Settings" = "Préférences";
+
+/* No comment provided by engineer. */
 "Should account be removed from server as well?" = "Voulez-vous supprimer ce compte du serveur également ?";
+
+/* No comment provided by engineer. */
 "Snikket can be automatically notified by compatible XMPP servers about new messages when it is in background or stopped.\nIf enabled, notifications about new messages will be forwarded to our push component and delivered to the device. These notifications may contain message senders jid and part of a message.\nDo you want to enable push notifications?" = "Snikket can be automatically notified by compatible XMPP servers about new messages when it is in background or stopped.\nIf enabled, notifications about new messages will be forwarded to our push component and delivered to the device. These notifications may contain message senders jid and part of a message.\nDo you want to enable push notifications?";
+
+/* No comment provided by engineer. */
 "Status" = "Statut";
+
+/* No comment provided by engineer. */
 "Take photo" = "Prendre une photo";
 
 /* followed by a space and error condition */
 "The server returned an error:" = "Le serveur à renvoyé une erreur :";
+
+/* No comment provided by engineer. */
 "The server returned an error: " = "Le serveur a renvoyé une erreur : ";
+
+/* No comment provided by engineer. */
 "The user will be reported and any calls, messages and status updates from them will be blocked." = "The user will be reported and any calls, messages and status updates from them will be blocked.";
+
+/* No comment provided by engineer. */
 "This room is not capable of sending encrypted messages. Please change encryption settings to be able to send messages" = "This room is not capable of sending encrypted messages. Please change encryption settings to be able to send messages";
+
+/* No comment provided by engineer. */
 "This will delete all the message history for this chat. Continue?" = "Vous allez supprimer tout l’historique des messages de cette discussion. Voulez-vous continuer ?";
+
+/* No comment provided by engineer. */
 "Unblock" = "Débloquer";
+
+/* No comment provided by engineer. */
 "Unkown error occured" = "Erreur inconnue";
+
+/* No comment provided by engineer. */
 "Unlimited" = "Illimité";
+
+/* No comment provided by engineer. */
 "Used image and video quality may impact storage and network usage" = "La qualité d’image et vidéo utilisée peut impacter le stockage et l’utilisation des données";
+
+/* No comment provided by engineer. */
 "User with provided username already exists" = "Un utilisateur portant ce nom existe déjà";
 
 /* followed by account name to select */
 "using" = "using";
+
+/* No comment provided by engineer. */
 "Video call" = "Appel vidéo";
+
+/* No comment provided by engineer. */
 "Warning" = "Attention";
+
+/* No comment provided by engineer. */
 "When you share files using HTTP, they are uploaded to HTTP server with unique URL. Anyone who knows the unique URL to the file is able to download it.\nDo you wish to enable?" = "When you share files using HTTP, they are uploaded to HTTP server with unique URL. Anyone who knows the unique URL to the file is able to download it.\nDo you wish to enable?";
+
+/* No comment provided by engineer. */
 "Yes" = "Oui";
+
+/* No comment provided by engineer. */
 "Yesterday" = "Hier";
+
+/* No comment provided by engineer. */
 "You are invited to join conversation at" = "Vous avez été invité(e) à rejoindre une conversation à";
+
+/* No comment provided by engineer. */
 "You are leaving the group chat" = "Vous allez quitter ce salon";
+
+/* No comment provided by engineer. */
 "You are not connected to room.\nPlease wait reconnection to room" = "You are not connected to room.\nPlease wait reconnection to room";
+
+/* No comment provided by engineer. */
 "You are not joined to the channel." = "Vous n’êtes pas dans ce salon.";
+
+/* No comment provided by engineer. */
 "You need to connect to your account before you can update your contact list. Do you wish to connect now?" = "You need to connect to your account before you can update your contact list. Do you wish to connect now?";
 
 /* Placeholder is the Group Name */
 "You've left there room %@ and push notifications for this room were disabled!\nYou may need to reenable them on other devices." = "You've left there room %@ and push notifications for this room were disabled!\nYou may need to reenable them on other devices.";
+
+/* No comment provided by engineer. */
 "Your Name" = "Votre nom";
