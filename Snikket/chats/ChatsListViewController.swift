@@ -102,26 +102,35 @@ class ChatsListViewController: UITableViewController {
 //            cell.nameLabel.textColor = Appearance.current.labelColor;
             cell.nameLabel.font = item.unread > 0 ? UIFont.boldSystemFont(ofSize: cell.nameLabel.font.pointSize) : UIFont.systemFont(ofSize: cell.nameLabel.font.pointSize);
 //            cell.lastMessageLabel.textColor = item.unread > 0 ? Appearance.current.labelColor : Appearance.current.secondaryLabelColor;
-            let xmppClient = self.xmppService.getClient(forJid: item.account);
+            //let xmppClient = self.xmppService.getClient(forJid: item.account);
             switch item {
             case let room as DBRoom:
-                let memberNames = self.groupMemberNames(item: item)
-                let memberImages = self.groupMemberAvatars(item: item)
-                let memberBareJIDS = self.groupMembersJIDS(item: item)
-                cell.avatarStatusView.setGroup(bareJIDS: memberBareJIDS, memberNames: memberNames,memberImages: memberImages, groupAvatar: AvatarManager.instance.avatar(for: room.roomJid, on: room.account), defAvatar: AvatarManager.instance.defaultGroupchatAvatar)
-                cell.avatarStatusView.setStatus(room.state == .joined ? Presence.Show.online : nil);
-                cell.nameLabel.text = groupName(item: item)
+                self.xmppService.getClient(forJid: item.account) { client in
+                    let memberNames = self.groupMemberNames(item: item, xmppClient: client)
+                    let memberImages = self.groupMemberAvatars(item: item)
+                    let memberBareJIDS = self.groupMembersJIDS(item: item)
+                    DispatchQueue.main.async {
+                        cell.avatarStatusView.setGroup(bareJIDS: memberBareJIDS, memberNames: memberNames,memberImages: memberImages, groupAvatar: AvatarManager.instance.avatar(for: room.roomJid, on: room.account), defAvatar: AvatarManager.instance.defaultGroupchatAvatar)
+                        cell.avatarStatusView.setStatus(room.state == .joined ? Presence.Show.online : nil);
+                        cell.nameLabel.text = self.groupName(item: item, xmppClient: client)
+                    }
+                }
             case let channel as DBChannel:
                 cell.avatarStatusView.set(name: nil, avatar: AvatarManager.instance.avatar(for: channel.channelJid, on: channel.account), orDefault: AvatarManager.instance.defaultGroupchatAvatar);
                 cell.nameLabel.text = channel.name ?? item.jid.localPart ?? item.jid.stringValue;
                 cell.avatarStatusView.setStatus(channel.state == .joined ? Presence.Show.online : nil)
             default:
-                let name = PEPDisplayNameModule.getDisplayName(account: item.account, for: BareJID(item.jid))
-                cell.nameLabel.text = name
-                cell.avatarStatusView.set(bareJID: item.jid.bareJid ,name: name, avatar: AvatarManager.instance.avatar(for: item.jid.bareJid, on: item.account), orDefault: AvatarManager.instance.defaultAvatar);
-                let presenceModule: PresenceModule? = xmppClient?.modulesManager.getModule(PresenceModule.ID);
-                let presence = presenceModule?.presenceStore.getBestPresence(for: item.jid.bareJid);
-                cell.avatarStatusView.setStatus(presence?.show);
+                self.xmppService.getClient(forJid: item.account) { client in
+                    let presenceModule: PresenceModule? = client?.modulesManager.getModule(PresenceModule.ID)
+                    let presence = presenceModule?.presenceStore.getBestPresence(for: item.jid.bareJid)
+                    
+                    let name = PEPDisplayNameModule.getDisplayName(account: item.account, for: item.jid.bareJid, xmppClient: client)
+                    DispatchQueue.main.async {
+                        cell.avatarStatusView.setStatus(presence?.show)
+                        cell.nameLabel.text = name
+                        cell.avatarStatusView.set(bareJID: item.jid.bareJid ,name: name, avatar: AvatarManager.instance.avatar(for: item.jid.bareJid, on: item.account), orDefault: AvatarManager.instance.defaultAvatar)
+                    }
+                }
             }
             
             if let lastActivity = item.lastActivity {
@@ -417,7 +426,7 @@ class ChatsListViewController: UITableViewController {
         }
     }
     
-    fileprivate func groupName(item: DBChatProtocol) -> String {
+    fileprivate func groupName(item: DBChatProtocol, xmppClient: XMPPClient? = nil) -> String {
         guard let room = item as? DBRoom else { return "" }
         if let name = room.name {
             return name
@@ -426,7 +435,7 @@ class ChatsListViewController: UITableViewController {
             
             var name = ""
             for (index,memberJid) in jids.enumerated() {
-                let memberName = PEPDisplayNameModule.getDisplayName(account: item.account, for: memberJid.bareJid)
+                let memberName = PEPDisplayNameModule.getDisplayName(account: item.account, for: memberJid.bareJid, xmppClient: xmppClient)
                 if index != jids.count - 1 {
                     name += memberName + ", "
                 } else {
@@ -437,7 +446,7 @@ class ChatsListViewController: UITableViewController {
         }
     }
     
-    fileprivate func groupMemberNames(item: DBChatProtocol) -> [String] {
+    fileprivate func groupMemberNames(item: DBChatProtocol, xmppClient: XMPPClient? = nil) -> [String] {
         guard let room = item as? DBRoom, var jids = room.members else { return [] }
         var names: [String] = []
         jids.sort { $0.stringValue < $1.stringValue }
@@ -445,7 +454,7 @@ class ChatsListViewController: UITableViewController {
         for jid in jids {
             //if jids.count > 2, jid.bareJid == room.account { continue }
             
-            let memberName = PEPDisplayNameModule.getDisplayName(account: item.account, for: jid.bareJid)
+            let memberName = PEPDisplayNameModule.getDisplayName(account: item.account, for: jid.bareJid, xmppClient: xmppClient)
             names.append(memberName)
         }
         return names

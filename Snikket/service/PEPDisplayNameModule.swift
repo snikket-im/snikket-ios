@@ -92,8 +92,15 @@ class PEPDisplayNameModule: AbstractPEPModule {
         }
     }
     
-    static func getDisplayName(account: BareJID, for jid: BareJID) -> String {
-        guard let client = XmppService.instance.getClient(forJid: account) else { return "" }
+    static func getDisplayName(account: BareJID, for jid: BareJID, xmppClient: XMPPClient? = nil) -> String {
+        var client: XMPPClient? = nil
+        if xmppClient != nil {
+            client = xmppClient
+        } else {
+            client = XmppService.instance.getClient(forJid: account)
+        }
+        
+        guard let client = client else { return "" }
         
         let rosterModule: RosterModule? = client.modulesManager.getModule(RosterModule.ID);
         let rosterItem = rosterModule?.rosterStore.get(for: JID(jid))
