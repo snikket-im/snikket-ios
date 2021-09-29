@@ -70,7 +70,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         _ = JingleManager.instance;
-        UINavigationBar.appearance().tintColor = UIColor(named: "tintColor");
+
+        if #available(iOS 15, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+            appearance.backgroundColor = UIColor(named: "chatslistBackground")
+            UINavigationBar.appearance().standardAppearance = appearance;
+            UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        }
         NotificationManager.instance.initialize(provider: MainNotificationManagerProvider());
         xmppService.initialize();
         Settings.setDefaultSettings()
