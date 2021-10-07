@@ -99,3 +99,6 @@
 
 /* Class = "UIButton"; normalTitle = "Enable"; ObjectID = "yJk-Px-1oo"; */
 "yJk-Px-1oo.normalTitle" = "Enable";
+
+/* Class = "UILabel"; text = "Add to contact list"; ObjectID = "zrb-Yr-XQO"; */
+"zrb-Yr-XQO.text" = "Add to contact list";

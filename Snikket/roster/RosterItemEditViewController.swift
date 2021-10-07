@@ -51,11 +51,12 @@ class RosterItemEditViewController: UITableViewController, UIPickerViewDataSourc
         if let account = account, let jid = jid {
             self.jidTextField.isEnabled = false;
             self.accountTextField.isEnabled = false;
+            self.nameTextField.text = PEPDisplayNameModule.getDisplayName(account: account, for: BareJID(jid))
             
             if let sessionObject = xmppService.getClient(forJid: account)?.sessionObject {
                 let rosterStore: RosterStore = RosterModule.getRosterStore(sessionObject)
                 if let rosterItem = rosterStore.get(for: jid) {
-                    self.nameTextField.text = PEPDisplayNameModule.getDisplayName(account: account, for: BareJID(jid))
+                    
                     self.sendPresenceUpdatesSwitch.isOn = rosterItem.subscription.isFrom;
                     self.receivePresenceUpdatesSwitch.isOn = rosterItem.subscription.isTo;
                 }
