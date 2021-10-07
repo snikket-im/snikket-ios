@@ -46,7 +46,9 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
     override func conversationTableViewDelegate() -> UITableViewDelegate? {
         return self;
     }
-        
+    
+    @IBOutlet weak var addContactView: UIView!
+    
     override func viewDidLoad() {
         let messageModule: MessageModule? = XmppService.instance.getClient(forJid: account)?.modulesManager.getModule(MessageModule.ID);
         self.chat = messageModule?.chatManager.getChat(with: JID(self.jid), thread: nil) as? DBChat;
@@ -57,6 +59,8 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(ChatViewController.showBuddyInfo));
         self.titleView.isUserInteractionEnabled = true;
         self.navigationController?.navigationBar.addGestureRecognizer(recognizer);
+        addContactView.layer.cornerRadius = 10
+        addContactView.isHidden = true
 
         //initializeSharing();
         
@@ -65,7 +69,35 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
         NotificationCenter.default.addObserver(self, selector: #selector(chatChanged(_:)), name: DBChatStore.CHAT_UPDATED, object: nil);
         NotificationCenter.default.addObserver(self, selector: #selector(contactPresenceChanged(_:)), name: XmppService.CONTACT_PRESENCE_CHANGED, object: nil);
         NotificationCenter.default.addObserver(self, selector: #selector(rosterItemUpdated(_:)), name: DBRosterStore.ITEM_UPDATED, object: self);
-
+        NotificationCenter.default.addObserver(self, selector: #selector(subscriptionRequest), name: Notification.Name("SUBSCRIPTION_REQUEST"), object: nil);
+    }
+    
+    @objc func subscriptionRequest() {
+        if let contact = AppDelegate.subscriptionsRequest[account.stringValue], contact == self.jid.stringValue {
+            self.addContactView.isHidden = false
+        } else {
+            self.addContactView.isHidden = true
+        }
+    }
+    
+    
+    @IBAction func rejectSubscriptionTapped(_ sender: Any) {
+        guard let client = XmppService.instance.getClient(for: account), let presenceModule: PresenceModule = client.modulesManager.getModule(PresenceModule.ID) else { return }
+        presenceModule.unsubscribed(by: JID(jid, resource: nil))
+        AppDelegate.subscriptionsRequest.removeValue(forKey: self.account.stringValue)
+        DispatchQueue.main.async {
+            self.addContactView.isHidden = true
+        }
+    }
+    @IBAction func acceptSubscriptionTapped(_ sender: Any) {
+        if let navigationController = self.storyboard?.instantiateViewController(withIdentifier: "RosterItemEditNavigationController") as? UINavigationController {
+            let itemEditController = navigationController.visibleViewController as? RosterItemEditViewController
+            itemEditController?.hidesBottomBarWhenPushed = true
+            itemEditController?.account = account
+            itemEditController?.jid = JID(jid, resource: nil)
+            navigationController.modalPresentationStyle = .formSheet
+            self.present(navigationController, animated: true, completion: nil)
+        }
     }
     
     @objc func showBuddyInfo(_ button: Any) {
@@ -89,6 +121,7 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
         
         let presenceModule: PresenceModule? = XmppService.instance.getClient(forJid: account)?.modulesManager.getModule(PresenceModule.ID);
         titleView.status = presenceModule?.presenceStore.getBestPresence(for: jid);
+        subscriptionRequest()
     }
     
     override func viewWillDisappear(_ animated: Bool) {

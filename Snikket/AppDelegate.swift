@@ -39,6 +39,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return DBConnection.main;
     }
     
+    // Temporary Fix for Subscription Requests
+    static var subscriptionsRequest = [String:String]()
+    
     let notificationCenterDelegate = NotificationCenterDelegate();
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
