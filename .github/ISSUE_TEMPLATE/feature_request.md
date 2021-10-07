@@ -8,7 +8,7 @@ assignees: ''
 ---
 
 **Describe your feature proposal**
-A cleare and concise description of your feature request.
+A clear and concise description of your feature request.
 
 **Is your feature request related to a problem? Please describe.**
 Explain what problem this feature would solve for you, and what value it would
