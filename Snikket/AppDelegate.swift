@@ -74,13 +74,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         _ = JingleManager.instance;
 
-        if #available(iOS 15, *) {
+        if #available(iOS 13, *) {
             let appearance = UINavigationBarAppearance()
             appearance.configureWithOpaqueBackground()
-            appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+            appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "AddToContactsBar")!]
             appearance.backgroundColor = UIColor(named: "chatslistBackground")
             UINavigationBar.appearance().standardAppearance = appearance;
             UINavigationBar.appearance().scrollEdgeAppearance = appearance
+            UINavigationBar.appearance().compactAppearance = appearance
         }
         NotificationManager.instance.initialize(provider: MainNotificationManagerProvider());
         xmppService.initialize();
