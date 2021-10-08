@@ -39,6 +39,8 @@ class AccountSettingsViewController: UITableViewController {
     @IBOutlet var messageSyncAutomaticSwitch: UISwitch!;
     @IBOutlet var messageSyncPeriodLabel: UILabel!;
     
+    @IBOutlet weak var telephonyProviderLabel: UILabel!
+    
     @IBOutlet var omemoFingerprint: UILabel!;
     
     override func viewDidLoad() {
@@ -139,7 +141,7 @@ class AccountSettingsViewController: UITableViewController {
             }))
             self.navigationController?.present(controller, animated: true, completion: nil);
         }
-        if indexPath.section == 5 && indexPath.row == 0 {
+        if indexPath.section == 6 && indexPath.row == 0 {
             self.deleteAccount();
         }
         if indexPath.section == 2 && indexPath.row == 0 {
@@ -191,6 +193,7 @@ class AccountSettingsViewController: UITableViewController {
             })
         }
         messageSyncPeriodLabel.text = SyncTimeItem.descriptionFromHours(hours: AccountSettings.messageSyncPeriod(account).getDouble());
+        telephonyProviderLabel.text = AccountSettings.telephonyProvider(account).getString() ?? "None"
     }
     
     @objc func avatarChanged() {
@@ -226,6 +229,9 @@ class AccountSettingsViewController: UITableViewController {
         case "ManageOMEMOFingerprints":
             let destination = segue.destination as! OMEMOFingerprintsController;
             destination.account = account;
+        case "ShowTelephonyProviders":
+            let destination = segue.destination as! TelephonyProviderViewController
+            destination.account = account
         default:
             break;
         }

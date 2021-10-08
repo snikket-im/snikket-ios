@@ -249,6 +249,7 @@ public enum AccountSettings {
     case reconnectionLocation(BareJID)
     case pushHash(BareJID)
     case displayName(BareJID)
+    case telephonyProvider(BareJID)
     
     public var account: BareJID {
         switch self {
@@ -271,6 +272,8 @@ public enum AccountSettings {
         case .pushHash(let account):
             return account;
         case .displayName(let account):
+            return account
+        case .telephonyProvider(let account):
             return account
         }
     }
@@ -297,6 +300,8 @@ public enum AccountSettings {
             return "pushHash";
         case .displayName(_):
             return "displayName"
+        case .telephonyProvider(_):
+            return "TelephonyProvider"
         }
     }
     

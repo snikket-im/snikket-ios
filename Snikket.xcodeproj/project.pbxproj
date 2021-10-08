@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		373A8020271063E1000E50FE /* TelephonyProviderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373A801F271063E1000E50FE /* TelephonyProviderViewController.swift */; };
 		3759635F26F72F1900831F4C /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3759636126F72F1900831F4C /* Welcome.storyboard */; };
 		3759636A26F72FD700831F4C /* Groupchat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3759636C26F72FD700831F4C /* Groupchat.storyboard */; };
 		3759637126F7303100831F4C /* VoIP.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3759637326F7303100831F4C /* VoIP.storyboard */; };
@@ -302,6 +303,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		373A801F271063E1000E50FE /* TelephonyProviderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelephonyProviderViewController.swift; sourceTree = "<group>"; };
 		3759635C26F72EAA00831F4C /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		3759635D26F72ED700831F4C /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Main.strings; sourceTree = "<group>"; };
 		3759635E26F72ED700831F4C /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/MainInterface.strings; sourceTree = "<group>"; };
@@ -782,6 +784,7 @@
 				FE17808C23EB4C7F00A1EA76 /* AccountQRCodeController.swift */,
 				FE0E31112537288A0030F8C5 /* MediaSettingsVIewController.swift */,
 				E963721126D79D3A00332482 /* PrivacyPolicyTableViewCell.swift */,
+				373A801F271063E1000E50FE /* TelephonyProviderViewController.swift */,
 			);
 			path = settings;
 			sourceTree = "<group>";
@@ -1438,6 +1441,7 @@
 				FEBC12F524C70E7F00689475 /* DBChatHistorySyncStore.swift in Sources */,
 				FEDC6790238B05E4005C0FAB /* BlockedContactsController.swift in Sources */,
 				FE2332E1242CCDB400008ED4 /* InvitationChatTableViewCell.swift in Sources */,
+				373A8020271063E1000E50FE /* TelephonyProviderViewController.swift in Sources */,
 				FE3E38862428C21100D3A8E8 /* OSLog.swift in Sources */,
 				FECEF29423B7933A007EC323 /* MetadataCache.swift in Sources */,
 				E9D384B426CA95FF009BEAF3 /* UIDeviceExtension.swift in Sources */,
