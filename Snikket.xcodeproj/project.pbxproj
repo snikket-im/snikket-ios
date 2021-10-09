@@ -22,6 +22,7 @@
 		3797D5C026EA456F0091DAF8 /* HSLuvSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3797D5BF26EA456F0091DAF8 /* HSLuvSwift */; };
 		379D914A26E8A0E300B877CA /* db-schema-15.sql in Resources */ = {isa = PBXBuildFile; fileRef = 379D914926E8A0E300B877CA /* db-schema-15.sql */; };
 		379D914C26E8A29800B877CA /* DBLastMessageSyncStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379D914B26E8A29800B877CA /* DBLastMessageSyncStore.swift */; };
+		37B93BDF2711792300B943D0 /* TelephonyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B93BDE2711792300B943D0 /* TelephonyManager.swift */; };
 		E928AD4326D6A08A00F29F93 /* db-schema-14.sql in Resources */ = {isa = PBXBuildFile; fileRef = E928AD4226D6A08A00F29F93 /* db-schema-14.sql */; };
 		E95AA70226D38B6F00A38D44 /* DisplayNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95AA70126D38B6E00A38D44 /* DisplayNameViewController.swift */; };
 		E963721026D786D000332482 /* BlockingCommandModuleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E963720F26D786D000332482 /* BlockingCommandModuleExtension.swift */; };
@@ -338,6 +339,7 @@
 		3797D5BC26E9E42E0091DAF8 /* AvatarColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarColors.swift; sourceTree = "<group>"; };
 		379D914926E8A0E300B877CA /* db-schema-15.sql */ = {isa = PBXFileReference; lastKnownFileType = text; path = "db-schema-15.sql"; sourceTree = "<group>"; };
 		379D914B26E8A29800B877CA /* DBLastMessageSyncStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBLastMessageSyncStore.swift; sourceTree = "<group>"; };
+		37B93BDE2711792300B943D0 /* TelephonyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelephonyManager.swift; sourceTree = "<group>"; };
 		591D5EFC26FCA0AC00B2F114 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		591D5EFD26FCA0AC00B2F114 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/VoIP.strings; sourceTree = "<group>"; };
 		591D5EFE26FCA0AD00B2F114 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Groupchat.strings; sourceTree = "<group>"; };
@@ -1010,6 +1012,7 @@
 				FE3E3879242765E700D3A8E8 /* MixEventHandler.swift */,
 				E9EC2B3226D554C000222BB9 /* PEPDisplayNameModule.swift */,
 				E963720F26D786D000332482 /* BlockingCommandModuleExtension.swift */,
+				37B93BDE2711792300B943D0 /* TelephonyManager.swift */,
 			);
 			path = service;
 			sourceTree = "<group>";
@@ -1427,6 +1430,7 @@
 				FE4071E821E2653700F09B58 /* RoundButton.swift in Sources */,
 				FEAC717B1CECE70100ABABEF /* MucChatOccupantsTableViewCell.swift in Sources */,
 				FE7F9303200FD5AC004C6195 /* AccountManagerScramSaltedPasswordCache.swift in Sources */,
+				37B93BDF2711792300B943D0 /* TelephonyManager.swift in Sources */,
 				FE9625A01D9AE7CB00D07118 /* RosterProvider.swift in Sources */,
 				FEF19F0423473C06005CFE9A /* MessageEventHandler.swift in Sources */,
 				FE137A4C21F75660006B7F7C /* ChatBottomView.swift in Sources */,

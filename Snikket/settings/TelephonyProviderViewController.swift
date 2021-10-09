@@ -85,7 +85,7 @@ class TelephonyProviderViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-            AccountSettings.telephonyProvider(self.account).set(string: "None")
+            AccountSettings.telephonyProvider(self.account).set(string: nil)
             selected = "None"
         } else {
             let provider = providers[indexPath.row - 1]

@@ -168,7 +168,13 @@
 "Emails" = "E-mails";
 
 /* No comment provided by engineer. */
+"Enable %@" = "Enable %@";
+
+/* No comment provided by engineer. */
 "Enable automatic message synchronization" = "Activer la synchronisation automatique des messages";
+
+/* No comment provided by engineer. */
+"Enable telephony provider?" = "Enable telephony provider?";
 
 /* No comment provided by engineer. */
 "Encryption" = "Chiffrement";
@@ -541,6 +547,9 @@
 
 /* No comment provided by engineer. */
 "When you share files using HTTP, they are uploaded to HTTP server with unique URL. Anyone who knows the unique URL to the file is able to download it.\nDo you wish to enable?" = "When you share files using HTTP, they are uploaded to HTTP server with unique URL. Anyone who knows the unique URL to the file is able to download it.\nDo you wish to enable?";
+
+/* No comment provided by engineer. */
+"Would you like to use %@ as the default provider for outgoing SMS and calls from %@?" = "Would you like to use %1$@ as the default provider for outgoing SMS and calls from %2$@?";
 
 /* No comment provided by engineer. */
 "Yes" = "Oui";
