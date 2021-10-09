@@ -13,9 +13,6 @@
 /* Alert dialog title - account is offline */
 "Account Offline" = "Account Offline";
 
-/* Account deletion alert title */
-"Account Removal" = "Kontoborttagning";
-
 /* Alert title */
 "Account Removal Failed" = "Kontoborttagning Misslyckades";
 
@@ -134,9 +131,6 @@
 /* No comment provided by engineer. */
 "Delete" = "Delete";
 
-/* Account deletion action - destructive */
-"Delete account permanently" = "Radera konto permanent";
-
 /* Action: Delete all downloaded files */
 "Delete all" = "Radera alla";
 
@@ -148,6 +142,12 @@
 
 /* No comment provided by engineer. */
 "Delete group chat?" = "Radera gruppchatt?";
+
+/* No comment provided by engineer. */
+"Delete My Account" = "Delete My Account";
+
+/* No comment provided by engineer. */
+"Deleting your account will permanently log out all your devices and delete your account, profile, and associated data on %@." = "Deleting your account will permanently log out all your devices and delete your account, profile, and associated data on %@.";
 
 /* No comment provided by engineer. */
 "Details" = "Details";
@@ -279,6 +279,9 @@
 "List of Messages" = "List of Messages";
 
 /* No comment provided by engineer. */
+"Log Out" = "Log Out";
+
+/* No comment provided by engineer. */
 "Login and password do not match." = "Login and password do not match.";
 
 /* Alert title for storage usage */
@@ -369,6 +372,9 @@
 "Other devices fingerprints" = "Andra enheters fingeravtryck";
 
 /* No comment provided by engineer. */
+"Permanently Delete Account" = "Permanently Delete Account";
+
+/* No comment provided by engineer. */
 "Phones" = "Telefoner";
 
 /* No comment provided by engineer. */
@@ -408,10 +414,7 @@
 "Registration is not supported by this server" = "Registrering stöds inte på denna server";
 
 /* No comment provided by engineer. */
-"Remove account from application?" = "Ta bort konto från applikation?";
-
-/* Account deletion action */
-"Remove from application" = "Ta bort från applikationen";
+"Remove Account Data" = "Remove Account Data";
 
 /* No comment provided by engineer. */
 "Rename" = "Byt namn";
@@ -495,9 +498,6 @@
 "Settings" = "Inställningar";
 
 /* No comment provided by engineer. */
-"Should account be removed from server as well?" = "Ska kontot tas bort från servern också?";
-
-/* No comment provided by engineer. */
 "Snikket can be automatically notified by compatible XMPP servers about new messages when it is in background or stopped.\nIf enabled, notifications about new messages will be forwarded to our push component and delivered to the device. These notifications may contain message senders jid and part of a message.\nDo you want to enable push notifications?" = "Snikket kan automatiskt bli notifierad av kompatibla XMPP-servrar om nya meddelanden när den är i bakgrunden eller stoppad.\nOm aktiverat så skickas notifikationer om nya meddelanden till vår push-komponent and levereras till enheten. Dessa notifikationer kan innehålla meddelandets avsändare och del av meddelandet.\nVill du aktivera push-notiser?";
 
 /* No comment provided by engineer. */
@@ -568,6 +568,9 @@
 
 /* No comment provided by engineer. */
 "You are not joined to the channel." = "Du är inte med i kanalen.";
+
+/* No comment provided by engineer. */
+"You can log out of this account temporarily, or permanently remove all account data from this device (including chats). Account removal cannot be undone." = "You can log out of this account temporarily, or permanently remove all account data from this device (including chats). Account removal cannot be undone.";
 
 /* No comment provided by engineer. */
 "You need to connect to your account before you can update your contact list. Do you wish to connect now?" = "You need to connect to your account before you can update your contact list. Do you wish to connect now?";

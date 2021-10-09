@@ -58,8 +58,8 @@
 /* Class = "UILabel"; text = "OMEMO fingerprint"; ObjectID = "gUr-GY-P3A"; */
 "gUr-GY-P3A.text" = "OMEMO fingerprint";
 
-/* Class = "UILabel"; text = "Delete"; ObjectID = "GWw-NK-6oU"; */
-"GWw-NK-6oU.text" = "Delete";
+/* Class = "UILabel"; text = "Log out"; ObjectID = "GWw-NK-6oU"; */
+"GWw-NK-6oU.text" = "Log out";
 
 /* Class = "UINavigationItem"; title = "Account settings"; ObjectID = "gzC-dB-kIF"; */
 "gzC-dB-kIF.title" = "Account settings";
@@ -84,6 +84,9 @@
 
 /* Class = "UITextField"; placeholder = "Street"; ObjectID = "KgL-GY-IFp"; */
 "KgL-GY-IFp.placeholder" = "Street";
+
+/* Class = "UILabel"; text = "Delete account"; ObjectID = "lGT-wY-qtX"; */
+"lGT-wY-qtX.text" = "Delete account";
 
 /* Class = "UITableViewSection"; headerTitle = " Password"; ObjectID = "LO4-Ys-cek"; */
 "LO4-Ys-cek.headerTitle" = " Password";

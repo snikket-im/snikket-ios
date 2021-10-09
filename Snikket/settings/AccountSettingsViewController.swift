@@ -141,9 +141,13 @@ class AccountSettingsViewController: UITableViewController {
             }))
             self.navigationController?.present(controller, animated: true, completion: nil);
         }
+        
         if indexPath.section == 6 && indexPath.row == 0 {
-            self.deleteAccount();
+            self.logOutSheet(indexPath: indexPath)
+        } else if indexPath.section == 6 && indexPath.row == 1 {
+            self.deleteAccountSheet(indexPath: indexPath)
         }
+        
         if indexPath.section == 2 && indexPath.row == 0 {
             let client = XmppService.instance.getClient(for: account)
             let pushModule: SiskinPushNotificationsModule? = client?.modulesManager.getModule(SiskinPushNotificationsModule.ID)
@@ -413,108 +417,138 @@ class AccountSettingsViewController: UITableViewController {
         }
     }
     
-    func deleteAccount() {
-        guard let account = self.account, let config = AccountManager.getAccount(for: account) else {
-            return;
+    func disableAccount() {
+        if let config = AccountManager.getAccount(for: account) {
+            config.active = false
+            AccountSettings.LastError(account).set(string: nil);
+            AccountManager.save(account: config);
         }
         
-        let removeAccount: (BareJID, Bool)->Void = { account, fromServer in
-            if fromServer {
-                if let client = XmppService.instance.getClient(forJid: BareJID(account)), client.state == .connected {
-                    let regModule = client.modulesManager.register(InBandRegistrationModule());
-                    regModule.unregister({ (stanza) in
-                        DispatchQueue.main.async() {
-                            _ = AccountManager.deleteAccount(for: account);
-                            self.navigationController?.popViewController(animated: true);
-                        }
-                    })
-                } else {
-                    DispatchQueue.main.async {
-                        let alert = UIAlertController(title: NSLocalizedString("Account Removal Failed",comment: "Alert title"), message: NSLocalizedString("Could not connect to the service. Check your network connectivity or try again later.",comment: ""), preferredStyle: .alert);
-                        alert.addAction(UIAlertAction(title: NSLocalizedString("OK",comment: ""), style: .default, handler: { _ in
-                            self.tableView.reloadData();
-                        }));
-                        self.present(alert, animated: true, completion: nil);
-                    }
-                }
-            } else {
-                DispatchQueue.main.async {
-                    _ = AccountManager.deleteAccount(for: account);
-                    self.navigationController?.popViewController(animated: true);
-                }
-            }
-        };
+        if let client = XmppService.instance.getClient(forJid: account) {
+            client.disconnect()
+        }
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func logOutSheet(indexPath: IndexPath) {
+        let sheet = UIAlertController(title: NSLocalizedString("Log Out", comment: ""), message: NSLocalizedString("You can log out of this account temporarily, or permanently remove all account data from this device (including chats). Account removal cannot be undone.", comment: ""), preferredStyle: .actionSheet)
         
-        self.askAboutAccountRemoval(account: account, atRow: IndexPath(row: 0, section: 5), completionHandler: { result in
-            switch result {
-            case .success(let removeFromServer):
-                if let pushSettings = config.pushSettings {
-                    if let client = XmppService.instance.getClient(forJid: BareJID(account)), client.state == .connected, let pushModule: SiskinPushNotificationsModule = client.modulesManager.getModule(SiskinPushNotificationsModule.ID) {
-                        pushModule.unregisterDeviceAndDisable(completionHandler: { result in
-                            switch result {
-                            case .success(_):
-                                // now remove the account...
-                                removeAccount(account, removeFromServer)
-                                break;
-                            case .failure(_):
-                                PushEventHandler.unregisterDevice(from: pushSettings.jid.bareJid, account: account, deviceId: pushSettings.deviceId, completionHandler: { result in
-                                    config.pushSettings = nil;
-                                    AccountManager.save(account: config);
-                                    DispatchQueue.main.async {
-                                        switch result {
-                                        case .success(_):
-                                            removeAccount(account, removeFromServer);
-                                        case .failure(let _):
-                                            
-                                            let alert = UIAlertController(title: NSLocalizedString("Account Removal Failed",comment: "Alert title"), message: String.localizedStringWithFormat(NSLocalizedString("Push notifications are enabled for %@. They need to be disabled before account can be removed and it is not possible to at this time. Please try again later.", comment: ""), account.stringValue), preferredStyle: .alert);
-                                            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil));
-                                            self.present(alert, animated: true, completion: nil);
-                                        }
-                                    }
-                                })
-                            }
-                        });
-                    } else {
+        let removeDataAction = UIAlertAction(title: NSLocalizedString("Remove Account Data", comment: ""), style: .destructive) { _ in
+            self.deleteAccountData(fromServer: false)
+        }
+        
+        let logOutAction = UIAlertAction(title: NSLocalizedString("Log Out", comment: ""), style: .default) { _ in
+            self.disableAccount()
+        }
+        
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
+        
+        sheet.addAction(removeDataAction)
+        sheet.addAction(logOutAction)
+        sheet.addAction(cancelAction)
+        
+        sheet.popoverPresentationController?.sourceView = self.tableView
+        sheet.popoverPresentationController?.sourceRect = self.tableView.rectForRow(at: indexPath)
+        self.present(sheet, animated: true, completion: nil)
+    }
+    
+    func deleteAccountSheet(indexPath: IndexPath) {
+        
+        let sheet = UIAlertController(title: NSLocalizedString("Permanently Delete Account", comment: ""), message: String.localizedStringWithFormat(NSLocalizedString("Deleting your account will permanently log out all your devices and delete your account, profile, and associated data on %@.", comment: ""), account.domain), preferredStyle: .actionSheet)
+        
+        let deleteAction = UIAlertAction(title: NSLocalizedString("Delete My Account", comment: ""), style: .destructive) { _ in
+            self.deleteAccountData(fromServer: true)
+        }
+        
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
+        
+        sheet.addAction(deleteAction)
+        sheet.addAction(cancelAction)
+        sheet.popoverPresentationController?.sourceView = self.tableView
+        sheet.popoverPresentationController?.sourceRect = self.tableView.rectForRow(at: indexPath)
+        self.present(sheet, animated: true, completion: nil)
+    }
+    
+    func deleteAccountData(fromServer: Bool) {
+        
+        guard let account = self.account, let config = AccountManager.getAccount(for: account) else { return }
+        
+        if let pushSettings = config.pushSettings {
+            if let client = XmppService.instance.getClient(forJid: BareJID(account)), client.state == .connected, let pushModule: SiskinPushNotificationsModule = client.modulesManager.getModule(SiskinPushNotificationsModule.ID) {
+                
+                pushModule.unregisterDeviceAndDisable(completionHandler: { result in
+                    switch result {
+                    case .success(_):
+                        // now remove the account...
+                        self.removeAccount(account: account, fromServer: fromServer)
+                        break
+                    case .failure(_):
                         PushEventHandler.unregisterDevice(from: pushSettings.jid.bareJid, account: account, deviceId: pushSettings.deviceId, completionHandler: { result in
+                            config.pushSettings = nil
+                            AccountManager.save(account: config)
                             DispatchQueue.main.async {
                                 switch result {
                                 case .success(_):
-                                    config.pushSettings = nil;
-                                    AccountManager.save(account: config);
-                                    removeAccount(account, removeFromServer);
-                                case .failure(let _):
-                                    let alert = UIAlertController(title: NSLocalizedString("Account Removal Failed", comment: "Alert title"), message: String.localizedStringWithFormat(NSLocalizedString("Push notifications are enabled for %@. They need to be disabled before account can be removed and it is not possible to at this time. Please try again later.", comment: ""), account.stringValue), preferredStyle: .alert);
+                                    self.removeAccount(account: account, fromServer: fromServer)
+                                case .failure( _):
+                                    let alert = UIAlertController(title: NSLocalizedString("Account Removal Failed",comment: "Alert title"), message: String.localizedStringWithFormat(NSLocalizedString("Push notifications are enabled for %@. They need to be disabled before account can be removed and it is not possible to at this time. Please try again later.", comment: ""), account.stringValue), preferredStyle: .alert);
                                     alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil));
                                     self.present(alert, animated: true, completion: nil);
                                 }
                             }
                         })
                     }
-                } else {
-                    removeAccount(account, removeFromServer);
-                }
-            case .failure(_):
-                break;
+                });
+                
             }
-        })
-    }
-        
-    func askAboutAccountRemoval(account: BareJID, atRow indexPath: IndexPath, completionHandler: @escaping (Result<Bool, Error>)->Void) {
-        let client = XmppService.instance.getClient(forJid: BareJID(account))
-        let alert = UIAlertController(title: NSLocalizedString("Account Removal", comment: "Account deletion alert title"), message: ( client != nil && client?.state == .connected ) ? NSLocalizedString("Should account be removed from server as well?", comment: "") : NSLocalizedString("Remove account from application?", comment: ""), preferredStyle: .actionSheet);
-        if client?.state == .connected {
-            alert.addAction(UIAlertAction(title: NSLocalizedString("Delete account permanently", comment: "Account deletion action - destructive"), style: .destructive, handler: { (action) in
-                completionHandler(.success(true));
-            }));
+            else {
+                PushEventHandler.unregisterDevice(from: pushSettings.jid.bareJid, account: account, deviceId: pushSettings.deviceId, completionHandler: { result in
+                    DispatchQueue.main.async {
+                        switch result {
+                        case .success(_):
+                            config.pushSettings = nil
+                            AccountManager.save(account: config)
+                            self.removeAccount(account: account, fromServer: fromServer)
+                        case .failure( _):
+                            let alert = UIAlertController(title: NSLocalizedString("Account Removal Failed", comment: "Alert title"), message: String.localizedStringWithFormat(NSLocalizedString("Push notifications are enabled for %@. They need to be disabled before account can be removed and it is not possible to at this time. Please try again later.", comment: ""), account.stringValue), preferredStyle: .alert);
+                            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil));
+                            self.present(alert, animated: true, completion: nil);
+                        }
+                    }
+                })
+            }
         }
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Remove from application", comment: "Account deletion action"), style: .default, handler: { (action) in
-            completionHandler(.success(false));
-        }));
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .default, handler: nil));
-        alert.popoverPresentationController?.sourceView = self.tableView;
-        alert.popoverPresentationController?.sourceRect = self.tableView.rectForRow(at: indexPath);
-
-        self.present(alert, animated: true, completion: nil);
+        else {
+            self.removeAccount(account: account, fromServer: fromServer)
+        }
+    }
+    
+    func removeAccount(account: BareJID, fromServer: Bool) {
+        
+        if fromServer {
+            if let client = XmppService.instance.getClient(forJid: BareJID(account)), client.state == .connected {
+                let regModule = client.modulesManager.register(InBandRegistrationModule())
+                regModule.unregister({ (stanza) in
+                    DispatchQueue.main.async() {
+                        _ = AccountManager.deleteAccount(for: account)
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                })
+            } else {
+                DispatchQueue.main.async {
+                    let alert = UIAlertController(title: NSLocalizedString("Account Removal Failed",comment: "Alert title"), message: NSLocalizedString("Could not connect to the service. Check your network connectivity or try again later.",comment: ""), preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: NSLocalizedString("OK",comment: ""), style: .default, handler: { _ in
+                        self.tableView.reloadData()
+                    }))
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+        } else {
+            DispatchQueue.main.async {
+                _ = AccountManager.deleteAccount(for: account)
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
     }
 
     class SyncTimeItem: TablePickerViewItemsProtocol {
