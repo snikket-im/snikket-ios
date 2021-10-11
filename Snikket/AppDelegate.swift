@@ -74,6 +74,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         _ = JingleManager.instance;
 
+        if #available(iOS 15, *) {
+            let tabAppearance = UITabBarAppearance()
+            tabAppearance.configureWithOpaqueBackground()
+            UITabBar.appearance().scrollEdgeAppearance = tabAppearance
+        }
         if #available(iOS 13, *) {
             let appearance = UINavigationBarAppearance()
             appearance.configureWithOpaqueBackground()
@@ -82,6 +87,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UINavigationBar.appearance().standardAppearance = appearance;
             UINavigationBar.appearance().scrollEdgeAppearance = appearance
             UINavigationBar.appearance().compactAppearance = appearance
+            
+            let tabAppearance = UITabBarAppearance()
+            tabAppearance.configureWithOpaqueBackground()
+            UITabBar.appearance().standardAppearance = tabAppearance
         }
         NotificationManager.instance.initialize(provider: MainNotificationManagerProvider());
         xmppService.initialize();
