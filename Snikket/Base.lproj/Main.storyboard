@@ -227,15 +227,32 @@
                                     <constraint firstAttribute="trailing" secondItem="fa9-4g-iNW" secondAttribute="trailing" constant="10" id="wUE-ll-MrO"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k9G-H8-3Hb" customClass="RoundShadowButton" customModule="Snikket" customModuleProvider="target">
+                                <rect key="frame" x="358" y="655" width="40" height="40"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="O5s-Tu-hic"/>
+                                    <constraint firstAttribute="width" constant="40" id="a6B-NY-a5u"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="chevron.down" imagePadding="0.0">
+                                    <directionalEdgeInsets key="contentInsets" top="20" leading="20" bottom="20" trailing="20"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="scrollToBottomTapped:" destination="WP2-Cp-7ZE" eventType="touchUpInside" id="6kU-Zt-yfo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="K7X-9F-pbS"/>
                         <constraints>
+                            <constraint firstItem="K7X-9F-pbS" firstAttribute="bottom" secondItem="k9G-H8-3Hb" secondAttribute="bottom" constant="60" id="Lcy-t7-4dL"/>
                             <constraint firstItem="0oA-5d-4WD" firstAttribute="leading" secondItem="K7X-9F-pbS" secondAttribute="leading" constant="20" id="Se8-QK-Ism"/>
                             <constraint firstItem="K7X-9F-pbS" firstAttribute="bottom" secondItem="gYg-Wz-iZc" secondAttribute="bottom" id="UEL-s9-1Hy"/>
                             <constraint firstItem="gYg-Wz-iZc" firstAttribute="leading" secondItem="K7X-9F-pbS" secondAttribute="leading" id="Vw6-gf-z0R"/>
                             <constraint firstItem="0oA-5d-4WD" firstAttribute="top" secondItem="K7X-9F-pbS" secondAttribute="top" constant="10" id="hb2-it-kVe"/>
                             <constraint firstItem="gYg-Wz-iZc" firstAttribute="top" secondItem="K7X-9F-pbS" secondAttribute="top" id="lTO-xK-Ffx"/>
                             <constraint firstItem="K7X-9F-pbS" firstAttribute="trailing" secondItem="gYg-Wz-iZc" secondAttribute="trailing" id="mKL-x9-gDq"/>
+                            <constraint firstItem="K7X-9F-pbS" firstAttribute="trailing" secondItem="k9G-H8-3Hb" secondAttribute="trailing" constant="30" id="phr-KD-Mqa"/>
                             <constraint firstItem="K7X-9F-pbS" firstAttribute="trailing" secondItem="0oA-5d-4WD" secondAttribute="trailing" constant="20" id="zna-7O-fWc"/>
                         </constraints>
                     </view>
@@ -281,6 +298,7 @@
                     <connections>
                         <outlet property="addContactView" destination="0oA-5d-4WD" id="0Oe-0Z-Fxi"/>
                         <outlet property="containerView" destination="gYg-Wz-iZc" id="bHR-j9-Idy"/>
+                        <outlet property="scrollToBottomButton" destination="k9G-H8-3Hb" id="LvQ-cd-UTP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qn2-Sh-FRP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1454,6 +1472,7 @@
     <resources>
         <image name="appLogo" width="1024" height="1024"/>
         <image name="checkmark.circle" width="13.333333015441895" height="13.333333015441895"/>
+        <image name="chevron.down" width="16" height="9.5"/>
         <image name="defaultAvatar" width="100" height="100"/>
         <image name="first" width="30" height="30"/>
         <image name="gear" catalog="system" width="128" height="119"/>

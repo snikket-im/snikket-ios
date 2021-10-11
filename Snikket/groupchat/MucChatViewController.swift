@@ -41,6 +41,7 @@ class MucChatViewController: BaseChatViewControllerWithDataSourceAndContextMenuA
         }
     }
 
+    @IBOutlet weak var scrollToBottomButton: RoundShadowButton!
     let log: Logger = Logger();
 
     override func viewDidLoad() {
@@ -65,6 +66,17 @@ class MucChatViewController: BaseChatViewControllerWithDataSourceAndContextMenuA
         NotificationCenter.default.addObserver(self, selector: #selector(MucChatViewController.avatarChanged), name: AvatarManager.AVATAR_CHANGED, object: nil);
         NotificationCenter.default.addObserver(self, selector: #selector(accountStateChanged), name: XmppService.ACCOUNT_STATE_CHANGED, object: nil)
 
+        scrollToBottomButton.cornerRadius = 20
+        scrollToBottomButton.isHidden = true
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard let contentOffset = self.conversationLogController?.tableView.contentOffset else { return }
+        if contentOffset.y > 400 {
+            scrollToBottomButton.isHidden = false
+        } else {
+            scrollToBottomButton.isHidden = true
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -81,6 +93,10 @@ class MucChatViewController: BaseChatViewControllerWithDataSourceAndContextMenuA
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func scrollToBottomTapped(_ sender: RoundShadowButton) {
+        self.conversationLogController?.tableView.setContentOffset(.zero, animated: true)
     }
     
     func setupGroupName() {

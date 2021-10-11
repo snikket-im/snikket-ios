@@ -21,7 +21,7 @@
 
 import UIKit
 
-class ConversationLogController: UIViewController, ChatViewDataSourceDelegate {
+class ConversationLogController: UIViewController, ChatViewDataSourceDelegate, UIScrollViewDelegate {
     
     private let firstRowIndexPath = IndexPath(row: 0, section: 0);
 
@@ -45,6 +45,7 @@ class ConversationLogController: UIViewController, ChatViewDataSourceDelegate {
         tableView.rowHeight = UITableView.automaticDimension;
         tableView.estimatedRowHeight = 160.0;
         tableView.separatorStyle = .none;
+        tableView.scrollsToTop = false
         tableView.transform = dataSource.inverted ? CGAffineTransform(a: 1, b: 0, c: 0, d: -1, tx: 0, ty: 0) : CGAffineTransform.identity;
         
         if let refreshControl = self.refreshControl {
@@ -54,6 +55,21 @@ class ConversationLogController: UIViewController, ChatViewDataSourceDelegate {
         conversationLogDelegate?.initialize(tableView: self.tableView);
         
         NotificationCenter.default.addObserver(self, selector: #selector(showEditToolbar), name: NSNotification.Name("tableViewCellShowEditToolbar"), object: nil);
+        
+        let scrollView = UIScrollView()
+        scrollView.bounds = view.bounds
+        scrollView.contentOffset.y = 1
+        scrollView.contentSize.height = view.bounds.height + 1
+        scrollView.delegate = self
+        view.addSubview(scrollView)
+    }
+    
+    func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {
+        if self.dataSource.count != 0 {
+            let indexpath = IndexPath(row: self.dataSource.count - 1, section: 0)
+            self.tableView.scrollToRow(at: indexpath, at: .bottom, animated: true)
+        }
+        return false
     }
     
     override func viewWillAppear(_ animated: Bool) {

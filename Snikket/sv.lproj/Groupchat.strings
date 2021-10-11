@@ -66,3 +66,6 @@
 
 /* Class = "UILabel"; text = "None"; ObjectID = "YT2-1I-RlM"; */
 "YT2-1I-RlM.text" = "None";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Qmg-sW-dkA"; */
+"Qmg-sW-dkA.normalTitle" = "";

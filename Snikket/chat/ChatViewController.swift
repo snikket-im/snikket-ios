@@ -47,6 +47,7 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
         return self;
     }
     
+    @IBOutlet weak var scrollToBottomButton: RoundShadowButton!
     @IBOutlet weak var addContactView: UIView!
     
     override func viewDidLoad() {
@@ -56,13 +57,7 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
         
         super.viewDidLoad()
         
-        let recognizer = UITapGestureRecognizer(target: self, action: #selector(ChatViewController.showBuddyInfo));
-        self.titleView.isUserInteractionEnabled = true;
-        self.navigationController?.navigationBar.addGestureRecognizer(recognizer);
-        addContactView.layer.cornerRadius = 10
-        addContactView.isHidden = true
-
-        //initializeSharing();
+        setupViews()
         
         NotificationCenter.default.addObserver(self, selector: #selector(ChatViewController.avatarChanged), name: AvatarManager.AVATAR_CHANGED, object: nil);
         NotificationCenter.default.addObserver(self, selector: #selector(accountStateChanged), name: XmppService.ACCOUNT_STATE_CHANGED, object: nil);
@@ -70,6 +65,26 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
         NotificationCenter.default.addObserver(self, selector: #selector(contactPresenceChanged(_:)), name: XmppService.CONTACT_PRESENCE_CHANGED, object: nil);
         NotificationCenter.default.addObserver(self, selector: #selector(rosterItemUpdated(_:)), name: DBRosterStore.ITEM_UPDATED, object: self);
         NotificationCenter.default.addObserver(self, selector: #selector(subscriptionRequest), name: Notification.Name("SUBSCRIPTION_REQUEST"), object: nil);
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard let contentOffset = self.conversationLogController?.tableView.contentOffset else { return }
+        if contentOffset.y > 400 {
+            scrollToBottomButton.isHidden = false
+        } else {
+            scrollToBottomButton.isHidden = true
+        }
+    }
+    
+    func setupViews() {
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(ChatViewController.showBuddyInfo));
+        self.titleView.isUserInteractionEnabled = true;
+        self.navigationController?.navigationBar.addGestureRecognizer(recognizer);
+        
+        addContactView.layer.cornerRadius = 10
+        addContactView.isHidden = true
+        scrollToBottomButton.cornerRadius = 20
+        scrollToBottomButton.isHidden = true
     }
     
     @objc func subscriptionRequest() {
@@ -80,6 +95,10 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
         }
     }
     
+    
+    @IBAction func scrollToBottomTapped(_ sender: UIButton) {
+        self.conversationLogController?.tableView.setContentOffset(.zero, animated: true)
+    }
     
     @IBAction func rejectSubscriptionTapped(_ sender: Any) {
         guard let client = XmppService.instance.getClient(for: account), let presenceModule: PresenceModule = client.modulesManager.getModule(PresenceModule.ID) else { return }
