@@ -21,7 +21,7 @@
 
 import UIKit
 
-class ConversationLogController: UIViewController, ChatViewDataSourceDelegate, UIScrollViewDelegate {
+class ConversationLogController: UIViewController, ChatViewDataSourceDelegate {
     
     private let firstRowIndexPath = IndexPath(row: 0, section: 0);
 
@@ -55,21 +55,6 @@ class ConversationLogController: UIViewController, ChatViewDataSourceDelegate, U
         conversationLogDelegate?.initialize(tableView: self.tableView);
         
         NotificationCenter.default.addObserver(self, selector: #selector(showEditToolbar), name: NSNotification.Name("tableViewCellShowEditToolbar"), object: nil);
-        
-        let scrollView = UIScrollView()
-        scrollView.bounds = view.bounds
-        scrollView.contentOffset.y = 1
-        scrollView.contentSize.height = view.bounds.height + 1
-        scrollView.delegate = self
-        view.addSubview(scrollView)
-    }
-    
-    func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {
-        if self.dataSource.count != 0 {
-            let indexpath = IndexPath(row: self.dataSource.count - 1, section: 0)
-            self.tableView.scrollToRow(at: indexpath, at: .bottom, animated: true)
-        }
-        return false
     }
     
     override func viewWillAppear(_ animated: Bool) {

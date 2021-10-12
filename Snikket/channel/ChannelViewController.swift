@@ -98,7 +98,7 @@ class ChannelViewController: BaseChatViewControllerWithDataSourceAndContextMenuA
                 }
                 cell.nicknameView?.text = item.authorNickname;
                 
-                cell.set(message: item, maxMessageWidth: self.view.frame.width * 0.60)
+                cell.set(message: item, maxMessageWidth: self.view.frame.width * 0.60, indexPath: indexPath)
             return cell;
             }
         case let item as ChatAttachment:
@@ -116,7 +116,7 @@ class ChannelViewController: BaseChatViewControllerWithDataSourceAndContextMenuA
             }
             cell.nicknameView?.text = item.authorNickname;
 
-            cell.set(attachment: item, maxImageWidth: self.view.frame.width * 0.60)
+            cell.set(attachment: item, maxImageWidth: self.view.frame.width * 0.60, indexPath: indexPath)
             cell.setNeedsUpdateConstraints();
             cell.updateConstraintsIfNeeded();
                 
@@ -125,7 +125,7 @@ class ChannelViewController: BaseChatViewControllerWithDataSourceAndContextMenuA
             let id = "ChatTableViewLinkPreviewCell";
             let cell: LinkPreviewChatTableViewCell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! LinkPreviewChatTableViewCell;
             cell.contentView.transform = dataSource.inverted ? CGAffineTransform(a: 1, b: 0, c: 0, d: -1, tx: 0, ty: 0) : CGAffineTransform.identity;
-            cell.set(linkPreview: item);
+            cell.set(linkPreview: item, indexPath: indexPath)
             return cell;
         case let item as SystemMessage:
             let cell: ChatTableViewSystemCell = tableView.dequeueReusableCell(withIdentifier: "ChatTableViewSystemCell", for: indexPath) as! ChatTableViewSystemCell;
@@ -146,7 +146,7 @@ class ChannelViewController: BaseChatViewControllerWithDataSourceAndContextMenuA
                 }
             }
             cell.nicknameView?.text = item.authorNickname;
-            cell.set(invitation: item);
+            cell.set(invitation: item, indexPath: indexPath)
             return cell;
         default:
             return tableView.dequeueReusableCell(withIdentifier: "ChatTableViewMessageCell", for: indexPath);

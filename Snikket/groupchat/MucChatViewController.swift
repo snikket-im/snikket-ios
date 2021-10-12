@@ -22,8 +22,14 @@
 import UIKit
 import TigaseSwift
 import TigaseSwiftOMEMO
+import AVKit
 
 class MucChatViewController: BaseChatViewControllerWithDataSourceAndContextMenuAndToolbar {
+    
+    var cellAudioPlayer: AVAudioPlayer?
+    var cellAudioTimer: Foundation.Timer?
+    var cellSliderTimer: Foundation.Timer?
+    var cellAudioPlayButton: UIButton?
 
     static let MENTION_OCCUPANT = Notification.Name("groupchatMentionOccupant");
     
@@ -172,8 +178,8 @@ class MucChatViewController: BaseChatViewControllerWithDataSourceAndContextMenuA
                 } else {
                     cell.nicknameView?.text = item.state.direction == .incoming ? "· " + sender : ""
                 }
-                
-                cell.set(message: item, maxMessageWidth: self.view.frame.width * 0.60)
+                cell.cellDelegate = self
+                cell.set(message: item, maxMessageWidth: self.view.frame.width * 0.60, indexPath: indexPath)
                 cell.bubbleImageView.isHidden = false
                 return cell;
             }
@@ -208,7 +214,8 @@ class MucChatViewController: BaseChatViewControllerWithDataSourceAndContextMenuA
                 cell.nicknameView?.text = item.state.direction == .incoming ? "· " + sender : ""
             }
 
-            cell.set(attachment: item, maxImageWidth: self.view.frame.width * 0.60)
+            cell.cellDelegate = self
+            cell.set(attachment: item, maxImageWidth: self.view.frame.width * 0.60, indexPath: indexPath)
             cell.setNeedsUpdateConstraints();
             cell.updateConstraintsIfNeeded();
             cell.bubbleImageView.isHidden = false
@@ -217,7 +224,7 @@ class MucChatViewController: BaseChatViewControllerWithDataSourceAndContextMenuA
             let id = "ChatTableViewLinkPreviewCell";
             let cell: LinkPreviewChatTableViewCell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! LinkPreviewChatTableViewCell;
             cell.contentView.transform = dataSource.inverted ? CGAffineTransform(a: 1, b: 0, c: 0, d: -1, tx: 0, ty: 0) : CGAffineTransform.identity;
-            cell.set(linkPreview: item);
+            cell.set(linkPreview: item, indexPath: indexPath)
             return cell;
         case let item as SystemMessage:
             let cell: ChatTableViewSystemCell = tableView.dequeueReusableCell(withIdentifier: "ChatTableViewSystemCell", for: indexPath) as! ChatTableViewSystemCell;
@@ -253,7 +260,7 @@ class MucChatViewController: BaseChatViewControllerWithDataSourceAndContextMenuA
             } else {
                 cell.nicknameView?.text = sender;
             }
-            cell.set(invitation: item);
+            cell.set(invitation: item, indexPath: indexPath)
             return cell;
         default:
             return tableView.dequeueReusableCell(withIdentifier: "ChatTableViewMessageCell", for: indexPath);
@@ -559,4 +566,30 @@ class MucTitleView: UIView {
             statusView.text = "\u{26A0} " + NSLocalizedString("Not connected!",comment: "")
         }
     }
+}
+
+extension MucChatViewController: CellDelegate {
+    func didPlayAudio(audioPlayer: AVAudioPlayer, audioTimer: Foundation.Timer, sliderTimer: Foundation.Timer, playButton: UIButton) {
+        
+        self.cellAudioPlayer?.pause()
+        self.cellAudioTimer?.invalidate()
+        self.cellSliderTimer?.invalidate()
+        if let button = self.cellAudioPlayButton { button.isSelected = false }
+        
+        self.cellSliderTimer = sliderTimer
+        self.cellAudioTimer = audioTimer
+        self.cellAudioPlayer = audioPlayer
+        self.cellAudioPlayButton = playButton
+    }
+    
+    func didStopAudio() {
+        self.cellSliderTimer = nil
+        self.cellAudioTimer = nil
+        self.cellAudioPlayer = nil
+        self.cellAudioPlayButton = nil
+    }
+    
+    func didTapResend(indexPath: IndexPath) {
+    }
+    
 }

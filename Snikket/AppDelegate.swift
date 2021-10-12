@@ -74,24 +74,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         _ = JingleManager.instance;
 
-        if #available(iOS 15, *) {
-            let tabAppearance = UITabBarAppearance()
-            tabAppearance.configureWithOpaqueBackground()
-            UITabBar.appearance().scrollEdgeAppearance = tabAppearance
-        }
-        if #available(iOS 13, *) {
-            let appearance = UINavigationBarAppearance()
-            appearance.configureWithOpaqueBackground()
-            appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "AddToContactsBar")!]
-            appearance.backgroundColor = UIColor(named: "chatslistBackground")
-            UINavigationBar.appearance().standardAppearance = appearance;
-            UINavigationBar.appearance().scrollEdgeAppearance = appearance
-            UINavigationBar.appearance().compactAppearance = appearance
-            
-            let tabAppearance = UITabBarAppearance()
-            tabAppearance.configureWithOpaqueBackground()
-            UITabBar.appearance().standardAppearance = tabAppearance
-        }
+        setUIAppearances()
+        
         NotificationManager.instance.initialize(provider: MainNotificationManagerProvider());
         xmppService.initialize();
         Settings.setDefaultSettings()
@@ -149,6 +133,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let stackViewAppearance = UIStackView.appearance(whenContainedInInstancesOf: [UINavigationBar.self])
         stackViewAppearance.spacing = 5
         return true
+    }
+    
+    func setUIAppearances() {
+        if #available(iOS 15, *) {
+            let tabAppearance = UITabBarAppearance()
+            tabAppearance.configureWithOpaqueBackground()
+            UITabBar.appearance().scrollEdgeAppearance = tabAppearance
+        }
+        if #available(iOS 13, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "AddToContactsBar")!]
+            appearance.backgroundColor = UIColor(named: "chatslistBackground")
+            UINavigationBar.appearance().standardAppearance = appearance;
+            UINavigationBar.appearance().scrollEdgeAppearance = appearance
+            UINavigationBar.appearance().compactAppearance = appearance
+            
+            let tabAppearance = UITabBarAppearance()
+            tabAppearance.configureWithOpaqueBackground()
+            UITabBar.appearance().standardAppearance = tabAppearance
+        } else {
+            UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        }
     }
     
     @objc func accountsChanged(_ notification: Notification) {
