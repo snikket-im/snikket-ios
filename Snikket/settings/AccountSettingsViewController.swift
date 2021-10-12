@@ -35,10 +35,6 @@ class AccountSettingsViewController: UITableViewController {
     @IBOutlet var nicknameLabel: UILabel!;
     @IBOutlet var pushNotificationsForAwaySwitch: UISwitch!
     
-    @IBOutlet var archivingEnabledSwitch: UISwitch!;
-    @IBOutlet var messageSyncAutomaticSwitch: UISwitch!;
-    @IBOutlet var messageSyncPeriodLabel: UILabel!;
-    
     @IBOutlet weak var telephonyProviderLabel: UILabel!
     
     @IBOutlet var omemoFingerprint: UILabel!;
@@ -59,7 +55,6 @@ class AccountSettingsViewController: UITableViewController {
         let config = AccountManager.getAccount(for: account);
         enabledSwitch.isOn = config?.active ?? false;
         nicknameLabel.text = config?.nickname;
-        messageSyncAutomaticSwitch.isEnabled = false;
         pushNotificationsForAwaySwitch.isOn = AccountSettings.PushNotificationsForAway(account).getBool();
 
         updateView();
@@ -111,21 +106,6 @@ class AccountSettingsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false);
-        if indexPath.section == 3 && indexPath.row == 2 {
-            let controller = TablePickerViewController(style: .grouped);
-            let hoursArr = [0.0, 12.0, 24.0, 3*24.0, 7*24.0, 14 * 24.0, 356 * 24.0];
-            controller.selected = hoursArr.firstIndex(of: AccountSettings.messageSyncPeriod(account).getDouble()) ?? 0;
-            controller.items = hoursArr.map({ (it)->TablePickerViewItemsProtocol in
-                return SyncTimeItem(hours: it);
-            });
-            //controller.selected = 1;
-            controller.onSelectionChange = { (_item) -> Void in
-                let item = _item as! SyncTimeItem;
-                print("select sync of last", item.hours, "hours");
-                AccountSettings.messageSyncPeriod(self.account).set(double: item.hours);
-            };
-            self.navigationController?.pushViewController(controller, animated: true);
-        }
         if indexPath.section == 1 && indexPath.row == 3 {
             let controller = UIAlertController(title: NSLocalizedString("Nickname",comment: ""), message: NSLocalizedString("Enter default nickname to use in chats",comment: ""), preferredStyle: .alert);
             controller.addTextField(configurationHandler: { textField in
@@ -142,9 +122,9 @@ class AccountSettingsViewController: UITableViewController {
             self.navigationController?.present(controller, animated: true, completion: nil);
         }
         
-        if indexPath.section == 6 && indexPath.row == 0 {
+        if indexPath.section == 5 && indexPath.row == 0 {
             self.logOutSheet(indexPath: indexPath)
-        } else if indexPath.section == 6 && indexPath.row == 1 {
+        } else if indexPath.section == 5 && indexPath.row == 1 {
             self.deleteAccountSheet(indexPath: indexPath)
         }
         
@@ -175,28 +155,6 @@ class AccountSettingsViewController: UITableViewController {
         let client = XmppService.instance.getClient(for: account);
         let pushModule: SiskinPushNotificationsModule? = client?.modulesManager.getModule(SiskinPushNotificationsModule.ID);
         pushNotificationsForAwaySwitch.isEnabled = (pushModule?.isSupported(extension: TigasePushNotificationsModule.PushForAway.self) ?? false);
-        messageSyncAutomaticSwitch.isOn = AccountSettings.messageSyncAuto(account).getBool();
-        archivingEnabledSwitch.isEnabled = false;
-        
-        if (client?.state ?? SocketConnector.State.disconnected == SocketConnector.State.connected), let mamModule: MessageArchiveManagementModule = client?.modulesManager.getModule(MessageArchiveManagementModule.ID) {
-            mamModule.retrieveSettings(completionHandler: { result in
-                switch result {
-                case .success(let defValue, _, _):
-                    DispatchQueue.main.async {
-                        self.archivingEnabledSwitch.isEnabled = true;
-                        self.archivingEnabledSwitch.isOn = defValue == MessageArchiveManagementModule.DefaultValue.always;
-                        self.messageSyncAutomaticSwitch.isEnabled = self.archivingEnabledSwitch.isOn;
-                    }
-                case .failure(_, _):
-                    DispatchQueue.main.async {
-                        self.archivingEnabledSwitch.isOn = false;
-                        self.archivingEnabledSwitch.isEnabled = false;
-                        self.messageSyncAutomaticSwitch.isEnabled = self.archivingEnabledSwitch.isOn;
-                    }
-                }
-            })
-        }
-        messageSyncPeriodLabel.text = SyncTimeItem.descriptionFromHours(hours: AccountSettings.messageSyncPeriod(account).getDouble());
         telephonyProviderLabel.text = AccountSettings.telephonyProvider(account).getString() ?? "None"
     }
     
@@ -333,42 +291,6 @@ class AccountSettingsViewController: UITableViewController {
             AccountManager.save(account: config);
         }
     }
-    
-    @IBAction func archivingSwitchChangedValue(_ sender: Any) {
-        let client = XmppService.instance.getClient(forJid: account);
-        if let mamModule: MessageArchiveManagementModule = client?.modulesManager.getModule(MessageArchiveManagementModule.ID) {
-            let defValue = archivingEnabledSwitch.isOn ? MessageArchiveManagementModule.DefaultValue.always : MessageArchiveManagementModule.DefaultValue.never;
-            mamModule.retrieveSettings(completionHandler: { result in
-                switch result {
-                case .success(let oldDefValue, let always, let never):
-                    mamModule.updateSettings(defaultValue: defValue, always: always, never: never, completionHandler: { result in
-                        switch result {
-                        case .success(let newDefValue, _, _):
-                            DispatchQueue.main.async {
-                                self.archivingEnabledSwitch.isOn = newDefValue == MessageArchiveManagementModule.DefaultValue.always;
-                                self.messageSyncAutomaticSwitch.isEnabled = self.archivingEnabledSwitch.isOn;
-                            }
-                        case .failure(_, _):
-                            DispatchQueue.main.async {
-                                self.archivingEnabledSwitch.isOn = oldDefValue == MessageArchiveManagementModule.DefaultValue.always;
-                                self.messageSyncAutomaticSwitch.isEnabled = self.archivingEnabledSwitch.isOn;
-                            }
-                        }
-                    });
-                case .failure(_, _):
-                    DispatchQueue.main.async {
-                        self.archivingEnabledSwitch.isOn = !self.archivingEnabledSwitch.isOn;
-                        self.messageSyncAutomaticSwitch.isEnabled = self.archivingEnabledSwitch.isOn;
-                    }
-                }
-            });
-        }
-    }
-    
-    @IBAction func messageSyncAutomaticSwitchChangedValue(_ sender: Any) {
-        AccountSettings.messageSyncAuto(account).set(bool: self.messageSyncAutomaticSwitch.isOn);
-    }
-    
     
     func update(vcard: VCard?) {
         avatarView.image = AvatarManager.instance.avatar(for: account, on: account) ?? AvatarManager.instance.defaultAvatar;

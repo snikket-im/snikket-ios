@@ -16,9 +16,6 @@
 /* Class = "UITextField"; placeholder = "Required"; ObjectID = "7KN-S3-8XR"; */
 "7KN-S3-8XR.placeholder" = "Måste anges";
 
-/* Class = "UITableViewSection"; headerTitle = "Message Archiving"; ObjectID = "9PW-Rb-rop"; */
-"9PW-Rb-rop.headerTitle" = "Meddelandearkivering";
-
 /* Class = "UITableViewController"; title = "OMEMO fingerprints"; ObjectID = "A24-eF-tzh"; */
 "A24-eF-tzh.title" = "OMEMO-fingeravtryck";
 
@@ -49,12 +46,6 @@
 /* Class = "UILabel"; text = "add address"; ObjectID = "fRX-fN-yOj"; */
 "fRX-fN-yOj.text" = "lägg till adress";
 
-/* Class = "UILabel"; text = "Synchronization"; ObjectID = "GNS-EF-AqY"; */
-"GNS-EF-AqY.text" = "Synkronisering";
-
-/* Class = "UILabel"; text = "Enabled"; ObjectID = "GTa-Ee-HQT"; */
-"GTa-Ee-HQT.text" = "Aktiverad";
-
 /* Class = "UILabel"; text = "OMEMO fingerprint"; ObjectID = "gUr-GY-P3A"; */
 "gUr-GY-P3A.text" = "OMEMO-fingeravtryck";
 
@@ -72,9 +63,6 @@
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "IUH-ca-fBy"; */
 "IUH-ca-fBy.text" = "Title";
-
-/* Class = "UILabel"; text = "Automatic synchronization"; ObjectID = "J9o-cf-vMy"; */
-"J9o-cf-vMy.text" = "Automatisk synkronisering";
 
 /* Class = "UILabel"; text = "add phone"; ObjectID = "jAE-vq-Vfj"; */
 "jAE-vq-Vfj.text" = "lägg till telefon";
@@ -144,9 +132,6 @@
 
 /* Class = "UITableViewController"; title = "Server Features"; ObjectID = "wW7-3f-Kck"; */
 "wW7-3f-Kck.title" = "Server Features";
-
-/* Class = "UILabel"; text = "Last 24 hours"; ObjectID = "XLZ-oR-88H"; */
-"XLZ-oR-88H.text" = "Senaste 24 timmarna";
 
 /* Class = "UITextField"; placeholder = "Email address"; ObjectID = "ynp-RE-XlY"; */
 "ynp-RE-XlY.placeholder" = "Epostadress";

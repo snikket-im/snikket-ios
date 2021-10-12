@@ -57,7 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //RTCSetupInternalTracer();
         Log.initialize();
         Settings.initialize();
-        AccountSettings.initialize();
+        
         if #available(iOS 13.0, *) {
             switch Settings.appearance.string()! {
             case "light":
@@ -95,6 +95,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NotificationManager.instance.initialize(provider: MainNotificationManagerProvider());
         xmppService.initialize();
         Settings.setDefaultSettings()
+        AccountSettings.initialize();
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
             // sending notifications not granted!
         }
