@@ -106,9 +106,6 @@
 /* Class = "UILabel"; text = "Add to contact list"; ObjectID = "zrb-Yr-XQO"; */
 "zrb-Yr-XQO.text" = "Add to contact list";
 
-/* Class = "UIButton"; configuration.title = " "; ObjectID = "fa9-4g-iNW"; */
-"fa9-4g-iNW.configuration.title" = "";
-
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "fa9-4g-iNW"; */
 "fa9-4g-iNW.normalTitle" = "";
 
