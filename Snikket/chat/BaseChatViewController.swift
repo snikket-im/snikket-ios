@@ -139,73 +139,6 @@ class BaseChatViewController: UIViewController, UITextViewDelegate, ChatViewInpu
         }
     }
     
-    func presentSheet() {
-        let alertController = UIAlertController()
-        let camera = UIAlertAction(title: "Camera", style: .default) { (action: UIAlertAction!) in
-            self.selectPhoto(.camera)
-        }
-        let photo = UIAlertAction(title: "Photo & Video Library", style: .default) { (action: UIAlertAction!) in
-            if #available(iOS 14.0, *) {
-                self.selectPhotoFromLibrary();
-            } else {
-                self.selectPhoto(.photoLibrary)
-            }
-        }
-        let document = UIAlertAction(title: "Document", style: .default) { (action: UIAlertAction!) in
-            self.selectFile()
-        }
-        let location = UIAlertAction(title: "Location", style: .default) { (action: UIAlertAction!) in
-            self.selectLocation()
-        }
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action: UIAlertAction!) in
-        }
-        
-        let cameraImage = UIImage(named: "camera")
-        if let icon = cameraImage?.imageWithSize(scaledToSize: CGSize(width: 28, height: 28)) {
-            camera.setValue(icon, forKey: "image")
-        }
-        
-        let photoImage = UIImage(named: "photo")
-        if let icon = photoImage?.imageWithSize(scaledToSize: CGSize(width: 28, height: 28)) {
-            photo.setValue(icon, forKey: "image")
-        }
-        
-        let mapImage = UIImage(named: "map")
-        if let icon = mapImage?.imageWithSize(scaledToSize: CGSize(width: 28, height: 28)) {
-            location.setValue(icon, forKey: "image")
-        }
-        
-        
-        if #available(iOS 13.0, *) {
-            let documentImage = UIImage(systemName: "arrow.up.doc");
-            if let icon = documentImage?.imageWithSize(scaledToSize: CGSize(width: 28, height: 28)) {
-                document.setValue(icon, forKey: "image")
-            }
-        } else {
-            photo.setValue(UIImage(named: "arrow.up.doc"), forKey: "image")
-        }
-        
-        camera.setValue(CATextLayerAlignmentMode.left, forKey: "titleTextAlignment")
-        camera.setValue(UIColor.darkGray, forKey: "titleTextColor")
-        photo.setValue(CATextLayerAlignmentMode.left, forKey: "titleTextAlignment")
-        photo.setValue(UIColor.darkGray, forKey: "titleTextColor")
-        document.setValue(CATextLayerAlignmentMode.left, forKey: "titleTextAlignment")
-        document.setValue(UIColor.darkGray, forKey: "titleTextColor")
-        location.setValue(CATextLayerAlignmentMode.left, forKey: "titleTextAlignment")
-        location.setValue(UIColor.darkGray, forKey: "titleTextColor")
-        
-        alertController.addAction(camera)
-        alertController.addAction(photo)
-        alertController.addAction(document)
-        alertController.addAction(location)
-        alertController.addAction(cancel)
-        
-        alertController.popoverPresentationController?.sourceView = self.view
-        alertController.popoverPresentationController?.sourceRect = chatViewInputBar.frame
-        
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
     @objc func chatClosed(_ notification: Notification) {
         DispatchQueue.main.async {
             if let navigationController = self.navigationController {
@@ -315,21 +248,20 @@ class BaseChatViewController: UIViewController, UITextViewDelegate, ChatViewInpu
         self.correctedMessageOriginId = originId;
     }
     
+    func sendAttachment(originalUrl: URL?, uploadedUrl: String, appendix: ChatAttachmentAppendix, completionHandler: (() -> Void)?) {
+        assert(false, "This method should be overridden");
+    }
+    
+    @objc func sendMessageClicked(_ sender: Any) {
+        self.sendMessage();
+    }
+    
     func sendMessage() {
         assert(false, "This method should be overridden");
     }
     
     func sendAudioMessage(fileUrl: URL) {
         uploadFile(url: fileUrl, filename: "recording.m4a", deleteSource: true)
-        //assert(false, "This method should be overridden");
-    }
-    
-    func sendAttachment(originalUrl: URL?, uploadedUrl: String, appendix: ChatAttachmentAppendix, completionHandler: (() -> Void)?) {
-        assert(false, "This method should be overridden");
-    }
-    
-    func messageTextCleared() {
-        self.correctedMessageOriginId = nil;
     }
     
     func cameraButtonTapped() {
@@ -338,8 +270,80 @@ class BaseChatViewController: UIViewController, UITextViewDelegate, ChatViewInpu
         }
     }
     
-    @objc func sendMessageClicked(_ sender: Any) {
-        self.sendMessage();
+    func messageTextCleared() {
+        self.correctedMessageOriginId = nil;
+    }
+    
+    func presentSheet() {
+        let alertController = UIAlertController()
+        let camera = UIAlertAction(title: "Camera", style: .default) { (action: UIAlertAction!) in
+            self.selectPhoto(.camera)
+        }
+        let photo = UIAlertAction(title: "Photo & Video Library", style: .default) { (action: UIAlertAction!) in
+            if #available(iOS 14.0, *) {
+                self.selectPhotoFromLibrary();
+            } else {
+                self.selectPhoto(.photoLibrary)
+            }
+        }
+        let document = UIAlertAction(title: "Document", style: .default) { (action: UIAlertAction!) in
+            self.selectFile()
+        }
+        let location = UIAlertAction(title: "Location", style: .default) { (action: UIAlertAction!) in
+            self.selectLocation()
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action: UIAlertAction!) in
+        }
+        
+        let cameraImage = UIImage(named: "camera")
+        if let icon = cameraImage?.imageWithSize(scaledToSize: CGSize(width: 28, height: 28)) {
+            camera.setValue(icon, forKey: "image")
+        }
+        
+        let photoImage = UIImage(named: "photo")
+        if let icon = photoImage?.imageWithSize(scaledToSize: CGSize(width: 28, height: 28)) {
+            photo.setValue(icon, forKey: "image")
+        }
+        
+        let mapImage = UIImage(named: "map")
+        if let icon = mapImage?.imageWithSize(scaledToSize: CGSize(width: 28, height: 28)) {
+            location.setValue(icon, forKey: "image")
+        }
+        
+        
+        if #available(iOS 13.0, *) {
+            let documentImage = UIImage(systemName: "arrow.up.doc");
+            if let icon = documentImage?.imageWithSize(scaledToSize: CGSize(width: 28, height: 28)) {
+                document.setValue(icon, forKey: "image")
+            }
+        } else {
+            photo.setValue(UIImage(named: "arrow.up.doc"), forKey: "image")
+        }
+        
+        
+        if #available(iOS 13.0, *) {
+            let color = UIColor(named: "AddToContactsBar")
+            camera.setValue(color, forKey: "titleTextColor")
+            photo.setValue(color, forKey: "titleTextColor")
+            document.setValue(color, forKey: "titleTextColor")
+            location.setValue(color, forKey: "titleTextColor")
+        }
+        
+        camera.setValue(CATextLayerAlignmentMode.left, forKey: "titleTextAlignment")
+        photo.setValue(CATextLayerAlignmentMode.left, forKey: "titleTextAlignment")
+        document.setValue(CATextLayerAlignmentMode.left, forKey: "titleTextAlignment")
+        location.setValue(CATextLayerAlignmentMode.left, forKey: "titleTextAlignment")
+        
+        alertController.addAction(camera)
+        alertController.addAction(photo)
+        alertController.addAction(document)
+        alertController.addAction(location)
+        alertController.addAction(cancel)
+        
+        alertController.popoverPresentationController?.sourceView = self.view
+        alertController.popoverPresentationController?.sourceRect = chatViewInputBar.frame
+        
+        self.present(alertController, animated: true, completion: nil)
     }
     
 }

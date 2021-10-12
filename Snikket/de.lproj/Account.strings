@@ -16,9 +16,6 @@
 /* Class = "UITextField"; placeholder = "Required"; ObjectID = "7KN-S3-8XR"; */
 "7KN-S3-8XR.placeholder" = "Required";
 
-/* Class = "UITableViewSection"; headerTitle = "Message Archiving"; ObjectID = "9PW-Rb-rop"; */
-"9PW-Rb-rop.headerTitle" = "Message Archiving";
-
 /* Class = "UITableViewController"; title = "OMEMO fingerprints"; ObjectID = "A24-eF-tzh"; */
 "A24-eF-tzh.title" = "OMEMO fingerprints";
 
@@ -40,23 +37,20 @@
 /* Class = "UITableViewSection"; headerTitle = "Encryption"; ObjectID = "Et5-H6-t7C"; */
 "Et5-H6-t7C.headerTitle" = "Encryption";
 
+/* Class = "UITableViewController"; title = "Telephony Provider"; ObjectID = "Ey3-E6-jDR"; */
+"Ey3-E6-jDR.title" = "Telephony Provider";
+
 /* Class = "UILabel"; text = "Subtitle"; ObjectID = "FeX-5F-H2m"; */
 "FeX-5F-H2m.text" = "Subtitle";
 
 /* Class = "UILabel"; text = "add address"; ObjectID = "fRX-fN-yOj"; */
 "fRX-fN-yOj.text" = "add address";
 
-/* Class = "UILabel"; text = "Synchronization"; ObjectID = "GNS-EF-AqY"; */
-"GNS-EF-AqY.text" = "Synchronization";
-
-/* Class = "UILabel"; text = "Enabled"; ObjectID = "GTa-Ee-HQT"; */
-"GTa-Ee-HQT.text" = "Enabled";
-
 /* Class = "UILabel"; text = "OMEMO fingerprint"; ObjectID = "gUr-GY-P3A"; */
 "gUr-GY-P3A.text" = "OMEMO fingerprint";
 
-/* Class = "UILabel"; text = "Delete"; ObjectID = "GWw-NK-6oU"; */
-"GWw-NK-6oU.text" = "Delete";
+/* Class = "UILabel"; text = "Log out"; ObjectID = "GWw-NK-6oU"; */
+"GWw-NK-6oU.text" = "Log out";
 
 /* Class = "UINavigationItem"; title = "Account settings"; ObjectID = "gzC-dB-kIF"; */
 "gzC-dB-kIF.title" = "Account settings";
@@ -67,8 +61,8 @@
 /* Class = "UIBarButtonItem"; title = "Done"; ObjectID = "ijD-Kb-uyj"; */
 "ijD-Kb-uyj.title" = "Done";
 
-/* Class = "UILabel"; text = "Automatic synchronization"; ObjectID = "J9o-cf-vMy"; */
-"J9o-cf-vMy.text" = "Automatic synchronization";
+/* Class = "UILabel"; text = "Title"; ObjectID = "IUH-ca-fBy"; */
+"IUH-ca-fBy.text" = "Title";
 
 /* Class = "UILabel"; text = "add phone"; ObjectID = "jAE-vq-Vfj"; */
 "jAE-vq-Vfj.text" = "add phone";
@@ -78,6 +72,9 @@
 
 /* Class = "UITextField"; placeholder = "Street"; ObjectID = "KgL-GY-IFp"; */
 "KgL-GY-IFp.placeholder" = "Street";
+
+/* Class = "UILabel"; text = "Delete account"; ObjectID = "lGT-wY-qtX"; */
+"lGT-wY-qtX.text" = "Delete account";
 
 /* Class = "UITableViewSection"; headerTitle = " Password"; ObjectID = "LO4-Ys-cek"; */
 "LO4-Ys-cek.headerTitle" = " Password";
@@ -106,6 +103,9 @@
 /* Class = "UITableViewSection"; headerTitle = " XMPP ID"; ObjectID = "SKG-bP-NPK"; */
 "SKG-bP-NPK.headerTitle" = " XMPP ID";
 
+/* Class = "UILabel"; text = "None"; ObjectID = "StS-4J-0Uu"; */
+"StS-4J-0Uu.text" = "None";
+
 /* Class = "UITextField"; placeholder = "Phone number"; ObjectID = "T1r-DU-iqs"; */
 "T1r-DU-iqs.placeholder" = "Phone number";
 
@@ -127,14 +127,17 @@
 /* Class = "UILabel"; text = "Enabled"; ObjectID = "wbI-5v-vug"; */
 "wbI-5v-vug.text" = "Enabled";
 
+/* Class = "UITableViewSection"; headerTitle = "Telephony"; ObjectID = "WFs-jm-Wmk"; */
+"WFs-jm-Wmk.headerTitle" = "Telephony";
+
 /* Class = "UITableViewController"; title = "Server Features"; ObjectID = "wW7-3f-Kck"; */
 "wW7-3f-Kck.title" = "Server Features";
 
-/* Class = "UILabel"; text = "Last 24 hours"; ObjectID = "XLZ-oR-88H"; */
-"XLZ-oR-88H.text" = "Last 24 hours";
-
 /* Class = "UITextField"; placeholder = "Email address"; ObjectID = "ynp-RE-XlY"; */
 "ynp-RE-XlY.placeholder" = "Email address";
+
+/* Class = "UILabel"; text = "Provider"; ObjectID = "YYb-TE-za0"; */
+"YYb-TE-za0.text" = "Provider";
 
 /* Class = "UILabel"; text = "Re-register push notifications"; ObjectID = "ZHc-Ml-5eX"; */
 "ZHc-Ml-5eX.text" = "Re-register push notifications";

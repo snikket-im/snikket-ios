@@ -51,11 +51,12 @@ class RosterItemEditViewController: UITableViewController, UIPickerViewDataSourc
         if let account = account, let jid = jid {
             self.jidTextField.isEnabled = false;
             self.accountTextField.isEnabled = false;
+            self.nameTextField.text = PEPDisplayNameModule.getDisplayName(account: account, for: BareJID(jid))
             
             if let sessionObject = xmppService.getClient(forJid: account)?.sessionObject {
                 let rosterStore: RosterStore = RosterModule.getRosterStore(sessionObject)
                 if let rosterItem = rosterStore.get(for: jid) {
-                    self.nameTextField.text = PEPDisplayNameModule.getDisplayName(account: account, for: BareJID(jid))
+                    
                     self.sendPresenceUpdatesSwitch.isOn = rosterItem.subscription.isFrom;
                     self.receivePresenceUpdatesSwitch.isOn = rosterItem.subscription.isTo;
                 }
@@ -129,8 +130,14 @@ class RosterItemEditViewController: UITableViewController, UIPickerViewDataSourc
         }
         
         let onSuccess = {(stanza:Stanza)->Void in
-            self.updateSubscriptions(client: client!);
+            
+            self.sendSubscriptionRequest(client: client)
             DispatchQueue.main.async {
+                if let account = self.account {
+                    AppDelegate.subscriptionsRequest.removeValue(forKey: account.stringValue)
+                    NotificationCenter.default.post(name: Notification.Name("SUBSCRIPTION_REQUEST"), object: nil)
+                }
+                
                 self.dismissView();
             }
         };
@@ -157,6 +164,20 @@ class RosterItemEditViewController: UITableViewController, UIPickerViewDataSourc
     
     override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         return nil;
+    }
+    
+    fileprivate func sendSubscriptionRequest(client: XMPPClient?) {
+        if let client = client, let presenceModule: PresenceModule = client.modulesManager.getModule(PresenceModule.ID), let contactJid = self.jid {
+            DispatchQueue.main.async {
+                if self.receivePresenceUpdatesSwitch.isOn  {
+                    presenceModule.subscribe(to: contactJid, preauth: self.preauth);
+                }
+                if self.sendPresenceUpdatesSwitch.isOn {
+                    presenceModule.subscribed(by: contactJid);
+                }
+                
+            }
+        }
     }
     
     fileprivate func updateSubscriptions(client: XMPPClient) {

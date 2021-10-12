@@ -176,13 +176,89 @@
                                     <segue destination="GGV-aa-8IC" kind="embed" id="585-T5-dGR"/>
                                 </connections>
                             </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0oA-5d-4WD">
+                                <rect key="frame" x="20" y="10" width="388" height="64"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fa9-4g-iNW">
+                                        <rect key="frame" x="319.66666666666669" y="15" width="58.333333333333314" height="34"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <connections>
+                                            <action selector="rejectSubscriptionTapped:" destination="WP2-Cp-7ZE" eventType="touchUpInside" id="ATX-p5-rfq"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNl-ad-SgK">
+                                        <rect key="frame" x="261.66666666666669" y="15" width="58" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <connections>
+                                            <action selector="acceptSubscriptionTapped:" destination="WP2-Cp-7ZE" eventType="touchUpInside" id="bq5-18-Ns1"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact added you to their contact list. Add to contacts?" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="ezh-iK-Sk7">
+                                        <rect key="frame" x="10" y="10" width="232.66666666666666" height="44"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <color key="textColor" systemColor="systemBackgroundColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xmark.circle" translatesAutoresizingMaskIntoConstraints="NO" id="AS0-Q7-MrW">
+                                        <rect key="frame" x="319.66666666666669" y="15" width="58.333333333333314" height="34"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.circle" translatesAutoresizingMaskIntoConstraints="NO" id="BG2-fh-ymZ">
+                                        <rect key="frame" x="261.66666666666669" y="15" width="58" height="34"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" name="AddToContactsBar"/>
+                                <constraints>
+                                    <constraint firstItem="kNl-ad-SgK" firstAttribute="top" secondItem="0oA-5d-4WD" secondAttribute="top" constant="15" id="0Td-UW-nUJ"/>
+                                    <constraint firstItem="ezh-iK-Sk7" firstAttribute="width" secondItem="0oA-5d-4WD" secondAttribute="width" multiplier="0.6" id="1xf-vG-mSe"/>
+                                    <constraint firstItem="fa9-4g-iNW" firstAttribute="leading" secondItem="AS0-Q7-MrW" secondAttribute="leading" id="3En-Wg-qUq"/>
+                                    <constraint firstAttribute="bottom" secondItem="fa9-4g-iNW" secondAttribute="bottom" constant="15" id="7Yj-Jo-hA5"/>
+                                    <constraint firstItem="ezh-iK-Sk7" firstAttribute="top" secondItem="0oA-5d-4WD" secondAttribute="top" constant="10" id="EH7-zf-Ylj"/>
+                                    <constraint firstItem="kNl-ad-SgK" firstAttribute="trailing" secondItem="BG2-fh-ymZ" secondAttribute="trailing" id="FHX-Pd-S30"/>
+                                    <constraint firstItem="fa9-4g-iNW" firstAttribute="width" secondItem="kNl-ad-SgK" secondAttribute="width" id="PIe-9c-N3k"/>
+                                    <constraint firstItem="fa9-4g-iNW" firstAttribute="leading" secondItem="kNl-ad-SgK" secondAttribute="trailing" id="QJ2-T7-JJc"/>
+                                    <constraint firstItem="kNl-ad-SgK" firstAttribute="top" secondItem="BG2-fh-ymZ" secondAttribute="top" id="USZ-x4-7hI"/>
+                                    <constraint firstItem="fa9-4g-iNW" firstAttribute="bottom" secondItem="AS0-Q7-MrW" secondAttribute="bottom" id="Yqj-wy-SHC"/>
+                                    <constraint firstItem="ezh-iK-Sk7" firstAttribute="leading" secondItem="0oA-5d-4WD" secondAttribute="leading" constant="10" id="acT-n4-ejR"/>
+                                    <constraint firstItem="fa9-4g-iNW" firstAttribute="width" secondItem="0oA-5d-4WD" secondAttribute="width" multiplier="0.15" id="f8K-1j-n7N"/>
+                                    <constraint firstItem="fa9-4g-iNW" firstAttribute="top" secondItem="AS0-Q7-MrW" secondAttribute="top" id="ge1-Dm-uDL"/>
+                                    <constraint firstItem="fa9-4g-iNW" firstAttribute="top" secondItem="0oA-5d-4WD" secondAttribute="top" constant="15" id="jFH-Ju-QWm"/>
+                                    <constraint firstItem="ezh-iK-Sk7" firstAttribute="centerY" secondItem="0oA-5d-4WD" secondAttribute="centerY" id="jG9-Cm-2jo"/>
+                                    <constraint firstAttribute="bottom" secondItem="ezh-iK-Sk7" secondAttribute="bottom" constant="10" id="lkV-5D-9hF"/>
+                                    <constraint firstItem="kNl-ad-SgK" firstAttribute="leading" secondItem="BG2-fh-ymZ" secondAttribute="leading" id="peb-R7-axT"/>
+                                    <constraint firstAttribute="bottom" secondItem="kNl-ad-SgK" secondAttribute="bottom" constant="15" id="rVU-fS-vCy"/>
+                                    <constraint firstItem="fa9-4g-iNW" firstAttribute="trailing" secondItem="AS0-Q7-MrW" secondAttribute="trailing" id="uga-Ok-yHK"/>
+                                    <constraint firstAttribute="trailing" secondItem="fa9-4g-iNW" secondAttribute="trailing" constant="10" id="wUE-ll-MrO"/>
+                                    <constraint firstItem="kNl-ad-SgK" firstAttribute="bottom" secondItem="BG2-fh-ymZ" secondAttribute="bottom" id="yEx-SG-x7Z"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k9G-H8-3Hb" customClass="RoundShadowButton" customModule="Snikket" customModuleProvider="target">
+                                <rect key="frame" x="358" y="655" width="40" height="40"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="O5s-Tu-hic"/>
+                                    <constraint firstAttribute="width" constant="40" id="a6B-NY-a5u"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="chevron.down" imagePadding="0.0">
+                                    <directionalEdgeInsets key="contentInsets" top="20" leading="20" bottom="20" trailing="20"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="scrollToBottomTapped:" destination="WP2-Cp-7ZE" eventType="touchUpInside" id="6kU-Zt-yfo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="K7X-9F-pbS"/>
                         <constraints>
+                            <constraint firstItem="K7X-9F-pbS" firstAttribute="bottom" secondItem="k9G-H8-3Hb" secondAttribute="bottom" constant="60" id="Lcy-t7-4dL"/>
+                            <constraint firstItem="0oA-5d-4WD" firstAttribute="leading" secondItem="K7X-9F-pbS" secondAttribute="leading" constant="20" id="Se8-QK-Ism"/>
                             <constraint firstItem="K7X-9F-pbS" firstAttribute="bottom" secondItem="gYg-Wz-iZc" secondAttribute="bottom" id="UEL-s9-1Hy"/>
                             <constraint firstItem="gYg-Wz-iZc" firstAttribute="leading" secondItem="K7X-9F-pbS" secondAttribute="leading" id="Vw6-gf-z0R"/>
+                            <constraint firstItem="0oA-5d-4WD" firstAttribute="top" secondItem="K7X-9F-pbS" secondAttribute="top" constant="10" id="hb2-it-kVe"/>
                             <constraint firstItem="gYg-Wz-iZc" firstAttribute="top" secondItem="K7X-9F-pbS" secondAttribute="top" id="lTO-xK-Ffx"/>
                             <constraint firstItem="K7X-9F-pbS" firstAttribute="trailing" secondItem="gYg-Wz-iZc" secondAttribute="trailing" id="mKL-x9-gDq"/>
+                            <constraint firstItem="K7X-9F-pbS" firstAttribute="trailing" secondItem="k9G-H8-3Hb" secondAttribute="trailing" constant="30" id="phr-KD-Mqa"/>
+                            <constraint firstItem="K7X-9F-pbS" firstAttribute="trailing" secondItem="0oA-5d-4WD" secondAttribute="trailing" constant="20" id="zna-7O-fWc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5u6-YP-VV1">
@@ -225,7 +301,9 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="addContactView" destination="0oA-5d-4WD" id="0Oe-0Z-Fxi"/>
                         <outlet property="containerView" destination="gYg-Wz-iZc" id="bHR-j9-Idy"/>
+                        <outlet property="scrollToBottomButton" destination="k9G-H8-3Hb" id="LvQ-cd-UTP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qn2-Sh-FRP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -235,7 +313,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4859.420289855073" y="-737.94642857142856"/>
+            <point key="canvasLocation" x="4858.8785046728972" y="-738.01295896328304"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Q1F-tR-kAo">
@@ -349,7 +427,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Siskin IM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V18-Iv-6Re">
-                                <rect key="frame" x="144" y="459.33333333333331" width="140" height="38.666666666666686"/>
+                                <rect key="frame" x="144" y="459.33333333333331" width="140" height="39"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="32"/>
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
@@ -358,7 +436,7 @@
                                 </attributedString>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by Tigase, Inc." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ba-yZ-XRA">
-                                <rect key="frame" x="161" y="498" width="146" height="26.333333333333371"/>
+                                <rect key="frame" x="161" y="498.33333333333331" width="146" height="25.999999999999943"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-MediumItalic" family="Helvetica Neue" pointSize="22"/>
                                 <nil key="highlightedColor"/>
                                 <attributedString key="userComments">
@@ -458,8 +536,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="selectedImageTintColor" name="tintColor"/>
-                        <tabBarAppearance key="standardAppearance"/>
-                        <tabBarAppearance key="scrollEdgeAppearance"/>
                     </tabBar>
                     <connections>
                         <segue destination="JxF-gw-olp" kind="relationship" relationship="viewControllers" id="ifN-oQ-Gcj"/>
@@ -1177,6 +1253,23 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddToContactsCell" textLabel="zrb-Yr-XQO" rowHeight="44" style="IBUITableViewCellStyleDefault" id="uOR-5c-dcP">
+                                <rect key="frame" x="0.0" y="554" width="428" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uOR-5c-dcP" id="96g-I4-URe">
+                                    <rect key="frame" x="0.0" y="0.0" width="428" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Add to contact list" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zrb-Yr-XQO">
+                                            <rect key="frame" x="20" y="0.0" width="388" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="rSR-7g-CFO" id="lPG-hT-w4i"/>
@@ -1381,13 +1474,19 @@
     </scenes>
     <resources>
         <image name="appLogo" width="1024" height="1024"/>
+        <image name="checkmark.circle" width="13.333333015441895" height="13.333333015441895"/>
+        <image name="chevron.down" width="16" height="9.5"/>
         <image name="defaultAvatar" width="100" height="100"/>
         <image name="first" width="30" height="30"/>
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="message.fill" catalog="system" width="128" height="113"/>
         <image name="messageArchiving" width="50" height="50"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="xmark.circle" width="13.333333015441895" height="13.333333015441895"/>
         <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
+        <namedColor name="AddToContactsBar">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="chatslistBackground">
             <color red="0.99607843137254903" green="0.85490196078431369" blue="0.023529411764705882" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

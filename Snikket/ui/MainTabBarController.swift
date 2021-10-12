@@ -33,7 +33,7 @@ class MainTabBarController: CustomTabBarController, UITabBarControllerDelegate {
         
         self.delegate = self;
         
-        NotificationCenter.default.addObserver(self, selector: #selector(updateMoreBadge), name: XmppService.ACCOUNT_STATE_CHANGED, object: nil);        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateMoreBadge), name: XmppService.ACCOUNT_STATE_CHANGED, object: nil);
     }
     
     @objc func updateMoreBadge(notification: Notification) {

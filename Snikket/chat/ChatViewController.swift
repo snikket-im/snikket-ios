@@ -46,7 +46,10 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
     override func conversationTableViewDelegate() -> UITableViewDelegate? {
         return self;
     }
-        
+    
+    @IBOutlet weak var scrollToBottomButton: RoundShadowButton!
+    @IBOutlet weak var addContactView: UIView!
+    
     override func viewDidLoad() {
         let messageModule: MessageModule? = XmppService.instance.getClient(forJid: account)?.modulesManager.getModule(MessageModule.ID);
         self.chat = messageModule?.chatManager.getChat(with: JID(self.jid), thread: nil) as? DBChat;
@@ -54,18 +57,66 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
         
         super.viewDidLoad()
         
-        let recognizer = UITapGestureRecognizer(target: self, action: #selector(ChatViewController.showBuddyInfo));
-        self.titleView.isUserInteractionEnabled = true;
-        self.navigationController?.navigationBar.addGestureRecognizer(recognizer);
-
-        //initializeSharing();
+        setupViews()
         
         NotificationCenter.default.addObserver(self, selector: #selector(ChatViewController.avatarChanged), name: AvatarManager.AVATAR_CHANGED, object: nil);
         NotificationCenter.default.addObserver(self, selector: #selector(accountStateChanged), name: XmppService.ACCOUNT_STATE_CHANGED, object: nil);
         NotificationCenter.default.addObserver(self, selector: #selector(chatChanged(_:)), name: DBChatStore.CHAT_UPDATED, object: nil);
         NotificationCenter.default.addObserver(self, selector: #selector(contactPresenceChanged(_:)), name: XmppService.CONTACT_PRESENCE_CHANGED, object: nil);
         NotificationCenter.default.addObserver(self, selector: #selector(rosterItemUpdated(_:)), name: DBRosterStore.ITEM_UPDATED, object: self);
-
+        NotificationCenter.default.addObserver(self, selector: #selector(subscriptionRequest), name: Notification.Name("SUBSCRIPTION_REQUEST"), object: nil);
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard let contentOffset = self.conversationLogController?.tableView.contentOffset else { return }
+        if contentOffset.y > 400 {
+            scrollToBottomButton.isHidden = false
+        } else {
+            scrollToBottomButton.isHidden = true
+        }
+    }
+    
+    func setupViews() {
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(ChatViewController.showBuddyInfo));
+        self.titleView.isUserInteractionEnabled = true;
+        self.navigationController?.navigationBar.addGestureRecognizer(recognizer);
+        
+        addContactView.layer.cornerRadius = 10
+        addContactView.isHidden = true
+        scrollToBottomButton.cornerRadius = 20
+        scrollToBottomButton.isHidden = true
+    }
+    
+    @objc func subscriptionRequest() {
+        if let contact = AppDelegate.subscriptionsRequest[account.stringValue], contact == self.jid.stringValue {
+            self.addContactView.isHidden = false
+        } else {
+            self.addContactView.isHidden = true
+        }
+    }
+    
+    
+    @IBAction func scrollToBottomTapped(_ sender: UIButton) {
+        self.conversationLogController?.tableView.setContentOffset(.zero, animated: true)
+    }
+    
+    @IBAction func rejectSubscriptionTapped(_ sender: Any) {
+        guard let client = XmppService.instance.getClient(for: account), let presenceModule: PresenceModule = client.modulesManager.getModule(PresenceModule.ID) else { return }
+        presenceModule.unsubscribed(by: JID(jid, resource: nil))
+        AppDelegate.subscriptionsRequest.removeValue(forKey: self.account.stringValue)
+        DispatchQueue.main.async {
+            self.addContactView.isHidden = true
+        }
+    }
+    @IBAction func acceptSubscriptionTapped(_ sender: Any) {
+        if let navigationController = self.storyboard?.instantiateViewController(withIdentifier: "RosterItemEditNavigationController") as? UINavigationController {
+            let itemEditController = navigationController.visibleViewController as? RosterItemEditViewController
+            itemEditController?.hidesBottomBarWhenPushed = true
+            itemEditController?.account = account
+            itemEditController?.jid = JID(jid, resource: nil)
+            navigationController.modalPresentationStyle = .formSheet
+            self.present(navigationController, animated: true, completion: nil)
+        }
     }
     
     @objc func showBuddyInfo(_ button: Any) {
@@ -89,6 +140,7 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
         
         let presenceModule: PresenceModule? = XmppService.instance.getClient(forJid: account)?.modulesManager.getModule(PresenceModule.ID);
         titleView.status = presenceModule?.presenceStore.getBestPresence(for: jid);
+        subscriptionRequest()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -160,8 +212,9 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
                 let color = incoming ? #colorLiteral(red: 0.01663736999, green: 0.4700628519, blue: 0.6680073142, alpha: 1) : #colorLiteral(red: 0.4562267661, green: 0.4913363457, blue: 0, alpha: 1)
                 cell.avatarView?.set(bareJID: jid, name: name, avatar: AvatarManager.instance.avatar(for: incoming ? jid : account, on: account), orDefault: AvatarManager.instance.defaultAvatar, backColor: color);
                 cell.nicknameView?.text  = ""
-                cell.set(message: item, maxMessageWidth: self.view.frame.width * 0.60)
+                cell.set(message: item, maxMessageWidth: self.view.frame.width * 0.60, indexPath: indexPath)
                 cell.backgroundColor = .clear
+                cell.cellDelegate = self
                 cell.contentView.backgroundColor = .clear
                 cell.bubbleImageView.isHidden = false
                 return cell;
@@ -175,15 +228,15 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
             let color = incoming ? #colorLiteral(red: 0.01663736999, green: 0.4700628519, blue: 0.6680073142, alpha: 1) : #colorLiteral(red: 0.4562267661, green: 0.4913363457, blue: 0, alpha: 1)
             cell.avatarView?.set(bareJID: jid, name: name, avatar: AvatarManager.instance.avatar(for: incoming ? jid : account, on: account), orDefault: AvatarManager.instance.defaultAvatar, backColor: color);
             cell.nicknameView?.text = ""
-            cell.set(attachment: item, maxImageWidth: self.view.frame.width * 0.60)
-            cell.audioPlayerDelegate = self
+            cell.set(attachment: item, maxImageWidth: self.view.frame.width * 0.60, indexPath: indexPath)
+            cell.cellDelegate = self
             cell.bubbleImageView.isHidden = false
             return cell;
         case let item as ChatLinkPreview:
             let id = "ChatTableViewLinkPreviewCell";
             let cell: LinkPreviewChatTableViewCell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! LinkPreviewChatTableViewCell;
             cell.contentView.transform = dataSource.inverted ? CGAffineTransform(a: 1, b: 0, c: 0, d: -1, tx: 0, ty: 0) : CGAffineTransform.identity;
-            cell.set(linkPreview: item);
+            cell.set(linkPreview: item, indexPath: indexPath)
             return cell;
         case let item as SystemMessage:
             let cell: ChatTableViewSystemCell = tableView.dequeueReusableCell(withIdentifier: "ChatTableViewSystemCell", for: indexPath) as! ChatTableViewSystemCell;
@@ -197,39 +250,10 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
             let name = incoming ? self.titleView.name : localNickname;
             cell.avatarView?.set(bareJID: jid, name: name, avatar: AvatarManager.instance.avatar(for: incoming ? jid : account, on: account), orDefault: AvatarManager.instance.defaultAvatar);
             cell.nicknameView?.text = name;
-            cell.set(invitation: item);
+            cell.set(invitation: item, indexPath: indexPath)
             return cell;
         default:
             return tableView.dequeueReusableCell(withIdentifier: "ChatTableViewCellIncoming", for: indexPath);
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        print("accessory button cliecked at", indexPath)
-        guard let item = dataSource.getItem(at: indexPath.row) as? ChatEntry, let chat = self.chat as? DBChat else {
-            return;
-        }
-        
-        DispatchQueue.main.async {
-            let alert = UIAlertController(title: NSLocalizedString("Details", comment: ""), message: item.error ?? NSLocalizedString("Unkown error occured", comment: ""), preferredStyle: .alert);
-            alert.addAction(UIAlertAction(title: NSLocalizedString("Resend", comment: ""), style: .default, handler: {(action) in
-                //print("resending message with body", item.message);
-                
-                switch item {
-                case let item as ChatMessage:
-                    MessageEventHandler.sendMessage(chat: chat, body: item.message, url: nil);
-                    DBChatHistoryStore.instance.remove(item: item);
-                case let item as ChatAttachment:
-                    let oldLocalFile = DownloadStore.instance.url(for: "\(item.id)");
-                    MessageEventHandler.sendAttachment(chat: chat, originalUrl: oldLocalFile, uploadedUrl: item.url, appendix: item.appendix, completionHandler: {
-                        DBChatHistoryStore.instance.remove(item: item);
-                    });
-                default:
-                    break;
-                }
-            }));
-            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil));
-            self.present(alert, animated: true, completion: nil);
         }
     }
      
@@ -552,7 +576,7 @@ class ChatTitleView: UIView {
     }
 }
 
-extension ChatViewController: AudioPlayerDelegate {
+extension ChatViewController: CellDelegate {
     func didPlayAudio(audioPlayer: AVAudioPlayer, audioTimer: Foundation.Timer, sliderTimer: Foundation.Timer, playButton: UIButton) {
         
         self.cellAudioPlayer?.pause()
@@ -571,6 +595,35 @@ extension ChatViewController: AudioPlayerDelegate {
         self.cellAudioTimer = nil
         self.cellAudioPlayer = nil
         self.cellAudioPlayButton = nil
+    }
+    
+    func didTapResend(indexPath: IndexPath) {
+        
+        guard let item = dataSource.getItem(at: indexPath.row) as? ChatEntry, let chat = self.chat as? DBChat else {
+            return;
+        }
+        
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: NSLocalizedString("Details", comment: ""), message: item.error ?? NSLocalizedString("Unkown error occured", comment: ""), preferredStyle: .alert);
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Resend", comment: ""), style: .default, handler: {(action) in
+                //print("resending message with body", item.message);
+                
+                switch item {
+                case let item as ChatMessage:
+                    MessageEventHandler.sendMessage(chat: chat, body: item.message, url: nil);
+                    DBChatHistoryStore.instance.remove(item: item);
+                case let item as ChatAttachment:
+                    let oldLocalFile = DownloadStore.instance.url(for: "\(item.id)");
+                    MessageEventHandler.sendAttachment(chat: chat, originalUrl: oldLocalFile, uploadedUrl: item.url, appendix: item.appendix, completionHandler: {
+                        DBChatHistoryStore.instance.remove(item: item);
+                    });
+                default:
+                    break;
+                }
+            }));
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil));
+            self.present(alert, animated: true, completion: nil);
+        }
     }
     
 }

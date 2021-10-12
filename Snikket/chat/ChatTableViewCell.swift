@@ -61,9 +61,9 @@ class ChatTableViewCell: BaseChatTableViewCell, UITextViewDelegate {
         originalTextColor = messageTextView.textColor;
     }
     
-    func set(message item: ChatMessage, maxMessageWidth: CGFloat) {
+    func set(message item: ChatMessage, maxMessageWidth: CGFloat, indexPath: IndexPath) {
         messageTextView.textView.delegate = self;
-        super.set(item: item)
+        super.set(item: item, indexPath: indexPath)
                 
         mapView.removeFromSuperview()
         if isGeoLocation(message: item.message) {

@@ -114,22 +114,19 @@ class CallManager: NSObject, CXProviderDelegate {
     }
     
     func reportIncomingCall(_ call: Call, completionHandler: @escaping(Result<Void,Error>)->Void) {
-//        guard self.currentCall == nil else {
-//            if let curCall = self.currentCall, curCall.account == call.account && curCall.sid == call.sid && curCall.jid == call.jid {
-//                return;
-//            }
-//            completionHandler(.failure(ErrorCondition.conflict));
-//            return;
-//        }
                 
         let update = CXCallUpdate();
-        update.remoteHandle = CXHandle(type: .generic, value: call.jid.stringValue);
+        
         let rosterModule: RosterModule? = XmppService.instance.getClient(for: call.account)?.modulesManager.getModule(RosterModule.ID);
         let name = rosterModule?.rosterStore.get(for: JID(call.jid))?.name ?? call.jid.stringValue;
         update.localizedCallerName = name;
-        update.hasVideo = AVCaptureDevice.authorizationStatus(for: .video) == .authorized && call.media.contains(.video);
-        
-        print("reporting incoming call: \(call.uuid)")
+        update.supportsGrouping = false
+        update.supportsUngrouping = false
+        update.supportsHolding = false
+        provider.configuration.supportsVideo = call.media.contains(.video)
+        update.hasVideo = AVCaptureDevice.authorizationStatus(for: .video) == .authorized && call.media.contains(.video)
+        update.remoteHandle = call.media.contains(.video) ? CXHandle(type: .generic, value: call.jid.stringValue) : nil
+        configureAudioSession()
         provider.reportNewIncomingCall(with: call.uuid, update: update, completion: { err in
             guard let error = err else {
                 print("error of the incoming call..");
@@ -425,17 +422,6 @@ class CallManager: NSObject, CXProviderDelegate {
         }
         currentConnection = VideoCallController.initiatePeerConnection(iceServers: iceServers, withDelegate: self);
         if currentConnection != nil {
-            
-            let avsession = AVAudioSession.sharedInstance()
-
-            do {
-                try avsession.setCategory(.playAndRecord, mode: .videoChat)
-                try avsession.setPreferredIOBufferDuration(0.005)
-                try avsession.setPreferredSampleRate(4_410)
-            } catch {
-                fatalError(error.localizedDescription)
-            }
-            
 
             self.localAudioTrack = VideoCallController.peerConnectionFactory.audioTrack(withTrackId: "audio-" + UUID().uuidString);
             if let localAudioTrack = self.localAudioTrack {
@@ -471,6 +457,18 @@ class CallManager: NSObject, CXProviderDelegate {
         }
     }
     
+    func configureAudioSession() {
+        RTCDispatcher.dispatchAsync(on: RTCDispatcherQueueType.typeAudioSession) {
+            let audioSession = RTCAudioSession.sharedInstance()
+            audioSession.lockForConfiguration()
+            let configuration = RTCAudioSessionConfiguration.webRTC()
+            configuration.categoryOptions = [.allowBluetoothA2DP,.duckOthers,
+                                             .allowBluetooth]
+            try? audioSession.setConfiguration(configuration)
+            audioSession.unlockForConfiguration()
+        }
+    }
+    
     func provider(_ provider: CXProvider, perform action: CXAnswerCallAction) {
         guard let call = currentCall else {
             action.fail();
@@ -483,6 +481,7 @@ class CallManager: NSObject, CXProviderDelegate {
             self.reset();
             return;
         }
+        
         
         self.changeCallState(.connecting)
         
@@ -499,7 +498,6 @@ class CallManager: NSObject, CXProviderDelegate {
                     switch result {
                     case .success(_):
                         action.fulfill();
-
                         session.delegate = self;
                         session.accept();
                     case .failure(_):
@@ -523,7 +521,6 @@ class CallManager: NSObject, CXProviderDelegate {
     }
     
     func provider(_ provider: CXProvider, perform action: CXEndCallAction) {
-        print("ending call from provider: \(self.currentCall?.uuid), \(self.currentConnection != nil)");
         let wasAccepted = self.currentConnection != nil;
         let session = self.session;
         self.reset();
@@ -952,8 +949,12 @@ extension CallManager: PKPushRegistryDelegate {
             }
         }
         
+        
         let uuid = UUID();
         let update = CXCallUpdate();
+        update.supportsGrouping = false
+        update.supportsUngrouping = false
+        update.supportsHolding = false
         update.remoteHandle = CXHandle(type: .generic, value: "Unknown");
         provider.reportNewIncomingCall(with: uuid, update: update, completion: { error in
             if error == nil {

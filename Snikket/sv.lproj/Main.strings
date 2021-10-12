@@ -31,6 +31,9 @@
 /* Class = "UILabel"; text = "Attachments"; ObjectID = "EpU-tc-DIx"; */
 "EpU-tc-DIx.text" = "Bilagor";
 
+/* Class = "UILabel"; text = "Contact added you to their contact list. Add to contacts?"; ObjectID = "ezh-iK-Sk7"; */
+"ezh-iK-Sk7.text" = "Contact added you to their contact list. Add to contacts?";
+
 /* Class = "UILabel"; text = "Receive presence updates"; ObjectID = "ffo-7n-Tn2"; */
 "ffo-7n-Tn2.text" = "Receive presence updates";
 
@@ -99,3 +102,9 @@
 
 /* Class = "UIButton"; normalTitle = "Enable"; ObjectID = "yJk-Px-1oo"; */
 "yJk-Px-1oo.normalTitle" = "Aktivera";
+
+/* Class = "UILabel"; text = "Add to contact list"; ObjectID = "zrb-Yr-XQO"; */
+"zrb-Yr-XQO.text" = "Add to contact list";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "k9G-H8-3Hb"; */
+"k9G-H8-3Hb.normalTitle" = "";

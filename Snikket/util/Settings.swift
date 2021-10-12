@@ -249,6 +249,7 @@ public enum AccountSettings {
     case reconnectionLocation(BareJID)
     case pushHash(BareJID)
     case displayName(BareJID)
+    case telephonyProvider(BareJID)
     
     public var account: BareJID {
         switch self {
@@ -271,6 +272,8 @@ public enum AccountSettings {
         case .pushHash(let account):
             return account;
         case .displayName(let account):
+            return account
+        case .telephonyProvider(let account):
             return account
         }
     }
@@ -297,6 +300,8 @@ public enum AccountSettings {
             return "pushHash";
         case .displayName(_):
             return "displayName"
+        case .telephonyProvider(_):
+            return "TelephonyProvider"
         }
     }
     
@@ -450,6 +455,44 @@ public enum AccountSettings {
             if AccountSettings.displayName(account).getString() == nil, let currentAccount = AccountManager.getAccount(for: account) {
                 
                 AccountSettings.displayName(account).set(string: currentAccount.nickname ?? currentAccount.name.stringValue)
+            }
+        }
+        
+        DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 5) {
+            setDefaultSettings()
+        }
+        
+    }
+    
+    private static func setDefaultSettings() {
+        let accounts = AccountManager.getActiveAccounts()
+        
+        for account in accounts {
+            AccountSettings.messageSyncAuto(account).set(bool: true)
+            
+            // Checking for Message Archiving
+            
+            let client = XmppService.instance.getClient(forJid: account)
+            if let mamModule: MessageArchiveManagementModule = client?.modulesManager.getModule(MessageArchiveManagementModule.ID) {
+                mamModule.retrieveSettings { result in
+                    switch result {
+                    case .success(let oldValue, let always, let never):
+                        if oldValue == .never {             // turn on meesage synchronization if it was previously disabled
+                            mamModule.updateSettings(defaultValue: .always, always: always, never: never) { result in
+                                AccountSettings.messageSyncAuto(account).set(bool: true)
+                            }
+                        }
+                    case .failure(let error, let response):
+                        print("\(error)\(response)")
+                    }
+                }
+            }
+            
+            // Message Archiving Period
+            let last14Days: Double = 14 * 24
+            let period = AccountSettings.messageSyncPeriod(account).getDouble()
+            if period != last14Days {              // 14 Days
+                AccountSettings.messageSyncPeriod(account).set(double: last14Days)
             }
         }
     }

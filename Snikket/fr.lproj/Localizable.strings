@@ -13,9 +13,6 @@
 /* Alert dialog title - account is offline */
 "Account Offline" = "Account Offline";
 
-/* Account deletion alert title */
-"Account Removal" = "Suppression du compte";
-
 /* Alert title */
 "Account Removal Failed" = "Échec de la suppression du compte";
 
@@ -134,9 +131,6 @@
 /* No comment provided by engineer. */
 "Delete" = "Supprimer";
 
-/* Account deletion action - destructive */
-"Delete account permanently" = "Delete account permanently";
-
 /* Action: Delete all downloaded files */
 "Delete all" = "Tout supprimer";
 
@@ -148,6 +142,12 @@
 
 /* No comment provided by engineer. */
 "Delete group chat?" = "Supprimer ce salon ?";
+
+/* No comment provided by engineer. */
+"Delete My Account" = "Delete My Account";
+
+/* No comment provided by engineer. */
+"Deleting your account will permanently log out all your devices and delete your account, profile, and associated data on %@." = "Deleting your account will permanently log out all your devices and delete your account, profile, and associated data on %@.";
 
 /* No comment provided by engineer. */
 "Details" = "Details";
@@ -168,7 +168,13 @@
 "Emails" = "E-mails";
 
 /* No comment provided by engineer. */
+"Enable %@" = "Enable %@";
+
+/* No comment provided by engineer. */
 "Enable automatic message synchronization" = "Activer la synchronisation automatique des messages";
+
+/* No comment provided by engineer. */
+"Enable telephony provider?" = "Enable telephony provider?";
 
 /* No comment provided by engineer. */
 "Encryption" = "Chiffrement";
@@ -273,6 +279,9 @@
 "List of Messages" = "Liste de messages";
 
 /* No comment provided by engineer. */
+"Log Out" = "Log Out";
+
+/* No comment provided by engineer. */
 "Login and password do not match." = "Login and password do not match.";
 
 /* Alert title for storage usage */
@@ -363,6 +372,9 @@
 "Other devices fingerprints" = "Empreintes des autres clients";
 
 /* No comment provided by engineer. */
+"Permanently Delete Account" = "Permanently Delete Account";
+
+/* No comment provided by engineer. */
 "Phones" = "Téléphones";
 
 /* No comment provided by engineer. */
@@ -402,10 +414,7 @@
 "Registration is not supported by this server" = "Les inscriptions sont désactivées sur ce serveur";
 
 /* No comment provided by engineer. */
-"Remove account from application?" = "Supprimer ce compte de l’application ?";
-
-/* Account deletion action */
-"Remove from application" = "Supprimer de l’application";
+"Remove Account Data" = "Remove Account Data";
 
 /* No comment provided by engineer. */
 "Rename" = "Renommer";
@@ -489,9 +498,6 @@
 "Settings" = "Préférences";
 
 /* No comment provided by engineer. */
-"Should account be removed from server as well?" = "Voulez-vous supprimer ce compte du serveur également ?";
-
-/* No comment provided by engineer. */
 "Snikket can be automatically notified by compatible XMPP servers about new messages when it is in background or stopped.\nIf enabled, notifications about new messages will be forwarded to our push component and delivered to the device. These notifications may contain message senders jid and part of a message.\nDo you want to enable push notifications?" = "Snikket can be automatically notified by compatible XMPP servers about new messages when it is in background or stopped.\nIf enabled, notifications about new messages will be forwarded to our push component and delivered to the device. These notifications may contain message senders jid and part of a message.\nDo you want to enable push notifications?";
 
 /* No comment provided by engineer. */
@@ -543,6 +549,9 @@
 "When you share files using HTTP, they are uploaded to HTTP server with unique URL. Anyone who knows the unique URL to the file is able to download it.\nDo you wish to enable?" = "When you share files using HTTP, they are uploaded to HTTP server with unique URL. Anyone who knows the unique URL to the file is able to download it.\nDo you wish to enable?";
 
 /* No comment provided by engineer. */
+"Would you like to use %@ as the default provider for outgoing SMS and calls from %@?" = "Would you like to use %1$@ as the default provider for outgoing SMS and calls from %2$@?";
+
+/* No comment provided by engineer. */
 "Yes" = "Oui";
 
 /* No comment provided by engineer. */
@@ -559,6 +568,9 @@
 
 /* No comment provided by engineer. */
 "You are not joined to the channel." = "Vous n’êtes pas dans ce salon.";
+
+/* No comment provided by engineer. */
+"You can log out of this account temporarily, or permanently remove all account data from this device (including chats). Account removal cannot be undone." = "You can log out of this account temporarily, or permanently remove all account data from this device (including chats). Account removal cannot be undone.";
 
 /* No comment provided by engineer. */
 "You need to connect to your account before you can update your contact list. Do you wish to connect now?" = "You need to connect to your account before you can update your contact list. Do you wish to connect now?";

@@ -40,6 +40,8 @@ protocol RosterProvider {
     func queryItems(contains: String?);
     
     func sectionHeader(at: Int) -> String?;
+    
+    func contactExists(account: BareJID, contact: BareJID) -> Bool
 }
 
 public enum RosterSortingOrder: String {
@@ -181,6 +183,15 @@ public class RosterProviderAbstract<Item: RosterProviderItem>: RosterProviderAbs
     
     func processDBloadQueryResult(it: DBCursor) -> Item? {
         return nil;
+    }
+    
+    func contactExists(account: BareJID, contact: BareJID) -> Bool {
+        for item in self.allItems {
+            if item.account == account, contact == item.jid.bareJid {
+                return true
+            }
+        }
+        return false
     }
     
 }

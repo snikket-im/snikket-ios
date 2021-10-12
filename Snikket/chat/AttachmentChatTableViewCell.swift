@@ -177,13 +177,13 @@ class AttachmentChatTableViewCell: BaseChatTableViewCell, UIContextMenuInteracti
                 audioPlayer?.play()
                 
                 if let player = self.audioPlayer, let audioTimer = self.audioTimer, let sliderTimer = self.sliderTimer {
-                    self.audioPlayerDelegate?.didPlayAudio(audioPlayer: player, audioTimer: audioTimer, sliderTimer: sliderTimer, playButton: self.playButton)
+                    self.cellDelegate?.didPlayAudio(audioPlayer: player, audioTimer: audioTimer, sliderTimer: sliderTimer, playButton: self.playButton)
                 }
                 
             }
             else {
                 audioPlayer?.pause()
-                self.audioPlayerDelegate?.didStopAudio()
+                self.cellDelegate?.didStopAudio()
             }
     }
     
@@ -207,7 +207,7 @@ class AttachmentChatTableViewCell: BaseChatTableViewCell, UIContextMenuInteracti
         
         if slider.value == 0.0, !player.isPlaying {
             self.playButton.isSelected = false
-            self.audioPlayerDelegate?.didStopAudio()
+            self.cellDelegate?.didStopAudio()
         }
     }
     
@@ -229,13 +229,13 @@ class AttachmentChatTableViewCell: BaseChatTableViewCell, UIContextMenuInteracti
         audioTime.text = NSString(format: "%02d:%02d", minutes,seconds) as String
     }
         
-    func set(attachment item: ChatAttachment, maxImageWidth: CGFloat) {
+    func set(attachment item: ChatAttachment, maxImageWidth: CGFloat, indexPath: IndexPath) {
         self.item = item;
         self.customView.subviews.forEach { view in
             view.removeFromSuperview()
         }
         
-        super.set(item: item);
+        super.set(item: item, indexPath: indexPath)
         
         self.customView?.isOpaque = true;
         self.customView?.backgroundColor = self.backgroundColor;
@@ -586,7 +586,7 @@ class AttachmentChatTableViewCell: BaseChatTableViewCell, UIContextMenuInteracti
                     details.text = "\(typeName) - \(fileSize)";
                     
                     if UTTypeConformsTo(uti, kUTTypeImage) {
-                        iconView.image = UIImage(contentsOfFile: fileUrl.path)!
+                        iconView.image = UIImage(contentsOfFile: fileUrl.path)
                         self.viewType = .imagePreview;
                         self.setImageConstraints(image: iconView.image, maxImageWidth: maxImageWidth)
                     } else if UTTypeConformsTo(uti, kUTTypeMovie) {

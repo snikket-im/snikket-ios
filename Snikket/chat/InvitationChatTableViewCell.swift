@@ -34,8 +34,8 @@ class InvitationChatTableViewCell: BaseChatTableViewCell {
     
     private var buttonBottomContraint: NSLayoutConstraint?;
     
-    func set(invitation: ChatInvitation) {
-        super.set(item: invitation);
+    func set(invitation: ChatInvitation, indexPath: IndexPath) {
+        super.set(item: invitation, indexPath: indexPath)
         self.account = invitation.account;
         self.appendix = invitation.appendix;
         acceptButton.layer.borderWidth = 2.0;

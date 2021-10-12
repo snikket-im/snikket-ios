@@ -88,11 +88,7 @@ class ChatViewInputBar: UIView, UITextViewDelegate, NSTextStorageDelegate {
     public let attachmentButton: UIButton = {
         let button = UIButton()
         button.setTitle("", for: .normal)
-        if #available(iOS 13.0, *) {
-            button.setBackgroundImage(UIImage(systemName: "plus"), for: .normal)
-        } else {
-            button.setBackgroundImage(UIImage(named: "plus"), for: .normal)
-        }
+        button.setBackgroundImage(UIImage(named: "plus"), for: .normal)
         button.tintColor = .darkGray
         button.imageView?.contentMode = .scaleToFill
         button.translatesAutoresizingMaskIntoConstraints = false;
@@ -126,7 +122,7 @@ class ChatViewInputBar: UIView, UITextViewDelegate, NSTextStorageDelegate {
         view.translatesAutoresizingMaskIntoConstraints = false;
         view.layer.masksToBounds = true;
 //        view.delegate = self;
-        view.isScrollEnabled = false;
+        view.isScrollEnabled = true
         view.font = UIFont.systemFont(ofSize: UIFont.systemFontSize + 4);
         if Settings.SendMessageOnReturn.getBool() {
             view.returnKeyType = .send;
@@ -169,6 +165,7 @@ class ChatViewInputBar: UIView, UITextViewDelegate, NSTextStorageDelegate {
         set {
             inputTextView.text = newValue ?? "";
             placeholderLabel.isHidden = !inputTextView.text.isEmpty;
+            textViewDidChange(inputTextView)
         }
     }
     
@@ -187,6 +184,8 @@ class ChatViewInputBar: UIView, UITextViewDelegate, NSTextStorageDelegate {
     var isLocked = false
     var recordingSession: AVAudioSession!
     var audioRecorder: AVAudioRecorder!
+    
+    var textViewContainerHeightConstraint: NSLayoutConstraint!
     
     convenience init() {
         self.init(frame: CGRect(origin: .zero, size: CGSize(width: 100, height: 30)));
@@ -278,6 +277,8 @@ class ChatViewInputBar: UIView, UITextViewDelegate, NSTextStorageDelegate {
         leftBottomViewWidthConstraint = bottomLeftView.widthAnchor.constraint(equalToConstant: 0)
         voiceRecordingViewWidthConstraint = voiceRecordingView.widthAnchor.constraint(equalToConstant: 0)
         voiceRecordingViewWidthConstraint.isActive = true
+        textViewContainerHeightConstraint = bottomLeftView.heightAnchor.constraint(equalToConstant: 50)
+        textViewContainerHeightConstraint.isActive = true
     }
     
     override func layoutIfNeeded() {
@@ -344,6 +345,14 @@ class ChatViewInputBar: UIView, UITextViewDelegate, NSTextStorageDelegate {
                 self.micButton.isHidden = false
             }
         }
+        
+        let oldHeight = textView.frame.size.height
+        let maxHeight: CGFloat = 120.0 //beyond this value the textView will scroll
+        var newHeight = min(textView.sizeThatFits(CGSize(width: textView.frame.width, height: CGFloat.greatestFiniteMagnitude)).height, maxHeight)
+        newHeight = ceil(newHeight+10)
+        if newHeight != oldHeight {
+            self.textViewContainerHeightConstraint.constant = max(newHeight, 50.0)
+        }
     }
         
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -406,6 +415,7 @@ class ChatViewInputBar: UIView, UITextViewDelegate, NSTextStorageDelegate {
             self.cameraButton.isHidden = false
             self.micButton.alpha = 1
             self.cameraButton.alpha = 1
+            self.textViewContainerHeightConstraint.constant = 50
         }
         
     }
