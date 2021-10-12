@@ -88,11 +88,7 @@ class ChatViewInputBar: UIView, UITextViewDelegate, NSTextStorageDelegate {
     public let attachmentButton: UIButton = {
         let button = UIButton()
         button.setTitle("", for: .normal)
-        if #available(iOS 13.0, *) {
-            button.setBackgroundImage(UIImage(systemName: "plus"), for: .normal)
-        } else {
-            button.setBackgroundImage(UIImage(named: "plus"), for: .normal)
-        }
+        button.setBackgroundImage(UIImage(named: "plus"), for: .normal)
         button.tintColor = .darkGray
         button.imageView?.contentMode = .scaleToFill
         button.translatesAutoresizingMaskIntoConstraints = false;
