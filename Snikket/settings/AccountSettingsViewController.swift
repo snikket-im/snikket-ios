@@ -200,11 +200,13 @@ class AccountSettingsViewController: UITableViewController {
     }
         
     @IBAction func enabledSwitchChangedValue(_ sender: AnyObject) {
-        if let config = AccountManager.getAccount(for: account!) {
-            config.active = enabledSwitch.isOn;
-            AccountSettings.LastError(account).set(string: nil);
-            AccountManager.save(account: config);
-        }
+        if enabledSwitch.isOn {
+            if let config = AccountManager.getAccount(for: account!) {
+                config.active = true
+                AccountSettings.LastError(account).set(string: nil);
+                AccountManager.save(account: config);
+            }
+        } else { disableAccount() }
     }
     
     func reRegisterPushNotifications() {
@@ -340,6 +342,8 @@ class AccountSettingsViewController: UITableViewController {
     }
     
     func disableAccount() {
+        disablePushNotifications()
+        
         if let config = AccountManager.getAccount(for: account) {
             config.active = false
             AccountSettings.LastError(account).set(string: nil);
@@ -391,53 +395,58 @@ class AccountSettingsViewController: UITableViewController {
         self.present(sheet, animated: true, completion: nil)
     }
     
+    func disablePushNotifications() {
+        guard let account = self.account, let config = AccountManager.getAccount(for: account), let pushSettings = config.pushSettings else { return }
+        
+        if let client = XmppService.instance.getClient(forJid: BareJID(account)), client.state == .connected, let pushModule: SiskinPushNotificationsModule = client.modulesManager.getModule(SiskinPushNotificationsModule.ID) {
+            pushModule.unregisterDeviceAndDisable(completionHandler: { result in
+                switch result {
+                case .success(_):
+                    break
+                case .failure(_):
+                    self.unRegisterDevice(accountConfig: config, account: account, pushSettings: pushSettings, removeAccount: false, fromServer: false)
+                }
+            })
+        } else {
+            self.unRegisterDevice(accountConfig: config, account: account, pushSettings: pushSettings, removeAccount: false, fromServer: false)
+        }
+    }
+    
+    func unRegisterDevice(accountConfig: AccountManager.Account, account: BareJID, pushSettings: SiskinPushNotificationsModule.PushSettings, removeAccount: Bool, fromServer: Bool) {
+        PushEventHandler.unregisterDevice(from: pushSettings.jid.bareJid, account: account, deviceId: pushSettings.deviceId, completionHandler: { result in
+            accountConfig.pushSettings = nil
+            AccountManager.save(account: accountConfig)
+            
+            DispatchQueue.main.async {
+                switch result {
+                case .success(_):
+                    if removeAccount { self.removeAccount(account: account, fromServer: fromServer) }
+                case .failure( _):
+                    let alert = UIAlertController(title: NSLocalizedString("Account Removal Failed",comment: "Alert title"), message: String.localizedStringWithFormat(NSLocalizedString("Push notifications are enabled for %@. They need to be disabled before account can be removed and it is not possible to at this time. Please try again later.", comment: ""), account.stringValue), preferredStyle: .alert);
+                    alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil));
+                    self.present(alert, animated: true, completion: nil);
+                }
+            }
+        })
+    }
+    
     func deleteAccountData(fromServer: Bool) {
         
         guard let account = self.account, let config = AccountManager.getAccount(for: account) else { return }
-        
         if let pushSettings = config.pushSettings {
             if let client = XmppService.instance.getClient(forJid: BareJID(account)), client.state == .connected, let pushModule: SiskinPushNotificationsModule = client.modulesManager.getModule(SiskinPushNotificationsModule.ID) {
-                
                 pushModule.unregisterDeviceAndDisable(completionHandler: { result in
                     switch result {
                     case .success(_):
-                        // now remove the account...
                         self.removeAccount(account: account, fromServer: fromServer)
                         break
                     case .failure(_):
-                        PushEventHandler.unregisterDevice(from: pushSettings.jid.bareJid, account: account, deviceId: pushSettings.deviceId, completionHandler: { result in
-                            config.pushSettings = nil
-                            AccountManager.save(account: config)
-                            DispatchQueue.main.async {
-                                switch result {
-                                case .success(_):
-                                    self.removeAccount(account: account, fromServer: fromServer)
-                                case .failure( _):
-                                    let alert = UIAlertController(title: NSLocalizedString("Account Removal Failed",comment: "Alert title"), message: String.localizedStringWithFormat(NSLocalizedString("Push notifications are enabled for %@. They need to be disabled before account can be removed and it is not possible to at this time. Please try again later.", comment: ""), account.stringValue), preferredStyle: .alert);
-                                    alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil));
-                                    self.present(alert, animated: true, completion: nil);
-                                }
-                            }
-                        })
-                    }
-                });
-                
-            }
-            else {
-                PushEventHandler.unregisterDevice(from: pushSettings.jid.bareJid, account: account, deviceId: pushSettings.deviceId, completionHandler: { result in
-                    DispatchQueue.main.async {
-                        switch result {
-                        case .success(_):
-                            config.pushSettings = nil
-                            AccountManager.save(account: config)
-                            self.removeAccount(account: account, fromServer: fromServer)
-                        case .failure( _):
-                            let alert = UIAlertController(title: NSLocalizedString("Account Removal Failed", comment: "Alert title"), message: String.localizedStringWithFormat(NSLocalizedString("Push notifications are enabled for %@. They need to be disabled before account can be removed and it is not possible to at this time. Please try again later.", comment: ""), account.stringValue), preferredStyle: .alert);
-                            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil));
-                            self.present(alert, animated: true, completion: nil);
-                        }
+                        self.unRegisterDevice(accountConfig: config, account: account, pushSettings: pushSettings, removeAccount: true, fromServer: fromServer)
                     }
                 })
+            }
+            else {
+                self.unRegisterDevice(accountConfig: config, account: account, pushSettings: pushSettings, removeAccount: true, fromServer: fromServer)
             }
         }
         else {
