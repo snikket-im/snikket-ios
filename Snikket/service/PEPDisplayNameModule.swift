@@ -98,7 +98,7 @@ class PEPDisplayNameModule: AbstractPEPModule {
         let rosterModule: RosterModule? = client.modulesManager.getModule(RosterModule.ID);
         let rosterItem = rosterModule?.rosterStore.get(for: JID(jid))
         var name = rosterItem?.name ?? DBRosterStore.instance.getNickname(jid: jid.stringValue)
-        name = name == nil ? jid.localPart : name
+        name = name == nil ? (jid.localPart == nil ? jid.domain : jid.localPart) : name
         return name ?? ""
     }
     
