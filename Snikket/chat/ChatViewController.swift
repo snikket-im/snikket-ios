@@ -165,21 +165,7 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
         
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let count = super.tableView(tableView, numberOfRowsInSection: section);
-        if count == 0 {
-            if self.conversationLogController!.tableView.backgroundView == nil {
-                let label = UILabel(frame: CGRect(x: 0, y:0, width: self.view.bounds.size.width, height: self.view.bounds.size.height));
-                label.text = NSLocalizedString("No messages yet. Say hi!", comment: "")
-                label.font = UIFont.systemFont(ofSize: UIFont.systemFontSize + 2, weight: .medium);
-                label.numberOfLines = 0;
-                label.textAlignment = .center;
-                label.transform = CGAffineTransform(a: 1, b: 0, c: 0, d: -1, tx: 0, ty: 0);
-                label.sizeToFit();
-                self.conversationLogController!.tableView.backgroundView = label;
-            }
-        } else {
-            self.conversationLogController!.tableView.backgroundView = nil;
-        }
-        return count;
+        return count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
