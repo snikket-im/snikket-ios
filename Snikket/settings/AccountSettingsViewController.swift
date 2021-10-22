@@ -205,18 +205,19 @@ class AccountSettingsViewController: UITableViewController {
                 config.active = true
                 AccountSettings.LastError(account).set(string: nil);
                 AccountManager.save(account: config);
+                self.enablePushNotifications()
             }
         } else { disableAccount() }
     }
     
     func reRegisterPushNotifications() {
         let alert = UIAlertController(title: NSLocalizedString("Push Notifications",comment: ""), message: NSLocalizedString("Snikket can be automatically notified by compatible XMPP servers about new messages when it is in background or stopped.\nIf enabled, notifications about new messages will be forwarded to our push component and delivered to the device. These notifications may contain message senders jid and part of a message.\nDo you want to enable push notifications?",comment: ""), preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Yes",comment: ""), style: .default, handler: self.enablePushNotifications))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Yes",comment: ""), style: .default, handler: self.enablePushNotifications(action:)))
         alert.addAction(UIAlertAction(title: NSLocalizedString("No",comment: ""), style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
-    fileprivate func enablePushNotifications(action: UIAlertAction) {
+    fileprivate func enablePushNotifications(action: UIAlertAction? = nil) {
         let accountJid = self.account!;
         let onError = { (_ errorCondition: ErrorCondition?) in
             DispatchQueue.main.async {
@@ -342,25 +343,33 @@ class AccountSettingsViewController: UITableViewController {
     }
     
     func disableAccount() {
-        disablePushNotifications()
-        
-        if let config = AccountManager.getAccount(for: account) {
-            config.active = false
-            AccountSettings.LastError(account).set(string: nil);
-            AccountManager.save(account: config);
+        disablePushNotifications() { success in
+            if success {
+                if let config = AccountManager.getAccount(for: self.account) {
+                    config.active = false
+                    AccountSettings.LastError(self.account).set(string: nil);
+                    AccountManager.save(account: config);
+                }
+                
+                if let client = XmppService.instance.getClient(forJid: self.account) {
+                    client.disconnect()
+                }
+                DispatchQueue.main.async {
+                    self.navigationController?.popViewController(animated: true)
+                }
+            }
         }
         
-        if let client = XmppService.instance.getClient(forJid: account) {
-            client.disconnect()
-        }
-        self.navigationController?.popViewController(animated: true)
+        
     }
     
     func logOutSheet(indexPath: IndexPath) {
         let sheet = UIAlertController(title: NSLocalizedString("Log Out", comment: ""), message: NSLocalizedString("You can log out of this account temporarily, or permanently remove all account data from this device (including chats). Account removal cannot be undone.", comment: ""), preferredStyle: .actionSheet)
         
         let removeDataAction = UIAlertAction(title: NSLocalizedString("Remove Account Data", comment: ""), style: .destructive) { _ in
-            self.deleteAccountData(fromServer: false)
+            self.deleteAccountData(fromServer: false) { success in
+                print("Data Deleted")
+            }
         }
         
         let logOutAction = UIAlertAction(title: NSLocalizedString("Log Out", comment: ""), style: .default) { _ in
@@ -383,7 +392,9 @@ class AccountSettingsViewController: UITableViewController {
         let sheet = UIAlertController(title: NSLocalizedString("Permanently Delete Account", comment: ""), message: String.localizedStringWithFormat(NSLocalizedString("Deleting your account will permanently log out all your devices and delete your account, profile, and associated data on %@.", comment: ""), account.domain), preferredStyle: .actionSheet)
         
         let deleteAction = UIAlertAction(title: NSLocalizedString("Delete My Account", comment: ""), style: .destructive) { _ in
-            self.deleteAccountData(fromServer: true)
+            self.deleteAccountData(fromServer: true) { success in
+                print("account deleted")
+            }
         }
         
         let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
@@ -395,24 +406,26 @@ class AccountSettingsViewController: UITableViewController {
         self.present(sheet, animated: true, completion: nil)
     }
     
-    func disablePushNotifications() {
+    func disablePushNotifications(completion: @escaping (Bool) -> Void) {
         guard let account = self.account, let config = AccountManager.getAccount(for: account), let pushSettings = config.pushSettings else { return }
         
         if let client = XmppService.instance.getClient(forJid: BareJID(account)), client.state == .connected, let pushModule: SiskinPushNotificationsModule = client.modulesManager.getModule(SiskinPushNotificationsModule.ID) {
             pushModule.unregisterDeviceAndDisable(completionHandler: { result in
                 switch result {
                 case .success(_):
+                    completion(true)
                     break
-                case .failure(_):
-                    self.unRegisterDevice(accountConfig: config, account: account, pushSettings: pushSettings, removeAccount: false, fromServer: false)
+                case .failure(let error):
+                    print(error)
+                    self.unRegisterDevice(accountConfig: config, account: account, pushSettings: pushSettings, removeAccount: false, fromServer: false, completion: completion)
                 }
             })
         } else {
-            self.unRegisterDevice(accountConfig: config, account: account, pushSettings: pushSettings, removeAccount: false, fromServer: false)
+            self.unRegisterDevice(accountConfig: config, account: account, pushSettings: pushSettings, removeAccount: false, fromServer: false, completion: completion)
         }
     }
     
-    func unRegisterDevice(accountConfig: AccountManager.Account, account: BareJID, pushSettings: SiskinPushNotificationsModule.PushSettings, removeAccount: Bool, fromServer: Bool) {
+    func unRegisterDevice(accountConfig: AccountManager.Account, account: BareJID, pushSettings: SiskinPushNotificationsModule.PushSettings, removeAccount: Bool, fromServer: Bool, completion: @escaping (Bool) -> Void) {
         PushEventHandler.unregisterDevice(from: pushSettings.jid.bareJid, account: account, deviceId: pushSettings.deviceId, completionHandler: { result in
             accountConfig.pushSettings = nil
             AccountManager.save(account: accountConfig)
@@ -421,16 +434,18 @@ class AccountSettingsViewController: UITableViewController {
                 switch result {
                 case .success(_):
                     if removeAccount { self.removeAccount(account: account, fromServer: fromServer) }
+                    completion(true)
                 case .failure( _):
                     let alert = UIAlertController(title: NSLocalizedString("Account Removal Failed",comment: "Alert title"), message: String.localizedStringWithFormat(NSLocalizedString("Push notifications are enabled for %@. They need to be disabled before account can be removed and it is not possible to at this time. Please try again later.", comment: ""), account.stringValue), preferredStyle: .alert);
                     alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil));
                     self.present(alert, animated: true, completion: nil);
+                    completion(false)
                 }
             }
         })
     }
     
-    func deleteAccountData(fromServer: Bool) {
+    func deleteAccountData(fromServer: Bool, completion: @escaping (Bool) -> Void) {
         
         guard let account = self.account, let config = AccountManager.getAccount(for: account) else { return }
         if let pushSettings = config.pushSettings {
@@ -441,12 +456,12 @@ class AccountSettingsViewController: UITableViewController {
                         self.removeAccount(account: account, fromServer: fromServer)
                         break
                     case .failure(_):
-                        self.unRegisterDevice(accountConfig: config, account: account, pushSettings: pushSettings, removeAccount: true, fromServer: fromServer)
+                        self.unRegisterDevice(accountConfig: config, account: account, pushSettings: pushSettings, removeAccount: true, fromServer: fromServer, completion: completion)
                     }
                 })
             }
             else {
-                self.unRegisterDevice(accountConfig: config, account: account, pushSettings: pushSettings, removeAccount: true, fromServer: fromServer)
+                self.unRegisterDevice(accountConfig: config, account: account, pushSettings: pushSettings, removeAccount: true, fromServer: fromServer, completion: completion)
             }
         }
         else {
