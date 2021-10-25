@@ -63,11 +63,31 @@ class ConversationLogController: UIViewController, ChatViewDataSourceDelegate {
         if !loaded {
             loaded = true;
             self.dataSource.refreshData(unread: chat.unread) { (firstUnread) in
-                print("got first unread at:", firstUnread as Any);
                 if self.tableView.numberOfRows(inSection: 0) > 0 {
                     self.tableView.scrollToRow(at: IndexPath(row: firstUnread ?? 0, section: 0), at: .none, animated: true);
                 }
+                
+                if self.dataSource.count == 0 {
+                    self.toggleNoMessagesLabel(show: true)
+                } else {
+                    self.toggleNoMessagesLabel(show: false)
+                }
             }
+        }
+    }
+    
+    func toggleNoMessagesLabel(show: Bool) {
+        if show {
+            let label = UILabel(frame: CGRect(x: 0, y:0, width: self.view.bounds.size.width, height: self.view.bounds.size.height))
+            label.text = NSLocalizedString("No messages yet. Say hi!", comment: "")
+            label.font = UIFont.systemFont(ofSize: UIFont.systemFontSize + 2, weight: .medium)
+            label.numberOfLines = 0
+            label.textAlignment = .center
+            label.transform = CGAffineTransform(a: 1, b: 0, c: 0, d: -1, tx: 0, ty: 0)
+            label.sizeToFit()
+            self.tableView.backgroundView = label
+        } else {
+            self.tableView.backgroundView = nil
         }
     }
     
