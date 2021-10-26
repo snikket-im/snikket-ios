@@ -200,6 +200,7 @@ class AccountSettingsViewController: UITableViewController {
     }
         
     @IBAction func enabledSwitchChangedValue(_ sender: AnyObject) {
+        enabledSwitch.isEnabled = false
         if enabledSwitch.isOn {
             if let config = AccountManager.getAccount(for: account!) {
                 config.active = true
@@ -226,14 +227,19 @@ class AccountSettingsViewController: UITableViewController {
                     userInfo["errorCondition"] = errorCondition;
                 }
                 NotificationCenter.default.post(name: Notification.Name("pushNotificationsRegistrationFailed"), object: self, userInfo: userInfo);
+                self.enabledSwitch.isEnabled = true
             }
         }
+        
         // let's check if push notifications component is accessible
         if let pushModule: SiskinPushNotificationsModule = XmppService.instance.getClient(forJid: accountJid)?.modulesManager.getModule(SiskinPushNotificationsModule.ID), let deviceId = PushEventHandler.instance.deviceId {
             pushModule.registerDeviceAndEnable(deviceId: deviceId, pushkitDeviceId: PushEventHandler.instance.pushkitDeviceId, completionHandler: { result in
                 switch result {
                 case .success(_):
-                    break;
+                    DispatchQueue.main.async {
+                        self.enabledSwitch.isEnabled = true
+                    }
+                    break
                 case .failure(let errorCondition):
                     DispatchQueue.main.async {
                         self.pushNotificationsForAwaySwitch.isOn = false;
@@ -357,6 +363,12 @@ class AccountSettingsViewController: UITableViewController {
                 DispatchQueue.main.async {
                     self.navigationController?.popViewController(animated: true)
                 }
+            } else {
+                DispatchQueue.main.async {
+                    self.enabledSwitch.isEnabled = true
+                    self.enabledSwitch.isOn = true
+                }
+                
             }
         }
         
@@ -407,7 +419,10 @@ class AccountSettingsViewController: UITableViewController {
     }
     
     func disablePushNotifications(completion: @escaping (Bool) -> Void) {
-        guard let account = self.account, let config = AccountManager.getAccount(for: account), let pushSettings = config.pushSettings else { return }
+        guard let account = self.account, let config = AccountManager.getAccount(for: account), let pushSettings = config.pushSettings else {
+            completion(false)
+            return
+        }
         
         if let client = XmppService.instance.getClient(forJid: BareJID(account)), client.state == .connected, let pushModule: SiskinPushNotificationsModule = client.modulesManager.getModule(SiskinPushNotificationsModule.ID) {
             pushModule.unregisterDeviceAndDisable(completionHandler: { result in
