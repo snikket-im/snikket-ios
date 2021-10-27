@@ -45,7 +45,7 @@ class ConversationLogController: UIViewController, ChatViewDataSourceDelegate {
         tableView.rowHeight = UITableView.automaticDimension;
         tableView.estimatedRowHeight = 160.0;
         tableView.separatorStyle = .none;
-        tableView.scrollsToTop = false
+        tableView.scrollsToTop = true
         tableView.transform = dataSource.inverted ? CGAffineTransform(a: 1, b: 0, c: 0, d: -1, tx: 0, ty: 0) : CGAffineTransform.identity;
         
         if let refreshControl = self.refreshControl {
@@ -71,6 +71,9 @@ class ConversationLogController: UIViewController, ChatViewDataSourceDelegate {
                     self.toggleNoMessagesLabel(show: true)
                 } else {
                     self.toggleNoMessagesLabel(show: false)
+                }
+                DispatchQueue.main.async {
+                    self.tableView.setContentOffset(CGPoint(x: 0, y: 1), animated: false)
                 }
             }
         }
