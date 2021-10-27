@@ -87,7 +87,10 @@ class ConversationLogController: UIViewController, ChatViewDataSourceDelegate {
             label.sizeToFit()
             self.tableView.backgroundView = label
         } else {
-            self.tableView.backgroundView = nil
+            DispatchQueue.main.async {
+                self.tableView.backgroundView = nil
+            }
+            
         }
     }
     
@@ -107,6 +110,7 @@ class ConversationLogController: UIViewController, ChatViewDataSourceDelegate {
             print("added items at:", rows, "scrolling to:", firstRowIndexPath);
             tableView.scrollToRow(at: firstRowIndexPath, at: .none, animated: true)
         }
+        toggleNoMessagesLabel(show: false)
         markAsReadUpToNewestVisibleRow();
     }
         
