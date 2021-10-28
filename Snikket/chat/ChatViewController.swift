@@ -93,7 +93,10 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
     func scrollToTop() {
         if let count = self.conversationLogController?.dataSource.count, count > 0 {
             let indexPath = IndexPath(row: count-1, section: 0)
-            self.conversationLogController?.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+            DispatchQueue.main.async {
+                self.conversationLogController?.tableView.scrollToRow(at: indexPath, at: .none, animated: true)
+            }
+            
         }
     }
     
