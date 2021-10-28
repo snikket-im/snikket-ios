@@ -121,11 +121,12 @@ class MucChatViewController: BaseChatViewControllerWithDataSourceAndContextMenuA
     
     func scrollToTop() {
         if let count = self.conversationLogController?.dataSource.count, count > 0 {
-            let indexPath = IndexPath(row: count-1, section: 0)
+            var currentRow = self.conversationLogController?.tableView.indexPathsForVisibleRows?.first?.row ?? 0
+            currentRow = count > currentRow + 40 ? currentRow + 40 : count
+            let indexPath = IndexPath(row: currentRow - 1, section: 0)
             DispatchQueue.main.async {
                 self.conversationLogController?.tableView.scrollToRow(at: indexPath, at: .none, animated: true)
             }
-            
         }
     }
     
