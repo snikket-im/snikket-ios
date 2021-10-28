@@ -102,7 +102,31 @@ class MucChatViewController: BaseChatViewControllerWithDataSourceAndContextMenuA
     }
     
     @IBAction func scrollToBottomTapped(_ sender: RoundShadowButton) {
-        self.conversationLogController?.tableView.setContentOffset(.zero, animated: true)
+        self.conversationLogController?.tableView.setContentOffset(CGPoint(x: 0, y: 1), animated: true)
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        // scrollViewShouldScrollToTop will not get called if tableview is already at top
+        guard var contentOffset = self.conversationLogController?.tableView.contentOffset else { return }
+        if contentOffset.y == 0 {
+            contentOffset.y = 1
+            self.conversationLogController?.tableView.setContentOffset(contentOffset, animated: true)
+        }
+    }
+    
+    func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {
+        scrollToTop()
+        return false
+    }
+    
+    func scrollToTop() {
+        if let count = self.conversationLogController?.dataSource.count, count > 0 {
+            let indexPath = IndexPath(row: count-1, section: 0)
+            DispatchQueue.main.async {
+                self.conversationLogController?.tableView.scrollToRow(at: indexPath, at: .none, animated: true)
+            }
+            
+        }
     }
     
     func setupGroupName() {
