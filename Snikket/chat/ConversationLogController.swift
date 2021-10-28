@@ -101,6 +101,9 @@ class ConversationLogController: UIViewController, ChatViewDataSourceDelegate {
         guard rows.count > 0 else {
             return;
         }
+        if shouldScroll, tableView.contentOffset.y == 1 {
+            tableView.setContentOffset(.zero, animated: false)
+        }
         if dataSource.count == rows.count && rows.count > 1 {
             tableView.reloadData();
         } else {
@@ -111,7 +114,10 @@ class ConversationLogController: UIViewController, ChatViewDataSourceDelegate {
         }
         if shouldScroll && rows.contains(0) && (tableView.indexPathsForVisibleRows?.contains(firstRowIndexPath) ?? false) {
             print("added items at:", rows, "scrolling to:", firstRowIndexPath);
-            tableView.scrollToRow(at: firstRowIndexPath, at: .none, animated: true)
+            tableView.scrollToRow(at: firstRowIndexPath, at: .bottom, animated: true)
+            DispatchQueue.main.asyncAfter(deadline: .now()+0.2) {
+                self.tableView.setContentOffset(CGPoint(x: 0, y: 1), animated: false)
+            }
         }
         toggleNoMessagesLabel(show: false)
         markAsReadUpToNewestVisibleRow();
