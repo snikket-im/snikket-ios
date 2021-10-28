@@ -122,7 +122,10 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
     
     
     @IBAction func scrollToBottomTapped(_ sender: UIButton) {
-        self.conversationLogController?.tableView.setContentOffset(CGPoint(x: 0, y: 1), animated: true)
+        self.conversationLogController?.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .none, animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
+            self.conversationLogController?.tableView.setContentOffset(CGPoint(x: 0, y: 1), animated: true)
+        }
     }
     
     @IBAction func rejectSubscriptionTapped(_ sender: Any) {
