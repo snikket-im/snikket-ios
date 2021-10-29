@@ -776,14 +776,14 @@
         <scene sceneID="7R8-sh-AnU">
             <objects>
                 <tableViewController id="WDE-Vb-oKK" customClass="RosterItemEditViewController" customModule="Snikket" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Ock-Af-3IY">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Ock-Af-3IY">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                         <sections>
                             <tableViewSection headerTitle="Account" id="Mfv-HJ-QDO">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="mk1-zp-AU3">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="mk1-zp-AU3">
                                         <rect key="frame" x="0.0" y="49" width="428" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mk1-zp-AU3" id="Da1-kS-KYt">
@@ -808,7 +808,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="JID" id="Qgj-eQ-geg">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ubC-3x-1ej">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="ubC-3x-1ej">
                                         <rect key="frame" x="0.0" y="142.66666603088379" width="428" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ubC-3x-1ej" id="6FY-Rq-hWY">
@@ -833,7 +833,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Name" id="Kfl-J5-hdD">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="bnU-C3-Ei1">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="bnU-C3-Ei1">
                                         <rect key="frame" x="0.0" y="236.33333206176758" width="428" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bnU-C3-Ei1" id="sWs-wY-Vy8">
@@ -858,7 +858,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="PRESENCE" id="Q28-Ig-9NP">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="yky-H4-cbk">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="yky-H4-cbk">
                                         <rect key="frame" x="0.0" y="329.99999809265137" width="428" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yky-H4-cbk" id="Qga-yz-bXa">
@@ -884,7 +884,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="GLY-Pk-gl9">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="GLY-Pk-gl9">
                                         <rect key="frame" x="0.0" y="373.99999809265137" width="428" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GLY-Pk-gl9" id="P7U-6w-pcx">
@@ -912,6 +912,37 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Invite" id="dib-YA-Eiz">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="pth-Xm-NXb">
+                                        <rect key="frame" x="0.0" y="467.66666412353516" width="428" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pth-Xm-NXb" id="EmN-0E-Hpp">
+                                            <rect key="frame" x="0.0" y="0.0" width="428" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Send Invitation Link" placeholder="Enter contact name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rg7-YE-y8H">
+                                                    <rect key="frame" x="20" y="0.0" width="388" height="44"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="FPK-6B-DCN">
+                                                    <rect key="frame" x="378" y="12" width="20" height="20"/>
+                                                    <color key="color" name="AddToContactsBar"/>
+                                                </activityIndicatorView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="FPK-6B-DCN" firstAttribute="centerY" secondItem="EmN-0E-Hpp" secondAttribute="centerY" id="HlI-Sf-kPN"/>
+                                                <constraint firstItem="Rg7-YE-y8H" firstAttribute="leading" secondItem="EmN-0E-Hpp" secondAttribute="leadingMargin" id="Yid-O7-fNs"/>
+                                                <constraint firstItem="Rg7-YE-y8H" firstAttribute="top" secondItem="EmN-0E-Hpp" secondAttribute="top" id="hll-jG-K6h"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Rg7-YE-y8H" secondAttribute="trailing" id="iO2-ER-q2P"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="FPK-6B-DCN" secondAttribute="trailing" constant="10" id="jQD-5E-6Ad"/>
+                                                <constraint firstAttribute="bottom" secondItem="Rg7-YE-y8H" secondAttribute="bottom" id="rnb-WT-t71"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="WDE-Vb-oKK" id="52x-2u-5zh"/>
@@ -932,6 +963,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="accountTextField" destination="gXY-yq-Y2K" id="HAo-5R-FQQ"/>
+                        <outlet property="invitationLinkIndicator" destination="FPK-6B-DCN" id="zl9-LQ-OPw"/>
                         <outlet property="jidTextField" destination="BM3-28-huR" id="rnA-hS-bcu"/>
                         <outlet property="nameTextField" destination="OGf-mX-8z3" id="tdd-eS-Ybc"/>
                         <outlet property="receivePresenceUpdatesSwitch" destination="QIs-qT-dLK" id="y20-Tc-yVK"/>
