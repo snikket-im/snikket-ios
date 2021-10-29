@@ -125,7 +125,11 @@ class CallManager: NSObject, CXProviderDelegate {
         update.supportsHolding = false
         provider.configuration.supportsVideo = call.media.contains(.video)
         update.hasVideo = AVCaptureDevice.authorizationStatus(for: .video) == .authorized && call.media.contains(.video)
-        update.remoteHandle = call.media.contains(.video) ? CXHandle(type: .generic, value: call.jid.stringValue) : nil
+        
+        let telephonyProvider = AccountSettings.telephonyProvider(call.account).getString() ?? ""
+        let handle = telephonyProvider == call.jid.domain ? CXHandle(type: .phoneNumber, value: (call.jid.localPart ?? "Unkown"))  : CXHandle(type: .generic, value: call.jid.stringValue)
+        
+        update.remoteHandle = handle
         configureAudioSession()
         provider.reportNewIncomingCall(with: call.uuid, update: update, completion: { err in
             guard let error = err else {
@@ -168,7 +172,10 @@ class CallManager: NSObject, CXProviderDelegate {
         let rosterModule: RosterModule? = XmppService.instance.getClient(for: call.account)?.modulesManager.getModule(RosterModule.ID);
         let name = rosterModule?.rosterStore.get(for: JID(call.jid))?.name ?? call.jid.stringValue;
 
-        let startCallAction = CXStartCallAction(call: call.uuid, handle: CXHandle(type: .generic, value: call.jid.stringValue));
+        let telephonyProvider = AccountSettings.telephonyProvider(call.account).getString() ?? ""
+        let handle = telephonyProvider == call.jid.domain ? CXHandle(type: .phoneNumber, value: (call.jid.localPart ?? "Unkown"))  : CXHandle(type: .generic, value: call.jid.stringValue)
+        
+        let startCallAction = CXStartCallAction(call: call.uuid, handle: handle)
         startCallAction.isVideo = call.media.contains(.video);
         startCallAction.contactIdentifier = name;
         let transaction = CXTransaction(action: startCallAction);
