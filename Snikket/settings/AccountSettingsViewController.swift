@@ -419,8 +419,13 @@ class AccountSettingsViewController: UITableViewController {
     }
     
     func disablePushNotifications(completion: @escaping (Bool) -> Void) {
-        guard let account = self.account, let config = AccountManager.getAccount(for: account), let pushSettings = config.pushSettings else {
+        guard let account = self.account, let config = AccountManager.getAccount(for: account) else {
             completion(false)
+            return
+        }
+        
+        guard let pushSettings = config.pushSettings else {
+            completion(true)
             return
         }
         
