@@ -72,7 +72,7 @@ class RosterItemEditViewController: UITableViewController, UIPickerViewDataSourc
     }
     
     func createInvitationLink() {
-        guard let account = account, let client = xmppService.getClient(for: account) else { return }
+        guard let account = BareJID(self.accountTextField.text), let client = xmppService.getClient(for: account) else { return }
 
         let inviteCommand = "urn:xmpp:invite#invite"
         if let adHocModule: AdHocCommandsModule = client.modulesManager.getModule(AdHocCommandsModule.ID) {
@@ -257,6 +257,7 @@ class RosterItemEditViewController: UITableViewController, UIPickerViewDataSourc
     
     func  pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.accountTextField.text = self.pickerView(pickerView, titleForRow: row, forComponent: component);
+        self.view.endEditing(true)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
