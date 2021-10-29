@@ -16,6 +16,7 @@
 		3759638626F7317D00831F4C /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3759638826F7317D00831F4C /* Account.storyboard */; };
 		3759638D26F7320F00831F4C /* MIX.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3759638F26F7320F00831F4C /* MIX.storyboard */; };
 		3759A58C26F8C7CC002987B2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3759A58E26F8C7CC002987B2 /* Localizable.strings */; };
+		3763450E272C6CEF000BC01F /* CallsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763450D272C6CEF000BC01F /* CallsSettingsViewController.swift */; };
 		3776C43526EDC5F00047750B /* MessageStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3776C43426EDC5F00047750B /* MessageStyling.swift */; };
 		3795F92426FB69370067361A /* BartyCrouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3795F92326FB69370067361A /* BartyCrouch.swift */; };
 		3797D5BD26E9E42E0091DAF8 /* AvatarColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3797D5BC26E9E42E0091DAF8 /* AvatarColors.swift */; };
@@ -334,6 +335,7 @@
 		3759639426F7481200831F4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
 		3759A58D26F8C7CC002987B2 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3759A58F26F8C7CF002987B2 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3763450D272C6CEF000BC01F /* CallsSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallsSettingsViewController.swift; sourceTree = "<group>"; };
 		3776C43426EDC5F00047750B /* MessageStyling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageStyling.swift; sourceTree = "<group>"; };
 		3795F92326FB69370067361A /* BartyCrouch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BartyCrouch.swift; sourceTree = "<group>"; };
 		3797D5BC26E9E42E0091DAF8 /* AvatarColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarColors.swift; sourceTree = "<group>"; };
@@ -767,26 +769,27 @@
 		FE507A0A1CDB7B3B001A015C /* settings */ = {
 			isa = PBXGroup;
 			children = (
+				FE6545611E9E7FDE006A14AC /* AccountDomainTableViewCell.swift */,
+				FE17808C23EB4C7F00A1EA76 /* AccountQRCodeController.swift */,
+				FEF80DB11CDBBBFE005645A7 /* AccountSettingsViewController.swift */,
 				FE507A0B1CDB7B3B001A015C /* AccountTableViewCell.swift */,
 				FE507A0C1CDB7B3B001A015C /* AddAccountController.swift */,
-				FE507A0D1CDB7B3B001A015C /* SettingsViewController.swift */,
-				FEF80DB11CDBBBFE005645A7 /* AccountSettingsViewController.swift */,
-				FE80BDAA1D953FC4001914B0 /* SetupViewController.swift */,
-				FE65455F1E9E7B85006A14AC /* RegisterAccountController.swift */,
-				FE6545611E9E7FDE006A14AC /* AccountDomainTableViewCell.swift */,
-				FE6545631E9E8B67006A14AC /* ServerSelectorTableViewCell.swift */,
+				FEDC678F238B05E4005C0FAB /* BlockedContactsController.swift */,
 				FE9E136C1F25F5F7005C0EE5 /* ChatSettingsViewController.swift */,
-				FE9E136E1F26049A005C0EE5 /* NotificationSettingsViewController.swift */,
 				FE9E13701F2606E9005C0EE5 /* ContactsSettingsViewController.swift */,
 				FE00157E2019090300490340 /* ExperimentalSettingsViewController.swift */,
+				FE0E31112537288A0030F8C5 /* MediaSettingsVIewController.swift */,
+				FE9E136E1F26049A005C0EE5 /* NotificationSettingsViewController.swift */,
+				FE719E7D2274D20D007CEEC9 /* OMEMOFingerprintsController.swift */,
+				E963721126D79D3A00332482 /* PrivacyPolicyTableViewCell.swift */,
+				FE65455F1E9E7B85006A14AC /* RegisterAccountController.swift */,
 				FE2809802167CE18002F5BD0 /* server_features_list.xml */,
 				FE2809822167CF1B002F5BD0 /* ServerFeaturesViewController.swift */,
-				FE719E7D2274D20D007CEEC9 /* OMEMOFingerprintsController.swift */,
-				FEDC678F238B05E4005C0FAB /* BlockedContactsController.swift */,
-				FE17808C23EB4C7F00A1EA76 /* AccountQRCodeController.swift */,
-				FE0E31112537288A0030F8C5 /* MediaSettingsVIewController.swift */,
-				E963721126D79D3A00332482 /* PrivacyPolicyTableViewCell.swift */,
+				FE6545631E9E8B67006A14AC /* ServerSelectorTableViewCell.swift */,
+				FE507A0D1CDB7B3B001A015C /* SettingsViewController.swift */,
+				FE80BDAA1D953FC4001914B0 /* SetupViewController.swift */,
 				373A801F271063E1000E50FE /* TelephonyProviderViewController.swift */,
+				3763450D272C6CEF000BC01F /* CallsSettingsViewController.swift */,
 			);
 			path = settings;
 			sourceTree = "<group>";
@@ -1448,6 +1451,7 @@
 				373A8020271063E1000E50FE /* TelephonyProviderViewController.swift in Sources */,
 				FE3E38862428C21100D3A8E8 /* OSLog.swift in Sources */,
 				FECEF29423B7933A007EC323 /* MetadataCache.swift in Sources */,
+				3763450E272C6CEF000BC01F /* CallsSettingsViewController.swift in Sources */,
 				E9D384B426CA95FF009BEAF3 /* UIDeviceExtension.swift in Sources */,
 				FEB62C501DA80956001500D5 /* AvatarStore.swift in Sources */,
 				FE7D293423B919FF001A877D /* DownloadManager.swift in Sources */,

@@ -54,7 +54,7 @@ class CallManager: NSObject, CXProviderDelegate {
     
     private let pushRegistry: PKPushRegistry;
     
-    private let provider: CXProvider;
+    public var provider: CXProvider;
     private let callController: CXCallController;
     
     private(set) var currentCall: Call?;
