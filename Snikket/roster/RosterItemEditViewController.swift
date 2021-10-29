@@ -26,6 +26,7 @@ class RosterItemEditViewController: UITableViewController, UIPickerViewDataSourc
 
     var xmppService:XmppService!
     
+    @IBOutlet weak var invitationLinkIndicator: UIActivityIndicatorView!
     @IBOutlet var accountTextField: UITextField!
     @IBOutlet var jidTextField: UITextField!
     @IBOutlet var nameTextField: UITextField!
@@ -67,6 +68,45 @@ class RosterItemEditViewController: UITableViewController, UIPickerViewDataSourc
                 self.accountTextField.text = account?.stringValue;
             }
             self.nameTextField.text = nil;
+        }
+    }
+    
+    func createInvitationLink() {
+        guard let account = account, let client = xmppService.getClient(for: account) else { return }
+
+        let inviteCommand = "urn:xmpp:invite#invite"
+        if let adHocModule: AdHocCommandsModule = client.modulesManager.getModule(AdHocCommandsModule.ID) {
+            adHocModule.execute(on: JID(account.domain), command: inviteCommand, action: .execute, data: nil) { response, data in
+                if let inviteLink = data?.getField(named: "landing-url")?.element.findChild(name: "value")?.value {
+                    self.presentShareSheet(url: inviteLink)
+                }
+            } onError: { error in
+                self.toggleActivityIndicator(toggle: false)
+            }
+
+        }
+    }
+    
+    func presentShareSheet(url: String) {
+        guard let url = URL(string: url) else {
+            self.toggleActivityIndicator(toggle: false)
+            return
+        }
+        
+        let items: [Any] = [url]
+        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        DispatchQueue.main.async {
+            self.present(ac, animated: true) {
+                self.toggleActivityIndicator(toggle: false)
+            }
+        }
+        
+    }
+    
+    func toggleActivityIndicator(toggle: Bool) {
+        DispatchQueue.main.async {
+            if toggle { self.invitationLinkIndicator.startAnimating() }
+            else {self.invitationLinkIndicator.stopAnimating() }
         }
     }
 
@@ -219,4 +259,10 @@ class RosterItemEditViewController: UITableViewController, UIPickerViewDataSourc
         self.accountTextField.text = self.pickerView(pickerView, titleForRow: row, forComponent: component);
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 4, indexPath.row == 0, !invitationLinkIndicator.isAnimating {
+            toggleActivityIndicator(toggle: true)
+            self.createInvitationLink()
+        }
+    }
 }
