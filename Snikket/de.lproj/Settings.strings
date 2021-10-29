@@ -10,6 +10,9 @@
 /* Class = "UILabel"; text = "About"; ObjectID = "3vM-ad-4ap"; Note = "Action button: show app about screen"; */
 "3vM-ad-4ap.text" = "Über";
 
+/* Class = "UITableViewController"; title = "Notification settings"; ObjectID = "4VG-XN-BdZ"; */
+"4VG-XN-BdZ.title" = "Notification settings";
+
 /* Class = "UILabel"; text = "Account name"; ObjectID = "7ho-Mu-thd"; */
 "7ho-Mu-thd.text" = "Account name";
 
@@ -82,6 +85,9 @@
 /* Class = "UILabel"; text = "Blocked contacts"; ObjectID = "MJ0-kw-1Kl"; */
 "MJ0-kw-1Kl.text" = "Blockierte Kontakte";
 
+/* Class = "UILabel"; text = "Add to system call history"; ObjectID = "Ngk-vc-zET"; */
+"Ngk-vc-zET.text" = "Add to system call history";
+
 /* Class = "UILabel"; text = "\"Hidden\" group"; ObjectID = "P82-B8-768"; */
 "P82-B8-768.text" = "\"Versteckte\" Gruppe";
 
@@ -96,6 +102,12 @@
 
 /* Class = "UILabel"; text = "Medium"; ObjectID = "u45-W8-GP0"; */
 "u45-W8-GP0.text" = "Medium";
+
+/* Class = "UITableViewSection"; headerTitle = "TELEPHONY"; ObjectID = "v8T-iN-1IT"; */
+"v8T-iN-1IT.headerTitle" = "TELEPHONY";
+
+/* Class = "UILabel"; text = "Calls"; ObjectID = "wfP-Tn-CDA"; */
+"wfP-Tn-CDA.text" = "Calls";
 
 /* Class = "UITableViewController"; title = "Contacts settings"; ObjectID = "xRS-v5-T5C"; */
 "xRS-v5-T5C.title" = "Kontakteinstellungen";
