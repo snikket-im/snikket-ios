@@ -797,6 +797,14 @@ extension AppDelegate {
                 }
             }
         }
+        else if let _ = interaction?.intent as? INStartVideoCallIntent {
+            let alert : UIAlertController = UIAlertController(title: NSLocalizedString("Video not available", comment: ""), message: NSLocalizedString("This is an audio call, and no video is available", comment: ""), preferredStyle: .alert)
+            let ok = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel, handler: nil)
+            alert.addAction(ok)
+            DispatchQueue.main.asyncAfter(deadline: .now()+1, execute: {
+                self.window?.rootViewController?.presentedViewController?.present(alert, animated: true, completion: nil)
+            })
+        }
         return true
     }
     

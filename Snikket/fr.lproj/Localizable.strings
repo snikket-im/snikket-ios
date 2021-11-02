@@ -525,6 +525,9 @@
 "The user will be reported and any calls, messages and status updates from them will be blocked." = "The user will be reported and any calls, messages and status updates from them will be blocked.";
 
 /* No comment provided by engineer. */
+"This is an audio call, and no video is available" = "This is an audio call, and no video is available";
+
+/* No comment provided by engineer. */
 "This room is not capable of sending encrypted messages. Please change encryption settings to be able to send messages" = "This room is not capable of sending encrypted messages. Please change encryption settings to be able to send messages";
 
 /* No comment provided by engineer. */
@@ -550,6 +553,9 @@
 
 /* No comment provided by engineer. */
 "Video call" = "Appel vidéo";
+
+/* No comment provided by engineer. */
+"Video not available" = "Video not available";
 
 /* No comment provided by engineer. */
 "Warning" = "Attention";
