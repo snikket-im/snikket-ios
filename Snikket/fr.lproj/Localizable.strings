@@ -410,6 +410,14 @@
 
 /* Error text - while uploading file */
 "There was a server error processing the file upload. Please try again later." = "There was a server error processing the file upload. Please try again later.";
+
+/* No comment provided by engineer. */
+"This is an audio call, and no video is available" = "This is an audio call, and no video is available";
+
+/* No comment provided by engineer. */
+"This room is not capable of sending encrypted messages. Please change encryption settings to be able to send messages" = "This room is not capable of sending encrypted messages. Please change encryption settings to be able to send messages";
+
+/* No comment provided by engineer. */
 "This will delete all the message history for this chat. Continue?" = "Vous allez supprimer tout l’historique des messages de cette discussion. Voulez-vous continuer ?";
 
 /* Alert text */
@@ -429,6 +437,14 @@
 /* followed by account name to select */
 "using" = "using";
 "Video call" = "Appel vidéo";
+<<<<<<< HEAD
+=======
+
+/* No comment provided by engineer. */
+"Video not available" = "Video not available";
+
+/* No comment provided by engineer. */
+>>>>>>> - #152 CallKit: Handle video button during audio call
 "Warning" = "Attention";
 
 /* Placeholder is xmpp: URI */

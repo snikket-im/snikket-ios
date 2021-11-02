@@ -412,6 +412,14 @@
 
 /* Error text - while uploading file */
 "There was a server error processing the file upload. Please try again later." = "Ett fel inträffade på servern vid hantering av filuppladdningen. Vänligen försök igen senare.";
+
+/* No comment provided by engineer. */
+"This is an audio call, and no video is available" = "This is an audio call, and no video is available";
+
+/* No comment provided by engineer. */
+"This room is not capable of sending encrypted messages. Please change encryption settings to be able to send messages" = "This room is not capable of sending encrypted messages. Please change encryption settings to be able to send messages";
+
+/* No comment provided by engineer. */
 "This will delete all the message history for this chat. Continue?" = "Detta raderar all meddelandehistorik för den här chatten. Fortsätta?";
 
 /* Alert text */
@@ -431,6 +439,11 @@
 /* followed by account name to select */
 "using" = "använder";
 "Video call" = "Videosamtal";
+
+/* No comment provided by engineer. */
+"Video not available" = "Video not available";
+
+/* No comment provided by engineer. */
 "Warning" = "Varning";
 
 /* Placeholder is xmpp: URI */
