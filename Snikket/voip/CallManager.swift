@@ -563,7 +563,7 @@ class CallManager: NSObject, CXProviderDelegate {
 
         let controller = UIStoryboard(name: "VoIP", bundle: nil).instantiateViewController(withIdentifier: "VideoCallController") as! VideoCallController;
         self.delegate = controller;
-        topController?.show(controller, sender: self);
+        topController?.present(controller, animated: true, completion: nil)
     }
     
     func switchCameraDevice() {
