@@ -329,6 +329,9 @@
 /* No comment provided by engineer. */
 "No messages yet. Say hi!" = "Aucun message, dites bonjour !";
 
+/* No comment provided by engineer. */
+"No Telephony Provider!" = "No Telephony Provider!";
+
 /* Encryption mode */
 "None" = "None";
 
@@ -376,6 +379,9 @@
 
 /* No comment provided by engineer. */
 "Phones" = "Téléphones";
+
+/* No comment provided by engineer. */
+"Please Select a Telephony Provider from Settings" = "Please Select a Telephony Provider from Settings";
 
 /* No comment provided by engineer. */
 "Please try again!" = "Merci de réessayer !";
@@ -451,6 +457,9 @@
 
 /* No comment provided by engineer. */
 "Search channels" = "Recherche de salons";
+
+/* No comment provided by engineer. */
+"Select Account for Call" = "Select Account for Call";
 
 /* No comment provided by engineer. */
 "Select photo" = "Sélectionner une photo";

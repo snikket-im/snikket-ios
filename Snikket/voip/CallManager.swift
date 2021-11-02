@@ -92,11 +92,11 @@ class CallManager: NSObject, CXProviderDelegate {
                 config.iconTemplateImageData = image.pngData();
             }
         }
-        config.includesCallsInRecents = false;
+        config.includesCallsInRecents = Settings.addCallsToSystem.getBool()
         config.supportsVideo = true;
         config.maximumCallsPerCallGroup = 1;
         config.maximumCallGroups = 1;
-        config.supportedHandleTypes = [.generic];
+        config.supportedHandleTypes = [.generic, .phoneNumber];
 
         provider = CXProvider(configuration: config);
         callController = CXCallController();

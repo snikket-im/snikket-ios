@@ -330,6 +330,9 @@
 "No messages yet. Say hi!" = "No messages yet. Say hi!";
 
 /* No comment provided by engineer. */
+"No Telephony Provider!" = "No Telephony Provider!";
+
+/* No comment provided by engineer. */
 "None" = "None";
 
 /* No comment provided by engineer. */
@@ -376,6 +379,9 @@
 
 /* No comment provided by engineer. */
 "Phones" = "Phones";
+
+/* No comment provided by engineer. */
+"Please Select a Telephony Provider from Settings" = "Please Select a Telephony Provider from Settings";
 
 /* No comment provided by engineer. */
 "Please try again!" = "Please try again!";
@@ -451,6 +457,9 @@
 
 /* No comment provided by engineer. */
 "Search channels" = "Search channels";
+
+/* No comment provided by engineer. */
+"Select Account for Call" = "Select Account for Call";
 
 /* No comment provided by engineer. */
 "Select photo" = "Select photo";
