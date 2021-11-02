@@ -58,6 +58,8 @@
 	<string>Used to save attachements from conversations</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Used to select avatar</string>
+	<key>NSUserActivityTypes</key>
+	<string>INStartCallIntent</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>

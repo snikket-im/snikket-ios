@@ -25,6 +25,7 @@ import TigaseSwift
 import Shared
 import WebRTC
 import BackgroundTasks
+import Intents
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -769,6 +770,88 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             case register
         }
     }
-
 }
+
+// Making Call From System Calls App
+extension AppDelegate {
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        
+        let interaction = userActivity.interaction
+        if let startAudioCallIntent = interaction?.intent as? INStartAudioCallIntent {
+            
+            let contact = startAudioCallIntent.contacts?.first
+            
+            let contactHandle = contact?.personHandle
+            
+            if let callTo = contactHandle?.value {
+                if contactHandle?.type == .phoneNumber {
+                    // call from telephony configured account
+                    getTelephonyConfiguredAccounts(completion: { [callTo] account, provider in
+                        self.makeOutgoingCall(account: account, callTo: callTo + "@" + provider, type: .phoneNumber)
+                    })
+                } else {
+                    // show account selection to make call
+                    showAccountSelection(accounts: AccountManager.getActiveAccounts()) { [callTo] account  in
+                        self.makeOutgoingCall(account: account, callTo: callTo, type: .unknown)
+                    }
+                }
+            }
+        }
+        return true
+    }
+    
+    func getTelephonyConfiguredAccounts(completion: @escaping (BareJID,String) -> Void) {
+        var telephonyAccounts = [BareJID:String]()
+        let accounts = AccountManager.getActiveAccounts()
+        for account in accounts {
+            if let provider = AccountSettings.telephonyProvider(account).getString() {
+                telephonyAccounts[account] = provider
+            }
+        }
+        if telephonyAccounts.isEmpty {
+            // show alert
+            showNoProviderConfigured()
+        } else if telephonyAccounts.count == 1, let first = telephonyAccounts.first {
+            completion(first.key,first.value)
+        } else {
+            // show account selection sheet
+            showAccountSelection(accounts: Array(telephonyAccounts.keys), completion: { selectedAccount in
+                completion(selectedAccount ,telephonyAccounts[selectedAccount] ?? "")
+            })
+        }
+    }
+    
+    func showNoProviderConfigured() {
+        let alert : UIAlertController = UIAlertController(title: NSLocalizedString("No Telephony Provider!", comment: ""), message: NSLocalizedString("Please Select a Telephony Provider from Settings", comment: ""), preferredStyle: .alert)
+        let ok = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel, handler: nil)
+        alert.addAction(ok)
+        self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+    }
+    
+    func showAccountSelection(accounts: [BareJID], completion: @escaping (BareJID) -> Void) {
+        let alert : UIAlertController = UIAlertController(title: NSLocalizedString("Select Account for Call", comment: ""), message: nil, preferredStyle: .alert)
+        alert.view.backgroundColor = .black
+        alert.view.layer.cornerRadius = 8.0
+        let contactNumVC = CallsAccountSelectionController()
+        contactNumVC.accounts = accounts
+        contactNumVC.preferredContentSize = CGSize(width: alert.view.frame.width, height: (50.0 * CGFloat(accounts.count)))
+        alert.setValue(contactNumVC, forKeyPath: "contentViewController")
+        let cancel = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
+        alert.addAction(cancel)
+        
+        contactNumVC.didSelectAccount = { account  in
+            print(account)
+            completion(account)
+        }
+        
+        self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+    }
+    
+    func makeOutgoingCall(account: BareJID, callTo: String, type: INPersonHandleType) {
+        guard let rootVC =  self.window?.rootViewController else { return }
+        let jid = BareJID(callTo)
+        VideoCallController.call(jid: jid, from: account, media: [.audio], sender: rootVC)
+    }
+}
+
 

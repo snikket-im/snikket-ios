@@ -263,6 +263,9 @@
 "No attachments" = "Inga bilagor";
 "No messages yet. Say hi!" = "Inga meddelanden än. Säg hej!";
 
+/* No comment provided by engineer. */
+"No Telephony Provider!" = "No Telephony Provider!";
+
 /* Encryption mode */
 "None" = "None";
 
@@ -305,6 +308,11 @@
 
 /* Menu item: select media to share from photo/video library */
 "Photo & Video Library" = "Foto- och Videobibliotek";
+
+/* No comment provided by engineer. */
+"Please Select a Telephony Provider from Settings" = "Please Select a Telephony Provider from Settings";
+
+/* No comment provided by engineer. */
 "Please try again!" = "Vänligen försök igen!";
 
 /* Alert title */
@@ -352,6 +360,9 @@
 
 /* Shown above a choice list of the user's accounts */
 "Select account to open chat from:" = "Välj konto att öppna chatt från:";
+
+/* No comment provided by engineer. */
+"Select Account for Call" = "Select Account for Call";
 
 /* Action button: select (existing) photo for group chat picture */
 "Select photo" = "Välj foto";

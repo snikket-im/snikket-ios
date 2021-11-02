@@ -261,6 +261,9 @@
 "No attachments" = "Aucune pièce jointe";
 "No messages yet. Say hi!" = "Aucun message, dites bonjour !";
 
+/* No comment provided by engineer. */
+"No Telephony Provider!" = "No Telephony Provider!";
+
 /* Encryption mode */
 "None" = "None";
 
@@ -303,6 +306,11 @@
 
 /* Menu item: select media to share from photo/video library */
 "Photo & Video Library" = "Photo & Video Library";
+
+/* No comment provided by engineer. */
+"Please Select a Telephony Provider from Settings" = "Please Select a Telephony Provider from Settings";
+
+/* No comment provided by engineer. */
 "Please try again!" = "Merci de réessayer !";
 
 /* Alert title */
@@ -350,6 +358,9 @@
 
 /* Shown above a choice list of the user's accounts */
 "Select account to open chat from:" = "Select account to open chat from:";
+
+/* No comment provided by engineer. */
+"Select Account for Call" = "Select Account for Call";
 
 /* Action button: select (existing) photo for group chat picture */
 "Select photo" = "Sélectionner une photo";

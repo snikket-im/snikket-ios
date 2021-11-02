@@ -263,6 +263,9 @@
 "No attachments" = "Keine Anhänge";
 "No messages yet. Say hi!" = "Noch keine Nachrichten. Sag Hallo!";
 
+/* No comment provided by engineer. */
+"No Telephony Provider!" = "No Telephony Provider!";
+
 /* Encryption mode */
 "None" = "Keine";
 
@@ -292,6 +295,12 @@
 "Open URL" = "URL öffnen";
 "Operation timed out" = "Aktion wegen Zeitüberschreitung abgebrochen";
 "operation timed out" = "Aktion aufgrund einer Zeitüberschreitung abgebrochen";
+
+/* No comment provided by engineer. */
+"Please Select a Telephony Provider from Settings" = "Please Select a Telephony Provider from Settings";
+
+/* No comment provided by engineer. */
+"Please try again!" = "Please try again!";
 
 /* Image or Video Quality */
 "Original" = "Original";
@@ -371,7 +380,6 @@
 "Send Pin Location" = "Gewählte Position senden";
 "Server did not respond to registration request" = "Der Server hat auf die Registrierungsanfrage nicht geantwortet";
 
-/* Preceded by user's server domain */
 "server returned an error on the request to enable archiving. You can try to enable this feature later on from the account settings." = "server returned an error on the request to enable archiving. You can try to enable this feature later on from the account settings.";
 "Server returned error:" = "Der Server hat folgenden Fehler zurückgegeben:";
 "Set" = "Setzen";

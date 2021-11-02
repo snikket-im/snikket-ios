@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37359BDF2731427500066DC1 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37359BDE2731427500066DC1 /* Intents.framework */; };
 		373A8020271063E1000E50FE /* TelephonyProviderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373A801F271063E1000E50FE /* TelephonyProviderViewController.swift */; };
+		374AB4C3273153E700E16682 /* CallsAccountSelectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374AB4C2273153E700E16682 /* CallsAccountSelectionController.swift */; };
 		3759635F26F72F1900831F4C /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3759636126F72F1900831F4C /* Welcome.storyboard */; };
 		3759636A26F72FD700831F4C /* Groupchat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3759636C26F72FD700831F4C /* Groupchat.storyboard */; };
 		3759637126F7303100831F4C /* VoIP.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3759637326F7303100831F4C /* VoIP.storyboard */; };
@@ -305,7 +307,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		37359BDE2731427500066DC1 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		373A801F271063E1000E50FE /* TelephonyProviderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelephonyProviderViewController.swift; sourceTree = "<group>"; };
+		374AB4C2273153E700E16682 /* CallsAccountSelectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallsAccountSelectionController.swift; sourceTree = "<group>"; };
 		3759635C26F72EAA00831F4C /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		3759635D26F72ED700831F4C /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Main.strings; sourceTree = "<group>"; };
 		3759635E26F72ED700831F4C /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/MainInterface.strings; sourceTree = "<group>"; };
@@ -654,6 +658,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37359BDF2731427500066DC1 /* Intents.framework in Frameworks */,
 				FE1A34A7258CD3EE0058B86A /* WebRTC.xcframework in Frameworks */,
 				FE5079F01CD3CA91001A015C /* Security.framework in Frameworks */,
 				3797D5C026EA456F0091DAF8 /* HSLuvSwift in Frameworks */,
@@ -676,6 +681,7 @@
 		FE1908902584D69400CA049F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				37359BDE2731427500066DC1 /* Intents.framework */,
 				FE1A349F258CD3E10058B86A /* WebRTC.xcframework */,
 				FE1908962584D69400CA049F /* OpenSSL.xcframework */,
 			);
@@ -692,6 +698,7 @@
 				FE2D481924505F1600C13CE5 /* CallManager.swift */,
 				FE2D481B24518C2800C13CE5 /* RTCCameraVideoCapturer_Format.swift */,
 				FE1A07472525EDD4004F38A0 /* ExternalServiceDiscovery_Service_extension.swift */,
+				374AB4C2273153E700E16682 /* CallsAccountSelectionController.swift */,
 			);
 			path = voip;
 			sourceTree = "<group>";
@@ -1528,6 +1535,7 @@
 				FE2D481C24518C2800C13CE5 /* RTCCameraVideoCapturer_Format.swift in Sources */,
 				FE4071E421E2605900F09B58 /* VideoCallController.swift in Sources */,
 				FE9E13731F260B33005C0EE5 /* StepperTableViewCell.swift in Sources */,
+				374AB4C3273153E700E16682 /* CallsAccountSelectionController.swift in Sources */,
 				FE6545601E9E7B85006A14AC /* RegisterAccountController.swift in Sources */,
 				FE507A181CDB7B3B001A015C /* ChatViewController.swift in Sources */,
 				FEFB63AD1F31E4EE00EFB3E7 /* MainTabBarController.swift in Sources */,
