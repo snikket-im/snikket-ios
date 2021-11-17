@@ -160,7 +160,7 @@ open class SiskinPushNotificationsModule: TigasePushNotificationsModule {
     }
     
     open func reenable(pushSettings: PushSettings, completionHandler: @escaping (Result<PushSettings,ErrorCondition>)->Void) {
-        self.enable(serviceJid: pushSettings.jid, node: pushSettings.node, deviceId: pushSettings.deviceId, features: pushSettings.encryption ? [TigasePushNotificationsModule.Encryption.XMLNS] : [], maxSize: pushSettings.maxSize, completionHandler: completionHandler);
+        self.enable(serviceJid: pushSettings.jid, node: pushSettings.node, deviceId: pushSettings.deviceId, pushkitDeviceId: pushSettings.pushkitDeviceId, features: pushSettings.encryption ? [TigasePushNotificationsModule.Encryption.XMLNS] : [], maxSize: pushSettings.maxSize, completionHandler: completionHandler);
     }
     
     private func hash(extensions: [PushNotificationsModuleExtension]) -> Int {
