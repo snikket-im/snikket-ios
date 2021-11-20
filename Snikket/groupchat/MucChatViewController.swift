@@ -137,7 +137,10 @@ class MucChatViewController: BaseChatViewControllerWithDataSourceAndContextMenuA
         if let name = room?.name {
             titleView?.name = name
         } else {
-            guard let jids = room?.members else { return }
+            guard let jids = room?.members else {
+                titleView?.name = room?.jid.stringValue
+                return
+            }
             
             var name = ""
             for (index,memberJid) in jids.enumerated() {
