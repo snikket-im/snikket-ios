@@ -376,27 +376,36 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
         }
         #if targetEnvironment(simulator)
         #else
-        let jingleSupported = CallManager.isAvailable ? JingleManager.instance.support(for: JID(self.jid), on: self.account) : [];
-        var count = jingleSupported.contains(.audio) ? 1 : 0;
-        if jingleSupported.contains(.video) {
-            count = count + 1;
+        let (oldAudio,oldVideo) = DBRosterStore.instance.getAudioVideoCallStatus(account: account, jid: jid)
+        
+        // if both true no need to update it again
+        if oldAudio ?? false, oldVideo ?? false {
+            enableCallingBtns(supportsAudio: oldAudio ?? false, supportsVideo: oldVideo ?? false)
+        } else {
+            let jingleSupported = CallManager.isAvailable ? JingleManager.instance.support(for: JID(self.jid), on: self.account) : [];
+            
+            let supportsAudio = jingleSupported.contains(.audio) ? 1 : (oldAudio == true ? 1 : 0)       // do not set false if previous value was true
+            let supportsVideo = jingleSupported.contains(.video) ? 1 : (oldVideo == true ? 1 : 0)
+            DBRosterStore.instance.updateAudioVideoCallStatus(account: account, jid: jid, audioCall: supportsAudio, videoCall: supportsVideo)
+            
+            let (audio,video) = DBRosterStore.instance.getAudioVideoCallStatus(account: account, jid: jid)
+            enableCallingBtns(supportsAudio: audio ?? false, supportsVideo: video ?? false)
         }
-        DispatchQueue.main.async {
-            guard (self.navigationItem.rightBarButtonItems?.count ?? 0 != count) else {
-                return;
-            }
-            var buttons: [UIBarButtonItem] = [];
-            if jingleSupported.contains(.video) {
-                //buttons.append(UIBarButtonItem(image: UIImage(named: "videoCall"), style: .plain, target: self, action: #selector(self.videoCall)));
-                buttons.append(self.smallBarButtonItem(image: UIImage(named: "videoCall")!, action: #selector(self.videoCall)));
-            }
-            if jingleSupported.contains(.audio) {
-                //buttons.append(UIBarButtonItem(image: UIImage(named: "audioCall"), style: .plain, target: self, action: #selector(self.audioCall)));
-                buttons.append(self.smallBarButtonItem(image: UIImage(named: "audioCall")!, action: #selector(self.audioCall)));
-            }
-            self.navigationItem.rightBarButtonItems = buttons;
-        }
+        
         #endif
+    }
+    
+    func enableCallingBtns(supportsAudio: Bool, supportsVideo: Bool) {
+        DispatchQueue.main.async {
+            var buttons: [UIBarButtonItem] = []
+            if supportsVideo {
+                buttons.append(self.smallBarButtonItem(image: UIImage(named: "videoCall")!, action: #selector(self.videoCall)))
+            }
+            if supportsAudio {
+                buttons.append(self.smallBarButtonItem(image: UIImage(named: "audioCall")!, action: #selector(self.audioCall)))
+            }
+            self.navigationItem.rightBarButtonItems = buttons
+        }
     }
     
     fileprivate func smallBarButtonItem(image: UIImage, action: Selector) -> UIBarButtonItem {

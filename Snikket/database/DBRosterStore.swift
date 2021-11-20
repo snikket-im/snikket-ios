@@ -123,6 +123,9 @@ open class DBRosterStore: RosterCacheProvider {
     fileprivate let updateNicknameStmt: DBStatement
     fileprivate let getNicknameStmt: DBStatement
     
+    fileprivate let updateAudioVideoCallStmt: DBStatement
+    fileprivate let getAudioVideoCallStmt: DBStatement
+    
     public init() {
         self.dispatcher = QueueDispatcher(label: "db_roster_store");
         
@@ -141,6 +144,9 @@ open class DBRosterStore: RosterCacheProvider {
         updateNicknameStmt = try! DBConnection.main.prepareStatement("UPDATE roster_items SET nickname = :nickname WHERE jid = :jid")
         getNicknameStmt = try! DBConnection.main.prepareStatement("SELECT nickname FROM roster_items WHERE jid = :jid")
         
+        updateAudioVideoCallStmt = try! DBConnection.main.prepareStatement("UPDATE roster_items SET audio_call = :audioCall, video_call = :videoCall WHERE account = :account AND jid = :jid")
+        getAudioVideoCallStmt = try! DBConnection.main.prepareStatement("SELECT audio_call, video_call FROM roster_items WHERE account = :account AND jid = :jid")
+        
         NotificationCenter.default.addObserver(self, selector: #selector(DBRosterStore.accountRemoved), name: NSNotification.Name(rawValue: "accountRemoved"), object: nil);
     }
     
@@ -157,6 +163,34 @@ open class DBRosterStore: RosterCacheProvider {
             return try! getNicknameStmt.queryFirstMatching(params) { cursor in
                 return cursor["nickname"] as String?
             }
+        }
+    }
+    
+    func updateAudioVideoCallStatus(account: BareJID, jid: BareJID, audioCall: Int?, videoCall: Int?) {
+        return dispatcher.sync {
+            let params: [String: Any?] = ["account":account,
+                                          "jid":jid,
+                                          "audioCall":audioCall,
+                                          "videoCall":videoCall]
+            _ = try! self.updateAudioVideoCallStmt.update(params)
+        }
+    }
+    
+    func getAudioVideoCallStatus(account: BareJID, jid: BareJID) -> (audio:Bool?, video:Bool?) {
+        dispatcher.sync {
+            let params: [String: Any?] = ["account":account,
+                                          "jid":jid]
+            var audioCall: Bool? = nil
+            var videoCall: Bool? = nil
+             try! getAudioVideoCallStmt.queryFirstMatching(params) { cursor in
+                 
+                 let audio: Int? = cursor["audio_call"]
+                 let video: Int? = cursor["video_call"]
+                 audioCall = audio == 1 ? true : (audio == 0 ? false : nil)
+                 videoCall = video == 1 ? true : (video == 0 ? false : nil)
+            }
+            
+            return (audioCall,videoCall)
         }
     }
     

@@ -315,13 +315,23 @@ class RosterViewController: AbstractRosterViewController, UIGestureRecognizerDel
         ];
         #if targetEnvironment(simulator)
         #else
-        let jingleSupport = JingleManager.instance.support(for: item.jid, on: item.account);
-        if jingleSupport.contains(.audio) && jingleSupport.contains(.video) {
+        let (oldAudio,oldVideo) = DBRosterStore.instance.getAudioVideoCallStatus(account: item.account, jid: item.jid.bareJid)
+        
+        if let oldAudio = oldAudio, let oldVideo = oldVideo, !oldVideo, !oldAudio {
+            let jingleSupport = JingleManager.instance.support(for: item.jid, on: item.account);
+            let supportsAudio = jingleSupport.contains(.audio) ? 1 : (oldAudio == true ? 1 : 0)       // do not set false if previous value was true
+            let supportsVideo = jingleSupport.contains(.video) ? 1 : (oldVideo == true ? 1 : 0)
+            DBRosterStore.instance.updateAudioVideoCallStatus(account: item.account, jid: item.jid.bareJid, audioCall: supportsAudio, videoCall: supportsVideo)
+        }
+        
+        let (audio,video) = DBRosterStore.instance.getAudioVideoCallStatus(account: item.account, jid: item.jid.bareJid)
+        
+        if (audio ?? false) && (video ?? false) {
             items.append(UIAction(title: NSLocalizedString("Video call", comment: ""), image: UIImage(systemName: "video"), handler: { (action) in
                 VideoCallController.call(jid: item.jid.bareJid, from: item.account, media: [.audio, .video], sender: self);
             }));
         }
-        if jingleSupport.contains(.audio) {
+        if audio ?? false {
             items.append(UIAction(title: NSLocalizedString("Audio call", comment: ""), image: UIImage(systemName: "phone"), handler: { (action) in
                 VideoCallController.call(jid: item.jid.bareJid, from: item.account, media: [.audio], sender: self);
             }));

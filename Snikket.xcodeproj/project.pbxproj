@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		370B6FD12748F31C00D14123 /* db-schema-16.sql in Resources */ = {isa = PBXBuildFile; fileRef = 370B6FD02748F31C00D14123 /* db-schema-16.sql */; };
 		37359BDF2731427500066DC1 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37359BDE2731427500066DC1 /* Intents.framework */; };
 		373A8020271063E1000E50FE /* TelephonyProviderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373A801F271063E1000E50FE /* TelephonyProviderViewController.swift */; };
 		374AB4C3273153E700E16682 /* CallsAccountSelectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374AB4C2273153E700E16682 /* CallsAccountSelectionController.swift */; };
@@ -307,6 +308,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		370B6FD02748F31C00D14123 /* db-schema-16.sql */ = {isa = PBXFileReference; lastKnownFileType = text; path = "db-schema-16.sql"; sourceTree = "<group>"; };
 		37359BDE2731427500066DC1 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		373A801F271063E1000E50FE /* TelephonyProviderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelephonyProviderViewController.swift; sourceTree = "<group>"; };
 		374AB4C2273153E700E16682 /* CallsAccountSelectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallsAccountSelectionController.swift; sourceTree = "<group>"; };
@@ -918,6 +920,7 @@
 				FEBC12F124C70DE000689475 /* db-schema-13.sql */,
 				E928AD4226D6A08A00F29F93 /* db-schema-14.sql */,
 				379D914926E8A0E300B877CA /* db-schema-15.sql */,
+				370B6FD02748F31C00D14123 /* db-schema-16.sql */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -1314,6 +1317,7 @@
 				FE759FEF2371F21C001E78D9 /* db-schema-3.sql in Resources */,
 				FEC79199241BE89E007BE572 /* db-schema-11.sql in Resources */,
 				FE759FED2371F213001E78D9 /* db-schema-2.sql in Resources */,
+				370B6FD12748F31C00D14123 /* db-schema-16.sql in Resources */,
 				FECEF29823B7B838007EC323 /* db-schema-9.sql in Resources */,
 				FE3BA0C024B61583000C80D4 /* db-schema-12.sql in Resources */,
 				FE759FF02371F21C001E78D9 /* db-schema-4.sql in Resources */,
