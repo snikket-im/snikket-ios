@@ -858,7 +858,11 @@ extension AppDelegate {
     func makeOutgoingCall(account: BareJID, callTo: String, type: INPersonHandleType) {
         guard let rootVC =  self.window?.rootViewController else { return }
         let jid = BareJID(callTo)
+#if targetEnvironment(simulator)
+#else
         VideoCallController.call(jid: jid, from: account, media: [.audio], sender: rootVC)
+#endif
+        
     }
 }
 
