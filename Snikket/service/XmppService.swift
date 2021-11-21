@@ -80,7 +80,7 @@ open class XmppService: Logger, EventHandler {
     fileprivate let reachability: Reachability;
 
     fileprivate var clients = [BareJID: XMPPClient]();
-    fileprivate let dispatcher: QueueDispatcher = QueueDispatcher(label: "xmpp_service_clients");
+    fileprivate let dispatcher: QueueDispatcher = QueueDispatcher(label: "xmpp_service_clients", attributes: .concurrent);
     
     fileprivate let dnsSrvResolverCache: DNSSrvResolverCache;
     fileprivate let dnsSrvResolver: DNSSrvResolver;
