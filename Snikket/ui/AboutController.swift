@@ -24,12 +24,14 @@ import UIKit
 
 class AboutController: UIViewController {
     
+    @IBOutlet weak var buildLabel: UILabel!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var versionLabel: UILabel!;
     @IBOutlet var copyrightTextView: UITextView!;
     
     override func viewDidLoad() {
-        versionLabel.text = "Version: \(Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String ?? "Unknown")";        
+        versionLabel.text = "Version: \(Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String ?? "Unknown")";
+        buildLabel.text = "Build: \(Bundle.main.infoDictionary!["CFBundleVersion"] as? String ?? "Unknown")"
     }
     
     override func viewWillAppear(_ animated: Bool) {

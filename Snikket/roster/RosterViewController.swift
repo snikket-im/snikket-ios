@@ -64,9 +64,6 @@ class RosterViewController: AbstractRosterViewController, UIGestureRecognizerDel
     }
     
     private func setColors() {
-//        navigationController?.navigationBar.barStyle = .black;
-//        navigationController?.navigationBar.isTranslucent = true;
-        //searchController.searchBar.barStyle = .black;
         self.view.backgroundColor = UIColor(named: "chatslistBackground")!;
         self.navigationController?.view.backgroundColor = UIColor(named: "chatslistBackground")!;
         if #available(iOS 13.0, *) {
@@ -75,12 +72,7 @@ class RosterViewController: AbstractRosterViewController, UIGestureRecognizerDel
             self.tableView.backgroundColor = UIColor.white;
         }
         searchController.searchBar.tintColor = UIColor(named: "tintColor")!;
-        navigationController?.navigationBar.barTintColor = UIColor(named: "chatslistBackground");//?.withAlphaComponent(0.2);
-        navigationController?.navigationBar.tintColor = UIColor(named: "tintColor")!;
-        if #available(iOS 13.0, *) {
-//            (navigationItem.titleView as? UISegmentedControl)?.selectedSegmentTintColor =
-        } else {
-        }
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {

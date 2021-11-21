@@ -99,16 +99,47 @@ class WelcomeController: UIViewController, QRScannerViewDelegate {
     }
     
     func found(code: String) {
-        print("found code: \(code)");
         
-        guard let url = URL(string: code), let xmppUri = AppDelegate.XmppUri(url: url), (xmppUri.action == .register || xmppUri.action == .roster) else {
-            let alert = UIAlertController(title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString("Scanned QR code is not valid for Snikket.", comment: ""), preferredStyle: .alert);
-            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil));
-            self.present(alert, animated: true, completion: nil);
-            return;
+        guard let url = URL(string: code) else { return }
+        
+        if let xmppUri = AppDelegate.XmppUri(url: url), (xmppUri.action == .register || xmppUri.action == .roster) {
+            _ = (UIApplication.shared.delegate as? AppDelegate)?.application(UIApplication.shared, open: url)
+            return
+        } else {
+            let session = URLSession(configuration: .default)
+            
+            session.dataTask(with: url) { data, response, error in
+                guard error == nil else { return }
+                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+                    self.showWrongQRScan()
+                    return
+                }
+                
+                if let link = response.allHeaderFields["Link"] as? String, var xmppComponent = link.components(separatedBy: " ").first {
+                    xmppComponent = xmppComponent.replacingOccurrences(of: "<", with: "")
+                    xmppComponent = xmppComponent.replacingOccurrences(of: ">", with: "")
+                    if let url = URL(string: xmppComponent), let xmppUri = AppDelegate.XmppUri(url: url), (xmppUri.action == .register || xmppUri.action == .roster) {
+                        DispatchQueue.main.async {
+                            _ = (UIApplication.shared.delegate as? AppDelegate)?.application(UIApplication.shared, open: url)
+                        }
+                        return
+                    } else {
+                        self.showWrongQRScan()
+                    }
+                } else {
+                    self.showWrongQRScan()
+                }
+            }.resume()
+        }
+    }
+    
+    func showWrongQRScan() {
+        let alert = UIAlertController(title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString("Scanned QR code is not valid for Snikket.", comment: ""), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil))
+        DispatchQueue.main.async {
+            self.present(alert, animated: true, completion: nil)
         }
         
-        (UIApplication.shared.delegate as? AppDelegate)?.application(UIApplication.shared, open: url);
     }
     
     func scanningDidStop() {

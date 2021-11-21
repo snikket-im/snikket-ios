@@ -44,8 +44,8 @@ class LinkPreviewChatTableViewCell: BaseChatTableViewCell {
         }
     }
     
-    func set(linkPreview item: ChatLinkPreview) {
-        super.set(item: item);
+    func set(linkPreview item: ChatLinkPreview, indexPath: IndexPath) {
+        super.set(item: item, indexPath: indexPath)
         if #available(iOS 13.0, *) {
             var metadata = MetadataCache.instance.metadata(for: "\(item.id)");
             var isNew = false;

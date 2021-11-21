@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kwm-Ck-fLB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kwm-Ck-fLB">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -36,7 +36,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="OMw-f8-Hbs">
-                                <rect key="frame" x="0.0" y="293" width="375" height="374"/>
+                                <rect key="frame" x="0.0" y="318" width="375" height="349"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">============================
 Snikket 
@@ -118,6 +118,12 @@ of the date such litigation is filed.
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Build:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R7V-kJ-UYE">
+                                <rect key="frame" x="166.5" y="277.5" width="42.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oog-jF-q31"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -129,13 +135,16 @@ of the date such litigation is filed.
                             <constraint firstItem="lRd-ky-eXs" firstAttribute="centerX" secondItem="oog-jF-q31" secondAttribute="centerX" id="NW1-WB-5w7"/>
                             <constraint firstItem="lRd-ky-eXs" firstAttribute="top" secondItem="Z7m-aB-9EO" secondAttribute="bottom" constant="10" id="SpV-wW-SsU"/>
                             <constraint firstItem="r21-ee-ggd" firstAttribute="top" secondItem="oog-jF-q31" secondAttribute="top" constant="10" id="Y2t-3I-xpX"/>
+                            <constraint firstItem="R7V-kJ-UYE" firstAttribute="centerX" secondItem="0cP-EO-OEn" secondAttribute="centerX" id="aOr-if-zTp"/>
                             <constraint firstItem="r21-ee-ggd" firstAttribute="width" secondItem="0cP-EO-OEn" secondAttribute="width" multiplier="0.5" id="fpe-aE-YEg"/>
                             <constraint firstItem="OMw-f8-Hbs" firstAttribute="leading" secondItem="oog-jF-q31" secondAttribute="leading" id="gFU-7S-uBv"/>
                             <constraint firstItem="oog-jF-q31" firstAttribute="bottom" secondItem="OMw-f8-Hbs" secondAttribute="bottom" id="hSa-jm-9nr"/>
-                            <constraint firstItem="OMw-f8-Hbs" firstAttribute="top" secondItem="lRd-ky-eXs" secondAttribute="bottom" constant="20.5" id="m9Q-8m-zw3"/>
+                            <constraint firstItem="OMw-f8-Hbs" firstAttribute="top" secondItem="R7V-kJ-UYE" secondAttribute="bottom" constant="20" id="qjl-dk-Tcm"/>
+                            <constraint firstItem="R7V-kJ-UYE" firstAttribute="top" secondItem="lRd-ky-eXs" secondAttribute="bottom" constant="5" id="vV9-Ao-GLo"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="buildLabel" destination="R7V-kJ-UYE" id="4Vg-PM-AhI"/>
                         <outlet property="copyrightTextView" destination="OMw-f8-Hbs" id="2oE-pU-TxQ"/>
                         <outlet property="nameLabel" destination="Z7m-aB-9EO" id="eel-CG-m8X"/>
                         <outlet property="versionLabel" destination="lRd-ky-eXs" id="ctg-F1-6aK"/>

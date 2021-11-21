@@ -35,3 +35,33 @@ class RoundButton: UIButton {
         layer.cornerRadius = self.frame.height / 2;
     }
 }
+
+final class RoundShadowButton: UIButton {
+
+    private var shadowLayer: CAShapeLayer!
+    
+    public var cornerRadius: CGFloat = 0 {
+        didSet {
+            setNeedsLayout()
+        }
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        if shadowLayer == nil {
+            shadowLayer = CAShapeLayer()
+            shadowLayer.path = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius).cgPath
+            shadowLayer.fillColor = UIColor.white.cgColor
+
+            shadowLayer.shadowColor = UIColor.darkGray.cgColor
+            shadowLayer.shadowPath = shadowLayer.path
+            shadowLayer.shadowOffset = .zero
+            shadowLayer.shadowOpacity = 0.6
+            shadowLayer.shadowRadius = 8
+            self.layer.cornerRadius = cornerRadius
+            layer.insertSublayer(shadowLayer, at: 0)
+        }
+    }
+
+}

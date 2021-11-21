@@ -998,7 +998,7 @@ public protocol ChatOptionsProtocol {
 public struct RoomOptions: Codable, ChatOptionsProtocol {
     
     var encryption: ChatEncryption?;
-    public var notifications: ConversationNotification = .mention;
+    public var notifications: ConversationNotification = .always;
     
     init() {}
     
@@ -1007,7 +1007,7 @@ public struct RoomOptions: Codable, ChatOptionsProtocol {
         if let val = try container.decodeIfPresent(String.self, forKey: .encryption) {
             encryption = ChatEncryption(rawValue: val);
         }
-        notifications = ConversationNotification(rawValue: try container.decodeIfPresent(String.self, forKey: .notifications) ?? "") ?? .mention;
+        notifications = ConversationNotification(rawValue: try container.decodeIfPresent(String.self, forKey: .notifications) ?? "") ?? .always;
     }
     
     public func encode(to encoder: Encoder) throws {
@@ -1015,7 +1015,7 @@ public struct RoomOptions: Codable, ChatOptionsProtocol {
         if encryption != nil {
             try container.encode(encryption!.rawValue, forKey: .encryption);
         }
-        if notifications != .mention {
+        if notifications != .always {
             try container.encode(notifications.rawValue, forKey: .notifications);
         }
     }

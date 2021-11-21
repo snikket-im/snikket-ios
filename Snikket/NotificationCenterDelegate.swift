@@ -41,6 +41,13 @@ class NotificationCenterDelegate: NSObject, UNUserNotificationCenterDelegate {
         case .MUC_ROOM_INVITATION:
             didReceive(mucInvitation: notification.request.content)
             return
+        case .SUBSCRIPTION_REQUEST:
+            let account = notification.request.content.userInfo["account"] as? String;
+            let sender = notification.request.content.userInfo["sender"] as? String;
+            if let account = account, let sender = sender {
+                AppDelegate.subscriptionsRequest[account] = sender
+                NotificationCenter.default.post(name: Notification.Name("SUBSCRIPTION_REQUEST"), object: nil)
+            }
         default:
             completionHandler([.alert, .sound]);
         }
@@ -53,7 +60,8 @@ class NotificationCenterDelegate: NSObject, UNUserNotificationCenterDelegate {
         case .ERROR:
             didReceive(error: content, withCompletionHandler: completionHandler);
         case .SUBSCRIPTION_REQUEST:
-            didReceive(subscriptionRequest: content, withCompletionHandler: completionHandler);
+            break
+            //didReceive(subscriptionRequest: content, withCompletionHandler: completionHandler);
         case .MUC_ROOM_INVITATION:
             //didReceive(mucInvitation: content, withCompletionHandler: completionHandler);
         break

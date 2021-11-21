@@ -22,9 +22,10 @@
 import UIKit
 import AVKit
 
-protocol AudioPlayerDelegate {
+protocol CellDelegate {
     func didPlayAudio(audioPlayer: AVAudioPlayer, audioTimer: Foundation.Timer, sliderTimer: Foundation.Timer, playButton: UIButton)
     func didStopAudio()
+    func didTapResend(indexPath: IndexPath)
 }
 
 class BaseChatTableViewCellFormatter {
@@ -58,8 +59,9 @@ class BaseChatTableViewCell: UITableViewCell, UIDocumentInteractionControllerDel
     @IBOutlet var stateView: UILabel?;
     @IBOutlet var bubbleImageView: UIImageView!
     @IBOutlet weak var lockStateImageView: UIImageView?
+    var indexPath: IndexPath?
     
-    var audioPlayerDelegate: AudioPlayerDelegate?
+    var cellDelegate: CellDelegate?
 
     var originalTimestampColor: UIColor!;
         
@@ -108,7 +110,9 @@ class BaseChatTableViewCell: UITableViewCell, UIDocumentInteractionControllerDel
     }
     
     
-    func set(item: ChatViewItemProtocol) {
+    func set(item: ChatViewItemProtocol, indexPath: IndexPath) {
+        
+        self.indexPath = indexPath
         lockStateImageView?.isHidden = true
         let fgcolor = item.state.direction == .incoming ? "chatMessageText" : "chatMessageTextOutgoing";
         let lockImage = item.state.direction == .incoming ? "lock-incoming" : "lock-outgoing"
@@ -148,8 +152,11 @@ class BaseChatTableViewCell: UITableViewCell, UIDocumentInteractionControllerDel
                 
         if item.state.isError {
             if item.state.direction == .outgoing {
-                self.accessoryType = .detailButton;
-                self.tintColor = UIColor.red;
+                let accessoryButton = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+                accessoryButton.setImage(UIImage(named: "info.circle"), for: .normal)
+                accessoryButton.addTarget(self, action: #selector(didTapResend), for: .touchUpInside)
+                accessoryButton.transform = CGAffineTransform(a: 1, b: 0, c: 0, d: -1, tx: 0, ty: 0)
+                self.accessoryView = accessoryButton
             }
         } else {
             self.accessoryType = .none;
@@ -158,6 +165,14 @@ class BaseChatTableViewCell: UITableViewCell, UIDocumentInteractionControllerDel
         
         self.stateView?.textColor = item.state.isError && item.state.direction == .incoming ? UIColor.red : originalTimestampColor;
         self.timestampView?.textColor = item.state.isError && item.state.direction == .incoming ? UIColor.red : originalTimestampColor;
+    }
+    
+    @objc func didTapResend() {
+        guard let indexPath = indexPath else {
+            return
+        }
+        
+        self.cellDelegate?.didTapResend(indexPath: indexPath)
     }
     
     @objc func actionMore(_ sender: UIMenuController) {

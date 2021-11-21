@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,7 +20,7 @@
                         <color key="separatorColor" name="conversationBackground"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ChatTableViewSystemCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatTableViewSystemCell" rowHeight="33" id="9wb-BJ-QeF" customClass="ChatTableViewSystemCell" customModule="Snikket" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="24.5" width="414" height="33"/>
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="33"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="9wb-BJ-QeF" id="14Y-vA-IHJ">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="33"/>
@@ -46,7 +46,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ChatTableViewMeCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatTableViewMeCell" rowHeight="33" id="GBK-nY-egT" customClass="ChatTableViewMeCell" customModule="Snikket" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="57.5" width="414" height="33"/>
+                                <rect key="frame" x="0.0" y="77.5" width="414" height="33"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="GBK-nY-egT" id="kQM-yI-Mn0">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="33"/>
@@ -73,7 +73,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ChatTableViewCellContinuation" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatTableViewMessageContinuationCell" id="8Et-xM-dnP" customClass="ChatTableViewCell" customModule="Snikket" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="90.5" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="110.5" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="8Et-xM-dnP" id="V41-Eh-z9O">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -136,7 +136,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ChatTableViewCellContinuation2" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatTableViewMessageContinuationCell2" id="huG-Ws-60E" customClass="ChatTableViewCell" customModule="Snikket" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="134.5" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="154.5" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="huG-Ws-60E" id="MkF-ub-5jO">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -199,7 +199,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatTableViewLinkPreviewCell" rowHeight="71" id="RRh-Va-SRE" customClass="LinkPreviewChatTableViewCell" customModule="Snikket" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="178.5" width="414" height="71"/>
+                                <rect key="frame" x="0.0" y="198.5" width="414" height="71"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="RRh-Va-SRE" id="b4O-zc-oXg">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="71"/>
@@ -222,7 +222,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatTableViewAttachmentContinuationCell" rowHeight="71" id="RfX-hS-d2H" customClass="AttachmentChatTableViewCell" customModule="Snikket" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="249.5" width="414" height="71"/>
+                                <rect key="frame" x="0.0" y="269.5" width="414" height="71"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="RfX-hS-d2H" id="dLL-EZ-lYx">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="71"/>
@@ -277,7 +277,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatTableViewAttachmentContinuationCell2" rowHeight="71" id="MUh-Ya-KMJ" customClass="AttachmentChatTableViewCell" customModule="Snikket" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="320.5" width="414" height="71"/>
+                                <rect key="frame" x="0.0" y="340.5" width="414" height="71"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="MUh-Ya-KMJ" id="DIf-G5-2Wm">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="71"/>
@@ -332,7 +332,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ChatTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatTableViewMessageCell" rowHeight="60" id="Edg-Ze-o8C" customClass="ChatTableViewCell" customModule="Snikket" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="391.5" width="414" height="60"/>
+                                <rect key="frame" x="0.0" y="411.5" width="414" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="Edg-Ze-o8C" id="017-Lx-5HC">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
@@ -436,7 +436,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ChatTableViewCell2" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatTableViewMessageCell2" rowHeight="60" id="5md-uM-UrG" userLabel="ChatTableViewMessageCell2" customClass="ChatTableViewCell" customModule="Snikket" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="451.5" width="414" height="60"/>
+                                <rect key="frame" x="0.0" y="471.5" width="414" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="5md-uM-UrG" id="Ti4-Ga-E6D">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
@@ -536,7 +536,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatTableViewAttachmentCell" rowHeight="71" id="S8a-TQ-tLX" customClass="AttachmentChatTableViewCell" customModule="Snikket" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="511.5" width="414" height="71"/>
+                                <rect key="frame" x="0.0" y="531.5" width="414" height="71"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="S8a-TQ-tLX" id="3eM-Pw-ok6">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="71"/>
@@ -631,7 +631,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatTableViewAttachmentCell2" rowHeight="71" id="SxS-SO-af1" customClass="AttachmentChatTableViewCell" customModule="Snikket" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="582.5" width="414" height="71"/>
+                                <rect key="frame" x="0.0" y="602.5" width="414" height="71"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="SxS-SO-af1" id="ngq-dH-Zkb">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="71"/>
@@ -724,7 +724,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatTableViewInvitationCell" rowHeight="78" id="kHO-eT-tka" customClass="InvitationChatTableViewCell" customModule="Snikket" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="653.5" width="414" height="78"/>
+                                <rect key="frame" x="0.0" y="673.5" width="414" height="78"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="kHO-eT-tka" id="ftW-8h-UsW">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="78"/>

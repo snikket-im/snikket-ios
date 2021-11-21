@@ -1,8 +1,8 @@
 ---
-name: Bug report (App user)
-about: Reports for app download from App Store or TestFlight
+name: Bug report (using non-Snikket server)
+about: Report an issue using the iOS app with a different XMPP server software or provider
 title: ''
-labels: 'bug'
+labels: ['bug','unofficial setup']
 assignees: ''
 
 ---
@@ -21,7 +21,7 @@ If applicable, add screenshots to help explain your problem.
  - iOS version: [e.g. 11.0]
  - iPhone model: [e.g. iPhone 11]
 
- - Server software: [e.g. Snikket]
+ - Server software or domain name: [e.g. Prosody 0.11.10]
 
 If your problem involves communication with people using other apps/platforms,
 please include details of their app and versions also when possible.

@@ -52,6 +52,22 @@ class ContactViewController: UITableViewController {
         return vcard?.emails ?? [];
     }
     
+    var addToContacts = false
+    
+    var roster: RosterProvider? {
+        get {
+            let rosterType = RosterType(rawValue: Settings.RosterType.getString() ?? "") ?? RosterType.flat
+            let displayHiddenGroup = Settings.RosterDisplayHiddenGroup.getBool()
+            let dbConnection = (UIApplication.shared.delegate as! AppDelegate).dbConnection!
+            switch rosterType {
+            case .flat:
+                return RosterProviderFlat(dbConnection: dbConnection, order: .alphabetical, availableOnly: false, displayHiddenGroup: displayHiddenGroup,  updateNotificationName: Notification.Name("ROSTER_UPDATE"))
+            case .grouped:
+                return RosterProviderGrouped(dbConnection: dbConnection, order: .alphabetical, availableOnly: false, displayHiddenGroup: displayHiddenGroup, updateNotificationName: Notification.Name("ROSTER_UPDATE"))
+            }
+        }
+    }
+    
     
     fileprivate var sections: [Sections] = [.basic];
     
@@ -62,6 +78,7 @@ class ContactViewController: UITableViewController {
         if vcard == nil {
             refreshVCard();
         }
+        showAddToContacts()
         omemoIdentities = DBOMEMOStore.instance.identities(forAccount: account, andName: jid.stringValue);
         tableView.contentInset = UIEdgeInsets(top: -1, left: 0, bottom: 0, right: 0);
         tableView.reloadData();
@@ -92,8 +109,21 @@ class ContactViewController: UITableViewController {
         }
     }
     
+    func showAddToContacts() {
+        guard let roster = roster else { return }
+        
+        if !roster.contactExists(account: account, contact: jid)  {
+            addToContacts = true
+            reloadData()
+        }
+
+    }
+    
     func reloadData() {
         var sections: [Sections] = [.basic];
+        if addToContacts {
+            sections.append(.addToContacts)
+        }
         if chat != nil {
             sections.append(.settings);
             sections.append(.attachments);
@@ -140,7 +170,7 @@ class ContactViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection sectionNo: Int) -> Int {
         switch sections[sectionNo] {
-        case .basic, .clearHistory, .attachments:
+        case .basic, .clearHistory, .attachments, .addToContacts:
             return 1;
         case .settings:
             return 3;
@@ -174,12 +204,13 @@ class ContactViewController: UITableViewController {
         switch sections[indexPath.section] {
         case .basic:
             let cell = tableView.dequeueReusableCell(withIdentifier: "BasicInfoCell", for: indexPath) as! ContactBasicTableViewCell;
-        
             cell.account = account;
             cell.jid = jid;
             cell.vcard = vcard;
-        
             return cell;
+        case .addToContacts:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AddToContactsCell", for: indexPath)
+            return cell
         case .clearHistory:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ClearHistoryCell", for: indexPath)
             return cell
@@ -323,6 +354,14 @@ class ContactViewController: UITableViewController {
         switch sections[indexPath.section] {
         case .basic:
             return;
+        case .addToContacts:
+            let navigationController = self.storyboard?.instantiateViewController(withIdentifier: "RosterItemEditNavigationController") as! UINavigationController;
+            let itemEditController = navigationController.visibleViewController as? RosterItemEditViewController;
+            itemEditController?.hidesBottomBarWhenPushed = true;
+            itemEditController?.account = account;
+            itemEditController?.jid = JID(jid, resource: nil)
+            navigationController.modalPresentationStyle = .formSheet;
+            self.present(navigationController, animated: true, completion: nil);
         case .clearHistory:
             clearChatHistory()
         case .settings:
@@ -557,6 +596,7 @@ class ContactViewController: UITableViewController {
     
     enum Sections {
         case basic
+        case addToContacts
         case settings
         case attachments
         case encryption
@@ -569,6 +609,8 @@ class ContactViewController: UITableViewController {
             switch self {
             case .basic:
                 return "";
+            case .addToContacts:
+                return ""
             case .settings:
                 return NSLocalizedString("Settings",comment: "")
             case .attachments:
