@@ -154,12 +154,6 @@ open class XmppService: Logger, EventHandler {
             return self.clients[account];
         }
     }
-   
-    open func getClient(forJid account: BareJID, completion: @escaping (XMPPClient?)->Void) {
-        dispatcher.async {
-            completion(self.clients[account])
-        }
-    }
     
     open func handle(event: Event) {
         switch event {

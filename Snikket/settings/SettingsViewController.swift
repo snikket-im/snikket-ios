@@ -93,29 +93,24 @@ class SettingsViewController: UITableViewController {
                 cell.nameLabel.text = account?.name.stringValue;
                 let jid = BareJID(account!.name);
                 cell.avatarStatusView.set(name: nil, avatar: AvatarManager.instance.avatar(for: jid, on: jid), orDefault: AvatarManager.instance.defaultAvatar);
-                XmppService.instance.getClient(forJid: jid) { client in
-                    DispatchQueue.main.async {
-                        if let client = client {
-                            cell.avatarStatusView.statusImageView.isHidden = false;
-                            var status: Presence.Show? = nil;
-                            switch client.state {
-                            case .connected:
-                                status = .online;
-                            case .connecting, .disconnecting:
-                                status = Presence.Show.xa;
-                            default:
-                                break;
-                            }
-                            cell.avatarStatusView.setStatus(status);
-                        } else if AccountSettings.LastError(jid).getString() != nil {
-                            cell.avatarStatusView.statusImageView.isHidden = false;
-                            cell.avatarStatusView.statusImageView.image = UIImage(named: "presence_error")!;
-                        } else {
-                            cell.avatarStatusView.statusImageView.isHidden = true;
-                        }
+                if let client = XmppService.instance.getClient(for: jid) {
+                    cell.avatarStatusView.statusImageView.isHidden = false;
+                    var status: Presence.Show? = nil;
+                    switch client.state {
+                    case .connected:
+                        status = .online;
+                    case .connecting, .disconnecting:
+                        status = Presence.Show.xa;
+                    default:
+                        break;
                     }
+                    cell.avatarStatusView.setStatus(status);
+                } else if AccountSettings.LastError(jid).getString() != nil {
+                    cell.avatarStatusView.statusImageView.isHidden = false;
+                    cell.avatarStatusView.statusImageView.image = UIImage(named: "presence_error")!;
+                } else {
+                    cell.avatarStatusView.statusImageView.isHidden = true;
                 }
-                
                 cell.avatarStatusView.updateCornerRadius();
             } else {
                 cell.nameLabel.text = NSLocalizedString("Add account", comment: "")
