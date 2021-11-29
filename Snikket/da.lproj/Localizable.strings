@@ -13,6 +13,9 @@
 /* Alert dialog title - account is offline */
 "Account Offline" = "Account Offline";
 
+/* Account deletion alert title */
+"Account Removal" = "Account Removal";
+
 /* Alert title */
 "Account Removal Failed" = "Account Removal Failed";
 
@@ -20,13 +23,13 @@
 "Accounts" = "Accounts";
 
 /* No comment provided by engineer. */
-"Add account" = "Add account";
+"Add account" = "Tilføj konto";
 
 /* No comment provided by engineer. */
 "Addresses" = "Addresses";
 
 /* No comment provided by engineer. */
-"All" = "All";
+"All" = "Alle";
 
 /* No comment provided by engineer. */
 "All messages will be deleted and all participants will be kicked out. Are you sure?" = "All messages will be deleted and all participants will be kicked out. Are you sure?";
@@ -130,6 +133,9 @@
 
 /* No comment provided by engineer. */
 "Delete" = "Delete";
+
+/* Account deletion action - destructive */
+"Delete account permanently" = "Delete account permanently";
 
 /* Action: Delete all downloaded files */
 "Delete all" = "Delete all";
@@ -416,6 +422,9 @@
 /* No comment provided by engineer. */
 "Remove Account Data" = "Remove Account Data";
 
+"Remove account from application?" = "Remove account from application?";
+"Remove from application" = "Remove from application";
+
 /* No comment provided by engineer. */
 "Rename" = "Rename";
 
@@ -496,6 +505,8 @@
 
 /* No comment provided by engineer. */
 "Settings" = "Settings";
+
+"Should account be removed from server as well?" = "Should account be removed from server as well?";
 
 /* No comment provided by engineer. */
 "Snikket can be automatically notified by compatible XMPP servers about new messages when it is in background or stopped.\nIf enabled, notifications about new messages will be forwarded to our push component and delivered to the device. These notifications may contain message senders jid and part of a message.\nDo you want to enable push notifications?" = "Snikket can be automatically notified by compatible XMPP servers about new messages when it is in background or stopped.\nIf enabled, notifications about new messages will be forwarded to our push component and delivered to the device. These notifications may contain message senders jid and part of a message.\nDo you want to enable push notifications?";
