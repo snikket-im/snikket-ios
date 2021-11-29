@@ -422,7 +422,9 @@ class ChatsListViewController: UITableViewController {
         if let name = room.name {
             return name
         } else {
-            guard let jids = room.members else { return "" }
+            guard let jids = room.members else {
+                return room.jid.stringValue
+            }
             
             var name = ""
             for (index,memberJid) in jids.enumerated() {

@@ -154,7 +154,7 @@ class MessageEventHandler: XmppServiceEventHandler {
             return;
         }
 
-        let encryption = encrypted ?? chat.options.encryption ?? ChatEncryption(rawValue: Settings.messageEncryption.string()!)!;
+        var encryption = encrypted ?? chat.options.encryption ?? ChatEncryption(rawValue: Settings.messageEncryption.string()!)!;
 
         let message = chat.createMessage(msg);
         message.id = stanzaId ?? UUID().uuidString;
@@ -163,6 +163,11 @@ class MessageEventHandler: XmppServiceEventHandler {
 
         let account = chat.account;
         let jid = chat.jid.bareJid;
+        
+        // chat.options.encryption == nil means it is set to defualt
+        if let telephonyProvider = AccountSettings.telephonyProvider(account).getString(), jid.domain.lowercased() == telephonyProvider.lowercased(), (chat.options.encryption == nil || chat.options.encryption == ChatEncryption.none) {
+            encryption = ChatEncryption.none
+        }
 
         switch encryption {
         case .omemo:

@@ -24,8 +24,8 @@
         "repositoryURL": "https://github.com/tigase/tigase-swift",
         "state": {
           "branch": null,
-          "revision": "028e297fa4de25ac552b9947a8ccd29ade7001e7",
-          "version": "2.1.2"
+          "revision": "d3953dcea80010ad433fa96d7ca6b989bf58850c",
+          "version": "2.1.3"
         }
       },
       {

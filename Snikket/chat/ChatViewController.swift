@@ -76,6 +76,31 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
         }
     }
     
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        // scrollViewShouldScrollToTop will not get called if tableview is already at top
+        guard var contentOffset = self.conversationLogController?.tableView.contentOffset else { return }
+        if contentOffset.y == 0 {
+            contentOffset.y = 1
+            self.conversationLogController?.tableView.setContentOffset(contentOffset, animated: true)
+        }
+    }
+    
+    func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {
+        scrollToTop()
+        return false
+    }
+    
+    func scrollToTop() {
+        if let count = self.conversationLogController?.dataSource.count, count > 0 {
+            var currentRow = self.conversationLogController?.tableView.indexPathsForVisibleRows?.first?.row ?? 0
+            currentRow = count > currentRow + 40 ? currentRow + 40 : count
+            let indexPath = IndexPath(row: currentRow - 1, section: 0)
+            DispatchQueue.main.async {
+                self.conversationLogController?.tableView.scrollToRow(at: indexPath, at: .none, animated: true)
+            }
+        }
+    }
+    
     func setupViews() {
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(ChatViewController.showBuddyInfo));
         self.titleView.isUserInteractionEnabled = true;
@@ -97,7 +122,10 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
     
     
     @IBAction func scrollToBottomTapped(_ sender: UIButton) {
-        self.conversationLogController?.tableView.setContentOffset(.zero, animated: true)
+        self.conversationLogController?.tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .none, animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
+            self.conversationLogController?.tableView.setContentOffset(CGPoint(x: 0, y: 1), animated: true)
+        }
     }
     
     @IBAction func rejectSubscriptionTapped(_ sender: Any) {

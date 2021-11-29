@@ -45,7 +45,7 @@ class ConversationLogController: UIViewController, ChatViewDataSourceDelegate {
         tableView.rowHeight = UITableView.automaticDimension;
         tableView.estimatedRowHeight = 160.0;
         tableView.separatorStyle = .none;
-        tableView.scrollsToTop = false
+        tableView.scrollsToTop = true
         tableView.transform = dataSource.inverted ? CGAffineTransform(a: 1, b: 0, c: 0, d: -1, tx: 0, ty: 0) : CGAffineTransform.identity;
         
         if let refreshControl = self.refreshControl {
@@ -72,6 +72,9 @@ class ConversationLogController: UIViewController, ChatViewDataSourceDelegate {
                 } else {
                     self.toggleNoMessagesLabel(show: false)
                 }
+                DispatchQueue.main.async {
+                    self.tableView.setContentOffset(CGPoint(x: 0, y: 1), animated: false)
+                }
             }
         }
     }
@@ -87,13 +90,19 @@ class ConversationLogController: UIViewController, ChatViewDataSourceDelegate {
             label.sizeToFit()
             self.tableView.backgroundView = label
         } else {
-            self.tableView.backgroundView = nil
+            DispatchQueue.main.async {
+                self.tableView.backgroundView = nil
+            }
+            
         }
     }
     
     func itemAdded(at rows: IndexSet, shouldScroll: Bool) {
         guard rows.count > 0 else {
             return;
+        }
+        if shouldScroll, tableView.contentOffset.y == 1 {
+            tableView.setContentOffset(.zero, animated: false)
         }
         if dataSource.count == rows.count && rows.count > 1 {
             tableView.reloadData();
@@ -105,8 +114,12 @@ class ConversationLogController: UIViewController, ChatViewDataSourceDelegate {
         }
         if shouldScroll && rows.contains(0) && (tableView.indexPathsForVisibleRows?.contains(firstRowIndexPath) ?? false) {
             print("added items at:", rows, "scrolling to:", firstRowIndexPath);
-            tableView.scrollToRow(at: firstRowIndexPath, at: .none, animated: true)
+            tableView.scrollToRow(at: firstRowIndexPath, at: .bottom, animated: true)
+            DispatchQueue.main.asyncAfter(deadline: .now()+0.2) {
+                self.tableView.setContentOffset(CGPoint(x: 0, y: 1), animated: false)
+            }
         }
+        toggleNoMessagesLabel(show: false)
         markAsReadUpToNewestVisibleRow();
     }
         
