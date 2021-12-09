@@ -397,7 +397,7 @@ class MucChatViewController: BaseChatViewControllerWithDataSourceAndContextMenuA
         }
         
         guard room.state == .joined else {
-            let alert = UIAlertController.init(title: NSLocalizedString("Warning",comment: ""), message: NSLocalizedString("You are not connected to room.\nPlease wait reconnection to room",comment: ""), preferredStyle: .alert);
+            let alert = UIAlertController.init(title: NSLocalizedString("Not Connected",comment: "Alert title"), message: NSLocalizedString("You are not currently connected to this group. Please check your network connection and try again later.",comment: "Alert text"), preferredStyle: .alert);
             alert.addAction(UIAlertAction(title: NSLocalizedString("OK",comment: ""), style: .default, handler: nil));
             self.present(alert, animated: true, completion: nil);
             return;
@@ -408,7 +408,7 @@ class MucChatViewController: BaseChatViewControllerWithDataSourceAndContextMenuA
         let encryption: ChatEncryption = room.options.encryption ?? (canEncrypt ? (ChatEncryption(rawValue: Settings.messageEncryption.string() ?? "") ?? .none) : .none);
         guard encryption == .none || canEncrypt else {
             if encryption == .omemo && !canEncrypt {
-                let alert = UIAlertController(title: NSLocalizedString("Warning",comment: ""), message: NSLocalizedString("This room is not capable of sending encrypted messages. Please change encryption settings to be able to send messages",comment: ""), preferredStyle: .alert);
+                let alert = UIAlertController(title: NSLocalizedString("Encryption Not Supported",comment: "Alert title"), message: NSLocalizedString("You have enabled encryption, but this group does not support encrypted messages. Please change encryption settings to be able to send messages.",comment: ""), preferredStyle: .alert);
                 alert.addAction(UIAlertAction(title: NSLocalizedString("OK",comment: ""), style: .default, handler: nil));
                 self.present(alert, animated: true, completion: nil);
             }

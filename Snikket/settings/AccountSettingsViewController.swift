@@ -273,7 +273,7 @@ class AccountSettingsViewController: UITableViewController {
                     }
                     let syncPeriod = AccountSettings.messageSyncPeriod(self.account).getDouble();
                     if !AccountSettings.messageSyncAuto(self.account).getBool() || syncPeriod < 12 {
-                        let alert = UIAlertController(title: NSLocalizedString("Enable automatic message synchronization",comment: ""), message: NSLocalizedString("For best experience it is suggested to enable Message Archving with automatic message synchronization of at least last 12 hours.\nDo you wish to do this now?",comment: ""), preferredStyle: .alert);
+                        let alert = UIAlertController(title: NSLocalizedString("Enable automatic message synchronization",comment: "#bc-ignore!"), message: NSLocalizedString("For best experience it is suggested to enable Message Archving with automatic message synchronization of at least last 12 hours.\nDo you wish to do this now?",comment: "#bc-ignore!"), preferredStyle: .alert);
                         alert.addAction(UIAlertAction(title: NSLocalizedString("No",comment: ""), style: .cancel, handler: nil));
                         alert.addAction(UIAlertAction(title: NSLocalizedString("Yes",comment: ""), style: .default, handler: {(action) in
                             AccountSettings.messageSyncAuto(self.account).set(bool: true);

@@ -77,7 +77,7 @@ class MediaSettingsViewController: UITableViewController {
             cell.switchView.isOn = Settings.SharingViaHttpUpload.getBool();
             cell.valueChangedListener = {(switchView: UISwitch) in
                 if switchView.isOn {
-                    let alert = UIAlertController(title: nil, message: NSLocalizedString("When you share files using HTTP, they are uploaded to HTTP server with unique URL. Anyone who knows the unique URL to the file is able to download it.\nDo you wish to enable?", comment: ""),preferredStyle: .alert);
+                    let alert = UIAlertController(title: nil, message: NSLocalizedString("When you share files using HTTP, they are uploaded to HTTP server with unique URL. Anyone who knows the unique URL to the file is able to download it.\nDo you wish to enable?", comment: "#bc-ignore!"),preferredStyle: .alert);
                     alert.addAction(UIAlertAction(title: NSLocalizedString("Yes",comment: ""), style: .default, handler: { (action) in
                         Settings.SharingViaHttpUpload.setValue(true);
                     }));

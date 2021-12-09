@@ -237,14 +237,12 @@ class RegisterAccountController: DataFormController {
         } else {
             if msg == nil || msg == "Unsuccessful registration attempt"  {
                 switch errorCondition! {
-                case .feature_not_implemented:
+                case .feature_not_implemented, .service_unavailable:
                     msg = NSLocalizedString("Registration is not supported by this server", comment: "")
                 case .not_acceptable, .not_allowed:
                     msg = NSLocalizedString("Provided values are not acceptable", comment: "")
                 case .conflict:
                     msg = NSLocalizedString("User with provided username already exists", comment: "")
-                case .service_unavailable:
-                    msg = NSLocalizedString("Service is not available at this time.", comment: "")
                 default:
                     msg = NSLocalizedString("The server returned an error:", comment: "followed by a space and error condition") + " \(errorCondition!.rawValue)";
                 }

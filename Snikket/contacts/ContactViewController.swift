@@ -618,13 +618,13 @@ class ContactViewController: UITableViewController {
             case .encryption:
                 return NSLocalizedString("Encryption",comment: "")
             case .phones:
-                return NSLocalizedString("Phones",comment: "")
+                return NSLocalizedString("Phone numbers",comment: "Section heading for list of contact phone numbers")
             case .emails:
-                return NSLocalizedString("Emails",comment: "")
+                return NSLocalizedString("Email addresses",comment: "Section heading for list of contact email addresses")
             case .addresses:
-                return NSLocalizedString("Addresses",comment: "")
+                return NSLocalizedString("Addresses",comment: "Section heading for a list of postal addresses")
             case .clearHistory:
-                return NSLocalizedString("History",comment: "")
+                return NSLocalizedString("History",comment: "Section heading for chat history controls")
             }
         }
     }

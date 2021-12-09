@@ -31,6 +31,9 @@
 /* No comment provided by engineer. */
 "All messages will be deleted and all participants will be kicked out. Are you sure?" = "Alle Nachrichten werden gelöscht und alle Teilnehmer werden entfernt. Sind Sie sicher?";
 
+/* Option: Always notify user about messages in this group */
+"Always" = "Always";
+
 /* No comment provided by engineer. */
 "Attachment" = "Anhang";
 
@@ -83,8 +86,8 @@
 /* No comment provided by engineer. */
 "Change" = "Ändern";
 
-/* No comment provided by engineer. */
-"Change avatar" = "Profilbild ändern";
+/* Alert title: change group chat picture */
+"Change picture" = "Change picture";
 
 /* No comment provided by engineer. */
 "Change subject" = "Thema ändern";
@@ -117,7 +120,7 @@
 "Could not rename group chat. The server responded with an error:" = "Umbenennung der Gruppe fehlgeschlagen. Der Server hat folgenden Fehler gemeldet:";
 
 /* No comment provided by engineer. */
-"Could not set group chat avatar. The server responded with an error:" = "Setzen des Gruppen-Bildes fehlgeschlagen. Der Server hat folgenden Fehler gemeldet:";
+"Could not set the group chat picture. The server responded with an error:" = "Could not set the group chat picture. The server responded with an error:";
 
 /* No comment provided by engineer. */
 "Create" = "Erstellen";
@@ -164,20 +167,20 @@
 /* No comment provided by engineer. */
 "Edit" = "Bearbeiten";
 
-/* No comment provided by engineer. */
-"Emails" = "E-Mails";
+/* Section heading for list of contact email addresses */
+"Email addresses" = "Email addresses";
 
 /* No comment provided by engineer. */
 "Enable %@" = "%@ aktivieren";
-
-/* No comment provided by engineer. */
-"Enable automatic message synchronization" = "Automatisch Nachrichten synchronisieren";
 
 /* No comment provided by engineer. */
 "Enable telephony provider?" = "Telefonieprovider aktivieren?";
 
 /* No comment provided by engineer. */
 "Encryption" = "Verschlüsselung";
+
+/* Alert title */
+"Encryption Not Supported" = "Encryption Not Supported";
 
 /* No comment provided by engineer. */
 "Enter default nickname to use in chats" = "Geben Sie einen Standardanzeigenamen für Chats ein";
@@ -208,9 +211,6 @@
 
 /* No comment provided by engineer. */
 "Fingerprint of this device" = "Fingerabdruck dieses Gerätes";
-
-/* No comment provided by engineer. */
-"For best experience it is suggested to enable Message Archving with automatic message synchronization of at least last 12 hours.\nDo you wish to do this now?" = "Für die beste Erfahrung wird es empfohlen, Nachrichtenarchivierung mit automatischer Synchronisation von mindestens den letzten 12 Stunden zu aktivieren.\nMöchtest du dies nun tun?";
 
 /* No comment provided by engineer. */
 "Free for chat" = "Chatfreudig";
@@ -300,10 +300,10 @@
 "Message Archiving Error" = "Nachrichtenarchivierungsfehler";
 
 /* No comment provided by engineer. */
-"Message Synchronization" = "Nachrichtensynchronisation";
-
-/* No comment provided by engineer. */
 "Messages" = "Nachrichten";
+
+/* Option: notifications from this group chat will be suppressed */
+"Muted" = "Muted";
 
 /* No comment provided by engineer. */
 "Name" = "Name";
@@ -331,6 +331,9 @@
 
 /* Encryption mode */
 "None" = "Keine";
+
+/* Alert title */
+"Not Connected" = "Not Connected";
 
 /* No comment provided by engineer. */
 "Not connected!" = "Nicht verbunden!";
@@ -374,8 +377,8 @@
 /* No comment provided by engineer. */
 "Permanently Delete Account" = "Konto unwiderruflich löschen";
 
-/* No comment provided by engineer. */
-"Phones" = "Telefone";
+/* Section heading for list of contact phone numbers */
+"Phone numbers" = "Phone numbers";
 
 /* No comment provided by engineer. */
 "Please try again!" = "Bitte nochmal versuchen!";
@@ -387,13 +390,13 @@
 "Provided values are not acceptable" = "Angegebene Werte sind nicht akzeptabel";
 
 /* No comment provided by engineer. */
-"Push Notifications" = "Push-Nachrichten";
-
-/* No comment provided by engineer. */
 "Push notifications" = "Push-Nachrichten";
 
 /* No comment provided by engineer. */
 "Push notifications are enabled for %@. They need to be disabled before account can be removed and it is not possible to at this time. Please try again later." = "Push-Nachrichten sind für %@ aktiviert. Sie müssen deaktiviert werden, bevor das Konto entfernt werden kann und dies ist aktuell nicht möglich. Bitte später noch einmal probieren.";
+
+/* Alert title */
+"Push Notifications Enabled" = "Push Notifications Enabled";
 
 /* No comment provided by engineer. */
 "Push Notifications Error" = "Push-Benachrichtigungsfehler";
@@ -489,19 +492,16 @@
 "Server returned error:" = "Der Server hat folgenden Fehler zurückgegeben:";
 
 /* No comment provided by engineer. */
-"Service is not available at this time." = "Der Dienst ist derzeit nicht verfügbar.";
-
-/* No comment provided by engineer. */
 "Set" = "Setzen";
 
 /* No comment provided by engineer. */
 "Settings" = "Einstellungen";
 
 /* No comment provided by engineer. */
-"Snikket can be automatically notified by compatible XMPP servers about new messages when it is in background or stopped.\nIf enabled, notifications about new messages will be forwarded to our push component and delivered to the device. These notifications may contain message senders jid and part of a message.\nDo you want to enable push notifications?" = "Snikket kann von kompatiblen XMPP-Servern automatisch über neue Nachrichten informiert werden, auch wenn es im Hintergrund ist oder gestoppt wurde.\nWenn aktiviert, werden Benachrichtigungen über neue Nachrichten vom Server über unsere Push-Komponente weitergeleitet und an das Gerät zugestellt. Diese Benachrichtigungen können die Addresse des Absenders sowie Teile der Nachricht im Klartext enthalten.\nSollen diese Push-Benachrichtigungen aktiviert werden?";
+"Status" = "Status";
 
 /* No comment provided by engineer. */
-"Status" = "Status";
+"Successfully registered to receive push notifications." = "Successfully registered to receive push notifications.";
 
 /* No comment provided by engineer. */
 "Take photo" = "Foto machen";
@@ -545,8 +545,8 @@
 /* No comment provided by engineer. */
 "Warning" = "Warnung";
 
-/* No comment provided by engineer. */
-"When you share files using HTTP, they are uploaded to HTTP server with unique URL. Anyone who knows the unique URL to the file is able to download it.\nDo you wish to enable?" = "When you share files using HTTP, they are uploaded to HTTP server with unique URL. Anyone who knows the unique URL to the file is able to download it.\nDo you wish to enable?";
+/* Option: only notify user when they are mentioned in this group */
+"When mentioned" = "When mentioned";
 
 /* No comment provided by engineer. */
 "Would you like to use %@ as the default provider for outgoing SMS and calls from %@?" = "Möchtest du %@ als Standardprovider für ausgehende SMS und Anrufe von %@ verwenden?";
@@ -563,14 +563,17 @@
 /* No comment provided by engineer. */
 "You are leaving the group chat" = "You are leaving the group chat";
 
-/* No comment provided by engineer. */
-"You are not connected to room.\nPlease wait reconnection to room" = "Du bist nicht mit dem Raum verbunden.\nBitte warte bis die Verbindung wieder hergestellt ist";
+/* Alert text */
+"You are not currently connected to this group. Please check your network connection and try again later." = "You are not currently connected to this group. Please check your network connection and try again later.";
 
 /* No comment provided by engineer. */
 "You are not joined to the channel." = "Du bist diesem Kanal nicht beigetreten.";
 
 /* No comment provided by engineer. */
 "You can log out of this account temporarily, or permanently remove all account data from this device (including chats). Account removal cannot be undone." = "Du kannst das Konto temporär trennen oder unwiderruflich alle Kontodaten von diesem Gerät entfernen, inkusive Chatverläufen.";
+
+/* No comment provided by engineer. */
+"You have enabled encryption, but this group does not support encrypted messages. Please change encryption settings to be able to send messages." = "You have enabled encryption, but this group does not support encrypted messages. Please change encryption settings to be able to send messages.";
 
 /* No comment provided by engineer. */
 "You need to connect to your account before you can update your contact list. Do you wish to connect now?" = "Du musst das Konto verbinden bevor die Kontaktliste geändert werden kann. Soll das Konto jetzt verbunden werden?";
