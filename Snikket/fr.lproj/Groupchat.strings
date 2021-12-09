@@ -5,67 +5,67 @@
 "2ZD-5S-4hK.headerTitle" = " ";
 
 /* Class = "UILabel"; text = "Offline"; ObjectID = "54Z-E5-MZp"; */
-"54Z-E5-MZp.text" = "Offline";
+"54Z-E5-MZp.text" = "Hors ligne";
 
 /* Class = "UITableViewSection"; headerTitle = " History"; ObjectID = "552-vb-Heg"; */
-"552-vb-Heg.headerTitle" = " History";
+"552-vb-Heg.headerTitle" = " Historique";
 
 /* Class = "UILabel"; text = "very long group name written here"; ObjectID = "az1-E9-Dy7"; */
-"az1-E9-Dy7.text" = "very long group name written here";
+"az1-E9-Dy7.text" = "un très long nom de groupe écrit ici";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "BJz-HA-uv6"; */
-"BJz-HA-uv6.text" = "Label";
+"BJz-HA-uv6.text" = "Libellé";
 
 /* Class = "UITableViewSection"; footerTitle = "Push notification support depends on the XMPP server which you are using and may not work in some cases even if it's supported and enabled on the group chat"; ObjectID = "bRu-vo-fpu"; */
-"bRu-vo-fpu.footerTitle" = "Push notification support depends on the XMPP server which you are using and may not work in some cases even if it's supported and enabled on the group chat";
+"bRu-vo-fpu.footerTitle" = "L'envoi de notification dépend du serveur XMPP que vous utilisez, ceux-ci peuvent ne pas arriver, même si leur envoi a été activé dans les options de discussion de groupe";
 
 /* Class = "UITableViewSection"; headerTitle = " Settings"; ObjectID = "bRu-vo-fpu"; */
-"bRu-vo-fpu.headerTitle" = " Settings";
+"bRu-vo-fpu.headerTitle" = " Réglages";
 
 /* Class = "UILabel"; text = "Encryption"; ObjectID = "DQk-sn-hKj"; */
-"DQk-sn-hKj.text" = "Encryption";
+"DQk-sn-hKj.text" = "Chiffrement";
 
 /* Class = "UILabel"; text = "When mentioned"; ObjectID = "exK-ZH-jpA"; */
-"exK-ZH-jpA.text" = "When mentioned";
+"exK-ZH-jpA.text" = "Quand mentionné";
 
 /* Class = "UITableViewController"; title = "Room details"; ObjectID = "IGA-uE-mHb"; */
-"IGA-uE-mHb.title" = "Room details";
+"IGA-uE-mHb.title" = "Les détails du salon";
 
 /* Class = "UITableViewSection"; headerTitle = "Subject"; ObjectID = "iYv-zL-tZT"; */
-"iYv-zL-tZT.headerTitle" = "Subject";
+"iYv-zL-tZT.headerTitle" = "Objet";
 
 /* Class = "UILabel"; text = "Push notifications"; ObjectID = "jMz-qR-fJ6"; */
-"jMz-qR-fJ6.text" = "Push notifications";
+"jMz-qR-fJ6.text" = "Notifications push";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "kFB-wJ-yDE"; */
-"kFB-wJ-yDE.text" = "Label";
+"kFB-wJ-yDE.text" = "Libellé";
 
 /* Class = "UILabel"; text = "Room name"; ObjectID = "lEG-rf-VV5"; */
-"lEG-rf-VV5.text" = "Room name";
+"lEG-rf-VV5.text" = "Nom du salon";
 
 /* Class = "UILabel"; text = "When the value of this property is false, the queue actively starts operations that are in the queue and ready to execute."; ObjectID = "NK6-IG-GRa"; */
-"NK6-IG-GRa.text" = "When the value of this property is false, the queue actively starts operations that are in the queue and ready to execute.";
+"NK6-IG-GRa.text" = "Lorsque la valeur de cette propriété est fausse, la file d'attente lance activement les opérations qui sont dans la file d'attente et qui sont prêtes à être exécutées.";
 
 /* Class = "UITableViewController"; title = "Invite to chat"; ObjectID = "SOJ-3n-8YB"; */
-"SOJ-3n-8YB.title" = "Invite to chat";
+"SOJ-3n-8YB.title" = "Inviter à chatter";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "t0j-TN-qOY"; */
-"t0j-TN-qOY.text" = "Label";
+"t0j-TN-qOY.text" = "Libellé";
 
 /* Class = "UIViewController"; title = "Room Controller"; ObjectID = "uV2-vL-T54"; */
-"uV2-vL-T54.title" = "Room Controller";
+"uV2-vL-T54.title" = "Contrôle du salon";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "WaG-aF-FTg"; */
-"WaG-aF-FTg.text" = "Label";
+"WaG-aF-FTg.text" = "Libellé";
 
 /* Class = "UILabel"; text = "Attachments"; ObjectID = "wBw-1J-Xau"; */
-"wBw-1J-Xau.text" = "Attachments";
+"wBw-1J-Xau.text" = "Pièces jointes";
 
 /* Class = "UILabel"; text = "Delete History"; ObjectID = "wNk-Ce-zfI"; */
-"wNk-Ce-zfI.text" = "Delete History";
+"wNk-Ce-zfI.text" = "Supprimer l'historique";
 
 /* Class = "UILabel"; text = "None"; ObjectID = "YT2-1I-RlM"; */
-"YT2-1I-RlM.text" = "None";
+"YT2-1I-RlM.text" = "Aucun";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Qmg-sW-dkA"; */
 "Qmg-sW-dkA.normalTitle" = "";
