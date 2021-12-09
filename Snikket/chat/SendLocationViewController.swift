@@ -82,8 +82,8 @@ class SendLocationViewController: UIViewController {
         let encryption: ChatEncryption = room.options.encryption ?? (canEncrypt ? (ChatEncryption(rawValue: Settings.messageEncryption.string() ?? "") ?? .none) : .none)
         guard encryption == .none || canEncrypt else {
             if encryption == .omemo && !canEncrypt {
-                let alert = UIAlertController(title: NSLocalizedString("Warning", comment: ""), message: NSLocalizedString("This room is not capable of sending encrypted messages. Please change encryption settings to be able to send messages", comment: ""), preferredStyle: .alert);
-                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil));
+                let alert = UIAlertController(title: NSLocalizedString("Encryption Not Supported",comment: "Alert title"), message: NSLocalizedString("You have enabled encryption, but this group does not support encrypted messages. Please change encryption settings to be able to send messages.",comment: ""), preferredStyle: .alert);
+                alert.addAction(UIAlertAction(title: NSLocalizedString("OK",comment: ""), style: .default, handler: nil));
                 self.present(alert, animated: true, completion: nil);
             }
             return;

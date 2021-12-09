@@ -389,8 +389,8 @@
 /* No comment provided by engineer. */
 "Provided values are not acceptable" = "Angegebene Werte sind nicht akzeptabel";
 
-/* No comment provided by engineer. */
-"Push notifications" = "Push-Nachrichten";
+/* Alert title */
+"Push Notifications" = "Push Notifications";
 
 /* No comment provided by engineer. */
 "Push notifications are enabled for %@. They need to be disabled before account can be removed and it is not possible to at this time. Please try again later." = "Push-Nachrichten sind für %@ aktiviert. Sie müssen deaktiviert werden, bevor das Konto entfernt werden kann und dies ist aktuell nicht möglich. Bitte später noch einmal probieren.";
@@ -516,9 +516,6 @@
 "The user will be reported and any calls, messages and status updates from them will be blocked." = "Benutzer:in wird gemeldet und alle Anrufe, Nachrichten und Statusinformationen werden blockiert.";
 
 /* No comment provided by engineer. */
-"This room is not capable of sending encrypted messages. Please change encryption settings to be able to send messages" = "Der Raum unterstützt keine verschlüsselten Nachrichten. Bitte ändere die Verschlüsselungseinstellungen um Nachrichten senden zu können";
-
-/* No comment provided by engineer. */
 "This will delete all the message history for this chat. Continue?" = "Diese Aktion wird den kompletten Nachrichtenverlauf für diesen Chat löschen. Fortfahren?";
 
 /* No comment provided by engineer. */
@@ -579,7 +576,7 @@
 "You need to connect to your account before you can update your contact list. Do you wish to connect now?" = "Du musst das Konto verbinden bevor die Kontaktliste geändert werden kann. Soll das Konto jetzt verbunden werden?";
 
 /* Placeholder is the Group Name */
-"You've left there room %@ and push notifications for this room were disabled!\nYou may need to reenable them on other devices." = "Du hast den Raum %@ verlassen und Push-Benachrichtigungen für diesen Raum wurden deaktiviert!\nAuf anderen Geräten müssen Push-Benachrichtigungen für diesen Raum nun ggfs. eingeschaltet werden.";
+"You've left the group %@ and notifications for this group have been disabled.\nYou may need to reenable them on other devices." = "You've left the group %@ and notifications for this group have been disabled.\nYou may need to reenable them on other devices.";
 
 /* No comment provided by engineer. */
 "Your Name" = "Dein Name";

@@ -28,7 +28,7 @@
 /* Class = "UILabel"; text = "When mentioned"; ObjectID = "exK-ZH-jpA"; */
 "exK-ZH-jpA.text" = "When mentioned";
 
-/* Class = "UITableViewController"; title = "Room details"; ObjectID = "IGA-uE-mHb"; */
+/* Class = "UITableViewController"; title = "Group details"; ObjectID = "IGA-uE-mHb"; */
 "IGA-uE-mHb.title" = "Room details";
 
 /* Class = "UITableViewSection"; headerTitle = "Subject"; ObjectID = "iYv-zL-tZT"; */
@@ -40,7 +40,7 @@
 /* Class = "UILabel"; text = "Label"; ObjectID = "kFB-wJ-yDE"; */
 "kFB-wJ-yDE.text" = "Label";
 
-/* Class = "UILabel"; text = "Room name"; ObjectID = "lEG-rf-VV5"; */
+/* Class = "UILabel"; text = "Group name"; ObjectID = "lEG-rf-VV5"; */
 "lEG-rf-VV5.text" = "Room name";
 
 /* Class = "UILabel"; text = "When the value of this property is false, the queue actively starts operations that are in the queue and ready to execute."; ObjectID = "NK6-IG-GRa"; */

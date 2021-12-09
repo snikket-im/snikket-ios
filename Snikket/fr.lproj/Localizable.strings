@@ -389,8 +389,8 @@
 /* No comment provided by engineer. */
 "Provided values are not acceptable" = "Les valeurs fournies ne sont pas acceptables";
 
-/* No comment provided by engineer. */
-"Push notifications" = "Notifications de push";
+/* Alert title */
+"Push Notifications" = "Push Notifications";
 
 /* No comment provided by engineer. */
 "Push notifications are enabled for %@. They need to be disabled before account can be removed and it is not possible to at this time. Please try again later." = "Push notifications are enabled for %@. They need to be disabled before account can be removed and it is not possible to at this time. Please try again later.";
@@ -516,9 +516,6 @@
 "The user will be reported and any calls, messages and status updates from them will be blocked." = "The user will be reported and any calls, messages and status updates from them will be blocked.";
 
 /* No comment provided by engineer. */
-"This room is not capable of sending encrypted messages. Please change encryption settings to be able to send messages" = "This room is not capable of sending encrypted messages. Please change encryption settings to be able to send messages";
-
-/* No comment provided by engineer. */
 "This will delete all the message history for this chat. Continue?" = "Vous allez supprimer tout l’historique des messages de cette discussion. Voulez-vous continuer ?";
 
 /* No comment provided by engineer. */
@@ -579,7 +576,7 @@
 "You need to connect to your account before you can update your contact list. Do you wish to connect now?" = "You need to connect to your account before you can update your contact list. Do you wish to connect now?";
 
 /* Placeholder is the Group Name */
-"You've left there room %@ and push notifications for this room were disabled!\nYou may need to reenable them on other devices." = "You've left there room %@ and push notifications for this room were disabled!\nYou may need to reenable them on other devices.";
+"You've left the group %@ and notifications for this group have been disabled.\nYou may need to reenable them on other devices." = "You've left the group %@ and notifications for this group have been disabled.\nYou may need to reenable them on other devices.";
 
 /* No comment provided by engineer. */
 "Your Name" = "Votre nom";

@@ -265,7 +265,7 @@ class ChatsListViewController: UITableViewController {
                                 }
                                 room.registerForTigasePushNotification(false, completionHandler: { (regResult) in
                                     DispatchQueue.main.async {
-                                        let alert = UIAlertController(title: NSLocalizedString("Push notifications", comment: ""), message: String.localizedStringWithFormat(NSLocalizedString("You've left there room %@ and push notifications for this room were disabled!\nYou may need to reenable them on other devices.",comment: "Placeholder is the Group Name"), room.name ?? room.roomJid.stringValue), preferredStyle: .actionSheet)
+                                        let alert = UIAlertController(title: NSLocalizedString("Push Notifications", comment: "Alert title"), message: String.localizedStringWithFormat(NSLocalizedString("You've left the group %@ and notifications for this group have been disabled.\nYou may need to reenable them on other devices.",comment: "Placeholder is the Group Name"), room.name ?? room.roomJid.stringValue), preferredStyle: .actionSheet)
                                         
                                         alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil));
                                         alert.popoverPresentationController?.sourceView = self.view;
