@@ -50,6 +50,7 @@ public enum Settings: String {
     case EnableMarkdownFormatting = "markdown"
     case ShowEmoticons
     case messageStyling
+    case addCallsToSystem
     
     @available(iOS 13.0, *)
     case linkPreviews
