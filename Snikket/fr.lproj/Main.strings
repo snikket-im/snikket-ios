@@ -1,74 +1,74 @@
 /* Class = "UILabel"; text = "Your server for account \\(account) supports message archiving. Would you like to enable this feature?"; ObjectID = "1dk-YA-RVu"; */
-"1dk-YA-RVu.text" = "Your server for account \\(account) supports message archiving. Would you like to enable this feature?";
+"1dk-YA-RVu.text" = "Votre serveur du compte \(compte) supporte l'archivage des messages. Souhaitez-vous activer cette fonctionnalité ?";
 
 /* Class = "UIButton"; normalTitle = "Send Current Location"; ObjectID = "5tI-9V-tVB"; */
-"5tI-9V-tVB.normalTitle" = "Send Current Location";
+"5tI-9V-tVB.normalTitle" = "Envoyer l'emplacement actuel";
 
 /* Class = "UIViewController"; title = "Chats"; ObjectID = "9pv-A4-QxB"; */
-"9pv-A4-QxB.title" = "Chats";
+"9pv-A4-QxB.title" = "Conversations";
 
 /* Class = "UITabBarItem"; title = "Chats"; ObjectID = "acW-dT-cKf"; */
-"acW-dT-cKf.title" = "Chats";
+"acW-dT-cKf.title" = "Conversations";
 
 /* Class = "UITextField"; placeholder = "Enter chat address"; ObjectID = "BM3-28-huR"; */
-"BM3-28-huR.placeholder" = "Enter chat address";
+"BM3-28-huR.placeholder" = "Entrer l'adresse de la conversation";
 
 /* Class = "UINavigationItem"; title = "Details"; ObjectID = "bNp-S8-ulX"; Note = "Contact info screen title"; */
 "bNp-S8-ulX.title" = "Informations";
 
 /* Class = "UINavigationItem"; title = "Attachments"; ObjectID = "C1j-4i-HDP"; Note = "Conversation shared media gallery title"; */
-"C1j-4i-HDP.title" = "Attachments";
+"C1j-4i-HDP.title" = "Pièces jointes";
 
 /* Class = "UILabel"; text = "Message Archiving"; ObjectID = "Ckp-Mb-v0c"; */
-"Ckp-Mb-v0c.text" = "Message Archiving";
+"Ckp-Mb-v0c.text" = "Archivage des messages";
 
 /* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "Dx3-QU-3cN"; */
-"Dx3-QU-3cN.title" = "Back";
+"Dx3-QU-3cN.title" = "Retour";
 
 /* Class = "UINavigationItem"; title = "Send Location"; ObjectID = "e6z-jk-XtN"; */
-"e6z-jk-XtN.title" = "Send Location";
+"e6z-jk-XtN.title" = "Envoyer l'emplacement";
 
 /* Class = "UILabel"; text = "Attachments"; ObjectID = "EpU-tc-DIx"; */
-"EpU-tc-DIx.text" = "Attachments";
+"EpU-tc-DIx.text" = "Pièces jointes";
 
 /* Class = "UILabel"; text = "Contact added you to their contact list. Add to contacts?"; ObjectID = "ezh-iK-Sk7"; */
-"ezh-iK-Sk7.text" = "Contact added you to their contact list. Add to contacts?";
+"ezh-iK-Sk7.text" = "Le contact vous a ajouté à sa liste de contacts. L'ajouter en retour ?";
 
 /* Class = "UILabel"; text = "Receive presence updates"; ObjectID = "ffo-7n-Tn2"; */
-"ffo-7n-Tn2.text" = "Receive presence updates";
+"ffo-7n-Tn2.text" = "Recevoir les mises à jour de présence";
 
 /* Class = "UILabel"; text = "Mute contact"; ObjectID = "g8N-kr-fax"; */
-"g8N-kr-fax.text" = "Mute contact";
+"g8N-kr-fax.text" = "Mettre le contact en sourdine";
 
 /* Class = "UITextField"; placeholder = "Select account"; ObjectID = "gXY-yq-Y2K"; */
-"gXY-yq-Y2K.placeholder" = "Select account";
+"gXY-yq-Y2K.placeholder" = "Séléctionner le compte";
 
 /* Class = "UITabBarItem"; title = "Settings"; ObjectID = "kee-Xk-ORJ"; */
 "kee-Xk-ORJ.title" = "Paramètres";
 
 /* Class = "UITableViewSection"; headerTitle = "Name"; ObjectID = "Kfl-J5-hdD"; */
-"Kfl-J5-hdD.headerTitle" = "Name";
+"Kfl-J5-hdD.headerTitle" = "Nom";
 
 /* Class = "UILabel"; text = "Block contact"; ObjectID = "kwQ-p7-cX2"; */
-"kwQ-p7-cX2.text" = "Block contact";
+"kwQ-p7-cX2.text" = "Bloquer le contact";
 
 /* Class = "UINavigationItem"; title = "Chats"; ObjectID = "LKO-PG-RwH"; */
-"LKO-PG-RwH.title" = "Chats";
+"LKO-PG-RwH.title" = "Conversations";
 
 /* Class = "UILabel"; text = "Here I'm again..."; ObjectID = "m0n-Ls-5LF"; */
-"m0n-Ls-5LF.text" = "Here I'm again...";
+"m0n-Ls-5LF.text" = "Me revoilà...";
 
 /* Class = "UITableViewSection"; headerTitle = "Account"; ObjectID = "Mfv-HJ-QDO"; */
-"Mfv-HJ-QDO.headerTitle" = "Account";
+"Mfv-HJ-QDO.headerTitle" = "Compte";
 
 /* Class = "UICollectionViewController"; title = "Attachments"; ObjectID = "N9z-ms-iaT"; */
-"N9z-ms-iaT.title" = "Attachments";
+"N9z-ms-iaT.title" = "Pièces jointes";
 
 /* Class = "UINavigationController"; title = "Contacts"; ObjectID = "Ndx-if-NHK"; */
 "Ndx-if-NHK.title" = "Contacts";
 
 /* Class = "UITextField"; placeholder = "Enter contact name"; ObjectID = "OGf-mX-8z3"; */
-"OGf-mX-8z3.placeholder" = "Enter contact name";
+"OGf-mX-8z3.placeholder" = "Entrer le nom du contact";
 
 /* Class = "UITableViewSection"; headerTitle = "PRESENCE"; ObjectID = "Q28-Ig-9NP"; */
 "Q28-Ig-9NP.headerTitle" = "PRESENCE";
@@ -77,34 +77,34 @@
 "Qgj-eQ-geg.headerTitle" = "JID";
 
 /* Class = "UILabel"; text = "Clear History"; ObjectID = "qjs-BY-Nid"; */
-"qjs-BY-Nid.text" = "Clear History";
+"qjs-BY-Nid.text" = "Supprimer l'historique";
 
 /* Class = "UILabel"; text = "Chat with"; ObjectID = "Qr0-8H-IJq"; */
-"Qr0-8H-IJq.text" = "Chat with";
+"Qr0-8H-IJq.text" = "Chatter avec";
 
 /* Class = "UINavigationItem"; title = "Contacts"; ObjectID = "SEz-IM-IWL"; */
 "SEz-IM-IWL.title" = "Contacts";
 
 /* Class = "UILabel"; text = "Send presence updates"; ObjectID = "upM-mW-rMZ"; */
-"upM-mW-rMZ.text" = "Send presence updates";
+"upM-mW-rMZ.text" = "Envoyer des mises à jour de présence";
 
 /* Class = "UITabBarItem"; title = "Contacts"; ObjectID = "W52-LN-wzX"; */
 "W52-LN-wzX.title" = "Contacts";
 
 /* Class = "UIViewController"; title = "Chat"; ObjectID = "WP2-Cp-7ZE"; */
-"WP2-Cp-7ZE.title" = "Chat";
+"WP2-Cp-7ZE.title" = "Conversation";
 
 /* Class = "UIButton"; normalTitle = "Not now"; ObjectID = "wvT-dz-RVz"; */
-"wvT-dz-RVz.normalTitle" = "Not now";
+"wvT-dz-RVz.normalTitle" = "Pas maintenant";
 
 /* Class = "UILabel"; text = "Message encryption"; ObjectID = "XZp-oZ-XpC"; */
-"XZp-oZ-XpC.text" = "Message encryption";
+"XZp-oZ-XpC.text" = "Chiffrement du message";
 
 /* Class = "UIButton"; normalTitle = "Enable"; ObjectID = "yJk-Px-1oo"; */
-"yJk-Px-1oo.normalTitle" = "Enable";
+"yJk-Px-1oo.normalTitle" = "Activer";
 
 /* Class = "UILabel"; text = "Add to contact list"; ObjectID = "zrb-Yr-XQO"; */
-"zrb-Yr-XQO.text" = "Add to contact list";
+"zrb-Yr-XQO.text" = "Ajouter à la liste de contacts";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "k9G-H8-3Hb"; */
 "k9G-H8-3Hb.normalTitle" = "";
