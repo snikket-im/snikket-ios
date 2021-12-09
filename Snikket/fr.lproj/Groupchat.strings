@@ -52,9 +52,6 @@
 /* Class = "UILabel"; text = "Label"; ObjectID = "t0j-TN-qOY"; */
 "t0j-TN-qOY.text" = "Libellé";
 
-/* Class = "UIViewController"; title = "Room Controller"; ObjectID = "uV2-vL-T54"; */
-"uV2-vL-T54.title" = "Contrôle du salon";
-
 /* Class = "UILabel"; text = "Label"; ObjectID = "WaG-aF-FTg"; */
 "WaG-aF-FTg.text" = "Libellé";
 

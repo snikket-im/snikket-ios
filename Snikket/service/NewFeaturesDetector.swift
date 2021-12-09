@@ -188,7 +188,7 @@ class NewFeaturesDetector: XmppServiceEventHandler {
                                     case .failure(_, _):
                                         DispatchQueue.main.async {
                                             handler();
-                                            self.showError(title: NSLocalizedString("Message Archiving Error",comment: ""), message: "\(account.domain) " + NSLocalizedString("server returned an error on the request to enable archiving. You can try to enable this feature later on from the account settings.",comment: ""));
+                                            self.showError(title: NSLocalizedString("Message Archiving Error",comment: "Alert title"), message: "\(account.domain) " + NSLocalizedString("server returned an error on the request to enable archiving. You can try to enable this feature later on from the account settings.",comment: "Preceded by user's server domain"));
                                         }
                                     }
                                 });
@@ -217,7 +217,7 @@ class NewFeaturesDetector: XmppServiceEventHandler {
                 
                 _ = controller.view;
 
-                controller.titleField.text = NSLocalizedString("Message Synchronization",comment: "")
+                controller.titleField.text = NSLocalizedString("Message Synchronization",comment: "#bc-ignore!")
                 controller.iconField.image = UIImage(named: "messageArchiving")
                 controller.descriptionField.text = """
 Would you like to enable automatic message synchronization?
@@ -307,7 +307,7 @@ With this feature enabled Siskin IM can be automatically notified about new mess
                 case .failure(_):
                     DispatchQueue.main.async {
                         operationFinished();
-                        self.showError(title: NSLocalizedString("Push Notifications Error",comment: ""), message: "\(accountJid.domain) " + NSLocalizedString(" server returned an error on the request to enable push notifications. You can try to enable this feature later on from the account settings.",comment: ""));
+                        self.showError(title: NSLocalizedString("Push Notifications Error",comment: ""), message: "\(accountJid.domain) " + NSLocalizedString(" server returned an error on the request to enable push notifications. You can try to enable this feature later on from the account settings.",comment: "Preceded by user's server domain"));
                     }
                 }
             }

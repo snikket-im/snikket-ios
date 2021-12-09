@@ -212,13 +212,10 @@ class AccountSettingsViewController: UITableViewController {
     }
     
     func reRegisterPushNotifications() {
-        let alert = UIAlertController(title: NSLocalizedString("Push Notifications",comment: ""), message: NSLocalizedString("Snikket can be automatically notified by compatible XMPP servers about new messages when it is in background or stopped.\nIf enabled, notifications about new messages will be forwarded to our push component and delivered to the device. These notifications may contain message senders jid and part of a message.\nDo you want to enable push notifications?",comment: ""), preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Yes",comment: ""), style: .default, handler: self.enablePushNotifications(action:)))
-        alert.addAction(UIAlertAction(title: NSLocalizedString("No",comment: ""), style: .cancel, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+        self.enablePushNotifications()
     }
     
-    fileprivate func enablePushNotifications(action: UIAlertAction? = nil) {
+    fileprivate func enablePushNotifications() {
         let accountJid = self.account!;
         let onError = { (_ errorCondition: ErrorCondition?) in
             DispatchQueue.main.async {
@@ -238,6 +235,9 @@ class AccountSettingsViewController: UITableViewController {
                 case .success(_):
                     DispatchQueue.main.async {
                         self.enabledSwitch.isEnabled = true
+                        let alert = UIAlertController(title: NSLocalizedString("Push Notifications Enabled",comment: "Alert title"), message: NSLocalizedString("Successfully registered to receive push notifications.",comment: ""), preferredStyle: .alert);
+                        alert.addAction(UIAlertAction(title: NSLocalizedString("OK",comment: ""), style: .default, handler: nil));
+                        self.present(alert, animated: true, completion: nil);
                     }
                     break
                 case .failure(let errorCondition):
@@ -273,7 +273,7 @@ class AccountSettingsViewController: UITableViewController {
                     }
                     let syncPeriod = AccountSettings.messageSyncPeriod(self.account).getDouble();
                     if !AccountSettings.messageSyncAuto(self.account).getBool() || syncPeriod < 12 {
-                        let alert = UIAlertController(title: NSLocalizedString("Enable automatic message synchronization",comment: ""), message: NSLocalizedString("For best experience it is suggested to enable Message Archving with automatic message synchronization of at least last 12 hours.\nDo you wish to do this now?",comment: ""), preferredStyle: .alert);
+                        let alert = UIAlertController(title: NSLocalizedString("Enable automatic message synchronization",comment: "#bc-ignore!"), message: NSLocalizedString("For best experience it is suggested to enable Message Archving with automatic message synchronization of at least last 12 hours.\nDo you wish to do this now?",comment: "#bc-ignore!"), preferredStyle: .alert);
                         alert.addAction(UIAlertAction(title: NSLocalizedString("No",comment: ""), style: .cancel, handler: nil));
                         alert.addAction(UIAlertAction(title: NSLocalizedString("Yes",comment: ""), style: .default, handler: {(action) in
                             AccountSettings.messageSyncAuto(self.account).set(bool: true);

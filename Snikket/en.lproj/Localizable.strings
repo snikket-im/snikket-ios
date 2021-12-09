@@ -31,6 +31,9 @@
 /* No comment provided by engineer. */
 "All messages will be deleted and all participants will be kicked out. Are you sure?" = "All messages will be deleted and all participants will be kicked out. Are you sure?";
 
+/* Option: Always notify user about messages in this group */
+"Always" = "Always";
+
 /* No comment provided by engineer. */
 "Attachment" = "Attachment";
 
@@ -83,8 +86,8 @@
 /* No comment provided by engineer. */
 "Change" = "Change";
 
-/* No comment provided by engineer. */
-"Change avatar" = "Change avatar";
+/* Alert title: change group chat picture */
+"Change picture" = "Change picture";
 
 /* No comment provided by engineer. */
 "Change subject" = "Change subject";
@@ -117,7 +120,7 @@
 "Could not rename group chat. The server responded with an error:" = "Could not rename group chat. The server responded with an error:";
 
 /* No comment provided by engineer. */
-"Could not set group chat avatar. The server responded with an error:" = "Could not set group chat avatar. The server responded with an error:";
+"Could not set the group chat picture. The server responded with an error:" = "Could not set the group chat picture. The server responded with an error:";
 
 /* No comment provided by engineer. */
 "Create" = "Create";
@@ -164,20 +167,20 @@
 /* No comment provided by engineer. */
 "Edit" = "Edit";
 
-/* No comment provided by engineer. */
-"Emails" = "Emails";
+/* Section heading for list of contact email addresses */
+"Email addresses" = "Email addresses";
 
 /* No comment provided by engineer. */
 "Enable %@" = "Enable %@";
-
-/* No comment provided by engineer. */
-"Enable automatic message synchronization" = "Enable automatic message synchronization";
 
 /* No comment provided by engineer. */
 "Enable telephony provider?" = "Enable telephony provider?";
 
 /* No comment provided by engineer. */
 "Encryption" = "Encryption";
+
+/* Alert title */
+"Encryption Not Supported" = "Encryption Not Supported";
 
 /* No comment provided by engineer. */
 "Enter default nickname to use in chats" = "Enter default nickname to use in chats";
@@ -208,9 +211,6 @@
 
 /* No comment provided by engineer. */
 "Fingerprint of this device" = "Fingerprint of this device";
-
-/* No comment provided by engineer. */
-"For best experience it is suggested to enable Message Archving with automatic message synchronization of at least last 12 hours.\nDo you wish to do this now?" = "For best experience it is suggested to enable Message Archving with automatic message synchronization of at least last 12 hours.\nDo you wish to do this now?";
 
 /* No comment provided by engineer. */
 "Free for chat" = "Free for chat";
@@ -300,10 +300,10 @@
 "Message Archiving Error" = "Message Archiving Error";
 
 /* No comment provided by engineer. */
-"Message Synchronization" = "Message Synchronization";
-
-/* No comment provided by engineer. */
 "Messages" = "Messages";
+
+/* Option: notifications from this group chat will be suppressed */
+"Muted" = "Muted";
 
 /* No comment provided by engineer. */
 "Name" = "Name";
@@ -331,6 +331,9 @@
 
 /* No comment provided by engineer. */
 "None" = "None";
+
+/* Alert title */
+"Not Connected" = "Not Connected";
 
 /* No comment provided by engineer. */
 "Not connected!" = "Not connected!";
@@ -374,8 +377,8 @@
 /* No comment provided by engineer. */
 "Permanently Delete Account" = "Permanently Delete Account";
 
-/* No comment provided by engineer. */
-"Phones" = "Phones";
+/* Section heading for list of contact phone numbers */
+"Phone numbers" = "Phone numbers";
 
 /* No comment provided by engineer. */
 "Please try again!" = "Please try again!";
@@ -387,13 +390,13 @@
 "Provided values are not acceptable" = "Provided values are not acceptable";
 
 /* No comment provided by engineer. */
-"Push Notifications" = "Push Notifications";
-
-/* No comment provided by engineer. */
 "Push notifications" = "Push notifications";
 
 /* No comment provided by engineer. */
 "Push notifications are enabled for %@. They need to be disabled before account can be removed and it is not possible to at this time. Please try again later." = "Push notifications are enabled for %@. They need to be disabled before account can be removed and it is not possible to at this time. Please try again later.";
+
+/* Alert title */
+"Push Notifications Enabled" = "Push Notifications Enabled";
 
 /* No comment provided by engineer. */
 "Push Notifications Error" = "Push Notifications Error";
@@ -489,19 +492,16 @@
 "Server returned error:" = "Server returned error:";
 
 /* No comment provided by engineer. */
-"Service is not available at this time." = "Service is not available at this time.";
-
-/* No comment provided by engineer. */
 "Set" = "Set";
 
 /* No comment provided by engineer. */
 "Settings" = "Settings";
 
 /* No comment provided by engineer. */
-"Snikket can be automatically notified by compatible XMPP servers about new messages when it is in background or stopped.\nIf enabled, notifications about new messages will be forwarded to our push component and delivered to the device. These notifications may contain message senders jid and part of a message.\nDo you want to enable push notifications?" = "Snikket can be automatically notified by compatible XMPP servers about new messages when it is in background or stopped.\nIf enabled, notifications about new messages will be forwarded to our push component and delivered to the device. These notifications may contain message senders jid and part of a message.\nDo you want to enable push notifications?";
+"Status" = "Status";
 
 /* No comment provided by engineer. */
-"Status" = "Status";
+"Successfully registered to receive push notifications." = "Successfully registered to receive push notifications.";
 
 /* No comment provided by engineer. */
 "Take photo" = "Take photo";
@@ -545,8 +545,8 @@
 /* No comment provided by engineer. */
 "Warning" = "Warning";
 
-/* No comment provided by engineer. */
-"When you share files using HTTP, they are uploaded to HTTP server with unique URL. Anyone who knows the unique URL to the file is able to download it.\nDo you wish to enable?" = "When you share files using HTTP, they are uploaded to HTTP server with unique URL. Anyone who knows the unique URL to the file is able to download it.\nDo you wish to enable?";
+/* Option: only notify user when they are mentioned in this group */
+"When mentioned" = "When mentioned";
 
 /* No comment provided by engineer. */
 "Would you like to use %@ as the default provider for outgoing SMS and calls from %@?" = "Would you like to use %1$@ as the default provider for outgoing SMS and calls from %2$@?";
@@ -563,14 +563,17 @@
 /* No comment provided by engineer. */
 "You are leaving the group chat" = "You are leaving the group chat";
 
-/* No comment provided by engineer. */
-"You are not connected to room.\nPlease wait reconnection to room" = "You are not connected to room.\nPlease wait reconnection to room";
+/* Alert text */
+"You are not currently connected to this group. Please check your network connection and try again later." = "You are not currently connected to this group. Please check your network connection and try again later.";
 
 /* No comment provided by engineer. */
 "You are not joined to the channel." = "You are not joined to the channel.";
 
 /* No comment provided by engineer. */
 "You can log out of this account temporarily, or permanently remove all account data from this device (including chats). Account removal cannot be undone." = "You can log out of this account temporarily, or permanently remove all account data from this device (including chats). Account removal cannot be undone.";
+
+/* No comment provided by engineer. */
+"You have enabled encryption, but this group does not support encrypted messages. Please change encryption settings to be able to send messages." = "You have enabled encryption, but this group does not support encrypted messages. Please change encryption settings to be able to send messages.";
 
 /* No comment provided by engineer. */
 "You need to connect to your account before you can update your contact list. Do you wish to connect now?" = "You need to connect to your account before you can update your contact list. Do you wish to connect now?";

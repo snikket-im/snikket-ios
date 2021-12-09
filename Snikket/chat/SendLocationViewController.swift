@@ -48,13 +48,13 @@ class SendLocationViewController: UIViewController {
         self.mapView.addAnnotation(currentAnnotation)
         
         self.removePinButton.isHidden = false
-        self.sendCurrentLocationButton.setTitle(NSLocalizedString("Send Pin Location", comment: ""), for: .normal)
+        self.sendCurrentLocationButton.setTitle(NSLocalizedString("Send Pin Location", comment: "Action button: share with chat the location of the pin dropped by the user on the map (as opposed to device current location)"), for: .normal)
     }
 
     @IBAction func removePinTapped(_ sender: UIButton) {
         self.mapView.removeAnnotation(currentAnnotation)
         self.removePinButton.isHidden = true
-        self.sendCurrentLocationButton.setTitle(NSLocalizedString("Send Current Location", comment: ""), for: .normal)
+        self.sendCurrentLocationButton.setTitle(NSLocalizedString("Send Current Location", comment: "Action button: share with chat this device's current location"), for: .normal)
     }
     
     @IBAction func sendCurrentLocationTapped(_ sender: Any) {

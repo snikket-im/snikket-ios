@@ -254,17 +254,17 @@ class MucChatSettingsViewController: UITableViewController, UIImagePickerControl
     
     @objc func editClicked(_ sender: UIBarButtonItem) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet);
-        alertController.addAction(UIAlertAction(title: NSLocalizedString("Rename chat", comment: ""), style: .default, handler: { (action) in
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("Rename chat", comment: "Alert title: rename a group chat"), style: .default, handler: { (action) in
             self.renameChat();
         }));
         if canEditVCard {
-            alertController.addAction(UIAlertAction(title: NSLocalizedString("Change avatar", comment: ""), style: .default, handler: { (action) in
+            alertController.addAction(UIAlertAction(title: NSLocalizedString("Change picture", comment: "Alert title: change group chat picture"), style: .default, handler: { (action) in
                 if UIImagePickerController.isSourceTypeAvailable(.camera) {
                     let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet);
-                    alert.addAction(UIAlertAction(title: NSLocalizedString("Take photo", comment: ""), style: .default, handler: { (action) in
+                    alert.addAction(UIAlertAction(title: NSLocalizedString("Take photo", comment: "Action button: take a new photo to use to as group chat picture"), style: .default, handler: { (action) in
                         self.selectPhoto(.camera);
                     }));
-                    alert.addAction(UIAlertAction(title: NSLocalizedString("Select photo", comment: ""), style: .default, handler: { (action) in
+                    alert.addAction(UIAlertAction(title: NSLocalizedString("Select photo", comment: "Action button: select (existing) photo for group chat picture"), style: .default, handler: { (action) in
                         self.selectPhoto(.photoLibrary);
                     }));
                     alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil));
@@ -275,7 +275,7 @@ class MucChatSettingsViewController: UITableViewController, UIImagePickerControl
                 }
             }));
         }
-        alertController.addAction(UIAlertAction(title: NSLocalizedString("Change subject", comment: ""), style: .default, handler: { (action) in
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("Change subject", comment: "Alert title: Change group chat subject"), style: .default, handler: { (action) in
             self.changeSubject();
         }));
         alertController.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil));
@@ -335,14 +335,14 @@ class MucChatSettingsViewController: UITableViewController, UIImagePickerControl
             case .failure(let errorCondition):
                 DispatchQueue.main.async {
                     self.hideIndicator();
-                    self.showError(title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString("Could not set group chat avatar. The server responded with an error:", comment: "") + "  \(errorCondition.rawValue)");
+                    self.showError(title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString("Could not set the group chat picture. The server responded with an error:", comment: "") + "  \(errorCondition.rawValue)");
                 }
             }
         });
     }
     
     private func renameChat() {
-        let controller = UIAlertController(title: NSLocalizedString("Rename chat",comment: ""), message: NSLocalizedString("Enter new name for group chat",comment: ""), preferredStyle: .alert);
+        let controller = UIAlertController(title: NSLocalizedString("Rename chat",comment: "Alert title"), message: NSLocalizedString("Enter new name for group chat",comment: "Text field prompt"), preferredStyle: .alert);
         controller.addTextField { (textField) in
             textField.text = self.room.name ?? "";
         }
@@ -432,9 +432,9 @@ class MucChatSettingsViewController: UITableViewController, UIImagePickerControl
             get {
                 switch type {
                 case .none:
-                    return "None";
+                    return NSLocalizedString("None", comment: "Option: no end-to-end encryption for this chat");
                 case .omemo:
-                    return "OMEMO";
+                    return NSLocalizedString("OMEMO", comment: "Option: use OMEMO encryption for this chat");
                 }
             }
         }
@@ -453,11 +453,11 @@ class MucChatSettingsViewController: UITableViewController, UIImagePickerControl
             get {
                 switch type {
                 case .none:
-                    return "Muted";
+                    return NSLocalizedString("Muted", comment: "Option: notifications from this group chat will be suppressed");
                 case .mention:
-                    return "When mentioned";
+                    return NSLocalizedString("When mentioned", comment: "Option: only notify user when they are mentioned in this group");
                 case .always:
-                    return "Always";
+                    return NSLocalizedString("Always", comment: "Option: Always notify user about messages in this group");
                 }
             }
         }
