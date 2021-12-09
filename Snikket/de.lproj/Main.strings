@@ -1,8 +1,8 @@
 /* Class = "UILabel"; text = "Your server for account \\(account) supports message archiving. Would you like to enable this feature?"; ObjectID = "1dk-YA-RVu"; */
-"1dk-YA-RVu.text" = "Your server for account \\(account) supports message archiving. Would you like to enable this feature?";
+"1dk-YA-RVu.text" = "Der Server für das Konto \(account) unterstützt Nachrichtenarchivierung. Möchtest du dieses Feature nun aktivieren?";
 
 /* Class = "UIButton"; normalTitle = "Send Current Location"; ObjectID = "5tI-9V-tVB"; */
-"5tI-9V-tVB.normalTitle" = "Send Current Location";
+"5tI-9V-tVB.normalTitle" = "Aktuelle Position senden";
 
 /* Class = "UIViewController"; title = "Chats"; ObjectID = "9pv-A4-QxB"; */
 "9pv-A4-QxB.title" = "Chats";
@@ -14,37 +14,37 @@
 "BM3-28-huR.placeholder" = "Enter chat address";
 
 /* Class = "UINavigationItem"; title = "Details"; ObjectID = "bNp-S8-ulX"; Note = "Contact info screen title"; */
-"bNp-S8-ulX.title" = "Informations";
+"bNp-S8-ulX.title" = "Informationen";
 
 /* Class = "UINavigationItem"; title = "Attachments"; ObjectID = "C1j-4i-HDP"; Note = "Conversation shared media gallery title"; */
-"C1j-4i-HDP.title" = "Attachments";
+"C1j-4i-HDP.title" = "Anhänge";
 
 /* Class = "UILabel"; text = "Message Archiving"; ObjectID = "Ckp-Mb-v0c"; */
-"Ckp-Mb-v0c.text" = "Message Archiving";
+"Ckp-Mb-v0c.text" = "Nachrichtenarchivierung";
 
 /* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "Dx3-QU-3cN"; */
-"Dx3-QU-3cN.title" = "Back";
+"Dx3-QU-3cN.title" = "Zurück";
 
 /* Class = "UINavigationItem"; title = "Send Location"; ObjectID = "e6z-jk-XtN"; */
-"e6z-jk-XtN.title" = "Send Location";
+"e6z-jk-XtN.title" = "Position teilen";
 
 /* Class = "UILabel"; text = "Attachments"; ObjectID = "EpU-tc-DIx"; */
-"EpU-tc-DIx.text" = "Attachments";
+"EpU-tc-DIx.text" = "Anhänge";
 
 /* Class = "UILabel"; text = "Contact added you to their contact list. Add to contacts?"; ObjectID = "ezh-iK-Sk7"; */
-"ezh-iK-Sk7.text" = "Contact added you to their contact list. Add to contacts?";
+"ezh-iK-Sk7.text" = "Der Kontakt hat dich zu ihrer Kontaktliste hinzugefügt. Zur Kontaktliste hinzufügen?";
 
 /* Class = "UILabel"; text = "Receive presence updates"; ObjectID = "ffo-7n-Tn2"; */
-"ffo-7n-Tn2.text" = "Receive presence updates";
+"ffo-7n-Tn2.text" = "Verfügbarkeitsinformationen empfangen";
 
 /* Class = "UILabel"; text = "Mute contact"; ObjectID = "g8N-kr-fax"; */
-"g8N-kr-fax.text" = "Mute contact";
+"g8N-kr-fax.text" = "Kontakt stummstellen";
 
 /* Class = "UITextField"; placeholder = "Select account"; ObjectID = "gXY-yq-Y2K"; */
-"gXY-yq-Y2K.placeholder" = "Select account";
+"gXY-yq-Y2K.placeholder" = "Konto auswählen";
 
 /* Class = "UITabBarItem"; title = "Settings"; ObjectID = "kee-Xk-ORJ"; */
-"kee-Xk-ORJ.title" = "Settings";
+"kee-Xk-ORJ.title" = "Einstellungen";
 
 /* Class = "UITableViewSection"; headerTitle = "Name"; ObjectID = "Kfl-J5-hdD"; */
 "Kfl-J5-hdD.headerTitle" = "Name";
@@ -56,13 +56,13 @@
 "LKO-PG-RwH.title" = "Chats";
 
 /* Class = "UILabel"; text = "Here I'm again..."; ObjectID = "m0n-Ls-5LF"; */
-"m0n-Ls-5LF.text" = "Here I'm again...";
+"m0n-Ls-5LF.text" = "Hier bin ich wieder...";
 
 /* Class = "UITableViewSection"; headerTitle = "Account"; ObjectID = "Mfv-HJ-QDO"; */
 "Mfv-HJ-QDO.headerTitle" = "Account";
 
 /* Class = "UICollectionViewController"; title = "Attachments"; ObjectID = "N9z-ms-iaT"; */
-"N9z-ms-iaT.title" = "Attachments";
+"N9z-ms-iaT.title" = "Anhänge";
 
 /* Class = "UINavigationController"; title = "Contacts"; ObjectID = "Ndx-if-NHK"; */
 "Ndx-if-NHK.title" = "Contacts";
@@ -77,7 +77,7 @@
 "Qgj-eQ-geg.headerTitle" = "JID";
 
 /* Class = "UILabel"; text = "Clear History"; ObjectID = "qjs-BY-Nid"; */
-"qjs-BY-Nid.text" = "Clear History";
+"qjs-BY-Nid.text" = "Verlauf löschen";
 
 /* Class = "UILabel"; text = "Chat with"; ObjectID = "Qr0-8H-IJq"; */
 "Qr0-8H-IJq.text" = "Chat with";
@@ -86,7 +86,7 @@
 "SEz-IM-IWL.title" = "Contacts";
 
 /* Class = "UILabel"; text = "Send presence updates"; ObjectID = "upM-mW-rMZ"; */
-"upM-mW-rMZ.text" = "Send presence updates";
+"upM-mW-rMZ.text" = "Verfügbarkeitsinformationen senden";
 
 /* Class = "UITabBarItem"; title = "Contacts"; ObjectID = "W52-LN-wzX"; */
 "W52-LN-wzX.title" = "Contacts";
@@ -95,13 +95,13 @@
 "WP2-Cp-7ZE.title" = "Chat";
 
 /* Class = "UIButton"; normalTitle = "Not now"; ObjectID = "wvT-dz-RVz"; */
-"wvT-dz-RVz.normalTitle" = "Not now";
+"wvT-dz-RVz.normalTitle" = "Jetzt nicht";
 
 /* Class = "UILabel"; text = "Message encryption"; ObjectID = "XZp-oZ-XpC"; */
-"XZp-oZ-XpC.text" = "Message encryption";
+"XZp-oZ-XpC.text" = "Nachrichtenverschlüsselung";
 
 /* Class = "UIButton"; normalTitle = "Enable"; ObjectID = "yJk-Px-1oo"; */
-"yJk-Px-1oo.normalTitle" = "Enable";
+"yJk-Px-1oo.normalTitle" = "Aktivieren";
 
 /* Class = "UILabel"; text = "Add to contact list"; ObjectID = "zrb-Yr-XQO"; */
 "zrb-Yr-XQO.text" = "Add to contact list";
