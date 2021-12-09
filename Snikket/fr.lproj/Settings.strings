@@ -5,115 +5,115 @@
 "32B-bc-CHX.text" = "Request delivery receipts";
 
 /* Class = "UILabel"; text = "Show emoticons"; ObjectID = "3a8-1d-3PR"; */
-"3a8-1d-3PR.text" = "Show emoticons";
+"3a8-1d-3PR.text" = "Afficher les émoticônes";
 
 /* Class = "UILabel"; text = "Notifications"; ObjectID = "3pd-ay-sAI"; */
 "3pd-ay-sAI.text" = "Notifications";
 
 /* Class = "UILabel"; text = "About"; ObjectID = "3vM-ad-4ap"; */
-"3vM-ad-4ap.text" = "About";
+"3vM-ad-4ap.text" = "À propos";
 
 /* Class = "UILabel"; text = "Account name"; ObjectID = "7ho-Mu-thd"; */
-"7ho-Mu-thd.text" = "Account name";
+"7ho-Mu-thd.text" = "Nom du compte";
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "7tC-Eh-kK5"; */
-"7tC-Eh-kK5.text" = "Title";
+"7tC-Eh-kK5.text" = "Titre";
 
 /* Class = "UILabel"; text = "Media"; ObjectID = "8G3-tm-sCO"; */
-"8G3-tm-sCO.text" = "Media";
+"8G3-tm-sCO.text" = "Médias";
 
 /* Class = "UILabel"; text = "Enable markdown"; ObjectID = "8K5-bS-ddh"; */
-"8K5-bS-ddh.text" = "Enable markdown";
+"8K5-bS-ddh.text" = "Activer le language markdown";
 
 /* Class = "UILabel"; text = "Encryption"; ObjectID = "9Gl-4Z-f2X"; */
-"9Gl-4Z-f2X.text" = "Encryption";
+"9Gl-4Z-f2X.text" = "Chiffrement";
 
 /* Class = "UILabel"; text = "No blocked contacts"; ObjectID = "Aki-gv-qus"; */
-"Aki-gv-qus.text" = "No blocked contacts";
+"Aki-gv-qus.text" = "Pas de contacts bloqués";
 
 /* Class = "UILabel"; text = "Photos quality"; ObjectID = "bbT-7s-6ph"; */
-"bbT-7s-6ph.text" = "Photos quality";
+"bbT-7s-6ph.text" = "Qualité des photos";
 
 /* Class = "UILabel"; text = "Send message on return"; ObjectID = "Bd4-qf-OsU"; */
-"Bd4-qf-OsU.text" = "Send message on return";
+"Bd4-qf-OsU.text" = "Envoyer le message avec le retour de ligne";
 
 /* Class = "UILabel"; text = "File download limit"; ObjectID = "bj6-vP-3A7"; */
-"bj6-vP-3A7.text" = "File download limit";
+"bj6-vP-3A7.text" = "Limite du téléchargement de fichiers";
 
 /* Class = "UILabel"; text = "Videos quality"; ObjectID = "bKW-ln-Kez"; */
-"bKW-ln-Kez.text" = "Videos quality";
+"bKW-ln-Kez.text" = "Qualité des vidéos";
 
 /* Class = "UILabel"; text = "None"; ObjectID = "bPa-aU-WFn"; */
-"bPa-aU-WFn.text" = "None";
+"bPa-aU-WFn.text" = "Aucun";
 
 /* Class = "UILabel"; text = "Use public STUN servers"; ObjectID = "BSa-RZ-M7L"; */
-"BSa-RZ-M7L.text" = "Use public STUN servers";
+"BSa-RZ-M7L.text" = "Utiliser des serveurs STUN publics";
 
 /* Class = "UILabel"; text = "Contacts in groups"; ObjectID = "BSk-tI-BDM"; */
-"BSk-tI-BDM.text" = "Contacts in groups";
+"BSk-tI-BDM.text" = "Contacts dans les groupes";
 
 /* Class = "UILabel"; text = "Notifications from unknown"; ObjectID = "cyb-st-Bmw"; */
-"cyb-st-Bmw.text" = "Notifications from unknown";
+"cyb-st-Bmw.text" = "Notifications d'inconnus";
 
 /* Class = "UILabel"; text = "XMPP Quickstart / Pipelining"; ObjectID = "dbq-Tl-d6b"; */
 "dbq-Tl-d6b.text" = "XMPP Quickstart / Pipelining";
 
 /* Class = "UILabel"; text = "Chats"; ObjectID = "etv-3w-9lA"; */
-"etv-3w-9lA.text" = "Chats";
+"etv-3w-9lA.text" = "Conversations";
 
 /* Class = "UILabel"; text = "File sharing via HTTP"; ObjectID = "eZJ-fR-LPh"; */
-"eZJ-fR-LPh.text" = "File sharing via HTTP";
+"eZJ-fR-LPh.text" = "Partage de fichiers via HTTP";
 
 /* Class = "UILabel"; text = "Subtitle"; ObjectID = "fB5-hb-x8m"; */
-"fB5-hb-x8m.text" = "Subtitle";
+"fB5-hb-x8m.text" = "Sous-titre";
 
 /* Class = "UITableViewController"; title = "Experimental"; ObjectID = "FGQ-GL-dYt"; */
-"FGQ-GL-dYt.title" = "Experimental";
+"FGQ-GL-dYt.title" = "Expérimental";
 
 /* Class = "UILabel"; text = "Appearance"; ObjectID = "fxY-aA-n0i"; */
-"fxY-aA-n0i.text" = "Appearance";
+"fxY-aA-n0i.text" = "Apparence";
 
 /* Class = "UIBarButtonItem"; title = "Close"; ObjectID = "G2W-rB-KuE"; */
-"G2W-rB-KuE.title" = "Close";
+"G2W-rB-KuE.title" = "Fermer";
 
 /* Class = "UILabel"; text = "2 lines"; ObjectID = "g4v-o5-nXZ"; */
-"g4v-o5-nXZ.text" = "2 lines";
+"g4v-o5-nXZ.text" = "2 lignes";
 
 /* Class = "UITableViewController"; title = "Notification settings"; ObjectID = "GfS-6V-cuc"; */
-"GfS-6V-cuc.title" = "Notification settings";
+"GfS-6V-cuc.title" = "Paramètres de notification";
 
 /* Class = "UILabel"; text = "Contacts"; ObjectID = "hGX-FI-YNj"; */
 "hGX-FI-YNj.text" = "Contacts";
 
 /* Class = "UILabel"; text = "Clear download cache"; ObjectID = "Hu1-2i-RSO"; */
-"Hu1-2i-RSO.text" = "Clear download cache";
+"Hu1-2i-RSO.text" = "Effacer le cache de téléchargement";
 
 /* Class = "UILabel"; text = "Media"; ObjectID = "ieE-mK-uEm"; */
-"ieE-mK-uEm.text" = "Media";
+"ieE-mK-uEm.text" = "Médias";
 
 /* Class = "UILabel"; text = "Clear chat on close"; ObjectID = "ioL-eS-dDk"; */
-"ioL-eS-dDk.text" = "Clear chat on close";
+"ioL-eS-dDk.text" = "Effacer la conversation à la fermeture";
 
 /* Class = "UINavigationItem"; title = "Settings"; ObjectID = "jeY-X9-tWB"; */
-"jeY-X9-tWB.title" = "Settings";
+"jeY-X9-tWB.title" = "Réglages";
 
 /* Class = "UILabel"; text = "Light"; ObjectID = "L2t-Ud-Fkc"; */
-"L2t-Ud-Fkc.text" = "Light";
+"L2t-Ud-Fkc.text" = "Clair";
 
 /* Class = "UILabel"; text = "By presence and time"; ObjectID = "LAc-oF-22z"; */
 "LAc-oF-22z.text" = "By presence and time";
 
 /* Class = "UILabel"; text = "Auto-authorize contacts"; ObjectID = "MGl-L6-Fs3"; */
-"MGl-L6-Fs3.text" = "Auto-authorize contacts";
+"MGl-L6-Fs3.text" = "Autoriser des contacts automatiquement";
 
 /* Class = "UILabel"; text = "Blocked contacts"; ObjectID = "MJ0-kw-1Kl"; */
-"MJ0-kw-1Kl.text" = "Blocked contacts";
+"MJ0-kw-1Kl.text" = "Contacts bloqués";
 
 /* Class = "UILabel"; text = "\"Hidden\" group"; ObjectID = "P82-B8-768"; */
-"P82-B8-768.text" = "\"Hidden\" group";
+"P82-B8-768.text" = "Salon \"caché\"";
 
 /* Class = "UITableViewController"; title = "Chat settings"; ObjectID = "pFo-ox-4gT"; */
-"pFo-ox-4gT.title" = "Chat settings";
+"pFo-ox-4gT.title" = "Paramètres de discussion";
 
 /* Class = "UILabel"; text = "Message Styling"; ObjectID = "Qu4-Mf-tz4"; */
 "Qu4-Mf-tz4.text" = "Message Styling";
