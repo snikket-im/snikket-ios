@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hng-iF-J9G">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hng-iF-J9G">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -165,8 +165,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Snikket" id="Pr0-Qp-NEQ">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="qrCode" id="i2u-OL-UUY">
+                        <barButtonItem key="rightBarButtonItem" title="Scan barcode" image="qrCode" id="i2u-OL-UUY">
                             <color key="tintColor" name="tintColor"/>
+                            <attributedString key="userComments">
+                                <fragment content="Action button to scan QR code"/>
+                            </attributedString>
                             <connections>
                                 <action selector="startScan:" destination="0Ih-Lt-06h" id="06Q-v1-ogO"/>
                             </connections>

@@ -39,9 +39,9 @@ class ContactsSettingsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0:
-            return NSLocalizedString("Display", comment: "")
+            return NSLocalizedString("Display", comment: "Section heading: settings for how contact list entries should be displayed")
         case 1:
-            return NSLocalizedString("General", comment: "")
+            return NSLocalizedString("General", comment: "Section heading: general settings about contacts")
         default:
             return nil;
         }

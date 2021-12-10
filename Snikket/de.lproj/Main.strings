@@ -37,7 +37,7 @@
 /* Class = "UILabel"; text = "Receive presence updates"; ObjectID = "ffo-7n-Tn2"; */
 "ffo-7n-Tn2.text" = "Verfügbarkeitsinformationen empfangen";
 
-/* Class = "UILabel"; text = "Mute contact"; ObjectID = "g8N-kr-fax"; */
+/* Class = "UILabel"; text = "Mute contact"; ObjectID = "g8N-kr-fax"; Note = "Toggle label (in contact details): mute notifications from this contact"; */
 "g8N-kr-fax.text" = "Kontakt stummstellen";
 
 /* Class = "UITextField"; placeholder = "Select account"; ObjectID = "gXY-yq-Y2K"; */
@@ -54,9 +54,6 @@
 
 /* Class = "UINavigationItem"; title = "Chats"; ObjectID = "LKO-PG-RwH"; */
 "LKO-PG-RwH.title" = "Chats";
-
-/* Class = "UILabel"; text = "Here I'm again..."; ObjectID = "m0n-Ls-5LF"; */
-"m0n-Ls-5LF.text" = "Hier bin ich wieder...";
 
 /* Class = "UITableViewSection"; headerTitle = "Account"; ObjectID = "Mfv-HJ-QDO"; */
 "Mfv-HJ-QDO.headerTitle" = "Account";
