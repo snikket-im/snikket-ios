@@ -10,7 +10,7 @@ unstripped = false
 [update.code]
 codePaths = ["."]
 localizablePaths = ["."]
-defaultToKeys = true
+defaultToKeys = false
 additive = false
 unstripped = false
 
