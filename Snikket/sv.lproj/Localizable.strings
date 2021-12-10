@@ -22,6 +22,9 @@
 /* No comment provided by engineer. */
 "Add account" = "Add account";
 
+/* Action: add the provided JID as a new contact */
+"Add contact" = "Add contact";
+
 /* Section heading for a list of postal addresses */
 "Addresses" = "Adresser";
 
@@ -52,6 +55,9 @@
 
 /* Status Options */
 "Away" = "Borta";
+
+/* Alert title */
+"Ban Failed" = "Ban Failed";
 
 /* No comment provided by engineer. */
 "Ban user" = "Ban user";
@@ -101,6 +107,9 @@
 /* Status Options */
 "Chat" = "Chat";
 
+/* Error text - while uploading file */
+"Check your network connection or try again later." = "Check your network connection or try again later.";
+
 /* No comment provided by engineer. */
 "Clear History" = "Rensa historik";
 
@@ -119,6 +128,12 @@
 /* No comment provided by engineer. */
 "Could not connect to the service. Check your network connectivity or try again later." = "Kunde inte ansluta till tjänsten. Kontrollera din nätverksanslutning eller försök igen senare.";
 
+/* Error text - while uploading file */
+"Could not detect file type." = "Could not detect file type.";
+
+/* Error text - while uploading file */
+"Could not determine file size." = "Could not determine file size.";
+
 /* No comment provided by engineer. */
 "Could not rename group chat. The server responded with an error:" = "Kunde inte döpa om chatt.Servern svarade med ett felmeddelande:";
 
@@ -127,6 +142,9 @@
 
 /* No comment provided by engineer. */
 "Create" = "Skapa";
+
+/* Alert title */
+"Create Account" = "Create Account";
 
 /* App Theme Type */
 "Dark" = "Mörk";
@@ -161,11 +179,23 @@
 /* Section heading: settings for how contact list entries should be displayed */
 "Display" = "Display";
 
+/* Label for text field where user can enter their preferred name to display to their contacts */
+"Display Name" = "Display Name";
+
 /* Status Options */
 "Do not disturb" = "Stör ej";
 
 /* No comment provided by engineer. */
 "Do you want to ban user" = "Vill du porta användaren";
+
+/* Confirmation prompt text */
+"Do you wish to publish this photo as your profile picture?" = "Do you wish to publish this photo as your profile picture?";
+
+/* Alert text. Placeholder is server domain. */
+"Do you wish to register a new account at %@?" = "Do you wish to register a new account at %@?";
+
+/* Alert text. Placeholder is account JID. */
+"Do you wish to register the account %@?" = "Do you wish to register the account %@?";
 
 /* Menu item: opens file picket to select document to share */
 "Document" = "Document";
@@ -209,11 +239,23 @@
 /* Status Options */
 "Extended away" = "Borta en längre stund";
 
+/* Alert text. First placeholder is name or JID, second is error message */
+"Failed to ban %@: %@" = "Failed to ban %1$@: %2$@";
+
 /* No comment provided by engineer. */
 "Failed To Update Contact List" = "Misslyckades att uppdatera kontaktlistan";
 
 /* No comment provided by engineer. */
 "Failure" = "Fel";
+
+/* Error text - while uploading file */
+"File is too large to share on your account." = "File is too large to share on your account.";
+
+/* Error text */
+"File upload was not acknowledged by the server." = "File upload was not acknowledged by the server.";
+
+/* Error text - while uploading file */
+"File uploads are not supported on your account." = "File uploads are not supported on your account.";
 
 /* No comment provided by engineer. */
 "Fingerprint of this device" = "Den här enhetens fingeravtryck";
@@ -242,6 +284,9 @@
 /* No comment provided by engineer. */
 "It was not possible to access camera. Please check in privacy settings that you have granted Snikket access to the camera." = "It was not possible to access camera. Please check in privacy settings that you have granted Snikket access to the camera.";
 
+/* Error text: upload failed due to permissions */
+"It was not possible to access the file." = "It was not possible to access the file.";
+
 /* No comment provided by engineer. */
 "It was not possible to contact XMPP server and sign in." = "Det gick inte kontakta XMPP-servern för att logga in.";
 
@@ -250,6 +295,9 @@
 
 /* No comment provided by engineer. */
 "It was not possible to establish call" = "Kunde inte etablera samtal";
+
+/* Action: Join the supplied JID as a group */
+"Join group" = "Join group";
 
 /* No comment provided by engineer. */
 "Join group chat" = "Gå med i gruppchatt";
@@ -368,6 +416,12 @@
 /* Status Options */
 "Online" = "Online";
 
+/* Action: open a chat with a JID */
+"Open chat" = "Open chat";
+
+/* Alert title */
+"Open URL" = "Open URL";
+
 /* No comment provided by engineer. */
 "Operation timed out" = "Operationen fick time out";
 
@@ -397,6 +451,9 @@
 
 /* No comment provided by engineer. */
 "Private message" = "Private message";
+
+/* Alert title */
+"Profile Picture Update Failed" = "Profile Picture Update Failed";
 
 /* No comment provided by engineer. */
 "Provided values are not acceptable" = "Oacceptabla värden angivna";
@@ -468,6 +525,9 @@
 /* No comment provided by engineer. */
 "Search channels" = "Sök efter kanaler";
 
+/* Shown above a choice list of the user's accounts */
+"Select account to open chat from:" = "Select account to open chat from:";
+
 /* Action button: select (existing) photo for group chat picture */
 "Select photo" = "Välj foto";
 
@@ -499,9 +559,6 @@
 "server returned an error on the request to enable archiving. You can try to enable this feature later on from the account settings." = "server returned an error on the request to enable archiving. You can try to enable this feature later on from the account settings.";
 
 /* No comment provided by engineer. */
-"Server returned an error:" = "Serverns felmeddelande:";
-
-/* No comment provided by engineer. */
 "Server returned error:" = "Serverns felmeddelande:";
 
 /* No comment provided by engineer. */
@@ -512,6 +569,9 @@
 
 /* Informs user to slide their finger in direction of arrow to cancel audio recording */
 "Slide to cancel" = "Slide to cancel";
+
+/* Alert title - starting a new chat */
+"Start Chat" = "Start Chat";
 
 /* No comment provided by engineer. */
 "Status" = "Status";
@@ -528,20 +588,35 @@
 /* No comment provided by engineer. */
 "The server returned an error: " = "Serverns felmeddelande: ";
 
+/* Error text - while uploading a file. Placeholder is a HTTP status code. */
+"The upload was rejected by the server (error %@)." = "The upload was rejected by the server (error %@).";
+
 /* No comment provided by engineer. */
 "The user will be reported and any calls, messages and status updates from them will be blocked." = "Användaren kommer rapporteras och samtal, meddelanden och statusuppdateringar från dem blockeras.";
+
+/* Error text - while uploading file */
+"There was a server error processing the file upload. Please try again later." = "There was a server error processing the file upload. Please try again later.";
 
 /* No comment provided by engineer. */
 "This will delete all the message history for this chat. Continue?" = "Detta raderar all meddelandehistorik för den här chatten. Fortsätta?";
 
+/* Alert text */
+"Unable to publish your profile picture at this time.\nError: %@" = "Unable to publish your profile picture at this time.\nError: %@";
+
 /* No comment provided by engineer. */
 "Unblock" = "Avblockera";
+
+/* Error text - while uploading file. Placeholder is a HTTP status code. */
+"Unexpected error (%@) received while uploading file." = "Unexpected error (%@) received while uploading file.";
 
 /* No comment provided by engineer. */
 "Unkown error occured" = "Okänt fel uppstod";
 
 /* No comment provided by engineer. */
 "Unlimited" = "Obegränsad";
+
+/* Alert title */
+"Upload Failed" = "Upload Failed";
 
 /* No comment provided by engineer. */
 "Used image and video quality may impact storage and network usage" = "Vald bild- och videokvalité kan påverka lagring och dataanvändning";
@@ -557,6 +632,9 @@
 
 /* No comment provided by engineer. */
 "Warning" = "Varning";
+
+/* Placeholder is xmpp: URI */
+"What do you want to do with %@?" = "What do you want to do with %@?";
 
 /* Option: only notify user when they are mentioned in this group */
 "When mentioned" = "Vid omnämnande";

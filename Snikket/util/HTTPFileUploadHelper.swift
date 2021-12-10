@@ -60,10 +60,14 @@ class HTTPFileUploadHelper {
                     request.addValue(mimeType, forHTTPHeaderField: "Content-Type");
                     let session = URLSession(configuration: URLSessionConfiguration.default, delegate: delegate, delegateQueue: OperationQueue.main);
                     session.dataTask(with: request) { (data, response, error) in
-                        let code = (response as? HTTPURLResponse)?.statusCode ?? 500;
+                        let code = (response as? HTTPURLResponse)?.statusCode ?? 0;
                         guard error == nil && (code == 200 || code == 201) else {
                             print("error:", error as Any, "response:", response as Any)
-                            completionHandler(.failure(.httpError));
+                            if(code == 0) {
+                                completionHandler(.failure(.connectionError));
+                            } else {
+                                completionHandler(.failure(.httpError(code: code)));
+                            }
                             return;
                         }
                         if code == 200 {

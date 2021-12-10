@@ -280,17 +280,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return true;
         } else {
             DispatchQueue.main.async {
-                let alert = UIAlertController(title: "Open URL", message: "What do you want to do with \(url)?", preferredStyle: .alert);
-                alert.addAction(UIAlertAction(title: "Open chat", style: .default, handler: { (action) in
+                let alert = UIAlertController(title: NSLocalizedString("Open URL", comment: "Alert title"), message: String.localizedStringWithFormat(NSLocalizedString("What do you want to do with %@?", comment: "Placeholder is xmpp: URI"), url as CVarArg), preferredStyle: .alert);
+                alert.addAction(UIAlertAction(title: NSLocalizedString("Open chat", comment: "Action: open a chat with a JID"), style: .default, handler: { (action) in
                     self.open(xmppUri: xmppUri, action: .message);
                 }))
-                alert.addAction(UIAlertAction(title: "Join room", style: .default, handler: { (action) in
+                alert.addAction(UIAlertAction(title: NSLocalizedString("Join group", comment: "Action: Join the supplied JID as a group"), style: .default, handler: { (action) in
                     self.open(xmppUri: xmppUri, action: .join);
                 }))
-                alert.addAction(UIAlertAction(title: "Add contact", style: .default, handler: { (action) in
+                alert.addAction(UIAlertAction(title: NSLocalizedString("Add contact", comment: "Action: add the provided JID as a new contact"), style: .default, handler: { (action) in
                     self.open(xmppUri: xmppUri, action: .roster);
                 }))
-                alert.addAction(UIAlertAction(title: "Nothing", style: .cancel, handler: nil));
+                alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil));
                 self.window?.rootViewController?.present(alert, animated: true, completion: nil);
             }
             return false;
@@ -309,7 +309,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             navController.modalPresentationStyle = .formSheet;
             self.window?.rootViewController?.present(navController, animated: true, completion: nil);
         case .message:
-            let alert = UIAlertController(title: "Start chatting", message: "Select account to open chat from", preferredStyle: .alert);
+            let alert = UIAlertController(title: NSLocalizedString("Start Chat", comment: "Alert title - starting a new chat"), message: NSLocalizedString("Select account to open chat from:", comment: "Shown above a choice list of the user's accounts"), preferredStyle: .alert);
             let accounts = self.xmppService.getClients().map({ (client) -> BareJID in
                 return client.sessionObject.userBareJid!;
             }).sorted { (a1, a2) -> Bool in
@@ -373,8 +373,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 itemEditController?.preauth = xmppUri.dict?["preauth"];
             });
         case .register:
-            let alert = UIAlertController(title: "Registering account", message: xmppUri.jid.localPart == nil ? "Do you wish to register a new account at \(xmppUri.jid.domain!)?" : "Do you wish to register a new account \(xmppUri.jid.stringValue)?", preferredStyle: .alert);
-            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+                                            let alert = UIAlertController(title: NSLocalizedString("Create Account", comment: "Alert title"), message: xmppUri.jid.localPart == nil ? String.localizedStringWithFormat(NSLocalizedString("Do you wish to register a new account at %@?", comment: "Alert text. Placeholder is server domain."), xmppUri.jid.domain!) : String.localizedStringWithFormat(NSLocalizedString("Do you wish to register the account %@?", comment: "Alert text. Placeholder is account JID."), xmppUri.jid.stringValue), preferredStyle: .alert);
+                                          alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: ""), style: .default, handler: { action in
                 let registerAccountController = RegisterAccountController.instantiate(fromAppStoryboard: .Account);
                 registerAccountController.hidesBottomBarWhenPushed = true;
                 registerAccountController.account = xmppUri.jid.bareJid;
@@ -382,7 +382,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 registerAccountController.onAccountAdded = then;
                 self.window?.rootViewController?.showDetailViewController(UINavigationController(rootViewController: registerAccountController), sender: self);
             }));
-            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil));
+                                          alert.addAction(UIAlertAction(title: NSLocalizedString("No", comment: ""), style: .cancel, handler: nil));
             self.window?.rootViewController?.present(alert, animated: true, completion: nil);
         }
     }

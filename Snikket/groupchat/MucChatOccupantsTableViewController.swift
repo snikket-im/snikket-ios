@@ -197,7 +197,7 @@ class MucChatOccupantsTableViewController: UITableViewController {
                             guard let err = error else {
                                 return;
                             }
-                            let alert = UIAlertController(title: "Banning user \(participant.nickname ?? participant.jid.stringValue) failed", message: NSLocalizedString("Server returned an error:",comment: "") + " \(err.rawValue)", preferredStyle: .alert);
+                            let alert = UIAlertController(title: NSLocalizedString("Ban Failed", comment: "Alert title"), message: String.localizedStringWithFormat(NSLocalizedString("Failed to ban %@: %@",comment: "Alert text. First placeholder is name or JID, second is error message"), participant.nickname ?? participant.jid.stringValue, err.rawValue), preferredStyle: .alert);
                             alert.addAction(UIAlertAction(title: NSLocalizedString("OK",comment: ""), style: .cancel, handler: nil));
                             self.present(alert, animated: true, completion: nil);
                         })
