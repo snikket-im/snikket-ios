@@ -22,6 +22,9 @@
 /* No comment provided by engineer. */
 "Add account" = "Ajouter un compte";
 
+/* Action: add the provided JID as a new contact */
+"Add contact" = "Add contact";
+
 /* Section heading for a list of postal addresses */
 "Addresses" = "Adresses";
 
@@ -52,6 +55,9 @@
 
 /* Status Options */
 "Away" = "Absent·e";
+
+/* Alert title */
+"Ban Failed" = "Ban Failed";
 
 /* No comment provided by engineer. */
 "Ban user" = "Bannir l’utilisateur";
@@ -101,6 +107,9 @@
 /* Status Options */
 "Chat" = "Chat";
 
+/* Error text - while uploading file */
+"Check your network connection or try again later." = "Check your network connection or try again later.";
+
 /* No comment provided by engineer. */
 "Clear History" = "Effacer l’historique";
 
@@ -119,6 +128,12 @@
 /* No comment provided by engineer. */
 "Could not connect to the service. Check your network connectivity or try again later." = "Échec de la connexion au service. Vérifiez votre connectivité réseau ou réessayez plus tard.";
 
+/* Error text - while uploading file */
+"Could not detect file type." = "Could not detect file type.";
+
+/* Error text - while uploading file */
+"Could not determine file size." = "Could not determine file size.";
+
 /* No comment provided by engineer. */
 "Could not rename group chat. The server responded with an error:" = "Impossible de renommer ce salon. Le serveur a répondu par une erreur :";
 
@@ -127,6 +142,9 @@
 
 /* No comment provided by engineer. */
 "Create" = "Créer";
+
+/* Alert title */
+"Create Account" = "Create Account";
 
 /* App Theme Type */
 "Dark" = "Sombre";
@@ -161,11 +179,23 @@
 /* Section heading: settings for how contact list entries should be displayed */
 "Display" = "Affichage";
 
+/* Label for text field where user can enter their preferred name to display to their contacts */
+"Display Name" = "Display Name";
+
 /* Status Options */
 "Do not disturb" = "Ne pas déranger";
 
 /* No comment provided by engineer. */
 "Do you want to ban user" = "Voulez-vous bannir cet utilisateur";
+
+/* Confirmation prompt text */
+"Do you wish to publish this photo as your profile picture?" = "Do you wish to publish this photo as your profile picture?";
+
+/* Alert text. Placeholder is server domain. */
+"Do you wish to register a new account at %@?" = "Do you wish to register a new account at %@?";
+
+/* Alert text. Placeholder is account JID. */
+"Do you wish to register the account %@?" = "Do you wish to register the account %@?";
 
 /* Menu item: opens file picket to select document to share */
 "Document" = "Document";
@@ -209,11 +239,23 @@
 /* Status Options */
 "Extended away" = "Non disponible";
 
+/* Alert text. First placeholder is name or JID, second is error message */
+"Failed to ban %@: %@" = "Failed to ban %1$@: %2$@";
+
 /* No comment provided by engineer. */
 "Failed To Update Contact List" = "Échec de la mise à jour de la liste de contact";
 
 /* No comment provided by engineer. */
 "Failure" = "Échec";
+
+/* Error text - while uploading file */
+"File is too large to share on your account." = "File is too large to share on your account.";
+
+/* Error text */
+"File upload was not acknowledged by the server." = "File upload was not acknowledged by the server.";
+
+/* Error text - while uploading file */
+"File uploads are not supported on your account." = "File uploads are not supported on your account.";
 
 /* No comment provided by engineer. */
 "Fingerprint of this device" = "Empreinte de ce client";
@@ -242,6 +284,9 @@
 /* No comment provided by engineer. */
 "It was not possible to access camera. Please check in privacy settings that you have granted Snikket access to the camera." = "It was not possible to access camera. Please check in privacy settings that you have granted Snikket access to the camera.";
 
+/* Error text: upload failed due to permissions */
+"It was not possible to access the file." = "It was not possible to access the file.";
+
 /* No comment provided by engineer. */
 "It was not possible to contact XMPP server and sign in." = "Impossible de contacter le serveur XMPP et de se connecter.";
 
@@ -250,6 +295,9 @@
 
 /* No comment provided by engineer. */
 "It was not possible to establish call" = "Il n’a pas été possible de mener à bien cet appel";
+
+/* Action: Join the supplied JID as a group */
+"Join group" = "Join group";
 
 /* No comment provided by engineer. */
 "Join group chat" = "Rejoindre un salon";
@@ -368,6 +416,12 @@
 /* Status Options */
 "Online" = "En-ligne";
 
+/* Action: open a chat with a JID */
+"Open chat" = "Open chat";
+
+/* Alert title */
+"Open URL" = "Open URL";
+
 /* No comment provided by engineer. */
 "Operation timed out" = "Délais d’attente dépassé";
 
@@ -397,6 +451,9 @@
 
 /* No comment provided by engineer. */
 "Private message" = "Message privé";
+
+/* Alert title */
+"Profile Picture Update Failed" = "Profile Picture Update Failed";
 
 /* No comment provided by engineer. */
 "Provided values are not acceptable" = "Les valeurs fournies ne sont pas acceptables";
@@ -468,6 +525,9 @@
 /* No comment provided by engineer. */
 "Search channels" = "Recherche de salons";
 
+/* Shown above a choice list of the user's accounts */
+"Select account to open chat from:" = "Select account to open chat from:";
+
 /* Action button: select (existing) photo for group chat picture */
 "Select photo" = "Sélectionner une photo";
 
@@ -499,9 +559,6 @@
 "server returned an error on the request to enable archiving. You can try to enable this feature later on from the account settings." = "server returned an error on the request to enable archiving. You can try to enable this feature later on from the account settings.";
 
 /* No comment provided by engineer. */
-"Server returned an error:" = "Le serveur a renvoyé une erreur :";
-
-/* No comment provided by engineer. */
 "Server returned error:" = "Erreur renvoyée par le serveur :";
 
 /* No comment provided by engineer. */
@@ -512,6 +569,9 @@
 
 /* Informs user to slide their finger in direction of arrow to cancel audio recording */
 "Slide to cancel" = "Slide to cancel";
+
+/* Alert title - starting a new chat */
+"Start Chat" = "Start Chat";
 
 /* No comment provided by engineer. */
 "Status" = "Statut";
@@ -528,20 +588,35 @@
 /* No comment provided by engineer. */
 "The server returned an error: " = "Le serveur a renvoyé une erreur : ";
 
+/* Error text - while uploading a file. Placeholder is a HTTP status code. */
+"The upload was rejected by the server (error %d)." = "The upload was rejected by the server (error %d).";
+
 /* No comment provided by engineer. */
 "The user will be reported and any calls, messages and status updates from them will be blocked." = "The user will be reported and any calls, messages and status updates from them will be blocked.";
+
+/* Error text - while uploading file */
+"There was a server error processing the file upload. Please try again later." = "There was a server error processing the file upload. Please try again later.";
 
 /* No comment provided by engineer. */
 "This will delete all the message history for this chat. Continue?" = "Vous allez supprimer tout l’historique des messages de cette discussion. Voulez-vous continuer ?";
 
+/* Alert text */
+"Unable to publish your profile picture at this time.\nError: %@" = "Unable to publish your profile picture at this time.\nError: %@";
+
 /* No comment provided by engineer. */
 "Unblock" = "Débloquer";
+
+/* Error text - while uploading file. Placeholder is a HTTP status code. */
+"Unexpected error (%d) received while uploading file." = "Unexpected error (%d) received while uploading file.";
 
 /* No comment provided by engineer. */
 "Unkown error occured" = "Erreur inconnue";
 
 /* No comment provided by engineer. */
 "Unlimited" = "Illimité";
+
+/* Alert title */
+"Upload Failed" = "Upload Failed";
 
 /* No comment provided by engineer. */
 "Used image and video quality may impact storage and network usage" = "La qualité d’image et vidéo utilisée peut impacter le stockage et l’utilisation des données";
@@ -557,6 +632,9 @@
 
 /* No comment provided by engineer. */
 "Warning" = "Attention";
+
+/* Placeholder is xmpp: URI */
+"What do you want to do with %@?" = "What do you want to do with %@?";
 
 /* Option: only notify user when they are mentioned in this group */
 "When mentioned" = "When mentioned";

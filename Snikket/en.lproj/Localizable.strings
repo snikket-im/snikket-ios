@@ -588,7 +588,7 @@
 "The server returned an error: " = "The server returned an error: ";
 
 /* Error text - while uploading a file. Placeholder is a HTTP status code. */
-"The upload was rejected by the server (error %@)." = "The upload was rejected by the server (error %@).";
+"The upload was rejected by the server (error %d)." = "The upload was rejected by the server (error %d).";
 
 /* No comment provided by engineer. */
 "The user will be reported and any calls, messages and status updates from them will be blocked." = "The user will be reported and any calls, messages and status updates from them will be blocked.";
@@ -606,7 +606,7 @@
 "Unblock" = "Unblock";
 
 /* Error text - while uploading file. Placeholder is a HTTP status code. */
-"Unexpected error (%@) received while uploading file." = "Unexpected error (%@) received while uploading file.";
+"Unexpected error (%d) received while uploading file." = "Unexpected error (%d) received while uploading file.";
 
 /* No comment provided by engineer. */
 "Unkown error occured" = "Unkown error occured";

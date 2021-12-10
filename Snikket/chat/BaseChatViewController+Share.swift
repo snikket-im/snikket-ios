@@ -242,9 +242,9 @@ enum ShareError: Error {
     var message: String {
         switch self {
         case .invalidResponseCode:
-            return NSLocalizedString("File upload was not acknowledged by the server.", comment: "Error text")
+            return NSLocalizedString("File upload was not acknowledged by the server.", comment: "Error text");
         case .noAccessError:
-            return NSLocalizedString("It was not possible to access the file.", comment: "Error text: upload failed due to permissions")
+            return NSLocalizedString("It was not possible to access the file.", comment: "Error text: upload failed due to permissions");
         case .noFileSizeError:
             return NSLocalizedString("Could not determine file size.", comment: "Error text - while uploading file");
         case .noMimeTypeError:
@@ -254,14 +254,14 @@ enum ShareError: Error {
         case .fileTooBig:
             return NSLocalizedString("File is too large to share on your account.", comment: "Error text - while uploading file");
         case .connectionError, .unknownError:
-            return NSLocalizedString("Check your network connection or try again later.", comment: "Error text - while uploading file")
+            return NSLocalizedString("Check your network connection or try again later.", comment: "Error text - while uploading file");
         case .httpError(let code):
             if(code >= 500) {
-                return NSLocalizedString("There was a server error processing the file upload. Please try again later.", comment: "Error text - while uploading file")
+                return NSLocalizedString("There was a server error processing the file upload. Please try again later.", comment: "Error text - while uploading file");
             } else if(code >= 400) {
-                return String.localizedStringWithFormat(NSLocalizedString("The upload was rejected by the server (error %@).", comment: "Error text - while uploading a file. Placeholder is a HTTP status code."), code)
+                return String.localizedStringWithFormat(NSLocalizedString("The upload was rejected by the server (error %d).", comment: "Error text - while uploading a file. Placeholder is a HTTP status code."), code);
             } else {
-                return String.localizedStringWithFormat(NSLocalizedString("Unexpected error (%@) received while uploading file.", comment: "Error text - while uploading file. Placeholder is a HTTP status code."), code);
+                return String.localizedStringWithFormat(NSLocalizedString("Unexpected error (%d) received while uploading file.", comment: "Error text - while uploading file. Placeholder is a HTTP status code."), code);
             }
         }
     }
