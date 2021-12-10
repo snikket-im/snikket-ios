@@ -32,7 +32,7 @@
 "Et5-H6-t7C.headerTitle" = "Verschlüsselung";
 
 /* Class = "UITableViewController"; title = "Telephony Provider"; ObjectID = "Ey3-E6-jDR"; */
-"Ey3-E6-jDR.title" = "Telefonieprovider";
+"Ey3-E6-jDR.title" = "Telefonieanbieter";
 
 /* Class = "UILabel"; text = "Subtitle"; ObjectID = "FeX-5F-H2m"; */
 "FeX-5F-H2m.text" = "Untertitel";
@@ -122,10 +122,10 @@
 "ynp-RE-XlY.placeholder" = "Email address";
 
 /* Class = "UILabel"; text = "Provider"; ObjectID = "YYb-TE-za0"; */
-"YYb-TE-za0.text" = "Provider";
+"YYb-TE-za0.text" = "Anbieter";
 
 /* Class = "UILabel"; text = "Re-register push notifications"; ObjectID = "ZHc-Ml-5eX"; */
-"ZHc-Ml-5eX.text" = "Re-register push notifications";
+"ZHc-Ml-5eX.text" = "Erneut für Push-Benachrichtigunen registrieren";
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "zhp-jp-Aoq"; */
 "zhp-jp-Aoq.text" = "Titel";
