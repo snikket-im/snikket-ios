@@ -43,9 +43,6 @@
 /* Class = "UILabel"; text = "Group name"; ObjectID = "lEG-rf-VV5"; */
 "lEG-rf-VV5.text" = "Room name";
 
-/* Class = "UILabel"; text = "When the value of this property is false, the queue actively starts operations that are in the queue and ready to execute."; ObjectID = "NK6-IG-GRa"; */
-"NK6-IG-GRa.text" = "When the value of this property is false, the queue actively starts operations that are in the queue and ready to execute.";
-
 /* Class = "UITableViewController"; title = "Invite to chat"; ObjectID = "SOJ-3n-8YB"; */
 "SOJ-3n-8YB.title" = "Invite to chat";
 

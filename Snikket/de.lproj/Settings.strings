@@ -7,19 +7,16 @@
 /* Class = "UILabel"; text = "Show emoticons"; ObjectID = "3a8-1d-3PR"; */
 "3a8-1d-3PR.text" = "Emoji anzeigen";
 
-/* Class = "UILabel"; text = "Notifications"; ObjectID = "3pd-ay-sAI"; */
+/* Class = "UILabel"; text = "Notifications"; ObjectID = "3pd-ay-sAI"; Note = "Open notification settings page"; */
 "3pd-ay-sAI.text" = "Notifications";
 
-/* Class = "UILabel"; text = "About"; ObjectID = "3vM-ad-4ap"; */
+/* Class = "UILabel"; text = "About"; ObjectID = "3vM-ad-4ap"; Note = "Action button: show app about screen"; */
 "3vM-ad-4ap.text" = "Über";
 
 /* Class = "UILabel"; text = "Account name"; ObjectID = "7ho-Mu-thd"; */
 "7ho-Mu-thd.text" = "Account name";
 
-/* Class = "UILabel"; text = "Title"; ObjectID = "7tC-Eh-kK5"; */
-"7tC-Eh-kK5.text" = "Titel";
-
-/* Class = "UILabel"; text = "Media"; ObjectID = "8G3-tm-sCO"; */
+/* Class = "UILabel"; text = "Media"; ObjectID = "8G3-tm-sCO"; Note = "Open media settings page"; */
 "8G3-tm-sCO.text" = "Media";
 
 /* Class = "UILabel"; text = "Enable markdown"; ObjectID = "8K5-bS-ddh"; */
@@ -28,13 +25,13 @@
 /* Class = "UILabel"; text = "Encryption"; ObjectID = "9Gl-4Z-f2X"; */
 "9Gl-4Z-f2X.text" = "Verschlüsselung";
 
-/* Class = "UILabel"; text = "No blocked contacts"; ObjectID = "Aki-gv-qus"; */
+/* Class = "UILabel"; text = "No blocked contacts"; ObjectID = "Aki-gv-qus"; Note = "Placeholder label when list of blocked contacts is empty"; */
 "Aki-gv-qus.text" = "Keine blockierten Kontakte";
 
 /* Class = "UILabel"; text = "Photos quality"; ObjectID = "bbT-7s-6ph"; */
 "bbT-7s-6ph.text" = "Fotoqualität";
 
-/* Class = "UILabel"; text = "Send message on return"; ObjectID = "Bd4-qf-OsU"; */
+/* Class = "UILabel"; text = "Send message on return"; ObjectID = "Bd4-qf-OsU"; Note = "Toggle label: send message when return/enter button is pressed"; */
 "Bd4-qf-OsU.text" = "Send message on return";
 
 /* Class = "UILabel"; text = "File download limit"; ObjectID = "bj6-vP-3A7"; */
@@ -52,25 +49,19 @@
 /* Class = "UILabel"; text = "Contacts in groups"; ObjectID = "BSk-tI-BDM"; */
 "BSk-tI-BDM.text" = "Kontakte in Gruppen";
 
-/* Class = "UILabel"; text = "Notifications from unknown"; ObjectID = "cyb-st-Bmw"; */
-"cyb-st-Bmw.text" = "Benachrichtigungen von Fremden";
-
 /* Class = "UILabel"; text = "XMPP Quickstart / Pipelining"; ObjectID = "dbq-Tl-d6b"; */
 "dbq-Tl-d6b.text" = "XMPP Quickstart / Pipelining";
 
-/* Class = "UILabel"; text = "Chats"; ObjectID = "etv-3w-9lA"; */
+/* Class = "UILabel"; text = "Chats"; ObjectID = "etv-3w-9lA"; Note = "Open chats settings page"; */
 "etv-3w-9lA.text" = "Chats";
 
 /* Class = "UILabel"; text = "File sharing via HTTP"; ObjectID = "eZJ-fR-LPh"; */
 "eZJ-fR-LPh.text" = "Dateien über HTTP teilen";
 
-/* Class = "UILabel"; text = "Subtitle"; ObjectID = "fB5-hb-x8m"; */
-"fB5-hb-x8m.text" = "Untertitel";
-
 /* Class = "UITableViewController"; title = "Experimental"; ObjectID = "FGQ-GL-dYt"; */
 "FGQ-GL-dYt.title" = "Experimentell";
 
-/* Class = "UILabel"; text = "Appearance"; ObjectID = "fxY-aA-n0i"; */
+/* Class = "UILabel"; text = "Appearance"; ObjectID = "fxY-aA-n0i"; Note = "App appearance/theme selection"; */
 "fxY-aA-n0i.text" = "Aussehen";
 
 /* Class = "UIBarButtonItem"; title = "Close"; ObjectID = "G2W-rB-KuE"; */
@@ -82,7 +73,7 @@
 /* Class = "UITableViewController"; title = "Notification settings"; ObjectID = "GfS-6V-cuc"; */
 "GfS-6V-cuc.title" = "Benachrichtigungseinstellungen";
 
-/* Class = "UILabel"; text = "Contacts"; ObjectID = "hGX-FI-YNj"; */
+/* Class = "UILabel"; text = "Contacts"; ObjectID = "hGX-FI-YNj"; Note = "Action button: open contact list settings page"; */
 "hGX-FI-YNj.text" = "Contacts";
 
 /* Class = "UILabel"; text = "Clear download cache"; ObjectID = "Hu1-2i-RSO"; */
@@ -96,9 +87,6 @@
 
 /* Class = "UINavigationItem"; title = "Settings"; ObjectID = "jeY-X9-tWB"; */
 "jeY-X9-tWB.title" = "Einstellungen";
-
-/* Class = "UILabel"; text = "Light"; ObjectID = "L2t-Ud-Fkc"; */
-"L2t-Ud-Fkc.text" = "Hell";
 
 /* Class = "UILabel"; text = "By presence and time"; ObjectID = "LAc-oF-22z"; */
 "LAc-oF-22z.text" = "Nach Anwesenheit und Zeit";
@@ -127,23 +115,14 @@
 /* Class = "UILabel"; text = "Medium"; ObjectID = "u45-W8-GP0"; */
 "u45-W8-GP0.text" = "Medium";
 
-/* Class = "UILabel"; text = "20 MB"; ObjectID = "UuL-li-3gA"; */
-"UuL-li-3gA.text" = "20 MB";
-
 /* Class = "UITableViewController"; title = "Contacts settings"; ObjectID = "xRS-v5-T5C"; */
 "xRS-v5-T5C.title" = "Kontakteinstellungen";
 
 /* Class = "UILabel"; text = "Sorting"; ObjectID = "Y0J-o4-ADK"; */
 "Y0J-o4-ADK.text" = "Sortierung";
 
-/* Class = "UILabel"; text = "Status Type"; ObjectID = "Y3q-SX-IhN"; */
-"Y3q-SX-IhN.text" = "Status Type";
-
 /* Class = "UILabel"; text = "Show link previews"; ObjectID = "ybc-mt-hVG"; */
 "ybc-mt-hVG.text" = "Linkvorschau anzeigen";
-
-/* Class = "UILabel"; text = "Experimental"; ObjectID = "YDd-q8-r7f"; */
-"YDd-q8-r7f.text" = "Experimentell";
 
 /* Class = "UILabel"; text = "Message carbons"; ObjectID = "zwR-jn-5u6"; */
 "zwR-jn-5u6.text" = "Message Carbons";

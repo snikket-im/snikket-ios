@@ -28,9 +28,6 @@
 /* Class = "UILabel"; text = "MNO"; ObjectID = "G84-mU-mWT"; */
 "G84-mU-mWT.text" = "MNO";
 
-/* Class = "UILabel"; text = "Calling John Doe..."; ObjectID = "i9e-aU-c5F"; */
-"i9e-aU-c5F.text" = "Appel Jean Dupont...";
-
 /* Class = "UILabel"; text = "#"; ObjectID = "Kj7-HM-1eU"; */
 "Kj7-HM-1eU.text" = "#";
 

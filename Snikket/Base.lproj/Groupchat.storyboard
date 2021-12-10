@@ -55,7 +55,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" text="very long group name written here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="az1-E9-Dy7">
-                                    <rect key="frame" x="0.0" y="2" width="214" height="19"/>
+                                    <rect key="frame" x="0.0" y="2" width="219" height="19"/>
                                     <color key="tintColor" name="tintColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" name="tintColor"/>
@@ -71,7 +71,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eec-Rr-KiG">
-                                    <rect key="frame" x="220" y="-0.5" width="25" height="24"/>
+                                    <rect key="frame" x="225" y="1.5" width="20" height="20"/>
                                     <inset key="imageEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
                                 </button>
                             </subviews>
@@ -277,6 +277,9 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
+                                                    <attributedString key="userComments">
+                                                        <fragment content="#bc-ignore!"/>
+                                                    </attributedString>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
