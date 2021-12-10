@@ -44,7 +44,7 @@
 "gXY-yq-Y2K.placeholder" = "Séléctionner le compte";
 
 /* Class = "UITabBarItem"; title = "Settings"; ObjectID = "kee-Xk-ORJ"; */
-"kee-Xk-ORJ.title" = "Paramètres";
+"kee-Xk-ORJ.title" = "Réglages";
 
 /* Class = "UITableViewSection"; headerTitle = "Name"; ObjectID = "Kfl-J5-hdD"; */
 "Kfl-J5-hdD.headerTitle" = "Nom";
@@ -71,10 +71,10 @@
 "OGf-mX-8z3.placeholder" = "Entrer le nom du contact";
 
 /* Class = "UITableViewSection"; headerTitle = "PRESENCE"; ObjectID = "Q28-Ig-9NP"; */
-"Q28-Ig-9NP.headerTitle" = "PRESENCE";
+"Q28-Ig-9NP.headerTitle" = "PRÉSENCE";
 
 /* Class = "UITableViewSection"; headerTitle = "JID"; ObjectID = "Qgj-eQ-geg"; */
-"Qgj-eQ-geg.headerTitle" = "JID";
+"Qgj-eQ-geg.headerTitle" = "Identifiant Jabber";
 
 /* Class = "UILabel"; text = "Clear History"; ObjectID = "qjs-BY-Nid"; */
 "qjs-BY-Nid.text" = "Supprimer l'historique";
