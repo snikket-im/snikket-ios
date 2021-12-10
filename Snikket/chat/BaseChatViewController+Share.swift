@@ -204,14 +204,14 @@ extension BaseChatViewController: URLSessionDelegate {
     }
             
     func showAlert(shareError: ShareError) {
-        self.showAlert(title: "Upload failed", message: shareError.message);
+        self.showAlert(title: NSLocalizedString("Upload Failed", comment: "Alert title"), message: shareError.message);
     }
     
     func showAlert(title: String, message: String) {
         DispatchQueue.main.async {
             self.hideProgressBar();
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert);
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil));
+            alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil));
             self.present(alert, animated: true, completion: nil);
         }
     }
@@ -235,27 +235,34 @@ enum ShareError: Error {
     case notSupported
     case fileTooBig
     
-    case httpError
+    case connectionError
+    case httpError(code: Int)
     case invalidResponseCode(url: URL)
     
     var message: String {
         switch self {
         case .invalidResponseCode:
-            return "Server did not confirm file upload correctly."
-        case .unknownError:
-            return "Please try again later."
+            return NSLocalizedString("File upload was not acknowledged by the server.", comment: "Error text");
         case .noAccessError:
-            return "It was not possible to access the file."
+            return NSLocalizedString("It was not possible to access the file.", comment: "Error text: upload failed due to permissions");
         case .noFileSizeError:
-            return "Could not retrieve file size.";
+            return NSLocalizedString("Could not determine file size.", comment: "Error text - while uploading file");
         case .noMimeTypeError:
-            return "Could not detect MIME type of a file.";
+            return NSLocalizedString("Could not detect file type.", comment: "Error text - while uploading file");
         case .notSupported:
-            return "Feature not supported by XMPP server";
+            return NSLocalizedString("File uploads are not supported on your account.", comment: "Error text - while uploading file");
         case .fileTooBig:
-            return "File is too big to share";
-        case .httpError:
-            return "Upload to HTTP server failed.";
+            return NSLocalizedString("File is too large to share on your account.", comment: "Error text - while uploading file");
+        case .connectionError, .unknownError:
+            return NSLocalizedString("Check your network connection or try again later.", comment: "Error text - while uploading file");
+        case .httpError(let code):
+            if(code >= 500) {
+                return NSLocalizedString("There was a server error processing the file upload. Please try again later.", comment: "Error text - while uploading file");
+            } else if(code >= 400) {
+                return String.localizedStringWithFormat(NSLocalizedString("The upload was rejected by the server (error %d).", comment: "Error text - while uploading a file. Placeholder is a HTTP status code."), code);
+            } else {
+                return String.localizedStringWithFormat(NSLocalizedString("Unexpected error (%d) received while uploading file.", comment: "Error text - while uploading file. Placeholder is a HTTP status code."), code);
+            }
         }
     }
 }

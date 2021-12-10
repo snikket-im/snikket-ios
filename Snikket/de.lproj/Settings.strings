@@ -17,7 +17,7 @@
 "7ho-Mu-thd.text" = "Account name";
 
 /* Class = "UILabel"; text = "Media"; ObjectID = "8G3-tm-sCO"; Note = "Open media settings page"; */
-"8G3-tm-sCO.text" = "Media";
+"8G3-tm-sCO.text" = "Medien";
 
 /* Class = "UILabel"; text = "Enable markdown"; ObjectID = "8K5-bS-ddh"; */
 "8K5-bS-ddh.text" = "Markdown aktivieren";
@@ -74,7 +74,7 @@
 "GfS-6V-cuc.title" = "Benachrichtigungseinstellungen";
 
 /* Class = "UILabel"; text = "Contacts"; ObjectID = "hGX-FI-YNj"; Note = "Action button: open contact list settings page"; */
-"hGX-FI-YNj.text" = "Contacts";
+"hGX-FI-YNj.text" = "Kontakte";
 
 /* Class = "UILabel"; text = "Clear download cache"; ObjectID = "Hu1-2i-RSO"; */
 "Hu1-2i-RSO.text" = "Temporäre Downloads löschen";

@@ -515,7 +515,7 @@ class ChatViewInputBar: UIView, UITextViewDelegate, NSTextStorageDelegate {
         
         cancelRecordingButton = UIButton()
         cancelRecordingButton.translatesAutoresizingMaskIntoConstraints = false
-        let slideStr = NSMutableAttributedString(string: "slide to cancel  ")
+        let slideStr = NSMutableAttributedString(string: NSLocalizedString("Slide to cancel", comment: "Informs user to slide their finger in direction of arrow to cancel audio recording"))
         let arrowImg = NSTextAttachment()
         arrowImg.image = UIImage(named: "chevron.left")
         arrowImg.bounds = CGRect(x: 0, y: -2, width: 10, height: 15)
@@ -665,7 +665,7 @@ class ChatViewInputBar: UIView, UITextViewDelegate, NSTextStorageDelegate {
     
     func setRecordingCancelButtonTitle(slideToCancel: Bool) {
         if slideToCancel {
-            let slideStr = NSMutableAttributedString(string: "slide to cancel  ")
+            let slideStr = NSMutableAttributedString(string: NSLocalizedString("Slide to cancel", comment: "Informs user to slide their finger in direction of arrow to cancel audio recording"))
             let arrowImg = NSTextAttachment()
             arrowImg.image = UIImage(named: "chevron.left")
             arrowImg.bounds = CGRect(x: 0, y: -2, width: 10, height: 15)
@@ -673,7 +673,7 @@ class ChatViewInputBar: UIView, UITextViewDelegate, NSTextStorageDelegate {
             slideStr.append(arrowStr)
             cancelRecordingButton.setAttributedTitle(slideStr, for: .normal)
         } else {
-            let cancelStr = NSMutableAttributedString(string: "Cancel")
+            let cancelStr = NSMutableAttributedString(string: NSLocalizedString("Cancel", comment: ""))
             cancelRecordingButton.setAttributedTitle(cancelStr, for: .normal)
         }
     }

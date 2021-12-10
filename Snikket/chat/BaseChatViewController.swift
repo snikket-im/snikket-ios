@@ -276,23 +276,23 @@ class BaseChatViewController: UIViewController, UITextViewDelegate, ChatViewInpu
     
     func presentSheet() {
         let alertController = UIAlertController()
-        let camera = UIAlertAction(title: "Camera", style: .default) { (action: UIAlertAction!) in
+        let camera = UIAlertAction(title: NSLocalizedString("Camera", comment: "Menu item: open camera to capture media for sharing"), style: .default) { (action: UIAlertAction!) in
             self.selectPhoto(.camera)
         }
-        let photo = UIAlertAction(title: "Photo & Video Library", style: .default) { (action: UIAlertAction!) in
+        let photo = UIAlertAction(title: NSLocalizedString("Photo & Video Library", comment: "Menu item: select media to share from photo/video library"), style: .default) { (action: UIAlertAction!) in
             if #available(iOS 14.0, *) {
                 self.selectPhotoFromLibrary();
             } else {
                 self.selectPhoto(.photoLibrary)
             }
         }
-        let document = UIAlertAction(title: "Document", style: .default) { (action: UIAlertAction!) in
+        let document = UIAlertAction(title: NSLocalizedString("Document", comment: "Menu item: opens file picket to select document to share"), style: .default) { (action: UIAlertAction!) in
             self.selectFile()
         }
-        let location = UIAlertAction(title: "Location", style: .default) { (action: UIAlertAction!) in
+        let location = UIAlertAction(title: NSLocalizedString("Location", comment: "Menu item: open location picker to share a location"), style: .default) { (action: UIAlertAction!) in
             self.selectLocation()
         }
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action: UIAlertAction!) in
+        let cancel = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { (action: UIAlertAction!) in
         }
         
         let cameraImage = UIImage(named: "camera")

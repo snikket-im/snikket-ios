@@ -97,7 +97,7 @@ class VCardEditViewController: UITableViewController, UIImagePickerControllerDel
         case 0:
             return nil
         case 1:
-            return "Display Name"
+            return NSLocalizedString("Display Name", comment: "Label for text field where user can enter their preferred name to display to their contacts")
         default:
             return nil
         }
@@ -137,13 +137,13 @@ class VCardEditViewController: UITableViewController, UIImagePickerControllerDel
     @objc func photoClicked() {
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet);
-            alert.addAction(UIAlertAction(title: "Take photo", style: .default, handler: { (action) in
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Take photo", comment: "Action: take a photo to use as a profile picture"), style: .default, handler: { (action) in
                 self.selectPhoto(.camera);
             }));
-            alert.addAction(UIAlertAction(title: "Select photo", style: .default, handler: { (action) in
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Select photo", comment: "Action: open file picker to select a photo to use as a profile picture"), style: .default, handler: { (action) in
                 self.selectPhoto(.photoLibrary);
             }));
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil));
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil));
             let cell = self.tableView(tableView, cellForRowAt: IndexPath(row: 0, section: 0)) as! VCardAvatarEditCell;
             alert.popoverPresentationController?.sourceView = cell.avatarView;
             alert.popoverPresentationController?.sourceRect = cell.avatarView!.bounds;
@@ -214,9 +214,9 @@ class VCardEditViewController: UITableViewController, UIImagePickerControllerDel
             if let pepUserAvatarModule:PEPUserAvatarModule = client.modulesManager.getModule(PEPUserAvatarModule.ID) {
                 if pepUserAvatarModule.isPepAvailable {
                     
-                    let question = UIAlertController(title: nil, message: "Do you wish to publish this photo as avatar?", preferredStyle: .actionSheet)
+                    let question = UIAlertController(title: nil, message: NSLocalizedString("Do you wish to publish this photo as your profile picture?", comment: "Confirmation prompt text"), preferredStyle: .actionSheet)
                     
-                    question.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
+                    question.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: ""), style: .default, handler: { (action) in
                         
                         pepUserAvatarModule.publishAvatar(data: data, mimeType: "image/png", onSuccess: {
                             
@@ -225,8 +225,8 @@ class VCardEditViewController: UITableViewController, UIImagePickerControllerDel
                             
                             }, onError: { (errorCondition, pubsubErrorCondition) in
                                 DispatchQueue.main.async {
-                                    let alert = UIAlertController(title: "Error", message: "User avatar publication failed.\nReason: " + ((pubsubErrorCondition?.rawValue ?? errorCondition?.rawValue) ?? "unknown"), preferredStyle: .alert);
-                                    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {action in
+                                    let alert = UIAlertController(title: NSLocalizedString("Profile Picture Update Failed", comment: "Alert title"), message: String.localizedStringWithFormat(NSLocalizedString("Unable to publish your profile picture at this time.\nError: %@", comment:"Alert text"), ((pubsubErrorCondition?.rawValue ?? errorCondition?.rawValue) ?? "unknown")), preferredStyle: .alert);
+                                    alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: {action in
                                         
                                         self.showAvatarSpinner(show: false)
                                     }));
@@ -235,7 +235,7 @@ class VCardEditViewController: UITableViewController, UIImagePickerControllerDel
                                 print("PEP: user avatar publication failed", errorCondition ?? "nil", pubsubErrorCondition ?? "nil");
                         })
                     }));
-                    question.addAction(UIAlertAction(title: "No", style: .cancel, handler: { action in
+                    question.addAction(UIAlertAction(title: NSLocalizedString("No", comment: ""), style: .cancel, handler: { action in
                         self.showAvatarSpinner(show: false)
                     }));
                     

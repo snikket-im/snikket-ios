@@ -91,7 +91,7 @@
 /* Class = "UITableViewSection"; headerTitle = " XMPP ID"; ObjectID = "SKG-bP-NPK"; */
 "SKG-bP-NPK.headerTitle" = " XMPP ID";
 
-/* Class = "UILabel"; text = "None"; ObjectID = "StS-4J-0Uu"; */
+/* Class = "UILabel"; text = "None"; ObjectID = "StS-4J-0Uu"; Note = "Default value for telephony provider (None)"; */
 "StS-4J-0Uu.text" = "None";
 
 /* Class = "UITextField"; placeholder = "Phone number"; ObjectID = "T1r-DU-iqs"; */
@@ -121,10 +121,10 @@
 /* Class = "UITextField"; placeholder = "Email address"; ObjectID = "ynp-RE-XlY"; */
 "ynp-RE-XlY.placeholder" = "Email address";
 
-/* Class = "UILabel"; text = "Provider"; ObjectID = "YYb-TE-za0"; */
+/* Class = "UILabel"; text = "Provider"; ObjectID = "YYb-TE-za0"; Note = "Option to select telephony provider (appears directly within Telephony section)"; */
 "YYb-TE-za0.text" = "Provider";
 
-/* Class = "UILabel"; text = "Re-register push notifications"; ObjectID = "ZHc-Ml-5eX"; */
+/* Class = "UILabel"; text = "Re-register push notifications"; ObjectID = "ZHc-Ml-5eX"; Note = "Action button to re-register this device to receive push notifications"; */
 "ZHc-Ml-5eX.text" = "Enabled";
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "zhp-jp-Aoq"; */
