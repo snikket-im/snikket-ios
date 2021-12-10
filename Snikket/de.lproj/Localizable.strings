@@ -80,6 +80,9 @@
 /* No comment provided by engineer. */
 "Call failed" = "Anruf fehlgeschlagen";
 
+/* Menu item: open camera to capture media for sharing */
+"Camera" = "Camera";
+
 /* No comment provided by engineer. */
 "Cancel" = "Abbrechen";
 
@@ -163,6 +166,9 @@
 
 /* No comment provided by engineer. */
 "Do you want to ban user" = "Wollen Sie den Benutzer sperren";
+
+/* Menu item: opens file picket to select document to share */
+"Document" = "Document";
 
 /* No comment provided by engineer. */
 "Edit" = "Bearbeiten";
@@ -278,6 +284,9 @@
 /* No comment provided by engineer. */
 "List of Messages" = "Nachrichtenliste";
 
+/* Menu item: open location picker to share a location */
+"Location" = "Location";
+
 /* No comment provided by engineer. */
 "Log Out" = "Abmelden";
 
@@ -379,6 +388,9 @@
 
 /* Section heading for list of contact phone numbers */
 "Phone numbers" = "Phone numbers";
+
+/* Menu item: select media to share from photo/video library */
+"Photo & Video Library" = "Photo & Video Library";
 
 /* No comment provided by engineer. */
 "Please try again!" = "Bitte nochmal versuchen!";
@@ -496,6 +508,9 @@
 
 /* No comment provided by engineer. */
 "Settings" = "Einstellungen";
+
+/* Informs user to slide their finger in direction of arrow to cancel audio recording */
+"Slide to cancel" = "Slide to cancel";
 
 /* No comment provided by engineer. */
 "Status" = "Status";
