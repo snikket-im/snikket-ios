@@ -64,4 +64,19 @@ enum ImageQuality: String {
             return 0.6;
         }
     }
+    
+    var localized: String {
+        switch self {
+        case .original:
+            return NSLocalizedString("Original", comment: "Image or Video Quality")
+        case .highest:
+            return NSLocalizedString("Highest", comment: "Image or Video Quality")
+        case .high:
+            return NSLocalizedString("High", comment: "Image or Video Quality")
+        case .medium:
+            return NSLocalizedString("Medium", comment: "Image or Video Quality")
+        case .low:
+            return NSLocalizedString("Low", comment: "Image or Video Quality")
+        }
+    }
 }

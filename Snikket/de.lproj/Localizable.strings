@@ -277,6 +277,12 @@
 /* Section heading: general settings about contacts */
 "General" = "Allgemein";
 
+/* Image or Video Quality */
+"High" = "High";
+
+/* Image or Video Quality */
+"Highest" = "Highest";
+
 /* Section heading for chat history controls */
 "History" = "Verlauf";
 
@@ -352,11 +358,17 @@
 /* No comment provided by engineer. */
 "Login and password do not match." = "Anmeldename oder Passwort falsch.";
 
+/* Image or Video Quality */
+"Low" = "Low";
+
 /* Alert title for storage usage */
 "Manage Storage" = "Speicher verwalten";
 
 /* No comment provided by engineer. */
 "Media" = "Medien";
+
+/* Image or Video Quality */
+"Medium" = "Medium";
 
 /* No comment provided by engineer. */
 "Member" = "Teilnehmer:in";
@@ -443,6 +455,9 @@
 
 /* No comment provided by engineer. */
 "operation timed out" = "Aktion aufgrund einer Zeitüberschreitung abgebrochen";
+
+/* Image or Video Quality */
+"Original" = "Original";
 
 /* No comment provided by engineer. */
 "Original quality will share image in the format in which it is stored on your phone and it may not be supported by every device." = "Bei Originalqualität wird das Bild in dem ursprünglichen Format in dem es auf dem Telefon gespeichert ist gesendet. Das wird ggfs. nicht von jedem Empfangsgerät unterstützt.";
