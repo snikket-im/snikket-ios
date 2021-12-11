@@ -1,14 +1,14 @@
 /* Class = "UILabel"; text = "Your server for account \\(account) supports message archiving. Would you like to enable this feature?"; ObjectID = "1dk-YA-RVu"; */
-"1dk-YA-RVu.text" = "Your server for account \\(account) supports message archiving. Would you like to enable this feature?";
+"1dk-YA-RVu.text" = "Server Anda untuk akun \(akun) mendukung pengarsipan pesan. Apakah Anda ingin mengaktifkan fitur ini?";
 
 /* Class = "UIButton"; normalTitle = "Send Current Location"; ObjectID = "5tI-9V-tVB"; */
-"5tI-9V-tVB.normalTitle" = "Send Current Location";
+"5tI-9V-tVB.normalTitle" = "Kirim Lokasi Sekarang";
 
 /* Class = "UIViewController"; title = "Chats"; ObjectID = "9pv-A4-QxB"; */
-"9pv-A4-QxB.title" = "Chats";
+"9pv-A4-QxB.title" = "Obrolan";
 
 /* Class = "UITabBarItem"; title = "Chats"; ObjectID = "acW-dT-cKf"; */
-"acW-dT-cKf.title" = "Chats";
+"acW-dT-cKf.title" = "Obrolan";
 
 /* Class = "UITextField"; placeholder = "Enter chat address"; ObjectID = "BM3-28-huR"; */
 "BM3-28-huR.placeholder" = "Enter chat address";
@@ -17,37 +17,37 @@
 "bNp-S8-ulX.title" = "Details";
 
 /* Class = "UINavigationItem"; title = "Attachments"; ObjectID = "C1j-4i-HDP"; Note = "Conversation shared media gallery title"; */
-"C1j-4i-HDP.title" = "Attachments";
+"C1j-4i-HDP.title" = "Lampiran";
 
 /* Class = "UILabel"; text = "Message Archiving"; ObjectID = "Ckp-Mb-v0c"; */
-"Ckp-Mb-v0c.text" = "Message Archiving";
+"Ckp-Mb-v0c.text" = "Pengarsipan pesan";
 
 /* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "Dx3-QU-3cN"; */
-"Dx3-QU-3cN.title" = "Back";
+"Dx3-QU-3cN.title" = "Kembali";
 
 /* Class = "UINavigationItem"; title = "Send Location"; ObjectID = "e6z-jk-XtN"; */
-"e6z-jk-XtN.title" = "Send Location";
+"e6z-jk-XtN.title" = "Kirim Lokasi";
 
 /* Class = "UILabel"; text = "Attachments"; ObjectID = "EpU-tc-DIx"; */
-"EpU-tc-DIx.text" = "Attachments";
+"EpU-tc-DIx.text" = "Lampiran";
 
 /* Class = "UILabel"; text = "Contact added you to their contact list. Add to contacts?"; ObjectID = "ezh-iK-Sk7"; */
-"ezh-iK-Sk7.text" = "Contact added you to their contact list. Add to contacts?";
+"ezh-iK-Sk7.text" = "Kontak menambahkan Anda ke daftar kontak mereka. Tambahkan ke Kontak?";
 
 /* Class = "UILabel"; text = "Receive presence updates"; ObjectID = "ffo-7n-Tn2"; */
-"ffo-7n-Tn2.text" = "Receive presence updates";
+"ffo-7n-Tn2.text" = "Terima pembaruan kehadiran";
 
 /* Class = "UILabel"; text = "Mute contact"; ObjectID = "g8N-kr-fax"; Note = "Toggle label (in contact details): mute notifications from this contact"; */
-"g8N-kr-fax.text" = "Mute contact";
+"g8N-kr-fax.text" = "Bisukan kontak";
 
 /* Class = "UITextField"; placeholder = "Select account"; ObjectID = "gXY-yq-Y2K"; */
-"gXY-yq-Y2K.placeholder" = "Select account";
+"gXY-yq-Y2K.placeholder" = "Pilih akun";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "k9G-H8-3Hb"; */
 "k9G-H8-3Hb.normalTitle" = "Button";
 
 /* Class = "UITabBarItem"; title = "Settings"; ObjectID = "kee-Xk-ORJ"; */
-"kee-Xk-ORJ.title" = "Settings";
+"kee-Xk-ORJ.title" = "Pengaturan";
 
 /* Class = "UITableViewSection"; headerTitle = "Name"; ObjectID = "Kfl-J5-hdD"; */
 "Kfl-J5-hdD.headerTitle" = "Name";
@@ -56,13 +56,13 @@
 "kwQ-p7-cX2.text" = "Block contact";
 
 /* Class = "UINavigationItem"; title = "Chats"; ObjectID = "LKO-PG-RwH"; */
-"LKO-PG-RwH.title" = "Chats";
+"LKO-PG-RwH.title" = "Obrolan";
 
 /* Class = "UITableViewSection"; headerTitle = "Account"; ObjectID = "Mfv-HJ-QDO"; */
 "Mfv-HJ-QDO.headerTitle" = "Account";
 
 /* Class = "UICollectionViewController"; title = "Attachments"; ObjectID = "N9z-ms-iaT"; */
-"N9z-ms-iaT.title" = "Attachments";
+"N9z-ms-iaT.title" = "Lampiran";
 
 /* Class = "UINavigationController"; title = "Contacts"; ObjectID = "Ndx-if-NHK"; */
 "Ndx-if-NHK.title" = "Contacts";
@@ -77,7 +77,7 @@
 "Qgj-eQ-geg.headerTitle" = "JID";
 
 /* Class = "UILabel"; text = "Clear History"; ObjectID = "qjs-BY-Nid"; */
-"qjs-BY-Nid.text" = "Clear History";
+"qjs-BY-Nid.text" = "Hapus Riwayat";
 
 /* Class = "UILabel"; text = "Chat with"; ObjectID = "Qr0-8H-IJq"; */
 "Qr0-8H-IJq.text" = "Chat with";
@@ -86,7 +86,7 @@
 "SEz-IM-IWL.title" = "Contacts";
 
 /* Class = "UILabel"; text = "Send presence updates"; ObjectID = "upM-mW-rMZ"; */
-"upM-mW-rMZ.text" = "Send presence updates";
+"upM-mW-rMZ.text" = "Kirim pembaruan kehadiran";
 
 /* Class = "UITabBarItem"; title = "Contacts"; ObjectID = "W52-LN-wzX"; */
 "W52-LN-wzX.title" = "Contacts";
@@ -95,13 +95,13 @@
 "WP2-Cp-7ZE.title" = "Chat";
 
 /* Class = "UIButton"; normalTitle = "Not now"; ObjectID = "wvT-dz-RVz"; */
-"wvT-dz-RVz.normalTitle" = "Not now";
+"wvT-dz-RVz.normalTitle" = "Tidak sekarang";
 
 /* Class = "UILabel"; text = "Message encryption"; ObjectID = "XZp-oZ-XpC"; */
-"XZp-oZ-XpC.text" = "Message encryption";
+"XZp-oZ-XpC.text" = "Enkripsi pesan";
 
 /* Class = "UIButton"; normalTitle = "Enable"; ObjectID = "yJk-Px-1oo"; */
-"yJk-Px-1oo.normalTitle" = "Enable";
+"yJk-Px-1oo.normalTitle" = "Aktif";
 
 /* Class = "UILabel"; text = "Add to contact list"; ObjectID = "zrb-Yr-XQO"; */
 "zrb-Yr-XQO.text" = "Add to contact list";
