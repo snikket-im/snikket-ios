@@ -1,17 +1,17 @@
 /* Class = "UINavigationController"; title = "Settings"; ObjectID = "15C-WY-qrp"; */
-"15C-WY-qrp.title" = "Settings";
+"15C-WY-qrp.title" = "Pengaturan";
 
 /* Class = "UILabel"; text = "Request delivery receipts"; ObjectID = "32B-bc-CHX"; */
-"32B-bc-CHX.text" = "Request delivery receipts";
+"32B-bc-CHX.text" = "Minta bukti pengiriman";
 
 /* Class = "UILabel"; text = "Show emoticons"; ObjectID = "3a8-1d-3PR"; */
-"3a8-1d-3PR.text" = "Show emoticons";
+"3a8-1d-3PR.text" = "Tampilkan emotikon";
 
 /* Class = "UILabel"; text = "Notifications"; ObjectID = "3pd-ay-sAI"; Note = "Open notification settings page"; */
 "3pd-ay-sAI.text" = "Notifications";
 
 /* Class = "UILabel"; text = "About"; ObjectID = "3vM-ad-4ap"; Note = "Action button: show app about screen"; */
-"3vM-ad-4ap.text" = "About";
+"3vM-ad-4ap.text" = "Tentang";
 
 /* Class = "UILabel"; text = "Account name"; ObjectID = "7ho-Mu-thd"; */
 "7ho-Mu-thd.text" = "Account name";
@@ -20,94 +20,94 @@
 "8G3-tm-sCO.text" = "Media";
 
 /* Class = "UILabel"; text = "Enable markdown"; ObjectID = "8K5-bS-ddh"; */
-"8K5-bS-ddh.text" = "Enable markdown";
+"8K5-bS-ddh.text" = "Aktifkan markdown";
 
 /* Class = "UILabel"; text = "Encryption"; ObjectID = "9Gl-4Z-f2X"; */
-"9Gl-4Z-f2X.text" = "Encryption";
+"9Gl-4Z-f2X.text" = "Enkripsi";
 
 /* Class = "UILabel"; text = "No blocked contacts"; ObjectID = "Aki-gv-qus"; Note = "Placeholder label when list of blocked contacts is empty"; */
-"Aki-gv-qus.text" = "No blocked contacts";
+"Aki-gv-qus.text" = "Tidak ada kontak yang diblokir";
 
 /* Class = "UILabel"; text = "Photos quality"; ObjectID = "bbT-7s-6ph"; */
-"bbT-7s-6ph.text" = "Photos quality";
+"bbT-7s-6ph.text" = "Kualitas foto";
 
 /* Class = "UILabel"; text = "Send message on return"; ObjectID = "Bd4-qf-OsU"; Note = "Toggle label: send message when return/enter button is pressed"; */
 "Bd4-qf-OsU.text" = "Send message on return";
 
 /* Class = "UILabel"; text = "File download limit"; ObjectID = "bj6-vP-3A7"; */
-"bj6-vP-3A7.text" = "File download limit";
+"bj6-vP-3A7.text" = "Batas unduhan file";
 
 /* Class = "UILabel"; text = "Videos quality"; ObjectID = "bKW-ln-Kez"; */
-"bKW-ln-Kez.text" = "Videos quality";
+"bKW-ln-Kez.text" = "Kualitas video";
 
 /* Class = "UILabel"; text = "None"; ObjectID = "bPa-aU-WFn"; */
 "bPa-aU-WFn.text" = "None";
 
 /* Class = "UILabel"; text = "Use public STUN servers"; ObjectID = "BSa-RZ-M7L"; */
-"BSa-RZ-M7L.text" = "Use public STUN servers";
+"BSa-RZ-M7L.text" = "Gunakan servee STUN publik";
 
 /* Class = "UILabel"; text = "Contacts in groups"; ObjectID = "BSk-tI-BDM"; */
-"BSk-tI-BDM.text" = "Contacts in groups";
+"BSk-tI-BDM.text" = "Kontak di dalam grup";
 
 /* Class = "UILabel"; text = "XMPP Quickstart / Pipelining"; ObjectID = "dbq-Tl-d6b"; */
-"dbq-Tl-d6b.text" = "XMPP Quickstart / Pipelining";
+"dbq-Tl-d6b.text" = "Panduan Memulai XMPP / Alur";
 
 /* Class = "UILabel"; text = "Chats"; ObjectID = "etv-3w-9lA"; Note = "Open chats settings page"; */
-"etv-3w-9lA.text" = "Chats";
+"etv-3w-9lA.text" = "Obrolan";
 
 /* Class = "UILabel"; text = "File sharing via HTTP"; ObjectID = "eZJ-fR-LPh"; */
-"eZJ-fR-LPh.text" = "File sharing via HTTP";
+"eZJ-fR-LPh.text" = "Berbagi file melalui HTTP";
 
 /* Class = "UITableViewController"; title = "Experimental"; ObjectID = "FGQ-GL-dYt"; */
-"FGQ-GL-dYt.title" = "Experimental";
+"FGQ-GL-dYt.title" = "Eksperimental";
 
 /* Class = "UILabel"; text = "Appearance"; ObjectID = "fxY-aA-n0i"; Note = "App appearance/theme selection"; */
-"fxY-aA-n0i.text" = "Appearance";
+"fxY-aA-n0i.text" = "Tampilan";
 
 /* Class = "UIBarButtonItem"; title = "Close"; ObjectID = "G2W-rB-KuE"; */
-"G2W-rB-KuE.title" = "Close";
+"G2W-rB-KuE.title" = "Tutup";
 
 /* Class = "UILabel"; text = "2 lines"; ObjectID = "g4v-o5-nXZ"; */
-"g4v-o5-nXZ.text" = "2 lines";
+"g4v-o5-nXZ.text" = "2 baris";
 
 /* Class = "UITableViewController"; title = "Notification settings"; ObjectID = "GfS-6V-cuc"; */
-"GfS-6V-cuc.title" = "Notification settings";
+"GfS-6V-cuc.title" = "Pengaturan notifikasi";
 
 /* Class = "UILabel"; text = "Contacts"; ObjectID = "hGX-FI-YNj"; Note = "Action button: open contact list settings page"; */
 "hGX-FI-YNj.text" = "Contacts";
 
 /* Class = "UILabel"; text = "Clear download cache"; ObjectID = "Hu1-2i-RSO"; */
-"Hu1-2i-RSO.text" = "Clear download cache";
+"Hu1-2i-RSO.text" = "Hapus cache unduhan";
 
 /* Class = "UILabel"; text = "Media"; ObjectID = "ieE-mK-uEm"; */
 "ieE-mK-uEm.text" = "Media";
 
 /* Class = "UILabel"; text = "Clear chat on close"; ObjectID = "ioL-eS-dDk"; */
-"ioL-eS-dDk.text" = "Clear chat on close";
+"ioL-eS-dDk.text" = "Hapus obrolan saat tutup";
 
 /* Class = "UINavigationItem"; title = "Settings"; ObjectID = "jeY-X9-tWB"; */
-"jeY-X9-tWB.title" = "Settings";
+"jeY-X9-tWB.title" = "Pengaturan";
 
 /* Class = "UILabel"; text = "By presence and time"; ObjectID = "LAc-oF-22z"; */
-"LAc-oF-22z.text" = "By presence and time";
+"LAc-oF-22z.text" = "Dengan kehadiran dan waktu";
 
 /* Class = "UILabel"; text = "Auto-authorize contacts"; ObjectID = "MGl-L6-Fs3"; */
-"MGl-L6-Fs3.text" = "Auto-authorize contacts";
+"MGl-L6-Fs3.text" = "Otorisasi kontak secara otomatis";
 
 /* Class = "UILabel"; text = "Blocked contacts"; ObjectID = "MJ0-kw-1Kl"; */
-"MJ0-kw-1Kl.text" = "Blocked contacts";
+"MJ0-kw-1Kl.text" = "Kontak diblokir";
 
 /* Class = "UILabel"; text = "\"Hidden\" group"; ObjectID = "P82-B8-768"; */
-"P82-B8-768.text" = "\"Hidden\" group";
+"P82-B8-768.text" = "Grup \"Tersembunyi\"";
 
 /* Class = "UITableViewController"; title = "Chat settings"; ObjectID = "pFo-ox-4gT"; */
-"pFo-ox-4gT.title" = "Chat settings";
+"pFo-ox-4gT.title" = "Pengaturan obrolan";
 
 /* Class = "UILabel"; text = "Message Styling"; ObjectID = "Qu4-Mf-tz4"; */
-"Qu4-Mf-tz4.text" = "Message Styling";
+"Qu4-Mf-tz4.text" = "Ragam pesan";
 
 /* Class = "UILabel"; text = "Groupchats bookmarks sync"; ObjectID = "Tbt-L3-jpa"; */
-"Tbt-L3-jpa.text" = "Groupchats bookmarks sync";
+"Tbt-L3-jpa.text" = "Sinkronisasi bookmark obrolan grup";
 
 /* Class = "UILabel"; text = "Medium"; ObjectID = "tqu-Xn-F0Z"; */
 "tqu-Xn-F0Z.text" = "Medium";
@@ -116,13 +116,13 @@
 "u45-W8-GP0.text" = "Medium";
 
 /* Class = "UITableViewController"; title = "Contacts settings"; ObjectID = "xRS-v5-T5C"; */
-"xRS-v5-T5C.title" = "Contacts settings";
+"xRS-v5-T5C.title" = "Pengaturan kontak";
 
 /* Class = "UILabel"; text = "Sorting"; ObjectID = "Y0J-o4-ADK"; */
-"Y0J-o4-ADK.text" = "Sorting";
+"Y0J-o4-ADK.text" = "Penyortiran";
 
 /* Class = "UILabel"; text = "Show link previews"; ObjectID = "ybc-mt-hVG"; */
-"ybc-mt-hVG.text" = "Show link previews";
+"ybc-mt-hVG.text" = "Tampilkan pratinjau tautan";
 
 /* Class = "UILabel"; text = "Message carbons"; ObjectID = "zwR-jn-5u6"; */
-"zwR-jn-5u6.text" = "Message carbons";
+"zwR-jn-5u6.text" = "Salinan pesan";
