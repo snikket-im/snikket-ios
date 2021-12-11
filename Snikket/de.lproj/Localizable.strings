@@ -125,6 +125,10 @@
 /* No comment provided by engineer. */
 "Continue" = "Fortsetzen";
 
+/* Context menu action
+   Context menu item */
+"Copy" = "Copy";
+
 /* No comment provided by engineer. */
 "Could not connect to the service. Check your network connectivity or try again later." = "Konnte nicht mit dem Dienst verbinden. Überprüfe die Netzwerkverbindung oder versuche es später noch einmal.";
 
@@ -200,6 +204,10 @@
 /* Menu item: opens file picket to select document to share */
 "Document" = "Document";
 
+/* Alert title
+   Context menu item */
+"Download" = "Download";
+
 /* No comment provided by engineer. */
 "Edit" = "Bearbeiten";
 
@@ -247,6 +255,9 @@
 
 /* No comment provided by engineer. */
 "Failure" = "Fehlschlag";
+
+/* Alert text */
+"File is not available locally. Should it be downloaded?" = "File is not available locally. Should it be downloaded?";
 
 /* Error text - while uploading file */
 "File is too large to share on your account." = "File is too large to share on your account.";
@@ -359,6 +370,11 @@
 /* No comment provided by engineer. */
 "Messages" = "Nachrichten";
 
+/* Context menu item: view more options
+   Menu item: see more message actions
+   Menu item: view more options */
+"More..." = "More...";
+
 /* Option: notifications from this group chat will be suppressed */
 "Muted" = "Stumm gestellt";
 
@@ -449,6 +465,9 @@
 /* No comment provided by engineer. */
 "Please try again!" = "Bitte nochmal versuchen!";
 
+/* Alert title */
+"Preview" = "Preview";
+
 /* No comment provided by engineer. */
 "Private message" = "Private Nachricht";
 
@@ -531,6 +550,9 @@
 /* Action button: select (existing) photo for group chat picture */
 "Select photo" = "Foto auswählen";
 
+/* Alert title - select image share quality */
+"Select quality" = "Select quality";
+
 /* No comment provided by engineer. */
 "Select quality of the image to use for sharing" = "Auswahl der Bildqualität zum Teilen";
 
@@ -566,6 +588,9 @@
 
 /* No comment provided by engineer. */
 "Settings" = "Einstellungen";
+
+/* Context menu action */
+"Share..." = "Share...";
 
 /* Informs user to slide their finger in direction of arrow to cancel audio recording */
 "Slide to cancel" = "Slide to cancel";
