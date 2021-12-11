@@ -1,150 +1,91 @@
-/* No comment provided by engineer. */
 " server returned an error on the request to enable push notifications. You can try to enable this feature later on from the account settings." = " server returned an error on the request to enable push notifications. You can try to enable this feature later on from the account settings.";
 
 /* Placeholder is the MBs Download Limit */
 "%d MB" = "%d MB";
-
-/* No comment provided by engineer. */
 "(private message)" = "(private message)";
-
-/* No comment provided by engineer. */
-"1 line of preview" = "1 line of preview";
+"1 line of preview" = "1 baris pratinjau";
 
 /* Alert dialog title - account is offline */
-"Account Offline" = "Account Offline";
+"Account Offline" = "Akun Offline";
 
 /* Alert title */
-"Account Removal Failed" = "Account Removal Failed";
-
-/* No comment provided by engineer. */
-"Accounts" = "Accounts";
-
-/* No comment provided by engineer. */
-"Add account" = "Add account";
+"Account Removal Failed" = "Gagal menghapus akun";
+"Accounts" = "Akun";
+"Add account" = "Tambah akun";
 
 /* Action: add the provided JID as a new contact */
-"Add contact" = "Add contact";
-
-/* No comment provided by engineer. */
-"Addresses" = "Addresses";
-
-/* No comment provided by engineer. */
-"All" = "All";
-
-/* No comment provided by engineer. */
-"All messages will be deleted and all participants will be kicked out. Are you sure?" = "All messages will be deleted and all participants will be kicked out. Are you sure?";
+"Add contact" = "Tambah kontak";
+"Addresses" = "Alamat";
+"All" = "Semua";
+"All messages will be deleted and all participants will be kicked out. Are you sure?" = "Semua pesan akan dihapus dan semua peserta akan dikeluarkan. Anda yakin?";
 
 /* Option: Always notify user about messages in this group */
-"Always" = "Always";
-
-/* No comment provided by engineer. */
-"Attachment" = "Attachment";
-
-/* No comment provided by engineer. */
-"Attachments" = "Attachments";
-
-/* No comment provided by engineer. */
-"Audio call" = "Audio call";
+"Always" = "Selalu";
+"Attachment" = "Lampiran";
+"Attachments" = "Lampiran";
+"Audio call" = "Panggilan audio";
 
 /* App Theme Type */
-"Auto" = "Auto";
+"Auto" = "Oto";
 
 /* Status Option
    Status Options */
-"Automatic" = "Automatic";
+"Automatic" = "Otomatis";
 
 /* Status Options */
 "Away" = "Away";
 
 /* Alert title */
-"Ban Failed" = "Ban Failed";
-
-/* No comment provided by engineer. */
-"Ban user" = "Ban user";
-
-/* No comment provided by engineer. */
-"Banning user" = "Banning user";
-
-/* No comment provided by engineer. */
-"Be right back" = "Be right back";
+"Ban Failed" = "Pelarangan gagal";
+"Ban user" = "Pelarangan pengguna";
+"Banning user" = "Melarang pengguna";
+"Be right back" = "Akan segera kembali";
 
 /* Sorting Chat Messages */
-"By availability and time" = "By availability and time";
-
-/* No comment provided by engineer. */
-"By name" = "By name";
-
-/* No comment provided by engineer. */
-"By status" = "By status";
+"By availability and time" = "Berdasarkan ketersediaan dan waktu";
+"By name" = "Menurut nama";
+"By status" = "Menurut status";
 
 /* Sorting Chat Messages */
-"By time" = "By time";
-
-/* No comment provided by engineer. */
-"Call ended" = "Call ended";
-
-/* No comment provided by engineer. */
-"Call failed" = "Call failed";
+"By time" = "Menurut waktu";
+"Call ended" = "Panggilan berakhir";
+"Call failed" = "Panggilan gagal";
 
 /* Menu item: open camera to capture media for sharing */
-"Camera" = "Camera";
-
-/* No comment provided by engineer. */
-"Cancel" = "Cancel";
-
-/* No comment provided by engineer. */
-"Change" = "Change";
+"Camera" = "Kamera";
+"Cancel" = "Batalkan";
+"Change" = "Ubah";
 
 /* Alert title: change group chat picture */
-"Change picture" = "Change picture";
-
-/* No comment provided by engineer. */
-"Change subject" = "Change subject";
-
-/* No comment provided by engineer. */
-"Channel destruction failed!" = "Channel destruction failed!";
+"Change picture" = "Ubah gambar";
+"Change subject" = "Ubah subyek";
+"Channel destruction failed!" = "Penghancuran saluran gagal!";
 
 /* Status Options */
-"Chat" = "Chat";
+"Chat" = "Obrolan";
 
 /* Error text - while uploading file */
-"Check your network connection or try again later." = "Check your network connection or try again later.";
-
-/* No comment provided by engineer. */
-"Clear History" = "Clear History";
-
-/* No comment provided by engineer. */
-"Close" = "Close";
+"Check your network connection or try again later." = "Periksa koneksi jaringan Anda atau coba kembali.";
+"Clear History" = "Hapus riwayat";
+"Close" = "Tutup";
 
 /* Action button */
-"Connect" = "Connect";
-
-/* No comment provided by engineer. */
-"Connecting..." = "Connecting...";
-
-/* No comment provided by engineer. */
-"Continue" = "Continue";
+"Connect" = "Sambungkan";
+"Connecting..." = "Menyambungkan...";
+"Continue" = "Lanjutkan";
 
 /* Context menu action
    Context menu item */
-"Copy" = "Copy";
-
-/* No comment provided by engineer. */
-"Could not connect to the service. Check your network connectivity or try again later." = "Could not connect to the service. Check your network connectivity or try again later.";
+"Copy" = "Salin";
+"Could not connect to the service. Check your network connectivity or try again later." = "Tidak dapat terhubung ke layanan. Periksa jaringan Anda atau coba lagi.";
 
 /* Error text - while uploading file */
-"Could not detect file type." = "Could not detect file type.";
+"Could not detect file type." = "Tidak dapat mendeteksi jenis file.";
 
 /* Error text - while uploading file */
-"Could not determine file size." = "Could not determine file size.";
-
-/* No comment provided by engineer. */
-"Could not rename group chat. The server responded with an error:" = "Could not rename group chat. The server responded with an error:";
-
-/* No comment provided by engineer. */
+"Could not determine file size." = "Tidak dapat menentukan ukuran file.";
+"Could not rename group chat. The server responded with an error:" = "Tidak dapat mengganti nama grup obrolan. Server merespons dengan kesalahan:";
 "Could not set the group chat picture. The server responded with an error:" = "Could not set the group chat picture. The server responded with an error:";
-
-/* No comment provided by engineer. */
 "Create" = "Create";
 
 /* Alert title */
@@ -152,35 +93,17 @@
 
 /* App Theme Type */
 "Dark" = "Dark";
-
-/* No comment provided by engineer. */
 "Default" = "Default";
-
-/* No comment provided by engineer. */
 "Delete" = "Delete";
 
 /* Action: Delete all downloaded files */
 "Delete all" = "Delete all";
-
-/* No comment provided by engineer. */
 "Delete channel?" = "Delete channel?";
-
-/* No comment provided by engineer. */
 "Delete chat" = "Delete chat";
-
-/* No comment provided by engineer. */
 "Delete group chat?" = "Delete group chat?";
-
-/* No comment provided by engineer. */
 "Delete My Account" = "Delete My Account";
-
-/* No comment provided by engineer. */
 "Deleting your account will permanently log out all your devices and delete your account, profile, and associated data on %@." = "Deleting your account will permanently log out all your devices and delete your account, profile, and associated data on %@.";
-
-/* No comment provided by engineer. */
 "Details" = "Details";
-
-/* No comment provided by engineer. */
 "Display" = "Display";
 
 /* Label for text field where user can enter their preferred name to display to their contacts */
@@ -188,8 +111,6 @@
 
 /* Status Options */
 "Do not disturb" = "Do not disturb";
-
-/* No comment provided by engineer. */
 "Do you want to ban user" = "Do you want to ban user";
 
 /* Confirmation prompt text */
@@ -207,41 +128,21 @@
 /* Alert title
    Context menu item */
 "Download" = "Download";
-
-/* No comment provided by engineer. */
 "Edit" = "Edit";
 
 /* Section heading for list of contact email addresses */
 "Email addresses" = "Email addresses";
-
-/* No comment provided by engineer. */
 "Enable %@" = "Enable %@";
-
-/* No comment provided by engineer. */
 "Enable telephony provider?" = "Enable telephony provider?";
-
-/* No comment provided by engineer. */
 "Encryption" = "Encryption";
 
 /* Alert title */
 "Encryption Not Supported" = "Encryption Not Supported";
-
-/* No comment provided by engineer. */
 "Enter default nickname to use in chats" = "Enter default nickname to use in chats";
-
-/* No comment provided by engineer. */
 "Enter message to send to:" = "Enter message to send to:";
-
-/* No comment provided by engineer. */
 "Enter new name for group chat" = "Enter new name for group chat";
-
-/* No comment provided by engineer. */
 "Enter new subject for group chat" = "Enter new subject for group chat";
-
-/* No comment provided by engineer. */
 "Enter status message" = "Enter status message";
-
-/* No comment provided by engineer. */
 "Error" = "Error";
 
 /* Status Options */
@@ -249,11 +150,7 @@
 
 /* Alert text. First placeholder is name or JID, second is error message */
 "Failed to ban %@: %@" = "Failed to ban %1$@: %2$@";
-
-/* No comment provided by engineer. */
 "Failed To Update Contact List" = "Failed To Update Contact List";
-
-/* No comment provided by engineer. */
 "Failure" = "Failure";
 
 /* Alert text */
@@ -267,59 +164,27 @@
 
 /* Error text - while uploading file */
 "File uploads are not supported on your account." = "File uploads are not supported on your account.";
-
-/* No comment provided by engineer. */
 "Fingerprint of this device" = "Fingerprint of this device";
-
-/* No comment provided by engineer. */
 "Free for chat" = "Free for chat";
-
-/* No comment provided by engineer. */
 "General" = "General";
-
-/* No comment provided by engineer. */
 "History" = "History";
-
-/* No comment provided by engineer. */
 "Info" = "Info";
-
-/* No comment provided by engineer. */
 "Invitation" = "Invitation";
-
-/* No comment provided by engineer. */
 "Invite" = "Invite";
-
-/* No comment provided by engineer. */
 "It was not possible to access camera or microphone. Please check privacy settings" = "It was not possible to access camera or microphone. Please check privacy settings";
-
-/* No comment provided by engineer. */
 "It was not possible to access camera. Please check in privacy settings that you have granted Snikket access to the camera." = "It was not possible to access camera. Please check in privacy settings that you have granted Snikket access to the camera.";
 
 /* Error text: upload failed due to permissions */
 "It was not possible to access the file." = "It was not possible to access the file.";
-
-/* No comment provided by engineer. */
 "It was not possible to contact XMPP server and sign in." = "It was not possible to contact XMPP server and sign in.";
-
-/* No comment provided by engineer. */
 "It was not possible to destroy channel %@. Server returned an error:" = "It was not possible to destroy channel %@. Server returned an error:";
-
-/* No comment provided by engineer. */
 "It was not possible to establish call" = "It was not possible to establish call";
 
 /* Action: Join the supplied JID as a group */
 "Join group" = "Join group";
-
-/* No comment provided by engineer. */
 "Join group chat" = "Join group chat";
-
-/* No comment provided by engineer. */
 "Joined" = "Joined";
-
-/* No comment provided by engineer. */
 "Joining..." = "Joining...";
-
-/* No comment provided by engineer. */
 "Key not generated!" = "Key not generated!";
 
 /* Placeholder is number of days */
@@ -327,47 +192,25 @@
 
 /* Placeholder is hours value */
 "Last %d hours" = "Last %d hours";
-
-/* No comment provided by engineer. */
 "Leave chat" = "Leave chat";
 
 /* App Theme Type */
 "Light" = "Light";
-
-/* No comment provided by engineer. */
 "Limits the size of the files sent to you which may be automatically downloaded" = "Limits the size of the files sent to you which may be automatically downloaded";
-
-/* No comment provided by engineer. */
 "lines of preview" = "lines of preview";
-
-/* No comment provided by engineer. */
 "List of Messages" = "List of Messages";
 
 /* Menu item: open location picker to share a location */
 "Location" = "Location";
-
-/* No comment provided by engineer. */
 "Log Out" = "Log Out";
-
-/* No comment provided by engineer. */
 "Login and password do not match." = "Login and password do not match.";
 
 /* Alert title for storage usage */
 "Manage Storage" = "Manage Storage";
-
-/* No comment provided by engineer. */
 "Media" = "Media";
-
-/* No comment provided by engineer. */
 "Member" = "Member";
-
-/* No comment provided by engineer. */
 "Message Archiving" = "Message Archiving";
-
-/* No comment provided by engineer. */
 "Message Archiving Error" = "Message Archiving Error";
-
-/* No comment provided by engineer. */
 "Messages" = "Messages";
 
 /* Context menu item: view more options
@@ -377,56 +220,24 @@
 
 /* Option: notifications from this group chat will be suppressed */
 "Muted" = "Muted";
-
-/* No comment provided by engineer. */
 "Name" = "Name";
-
-/* No comment provided by engineer. */
 "New call..." = "New call...";
-
-/* No comment provided by engineer. */
 "New private group chat" = "New private group chat";
-
-/* No comment provided by engineer. */
 "New public group chat" = "New public group chat";
-
-/* No comment provided by engineer. */
 "Nickname" = "Nickname";
-
-/* No comment provided by engineer. */
 "No" = "No";
-
-/* No comment provided by engineer. */
 "No attachments" = "No attachments";
-
-/* No comment provided by engineer. */
 "No messages yet. Say hi!" = "No messages yet. Say hi!";
-
-/* No comment provided by engineer. */
 "None" = "None";
 
 /* Alert title */
 "Not Connected" = "Not Connected";
-
-/* No comment provided by engineer. */
 "Not connected!" = "Not connected!";
-
-/* No comment provided by engineer. */
 "Not Joined" = "Not Joined";
-
-/* No comment provided by engineer. */
 "Nothing" = "Nothing";
-
-/* No comment provided by engineer. */
 "Offline" = "Offline";
-
-/* No comment provided by engineer. */
 "OK" = "OK";
-
-/* No comment provided by engineer. */
 "Older than 7 days" = "Older than 7 days";
-
-/* No comment provided by engineer. */
 "OMEMO" = "OMEMO";
 
 /* Status Options */
@@ -437,23 +248,11 @@
 
 /* Alert title */
 "Open URL" = "Open URL";
-
-/* No comment provided by engineer. */
 "Operation timed out" = "Operation timed out";
-
-/* No comment provided by engineer. */
 "operation timed out" = "operation timed out";
-
-/* No comment provided by engineer. */
 "Original quality will share image in the format in which it is stored on your phone and it may not be supported by every device." = "Original quality will share image in the format in which it is stored on your phone and it may not be supported by every device.";
-
-/* No comment provided by engineer. */
 "Original quality will share video in the format in which video is stored on your phone and it may not be supported by every device." = "Original quality will share video in the format in which video is stored on your phone and it may not be supported by every device.";
-
-/* No comment provided by engineer. */
 "Other devices fingerprints" = "Other devices fingerprints";
-
-/* No comment provided by engineer. */
 "Permanently Delete Account" = "Permanently Delete Account";
 
 /* Section heading for list of contact phone numbers */
@@ -461,131 +260,63 @@
 
 /* Menu item: select media to share from photo/video library */
 "Photo & Video Library" = "Photo & Video Library";
-
-/* No comment provided by engineer. */
 "Please try again!" = "Please try again!";
 
 /* Alert title */
 "Preview" = "Preview";
-
-/* No comment provided by engineer. */
 "Private message" = "Private message";
 
 /* Alert title */
 "Profile Picture Update Failed" = "Profile Picture Update Failed";
-
-/* No comment provided by engineer. */
 "Provided values are not acceptable" = "Provided values are not acceptable";
 
 /* Alert title */
 "Push Notifications" = "Push Notifications";
-
-/* No comment provided by engineer. */
 "Push notifications are enabled for %@. They need to be disabled before account can be removed and it is not possible to at this time. Please try again later." = "Push notifications are enabled for %@. They need to be disabled before account can be removed and it is not possible to at this time. Please try again later.";
 
 /* Alert title */
 "Push Notifications Enabled" = "Push Notifications Enabled";
-
-/* No comment provided by engineer. */
 "Push Notifications Error" = "Push Notifications Error";
-
-/* No comment provided by engineer. */
 "Quality of shared media" = "Quality of shared media";
 
 /* Placeholder is the number in MBs */
 "Received files are using %d MB of storage." = "Received files are using %d MB of storage.";
-
-/* No comment provided by engineer. */
 "Register" = "Register";
 
 /* Alert title */
 "Registration Failure" = "Registration Failure";
-
-/* No comment provided by engineer. */
 "Registration is not supported by this server" = "Registration is not supported by this server";
-
-/* No comment provided by engineer. */
 "Remove Account Data" = "Remove Account Data";
-
-/* No comment provided by engineer. */
 "Rename" = "Rename";
-
-/* No comment provided by engineer. */
 "Rename chat" = "Rename chat";
-
-/* No comment provided by engineer. */
 "Report" = "Report";
-
-/* No comment provided by engineer. */
 "Report and Block" = "Report and Block";
-
-/* No comment provided by engineer. */
 "Report Contact" = "Report Contact";
-
-/* No comment provided by engineer. */
 "Reported" = "Reported";
-
-/* No comment provided by engineer. */
 "Reporting..." = "Reporting...";
-
-/* No comment provided by engineer. */
 "Resend" = "Resend";
-
-/* No comment provided by engineer. */
 "Ringing..." = "Ringing...";
-
-/* No comment provided by engineer. */
 "Save" = "Save";
-
-/* No comment provided by engineer. */
 "Scanned QR code is not valid for Snikket." = "Scanned QR code is not valid for Snikket.";
-
-/* No comment provided by engineer. */
 "Search channels" = "Search channels";
 
 /* Shown above a choice list of the user's accounts */
 "Select account to open chat from:" = "Select account to open chat from:";
-
-/* No comment provided by engineer. */
 "Select photo" = "Select photo";
 
 /* Alert title - select image share quality */
 "Select quality" = "Select quality";
-
-/* No comment provided by engineer. */
 "Select quality of the image to use for sharing" = "Select quality of the image to use for sharing";
-
-/* No comment provided by engineer. */
 "Select quality of the video to use for sharing" = "Select quality of the video to use for sharing";
-
-/* No comment provided by engineer. */
 "Select status" = "Select status";
-
-/* No comment provided by engineer. */
 "Send" = "Send";
-
-/* No comment provided by engineer. */
 "Send Current Location" = "Send Current Location";
-
-/* No comment provided by engineer. */
 "Send message" = "Send message";
-
-/* No comment provided by engineer. */
 "Send Pin Location" = "Send Pin Location";
-
-/* No comment provided by engineer. */
 "Server did not respond to registration request" = "Server did not respond to registration request";
-
-/* No comment provided by engineer. */
 "server returned an error on the request to enable archiving. You can try to enable this feature later on from the account settings." = "server returned an error on the request to enable archiving. You can try to enable this feature later on from the account settings.";
-
-/* No comment provided by engineer. */
 "Server returned error:" = "Server returned error:";
-
-/* No comment provided by engineer. */
 "Set" = "Set";
-
-/* No comment provided by engineer. */
 "Settings" = "Settings";
 
 /* Context menu action */
@@ -596,65 +327,37 @@
 
 /* Alert title - starting a new chat */
 "Start Chat" = "Start Chat";
-
-/* No comment provided by engineer. */
 "Status" = "Status";
-
-/* No comment provided by engineer. */
 "Successfully registered to receive push notifications." = "Successfully registered to receive push notifications.";
-
-/* No comment provided by engineer. */
 "Take photo" = "Take photo";
 
 /* followed by a space and error condition */
 "The server returned an error:" = "The server returned an error:";
-
-/* No comment provided by engineer. */
 "The server returned an error: " = "The server returned an error: ";
 
 /* Error text - while uploading a file. Placeholder is a HTTP status code. */
 "The upload was rejected by the server (error %d)." = "The upload was rejected by the server (error %d).";
-
-/* No comment provided by engineer. */
 "The user will be reported and any calls, messages and status updates from them will be blocked." = "The user will be reported and any calls, messages and status updates from them will be blocked.";
 
 /* Error text - while uploading file */
 "There was a server error processing the file upload. Please try again later." = "There was a server error processing the file upload. Please try again later.";
-
-/* No comment provided by engineer. */
 "This will delete all the message history for this chat. Continue?" = "This will delete all the message history for this chat. Continue?";
 
 /* Alert text */
 "Unable to publish your profile picture at this time.\nError: %@" = "Unable to publish your profile picture at this time.\nError: %@";
-
-/* No comment provided by engineer. */
 "Unblock" = "Unblock";
 
 /* Error text - while uploading file. Placeholder is a HTTP status code. */
 "Unexpected error (%d) received while uploading file." = "Unexpected error (%d) received while uploading file.";
-
-/* No comment provided by engineer. */
 "Unkown error occured" = "Unkown error occured";
-
-/* No comment provided by engineer. */
 "Unlimited" = "Unlimited";
 
 /* Alert title */
 "Upload Failed" = "Upload Failed";
-
-/* No comment provided by engineer. */
 "Used image and video quality may impact storage and network usage" = "Used image and video quality may impact storage and network usage";
-
-/* No comment provided by engineer. */
 "User with provided username already exists" = "User with provided username already exists";
-
-/* No comment provided by engineer. */
 "using" = "using";
-
-/* No comment provided by engineer. */
 "Video call" = "Video call";
-
-/* No comment provided by engineer. */
 "Warning" = "Warning";
 
 /* Placeholder is xmpp: URI */
@@ -662,39 +365,19 @@
 
 /* Option: only notify user when they are mentioned in this group */
 "When mentioned" = "When mentioned";
-
-/* No comment provided by engineer. */
 "Would you like to use %@ as the default provider for outgoing SMS and calls from %@?" = "Would you like to use %1$@ as the default provider for outgoing SMS and calls from %2$@?";
-
-/* No comment provided by engineer. */
 "Yes" = "Yes";
-
-/* No comment provided by engineer. */
 "Yesterday" = "Yesterday";
-
-/* No comment provided by engineer. */
 "You are invited to join conversation at" = "You are invited to join conversation at";
-
-/* No comment provided by engineer. */
 "You are leaving the group chat" = "You are leaving the group chat";
 
 /* Alert text */
 "You are not currently connected to this group. Please check your network connection and try again later." = "You are not currently connected to this group. Please check your network connection and try again later.";
-
-/* No comment provided by engineer. */
 "You are not joined to the channel." = "You are not joined to the channel.";
-
-/* No comment provided by engineer. */
 "You can log out of this account temporarily, or permanently remove all account data from this device (including chats). Account removal cannot be undone." = "You can log out of this account temporarily, or permanently remove all account data from this device (including chats). Account removal cannot be undone.";
-
-/* No comment provided by engineer. */
 "You have enabled encryption, but this group does not support encrypted messages. Please change encryption settings to be able to send messages." = "You have enabled encryption, but this group does not support encrypted messages. Please change encryption settings to be able to send messages.";
-
-/* No comment provided by engineer. */
 "You need to connect to your account before you can update your contact list. Do you wish to connect now?" = "You need to connect to your account before you can update your contact list. Do you wish to connect now?";
 
 /* Placeholder is the Group Name */
 "You've left the group %@ and notifications for this group have been disabled.\nYou may need to reenable them on other devices." = "You've left the group %@ and notifications for this group have been disabled.\nYou may need to reenable them on other devices.";
-
-/* No comment provided by engineer. */
 "Your Name" = "Your Name";
