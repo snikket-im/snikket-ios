@@ -125,6 +125,10 @@
 /* No comment provided by engineer. */
 "Continue" = "Fortsätt";
 
+/* Context menu action
+   Context menu item */
+"Copy" = "Copy";
+
 /* No comment provided by engineer. */
 "Could not connect to the service. Check your network connectivity or try again later." = "Kunde inte ansluta till tjänsten. Kontrollera din nätverksanslutning eller försök igen senare.";
 
@@ -200,6 +204,10 @@
 /* Menu item: opens file picket to select document to share */
 "Document" = "Document";
 
+/* Alert title
+   Context menu item */
+"Download" = "Download";
+
 /* No comment provided by engineer. */
 "Edit" = "Redigera";
 
@@ -247,6 +255,9 @@
 
 /* No comment provided by engineer. */
 "Failure" = "Fel";
+
+/* Alert text */
+"File is not available locally. Should it be downloaded?" = "File is not available locally. Should it be downloaded?";
 
 /* Error text - while uploading file */
 "File is too large to share on your account." = "File is too large to share on your account.";
@@ -359,6 +370,11 @@
 /* No comment provided by engineer. */
 "Messages" = "Messages";
 
+/* Context menu item: view more options
+   Menu item: see more message actions
+   Menu item: view more options */
+"More..." = "More...";
+
 /* Option: notifications from this group chat will be suppressed */
 "Muted" = "Mutad";
 
@@ -449,6 +465,9 @@
 /* No comment provided by engineer. */
 "Please try again!" = "Vänligen försök igen!";
 
+/* Alert title */
+"Preview" = "Preview";
+
 /* No comment provided by engineer. */
 "Private message" = "Private message";
 
@@ -531,6 +550,9 @@
 /* Action button: select (existing) photo for group chat picture */
 "Select photo" = "Välj foto";
 
+/* Alert title - select image share quality */
+"Select quality" = "Select quality";
+
 /* No comment provided by engineer. */
 "Select quality of the image to use for sharing" = "Välj kvalité på bild för delning";
 
@@ -566,6 +588,9 @@
 
 /* No comment provided by engineer. */
 "Settings" = "Inställningar";
+
+/* Context menu action */
+"Share..." = "Share...";
 
 /* Informs user to slide their finger in direction of arrow to cancel audio recording */
 "Slide to cancel" = "Slide to cancel";

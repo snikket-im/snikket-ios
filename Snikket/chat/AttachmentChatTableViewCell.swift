@@ -305,47 +305,47 @@ class AttachmentChatTableViewCell: BaseChatTableViewCell, UIContextMenuInteracti
         
         if let localUrl = DownloadStore.instance.url(for: "\(item.id)") {
             let items = [
-                UIAction(title: "Preview", image: UIImage(systemName: "eye.fill"), handler: { action in
+                UIAction(title: NSLocalizedString("Preview", comment: "Alert title"), image: UIImage(systemName: "eye.fill"), handler: { action in
                     print("preview called");
                     self.open(url: localUrl, preview: true);
                 }),
-                UIAction(title: "Copy", image: UIImage(systemName: "doc.on.doc"), handler: { action in
+                UIAction(title: NSLocalizedString("Copy", comment: "Context menu action"), image: UIImage(systemName: "doc.on.doc"), handler: { action in
                     guard let text = self.item?.copyText(withTimestamp: Settings.CopyMessagesWithTimestamps.getBool(), withSender: false) else {
                         return;
                     }
                     UIPasteboard.general.strings = [text];
                     UIPasteboard.general.string = text;
                 }),
-                UIAction(title: "Share..", image: UIImage(systemName: "square.and.arrow.up"), handler: { action in
+                UIAction(title: NSLocalizedString("Share...", comment: "Context menu action"), image: UIImage(systemName: "square.and.arrow.up"), handler: { action in
                     print("share called");
                     self.open(url: localUrl, preview: false);
                 }),
-                UIAction(title: "Delete", image: UIImage(systemName: "trash"), attributes: [.destructive], handler: { action in
+                UIAction(title: NSLocalizedString("Delete", comment: "Context menu action"), image: UIImage(systemName: "trash"), attributes: [.destructive], handler: { action in
                     print("delete called");
                     DownloadStore.instance.deleteFile(for: "\(item.id)");
                     DBChatHistoryStore.instance.updateItem(for: item.account, with: item.jid, id: item.id, updateAppendix: { appendix in
                         appendix.state = .removed;
                     })
                 }),
-                UIAction(title: "More..", image: UIImage(systemName: "ellipsis"), handler: { action in
+                UIAction(title: NSLocalizedString("More...", comment: "Menu item: view more options"), image: UIImage(systemName: "ellipsis"), handler: { action in
                     NotificationCenter.default.post(name: Notification.Name("tableViewCellShowEditToolbar"), object: self);
                 })
             ];
             return UIMenu(title: "", image: nil, identifier: nil, options: [], children: items);
         } else {
             let items = [
-                UIAction(title: "Copy", image: UIImage(systemName: "doc.on.doc"), handler: { action in
+                UIAction(title: NSLocalizedString("Copy", comment: "Context menu item"), image: UIImage(systemName: "doc.on.doc"), handler: { action in
                     guard let text = self.item?.copyText(withTimestamp: Settings.CopyMessagesWithTimestamps.getBool(), withSender: false) else {
                         return;
                     }
                     UIPasteboard.general.strings = [text];
                     UIPasteboard.general.string = text;
                 }),
-                UIAction(title: "Download", image: UIImage(systemName: "square.and.arrow.down"), handler: { action in
+                UIAction(title: NSLocalizedString("Download", comment: "Context menu item"), image: UIImage(systemName: "square.and.arrow.down"), handler: { action in
                     print("download called");
                     self.download(for: item);
                 }),
-                UIAction(title: "More..", image: UIImage(systemName: "ellipsis"), handler: { action in
+                UIAction(title: NSLocalizedString("More...", comment: "Context menu item: view more options"), image: UIImage(systemName: "ellipsis"), handler: { action in
                     NotificationCenter.default.post(name: Notification.Name("tableViewCellShowEditToolbar"), object: self);
                 })
             ];
@@ -413,11 +413,11 @@ class AttachmentChatTableViewCell: BaseChatTableViewCell, UIContextMenuInteracti
         if let localUrl = DownloadStore.instance.url(for: "\(item.id)") {
             open(url: localUrl, preview: true);
         } else {
-            let alert = UIAlertController(title: "Download", message: "File is not available locally. Should it be downloaded?", preferredStyle: .alert);
-            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
+            let alert = UIAlertController(title: NSLocalizedString("Download", comment: "Alert title"), message: NSLocalizedString("File is not available locally. Should it be downloaded?", comment: "Alert text"), preferredStyle: .alert);
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Yes", comment: ""), style: .default, handler: { (action) in
                 self.download(for: item);
             }))
-            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil));
+            alert.addAction(UIAlertAction(title: NSLocalizedString("No", comment: ""), style: .cancel, handler: nil));
             if let controller = (UIApplication.shared.delegate as? AppDelegate)?.window?.rootViewController {
                 controller.present(alert, animated: true, completion: nil);
             }

@@ -33,7 +33,7 @@ class BaseChatViewControllerWithDataSourceAndContextMenuAndToolbar: BaseChatView
             
         } else {
             var items: [UIMenuItem] = UIMenuController.shared.menuItems ?? [];
-            items.append(UIMenuItem(title: "More..", action: #selector(ChatTableViewCell.actionMore(_:))));
+            items.append(UIMenuItem(title: NSLocalizedString("More...", comment: "Menu item: see more message actions"), action: #selector(ChatTableViewCell.actionMore(_:))));
             UIMenuController.shared.menuItems = items;
         }
         
@@ -104,8 +104,8 @@ class BaseChatViewControllerWithDataSourceAndContextMenuAndToolbar: BaseChatView
         let items: [UIMenuElement] = actions.map({ action -> UIMenuElement in
             if action.isDesctructive {
                 return UIMenu(title: action.title, image: action.image, options: .destructive, children: [
-                    UIAction(title: "No", handler: { _ in }),
-                    UIAction(title: "Yes", attributes: .destructive, handler: { _ in
+                    UIAction(title: NSLocalizedString("No", comment: ""), handler: { _ in }),
+                    UIAction(title: NSLocalizedString("Yes", comment: ""), attributes: .destructive, handler: { _ in
                         self.executeContext(action: action, forItem: item, at: indexPath);
                     })
                 ]);
