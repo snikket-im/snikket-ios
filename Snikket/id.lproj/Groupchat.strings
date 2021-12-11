@@ -8,31 +8,31 @@
 "54Z-E5-MZp.text" = "Offline";
 
 /* Class = "UITableViewSection"; headerTitle = " History"; ObjectID = "552-vb-Heg"; */
-"552-vb-Heg.headerTitle" = " History";
+"552-vb-Heg.headerTitle" = " Riwayat";
 
 /* Class = "UILabel"; text = "very long group name written here"; ObjectID = "az1-E9-Dy7"; */
-"az1-E9-Dy7.text" = "very long group name written here";
+"az1-E9-Dy7.text" = "nama grup yang sangat panjang tertulis di sini";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "BJz-HA-uv6"; */
 "BJz-HA-uv6.text" = "Label";
 
 /* Class = "UITableViewSection"; footerTitle = "Push notification support depends on the XMPP server which you are using and may not work in some cases even if it's supported and enabled on the group chat"; ObjectID = "bRu-vo-fpu"; */
-"bRu-vo-fpu.footerTitle" = "Push notification support depends on the XMPP server which you are using and may not work in some cases even if it's supported and enabled on the group chat";
+"bRu-vo-fpu.footerTitle" = "Dukungan push notification tergantung pada server XMPP yang digunakan dan mungkin tidak berfungsi dalam beberapa kasus meskipun didukung dan diaktifkan pada obrolan grup";
 
 /* Class = "UITableViewSection"; headerTitle = " Settings"; ObjectID = "bRu-vo-fpu"; */
-"bRu-vo-fpu.headerTitle" = " Settings";
+"bRu-vo-fpu.headerTitle" = " Pengaturan";
 
 /* Class = "UILabel"; text = "Encryption"; ObjectID = "DQk-sn-hKj"; */
-"DQk-sn-hKj.text" = "Encryption";
+"DQk-sn-hKj.text" = "Enkripsi";
 
 /* Class = "UILabel"; text = "When mentioned"; ObjectID = "exK-ZH-jpA"; */
-"exK-ZH-jpA.text" = "When mentioned";
+"exK-ZH-jpA.text" = "Saat disebutkan";
 
 /* Class = "UITableViewController"; title = "Group details"; ObjectID = "IGA-uE-mHb"; */
 "IGA-uE-mHb.title" = "Group details";
 
 /* Class = "UITableViewSection"; headerTitle = "Subject"; ObjectID = "iYv-zL-tZT"; */
-"iYv-zL-tZT.headerTitle" = "Subject";
+"iYv-zL-tZT.headerTitle" = "Subyek";
 
 /* Class = "UILabel"; text = "Push notifications"; ObjectID = "jMz-qR-fJ6"; */
 "jMz-qR-fJ6.text" = "Push notifications";
@@ -47,7 +47,7 @@
 "Qmg-sW-dkA.normalTitle" = "Button";
 
 /* Class = "UITableViewController"; title = "Invite to chat"; ObjectID = "SOJ-3n-8YB"; */
-"SOJ-3n-8YB.title" = "Invite to chat";
+"SOJ-3n-8YB.title" = "Undang untuk mengobrol";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "t0j-TN-qOY"; */
 "t0j-TN-qOY.text" = "Label";
@@ -56,10 +56,10 @@
 "WaG-aF-FTg.text" = "Label";
 
 /* Class = "UILabel"; text = "Attachments"; ObjectID = "wBw-1J-Xau"; */
-"wBw-1J-Xau.text" = "Attachments";
+"wBw-1J-Xau.text" = "Lampiran";
 
 /* Class = "UILabel"; text = "Delete History"; ObjectID = "wNk-Ce-zfI"; */
-"wNk-Ce-zfI.text" = "Delete History";
+"wNk-Ce-zfI.text" = "Hapus riwayat";
 
 /* Class = "UILabel"; text = "None"; ObjectID = "YT2-1I-RlM"; */
 "YT2-1I-RlM.text" = "None";
