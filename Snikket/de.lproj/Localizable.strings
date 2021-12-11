@@ -171,16 +171,10 @@
 "Enable %@" = "Enable %@";
 
 /* No comment provided by engineer. */
-"Enable automatic message synchronization" = "Enable automatic message synchronization";
-
-/* No comment provided by engineer. */
 "Enable telephony provider?" = "Enable telephony provider?";
 
 /* No comment provided by engineer. */
 "Encryption" = "Encryption";
-
-/* No comment provided by engineer. */
-"Enter default nickname to use in chats" = "Enter default nickname to use in chats";
 
 /* No comment provided by engineer. */
 "Enter message to send to:" = "Enter message to send to:";
@@ -208,9 +202,6 @@
 
 /* No comment provided by engineer. */
 "Fingerprint of this device" = "Fingerprint of this device";
-
-/* No comment provided by engineer. */
-"For best experience it is suggested to enable Message Archving with automatic message synchronization of at least last 12 hours.\nDo you wish to do this now?" = "For best experience it is suggested to enable Message Archving with automatic message synchronization of at least last 12 hours.\nDo you wish to do this now?";
 
 /* No comment provided by engineer. */
 "Free for chat" = "Free for chat";
@@ -318,10 +309,7 @@
 "New public group chat" = "New public group chat";
 
 /* No comment provided by engineer. */
-"Nickname" = "Nickname";
-
-/* No comment provided by engineer. */
-"No" = "No";
+"No" = "Nein";
 
 /* No comment provided by engineer. */
 "No attachments" = "No attachments";

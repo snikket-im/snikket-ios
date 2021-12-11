@@ -63,7 +63,7 @@ class ChannelJoinViewController: UITableViewController {
         self.jidField.text = channelJid?.stringValue;
         self.passwordField.text = password
         if let account = self.account {
-            self.nicknameField.text = AccountManager.getAccount(for: account)?.nickname;
+            self.nicknameField.text = AccountSettings.displayName(account).getString()
         }
                 
         switch action {

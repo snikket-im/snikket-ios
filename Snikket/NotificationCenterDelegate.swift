@@ -186,7 +186,7 @@ class NotificationCenterDelegate: NSObject, UNUserNotificationCenterDelegate {
         let password = content.userInfo["password"] as? String;
 
 
-        let nick = AccountManager.getAccount(for: account)?.nickname ?? ""
+        let nick = AccountSettings.displayName(account).getString() ?? ""
         joinMUC(account: account, channelJid: roomJid, componentType: .muc, nick: nick, password: password)
         
     }

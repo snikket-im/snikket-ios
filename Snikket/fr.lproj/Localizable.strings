@@ -171,16 +171,10 @@
 "Enable %@" = "Enable %@";
 
 /* No comment provided by engineer. */
-"Enable automatic message synchronization" = "Activer la synchronisation automatique des messages";
-
-/* No comment provided by engineer. */
 "Enable telephony provider?" = "Enable telephony provider?";
 
 /* No comment provided by engineer. */
 "Encryption" = "Chiffrement";
-
-/* No comment provided by engineer. */
-"Enter default nickname to use in chats" = "Entrez le pseudonyme à utiliser par défaut dans les discussions";
 
 /* No comment provided by engineer. */
 "Enter message to send to:" = "Entrer un message à envoyer à :";
@@ -208,9 +202,6 @@
 
 /* No comment provided by engineer. */
 "Fingerprint of this device" = "Empreinte de ce client";
-
-/* No comment provided by engineer. */
-"For best experience it is suggested to enable Message Archving with automatic message synchronization of at least last 12 hours.\nDo you wish to do this now?" = "For best experience it is suggested to enable Message Archving with automatic message synchronization of at least last 12 hours.\nDo you wish to do this now?";
 
 /* No comment provided by engineer. */
 "Free for chat" = "Disponible pour discuter";
@@ -316,9 +307,6 @@
 
 /* No comment provided by engineer. */
 "New public group chat" = "Nouveau salon public";
-
-/* No comment provided by engineer. */
-"Nickname" = "Pseudonyme";
 
 /* No comment provided by engineer. */
 "No" = "Non";

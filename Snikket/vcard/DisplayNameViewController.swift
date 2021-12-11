@@ -30,7 +30,6 @@ class DisplayNameViewController: UIViewController {
         
         if let account = account, let displayName = AccountSettings.displayName(account).getString() {
             textView.text = displayName
-            textView.textColor = .black
         } else {
             textView.text = NSLocalizedString("Name", comment: "")
             textView.textColor = .lightGray

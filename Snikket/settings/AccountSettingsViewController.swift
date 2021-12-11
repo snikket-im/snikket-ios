@@ -32,8 +32,6 @@ class AccountSettingsViewController: UITableViewController {
     @IBOutlet var addressTextView: UILabel!
     
     @IBOutlet var enabledSwitch: UISwitch!
-    @IBOutlet var nicknameLabel: UILabel!;
-    @IBOutlet var pushNotificationsForAwaySwitch: UISwitch!
     
     @IBOutlet weak var telephonyProviderLabel: UILabel!
     
@@ -54,8 +52,6 @@ class AccountSettingsViewController: UITableViewController {
         
         let config = AccountManager.getAccount(for: account);
         enabledSwitch.isOn = config?.active ?? false;
-        nicknameLabel.text = config?.nickname;
-        pushNotificationsForAwaySwitch.isOn = AccountSettings.PushNotificationsForAway(account).getBool();
 
         updateView();
         
@@ -106,21 +102,6 @@ class AccountSettingsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false);
-        if indexPath.section == 1 && indexPath.row == 3 {
-            let controller = UIAlertController(title: NSLocalizedString("Nickname",comment: ""), message: NSLocalizedString("Enter default nickname to use in chats",comment: ""), preferredStyle: .alert);
-            controller.addTextField(configurationHandler: { textField in
-                textField.text = AccountManager.getAccount(for: self.account)?.nickname ?? "";
-            });
-            controller.addAction(UIAlertAction(title: NSLocalizedString("OK",comment: ""), style: .default, handler: { _ in
-                let nickname = controller.textFields?.first?.text?.trimmingCharacters(in: .whitespacesAndNewlines);
-                if let account = AccountManager.getAccount(for: self.account) {
-                    account.nickname = nickname;
-                    AccountManager.save(account: account);
-                    self.nicknameLabel.text = account.nickname;
-                }
-            }))
-            self.navigationController?.present(controller, animated: true, completion: nil);
-        }
         
         if indexPath.section == 5 && indexPath.row == 0 {
             self.logOutSheet(indexPath: indexPath)
@@ -152,9 +133,6 @@ class AccountSettingsViewController: UITableViewController {
     }
     
     func updateView() {
-        let client = XmppService.instance.getClient(for: account);
-        let pushModule: SiskinPushNotificationsModule? = client?.modulesManager.getModule(SiskinPushNotificationsModule.ID);
-        pushNotificationsForAwaySwitch.isEnabled = (pushModule?.isSupported(extension: TigasePushNotificationsModule.PushForAway.self) ?? false);
         telephonyProviderLabel.text = AccountSettings.telephonyProvider(account).getString() ?? "None"
     }
     
@@ -241,57 +219,12 @@ class AccountSettingsViewController: UITableViewController {
                     }
                     break
                 case .failure(let errorCondition):
-                    DispatchQueue.main.async {
-                        self.pushNotificationsForAwaySwitch.isOn = false;
-                    }
                     onError(errorCondition);
                 }
             });
         } else {
-            pushNotificationsForAwaySwitch.isOn = false;
             onError(ErrorCondition.service_unavailable);
         }
-    }
-    
-    @IBAction func pushNotificationsForAwaySwitchChangedValue(_ sender: Any) {
-        
-        AccountSettings.PushNotificationsForAway(account).set(bool: self.pushNotificationsForAwaySwitch.isOn);
-        guard let pushModule: SiskinPushNotificationsModule = XmppService.instance.getClient(for: account)?.modulesManager.getModule(SiskinPushNotificationsModule.ID) else {
-            return;
-        }
-        
-        guard let pushSettings = pushModule.pushSettings else {
-            return;
-        }
-        pushModule.reenable(pushSettings: pushSettings, completionHandler: { (result) in
-            switch result {
-            case .success(_):
-                print("PUSH enabled!");
-                DispatchQueue.main.async {
-                    guard self.pushNotificationsForAwaySwitch.isOn else {
-                        return;
-                    }
-                    let syncPeriod = AccountSettings.messageSyncPeriod(self.account).getDouble();
-                    if !AccountSettings.messageSyncAuto(self.account).getBool() || syncPeriod < 12 {
-                        let alert = UIAlertController(title: NSLocalizedString("Enable automatic message synchronization",comment: ""), message: NSLocalizedString("For best experience it is suggested to enable Message Archving with automatic message synchronization of at least last 12 hours.\nDo you wish to do this now?",comment: ""), preferredStyle: .alert);
-                        alert.addAction(UIAlertAction(title: NSLocalizedString("No",comment: ""), style: .cancel, handler: nil));
-                        alert.addAction(UIAlertAction(title: NSLocalizedString("Yes",comment: ""), style: .default, handler: {(action) in
-                            AccountSettings.messageSyncAuto(self.account).set(bool: true);
-                            if (syncPeriod < 12) {
-                                AccountSettings.messageSyncPeriod(self.account).set(double: 12.0);
-                            }
-                            self.updateView();
-                        }));
-                        self.present(alert, animated: true, completion: nil);
-                    }
-                }
-            case .failure(_):
-                DispatchQueue.main.async {
-                    self.pushNotificationsForAwaySwitch.isOn = !self.pushNotificationsForAwaySwitch.isOn;
-                    AccountSettings.PushNotificationsForAway(self.account).set(bool: self.pushNotificationsForAwaySwitch.isOn);
-                }
-            }
-        });
     }
     
     func setPushNotificationsEnabled(forJid account: BareJID, value: Bool) {

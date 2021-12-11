@@ -53,7 +53,7 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
     override func viewDidLoad() {
         let messageModule: MessageModule? = XmppService.instance.getClient(forJid: account)?.modulesManager.getModule(MessageModule.ID);
         self.chat = messageModule?.chatManager.getChat(with: JID(self.jid), thread: nil) as? DBChat;
-        self.localNickname = AccountManager.getAccount(for: account)?.nickname ?? "Me";
+        self.localNickname = AccountSettings.displayName(account).getString() ?? "Me"
         
         super.viewDidLoad()
         

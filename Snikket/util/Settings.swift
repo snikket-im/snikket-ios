@@ -455,7 +455,7 @@ public enum AccountSettings {
         accounts.forEach { account in
             if AccountSettings.displayName(account).getString() == nil, let currentAccount = AccountManager.getAccount(for: account) {
                 
-                AccountSettings.displayName(account).set(string: currentAccount.nickname ?? currentAccount.name.stringValue)
+                AccountSettings.displayName(account).set(string: currentAccount.name.stringValue)
             }
         }
         

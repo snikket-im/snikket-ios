@@ -1,9 +1,6 @@
 /* Class = "UILabel"; text = "add email"; ObjectID = "06Y-Cg-0Q3"; */
 "06Y-Cg-0Q3.text" = "lägg till epost";
 
-/* Class = "UILabel"; text = "Nickname"; ObjectID = "27D-rn-4zp"; */
-"27D-rn-4zp.text" = "Visningsnamn";
-
 /* Class = "UITextField"; placeholder = "Country"; ObjectID = "4hs-GL-9fd"; */
 "4hs-GL-9fd.placeholder" = "Land";
 
@@ -18,9 +15,6 @@
 
 /* Class = "UITableViewController"; title = "OMEMO fingerprints"; ObjectID = "A24-eF-tzh"; */
 "A24-eF-tzh.title" = "OMEMO-fingeravtryck";
-
-/* Class = "UILabel"; text = "When in Away/XA/DND state"; ObjectID = "aKW-CM-bl2"; */
-"aKW-CM-bl2.text" = "I Borta/Stör ej-läge";
 
 /* Class = "UILabel"; text = "John Doe"; ObjectID = "bDD-UG-Fxr"; */
 "bDD-UG-Fxr.text" = "John Doe";
@@ -66,9 +60,6 @@
 
 /* Class = "UILabel"; text = "add phone"; ObjectID = "jAE-vq-Vfj"; */
 "jAE-vq-Vfj.text" = "lägg till telefon";
-
-/* Class = "UILabel"; text = "Detail"; ObjectID = "JkB-3h-A61"; */
-"JkB-3h-A61.text" = "Detalj";
 
 /* Class = "UITextField"; placeholder = "Street"; ObjectID = "KgL-GY-IFp"; */
 "KgL-GY-IFp.placeholder" = "Gata";
