@@ -2,25 +2,25 @@
 "06Y-Cg-0Q3.text" = "add email";
 
 /* Class = "UILabel"; text = "Nickname"; ObjectID = "27D-rn-4zp"; */
-"27D-rn-4zp.text" = "Nickname";
+"27D-rn-4zp.text" = "Nama panggilan";
 
 /* Class = "UITextField"; placeholder = "Country"; ObjectID = "4hs-GL-9fd"; */
-"4hs-GL-9fd.placeholder" = "Country";
+"4hs-GL-9fd.placeholder" = "Negara";
 
 /* Class = "UILabel"; text = "Change account settings"; ObjectID = "70p-aF-3x5"; */
-"70p-aF-3x5.text" = "Change account settings";
+"70p-aF-3x5.text" = "Ubah pengaturan akun";
 
 /* Class = "UILabel"; text = "Scan QR Code to add me as a contact"; ObjectID = "7cH-MH-cya"; */
 "7cH-MH-cya.text" = "Scan QR Code to add me as a contact";
 
 /* Class = "UITextField"; placeholder = "Required"; ObjectID = "7KN-S3-8XR"; */
-"7KN-S3-8XR.placeholder" = "Required";
+"7KN-S3-8XR.placeholder" = "Wajib";
 
 /* Class = "UITableViewController"; title = "OMEMO fingerprints"; ObjectID = "A24-eF-tzh"; */
-"A24-eF-tzh.title" = "OMEMO fingerprints";
+"A24-eF-tzh.title" = "Sidikjari OMEMO";
 
 /* Class = "UILabel"; text = "When in Away/XA/DND state"; ObjectID = "aKW-CM-bl2"; */
-"aKW-CM-bl2.text" = "When in Away/XA/DND state";
+"aKW-CM-bl2.text" = "Kondisi Away/XA/DND";
 
 /* Class = "UITextField"; placeholder = "Type"; ObjectID = "Clb-vT-t5A"; */
 "Clb-vT-t5A.placeholder" = "Type";
@@ -29,40 +29,40 @@
 "Cmz-iN-c4d.placeholder" = "City";
 
 /* Class = "UITableViewSection"; headerTitle = "Encryption"; ObjectID = "Et5-H6-t7C"; */
-"Et5-H6-t7C.headerTitle" = "Encryption";
+"Et5-H6-t7C.headerTitle" = "Enkripsi";
 
 /* Class = "UITableViewController"; title = "Telephony Provider"; ObjectID = "Ey3-E6-jDR"; */
-"Ey3-E6-jDR.title" = "Telephony Provider";
+"Ey3-E6-jDR.title" = "Provider telepon";
 
 /* Class = "UILabel"; text = "Subtitle"; ObjectID = "FeX-5F-H2m"; */
-"FeX-5F-H2m.text" = "Subtitle";
+"FeX-5F-H2m.text" = "Subjudul";
 
 /* Class = "UILabel"; text = "add address"; ObjectID = "fRX-fN-yOj"; */
 "fRX-fN-yOj.text" = "add address";
 
 /* Class = "UILabel"; text = "OMEMO fingerprint"; ObjectID = "gUr-GY-P3A"; */
-"gUr-GY-P3A.text" = "OMEMO fingerprint";
+"gUr-GY-P3A.text" = "Sidikjari OMEMO";
 
 /* Class = "UILabel"; text = "Log out"; ObjectID = "GWw-NK-6oU"; */
-"GWw-NK-6oU.text" = "Log out";
+"GWw-NK-6oU.text" = "Keluar";
 
 /* Class = "UINavigationItem"; title = "Account settings"; ObjectID = "gzC-dB-kIF"; */
-"gzC-dB-kIF.title" = "Account settings";
+"gzC-dB-kIF.title" = "Pengaturan akun";
 
 /* Class = "UIBarButtonItem"; title = "Done"; ObjectID = "ijD-Kb-uyj"; */
-"ijD-Kb-uyj.title" = "Done";
+"ijD-Kb-uyj.title" = "Selesai";
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "IUH-ca-fBy"; */
-"IUH-ca-fBy.text" = "Title";
+"IUH-ca-fBy.text" = "Judul";
 
 /* Class = "UILabel"; text = "add phone"; ObjectID = "jAE-vq-Vfj"; */
-"jAE-vq-Vfj.text" = "add phone";
+"jAE-vq-Vfj.text" = "Tambahkan telepon";
 
 /* Class = "UILabel"; text = "Detail"; ObjectID = "JkB-3h-A61"; */
 "JkB-3h-A61.text" = "Detail";
 
 /* Class = "UITextField"; placeholder = "Street"; ObjectID = "KgL-GY-IFp"; */
-"KgL-GY-IFp.placeholder" = "Street";
+"KgL-GY-IFp.placeholder" = "Jalan";
 
 /* Class = "UILabel"; text = "Delete account"; ObjectID = "lGT-wY-qtX"; */
 "lGT-wY-qtX.text" = "Delete account";
@@ -71,7 +71,7 @@
 "LO4-Ys-cek.headerTitle" = " Password";
 
 /* Class = "UIButton"; normalTitle = "Change avatar"; ObjectID = "Mo3-sc-7ss"; */
-"Mo3-sc-7ss.normalTitle" = "Change avatar";
+"Mo3-sc-7ss.normalTitle" = "Ganti gambar profil";
 
 /* Class = "UITextField"; placeholder = "Type"; ObjectID = "NK4-tE-QSu"; */
 "NK4-tE-QSu.placeholder" = "Type";
@@ -86,7 +86,7 @@
 "R0m-k2-q64.title" = "Next";
 
 /* Class = "UITableViewSection"; footerTitle = "Enter your account JID"; ObjectID = "SKG-bP-NPK"; */
-"SKG-bP-NPK.footerTitle" = "Enter your account JID";
+"SKG-bP-NPK.footerTitle" = "Masukkan JID akun anda";
 
 /* Class = "UITableViewSection"; headerTitle = " XMPP ID"; ObjectID = "SKG-bP-NPK"; */
 "SKG-bP-NPK.headerTitle" = " XMPP ID";
@@ -95,10 +95,10 @@
 "StS-4J-0Uu.text" = "None";
 
 /* Class = "UITextField"; placeholder = "Phone number"; ObjectID = "T1r-DU-iqs"; */
-"T1r-DU-iqs.placeholder" = "Phone number";
+"T1r-DU-iqs.placeholder" = "Nomor telepon";
 
 /* Class = "UILabel"; text = "Server features"; ObjectID = "t3T-uh-mob"; */
-"t3T-uh-mob.text" = "Server features";
+"t3T-uh-mob.text" = "Fasilitas server";
 
 /* Class = "UITextField"; placeholder = "Type"; ObjectID = "UQ1-rc-tuY"; */
 "UQ1-rc-tuY.placeholder" = "Type";
@@ -110,13 +110,13 @@
 "vjD-aw-Ugt.text" = "Label";
 
 /* Class = "UILabel"; text = "Enabled"; ObjectID = "wbI-5v-vug"; */
-"wbI-5v-vug.text" = "Enabled";
+"wbI-5v-vug.text" = "Diaktifkan";
 
 /* Class = "UITableViewSection"; headerTitle = "Telephony"; ObjectID = "WFs-jm-Wmk"; */
-"WFs-jm-Wmk.headerTitle" = "Telephony";
+"WFs-jm-Wmk.headerTitle" = "Telepon";
 
 /* Class = "UITableViewController"; title = "Server Features"; ObjectID = "wW7-3f-Kck"; */
-"wW7-3f-Kck.title" = "Server Features";
+"wW7-3f-Kck.title" = "Fasilitas server";
 
 /* Class = "UITextField"; placeholder = "Email address"; ObjectID = "ynp-RE-XlY"; */
 "ynp-RE-XlY.placeholder" = "Email address";
@@ -128,4 +128,4 @@
 "ZHc-Ml-5eX.text" = "Re-register push notifications";
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "zhp-jp-Aoq"; */
-"zhp-jp-Aoq.text" = "Title";
+"zhp-jp-Aoq.text" = "Judul";
