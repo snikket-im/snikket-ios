@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vAU-gJ-Tx3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vAU-gJ-Tx3">
     <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -557,31 +557,41 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="separatorColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="RosterItemTableViewCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="RosterItemTableViewCell" rowHeight="48" id="ONc-pU-DYD" customClass="RosterItemTableViewCell" customModule="Snikket" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44.666666030883789" width="428" height="48"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="RosterItemTableViewCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="RosterItemTableViewCell" rowHeight="56" id="ONc-pU-DYD" customClass="RosterItemTableViewCell" customModule="Snikket" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.666666030883789" width="428" height="56"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" tableViewCell="ONc-pU-DYD" id="UqK-Bi-A4U">
-                                    <rect key="frame" x="0.0" y="0.0" width="428" height="48"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="428" height="56"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cbu-SQ-mtx">
-                                            <rect key="frame" x="2" y="2" width="424" height="44"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cbu-SQ-mtx">
+                                            <rect key="frame" x="6" y="4" width="420" height="48"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PEi-Gx-E77" customClass="AvatarStatusView" customModule="Snikket" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="56" height="48"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jqt-KR-cfI" customClass="AvatarView" customModule="Snikket" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jqt-KR-cfI" customClass="AvatarView" customModule="Snikket" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="56" height="48"/>
                                                         </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="first" translatesAutoresizingMaskIntoConstraints="NO" id="ZJ9-1V-mBH">
-                                                            <rect key="frame" x="34" y="34" width="10" height="10"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="first" translatesAutoresizingMaskIntoConstraints="NO" id="ZJ9-1V-mBH">
+                                                            <rect key="frame" x="40" y="32" width="16" height="16"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="16" id="8Ut-4o-MCF"/>
+                                                                <constraint firstAttribute="width" constant="16" id="f0Y-p3-4fH"/>
+                                                            </constraints>
                                                         </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="44" id="bhT-5q-V8P"/>
+                                                        <constraint firstAttribute="bottom" secondItem="ZJ9-1V-mBH" secondAttribute="bottom" id="1Cd-Rh-95l"/>
+                                                        <constraint firstItem="Jqt-KR-cfI" firstAttribute="leading" secondItem="PEi-Gx-E77" secondAttribute="leading" id="Iyu-68-zRI"/>
+                                                        <constraint firstItem="Jqt-KR-cfI" firstAttribute="top" secondItem="PEi-Gx-E77" secondAttribute="top" id="Pnj-8B-KnM"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Jqt-KR-cfI" secondAttribute="trailing" id="VW7-CN-hhs"/>
+                                                        <constraint firstAttribute="height" constant="56" id="Xkb-u7-2j9"/>
+                                                        <constraint firstAttribute="width" secondItem="PEi-Gx-E77" secondAttribute="height" multiplier="1:1" id="ZCW-Dj-FnC"/>
+                                                        <constraint firstAttribute="width" constant="56" id="bhT-5q-V8P"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Jqt-KR-cfI" secondAttribute="bottom" id="kfN-mk-NsZ"/>
+                                                        <constraint firstAttribute="trailing" secondItem="ZJ9-1V-mBH" secondAttribute="trailing" id="yMj-DG-d75"/>
                                                     </constraints>
                                                     <connections>
                                                         <outlet property="avatarImageView" destination="Jqt-KR-cfI" id="yHN-bk-KrZ"/>
@@ -589,10 +599,10 @@
                                                     </connections>
                                                 </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fPJ-VF-UlI">
-                                                    <rect key="frame" x="54" y="0.0" width="370" height="44"/>
+                                                    <rect key="frame" x="64" y="0.0" width="356" height="48"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vEG-as-CLS">
-                                                            <rect key="frame" x="0.0" y="0.0" width="370" height="26"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="356" height="30"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="highlightedColor"/>
                                                             <attributedString key="userComments">
@@ -600,7 +610,7 @@
                                                             </attributedString>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tRD-rd-7dm">
-                                                            <rect key="frame" x="0.0" y="26" width="370" height="18"/>
+                                                            <rect key="frame" x="0.0" y="30" width="356" height="18"/>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                             <nil key="highlightedColor"/>
                                                             <attributedString key="userComments">
@@ -613,10 +623,10 @@
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="cbu-SQ-mtx" firstAttribute="leading" secondItem="UqK-Bi-A4U" secondAttribute="leading" constant="2" id="BAi-EZ-OZn"/>
+                                        <constraint firstItem="cbu-SQ-mtx" firstAttribute="leading" secondItem="UqK-Bi-A4U" secondAttribute="leading" constant="6" id="BAi-EZ-OZn"/>
                                         <constraint firstAttribute="trailing" secondItem="cbu-SQ-mtx" secondAttribute="trailing" constant="2" id="FjQ-IY-JEo"/>
-                                        <constraint firstAttribute="bottom" secondItem="cbu-SQ-mtx" secondAttribute="bottom" constant="2" id="KPQ-Ln-nwb"/>
-                                        <constraint firstItem="cbu-SQ-mtx" firstAttribute="top" secondItem="UqK-Bi-A4U" secondAttribute="top" constant="2" id="zaP-Ho-3Uk"/>
+                                        <constraint firstAttribute="bottom" secondItem="cbu-SQ-mtx" secondAttribute="bottom" constant="4" id="KPQ-Ln-nwb"/>
+                                        <constraint firstItem="cbu-SQ-mtx" firstAttribute="top" secondItem="UqK-Bi-A4U" secondAttribute="top" constant="4" id="zaP-Ho-3Uk"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

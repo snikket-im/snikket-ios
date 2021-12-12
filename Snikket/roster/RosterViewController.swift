@@ -44,6 +44,8 @@ class RosterViewController: AbstractRosterViewController, UIGestureRecognizerDel
         
         setColors();
         updateNavBarColors();
+        tableView.rowHeight = UITableView.automaticDimension;
+        tableView.estimatedRowHeight = 66.0;
         
         NotificationCenter.default.addObserver(self, selector: #selector(settingsChanged(_:)), name: Settings.SETTINGS_CHANGED, object: nil);
         NotificationCenter.default.addObserver(self, selector: #selector(self.nickChanged(_:)), name: NickChangeEventHandler.NICK_CHANGED, object: nil)
