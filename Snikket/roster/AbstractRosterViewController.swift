@@ -111,7 +111,6 @@ class AbstractRosterViewController: UITableViewController, UISearchResultsUpdati
         if let item = roster?.item(at: indexPath) {
             cell.nameLabel.text = item.displayName;
             cell.statusLabel.text = item.account.stringValue;
-            cell.avatarStatusView.setStatus(item.presence?.show);
             cell.avatarStatusView.set(name: item.displayName, avatar: AvatarManager.instance.avatar(for: item.jid.bareJid, on: item.account), orDefault: AvatarManager.instance.defaultAvatar);
         }
         

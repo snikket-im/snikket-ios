@@ -53,4 +53,9 @@ class ChatsListTableViewCell: UITableViewCell {
         }
     }    
 
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+        avatarStatusView.statusImageView.isHidden = true
+    }
 }

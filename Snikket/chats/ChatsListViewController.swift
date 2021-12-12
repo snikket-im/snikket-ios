@@ -102,26 +102,20 @@ class ChatsListViewController: UITableViewController {
 //            cell.nameLabel.textColor = Appearance.current.labelColor;
             cell.nameLabel.font = item.unread > 0 ? UIFont.boldSystemFont(ofSize: cell.nameLabel.font.pointSize) : UIFont.systemFont(ofSize: cell.nameLabel.font.pointSize);
 //            cell.lastMessageLabel.textColor = item.unread > 0 ? Appearance.current.labelColor : Appearance.current.secondaryLabelColor;
-            let xmppClient = self.xmppService.getClient(forJid: item.account);
             switch item {
             case let room as DBRoom:
                 let memberNames = self.groupMemberNames(item: item)
                 let memberImages = self.groupMemberAvatars(item: item)
                 let memberBareJIDS = self.groupMembersJIDS(item: item)
                 cell.avatarStatusView.setGroup(bareJIDS: memberBareJIDS, memberNames: memberNames,memberImages: memberImages, groupAvatar: AvatarManager.instance.avatar(for: room.roomJid, on: room.account), defAvatar: AvatarManager.instance.defaultGroupchatAvatar)
-                cell.avatarStatusView.setStatus(room.state == .joined ? Presence.Show.online : nil);
                 cell.nameLabel.text = groupName(item: item)
             case let channel as DBChannel:
                 cell.avatarStatusView.set(name: nil, avatar: AvatarManager.instance.avatar(for: channel.channelJid, on: channel.account), orDefault: AvatarManager.instance.defaultGroupchatAvatar);
                 cell.nameLabel.text = channel.name ?? item.jid.localPart ?? item.jid.stringValue;
-                cell.avatarStatusView.setStatus(channel.state == .joined ? Presence.Show.online : nil)
             default:
                 let name = PEPDisplayNameModule.getDisplayName(account: item.account, for: BareJID(item.jid))
                 cell.nameLabel.text = name
                 cell.avatarStatusView.set(bareJID: item.jid.bareJid ,name: name, avatar: AvatarManager.instance.avatar(for: item.jid.bareJid, on: item.account), orDefault: AvatarManager.instance.defaultAvatar);
-                let presenceModule: PresenceModule? = xmppClient?.modulesManager.getModule(PresenceModule.ID);
-                let presence = presenceModule?.presenceStore.getBestPresence(for: item.jid.bareJid);
-                cell.avatarStatusView.setStatus(presence?.show);
             }
             
             if let lastActivity = item.lastActivity {
@@ -204,8 +198,6 @@ class ChatsListViewController: UITableViewController {
 //            cell.timestampLabel.textColor = Appearance.current.secondaryLabelColor;
             
         }
-        cell.avatarStatusView.updateCornerRadius();
-        
         return cell;
     }
     

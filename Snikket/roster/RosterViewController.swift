@@ -137,10 +137,8 @@ class RosterViewController: AbstractRosterViewController, UIGestureRecognizerDel
             let nick = PEPDisplayNameModule.getDisplayName(account: item.account, for: item.jid.bareJid)
             cell.nameLabel.text = nick
             cell.statusLabel.text = item.presence?.status ?? item.jid.stringValue;
-            cell.avatarStatusView.setStatus(item.presence?.show);
             cell.avatarStatusView.set(bareJID: item.jid.bareJid, name: nick, avatar: AvatarManager.instance.avatar(for: item.jid.bareJid, on: item.account), orDefault: AvatarManager.instance.defaultAvatar);
         }
-        
         return cell;
     }
     
