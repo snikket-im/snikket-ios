@@ -482,7 +482,7 @@ open class XmppService: Logger, EventHandler {
     }
     
     fileprivate func fetchEnded(for account: BareJID) {
-        dispatcher.async {
+        dispatcher.async(flags: .barrier) {
             if let idx = self.fetchingFor.firstIndex(of: account) {
                 self.fetchingFor.remove(at: idx);
                 self.fetchGroup?.leave();
