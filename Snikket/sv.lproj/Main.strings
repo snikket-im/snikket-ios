@@ -62,7 +62,7 @@
 "N9z-ms-iaT.title" = "Bilagor";
 
 /* Class = "UINavigationController"; title = "Contacts"; ObjectID = "Ndx-if-NHK"; */
-"Ndx-if-NHK.title" = "Contacts";
+"Ndx-if-NHK.title" = "Kontakter";
 
 /* Class = "UITextField"; placeholder = "Enter contact name"; ObjectID = "OGf-mX-8z3"; */
 "OGf-mX-8z3.placeholder" = "Enter contact name";
@@ -80,13 +80,13 @@
 "Qr0-8H-IJq.text" = "Chat with";
 
 /* Class = "UINavigationItem"; title = "Contacts"; ObjectID = "SEz-IM-IWL"; */
-"SEz-IM-IWL.title" = "Contacts";
+"SEz-IM-IWL.title" = "Kontakter";
 
 /* Class = "UILabel"; text = "Send presence updates"; ObjectID = "upM-mW-rMZ"; */
 "upM-mW-rMZ.text" = "Send presence updates";
 
 /* Class = "UITabBarItem"; title = "Contacts"; ObjectID = "W52-LN-wzX"; */
-"W52-LN-wzX.title" = "Contacts";
+"W52-LN-wzX.title" = "Kontakter";
 
 /* Class = "UIViewController"; title = "Chat"; ObjectID = "WP2-Cp-7ZE"; */
 "WP2-Cp-7ZE.title" = "Chat";
