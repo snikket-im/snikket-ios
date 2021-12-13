@@ -1,5 +1,5 @@
 /* Class = "UILabel"; text = "Notifications"; ObjectID = "02f-aw-3Zd"; */
-"02f-aw-3Zd.text" = "Notifications";
+"02f-aw-3Zd.text" = "Notifikasi";
 
 /* Class = "UITableViewSection"; headerTitle = " "; ObjectID = "2ZD-5S-4hK"; */
 "2ZD-5S-4hK.headerTitle" = " ";
@@ -29,19 +29,19 @@
 "exK-ZH-jpA.text" = "Saat disebutkan";
 
 /* Class = "UITableViewController"; title = "Group details"; ObjectID = "IGA-uE-mHb"; */
-"IGA-uE-mHb.title" = "Group details";
+"IGA-uE-mHb.title" = "Detil kamar";
 
 /* Class = "UITableViewSection"; headerTitle = "Subject"; ObjectID = "iYv-zL-tZT"; */
 "iYv-zL-tZT.headerTitle" = "Subyek";
 
 /* Class = "UILabel"; text = "Push notifications"; ObjectID = "jMz-qR-fJ6"; */
-"jMz-qR-fJ6.text" = "Push notifications";
+"jMz-qR-fJ6.text" = "Push notifikasi";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "kFB-wJ-yDE"; */
 "kFB-wJ-yDE.text" = "Label";
 
 /* Class = "UILabel"; text = "Group name"; ObjectID = "lEG-rf-VV5"; */
-"lEG-rf-VV5.text" = "Group name";
+"lEG-rf-VV5.text" = "Nama kamar";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Qmg-sW-dkA"; */
 "Qmg-sW-dkA.normalTitle" = "Button";
