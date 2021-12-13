@@ -83,7 +83,7 @@
 "MJ0-kw-1Kl.text" = "Contacts bloqués";
 
 /* Class = "UILabel"; text = "\"Hidden\" group"; ObjectID = "P82-B8-768"; */
-"P82-B8-768.text" = "Salon \"caché\"";
+"P82-B8-768.text" = "Salon « caché »";
 
 /* Class = "UITableViewController"; title = "Chat settings"; ObjectID = "pFo-ox-4gT"; */
 "pFo-ox-4gT.title" = "Paramètres de discussion";
