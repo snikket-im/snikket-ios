@@ -119,4 +119,4 @@
 "YYb-TE-za0.text" = "Provider";
 
 /* Class = "UILabel"; text = "Re-register push notifications"; ObjectID = "ZHc-Ml-5eX"; Note = "Action button to re-register this device to receive push notifications"; */
-"ZHc-Ml-5eX.text" = "Enabled";
+"ZHc-Ml-5eX.text" = "Re-register for push notifications";
