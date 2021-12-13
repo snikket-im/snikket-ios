@@ -201,12 +201,6 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
             return tableView.dequeueReusableCell(withIdentifier: "ChatTableViewCellIncoming", for: indexPath);
         }
 
-        var continuation = false;
-        if (indexPath.row + 1) < dataSource.count {
-            if let prevItem = dataSource.getItem(at: indexPath.row + 1) {
-                continuation = dsItem.isMergeable(with: prevItem);
-            }
-        }
         let incoming = dsItem.state.direction == .incoming;
         
         switch dsItem {
@@ -218,8 +212,7 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
                 cell.set(item: item, nickname: name);
                 return cell;
             } else {
-                let id = continuation ? (incoming ? "ChatTableViewMessageContinuationCell" : "ChatTableViewMessageContinuationCell2")
-                    : (incoming ? "ChatTableViewMessageCell" : "ChatTableViewMessageCell2");
+                let id = (incoming ? "ChatTableViewMessageCell" : "ChatTableViewMessageCell2")
                 let cell: ChatTableViewCell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! ChatTableViewCell;
                 cell.contentView.transform = dataSource.inverted ? CGAffineTransform(a: 1, b: 0, c: 0, d: -1, tx: 0, ty: 0) : CGAffineTransform.identity;
                 let name = incoming ? self.titleView.name : localNickname;
@@ -234,8 +227,7 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
                 return cell;
             }
         case let item as ChatAttachment:
-            let id = continuation ? (incoming ? "ChatTableViewAttachmentContinuationCell" : "ChatTableViewAttachmentContinuationCell2")
-                : (incoming ? "ChatTableViewAttachmentCell" : "ChatTableViewAttachmentCell2");
+            let id = incoming ? "ChatTableViewAttachmentCell" : "ChatTableViewAttachmentCell2"
             let cell: AttachmentChatTableViewCell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath) as! AttachmentChatTableViewCell;
             cell.contentView.transform = dataSource.inverted ? CGAffineTransform(a: 1, b: 0, c: 0, d: -1, tx: 0, ty: 0) : CGAffineTransform.identity;
             let name = incoming ? self.titleView.name : localNickname;
