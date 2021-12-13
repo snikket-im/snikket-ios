@@ -33,7 +33,7 @@ class MediaHelper {
                 
                 let values: [ImageQuality] = [.original, .highest, .high, .medium, .low];
                 for value in  values {
-                    alert.addAction(UIAlertAction(title: value.rawValue.capitalized, style: .default, handler: { _ in
+                    alert.addAction(UIAlertAction(title: value.localized, style: .default, handler: { _ in
                         completionHandler(.success(value));
                     }));
                 }
@@ -54,7 +54,7 @@ class MediaHelper {
                 
                 let values: [VideoQuality] = [.original, .high, .medium, .low];
                 for value in  values {
-                    alert.addAction(UIAlertAction(title: value.rawValue.capitalized, style: .default, handler: { _ in
+                    alert.addAction(UIAlertAction(title: value.localized, style: .default, handler: { _ in
                         completionHandler(.success(value));
                     }));
                 }

@@ -167,6 +167,12 @@
 "Fingerprint of this device" = "Fingerprint of this device";
 "Free for chat" = "Free for chat";
 "General" = "General";
+
+/* Image or Video Quality */
+"High" = "High";
+
+/* Image or Video Quality */
+"Highest" = "Highest";
 "History" = "History";
 "Info" = "Info";
 "Invitation" = "Invitation";
@@ -205,9 +211,15 @@
 "Log Out" = "Log Out";
 "Login and password do not match." = "Login and password do not match.";
 
+/* Image or Video Quality */
+"Low" = "Low";
+
 /* Alert title for storage usage */
 "Manage Storage" = "Manage Storage";
 "Media" = "Media";
+
+/* Image or Video Quality */
+"Medium" = "Medium";
 "Member" = "Member";
 "Message Archiving" = "Message Archiving";
 "Message Archiving Error" = "Message Archiving Error";
@@ -250,6 +262,9 @@
 "Open URL" = "Open URL";
 "Operation timed out" = "Operation timed out";
 "operation timed out" = "operation timed out";
+
+/* Image or Video Quality */
+"Original" = "Original";
 "Original quality will share image in the format in which it is stored on your phone and it may not be supported by every device." = "Original quality will share image in the format in which it is stored on your phone and it may not be supported by every device.";
 "Original quality will share video in the format in which video is stored on your phone and it may not be supported by every device." = "Original quality will share video in the format in which video is stored on your phone and it may not be supported by every device.";
 "Other devices fingerprints" = "Other devices fingerprints";

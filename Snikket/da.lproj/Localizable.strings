@@ -277,6 +277,12 @@
 /* No comment provided by engineer. */
 "General" = "General";
 
+/* Image or Video Quality */
+"High" = "High";
+
+/* Image or Video Quality */
+"Highest" = "Highest";
+
 /* No comment provided by engineer. */
 "History" = "History";
 
@@ -352,11 +358,17 @@
 /* No comment provided by engineer. */
 "Login and password do not match." = "Login and password do not match.";
 
+/* Image or Video Quality */
+"Low" = "Low";
+
 /* Alert title for storage usage */
 "Manage Storage" = "Manage Storage";
 
 /* No comment provided by engineer. */
 "Media" = "Media";
+
+/* Image or Video Quality */
+"Medium" = "Medium";
 
 /* No comment provided by engineer. */
 "Member" = "Member";
@@ -443,6 +455,9 @@
 
 /* No comment provided by engineer. */
 "operation timed out" = "operation timed out";
+
+/* Image or Video Quality */
+"Original" = "Original";
 
 /* No comment provided by engineer. */
 "Original quality will share image in the format in which it is stored on your phone and it may not be supported by every device." = "Original quality will share image in the format in which it is stored on your phone and it may not be supported by every device.";

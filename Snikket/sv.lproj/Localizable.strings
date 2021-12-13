@@ -181,6 +181,12 @@
 /* Section heading: general settings about contacts */
 "General" = "General";
 
+/* Image or Video Quality */
+"High" = "High";
+
+/* Image or Video Quality */
+"Highest" = "Highest";
+
 /* Section heading for chat history controls */
 "History" = "Historia";
 "Info" = "Info";
@@ -220,9 +226,15 @@
 "Log Out" = "Logga Ut";
 "Login and password do not match." = "Användarnamn och lösenord matchar inte.";
 
+/* Image or Video Quality */
+"Low" = "Low";
+
 /* Alert title for storage usage */
 "Manage Storage" = "Hantera Lagring";
 "Media" = "Media";
+
+/* Image or Video Quality */
+"Medium" = "Medium";
 "Member" = "Medlem";
 "Message Archiving" = "Meddelandearkivering";
 
@@ -275,6 +287,9 @@
 "Open URL" = "Öppna URL";
 "Operation timed out" = "Operationen fick time out";
 "operation timed out" = "operationen fick time out";
+
+/* Image or Video Quality */
+"Original" = "Original";
 "Original quality will share image in the format in which it is stored on your phone and it may not be supported by every device." = "Originalkvalité delar bilden i det format den är lagrad på din telefon vilket kanske inte stöds på alla enheter.";
 "Original quality will share video in the format in which video is stored on your phone and it may not be supported by every device." = "Originalkvalité delar videon i det format den är lagrad på din telefon vilket kanske inte stöds på alla enheter.";
 "Other devices fingerprints" = "Andra enheters fingeravtryck";

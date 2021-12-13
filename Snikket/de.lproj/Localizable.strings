@@ -181,6 +181,12 @@
 /* Section heading: general settings about contacts */
 "General" = "Allgemein";
 
+/* Image or Video Quality */
+"High" = "High";
+
+/* Image or Video Quality */
+"Highest" = "Highest";
+
 /* Section heading for chat history controls */
 "History" = "Verlauf";
 "Info" = "Info";
@@ -220,9 +226,15 @@
 "Log Out" = "Abmelden";
 "Login and password do not match." = "Anmeldename oder Passwort falsch.";
 
+/* Image or Video Quality */
+"Low" = "Low";
+
 /* Alert title for storage usage */
 "Manage Storage" = "Speicher verwalten";
 "Media" = "Medien";
+
+/* Image or Video Quality */
+"Medium" = "Medium";
 "Member" = "Teilnehmer:in";
 "Message Archiving" = "Nachrichtenarchiv";
 
@@ -275,6 +287,9 @@
 "Open URL" = "URL öffnen";
 "Operation timed out" = "Aktion wegen Zeitüberschreitung abgebrochen";
 "operation timed out" = "Aktion aufgrund einer Zeitüberschreitung abgebrochen";
+
+/* Image or Video Quality */
+"Original" = "Original";
 "Original quality will share image in the format in which it is stored on your phone and it may not be supported by every device." = "Bei Originalqualität wird das Bild in dem ursprünglichen Format in dem es auf dem Telefon gespeichert ist gesendet. Das wird ggfs. nicht von jedem Empfangsgerät unterstützt.";
 "Original quality will share video in the format in which video is stored on your phone and it may not be supported by every device." = "Bei Originalqualität wird das Video in dem ursprünglichen Format in dem es auf dem Telefon gespeichert ist gesendet. Das wird ggfs. nicht von jedem Empfangsgerät unterstützt.";
 "Other devices fingerprints" = "Fingerabdrücke anderer Geräte";
