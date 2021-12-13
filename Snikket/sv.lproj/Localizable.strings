@@ -3,11 +3,7 @@
 
 /* Placeholder is the MBs Download Limit */
 "%d MB" = "%d MB";
-
-/* No comment provided by engineer. */
 "(private message)" = "(private message)";
-
-/* No comment provided by engineer. */
 "1 line of preview" = "En rads förhandsvisning";
 
 /* Alert dialog title - account is offline */
@@ -15,35 +11,23 @@
 
 /* Alert title */
 "Account Removal Failed" = "Kontoborttagning Misslyckades";
-
-/* No comment provided by engineer. */
 "Accounts" = "Konton";
-
-/* No comment provided by engineer. */
 "Add account" = "Add account";
 
 /* Action: add the provided JID as a new contact */
-"Add contact" = "Add contact";
+"Add contact" = "Lägg till kontakt";
 
 /* Section heading for a list of postal addresses */
 "Addresses" = "Adresser";
 
 /* How many messages to fetch from the server */
 "All" = "Alla";
-
-/* No comment provided by engineer. */
 "All messages will be deleted and all participants will be kicked out. Are you sure?" = "Alla meddelanden kommer raderas och alla deltagare blir utsparkade. Är du säker?";
 
 /* Option: Always notify user about messages in this group */
 "Always" = "Alltid";
-
-/* No comment provided by engineer. */
 "Attachment" = "Bilaga";
-
-/* No comment provided by engineer. */
 "Attachments" = "Bilagor";
-
-/* No comment provided by engineer. */
 "Audio call" = "Ljudsamtal";
 
 /* App Theme Type */
@@ -57,42 +41,24 @@
 "Away" = "Borta";
 
 /* Alert title */
-"Ban Failed" = "Ban Failed";
-
-/* No comment provided by engineer. */
+"Ban Failed" = "Portning misslyckades";
 "Ban user" = "Ban user";
-
-/* No comment provided by engineer. */
 "Banning user" = "Portar användare";
-
-/* No comment provided by engineer. */
 "Be right back" = "Strax tillbaka";
 
 /* Sorting Chat Messages */
 "By availability and time" = "Efter tillgänglighet och tid";
-
-/* No comment provided by engineer. */
 "By name" = "By name";
-
-/* No comment provided by engineer. */
 "By status" = "By status";
 
 /* Sorting Chat Messages */
 "By time" = "Efter tid";
-
-/* No comment provided by engineer. */
 "Call ended" = "Samtal avslutat";
-
-/* No comment provided by engineer. */
 "Call failed" = "Samtal misslyckades";
 
 /* Menu item: open camera to capture media for sharing */
-"Camera" = "Camera";
-
-/* No comment provided by engineer. */
+"Camera" = "Kamera";
 "Cancel" = "Avbryt";
-
-/* No comment provided by engineer. */
 "Change" = "Ändra";
 
 /* Alert title: change group chat picture */
@@ -100,178 +66,116 @@
 
 /* Alert title: Change group chat subject */
 "Change subject" = "Ändra ämne";
-
-/* No comment provided by engineer. */
 "Channel destruction failed!" = "Kanalförstörelsen misslyckades!";
 
 /* Status Options */
 "Chat" = "Chat";
 
 /* Error text - while uploading file */
-"Check your network connection or try again later." = "Check your network connection or try again later.";
-
-/* No comment provided by engineer. */
+"Check your network connection or try again later." = "Kontrollera din nätverksanslutning eller försök igen senare.";
 "Clear History" = "Rensa historik";
-
-/* No comment provided by engineer. */
 "Close" = "Stäng";
 
 /* Action button */
 "Connect" = "Anslut";
-
-/* No comment provided by engineer. */
 "Connecting..." = "Ansluter...";
-
-/* No comment provided by engineer. */
 "Continue" = "Fortsätt";
 
 /* Context menu action
    Context menu item */
-"Copy" = "Copy";
-
-/* No comment provided by engineer. */
+"Copy" = "Kopiera";
 "Could not connect to the service. Check your network connectivity or try again later." = "Kunde inte ansluta till tjänsten. Kontrollera din nätverksanslutning eller försök igen senare.";
 
 /* Error text - while uploading file */
-"Could not detect file type." = "Could not detect file type.";
+"Could not detect file type." = "Kunde inte avgöra filtyp.";
 
 /* Error text - while uploading file */
-"Could not determine file size." = "Could not determine file size.";
-
-/* No comment provided by engineer. */
+"Could not determine file size." = "Kunde inte avgöra filstorlek.";
 "Could not rename group chat. The server responded with an error:" = "Kunde inte döpa om chatt.Servern svarade med ett felmeddelande:";
-
-/* No comment provided by engineer. */
 "Could not set the group chat picture. The server responded with an error:" = "Kunde inte sätta gruppchattbilden. Servern svarade med ett fel:";
-
-/* No comment provided by engineer. */
 "Create" = "Skapa";
 
 /* Alert title */
-"Create Account" = "Create Account";
+"Create Account" = "Skapa konto";
 
 /* App Theme Type */
 "Dark" = "Mörk";
-
-/* No comment provided by engineer. */
 "Default" = "Default";
-
-/* No comment provided by engineer. */
 "Delete" = "Delete";
 
 /* Action: Delete all downloaded files */
 "Delete all" = "Radera alla";
-
-/* No comment provided by engineer. */
 "Delete channel?" = "Radera kanal?";
-
-/* No comment provided by engineer. */
 "Delete chat" = "Delete chat";
-
-/* No comment provided by engineer. */
 "Delete group chat?" = "Radera gruppchatt?";
-
-/* No comment provided by engineer. */
 "Delete My Account" = "Delete My Account";
-
-/* No comment provided by engineer. */
 "Deleting your account will permanently log out all your devices and delete your account, profile, and associated data on %@." = "Deleting your account will permanently log out all your devices and delete your account, profile, and associated data on %@.";
-
-/* No comment provided by engineer. */
 "Details" = "Details";
 
 /* Section heading: settings for how contact list entries should be displayed */
 "Display" = "Display";
 
 /* Label for text field where user can enter their preferred name to display to their contacts */
-"Display Name" = "Display Name";
+"Display Name" = "Visningsnamn";
 
 /* Status Options */
 "Do not disturb" = "Stör ej";
-
-/* No comment provided by engineer. */
 "Do you want to ban user" = "Vill du porta användaren";
 
 /* Confirmation prompt text */
-"Do you wish to publish this photo as your profile picture?" = "Do you wish to publish this photo as your profile picture?";
+"Do you wish to publish this photo as your profile picture?" = "Vill du publicera detta foto som din profilbild?";
 
 /* Alert text. Placeholder is server domain. */
-"Do you wish to register a new account at %@?" = "Do you wish to register a new account at %@?";
+"Do you wish to register a new account at %@?" = "Vill du registrera nytt konto på %@?";
 
 /* Alert text. Placeholder is account JID. */
-"Do you wish to register the account %@?" = "Do you wish to register the account %@?";
+"Do you wish to register the account %@?" = "Vill du registrera det nya kontot %@?";
 
 /* Menu item: opens file picket to select document to share */
-"Document" = "Document";
+"Document" = "Dokument";
 
 /* Alert title
    Context menu item */
-"Download" = "Download";
-
-/* No comment provided by engineer. */
+"Download" = "Ladda ner";
 "Edit" = "Redigera";
 
 /* Section heading for list of contact email addresses */
 "Email addresses" = "E-postadresser";
-
-/* No comment provided by engineer. */
 "Enable %@" = "Aktivera %@";
-
-/* No comment provided by engineer. */
 "Enable telephony provider?" = "Enable telephony provider?";
-
-/* No comment provided by engineer. */
 "Encryption" = "Kryptering";
 
 /* Alert title */
 "Encryption Not Supported" = "Kryptering Stöds Ej";
-
-/* No comment provided by engineer. */
 "Enter default nickname to use in chats" = "Ange visningsnamn att använda i chattar";
-
-/* No comment provided by engineer. */
 "Enter message to send to:" = "Enter message to send to:";
 
 /* Text field prompt */
 "Enter new name for group chat" = "Ange nytt namn för gruppchatt";
-
-/* No comment provided by engineer. */
 "Enter new subject for group chat" = "Ange nytt ämne för gruppchatt";
-
-/* No comment provided by engineer. */
 "Enter status message" = "Enter status message";
-
-/* No comment provided by engineer. */
 "Error" = "Error";
 
 /* Status Options */
 "Extended away" = "Borta en längre stund";
 
 /* Alert text. First placeholder is name or JID, second is error message */
-"Failed to ban %@: %@" = "Failed to ban %1$@: %2$@";
-
-/* No comment provided by engineer. */
+"Failed to ban %@: %@" = "Misslyckades att porta %1$@: %2$@";
 "Failed To Update Contact List" = "Misslyckades att uppdatera kontaktlistan";
-
-/* No comment provided by engineer. */
 "Failure" = "Fel";
 
 /* Alert text */
-"File is not available locally. Should it be downloaded?" = "File is not available locally. Should it be downloaded?";
+"File is not available locally. Should it be downloaded?" = "Filen är inte tillgänglig lokalt. Ska den laddas ner?";
 
 /* Error text - while uploading file */
-"File is too large to share on your account." = "File is too large to share on your account.";
+"File is too large to share on your account." = "Filen är för stor för att dela från dit konto.";
 
 /* Error text */
-"File upload was not acknowledged by the server." = "File upload was not acknowledged by the server.";
+"File upload was not acknowledged by the server." = "Filuppladdning bekräftades inte av servern.";
 
 /* Error text - while uploading file */
-"File uploads are not supported on your account." = "File uploads are not supported on your account.";
-
-/* No comment provided by engineer. */
+"File uploads are not supported on your account." = "Filuppladdningar stöds inte på ditt konto.";
 "Fingerprint of this device" = "Den här enhetens fingeravtryck";
-
-/* No comment provided by engineer. */
 "Free for chat" = "Free for chat";
 
 /* Section heading: general settings about contacts */
@@ -279,47 +183,23 @@
 
 /* Section heading for chat history controls */
 "History" = "Historia";
-
-/* No comment provided by engineer. */
 "Info" = "Info";
-
-/* No comment provided by engineer. */
 "Invitation" = "Inbjudan";
-
-/* No comment provided by engineer. */
 "Invite" = "Inbjudan";
-
-/* No comment provided by engineer. */
 "It was not possible to access camera or microphone. Please check privacy settings" = "Kunde inte komma åt kamera eller mikrofon. Kontrollera integritetsinställningarna";
-
-/* No comment provided by engineer. */
 "It was not possible to access camera. Please check in privacy settings that you have granted Snikket access to the camera." = "It was not possible to access camera. Please check in privacy settings that you have granted Snikket access to the camera.";
 
 /* Error text: upload failed due to permissions */
-"It was not possible to access the file." = "It was not possible to access the file.";
-
-/* No comment provided by engineer. */
+"It was not possible to access the file." = "Kunde inte komma åt filen.";
 "It was not possible to contact XMPP server and sign in." = "Det gick inte kontakta XMPP-servern för att logga in.";
-
-/* No comment provided by engineer. */
 "It was not possible to destroy channel %@. Server returned an error:" = "It was not possible to destroy channel %@. Server returned an error:";
-
-/* No comment provided by engineer. */
 "It was not possible to establish call" = "Kunde inte etablera samtal";
 
 /* Action: Join the supplied JID as a group */
-"Join group" = "Join group";
-
-/* No comment provided by engineer. */
+"Join group" = "Gå med i grupp";
 "Join group chat" = "Gå med i gruppchatt";
-
-/* No comment provided by engineer. */
 "Joined" = "Gick med";
-
-/* No comment provided by engineer. */
 "Joining..." = "Går med...";
-
-/* No comment provided by engineer. */
 "Key not generated!" = "Nyckel ej genererad!";
 
 /* Placeholder is number of days */
@@ -327,79 +207,43 @@
 
 /* Placeholder is hours value */
 "Last %d hours" = "Senaste %d timmarna";
-
-/* No comment provided by engineer. */
 "Leave chat" = "Lämna chatt";
 
 /* App Theme Type */
 "Light" = "Ljus";
-
-/* No comment provided by engineer. */
 "Limits the size of the files sent to you which may be automatically downloaded" = "Begränsar storleken på filer skickade till dig som automatiskt hämtas";
-
-/* No comment provided by engineer. */
 "lines of preview" = "förhandsvisade rader";
-
-/* No comment provided by engineer. */
 "List of Messages" = "List of Messages";
 
 /* Menu item: open location picker to share a location */
-"Location" = "Location";
-
-/* No comment provided by engineer. */
+"Location" = "Plats";
 "Log Out" = "Logga Ut";
-
-/* No comment provided by engineer. */
 "Login and password do not match." = "Användarnamn och lösenord matchar inte.";
 
 /* Alert title for storage usage */
 "Manage Storage" = "Hantera Lagring";
-
-/* No comment provided by engineer. */
 "Media" = "Media";
-
-/* No comment provided by engineer. */
 "Member" = "Medlem";
-
-/* No comment provided by engineer. */
 "Message Archiving" = "Meddelandearkivering";
 
 /* Alert title */
 "Message Archiving Error" = "Meddelandearkiveringsfel";
-
-/* No comment provided by engineer. */
 "Messages" = "Messages";
 
 /* Context menu item: view more options
    Menu item: see more message actions
    Menu item: view more options */
-"More..." = "More...";
+"More..." = "Mer...";
 
 /* Option: notifications from this group chat will be suppressed */
 "Muted" = "Mutad";
-
-/* No comment provided by engineer. */
 "Name" = "Name";
-
-/* No comment provided by engineer. */
 "New call..." = "Nytt samtal...";
-
-/* No comment provided by engineer. */
 "New private group chat" = "Ny privat gruppchatt";
-
-/* No comment provided by engineer. */
 "New public group chat" = "Ny publik gruppchatt";
-
-/* No comment provided by engineer. */
 "Nickname" = "Visningsnamn";
-
-/* No comment provided by engineer. */
 "No" = "No";
-
-/* No comment provided by engineer. */
 "No attachments" = "Inga bilagor";
-
-/* No comment provided by engineer. */
 "No messages yet. Say hi!" = "Inga meddelanden än. Säg hej!";
 
 /* Encryption mode */
@@ -407,20 +251,12 @@
 
 /* Alert title */
 "Not Connected" = "Inte Ansluten";
-
-/* No comment provided by engineer. */
 "Not connected!" = "Inte ansluten!";
-
-/* No comment provided by engineer. */
 "Not Joined" = "Inte Med";
 
 /* How many messages to fetch from the server */
 "Nothing" = "Ingenting";
-
-/* No comment provided by engineer. */
 "Offline" = "Offline";
-
-/* No comment provided by engineer. */
 "OK" = "OK";
 
 /* Action: Delete all downloaded files over 7 days old */
@@ -433,63 +269,39 @@
 "Online" = "Online";
 
 /* Action: open a chat with a JID */
-"Open chat" = "Open chat";
+"Open chat" = "Öppna chat";
 
 /* Alert title */
-"Open URL" = "Open URL";
-
-/* No comment provided by engineer. */
+"Open URL" = "Öppna URL";
 "Operation timed out" = "Operationen fick time out";
-
-/* No comment provided by engineer. */
 "operation timed out" = "operationen fick time out";
-
-/* No comment provided by engineer. */
 "Original quality will share image in the format in which it is stored on your phone and it may not be supported by every device." = "Originalkvalité delar bilden i det format den är lagrad på din telefon vilket kanske inte stöds på alla enheter.";
-
-/* No comment provided by engineer. */
 "Original quality will share video in the format in which video is stored on your phone and it may not be supported by every device." = "Originalkvalité delar videon i det format den är lagrad på din telefon vilket kanske inte stöds på alla enheter.";
-
-/* No comment provided by engineer. */
 "Other devices fingerprints" = "Andra enheters fingeravtryck";
-
-/* No comment provided by engineer. */
 "Permanently Delete Account" = "Radera Konto Permanent";
 
 /* Section heading for list of contact phone numbers */
 "Phone numbers" = "Telefonnummer";
 
 /* Menu item: select media to share from photo/video library */
-"Photo & Video Library" = "Photo & Video Library";
-
-/* No comment provided by engineer. */
+"Photo & Video Library" = "Foto- och Videobibliotek";
 "Please try again!" = "Vänligen försök igen!";
 
 /* Alert title */
-"Preview" = "Preview";
-
-/* No comment provided by engineer. */
+"Preview" = "Förhandsvisning";
 "Private message" = "Private message";
 
 /* Alert title */
-"Profile Picture Update Failed" = "Profile Picture Update Failed";
-
-/* No comment provided by engineer. */
+"Profile Picture Update Failed" = "Uppdatering av Profilbild Misslyckades";
 "Provided values are not acceptable" = "Oacceptabla värden angivna";
 
 /* Alert title */
-"Push Notifications" = "Push Notifications";
-
-/* No comment provided by engineer. */
+"Push Notifications" = "Push-Notiser";
 "Push notifications are enabled for %@. They need to be disabled before account can be removed and it is not possible to at this time. Please try again later." = "Push notifications are enabled for %@. They need to be disabled before account can be removed and it is not possible to at this time. Please try again later.";
 
 /* Alert title */
 "Push Notifications Enabled" = "Push-Notiser Aktiverade";
-
-/* No comment provided by engineer. */
 "Push Notifications Error" = "Push Notifications Error";
-
-/* No comment provided by engineer. */
 "Quality of shared media" = "Kvalité på delad media";
 
 /* Placeholder is the number in MBs */
@@ -500,108 +312,60 @@
 
 /* Alert title */
 "Registration Failure" = "Misslyckad Registrering";
-
-/* No comment provided by engineer. */
 "Registration is not supported by this server" = "Registrering stöds inte på denna server";
-
-/* No comment provided by engineer. */
 "Remove Account Data" = "Radera Kontoinformation";
-
-/* No comment provided by engineer. */
 "Rename" = "Byt namn";
 
 /* Alert title
    Alert title: rename a group chat */
 "Rename chat" = "Döp om chatt";
-
-/* No comment provided by engineer. */
 "Report" = "Report";
-
-/* No comment provided by engineer. */
 "Report and Block" = "Rapportera och blockera";
-
-/* No comment provided by engineer. */
 "Report Contact" = "Report Contact";
-
-/* No comment provided by engineer. */
 "Reported" = "Rapporterad";
-
-/* No comment provided by engineer. */
 "Reporting..." = "Rapporterar...";
-
-/* No comment provided by engineer. */
 "Resend" = "Skicka igen";
-
-/* No comment provided by engineer. */
 "Ringing..." = "Ringer...";
-
-/* No comment provided by engineer. */
 "Save" = "Spara";
-
-/* No comment provided by engineer. */
 "Scanned QR code is not valid for Snikket." = "Skannad QR-kod är inte giltig för Snikket.";
-
-/* No comment provided by engineer. */
 "Search channels" = "Sök efter kanaler";
 
 /* Shown above a choice list of the user's accounts */
-"Select account to open chat from:" = "Select account to open chat from:";
+"Select account to open chat from:" = "Välj konto att öppna chatt från:";
 
 /* Action button: select (existing) photo for group chat picture */
 "Select photo" = "Välj foto";
 
 /* Alert title - select image share quality */
-"Select quality" = "Select quality";
-
-/* No comment provided by engineer. */
+"Select quality" = "Välj kvalité";
 "Select quality of the image to use for sharing" = "Välj kvalité på bild för delning";
-
-/* No comment provided by engineer. */
 "Select quality of the video to use for sharing" = "Välj kvalité på video att använda vid delning";
-
-/* No comment provided by engineer. */
 "Select status" = "Välj status";
-
-/* No comment provided by engineer. */
 "Send" = "Send";
 
 /* Action button: share with chat this device's current location */
 "Send Current Location" = "Skicka nuvarande plats";
-
-/* No comment provided by engineer. */
 "Send message" = "Send message";
 
 /* Action button: share with chat the location of the pin dropped by the user on the map (as opposed to device current location) */
 "Send Pin Location" = "Skicka Vald Position";
-
-/* No comment provided by engineer. */
 "Server did not respond to registration request" = "Servern svarade inte på registreringsförfrågan";
 
 /* Preceded by user's server domain */
 "server returned an error on the request to enable archiving. You can try to enable this feature later on from the account settings." = "server returned an error on the request to enable archiving. You can try to enable this feature later on from the account settings.";
-
-/* No comment provided by engineer. */
 "Server returned error:" = "Serverns felmeddelande:";
-
-/* No comment provided by engineer. */
 "Set" = "Set";
-
-/* No comment provided by engineer. */
 "Settings" = "Inställningar";
 
 /* Context menu action */
-"Share..." = "Share...";
+"Share..." = "Dela...";
 
 /* Informs user to slide their finger in direction of arrow to cancel audio recording */
-"Slide to cancel" = "Slide to cancel";
+"Slide to cancel" = "Dra för att avbryta";
 
 /* Alert title - starting a new chat */
-"Start Chat" = "Start Chat";
-
-/* No comment provided by engineer. */
+"Start Chat" = "Starta Chatt";
 "Status" = "Status";
-
-/* No comment provided by engineer. */
 "Successfully registered to receive push notifications." = "Lyckades registrera för att motta push-notiser.";
 
 /* Action button: take a new photo to use to as group chat picture */
@@ -609,93 +373,53 @@
 
 /* followed by a space and error condition */
 "The server returned an error:" = "Serverns felmeddelande:";
-
-/* No comment provided by engineer. */
 "The server returned an error: " = "Serverns felmeddelande: ";
 
 /* Error text - while uploading a file. Placeholder is a HTTP status code. */
-"The upload was rejected by the server (error %d)." = "The upload was rejected by the server (error %d).";
-
-/* No comment provided by engineer. */
+"The upload was rejected by the server (error %d)." = "Uppladdningen avvisades av servern (felkod %d).";
 "The user will be reported and any calls, messages and status updates from them will be blocked." = "Användaren kommer rapporteras och samtal, meddelanden och statusuppdateringar från dem blockeras.";
 
 /* Error text - while uploading file */
-"There was a server error processing the file upload. Please try again later." = "There was a server error processing the file upload. Please try again later.";
-
-/* No comment provided by engineer. */
+"There was a server error processing the file upload. Please try again later." = "Ett fel inträffade på servern vid hantering av filuppladdningen. Vänligen försök igen senare.";
 "This will delete all the message history for this chat. Continue?" = "Detta raderar all meddelandehistorik för den här chatten. Fortsätta?";
 
 /* Alert text */
-"Unable to publish your profile picture at this time.\nError: %@" = "Unable to publish your profile picture at this time.\nError: %@";
-
-/* No comment provided by engineer. */
+"Unable to publish your profile picture at this time.\nError: %@" = "Kunde inte publicera din profilbild just nu.\nFel: %@";
 "Unblock" = "Avblockera";
 
 /* Error text - while uploading file. Placeholder is a HTTP status code. */
-"Unexpected error (%d) received while uploading file." = "Unexpected error (%d) received while uploading file.";
-
-/* No comment provided by engineer. */
+"Unexpected error (%d) received while uploading file." = "Oväntat fel (%d) vid uppladdning av fel.";
 "Unkown error occured" = "Okänt fel uppstod";
-
-/* No comment provided by engineer. */
 "Unlimited" = "Obegränsad";
 
 /* Alert title */
-"Upload Failed" = "Upload Failed";
-
-/* No comment provided by engineer. */
+"Upload Failed" = "Uppladdning Misslyckades";
 "Used image and video quality may impact storage and network usage" = "Vald bild- och videokvalité kan påverka lagring och dataanvändning";
-
-/* No comment provided by engineer. */
 "User with provided username already exists" = "Användare med angivet användarnamn finns redan";
 
 /* followed by account name to select */
 "using" = "använder";
-
-/* No comment provided by engineer. */
 "Video call" = "Videosamtal";
-
-/* No comment provided by engineer. */
 "Warning" = "Varning";
 
 /* Placeholder is xmpp: URI */
-"What do you want to do with %@?" = "What do you want to do with %@?";
+"What do you want to do with %@?" = "Vad vill du göra med %@?";
 
 /* Option: only notify user when they are mentioned in this group */
 "When mentioned" = "Vid omnämnande";
-
-/* No comment provided by engineer. */
 "Would you like to use %@ as the default provider for outgoing SMS and calls from %@?" = "Would you like to use %1$@ as the default provider for outgoing SMS and calls from %2$@?";
-
-/* No comment provided by engineer. */
 "Yes" = "Ja";
-
-/* No comment provided by engineer. */
 "Yesterday" = "Igår";
-
-/* No comment provided by engineer. */
 "You are invited to join conversation at" = "Du är inbjuden till konversationen i";
-
-/* No comment provided by engineer. */
 "You are leaving the group chat" = "Du lämnar gruppchatten";
 
 /* Alert text */
 "You are not currently connected to this group. Please check your network connection and try again later." = "Du är inte ansluten till den här gruppen för närvarande. Kontrollera din nätverksanslutning och försök igen senare.";
-
-/* No comment provided by engineer. */
 "You are not joined to the channel." = "Du är inte med i kanalen.";
-
-/* No comment provided by engineer. */
 "You can log out of this account temporarily, or permanently remove all account data from this device (including chats). Account removal cannot be undone." = "Du kan logga ut från kontot temporärt, eller permanent radera all kontodata fråm den här enheten (inklusive chattar). Radering av konto kan inte ångras.";
-
-/* No comment provided by engineer. */
 "You have enabled encryption, but this group does not support encrypted messages. Please change encryption settings to be able to send messages." = "Du har aktiverad kryptering, men den här gruppen stödjer inte krypterade meddelanden. Vänligen ändra krypteringsinställningarna för att kunna skicka meddelanden.";
-
-/* No comment provided by engineer. */
 "You need to connect to your account before you can update your contact list. Do you wish to connect now?" = "Du behöver ansluta till ditt konto innan du kan uppdatera din kontakt lista. Vill du ansluta nu?";
 
 /* Placeholder is the Group Name */
 "You've left the group %@ and notifications for this group have been disabled.\nYou may need to reenable them on other devices." = "Du lämnade gruppen %@ och notifikationer för den här gruppen har stängs av.\nDu kan behöva återaktivera det på andra enheter.";
-
-/* No comment provided by engineer. */
 "Your Name" = "Ditt Namn";
