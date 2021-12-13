@@ -34,9 +34,6 @@
 /* Class = "UITableViewController"; title = "Telephony Provider"; ObjectID = "Ey3-E6-jDR"; */
 "Ey3-E6-jDR.title" = "Telefonieanbieter";
 
-/* Class = "UILabel"; text = "Subtitle"; ObjectID = "FeX-5F-H2m"; */
-"FeX-5F-H2m.text" = "Untertitel";
-
 /* Class = "UILabel"; text = "add address"; ObjectID = "fRX-fN-yOj"; */
 "fRX-fN-yOj.text" = "add address";
 
@@ -51,9 +48,6 @@
 
 /* Class = "UIBarButtonItem"; title = "Done"; ObjectID = "ijD-Kb-uyj"; */
 "ijD-Kb-uyj.title" = "Fertig";
-
-/* Class = "UILabel"; text = "Title"; ObjectID = "IUH-ca-fBy"; */
-"IUH-ca-fBy.text" = "Titel";
 
 /* Class = "UILabel"; text = "add phone"; ObjectID = "jAE-vq-Vfj"; */
 "jAE-vq-Vfj.text" = "Telefon hinzufügen";
@@ -126,6 +120,3 @@
 
 /* Class = "UILabel"; text = "Re-register push notifications"; ObjectID = "ZHc-Ml-5eX"; Note = "Action button to re-register this device to receive push notifications"; */
 "ZHc-Ml-5eX.text" = "Erneut für Push-Benachrichtigunen registrieren";
-
-/* Class = "UILabel"; text = "Title"; ObjectID = "zhp-jp-Aoq"; */
-"zhp-jp-Aoq.text" = "Titel";

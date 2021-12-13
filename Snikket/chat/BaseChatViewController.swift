@@ -70,7 +70,7 @@ class BaseChatViewController: UIViewController, UITextViewDelegate, ChatViewInpu
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        chatViewInputBar.placeholder = "New Message";
+        chatViewInputBar.placeholder = NSLocalizedString("New Message", comment: "Message input area placeholder when empty");
 
         navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem;
         navigationItem.leftItemsSupplementBackButton = true;

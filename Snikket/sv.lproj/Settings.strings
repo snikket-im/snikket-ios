@@ -4,9 +4,6 @@
 /* Class = "UILabel"; text = "Request delivery receipts"; ObjectID = "32B-bc-CHX"; */
 "32B-bc-CHX.text" = "Be om mottagarkvitto";
 
-/* Class = "UILabel"; text = "Show emoticons"; ObjectID = "3a8-1d-3PR"; */
-"3a8-1d-3PR.text" = "Visa emojis";
-
 /* Class = "UILabel"; text = "Notifications"; ObjectID = "3pd-ay-sAI"; Note = "Open notification settings page"; */
 "3pd-ay-sAI.text" = "Notifikationer";
 
@@ -18,9 +15,6 @@
 
 /* Class = "UILabel"; text = "Media"; ObjectID = "8G3-tm-sCO"; Note = "Open media settings page"; */
 "8G3-tm-sCO.text" = "Media";
-
-/* Class = "UILabel"; text = "Enable markdown"; ObjectID = "8K5-bS-ddh"; */
-"8K5-bS-ddh.text" = "Enable markdown";
 
 /* Class = "UILabel"; text = "Encryption"; ObjectID = "9Gl-4Z-f2X"; */
 "9Gl-4Z-f2X.text" = "Kryptering";
@@ -43,20 +37,11 @@
 /* Class = "UILabel"; text = "None"; ObjectID = "bPa-aU-WFn"; */
 "bPa-aU-WFn.text" = "None";
 
-/* Class = "UILabel"; text = "Use public STUN servers"; ObjectID = "BSa-RZ-M7L"; */
-"BSa-RZ-M7L.text" = "Använd publika STUN-servrar";
-
 /* Class = "UILabel"; text = "Contacts in groups"; ObjectID = "BSk-tI-BDM"; */
 "BSk-tI-BDM.text" = "Kontakter i grupper";
 
-/* Class = "UILabel"; text = "XMPP Quickstart / Pipelining"; ObjectID = "dbq-Tl-d6b"; */
-"dbq-Tl-d6b.text" = "XMPP Quickstart / Pipelining";
-
 /* Class = "UILabel"; text = "Chats"; ObjectID = "etv-3w-9lA"; Note = "Open chats settings page"; */
 "etv-3w-9lA.text" = "Chattar";
-
-/* Class = "UILabel"; text = "File sharing via HTTP"; ObjectID = "eZJ-fR-LPh"; */
-"eZJ-fR-LPh.text" = "File sharing via HTTP";
 
 /* Class = "UITableViewController"; title = "Experimental"; ObjectID = "FGQ-GL-dYt"; */
 "FGQ-GL-dYt.title" = "Experimentell";
@@ -106,9 +91,6 @@
 /* Class = "UILabel"; text = "Message Styling"; ObjectID = "Qu4-Mf-tz4"; */
 "Qu4-Mf-tz4.text" = "Formatering av Meddelanden";
 
-/* Class = "UILabel"; text = "Groupchats bookmarks sync"; ObjectID = "Tbt-L3-jpa"; */
-"Tbt-L3-jpa.text" = "Groupchats bookmarks sync";
-
 /* Class = "UILabel"; text = "Medium"; ObjectID = "tqu-Xn-F0Z"; */
 "tqu-Xn-F0Z.text" = "Medium";
 
@@ -123,6 +105,3 @@
 
 /* Class = "UILabel"; text = "Show link previews"; ObjectID = "ybc-mt-hVG"; */
 "ybc-mt-hVG.text" = "Förhandsvisning av länkar";
-
-/* Class = "UILabel"; text = "Message carbons"; ObjectID = "zwR-jn-5u6"; */
-"zwR-jn-5u6.text" = "Message carbons";

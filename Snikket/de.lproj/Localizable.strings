@@ -396,6 +396,9 @@
 /* No comment provided by engineer. */
 "New call..." = "Neuer Anruf...";
 
+/* Message input area placeholder when empty */
+"New Message" = "New Message";
+
 /* No comment provided by engineer. */
 "New private group chat" = "Neue private Gruppe";
 
