@@ -20,7 +20,7 @@
 "8G3-tm-sCO.text" = "Media";
 
 /* Class = "UILabel"; text = "Enable markdown"; ObjectID = "8K5-bS-ddh"; */
-"8K5-bS-ddh.text" = "Enable markdown";
+"8K5-bS-ddh.text" = "Aktivera markdown";
 
 /* Class = "UILabel"; text = "Encryption"; ObjectID = "9Gl-4Z-f2X"; */
 "9Gl-4Z-f2X.text" = "Kryptering";
@@ -50,13 +50,13 @@
 "BSk-tI-BDM.text" = "Kontakter i grupper";
 
 /* Class = "UILabel"; text = "XMPP Quickstart / Pipelining"; ObjectID = "dbq-Tl-d6b"; */
-"dbq-Tl-d6b.text" = "XMPP Quickstart / Pipelining";
+"dbq-Tl-d6b.text" = "XMPP Snabbstart";
 
 /* Class = "UILabel"; text = "Chats"; ObjectID = "etv-3w-9lA"; Note = "Open chats settings page"; */
 "etv-3w-9lA.text" = "Chattar";
 
 /* Class = "UILabel"; text = "File sharing via HTTP"; ObjectID = "eZJ-fR-LPh"; */
-"eZJ-fR-LPh.text" = "File sharing via HTTP";
+"eZJ-fR-LPh.text" = "Fil delning via HTTP";
 
 /* Class = "UITableViewController"; title = "Experimental"; ObjectID = "FGQ-GL-dYt"; */
 "FGQ-GL-dYt.title" = "Experimentell";
@@ -107,7 +107,7 @@
 "Qu4-Mf-tz4.text" = "Formatering av Meddelanden";
 
 /* Class = "UILabel"; text = "Groupchats bookmarks sync"; ObjectID = "Tbt-L3-jpa"; */
-"Tbt-L3-jpa.text" = "Groupchats bookmarks sync";
+"Tbt-L3-jpa.text" = "Gruppchattssynkronisering";
 
 /* Class = "UILabel"; text = "Medium"; ObjectID = "tqu-Xn-F0Z"; */
 "tqu-Xn-F0Z.text" = "Medium";
