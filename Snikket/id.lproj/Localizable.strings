@@ -1,5 +1,5 @@
 /* Preceded by user's server domain */
-" server returned an error on the request to enable push notifications. You can try to enable this feature later on from the account settings." = " server menampilkan error pada permintaan untuk mengaktifkan push notifikasi. Anda dapat mencoba mengaktifkan fitur ini nanti dari pengaturan akun.";
+" server returned an error on the request to enable push notifications. You can try to enable this feature later on from the account settings." = " server memunculkan error pada permintaan untuk mengaktifkan push notifikasi. Anda dapat mencoba mengaktifkan fitur ini nanti dari pengaturan akun.";
 
 /* Placeholder is the MBs Download Limit */
 "%d MB" = "%d MB";
@@ -149,35 +149,35 @@
 
 /* Alert title */
 "Encryption Not Supported" = "Enkripsi tidak didukung";
-"Enter default nickname to use in chats" = "Enter default nickname to use in chats";
+"Enter default nickname to use in chats" = "Masukkan nama panggilan yang digunakan dalam obrolan";
 "Enter message to send to:" = "Enter message to send to:";
 
 /* Text field prompt */
-"Enter new name for group chat" = "Enter new name for group chat";
-"Enter new subject for group chat" = "Enter new subject for group chat";
+"Enter new name for group chat" = "Masukkan nama baru untuk obrolan grup";
+"Enter new subject for group chat" = "Masukkan obyek baru untuk obrolan grup";
 "Enter status message" = "Enter status message";
 "Error" = "Error";
 
 /* Status Options */
-"Extended away" = "Extended away";
+"Extended away" = "Pergi lama";
 
 /* Alert text. First placeholder is name or JID, second is error message */
 "Failed to ban %@: %@" = "Failed to ban %1$@: %2$@";
-"Failed To Update Contact List" = "Failed To Update Contact List";
-"Failure" = "Failure";
+"Failed To Update Contact List" = "Gagal memperbarui daftar kontak";
+"Failure" = "Kegagalan";
 
 /* Alert text */
-"File is not available locally. Should it be downloaded?" = "File is not available locally. Should it be downloaded?";
+"File is not available locally. Should it be downloaded?" = "File tidak tersedia secara lokal. Apakah mau diunduh?";
 
 /* Error text - while uploading file */
-"File is too large to share on your account." = "File is too large to share on your account.";
+"File is too large to share on your account." = "File terlalu besar untuk dibagikan di akun Anda.";
 
 /* Error text */
-"File upload was not acknowledged by the server." = "File upload was not acknowledged by the server.";
+"File upload was not acknowledged by the server." = "Unggahan file tidak diakui oleh server.";
 
 /* Error text - while uploading file */
-"File uploads are not supported on your account." = "File uploads are not supported on your account.";
-"Fingerprint of this device" = "Fingerprint of this device";
+"File uploads are not supported on your account." = "Unggahan file tidak diakui oleh server.";
+"Fingerprint of this device" = "Fingerprint handphone ini";
 "Free for chat" = "Free for chat";
 
 /* Section heading: general settings about contacts */
@@ -187,76 +187,76 @@
 "High" = "High";
 
 /* Image or Video Quality */
-"Highest" = "Highest";
+"Highest" = "Tertinggi";
 
 /* Section heading for chat history controls */
-"History" = "History";
+"History" = "Riwayat";
 "Info" = "Info";
-"Invitation" = "Invitation";
-"Invite" = "Invite";
-"It was not possible to access camera or microphone. Please check privacy settings" = "It was not possible to access camera or microphone. Please check privacy settings";
-"It was not possible to access camera. Please check in privacy settings that you have granted Snikket access to the camera." = "It was not possible to access camera. Please check in privacy settings that you have granted Snikket access to the camera.";
+"Invitation" = "Undangan";
+"Invite" = "Undang";
+"It was not possible to access camera or microphone. Please check privacy settings" = "Tidak bisa mengakses kamera atau mikrofon. Silakan periksa pengaturan privasi";
+"It was not possible to access camera. Please check in privacy settings that you have granted Snikket access to the camera." = "Tidak bisa mengakses kamera. Silakan periksa di pengaturan privasi bahwa Anda telah memberikan akses Snikket ke kamera.";
 
 /* Error text: upload failed due to permissions */
-"It was not possible to access the file." = "It was not possible to access the file.";
-"It was not possible to contact XMPP server and sign in." = "It was not possible to contact XMPP server and sign in.";
-"It was not possible to destroy channel %@. Server returned an error:" = "It was not possible to destroy channel %@. Server returned an error:";
-"It was not possible to establish call" = "It was not possible to establish call";
+"It was not possible to access the file." = "Tidak bisa mengakses file.";
+"It was not possible to contact XMPP server and sign in." = "Tidak bisa menghubungi server XMPP dan masuk.";
+"It was not possible to destroy channel %@. Server returned an error:" = "Tidak bisa menghancurkan saluran %@. Server memunculkan error:";
+"It was not possible to establish call" = "Tidak bisa membuat panggilan";
 
 /* Action: Join the supplied JID as a group */
-"Join group" = "Join group";
-"Join group chat" = "Join group chat";
-"Joined" = "Joined";
-"Joining..." = "Joining...";
-"Key not generated!" = "Key not generated!";
+"Join group" = "Bergabung dengan grup";
+"Join group chat" = "Bergabung dengan grup obrolan";
+"Joined" = "Bergabung";
+"Joining..." = "Bergabung...";
+"Key not generated!" = "Kunci tidak dibuat!";
 
 /* Placeholder is number of days */
-"Last %d days" = "Last %d days";
+"Last %d days" = "%d hari terakhir";
 
 /* Placeholder is hours value */
-"Last %d hours" = "Last %d hours";
-"Leave chat" = "Leave chat";
+"Last %d hours" = "%d jam terakhir";
+"Leave chat" = "Tinggalkan obrolan";
 
 /* App Theme Type */
-"Light" = "Light";
-"Limits the size of the files sent to you which may be automatically downloaded" = "Limits the size of the files sent to you which may be automatically downloaded";
-"lines of preview" = "lines of preview";
+"Light" = "Terang";
+"Limits the size of the files sent to you which may be automatically downloaded" = "Membatasi ukuran file yang dikirimkan kepada Anda yang otomatis diunduh";
+"lines of preview" = "baris pratinjau";
 "List of Messages" = "List of Messages";
 
 /* Menu item: open location picker to share a location */
-"Location" = "Location";
-"Log Out" = "Log Out";
-"Login and password do not match." = "Login and password do not match.";
+"Location" = "Lokasi";
+"Log Out" = "Keluar";
+"Login and password do not match." = "Identitas masuk dan password tidak cocok.";
 
 /* Image or Video Quality */
 "Low" = "Low";
 
 /* Alert title for storage usage */
-"Manage Storage" = "Manage Storage";
+"Manage Storage" = "Kelola Penyimpanan";
 "Media" = "Media";
 
 /* Image or Video Quality */
 "Medium" = "Medium";
-"Member" = "Member";
-"Message Archiving" = "Message Archiving";
+"Member" = "Anggota";
+"Message Archiving" = "Pengarsipan Pesan";
 
 /* Alert title */
-"Message Archiving Error" = "Message Archiving Error";
+"Message Archiving Error" = "Pengarsipan Pesan Error";
 "Messages" = "Messages";
 
 /* Context menu item: view more options
    Menu item: see more message actions
    Menu item: view more options */
-"More..." = "More...";
+"More..." = "Selanjutnya...";
 
 /* Option: notifications from this group chat will be suppressed */
-"Muted" = "Muted";
+"Muted" = "Diredam";
 "Name" = "Name";
-"New call..." = "New call...";
+"New call..." = "Panggilan baru...";
 
 /* Message input area placeholder when empty */
 "New Message" = "Pesan baru";
-"New private group chat" = "New private group chat";
+"New private group chat" = "Obrolan grup pribadi baru";
 "New public group chat" = "New public group chat";
 "Nickname" = "Nickname";
 "No" = "No";
@@ -375,8 +375,8 @@
 "Server did not respond to registration request" = "Server did not respond to registration request";
 
 /* Preceded by user's server domain */
-"server returned an error on the request to enable archiving. You can try to enable this feature later on from the account settings." = "server returned an error on the request to enable archiving. You can try to enable this feature later on from the account settings.";
-"Server returned error:" = "Server returned error:";
+"server returned an error on the request to enable archiving. You can try to enable this feature later on from the account settings." = "server memunculkan kesalahan pada permintaan untuk mengaktifkan pengarsipan. Anda dapat mengaktifkan fitur ini nanti dari pengaturan akun.";
+"Server returned error:" = "Server memunculkan error:";
 "Set" = "Set";
 "Settings" = "Settings";
 
@@ -396,8 +396,8 @@
 "Take photo" = "Take photo";
 
 /* followed by a space and error condition */
-"The server returned an error:" = "The server returned an error:";
-"The server returned an error: " = "The server returned an error: ";
+"The server returned an error:" = "Server memunculkan error:";
+"The server returned an error: " = "Server memunculkan error: ";
 
 /* Error text - while uploading a file. Placeholder is a HTTP status code. */
 "The upload was rejected by the server (error %d)." = "The upload was rejected by the server (error %d).";
