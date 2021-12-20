@@ -1,11 +1,11 @@
 /* Class = "UIButton"; normalTitle = "Learn more"; ObjectID = "9Xm-uz-gIu"; */
-"9Xm-uz-gIu.normalTitle" = "Learn more";
+"9Xm-uz-gIu.normalTitle" = "En apprendre plus";
 
 /* Class = "UIBarButtonItem"; title = "Scan barcode"; ObjectID = "i2u-OL-UUY"; Note = "Action button to scan QR code"; */
 "i2u-OL-UUY.title" = "Item";
 
 /* Class = "UIButton"; normalTitle = "Sign in"; ObjectID = "is0-gN-a4J"; */
-"is0-gN-a4J.normalTitle" = "Sign in";
+"is0-gN-a4J.normalTitle" = "Se connecter";
 
 /* Class = "UINavigationItem"; title = "Snikket"; ObjectID = "Pr0-Qp-NEQ"; */
 "Pr0-Qp-NEQ.title" = "Snikket";
