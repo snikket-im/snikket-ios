@@ -56,7 +56,7 @@
 "g4v-o5-nXZ.text" = "2 lignes";
 
 /* Class = "UITableViewController"; title = "Notification settings"; ObjectID = "GfS-6V-cuc"; */
-"GfS-6V-cuc.title" = "Paramètres de notification";
+"GfS-6V-cuc.title" = "Paramètres de notifications";
 
 /* Class = "UILabel"; text = "Contacts"; ObjectID = "hGX-FI-YNj"; Note = "Action button: open contact list settings page"; */
 "hGX-FI-YNj.text" = "Contacts";
@@ -74,10 +74,10 @@
 "jeY-X9-tWB.title" = "Réglages";
 
 /* Class = "UILabel"; text = "By presence and time"; ObjectID = "LAc-oF-22z"; */
-"LAc-oF-22z.text" = "By presence and time";
+"LAc-oF-22z.text" = "Par présence et date";
 
 /* Class = "UILabel"; text = "Auto-authorize contacts"; ObjectID = "MGl-L6-Fs3"; */
-"MGl-L6-Fs3.text" = "Autoriser des contacts automatiquement";
+"MGl-L6-Fs3.text" = "Accepter les demandes d’ajout de contact automatiquement";
 
 /* Class = "UILabel"; text = "Blocked contacts"; ObjectID = "MJ0-kw-1Kl"; */
 "MJ0-kw-1Kl.text" = "Contacts bloqués";
@@ -86,7 +86,7 @@
 "P82-B8-768.text" = "Salon « caché »";
 
 /* Class = "UITableViewController"; title = "Chat settings"; ObjectID = "pFo-ox-4gT"; */
-"pFo-ox-4gT.title" = "Paramètres de discussion";
+"pFo-ox-4gT.title" = "Paramètres de la discussion";
 
 /* Class = "UILabel"; text = "Message Styling"; ObjectID = "Qu4-Mf-tz4"; */
 "Qu4-Mf-tz4.text" = "Message Styling";
@@ -98,10 +98,10 @@
 "u45-W8-GP0.text" = "Medium";
 
 /* Class = "UITableViewController"; title = "Contacts settings"; ObjectID = "xRS-v5-T5C"; */
-"xRS-v5-T5C.title" = "Contacts settings";
+"xRS-v5-T5C.title" = "Préférences des contacts";
 
 /* Class = "UILabel"; text = "Sorting"; ObjectID = "Y0J-o4-ADK"; */
-"Y0J-o4-ADK.text" = "Sorting";
+"Y0J-o4-ADK.text" = "Tri";
 
 /* Class = "UILabel"; text = "Show link previews"; ObjectID = "ybc-mt-hVG"; */
-"ybc-mt-hVG.text" = "Show link previews";
+"ybc-mt-hVG.text" = "Prévisualiser les liens";
