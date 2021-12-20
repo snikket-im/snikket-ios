@@ -41,7 +41,7 @@
 "Away" = "Absent·e";
 
 /* Alert title */
-"Ban Failed" = "Ban Failed";
+"Ban Failed" = "Échec du ban";
 "Ban user" = "Bannir l’utilisateur";
 "Banning user" = "Bannissement d'un utilisateur";
 "Be right back" = "Bientôt de retour";
@@ -83,20 +83,20 @@
 
 /* Context menu action
    Context menu item */
-"Copy" = "Copy";
+"Copy" = "Copier";
 "Could not connect to the service. Check your network connectivity or try again later." = "Échec de la connexion au service. Vérifiez votre connectivité réseau ou réessayez plus tard.";
 
 /* Error text - while uploading file */
-"Could not detect file type." = "Could not detect file type.";
+"Could not detect file type." = "Impossible de détecter le type du fichier.";
 
 /* Error text - while uploading file */
-"Could not determine file size." = "Could not determine file size.";
+"Could not determine file size." = "Impossible de déterminer la taille du fichier.";
 "Could not rename group chat. The server responded with an error:" = "Impossible de renommer ce salon. Le serveur a répondu par une erreur :";
 "Could not set the group chat picture. The server responded with an error:" = "Impossible de définir l'image du salon. Le serveur a répondu avec une erreur :";
 "Create" = "Créer";
 
 /* Alert title */
-"Create Account" = "Create Account";
+"Create Account" = "Création de compte";
 
 /* App Theme Type */
 "Dark" = "Sombre";
@@ -116,7 +116,7 @@
 "Display" = "Affichage";
 
 /* Label for text field where user can enter their preferred name to display to their contacts */
-"Display Name" = "Display Name";
+"Display Name" = "Nom d’affichage";
 
 /* Status Options */
 "Do not disturb" = "Ne pas déranger";
@@ -126,10 +126,10 @@
 "Do you wish to publish this photo as your profile picture?" = "Do you wish to publish this photo as your profile picture?";
 
 /* Alert text. Placeholder is server domain. */
-"Do you wish to register a new account at %@?" = "Do you wish to register a new account at %@?";
+"Do you wish to register a new account at %@?" = "Voulez-vous créer un compte chez %@ ?";
 
 /* Alert text. Placeholder is account JID. */
-"Do you wish to register the account %@?" = "Do you wish to register the account %@?";
+"Do you wish to register the account %@?" = "Voulez-vous créer le compte %@ ?";
 
 /* Menu item: opens file picket to select document to share */
 "Document" = "Document";
@@ -141,12 +141,12 @@
 
 /* Section heading for list of contact email addresses */
 "Email addresses" = "Adresses emails";
-"Enable %@" = "Enable %@";
-"Enable telephony provider?" = "Enable telephony provider?";
+"Enable %@" = "Activer %@";
+"Enable telephony provider?" = "Activer un fournisseur de téléphonie ?";
 "Encryption" = "Chiffrement";
 
 /* Alert title */
-"Encryption Not Supported" = "Encryption Not Supported";
+"Encryption Not Supported" = "Chiffrement non-supporté";
 "Enter default nickname to use in chats" = "Entrez le pseudonyme à utiliser par défaut dans les discussions";
 "Enter message to send to:" = "Entrer un message à envoyer à :";
 
@@ -165,16 +165,16 @@
 "Failure" = "Échec";
 
 /* Alert text */
-"File is not available locally. Should it be downloaded?" = "File is not available locally. Should it be downloaded?";
+"File is not available locally. Should it be downloaded?" = "Fichier indisponible localement ; voulez-vous le télécharger ?";
 
 /* Error text - while uploading file */
-"File is too large to share on your account." = "File is too large to share on your account.";
+"File is too large to share on your account." = "Ce fichier est trop gros pour être partagé sur votre compte.";
 
 /* Error text */
 "File upload was not acknowledged by the server." = "File upload was not acknowledged by the server.";
 
 /* Error text - while uploading file */
-"File uploads are not supported on your account." = "File uploads are not supported on your account.";
+"File uploads are not supported on your account." = "L’envoi de fichier n’est pas pris en charge par votre compte.";
 "Fingerprint of this device" = "Empreinte de ce client";
 "Free for chat" = "Disponible pour discuter";
 
@@ -196,13 +196,13 @@
 "It was not possible to access camera. Please check in privacy settings that you have granted Snikket access to the camera." = "It was not possible to access camera. Please check in privacy settings that you have granted Snikket access to the camera.";
 
 /* Error text: upload failed due to permissions */
-"It was not possible to access the file." = "It was not possible to access the file.";
+"It was not possible to access the file." = "Impossible d’accéder au fichier.";
 "It was not possible to contact XMPP server and sign in." = "Impossible de contacter le serveur XMPP et de se connecter.";
-"It was not possible to destroy channel %@. Server returned an error:" = "It was not possible to destroy channel %@. Server returned an error:";
+"It was not possible to destroy channel %@. Server returned an error:" = "La destruction du salon %@ a échouée, le serveur a renvoyé une erreur :";
 "It was not possible to establish call" = "Il n’a pas été possible de mener à bien cet appel";
 
 /* Action: Join the supplied JID as a group */
-"Join group" = "Join group";
+"Join group" = "Rejoindre le salon";
 "Join group chat" = "Rejoindre un salon";
 "Joined" = "Rejoint";
 "Joining..." = "Connexion…";
@@ -222,8 +222,8 @@
 "List of Messages" = "Liste de messages";
 
 /* Menu item: open location picker to share a location */
-"Location" = "Location";
-"Log Out" = "Log Out";
+"Location" = "Emplacement";
+"Log Out" = "Se déconnecter";
 "Login and password do not match." = "Login and password do not match.";
 
 /* Image or Video Quality */
@@ -245,10 +245,10 @@
 /* Context menu item: view more options
    Menu item: see more message actions
    Menu item: view more options */
-"More..." = "More...";
+"More..." = "Plus…";
 
 /* Option: notifications from this group chat will be suppressed */
-"Muted" = "Muted";
+"Muted" = "Muet";
 "Name" = "Nom";
 "New call..." = "Nouvel appel…";
 
@@ -265,7 +265,7 @@
 "None" = "None";
 
 /* Alert title */
-"Not Connected" = "Not Connected";
+"Not Connected" = "Non-connecté";
 "Not connected!" = "Pas connecté !";
 "Not Joined" = "Pas connecté";
 
@@ -299,14 +299,14 @@
 "Permanently Delete Account" = "Permanently Delete Account";
 
 /* Section heading for list of contact phone numbers */
-"Phone numbers" = "Phone numbers";
+"Phone numbers" = "Numéro(s) de téléphone";
 
 /* Menu item: select media to share from photo/video library */
-"Photo & Video Library" = "Photo & Video Library";
+"Photo & Video Library" = "Bibliothèque de photos et vidéos";
 "Please try again!" = "Merci de réessayer !";
 
 /* Alert title */
-"Preview" = "Preview";
+"Preview" = "Prévisualisation";
 "Private message" = "Message privé";
 
 /* Alert title */
@@ -331,7 +331,7 @@
 /* Alert title */
 "Registration Failure" = "Échec de l’inscription";
 "Registration is not supported by this server" = "Les inscriptions sont désactivées sur ce serveur";
-"Remove Account Data" = "Remove Account Data";
+"Remove Account Data" = "Supprimer les données du compte";
 "Rename" = "Renommer";
 
 /* Alert title
@@ -349,13 +349,13 @@
 "Search channels" = "Recherche de salons";
 
 /* Shown above a choice list of the user's accounts */
-"Select account to open chat from:" = "Select account to open chat from:";
+"Select account to open chat from:" = "Sélectionnez le compte avec lequel démarrer cette discussion :";
 
 /* Action button: select (existing) photo for group chat picture */
 "Select photo" = "Sélectionner une photo";
 
 /* Alert title - select image share quality */
-"Select quality" = "Select quality";
+"Select quality" = "Sélectionner la qualité";
 "Select quality of the image to use for sharing" = "Sélectionner la qualité d’image à utiliser pour partager";
 "Select quality of the video to use for sharing" = "Sélectionner la qualité vidéo à utiliser pour le partage";
 "Select status" = "Sélectionner votre statut";
@@ -376,7 +376,7 @@
 "Settings" = "Préférences";
 
 /* Context menu action */
-"Share..." = "Share...";
+"Share..." = "Partager…";
 
 /* Informs user to slide their finger in direction of arrow to cancel audio recording */
 "Slide to cancel" = "Slide to cancel";
@@ -394,7 +394,7 @@
 "The server returned an error: " = "Le serveur a renvoyé une erreur : ";
 
 /* Error text - while uploading a file. Placeholder is a HTTP status code. */
-"The upload was rejected by the server (error %d)." = "The upload was rejected by the server (error %d).";
+"The upload was rejected by the server (error %d)." = "L’envoi de fichier a été rejeté par le serveur (erreur %d).";
 "The user will be reported and any calls, messages and status updates from them will be blocked." = "The user will be reported and any calls, messages and status updates from them will be blocked.";
 
 /* Error text - while uploading file */
@@ -411,7 +411,7 @@
 "Unlimited" = "Illimité";
 
 /* Alert title */
-"Upload Failed" = "Upload Failed";
+"Upload Failed" = "Échec de l’envoi";
 "Used image and video quality may impact storage and network usage" = "La qualité d’image et vidéo utilisée peut impacter le stockage et l’utilisation des données";
 "User with provided username already exists" = "Un utilisateur portant ce nom existe déjà";
 
@@ -421,7 +421,7 @@
 "Warning" = "Attention";
 
 /* Placeholder is xmpp: URI */
-"What do you want to do with %@?" = "What do you want to do with %@?";
+"What do you want to do with %@?" = "Que voulez-vous faire avec %@ ?";
 
 /* Option: only notify user when they are mentioned in this group */
 "When mentioned" = "When mentioned";
