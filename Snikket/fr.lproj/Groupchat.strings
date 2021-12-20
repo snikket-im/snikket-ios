@@ -29,7 +29,7 @@
 "exK-ZH-jpA.text" = "Quand mentionné";
 
 /* Class = "UITableViewController"; title = "Group details"; ObjectID = "IGA-uE-mHb"; */
-"IGA-uE-mHb.title" = "Les détails du salon";
+"IGA-uE-mHb.title" = "Informations sur le salon";
 
 /* Class = "UITableViewSection"; headerTitle = "Subject"; ObjectID = "iYv-zL-tZT"; */
 "iYv-zL-tZT.headerTitle" = "Objet";
@@ -56,7 +56,7 @@
 "wBw-1J-Xau.text" = "Pièces jointes";
 
 /* Class = "UILabel"; text = "Delete History"; ObjectID = "wNk-Ce-zfI"; */
-"wNk-Ce-zfI.text" = "Supprimer l'historique";
+"wNk-Ce-zfI.text" = "Supprimer l’historique";
 
 /* Class = "UILabel"; text = "None"; ObjectID = "YT2-1I-RlM"; */
 "YT2-1I-RlM.text" = "Aucun";
