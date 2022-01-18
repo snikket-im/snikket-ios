@@ -41,7 +41,7 @@
 "BSk-tI-BDM.text" = "Kontak di dalam grup";
 
 /* Class = "UILabel"; text = "Chats"; ObjectID = "etv-3w-9lA"; Note = "Open chats settings page"; */
-"etv-3w-9lA.text" = "Obrolan";
+"etv-3w-9lA.text" = "Chat";
 
 /* Class = "UITableViewController"; title = "Experimental"; ObjectID = "FGQ-GL-dYt"; */
 "FGQ-GL-dYt.title" = "Eksperimental";
@@ -68,7 +68,7 @@
 "ieE-mK-uEm.text" = "Media";
 
 /* Class = "UILabel"; text = "Clear chat on close"; ObjectID = "ioL-eS-dDk"; */
-"ioL-eS-dDk.text" = "Hapus obrolan saat tutup";
+"ioL-eS-dDk.text" = "Hapus chat saat tutup";
 
 /* Class = "UINavigationItem"; title = "Settings"; ObjectID = "jeY-X9-tWB"; */
 "jeY-X9-tWB.title" = "Pengaturan";
@@ -86,7 +86,7 @@
 "P82-B8-768.text" = "Grup \"Tersembunyi\"";
 
 /* Class = "UITableViewController"; title = "Chat settings"; ObjectID = "pFo-ox-4gT"; */
-"pFo-ox-4gT.title" = "Pengaturan obrolan";
+"pFo-ox-4gT.title" = "Pengaturan chat";
 
 /* Class = "UILabel"; text = "Message Styling"; ObjectID = "Qu4-Mf-tz4"; */
 "Qu4-Mf-tz4.text" = "Ragam pesan";
