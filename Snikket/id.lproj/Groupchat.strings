@@ -17,7 +17,7 @@
 "BJz-HA-uv6.text" = "Label";
 
 /* Class = "UITableViewSection"; footerTitle = "Push notification support depends on the XMPP server which you are using and may not work in some cases even if it's supported and enabled on the group chat"; ObjectID = "bRu-vo-fpu"; */
-"bRu-vo-fpu.footerTitle" = "Dukungan push notification tergantung pada server XMPP yang digunakan dan mungkin tidak berfungsi dalam beberapa kasus meskipun didukung dan diaktifkan pada obrolan grup";
+"bRu-vo-fpu.footerTitle" = "Dukungan push notification tergantung pada server XMPP yang digunakan dan mungkin tidak berfungsi dalam beberapa kasus meskipun didukung dan diaktifkan pada grup chat";
 
 /* Class = "UITableViewSection"; headerTitle = " Settings"; ObjectID = "bRu-vo-fpu"; */
 "bRu-vo-fpu.headerTitle" = " Pengaturan";
@@ -47,7 +47,7 @@
 "Qmg-sW-dkA.normalTitle" = "Button";
 
 /* Class = "UITableViewController"; title = "Invite to chat"; ObjectID = "SOJ-3n-8YB"; */
-"SOJ-3n-8YB.title" = "Undang untuk mengobrol";
+"SOJ-3n-8YB.title" = "Undang untuk chat";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "t0j-TN-qOY"; */
 "t0j-TN-qOY.text" = "Label";
