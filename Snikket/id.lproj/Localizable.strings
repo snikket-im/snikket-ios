@@ -69,7 +69,7 @@
 "Channel destruction failed!" = "Penghancuran saluran gagal!";
 
 /* Status Options */
-"Chat" = "Obrolan";
+"Chat" = "Chat";
 
 /* Error text - while uploading file */
 "Check your network connection or try again later." = "Periksa koneksi jaringan Anda atau coba kembali.";
@@ -91,8 +91,8 @@
 
 /* Error text - while uploading file */
 "Could not determine file size." = "Tidak dapat menentukan ukuran file.";
-"Could not rename group chat. The server responded with an error:" = "Tidak dapat mengganti nama grup obrolan. Server merespons dengan kesalahan:";
-"Could not set the group chat picture. The server responded with an error:" = "Tidak dapat memasang gambar grup obrolan. Server merespons dengan error:";
+"Could not rename group chat. The server responded with an error:" = "Tidak dapat mengganti nama grup chat. Server merespons dengan kesalahan:";
+"Could not set the group chat picture. The server responded with an error:" = "Tidak dapat memasang gambar grup chat. Server merespons dengan error:";
 "Create" = "Buat";
 
 /* Alert title */
@@ -108,8 +108,8 @@
 /* Action: Delete all downloaded files */
 "Delete all" = "Hapus semua";
 "Delete channel?" = "Hapus saluran?";
-"Delete chat" = "Hapus obrolan";
-"Delete group chat?" = "Hapus grup obrolan?";
+"Delete chat" = "Hapus chat";
+"Delete group chat?" = "Hapus grup chat?";
 "Delete My Account" = "Hapus akun saya";
 "Deleting your account will permanently log out all your devices and delete your account, profile, and associated data on %@." = "Menghapus akun Anda akan secara permanen mengeluarkan semua perangkat Anda dan menghapus akun, profil, dan data Anda di %@.";
 "Details" = "Detil";
@@ -149,12 +149,12 @@
 
 /* Alert title */
 "Encryption Not Supported" = "Enkripsi tidak didukung";
-"Enter default nickname to use in chats" = "Masukkan nama panggilan yang digunakan dalam obrolan";
+"Enter default nickname to use in chats" = "Masukkan nama panggilan yang digunakan dalam chat";
 "Enter message to send to:" = "Enter message to send to:";
 
 /* Text field prompt */
-"Enter new name for group chat" = "Masukkan nama baru untuk obrolan grup";
-"Enter new subject for group chat" = "Masukkan obyek baru untuk obrolan grup";
+"Enter new name for group chat" = "Masukkan nama baru untuk grup chat";
+"Enter new subject for group chat" = "Masukkan obyek baru untuk grup chat";
 "Enter status message" = "Enter status message";
 "Error" = "Error";
 
@@ -205,7 +205,7 @@
 
 /* Action: Join the supplied JID as a group */
 "Join group" = "Bergabung dengan grup";
-"Join group chat" = "Bergabung dengan grup obrolan";
+"Join group chat" = "Bergabung dengan grup chat";
 "Joined" = "Bergabung";
 "Joining..." = "Bergabung...";
 "Key not generated!" = "Kunci tidak dibuat!";
@@ -215,7 +215,7 @@
 
 /* Placeholder is hours value */
 "Last %d hours" = "%d jam terakhir";
-"Leave chat" = "Tinggalkan obrolan";
+"Leave chat" = "Keluar chat";
 
 /* App Theme Type */
 "Light" = "Terang";
@@ -256,29 +256,29 @@
 
 /* Message input area placeholder when empty */
 "New Message" = "Pesan baru";
-"New private group chat" = "Obrolan grup pribadi baru";
-"New public group chat" = "New public group chat";
-"Nickname" = "Nickname";
+"New private group chat" = "Grup chat pribadi baru";
+"New public group chat" = "Grup chat umum baru";
+"Nickname" = "Nama panggilan";
 "No" = "No";
-"No attachments" = "No attachments";
-"No messages yet. Say hi!" = "No messages yet. Say hi!";
+"No attachments" = "Tidak ada lampiran";
+"No messages yet. Say hi!" = "Belum ada pesan. Hai!";
 
 /* Encryption mode
    Option: no end-to-end encryption for this chat */
 "None" = "None";
 
 /* Alert title */
-"Not Connected" = "Not Connected";
-"Not connected!" = "Not connected!";
-"Not Joined" = "Not Joined";
+"Not Connected" = "Tidak tersambung";
+"Not connected!" = "Tidak tersambung!";
+"Not Joined" = "Tidak tergabung";
 
 /* How many messages to fetch from the server */
-"Nothing" = "Nothing";
+"Nothing" = "Tidak ada";
 "Offline" = "Offline";
 "OK" = "OK";
 
 /* Action: Delete all downloaded files over 7 days old */
-"Older than 7 days" = "Older than 7 days";
+"Older than 7 days" = "Lebih lama dari 7 hari";
 
 /* Encryption mode
    Option: use OMEMO encryption for this chat */
@@ -292,30 +292,30 @@
 
 /* Alert title */
 "Open URL" = "Open URL";
-"Operation timed out" = "Operation timed out";
-"operation timed out" = "operation timed out";
+"Operation timed out" = "Waktu operasi habis";
+"operation timed out" = "Waktu operasi habis";
 
 /* Image or Video Quality */
 "Original" = "Original";
-"Original quality will share image in the format in which it is stored on your phone and it may not be supported by every device." = "Original quality will share image in the format in which it is stored on your phone and it may not be supported by every device.";
-"Original quality will share video in the format in which video is stored on your phone and it may not be supported by every device." = "Original quality will share video in the format in which video is stored on your phone and it may not be supported by every device.";
-"Other devices fingerprints" = "Other devices fingerprints";
-"Permanently Delete Account" = "Permanently Delete Account";
+"Original quality will share image in the format in which it is stored on your phone and it may not be supported by every device." = "Kualitas asli akan membagikan gambar dalam format yang disimpan di ponsel Anda dan mungkin tidak didukung oleh setiap perangkat.";
+"Original quality will share video in the format in which video is stored on your phone and it may not be supported by every device." = "Kualitas asli akan membagikan video dalam format yang disimpan di ponsel Anda dan mungkin tidak didukung oleh setiap perangkat.";
+"Other devices fingerprints" = "Sidik jari perangkat lain";
+"Permanently Delete Account" = "Hapus akun secara permanen";
 
 /* Section heading for list of contact phone numbers */
-"Phone numbers" = "Phone numbers";
+"Phone numbers" = "Nomor telepon";
 
 /* Menu item: select media to share from photo/video library */
-"Photo & Video Library" = "Photo & Video Library";
-"Please try again!" = "Please try again!";
+"Photo & Video Library" = "Perpustakaan Foto & Video";
+"Please try again!" = "Coba sekali lagi!";
 
 /* Alert title */
-"Preview" = "Preview";
+"Preview" = "Pratinjau";
 "Private message" = "Private message";
 
 /* Alert title */
-"Profile Picture Update Failed" = "Profile Picture Update Failed";
-"Provided values are not acceptable" = "Provided values are not acceptable";
+"Profile Picture Update Failed" = "Profile Picture pembaharuan gagal";
+"Provided values are not acceptable" = "Nilai yang diberikan tidak dapat diterima";
 
 /* Alert title */
 "Push Notifications" = "Push Notifications";
