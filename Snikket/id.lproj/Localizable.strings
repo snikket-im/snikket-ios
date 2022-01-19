@@ -319,72 +319,72 @@
 
 /* Alert title */
 "Push Notifications" = "Push Notifications";
-"Push notifications are enabled for %@. They need to be disabled before account can be removed and it is not possible to at this time. Please try again later." = "Push notifications are enabled for %@. They need to be disabled before account can be removed and it is not possible to at this time. Please try again later.";
+"Push notifications are enabled for %@. They need to be disabled before account can be removed and it is not possible to at this time. Please try again later." = "Notifikasi push diaktifkan untuk %@. Akun harus dinonaktifkan sebelum dapat dihapus dan tidak bisa dihapus saat ini. Silakan coba lagi.";
 
 /* Alert title */
-"Push Notifications Enabled" = "Push Notifications Enabled";
+"Push Notifications Enabled" = "Notifikasi push diaktifkan";
 "Push Notifications Error" = "Push Notifications Error";
-"Quality of shared media" = "Quality of shared media";
+"Quality of shared media" = "Kualitas media yang dibagikan";
 
 /* Placeholder is the number in MBs */
-"Received files are using %d MB of storage." = "Received files are using %d MB of storage.";
+"Received files are using %d MB of storage." = "File yang diterima menggunakan %d MB kapasitas.";
 
 /* Action button */
-"Register" = "Register";
+"Register" = "Daftar";
 
 /* Alert title */
-"Registration Failure" = "Registration Failure";
-"Registration is not supported by this server" = "Registration is not supported by this server";
-"Remove Account Data" = "Remove Account Data";
-"Rename" = "Rename";
+"Registration Failure" = "Pendaftaran gagal";
+"Registration is not supported by this server" = "Pendaftaran tidak didukung oleh server ini";
+"Remove Account Data" = "Hapus Data Akun";
+"Rename" = "Ganti nama";
 
 /* Alert title
    Alert title: rename a group chat */
-"Rename chat" = "Rename chat";
+"Rename chat" = "Ganti nama chat";
 "Report" = "Report";
-"Report and Block" = "Report and Block";
+"Report and Block" = "Laporkan dan blokir";
 "Report Contact" = "Report Contact";
-"Reported" = "Reported";
-"Reporting..." = "Reporting...";
-"Resend" = "Resend";
-"Ringing..." = "Ringing...";
-"Save" = "Save";
-"Scanned QR code is not valid for Snikket." = "Scanned QR code is not valid for Snikket.";
-"Search channels" = "Search channels";
+"Reported" = "Dilaporkan";
+"Reporting..." = "Melapor...";
+"Resend" = "Kirim ulang";
+"Ringing..." = "Berdering...";
+"Save" = "Simpan";
+"Scanned QR code is not valid for Snikket." = "Kode QR yang dipindai tidak valid untuk Snikket.";
+"Search channels" = "Cari saluran";
 
 /* Shown above a choice list of the user's accounts */
-"Select account to open chat from:" = "Select account to open chat from:";
+"Select account to open chat from:" = "Pilih akun untuk membuka chat dari:";
 
 /* Action button: select (existing) photo for group chat picture
    Action: open file picker to select a photo to use as a profile picture */
-"Select photo" = "Select photo";
+"Select photo" = "Pilih foto";
 
 /* Alert title - select image share quality */
-"Select quality" = "Select quality";
-"Select quality of the image to use for sharing" = "Select quality of the image to use for sharing";
-"Select quality of the video to use for sharing" = "Select quality of the video to use for sharing";
-"Select status" = "Select status";
+"Select quality" = "Pilih kualitas";
+"Select quality of the image to use for sharing" = "Pilih kualitas gambar yang akan dibagi";
+"Select quality of the video to use for sharing" = "Pilih kualitas gambar yang akan dibagi";
+"Select status" = "Pilih status";
 "Send" = "Send";
 
 /* Action button: share with chat this device's current location */
-"Send Current Location" = "Send Current Location";
+"Send Current Location" = "Kirim lokasi saat ini";
 "Send message" = "Send message";
 
 /* Action button: share with chat the location of the pin dropped by the user on the map (as opposed to device current location) */
-"Send Pin Location" = "Send Pin Location";
-"Server did not respond to registration request" = "Server did not respond to registration request";
+"Send Pin Location" = "Kirim Pin Lokasi";
+"Server did not respond to registration request" = "Server tidak merespon permintaan pendaftaran";
 
 /* Preceded by user's server domain */
 "server returned an error on the request to enable archiving. You can try to enable this feature later on from the account settings." = "server memunculkan kesalahan pada permintaan untuk mengaktifkan pengarsipan. Anda dapat mengaktifkan fitur ini nanti dari pengaturan akun.";
 "Server returned error:" = "Server memunculkan error:";
 "Set" = "Set";
-"Settings" = "Settings";
+"Settings" = "Pengaturan";
 
 /* Context menu action */
-"Share..." = "Share...";
+"Share..." = "Bagikan...";
 
 /* Informs user to slide their finger in direction of arrow to cancel audio recording */
-"Slide to cancel" = "Slide to cancel";
+"Slide to cancel" = "Geser untuk membatalkan";
 
 /* Alert title - starting a new chat */
 "Start Chat" = "Start Chat";
