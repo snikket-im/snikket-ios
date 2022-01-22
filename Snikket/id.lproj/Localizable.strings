@@ -389,61 +389,61 @@
 /* Alert title - starting a new chat */
 "Start Chat" = "Start Chat";
 "Status" = "Status";
-"Successfully registered to receive push notifications." = "Successfully registered to receive push notifications.";
+"Successfully registered to receive push notifications." = "Berhasil terdaftar untuk menerima notifikasi push.";
 
 /* Action button: take a new photo to use to as group chat picture
    Action: take a photo to use as a profile picture */
-"Take photo" = "Take photo";
+"Take photo" = "Ambil foto";
 
 /* followed by a space and error condition */
 "The server returned an error:" = "Server memunculkan error:";
 "The server returned an error: " = "Server memunculkan error: ";
 
 /* Error text - while uploading a file. Placeholder is a HTTP status code. */
-"The upload was rejected by the server (error %d)." = "The upload was rejected by the server (error %d).";
-"The user will be reported and any calls, messages and status updates from them will be blocked." = "The user will be reported and any calls, messages and status updates from them will be blocked.";
+"The upload was rejected by the server (error %d)." = "Unggahan ditolak oleh server (error %d).";
+"The user will be reported and any calls, messages and status updates from them will be blocked." = "Pengguna akan dilaporkan dan setiap panggilan, pesan, dan pembaruan status dari mereka akan diblokir.";
 
 /* Error text - while uploading file */
-"There was a server error processing the file upload. Please try again later." = "There was a server error processing the file upload. Please try again later.";
-"This will delete all the message history for this chat. Continue?" = "This will delete all the message history for this chat. Continue?";
+"There was a server error processing the file upload. Please try again later." = "Terjadi server error saat memproses unggahan file. Silakan coba lagi.";
+"This will delete all the message history for this chat. Continue?" = "Ini akan menghapus semua riwayat pesan untuk chat ini. Lanjutkan?";
 
 /* Alert text */
-"Unable to publish your profile picture at this time.\nError: %@" = "Unable to publish your profile picture at this time.\nError: %@";
-"Unblock" = "Unblock";
+"Unable to publish your profile picture at this time.\nError: %@" = "Tidak dapat mempublikasikan gambar profil Anda saat ini.\nError: %@";
+"Unblock" = "Buka blokir";
 
 /* Error text - while uploading file. Placeholder is a HTTP status code. */
-"Unexpected error (%d) received while uploading file." = "Unexpected error (%d) received while uploading file.";
-"Unkown error occured" = "Unkown error occured";
-"Unlimited" = "Unlimited";
+"Unexpected error (%d) received while uploading file." = "Error tak terduga (%d) diterima saat mengunggah file.";
+"Unkown error occured" = "Terjadi error yang tidak diketahui";
+"Unlimited" = "Tak terbatas";
 
 /* Alert title */
-"Upload Failed" = "Upload Failed";
-"Used image and video quality may impact storage and network usage" = "Used image and video quality may impact storage and network usage";
-"User with provided username already exists" = "User with provided username already exists";
+"Upload Failed" = "Gagal mengunggah";
+"Used image and video quality may impact storage and network usage" = "Kualitas gambar dan video yang digunakan mempengaruhi penyimpanan dan penggunaan jaringan";
+"User with provided username already exists" = "Pengguna dengan nama pengguna yang diberikan sudah ada";
 
 /* followed by account name to select */
-"using" = "using";
-"Video call" = "Video call";
-"Warning" = "Warning";
+"using" = "Menggunakan";
+"Video call" = "Panggilan video";
+"Warning" = "Peringatan";
 
 /* Placeholder is xmpp: URI */
-"What do you want to do with %@?" = "What do you want to do with %@?";
+"What do you want to do with %@?" = "Apa yang ingin Anda lakukan dengan %@?";
 
 /* Option: only notify user when they are mentioned in this group */
-"When mentioned" = "When mentioned";
+"When mentioned" = "Ketika dipanggil";
 "Would you like to use %@ as the default provider for outgoing SMS and calls from %@?" = "Would you like to use %1$@ as the default provider for outgoing SMS and calls from %2$@?";
-"Yes" = "Yes";
-"Yesterday" = "Yesterday";
-"You are invited to join conversation at" = "You are invited to join conversation at";
-"You are leaving the group chat" = "You are leaving the group chat";
+"Yes" = "Ya";
+"Yesterday" = "Kemarin";
+"You are invited to join conversation at" = "Anda diundang untuk bergabung dalam percakapan di";
+"You are leaving the group chat" = "Anda keluar dari grup chat";
 
 /* Alert text */
-"You are not currently connected to this group. Please check your network connection and try again later." = "You are not currently connected to this group. Please check your network connection and try again later.";
-"You are not joined to the channel." = "You are not joined to the channel.";
-"You can log out of this account temporarily, or permanently remove all account data from this device (including chats). Account removal cannot be undone." = "You can log out of this account temporarily, or permanently remove all account data from this device (including chats). Account removal cannot be undone.";
-"You have enabled encryption, but this group does not support encrypted messages. Please change encryption settings to be able to send messages." = "You have enabled encryption, but this group does not support encrypted messages. Please change encryption settings to be able to send messages.";
-"You need to connect to your account before you can update your contact list. Do you wish to connect now?" = "You need to connect to your account before you can update your contact list. Do you wish to connect now?";
+"You are not currently connected to this group. Please check your network connection and try again later." = "Saat ini Anda tidak terhubung ke grup ini. Periksa koneksi jaringan Anda dan coba lagi.";
+"You are not joined to the channel." = "Anda tidak tergabung ke channel.";
+"You can log out of this account temporarily, or permanently remove all account data from this device (including chats). Account removal cannot be undone." = "Anda dapat keluar dari akun ini untuk sementara, atau menghapus semua data akun secara permanen dari perangkat ini (termasuk chat). Akun yang dihapus tidak dapat dipulihkan.";
+"You have enabled encryption, but this group does not support encrypted messages. Please change encryption settings to be able to send messages." = "Anda mengaktifkan enkripsi, tetapi grup ini tidak mendukung pesan terenkripsi. Harap ubah pengaturan enkripsi untuk mengirim pesan.";
+"You need to connect to your account before you can update your contact list. Do you wish to connect now?" = "Anda harus terhubung ke akun Anda sebelum memperbarui daftar kontak Anda. Apakah Anda ingin terhubung sekarang?";
 
 /* Placeholder is the Group Name */
-"You've left the group %@ and notifications for this group have been disabled.\nYou may need to reenable them on other devices." = "You've left the group %@ and notifications for this group have been disabled.\nYou may need to reenable them on other devices.";
-"Your Name" = "Your Name";
+"You've left the group %@ and notifications for this group have been disabled.\nYou may need to reenable them on other devices." = "Anda telah keluar dari grup %@ dan notifikasi untuk grup ini telah dinonaktifkan.\nAnda mungkin perlu mengaktifkannya kembali di perangkat lain.";
+"Your Name" = "Nama anda";
