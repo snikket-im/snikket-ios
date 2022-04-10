@@ -2,7 +2,7 @@
 "15C-WY-qrp.title" = "Réglages";
 
 /* Class = "UILabel"; text = "Request delivery receipts"; ObjectID = "32B-bc-CHX"; */
-"32B-bc-CHX.text" = "Request delivery receipts";
+"32B-bc-CHX.text" = "Demander les reçus de livraison";
 
 /* Class = "UILabel"; text = "Notifications"; ObjectID = "3pd-ay-sAI"; Note = "Open notification settings page"; */
 "3pd-ay-sAI.text" = "Notifications";
@@ -26,7 +26,7 @@
 "bbT-7s-6ph.text" = "Qualité des photos";
 
 /* Class = "UILabel"; text = "Send message on return"; ObjectID = "Bd4-qf-OsU"; Note = "Toggle label: send message when return/enter button is pressed"; */
-"Bd4-qf-OsU.text" = "Envoyer le message avec le retour de ligne";
+"Bd4-qf-OsU.text" = "Envoyer le message au retour de ligne";
 
 /* Class = "UILabel"; text = "File download limit"; ObjectID = "bj6-vP-3A7"; */
 "bj6-vP-3A7.text" = "Limite du téléchargement de fichiers";
@@ -62,7 +62,7 @@
 "hGX-FI-YNj.text" = "Contacts";
 
 /* Class = "UILabel"; text = "Clear download cache"; ObjectID = "Hu1-2i-RSO"; */
-"Hu1-2i-RSO.text" = "Effacer le cache de téléchargement";
+"Hu1-2i-RSO.text" = "Effacer le cache du téléchargement";
 
 /* Class = "UILabel"; text = "Media"; ObjectID = "ieE-mK-uEm"; */
 "ieE-mK-uEm.text" = "Médias";
@@ -77,7 +77,7 @@
 "LAc-oF-22z.text" = "Par présence et date";
 
 /* Class = "UILabel"; text = "Auto-authorize contacts"; ObjectID = "MGl-L6-Fs3"; */
-"MGl-L6-Fs3.text" = "Accepter les demandes d’ajout de contact automatiquement";
+"MGl-L6-Fs3.text" = "Autoriser les nouveaux contacts";
 
 /* Class = "UILabel"; text = "Blocked contacts"; ObjectID = "MJ0-kw-1Kl"; */
 "MJ0-kw-1Kl.text" = "Contacts bloqués";
@@ -89,13 +89,13 @@
 "pFo-ox-4gT.title" = "Paramètres de la discussion";
 
 /* Class = "UILabel"; text = "Message Styling"; ObjectID = "Qu4-Mf-tz4"; */
-"Qu4-Mf-tz4.text" = "Message Styling";
+"Qu4-Mf-tz4.text" = "Appliquer un style du message";
 
 /* Class = "UILabel"; text = "Medium"; ObjectID = "tqu-Xn-F0Z"; */
-"tqu-Xn-F0Z.text" = "Medium";
+"tqu-Xn-F0Z.text" = "Moyenne";
 
 /* Class = "UILabel"; text = "Medium"; ObjectID = "u45-W8-GP0"; */
-"u45-W8-GP0.text" = "Medium";
+"u45-W8-GP0.text" = "Moyenne";
 
 /* Class = "UITableViewController"; title = "Contacts settings"; ObjectID = "xRS-v5-T5C"; */
 "xRS-v5-T5C.title" = "Préférences des contacts";
