@@ -27,7 +27,7 @@
 /* Option: Always notify user about messages in this group */
 "Always" = "Toujours";
 "Attachment" = "Pièce-jointe";
-"Attachments" = "Pièces-jointes";
+"Attachments" = "Pièces jointes";
 "Audio call" = "Appel audio";
 
 /* App Theme Type */
@@ -57,7 +57,7 @@
 "Call failed" = "Appel échoué";
 
 /* Menu item: open camera to capture media for sharing */
-"Camera" = "Camera";
+"Camera" = "Appareil photo";
 "Cancel" = "Annuler";
 "Change" = "Changer";
 
@@ -72,8 +72,8 @@
 "Chat" = "Chat";
 
 /* Error text - while uploading file */
-"Check your network connection or try again later." = "Check your network connection or try again later.";
-"Clear History" = "Effacer l’historique";
+"Check your network connection or try again later." = "Vérifiez votre connexion réseau ou réessayez plus tard.";
+"Clear History" = "Supprimer l’historique";
 "Close" = "Fermer";
 
 /* Action button */
@@ -100,7 +100,7 @@
 
 /* App Theme Type */
 "Dark" = "Sombre";
-"Default" = "Default";
+"Default" = "Par défaut";
 "Delete" = "Supprimer";
 
 /* Action: Delete all downloaded files */
@@ -108,9 +108,9 @@
 "Delete channel?" = "Supprimer ce salon ?";
 "Delete chat" = "Supprimer cette discussion";
 "Delete group chat?" = "Supprimer ce salon ?";
-"Delete My Account" = "Delete My Account";
-"Deleting your account will permanently log out all your devices and delete your account, profile, and associated data on %@." = "Deleting your account will permanently log out all your devices and delete your account, profile, and associated data on %@.";
-"Details" = "Details";
+"Delete My Account" = "Supprimer mon compte";
+"Deleting your account will permanently log out all your devices and delete your account, profile, and associated data on %@." = "La suppression de votre compte entraîne la déconnexion permanente de tous vos appareils et la suppression de votre compte, de votre profil et des données associées sur %@.";
+"Details" = "Détails";
 
 /* Section heading: settings for how contact list entries should be displayed */
 "Display" = "Affichage";
@@ -123,7 +123,7 @@
 "Do you want to ban user" = "Voulez-vous bannir cet utilisateur";
 
 /* Confirmation prompt text */
-"Do you wish to publish this photo as your profile picture?" = "Do you wish to publish this photo as your profile picture?";
+"Do you wish to publish this photo as your profile picture?" = "Souhaitez-vous publier cette image en tant que votre photo de profil ?";
 
 /* Alert text. Placeholder is server domain. */
 "Do you wish to register a new account at %@?" = "Voulez-vous créer un compte chez %@ ?";
@@ -136,7 +136,7 @@
 
 /* Alert title
    Context menu item */
-"Download" = "Download";
+"Download" = "Téléchargement";
 "Edit" = "Éditer";
 
 /* Section heading for list of contact email addresses */
@@ -160,7 +160,7 @@
 "Extended away" = "Non disponible";
 
 /* Alert text. First placeholder is name or JID, second is error message */
-"Failed to ban %@: %@" = "Failed to ban %1$@: %2$@";
+"Failed to ban %@: %@" = "Échec de bannissement de %1$@ : %2$@";
 "Failed To Update Contact List" = "Échec de la mise à jour de la liste de contact";
 "Failure" = "Échec";
 
@@ -171,7 +171,7 @@
 "File is too large to share on your account." = "Ce fichier est trop gros pour être partagé sur votre compte.";
 
 /* Error text */
-"File upload was not acknowledged by the server." = "File upload was not acknowledged by the server.";
+"File upload was not acknowledged by the server." = "Le téléchargement du fichier n'a pas été reconnu par le serveur.";
 
 /* Error text - while uploading file */
 "File uploads are not supported on your account." = "L’envoi de fichier n’est pas pris en charge par votre compte.";
@@ -193,7 +193,7 @@
 "Invitation" = "Invitation";
 "Invite" = "Inviter";
 "It was not possible to access camera or microphone. Please check privacy settings" = "L’accès à la caméra ou au microphone a échoué. Veuillez vérifier les paramètres de vie privée";
-"It was not possible to access camera. Please check in privacy settings that you have granted Snikket access to the camera." = "It was not possible to access camera. Please check in privacy settings that you have granted Snikket access to the camera.";
+"It was not possible to access camera. Please check in privacy settings that you have granted Snikket access to the camera." = "Il n'a pas été possible d'accéder à la caméra. Veuillez vérifier dans les paramètres de confidentialité que vous avez autorisé Snikket à accéder à la caméra.";
 
 /* Error text: upload failed due to permissions */
 "It was not possible to access the file." = "Impossible d’accéder au fichier.";
@@ -224,7 +224,7 @@
 /* Menu item: open location picker to share a location */
 "Location" = "Emplacement";
 "Log Out" = "Se déconnecter";
-"Login and password do not match." = "Login and password do not match.";
+"Login and password do not match." = "Le login et le mot de passe ne correspondent pas.";
 
 /* Image or Video Quality */
 "Low" = "Meugler";
@@ -234,7 +234,7 @@
 "Media" = "Média";
 
 /* Image or Video Quality */
-"Medium" = "Moyen";
+"Medium" = "Moyenne";
 "Member" = "Membre";
 "Message Archiving" = "Archivage des messages";
 
@@ -262,12 +262,12 @@
 "No messages yet. Say hi!" = "Aucun message, dites bonjour !";
 
 /* Encryption mode */
-"None" = "None";
+"None" = "Aucun";
 
 /* Alert title */
 "Not Connected" = "Non-connecté";
 "Not connected!" = "Pas connecté !";
-"Not Joined" = "Pas connecté";
+"Not Joined" = "Non-connecté";
 
 /* How many messages to fetch from the server */
 "Nothing" = "Rien";
@@ -284,19 +284,19 @@
 "Online" = "En-ligne";
 
 /* Action: open a chat with a JID */
-"Open chat" = "Open chat";
+"Open chat" = "Ouvrir une conversation";
 
 /* Alert title */
-"Open URL" = "Open URL";
-"Operation timed out" = "Délais d’attente dépassé";
-"operation timed out" = "délais d’attente dépassé";
+"Open URL" = "Ouvrir l'URL";
+"Operation timed out" = "Délai d’attente dépassé";
+"operation timed out" = "délai d’attente dépassé";
 
 /* Image or Video Quality */
-"Original" = "Original";
-"Original quality will share image in the format in which it is stored on your phone and it may not be supported by every device." = "Original quality will share image in the format in which it is stored on your phone and it may not be supported by every device.";
-"Original quality will share video in the format in which video is stored on your phone and it may not be supported by every device." = "Original quality will share video in the format in which video is stored on your phone and it may not be supported by every device.";
+"Original" = "D'origine";
+"Original quality will share image in the format in which it is stored on your phone and it may not be supported by every device." = "La qualité d'origine permettra de partager l'image dans le format dans lequel elle est stockée sur votre téléphone et il se peut qu'elle ne soit pas prise en charge par tous les appareils.";
+"Original quality will share video in the format in which video is stored on your phone and it may not be supported by every device." = "La qualité d'origine permettra de partager la vidéo dans le format dans lequel la vidéo est stockée sur votre téléphone et il se peut qu'elle ne soit pas prise en charge par tous les appareils.";
 "Other devices fingerprints" = "Empreintes des autres clients";
-"Permanently Delete Account" = "Permanently Delete Account";
+"Permanently Delete Account" = "Supprimer définitivement le compte";
 
 /* Section heading for list of contact phone numbers */
 "Phone numbers" = "Numéro(s) de téléphone";
@@ -310,15 +310,15 @@
 "Private message" = "Message privé";
 
 /* Alert title */
-"Profile Picture Update Failed" = "Profile Picture Update Failed";
+"Profile Picture Update Failed" = "La mise à jour de la photo de profil a échoué";
 "Provided values are not acceptable" = "Les valeurs fournies ne sont pas acceptables";
 
 /* Alert title */
 "Push Notifications" = "Push Notifications";
-"Push notifications are enabled for %@. They need to be disabled before account can be removed and it is not possible to at this time. Please try again later." = "Push notifications are enabled for %@. They need to be disabled before account can be removed and it is not possible to at this time. Please try again later.";
+"Push notifications are enabled for %@. They need to be disabled before account can be removed and it is not possible to at this time. Please try again later." = "Les notifications push sont activées pour %@. Elles doivent être désactivées avant que le compte puisse être supprimé et ce n'est pas possible pour le moment. Veuillez réessayer plus tard.";
 
 /* Alert title */
-"Push Notifications Enabled" = "Push Notifications Enabled";
+"Push Notifications Enabled" = "Notifications push activées";
 "Push Notifications Error" = "Erreur de notification de push";
 "Quality of shared media" = "Qualité des média partagés";
 
@@ -337,11 +337,11 @@
 /* Alert title
    Alert title: rename a group chat */
 "Rename chat" = "Renommer la discussion";
-"Report" = "Rapporter";
-"Report and Block" = "Rapporter et bloquer";
-"Report Contact" = "Rapporter ce contact";
-"Reported" = "Rapporté";
-"Reporting..." = "Reporting...";
+"Report" = "Signaler";
+"Report and Block" = "Signaler et bloquer";
+"Report Contact" = "Signaler ce contact";
+"Reported" = "Signalé";
+"Reporting..." = "Signalement...";
 "Resend" = "Ré-envoyer";
 "Ringing..." = "Ça sonne…";
 "Save" = "Enregistrer";
@@ -370,7 +370,7 @@
 "Server did not respond to registration request" = "Le serveur n’a pas répondu à la requête d’inscription";
 
 /* Preceded by user's server domain */
-"server returned an error on the request to enable archiving. You can try to enable this feature later on from the account settings." = "server returned an error on the request to enable archiving. You can try to enable this feature later on from the account settings.";
+"server returned an error on the request to enable archiving. You can try to enable this feature later on from the account settings." = "le serveur a renvoyé une erreur lors de la demande d'activation de l'archivage. Vous pouvez essayer d'activer cette fonction ultérieurement à partir des paramètres du compte.";
 "Server returned error:" = "Erreur renvoyée par le serveur :";
 "Set" = "Définir";
 "Settings" = "Préférences";
@@ -379,12 +379,12 @@
 "Share..." = "Partager…";
 
 /* Informs user to slide their finger in direction of arrow to cancel audio recording */
-"Slide to cancel" = "Slide to cancel";
+"Slide to cancel" = "Glisser pour annuler";
 
 /* Alert title - starting a new chat */
-"Start Chat" = "Start Chat";
+"Start Chat" = "Démarrer la discussion";
 "Status" = "Statut";
-"Successfully registered to receive push notifications." = "Successfully registered to receive push notifications.";
+"Successfully registered to receive push notifications." = "L'enregistrement pour recevoir des notifications push a réussi.";
 
 /* Action button: take a new photo to use to as group chat picture */
 "Take photo" = "Prendre une photo";
@@ -395,18 +395,18 @@
 
 /* Error text - while uploading a file. Placeholder is a HTTP status code. */
 "The upload was rejected by the server (error %d)." = "L’envoi de fichier a été rejeté par le serveur (erreur %d).";
-"The user will be reported and any calls, messages and status updates from them will be blocked." = "The user will be reported and any calls, messages and status updates from them will be blocked.";
+"The user will be reported and any calls, messages and status updates from them will be blocked." = "L'utilisateur sera signalé et tous les appels, messages et mises à jour de statut de sa part seront bloqués.";
 
 /* Error text - while uploading file */
-"There was a server error processing the file upload. Please try again later." = "There was a server error processing the file upload. Please try again later.";
+"There was a server error processing the file upload. Please try again later." = "Une erreur de serveur s'est produite lors du téléchargement du fichier. Veuillez réessayer plus tard.";
 "This will delete all the message history for this chat. Continue?" = "Vous allez supprimer tout l’historique des messages de cette discussion. Voulez-vous continuer ?";
 
 /* Alert text */
-"Unable to publish your profile picture at this time.\nError: %@" = "Unable to publish your profile picture at this time.\nError: %@";
+"Unable to publish your profile picture at this time.\nError: %@" = "Impossible de publier votre photo de profil pour le moment.\nErreur : %@";
 "Unblock" = "Débloquer";
 
 /* Error text - while uploading file. Placeholder is a HTTP status code. */
-"Unexpected error (%d) received while uploading file." = "Unexpected error (%d) received while uploading file.";
+"Unexpected error (%d) received while uploading file." = "Une erreur inattendue (%d) a été reçue lors du téléchargement du fichier.";
 "Unkown error occured" = "Erreur inconnue";
 "Unlimited" = "Illimité";
 
@@ -416,7 +416,7 @@
 "User with provided username already exists" = "Un utilisateur portant ce nom existe déjà";
 
 /* followed by account name to select */
-"using" = "using";
+"using" = "en utilisant";
 "Video call" = "Appel vidéo";
 "Warning" = "Attention";
 
@@ -424,20 +424,20 @@
 "What do you want to do with %@?" = "Que voulez-vous faire avec %@ ?";
 
 /* Option: only notify user when they are mentioned in this group */
-"When mentioned" = "When mentioned";
-"Would you like to use %@ as the default provider for outgoing SMS and calls from %@?" = "Would you like to use %1$@ as the default provider for outgoing SMS and calls from %2$@?";
+"When mentioned" = "Quand mentionné";
+"Would you like to use %@ as the default provider for outgoing SMS and calls from %@?" = "Voulez-vous utiliser %@ comme fournisseur par défaut pour les SMS et les appels sortants de %@ ?";
 "Yes" = "Oui";
 "Yesterday" = "Hier";
 "You are invited to join conversation at" = "Vous avez été invité(e) à rejoindre une conversation à";
 "You are leaving the group chat" = "Vous allez quitter ce salon";
 
 /* Alert text */
-"You are not currently connected to this group. Please check your network connection and try again later." = "You are not currently connected to this group. Please check your network connection and try again later.";
+"You are not currently connected to this group. Please check your network connection and try again later." = "Vous n'êtes pas actuellement connecté à ce groupe. Veuillez vérifier votre connexion réseau et réessayer plus tard.";
 "You are not joined to the channel." = "Vous n’êtes pas dans ce salon.";
-"You can log out of this account temporarily, or permanently remove all account data from this device (including chats). Account removal cannot be undone." = "You can log out of this account temporarily, or permanently remove all account data from this device (including chats). Account removal cannot be undone.";
-"You have enabled encryption, but this group does not support encrypted messages. Please change encryption settings to be able to send messages." = "You have enabled encryption, but this group does not support encrypted messages. Please change encryption settings to be able to send messages.";
-"You need to connect to your account before you can update your contact list. Do you wish to connect now?" = "You need to connect to your account before you can update your contact list. Do you wish to connect now?";
+"You can log out of this account temporarily, or permanently remove all account data from this device (including chats). Account removal cannot be undone." = "Vous pouvez vous déconnecter temporairement de ce compte ou supprimer définitivement toutes les données du compte de cet appareil (y compris les conversations). La suppression du compte ne peut pas être annulée.";
+"You have enabled encryption, but this group does not support encrypted messages. Please change encryption settings to be able to send messages." = "Vous avez activé le chiffrement, mais ce groupe ne prend pas en charge les messages chiffrés. Veuillez modifier les paramètres de chiffrement pour pouvoir envoyer des messages.";
+"You need to connect to your account before you can update your contact list. Do you wish to connect now?" = "Vous devez vous connecter à votre compte avant de pouvoir mettre à jour votre liste de contacts. Voulez-vous vous connecter maintenant ?";
 
 /* Placeholder is the Group Name */
-"You've left the group %@ and notifications for this group have been disabled.\nYou may need to reenable them on other devices." = "You've left the group %@ and notifications for this group have been disabled.\nYou may need to reenable them on other devices.";
+"You've left the group %@ and notifications for this group have been disabled.\nYou may need to reenable them on other devices." = "Vous avez quitté le groupe %@ et les notifications pour ce groupe ont été désactivées.\nVous devrez peut-être les réactiver sur d'autres appareils.";
 "Your Name" = "Votre nom";
