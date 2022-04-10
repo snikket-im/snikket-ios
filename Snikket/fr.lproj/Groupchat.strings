@@ -17,7 +17,7 @@
 "BJz-HA-uv6.text" = "Libellé";
 
 /* Class = "UITableViewSection"; footerTitle = "Push notification support depends on the XMPP server which you are using and may not work in some cases even if it's supported and enabled on the group chat"; ObjectID = "bRu-vo-fpu"; */
-"bRu-vo-fpu.footerTitle" = "L'envoi de notification dépend du serveur XMPP que vous utilisez, ceux-ci peuvent ne pas arriver, même si leur envoi a été activé dans les options de discussion de groupe";
+"bRu-vo-fpu.footerTitle" = "L'envoi de notifications dépend du serveur XMPP que vous utilisez et dans certains cas ceux-là peuvent ne pas arriver même si leur envoi est activé au niveau de la discussion de groupe";
 
 /* Class = "UITableViewSection"; headerTitle = " Settings"; ObjectID = "bRu-vo-fpu"; */
 "bRu-vo-fpu.headerTitle" = " Réglages";
