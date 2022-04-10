@@ -2,7 +2,7 @@
 "06Y-Cg-0Q3.text" = "ajouter l'email";
 
 /* Class = "UILabel"; text = "Nickname"; ObjectID = "27D-rn-4zp"; */
-"27D-rn-4zp.text" = "Pseudo";
+"27D-rn-4zp.text" = "Pseudonyme";
 
 /* Class = "UITextField"; placeholder = "Country"; ObjectID = "4hs-GL-9fd"; */
 "4hs-GL-9fd.placeholder" = "Pays";
@@ -20,7 +20,7 @@
 "A24-eF-tzh.title" = "Empreintes OMEMO";
 
 /* Class = "UILabel"; text = "When in Away/XA/DND state"; ObjectID = "aKW-CM-bl2"; */
-"aKW-CM-bl2.text" = "When in Away/XA/DND state";
+"aKW-CM-bl2.text" = "Quand statut Absent·e";
 
 /* Class = "UITextField"; placeholder = "Type"; ObjectID = "Clb-vT-t5A"; */
 "Clb-vT-t5A.placeholder" = "Type";
