@@ -22,7 +22,7 @@ class PEPDisplayNameModule: AbstractPEPModule {
     
     var id = ID
     
-    var criteria = Criteria.name("message").add(Criteria.name("event", xmlns: PUBSUB_EVENT_XMLNS));
+    var criteria = Criteria.empty();
     
     var features: [String] = FEATURES
     
