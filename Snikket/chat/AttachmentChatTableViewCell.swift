@@ -581,7 +581,12 @@ class AttachmentChatTableViewCell: BaseChatTableViewCell, UIContextMenuInteracti
         func set(item: ChatAttachment, maxImageWidth: CGFloat) {
             if let fileUrl = DownloadStore.instance.url(for: "\(item.id)") {
                 filename.text = fileUrl.lastPathComponent;
-                let fileSize = MediaHelper.fileSizeToString(try! FileManager.default.attributesOfItem(atPath: fileUrl.path)[.size] as? UInt64);
+                var fileSize : String;
+                do {
+                    fileSize = MediaHelper.fileSizeToString(try FileManager.default.attributesOfItem(atPath: fileUrl.path)[.size] as? UInt64);
+                } catch {
+                    fileSize = "[\(error)]";
+                }
                 if let uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, fileUrl.pathExtension as CFString, nil)?.takeRetainedValue(), let typeName = UTTypeCopyDescription(uti)?.takeRetainedValue() as String? {
                     details.text = "\(typeName) - \(fileSize)";
                     
