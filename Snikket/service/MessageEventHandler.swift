@@ -167,6 +167,8 @@ class MessageEventHandler: XmppServiceEventHandler {
         // chat.options.encryption == nil means it is set to defualt
         if let telephonyProvider = AccountSettings.telephonyProvider(account).getString(), jid.domain.lowercased() == telephonyProvider.lowercased(), (chat.options.encryption == nil || chat.options.encryption == ChatEncryption.none) {
             encryption = ChatEncryption.none
+        } else if jid.domain.lowercased() == "cheogram.com" {
+            encryption = ChatEncryption.none
         }
 
         switch encryption {
