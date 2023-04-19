@@ -332,7 +332,7 @@ class MucChatOccupantsTableViewController: UITableViewController {
             return;
         }
         
-        if room.state != .joined {
+        if room.state != .joined && room.state != .requested {
             DispatchQueue.main.async {
                 self.members.removeAll()
                 self.tableView?.reloadData();
