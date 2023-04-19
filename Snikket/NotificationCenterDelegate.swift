@@ -147,6 +147,8 @@ class NotificationCenterDelegate: NSObject, UNUserNotificationCenterDelegate {
             }
             if (Settings.AutoSubscribeOnAcceptedSubscriptionRequest.getBool()) {
                 presenceModule.subscribe(to: JID(senderJid));
+            } else if let telephonyProvider = AccountSettings.telephonyProvider(accountJid).getString(), JID(senderJid).domain.lowercased() == telephonyProvider.lowercased() {
+                presenceModule.subscribe(to: JID(senderJid));
             } else {
                 let alert2 = UIAlertController(title: "Subscribe to " + senderName, message: "Do you wish to subscribe to \n\(senderName)\non account \(accountJid.stringValue)", preferredStyle: .alert);
                 alert2.addAction(UIAlertAction(title: "Accept", style: .default, handler: {(action) in
