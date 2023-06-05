@@ -325,7 +325,7 @@ class MessageEventHandler: XmppServiceEventHandler {
     }
 
     static func calculateState(direction: MessageDirection, isError error: Bool, isFromArchive archived: Bool, isMuc: Bool) -> MessageState {
-        let unread = (!archived) || isMuc;
+        let unread = true; // TODO: proper unread tracking
         if direction == .incoming {
             if error {
                 return unread ? .incoming_error_unread : .incoming_error;
