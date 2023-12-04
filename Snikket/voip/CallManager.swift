@@ -597,7 +597,7 @@ class CallManager: NSObject, CXProviderDelegate {
         let transaction = CXTransaction(action: endCallAction);
         callController.request(transaction) { error in
             if let error = error {
-                fatalError(error.localizedDescription)
+                //fatalError(error.localizedDescription)
             }
             self.reset();
         }
