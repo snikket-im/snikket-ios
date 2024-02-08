@@ -257,7 +257,7 @@ class AttachmentChatTableViewCell: BaseChatTableViewCell, UIContextMenuInteracti
                 attachmentInfo.bottomAnchor.constraint(equalTo: customView.bottomAnchor)
             ])
             attachmentInfo.set(item: item, maxImageWidth: maxImageWidth)
-            let fileSize = MediaHelper.fileSizeToString(try! FileManager.default.attributesOfItem(atPath: localUrl.path)[.size] as? UInt64)
+            let fileSize = MediaHelper.fileSizeToString(try? FileManager.default.attributesOfItem(atPath: localUrl.path)[.size] as? UInt64)
             let time = timestampView?.text ?? ""
             timestampView?.text = item.state.direction == .incoming ? "\(time) · \(fileSize)" : "\(fileSize) · \(time)"
         } else {
