@@ -22,6 +22,9 @@
 /* Class = "UILabel"; text = "Message Archiving"; ObjectID = "Ckp-Mb-v0c"; */
 "Ckp-Mb-v0c.text" = "Nachrichtenarchivierung";
 
+/* Class = "UITableViewSection"; headerTitle = "Invite"; ObjectID = "dib-YA-Eiz"; */
+"dib-YA-Eiz.headerTitle" = "Invite";
+
 /* Class = "UIBarButtonItem"; title = "Back"; ObjectID = "Dx3-QU-3cN"; */
 "Dx3-QU-3cN.title" = "Zurück";
 
@@ -78,6 +81,12 @@
 
 /* Class = "UILabel"; text = "Chat with"; ObjectID = "Qr0-8H-IJq"; */
 "Qr0-8H-IJq.text" = "Chat with";
+
+/* Class = "UITextField"; placeholder = "Enter contact name"; ObjectID = "Rg7-YE-y8H"; */
+"Rg7-YE-y8H.placeholder" = "Enter contact name";
+
+/* Class = "UITextField"; text = "Send Invitation Link"; ObjectID = "Rg7-YE-y8H"; */
+"Rg7-YE-y8H.text" = "Send Invitation Link";
 
 /* Class = "UINavigationItem"; title = "Contacts"; ObjectID = "SEz-IM-IWL"; */
 "SEz-IM-IWL.title" = "Kontakte";

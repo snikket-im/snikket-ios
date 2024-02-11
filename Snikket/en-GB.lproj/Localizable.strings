@@ -418,6 +418,9 @@
 "No messages yet. Say hi!" = "No messages yet. Say hi!";
 
 /* No comment provided by engineer. */
+"No Telephony Provider!" = "No Telephony Provider!";
+
+/* No comment provided by engineer. */
 "None" = "None";
 
 /* Alert title */
@@ -479,6 +482,9 @@
 
 /* Menu item: select media to share from photo/video library */
 "Photo & Video Library" = "Photo & Video Library";
+
+/* No comment provided by engineer. */
+"Please Select a Telephony Provider from Settings" = "Please Select a Telephony Provider from Settings";
 
 /* No comment provided by engineer. */
 "Please try again!" = "Please try again!";
@@ -565,6 +571,9 @@
 "Select account to open chat from:" = "Select account to open chat from:";
 
 /* No comment provided by engineer. */
+"Select Account for Call" = "Select Account for Call";
+
+/* No comment provided by engineer. */
 "Select photo" = "Select photo";
 
 /* Alert title - select image share quality */
@@ -640,6 +649,12 @@
 "There was a server error processing the file upload. Please try again later." = "There was a server error processing the file upload. Please try again later.";
 
 /* No comment provided by engineer. */
+"This is an audio call, and no video is available" = "This is an audio call, and no video is available";
+
+/* No comment provided by engineer. */
+"This room is not capable of sending encrypted messages. Please change encryption settings to be able to send messages" = "This room is not capable of sending encrypted messages. Please change encryption settings to be able to send messages";
+
+/* No comment provided by engineer. */
 "This will delete all the message history for this chat. Continue?" = "This will delete all the message history for this chat. Continue?";
 
 /* Alert text */
@@ -671,6 +686,9 @@
 
 /* No comment provided by engineer. */
 "Video call" = "Video call";
+
+/* No comment provided by engineer. */
+"Video not available" = "Video not available";
 
 /* No comment provided by engineer. */
 "Warning" = "Warning";

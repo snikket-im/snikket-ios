@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		370B6FD12748F31C00D14123 /* db-schema-16.sql in Resources */ = {isa = PBXBuildFile; fileRef = 370B6FD02748F31C00D14123 /* db-schema-16.sql */; };
+		37359BDF2731427500066DC1 /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37359BDE2731427500066DC1 /* Intents.framework */; };
 		373A8020271063E1000E50FE /* TelephonyProviderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373A801F271063E1000E50FE /* TelephonyProviderViewController.swift */; };
+		374AB4C3273153E700E16682 /* CallsAccountSelectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374AB4C2273153E700E16682 /* CallsAccountSelectionController.swift */; };
 		3759635F26F72F1900831F4C /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3759636126F72F1900831F4C /* Welcome.storyboard */; };
 		3759636A26F72FD700831F4C /* Groupchat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3759636C26F72FD700831F4C /* Groupchat.storyboard */; };
 		3759637126F7303100831F4C /* VoIP.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3759637326F7303100831F4C /* VoIP.storyboard */; };
@@ -16,6 +19,7 @@
 		3759638626F7317D00831F4C /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3759638826F7317D00831F4C /* Account.storyboard */; };
 		3759638D26F7320F00831F4C /* MIX.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3759638F26F7320F00831F4C /* MIX.storyboard */; };
 		3759A58C26F8C7CC002987B2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3759A58E26F8C7CC002987B2 /* Localizable.strings */; };
+		3763450E272C6CEF000BC01F /* CallsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763450D272C6CEF000BC01F /* CallsSettingsViewController.swift */; };
 		3776C43526EDC5F00047750B /* MessageStyling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3776C43426EDC5F00047750B /* MessageStyling.swift */; };
 		3795F92426FB69370067361A /* BartyCrouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3795F92326FB69370067361A /* BartyCrouch.swift */; };
 		3797D5BD26E9E42E0091DAF8 /* AvatarColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3797D5BC26E9E42E0091DAF8 /* AvatarColors.swift */; };
@@ -304,7 +308,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		370B6FD02748F31C00D14123 /* db-schema-16.sql */ = {isa = PBXFileReference; lastKnownFileType = text; path = "db-schema-16.sql"; sourceTree = "<group>"; };
+		37359BDE2731427500066DC1 /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
 		373A801F271063E1000E50FE /* TelephonyProviderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelephonyProviderViewController.swift; sourceTree = "<group>"; };
+		374AB4C2273153E700E16682 /* CallsAccountSelectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallsAccountSelectionController.swift; sourceTree = "<group>"; };
 		3759635C26F72EAA00831F4C /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		3759635D26F72ED700831F4C /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Main.strings; sourceTree = "<group>"; };
 		3759635E26F72ED700831F4C /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/MainInterface.strings; sourceTree = "<group>"; };
@@ -334,6 +341,7 @@
 		3759639426F7481200831F4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
 		3759A58D26F8C7CC002987B2 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3759A58F26F8C7CF002987B2 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3763450D272C6CEF000BC01F /* CallsSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallsSettingsViewController.swift; sourceTree = "<group>"; };
 		3776C43426EDC5F00047750B /* MessageStyling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageStyling.swift; sourceTree = "<group>"; };
 		3795F92326FB69370067361A /* BartyCrouch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BartyCrouch.swift; sourceTree = "<group>"; };
 		3797D5BC26E9E42E0091DAF8 /* AvatarColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarColors.swift; sourceTree = "<group>"; };
@@ -652,6 +660,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37359BDF2731427500066DC1 /* Intents.framework in Frameworks */,
 				FE1A34A7258CD3EE0058B86A /* WebRTC.xcframework in Frameworks */,
 				FE5079F01CD3CA91001A015C /* Security.framework in Frameworks */,
 				3797D5C026EA456F0091DAF8 /* HSLuvSwift in Frameworks */,
@@ -674,6 +683,7 @@
 		FE1908902584D69400CA049F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				37359BDE2731427500066DC1 /* Intents.framework */,
 				FE1A349F258CD3E10058B86A /* WebRTC.xcframework */,
 				FE1908962584D69400CA049F /* OpenSSL.xcframework */,
 			);
@@ -690,6 +700,7 @@
 				FE2D481924505F1600C13CE5 /* CallManager.swift */,
 				FE2D481B24518C2800C13CE5 /* RTCCameraVideoCapturer_Format.swift */,
 				FE1A07472525EDD4004F38A0 /* ExternalServiceDiscovery_Service_extension.swift */,
+				374AB4C2273153E700E16682 /* CallsAccountSelectionController.swift */,
 			);
 			path = voip;
 			sourceTree = "<group>";
@@ -779,26 +790,27 @@
 		FE507A0A1CDB7B3B001A015C /* settings */ = {
 			isa = PBXGroup;
 			children = (
+				FE6545611E9E7FDE006A14AC /* AccountDomainTableViewCell.swift */,
+				FE17808C23EB4C7F00A1EA76 /* AccountQRCodeController.swift */,
+				FEF80DB11CDBBBFE005645A7 /* AccountSettingsViewController.swift */,
 				FE507A0B1CDB7B3B001A015C /* AccountTableViewCell.swift */,
 				FE507A0C1CDB7B3B001A015C /* AddAccountController.swift */,
-				FE507A0D1CDB7B3B001A015C /* SettingsViewController.swift */,
-				FEF80DB11CDBBBFE005645A7 /* AccountSettingsViewController.swift */,
-				FE80BDAA1D953FC4001914B0 /* SetupViewController.swift */,
-				FE65455F1E9E7B85006A14AC /* RegisterAccountController.swift */,
-				FE6545611E9E7FDE006A14AC /* AccountDomainTableViewCell.swift */,
-				FE6545631E9E8B67006A14AC /* ServerSelectorTableViewCell.swift */,
+				FEDC678F238B05E4005C0FAB /* BlockedContactsController.swift */,
 				FE9E136C1F25F5F7005C0EE5 /* ChatSettingsViewController.swift */,
-				FE9E136E1F26049A005C0EE5 /* NotificationSettingsViewController.swift */,
 				FE9E13701F2606E9005C0EE5 /* ContactsSettingsViewController.swift */,
 				FE00157E2019090300490340 /* ExperimentalSettingsViewController.swift */,
+				FE0E31112537288A0030F8C5 /* MediaSettingsVIewController.swift */,
+				FE9E136E1F26049A005C0EE5 /* NotificationSettingsViewController.swift */,
+				FE719E7D2274D20D007CEEC9 /* OMEMOFingerprintsController.swift */,
+				E963721126D79D3A00332482 /* PrivacyPolicyTableViewCell.swift */,
+				FE65455F1E9E7B85006A14AC /* RegisterAccountController.swift */,
 				FE2809802167CE18002F5BD0 /* server_features_list.xml */,
 				FE2809822167CF1B002F5BD0 /* ServerFeaturesViewController.swift */,
-				FE719E7D2274D20D007CEEC9 /* OMEMOFingerprintsController.swift */,
-				FEDC678F238B05E4005C0FAB /* BlockedContactsController.swift */,
-				FE17808C23EB4C7F00A1EA76 /* AccountQRCodeController.swift */,
-				FE0E31112537288A0030F8C5 /* MediaSettingsVIewController.swift */,
-				E963721126D79D3A00332482 /* PrivacyPolicyTableViewCell.swift */,
+				FE6545631E9E8B67006A14AC /* ServerSelectorTableViewCell.swift */,
+				FE507A0D1CDB7B3B001A015C /* SettingsViewController.swift */,
+				FE80BDAA1D953FC4001914B0 /* SetupViewController.swift */,
 				373A801F271063E1000E50FE /* TelephonyProviderViewController.swift */,
+				3763450D272C6CEF000BC01F /* CallsSettingsViewController.swift */,
 			);
 			path = settings;
 			sourceTree = "<group>";
@@ -908,6 +920,7 @@
 				FEBC12F124C70DE000689475 /* db-schema-13.sql */,
 				E928AD4226D6A08A00F29F93 /* db-schema-14.sql */,
 				379D914926E8A0E300B877CA /* db-schema-15.sql */,
+				370B6FD02748F31C00D14123 /* db-schema-16.sql */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -1304,6 +1317,7 @@
 				FE759FEF2371F21C001E78D9 /* db-schema-3.sql in Resources */,
 				FEC79199241BE89E007BE572 /* db-schema-11.sql in Resources */,
 				FE759FED2371F213001E78D9 /* db-schema-2.sql in Resources */,
+				370B6FD12748F31C00D14123 /* db-schema-16.sql in Resources */,
 				FECEF29823B7B838007EC323 /* db-schema-9.sql in Resources */,
 				FE3BA0C024B61583000C80D4 /* db-schema-12.sql in Resources */,
 				FE759FF02371F21C001E78D9 /* db-schema-4.sql in Resources */,
@@ -1461,6 +1475,7 @@
 				373A8020271063E1000E50FE /* TelephonyProviderViewController.swift in Sources */,
 				FE3E38862428C21100D3A8E8 /* OSLog.swift in Sources */,
 				FECEF29423B7933A007EC323 /* MetadataCache.swift in Sources */,
+				3763450E272C6CEF000BC01F /* CallsSettingsViewController.swift in Sources */,
 				E9D384B426CA95FF009BEAF3 /* UIDeviceExtension.swift in Sources */,
 				FEB62C501DA80956001500D5 /* AvatarStore.swift in Sources */,
 				FE7D293423B919FF001A877D /* DownloadManager.swift in Sources */,
@@ -1524,6 +1539,7 @@
 				FE2D481C24518C2800C13CE5 /* RTCCameraVideoCapturer_Format.swift in Sources */,
 				FE4071E421E2605900F09B58 /* VideoCallController.swift in Sources */,
 				FE9E13731F260B33005C0EE5 /* StepperTableViewCell.swift in Sources */,
+				374AB4C3273153E700E16682 /* CallsAccountSelectionController.swift in Sources */,
 				FE6545601E9E7B85006A14AC /* RegisterAccountController.swift in Sources */,
 				FE507A181CDB7B3B001A015C /* ChatViewController.swift in Sources */,
 				FEFB63AD1F31E4EE00EFB3E7 /* MainTabBarController.swift in Sources */,

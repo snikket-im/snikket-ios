@@ -515,8 +515,35 @@
                                     <segue destination="FGQ-GL-dYt" kind="show" id="gsA-2D-Fg6"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="aboutSettingsViewCall" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="AboutSettingsViewCell" id="00j-hl-4km" userLabel="AboutSettingsViewCall">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CallsSettingsViewCell" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CallsSettingsViewCell" id="k4E-By-FcW">
                                 <rect key="frame" x="0.0" y="445.5" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="k4E-By-FcW" id="u2g-bv-lyd">
+                                    <rect key="frame" x="0.0" y="0.0" width="384.5" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calls" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wfP-Tn-CDA">
+                                            <rect key="frame" x="20" y="11" width="356.5" height="22"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="accountName"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="wfP-Tn-CDA" firstAttribute="leading" secondItem="u2g-bv-lyd" secondAttribute="leadingMargin" id="0bb-UP-oUQ"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="wfP-Tn-CDA" secondAttribute="bottom" id="7Ss-yP-q7l"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="wfP-Tn-CDA" secondAttribute="trailing" id="KAy-LK-qLI"/>
+                                        <constraint firstItem="wfP-Tn-CDA" firstAttribute="top" secondItem="u2g-bv-lyd" secondAttribute="topMargin" id="SJl-yF-XMB"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration" identifier="aboutSettingsViewCall"/>
+                                <connections>
+                                    <segue destination="4VG-XN-BdZ" kind="show" id="9J1-2I-oGz"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="aboutSettingsViewCall" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="AboutSettingsViewCell" id="00j-hl-4km" userLabel="AboutSettingsViewCall">
+                                <rect key="frame" x="0.0" y="489.5" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="00j-hl-4km" id="BKo-8a-1ti">
                                     <rect key="frame" x="0.0" y="0.0" width="384.5" height="44"/>
@@ -1187,7 +1214,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h70-11-ntf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2689" y="1685"/>
+            <point key="canvasLocation" x="2570" y="1797"/>
         </scene>
         <!--Experimental Settings Scene-->
         <scene sceneID="4hq-he-9by">
@@ -1385,7 +1412,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tlr-f3-jiC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1839" y="1742"/>
+            <point key="canvasLocation" x="1865" y="1797"/>
         </scene>
         <!--AboutController-->
         <scene sceneID="5Mf-Za-3AY">
@@ -1397,9 +1424,63 @@
             </objects>
             <point key="canvasLocation" x="2050" y="2202"/>
         </scene>
+        <!--Calls settings-->
+        <scene sceneID="hhD-HQ-XQ1">
+            <objects>
+                <tableViewController title="Notification settings" id="4VG-XN-BdZ" userLabel="Calls settings" customClass="CallsSettingsViewController" customModule="Snikket" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="1sU-wb-PeQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="TELEPHONY" id="v8T-iN-1IT">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="AddToSystemCallHistoryCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddToSystemCallHistoryCell" id="I8r-iy-q2W" userLabel="AddToSystemCallHistoryCell">
+                                        <rect key="frame" x="0.0" y="49.5" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="I8r-iy-q2W" id="NJh-pm-678">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add to system call history" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ngk-vc-zET">
+                                                    <rect key="frame" x="20" y="12" width="195.5" height="20.5"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="accountName"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UL8-Yi-SF4">
+                                                    <rect key="frame" x="345" y="6.5" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="valueChanged:" destination="4VG-XN-BdZ" eventType="valueChanged" id="biy-dX-JX4"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="leadingMargin" secondItem="Ngk-vc-zET" secondAttribute="leading" id="AJa-Ff-gti"/>
+                                                <constraint firstItem="Ngk-vc-zET" firstAttribute="centerY" secondItem="NJh-pm-678" secondAttribute="centerY" id="OmK-Xl-nOm"/>
+                                                <constraint firstItem="UL8-Yi-SF4" firstAttribute="centerY" secondItem="NJh-pm-678" secondAttribute="centerY" id="SYD-ix-fy4"/>
+                                                <constraint firstItem="UL8-Yi-SF4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ngk-vc-zET" secondAttribute="trailing" constant="8" id="Xkk-ZF-rBn"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="UL8-Yi-SF4" secondAttribute="trailing" id="aFH-qx-7yp"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration" identifier="AddToSystemCallHistoryCell"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="b0W-ey-5kA"/>
+                    <connections>
+                        <outlet property="callsSwitch" destination="UL8-Yi-SF4" id="Z8U-Y8-fjZ"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6ji-YQ-XOK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="445" y="1797"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="TOL-19-lPZ"/>
+        <segue reference="cof-sd-KJv"/>
     </inferredMetricsTieBreakers>
     <resources>
         <namedColor name="chatslistBackground">

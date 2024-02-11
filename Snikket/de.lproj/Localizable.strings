@@ -263,6 +263,9 @@
 "No attachments" = "Keine Anhänge";
 "No messages yet. Say hi!" = "Noch keine Nachrichten. Sag Hallo!";
 
+/* No comment provided by engineer. */
+"No Telephony Provider!" = "No Telephony Provider!";
+
 /* Encryption mode */
 "None" = "Keine";
 
@@ -292,6 +295,12 @@
 "Open URL" = "URL öffnen";
 "Operation timed out" = "Aktion wegen Zeitüberschreitung abgebrochen";
 "operation timed out" = "Aktion aufgrund einer Zeitüberschreitung abgebrochen";
+
+/* No comment provided by engineer. */
+"Please Select a Telephony Provider from Settings" = "Please Select a Telephony Provider from Settings";
+
+/* No comment provided by engineer. */
+"Please try again!" = "Please try again!";
 
 /* Image or Video Quality */
 "Original" = "Original";
@@ -371,7 +380,6 @@
 "Send Pin Location" = "Gewählte Position senden";
 "Server did not respond to registration request" = "Der Server hat auf die Registrierungsanfrage nicht geantwortet";
 
-/* Preceded by user's server domain */
 "server returned an error on the request to enable archiving. You can try to enable this feature later on from the account settings." = "server returned an error on the request to enable archiving. You can try to enable this feature later on from the account settings.";
 "Server returned error:" = "Der Server hat folgenden Fehler zurückgegeben:";
 "Set" = "Setzen";
@@ -393,7 +401,48 @@
 
 /* followed by a space and error condition */
 "The server returned an error:" = "Der Server hat folgenden Fehler zurückgegeben:";
-"The server returned an error: " = "Der Server hat folgenden Fehler zurückgegeben: ";
+
+/* No comment provided by engineer. */
+"The server returned an error: " = "The server returned an error: ";
+
+/* No comment provided by engineer. */
+"The user will be reported and any calls, messages and status updates from them will be blocked." = "The user will be reported and any calls, messages and status updates from them will be blocked.";
+
+/* No comment provided by engineer. */
+"This is an audio call, and no video is available" = "This is an audio call, and no video is available";
+
+/* No comment provided by engineer. */
+"This room is not capable of sending encrypted messages. Please change encryption settings to be able to send messages" = "This room is not capable of sending encrypted messages. Please change encryption settings to be able to send messages";
+
+/* No comment provided by engineer. */
+"This will delete all the message history for this chat. Continue?" = "This will delete all the message history for this chat. Continue?";
+
+/* No comment provided by engineer. */
+"Unblock" = "Unblock";
+
+/* No comment provided by engineer. */
+"Unkown error occured" = "Unkown error occured";
+
+/* No comment provided by engineer. */
+"Unlimited" = "Unlimited";
+
+/* No comment provided by engineer. */
+"Used image and video quality may impact storage and network usage" = "Used image and video quality may impact storage and network usage";
+
+/* No comment provided by engineer. */
+"User with provided username already exists" = "User with provided username already exists";
+
+/* No comment provided by engineer. */
+"using" = "using";
+
+/* No comment provided by engineer. */
+"Video call" = "Video call";
+
+/* No comment provided by engineer. */
+"Video not available" = "Video not available";
+
+/* No comment provided by engineer. */
+"Warning" = "Warning";
 
 /* Error text - while uploading a file. Placeholder is a HTTP status code. */
 "The upload was rejected by the server (error %d)." = "Der Upload wurde vom Server abgelehnt (Fehler %d).";
