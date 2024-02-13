@@ -29,6 +29,27 @@ class MessageEventHandler: XmppServiceEventHandler {
     public static let OMEMO_AVAILABILITY_CHANGED = Notification.Name(rawValue: "OMEMOAvailabilityChanged");
     public static let MESSAGE_SYNCHRONIZATION_FINISHED = Notification.Name(rawValue: "MessageSynchronizationFinished");
     
+    /* Get the real JID of the sender of a MUC message */
+    private static func getRealJID(forAccount account: BareJID, message: Message) -> String? {
+        /* Use the JID in the <item> (present if this is from MAM */
+        /* This is only secure on servers that implement latest MAM, otherwise the JID can be spoofed */
+        let el = message.findChild(name:"x", xmlns: "http://jabber.org/protocol/muc#user")?.findChild(name: "item", xmlns: nil);
+        
+        if let from = el?.attributes["jid"] {
+            return from;
+        } else {
+            /* No item, so assume this is a live message and look for the real JID in presence */
+            guard let from = message.from?.bareJid else {
+                return nil;
+            }
+            if let nickname = message.from?.resource, let room = DBChatStore.instance.getChat(for: account, with: from) as? DBRoom, let occupant = room.presences[nickname], occupant.jid != nil {
+                return occupant.jid!.bareJid.stringValue;
+            }
+        }
+        
+        return nil;
+    }
+    
     static func prepareBody(message: Message, forAccount account: BareJID) -> (String?, MessageEncryption, String?) {
         var encryption: MessageEncryption = .none;
         var fingerprint: String? = nil;
@@ -42,8 +63,8 @@ class MessageEventHandler: XmppServiceEventHandler {
         
         var encryptionErrorBody: String?;
         if var from = message.from?.bareJid, let omemoModule: OMEMOModule = XmppService.instance.getClient(for: account)?.modulesManager.getModule(OMEMOModule.ID) {
-            if message.type == .groupchat, let nickname = message.from?.resource, let room = DBChatStore.instance.getChat(for: account, with: from) as? DBRoom, let occupant = room.presences[nickname], occupant.jid != nil {
-                from = occupant.jid!.bareJid;
+            if message.type == .groupchat, let realJID = getRealJID(forAccount: account, message: message) {
+                from = BareJID(realJID);
             }
             switch omemoModule.decode(message: message, from: from) {
             case .successMessage(_, let keyFingerprint):
