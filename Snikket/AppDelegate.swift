@@ -22,6 +22,7 @@
 import UIKit
 import UserNotifications
 import TigaseSwift
+import Sentry
 import Shared
 import WebRTC
 import BackgroundTasks
@@ -45,6 +46,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let notificationCenterDelegate = NotificationCenterDelegate();
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        if(isSimulatorOrTestFlight()) {
+            if let sentry_dsn = Bundle.main.infoDictionary?["Sentry DSN"] as? String {
+                SentrySDK.start { options in
+                    options.dsn = sentry_dsn
+                };
+            }
+        }
+
         if #available(iOS 13, *) {
             BGTaskScheduler.shared.register(forTaskWithIdentifier: backgroundRefreshTaskIdentifier, using: nil) { (task) in
                 self.handleAppRefresh(task: task as! BGAppRefreshTask);
@@ -704,6 +714,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func hideSetupGuide() {
         self.window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController();
         (self.window?.rootViewController as? UISplitViewController)?.preferredDisplayMode = .allVisible;
+    }
+    
+    private func isSimulatorOrTestFlight() -> Bool {
+        guard let path = Bundle.main.appStoreReceiptURL?.path else {
+            return false;
+        }
+        return path.contains("CoreSimulator") || path.contains("sandboxReceipt");
     }
  
     struct XmppUri {
