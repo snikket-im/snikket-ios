@@ -23,6 +23,12 @@
 import UIKit
 import TigaseSwift
 
+#if DEBUG
+import FLEX
+
+import Shared
+#endif
+
 class SettingsViewController: UITableViewController {
    
     var statusNames = [
@@ -41,7 +47,38 @@ class SettingsViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated);
         tableView.reloadData();
+        #if DEBUG
+        let tap = UITapGestureRecognizer(
+            target: self, action: #selector(SettingsViewController.navbarTap(sender:))
+        );
+        tap.numberOfTapsRequired = 3;
+        self.navigationController?.navigationBar.addGestureRecognizer(tap);
+        #endif
     }
+
+    #if DEBUG
+    @IBAction func navbarTap(sender: UITapGestureRecognizer!) {
+        FLEXManager.shared.showExplorer();
+        let filemgr = FileManager.default;
+        let fromPath = DBConnection.mainDbURL();
+        let toPath = try! filemgr.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("snikket.db");
+        if(filemgr.fileExists(atPath: toPath.path)) {
+            try! filemgr.removeItem(at: toPath);
+        }
+        try! filemgr.copyItem(atPath: fromPath.path, toPath: toPath.path);
+        
+        let walFromPath = URL(string: fromPath.absoluteString + "-wal");
+        let walToPath = URL(string: toPath.absoluteString + "-wal");
+
+        if(filemgr.fileExists(atPath: walFromPath!.path)) {
+            print("Copying WAL");
+            if(filemgr.fileExists(atPath: walToPath!.path)) {
+                try! filemgr.removeItem(at: walToPath!);
+            }
+            try! filemgr.copyItem(atPath: walFromPath!.path, toPath: walToPath!.path);
+        }
+    }
+    #endif
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated);
