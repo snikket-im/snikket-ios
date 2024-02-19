@@ -49,7 +49,7 @@ class WelcomeController: UIViewController, QRScannerViewDelegate {
     }
     
     @IBAction func learnMoreTapped(_ sender: Any) {
-        UIApplication.shared.open(URL(string: "https://snikket.org/app/learn")!);
+        UIApplication.shared.open(URL(string: "https://snikket.org/app/learn?ref=app")!);
     }
     
     @IBAction func signInTapped(_ sender: Any) {

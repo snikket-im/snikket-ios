@@ -98,10 +98,15 @@ class ChatsListViewController: UITableViewController {
         let cellIdentifier = "ChatsListTableViewCellNew";
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath as IndexPath) as! ChatsListTableViewCell;
         
+        let titleFontDescriptor = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .title2)
+        let titleFontRead = UIFont(descriptor: titleFontDescriptor, size: 0.0)
+        let titleFontUnread = UIFont(descriptor: titleFontDescriptor.withSymbolicTraits(.traitBold)!, size: 0.0)
+        let messageFontDescriptor = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .body)
+        let messageFontRead = UIFont(descriptor: messageFontDescriptor, size: 0.0)
+        let messageFontUnread = UIFont(descriptor: messageFontDescriptor.withSymbolicTraits(.traitBold)!, size: 0.0)
+        
         if let item = dataSource?.item(at: indexPath) {
-//            cell.nameLabel.textColor = Appearance.current.labelColor;
-            cell.nameLabel.font = item.unread > 0 ? UIFont.boldSystemFont(ofSize: cell.nameLabel.font.pointSize) : UIFont.systemFont(ofSize: cell.nameLabel.font.pointSize);
-//            cell.lastMessageLabel.textColor = item.unread > 0 ? Appearance.current.labelColor : Appearance.current.secondaryLabelColor;
+            cell.nameLabel.font = item.unread > 0 ? titleFontUnread : titleFontRead;
             let xmppClient = self.xmppService.getClient(forJid: item.account);
             switch item {
             case let room as DBRoom:
@@ -129,19 +134,18 @@ class ChatsListViewController: UITableViewController {
                 case .message(let lastMessage, let direction, let sender):
                     if lastMessage.starts(with: "/me ") {
                         let nick = sender ?? (direction == .incoming ? (cell.nameLabel.text ?? "") : (AccountManager.getAccount(for: item.account)?.nickname ?? "Me"));
-                        var fontDescriptor = UIFont.systemFont(ofSize: cell.lastMessageLabel.font.pointSize, weight: item.unread > 0 ? .medium : .regular).fontDescriptor.withSymbolicTraits(.traitItalic) ?? UIFont.systemFont(ofSize: cell.lastMessageLabel.font.pointSize, weight: item.unread > 0 ? .medium : .regular).fontDescriptor;
+                        var fontDescriptor = (item.unread > 0 ? messageFontUnread : messageFontRead).fontDescriptor.withSymbolicTraits(.traitItalic)!
                         let msg = NSMutableAttributedString(string: "\(nick) ", attributes: [.font: UIFont(descriptor: fontDescriptor, size: 0)]);
-                        fontDescriptor = UIFont.systemFont(ofSize: cell.lastMessageLabel.font.pointSize, weight: item.unread > 0 ? .regular : .light).fontDescriptor.withSymbolicTraits(.traitItalic) ?? UIFont.systemFont(ofSize: cell.lastMessageLabel.font.pointSize, weight: item.unread > 0 ? .medium : .regular).fontDescriptor;
                         msg.append(NSAttributedString(string: "\(lastMessage.dropFirst(4))", attributes: [.font: UIFont(descriptor: fontDescriptor, size: 0)]));
                         cell.lastMessageLabel.attributedText = msg;
                     } else {
-                        let font = UIFont.systemFont(ofSize: cell.lastMessageLabel.font.pointSize, weight: item.unread > 0 ? .medium : .light)//UIFont(descriptor: cell.lastMessageLabel.font.fontDescriptor.withSymbolicTraits([.traitBold])!, size: cell.lastMessageLabel.font.fontDescriptor.pointSize) : cell.lastMessageLabel.font!;
+                        let font = item.unread > 0 ? messageFontUnread : messageFontRead
                         let msg = NSMutableAttributedString(string: lastMessage);
                         //Markdown.applyStyling(attributedString: msg, font: font, showEmoticons: Settings.ShowEmoticons.bool());
                         if Settings.messageStyling.getBool() {
                             MessageStyling.applyStyling(attributedString: msg, font: font, showEmoticons: Settings.ShowEmoticons.getBool())
                         }
-                        if let prefix = sender != nil ? NSMutableAttributedString(string: "\(sender!): ") : nil {
+                        if let prefix = sender != nil ? NSMutableAttributedString(string: "\(sender!): ", attributes: [.font: font]) : nil {
                             prefix.append(msg);
                             cell.lastMessageLabel.attributedText = prefix;
                         } else {
@@ -150,7 +154,7 @@ class ChatsListViewController: UITableViewController {
                     }
                 case .invitation(_, _, let sender):
                     if let fieldfont = cell.lastMessageLabel.font {
-                        let font = UIFont(descriptor: UIFontDescriptor.preferredFontDescriptor(withTextStyle: .body).withSymbolicTraits([.traitItalic, .traitBold, .traitCondensed])!, size: fieldfont.fontDescriptor.pointSize);
+                        let font = UIFont(descriptor: messageFontDescriptor.withSymbolicTraits([.traitItalic, .traitBold, .traitCondensed])!, size: 0.0);
                         let msg = NSAttributedString(string: "📨 " + NSLocalizedString("Invitation", comment: ""), attributes: [.font:  font, .foregroundColor: cell.lastMessageLabel.textColor!.withAlphaComponent(0.8)]);
 
                         if let prefix = sender != nil ? NSMutableAttributedString(string: "\(sender!): ") : nil {
@@ -171,7 +175,7 @@ class ChatsListViewController: UITableViewController {
                     }
                 case .attachment(_, _, let sender):
                     if let fieldfont = cell.lastMessageLabel.font {
-                        let font = UIFont(descriptor: UIFontDescriptor.preferredFontDescriptor(withTextStyle: .body).withSymbolicTraits([.traitItalic, .traitBold, .traitCondensed])!, size: fieldfont.fontDescriptor.pointSize);
+                        let font = UIFont(descriptor: messageFontDescriptor.withSymbolicTraits([.traitItalic, .traitBold, .traitCondensed])!, size: 0.0);
                         let msg = NSAttributedString(string: "📎 " + NSLocalizedString("Attachment", comment: ""), attributes: [.font:  font, .foregroundColor: cell.lastMessageLabel.textColor!.withAlphaComponent(0.8)]);
 
                         if let prefix = sender != nil ? NSMutableAttributedString(string: "\(sender!): ") : nil {
@@ -199,6 +203,7 @@ class ChatsListViewController: UITableViewController {
             
             
             let formattedTS = self.formatTimestamp(item.timestamp);
+            cell.timestampLabel.font = UIFont.preferredFont(forTextStyle: .caption2)
             cell.timestampLabel.text = formattedTS;
 //            cell.timestampLabel.textColor = Appearance.current.secondaryLabelColor;
             

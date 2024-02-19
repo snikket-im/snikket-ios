@@ -77,7 +77,7 @@ import UIKit
         textView.isUserInteractionEnabled = true;
         textView.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
         textView.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
-        textView.font = UIFont.systemFont(ofSize: fontSize);
+        textView.font = UIFont.preferredFont(forTextStyle: .body)
         textView.textColor = UIColor(named: "chatMessageText");
         textView.backgroundColor = .clear
         if #available(iOS 13.0, *) {

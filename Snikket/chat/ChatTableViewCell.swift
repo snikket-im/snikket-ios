@@ -92,12 +92,14 @@ class ChatTableViewCell: BaseChatTableViewCell, UITextViewDelegate {
         let fgcolor = item.state.direction == .incoming ? "chatMessageText" : "chatMessageTextOutgoing";
         attrText.addAttribute(.foregroundColor, value: UIColor(named: fgcolor) as Any, range: NSRange(location: 0, length: attrText.length));
         
+        let userFont = UIFont.preferredFont(forTextStyle: .body)
+        
         if Settings.EnableMarkdownFormatting.getBool() {
-            Markdown.applyStyling(attributedString: attrText, font: UIFont.systemFont(ofSize: self.messageTextView.fontSize + 2), showEmoticons:Settings.ShowEmoticons.getBool());
+            Markdown.applyStyling(attributedString: attrText, font: userFont, showEmoticons:Settings.ShowEmoticons.getBool());
         } else if Settings.messageStyling.getBool() {
-            MessageStyling.applyStyling(attributedString: attrText, font: .systemFont(ofSize: self.messageTextView.fontSize + 2), showEmoticons: Settings.ShowEmoticons.getBool())
+            MessageStyling.applyStyling(attributedString: attrText, font: userFont, showEmoticons: Settings.ShowEmoticons.getBool())
         } else {
-            attrText.addAttribute(.font, value: UIFont.systemFont(ofSize: self.messageTextView.fontSize + 2), range: NSRange(location: 0, length: attrText.length));
+            attrText.addAttribute(.font, value: userFont, range: NSRange(location: 0, length: attrText.length));
             attrText.fixAttributes(in: NSRange(location: 0, length: attrText.length));
 
         }
@@ -121,7 +123,6 @@ class ChatTableViewCell: BaseChatTableViewCell, UITextViewDelegate {
          
         if let lockImageHidden = lockStateImageView?.isHidden, !lockImageHidden {minWidth += 15 }
         
-        let userFont = UIFont.systemFont(ofSize: 14)
         var textWidth = (item.message).width(withConstrainedHeight: .greatestFiniteMagnitude, font: userFont)
         textWidth = textWidth > maxMessageWidth ? maxMessageWidth : textWidth
         textWidth = textWidth < minWidth ? minWidth : textWidth

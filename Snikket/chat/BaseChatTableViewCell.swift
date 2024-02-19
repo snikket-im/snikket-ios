@@ -148,6 +148,9 @@ class BaseChatTableViewCell: UITableViewCell, UIDocumentInteractionControllerDel
                 }
             }
         }
+        // FIXME: The timestamp view either clips or overflows at larger font sizes.
+        // It seems it isn't properly being accounted for in bubble size calculation.
+        //timestampView?.font = UIFont.preferredFont(forTextStyle: .caption2)
         timestampView?.text = timestamp;
                 
         if item.state.isError {

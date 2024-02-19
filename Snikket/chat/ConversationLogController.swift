@@ -83,7 +83,7 @@ class ConversationLogController: UIViewController, ChatViewDataSourceDelegate {
         if show {
             let label = UILabel(frame: CGRect(x: 0, y:0, width: self.view.bounds.size.width, height: self.view.bounds.size.height))
             label.text = NSLocalizedString("No messages yet. Say hi!", comment: "")
-            label.font = UIFont.systemFont(ofSize: UIFont.systemFontSize + 2, weight: .medium)
+            label.font = UIFont.preferredFont(forTextStyle: .title2)
             label.numberOfLines = 0
             label.textAlignment = .center
             label.transform = CGAffineTransform(a: 1, b: 0, c: 0, d: -1, tx: 0, ty: 0)
