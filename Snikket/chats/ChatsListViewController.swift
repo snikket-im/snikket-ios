@@ -98,7 +98,7 @@ class ChatsListViewController: UITableViewController {
         let cellIdentifier = "ChatsListTableViewCellNew";
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath as IndexPath) as! ChatsListTableViewCell;
         
-        let titleFontDescriptor = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .title2)
+        let titleFontDescriptor = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .title3)
         let titleFontRead = UIFont(descriptor: titleFontDescriptor, size: 0.0)
         let titleFontUnread = UIFont(descriptor: titleFontDescriptor.withSymbolicTraits(.traitBold)!, size: 0.0)
         let messageFontDescriptor = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .body)
@@ -152,6 +152,7 @@ class ChatsListViewController: UITableViewController {
                             cell.lastMessageLabel.attributedText = msg;
                         }
                     }
+                    cell.lastMessageLabel.textColor = .gray;
                 case .invitation(_, _, let sender):
                     if let fieldfont = cell.lastMessageLabel.font {
                         let font = UIFont(descriptor: messageFontDescriptor.withSymbolicTraits([.traitItalic, .traitBold, .traitCondensed])!, size: 0.0);
