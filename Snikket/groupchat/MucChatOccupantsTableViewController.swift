@@ -252,7 +252,8 @@ class MucChatOccupantsTableViewController: UITableViewController {
         case let e as MucModule.OccupantComesEvent:
             DispatchQueue.main.async {
                 var tmp = self.members
-                let member = MucModule.RoomAffiliation(jid: e.occupant.jid!, affiliation: e.occupant.affiliation, nickname: e.occupant.nickname, role: e.occupant.role)
+                let jid = e.occupant.jid ?? e.occupant.presence.from;
+                let member = MucModule.RoomAffiliation(jid: jid!, affiliation: e.occupant.affiliation, nickname: e.occupant.nickname, role: e.occupant.role)
                 if let idx = tmp.firstIndex(where: { (i) -> Bool in
                     i.nickname == e.occupant.nickname;
                 }) {
@@ -288,7 +289,8 @@ class MucChatOccupantsTableViewController: UITableViewController {
         case let e as MucModule.OccupantChangedPresenceEvent:
             DispatchQueue.main.async {
                 var tmp = self.members
-                let member = MucModule.RoomAffiliation(jid: e.occupant.jid!, affiliation: e.occupant.affiliation, nickname: e.occupant.nickname, role: e.occupant.role)
+                let jid = e.occupant.jid ?? e.occupant.presence.from;
+                let member = MucModule.RoomAffiliation(jid: jid!, affiliation: e.occupant.affiliation, nickname: e.occupant.nickname, role: e.occupant.role)
                 guard let idx = tmp.firstIndex(where: { (i) -> Bool in
                     i.nickname == e.occupant.nickname;
                 }) else {
@@ -301,7 +303,8 @@ class MucChatOccupantsTableViewController: UITableViewController {
         case let e as MucModule.OccupantChangedNickEvent:
             DispatchQueue.main.async {
                 var tmp = self.members
-                let member = MucModule.RoomAffiliation(jid: e.occupant.jid!, affiliation: e.occupant.affiliation, nickname: e.occupant.nickname, role: e.occupant.role)
+                let jid = e.occupant.jid ?? e.occupant.presence.from;
+                let member = MucModule.RoomAffiliation(jid: jid!, affiliation: e.occupant.affiliation, nickname: e.occupant.nickname, role: e.occupant.role)
                 guard let oldIdx = tmp.firstIndex(where: { (i) -> Bool in
                     i.nickname == e.nickname;
                 }) else {
