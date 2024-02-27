@@ -9,7 +9,7 @@
 	</array>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>$(AppIdentifierPrefix)org.snikket.ios.Share</string>
+		<string>$(AppIdentifierPrefix)org.snikket.ios</string>
 	</array>
 </dict>
 </plist>
