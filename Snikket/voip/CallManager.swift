@@ -378,11 +378,11 @@ class CallManager: NSObject, CXProviderDelegate {
     private func generateLocalDescription(completionHandler: @escaping (Result<SDP,ErrorCondition>)->Void) {
         if let peerConnection = self.currentConnection {
             peerConnection.offer(for: VideoCallController.defaultCallConstraints, completionHandler: { (description, error) in
-                guard let desc = description, let (sdp, sid) = SDP.parse(sdpString: desc.sdp, creator: .initiator) else {
+                guard let desc = description, let (sdp, sid) = SDP.parse(sdpString: desc.sdp, creator: .initiator), let webrtcSid = self.currentCall?.webrtcSid else {
                     completionHandler(.failure(.internal_server_error));
                     return;
                 }
-                peerConnection.setLocalDescription(RTCSessionDescription(type: desc.type, sdp: sdp.toString(withSid: self.currentCall!.webrtcSid!)), completionHandler: { error in
+                peerConnection.setLocalDescription(RTCSessionDescription(type: desc.type, sdp: sdp.toString(withSid: webrtcSid)), completionHandler: { error in
                     guard error == nil else {
                         completionHandler(.failure(.internal_server_error));
                         return;
