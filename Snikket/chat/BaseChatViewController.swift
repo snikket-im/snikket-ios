@@ -87,8 +87,8 @@ class BaseChatViewController: UIViewController, UITextViewDelegate, ChatViewInpu
         NSLayoutConstraint.activate([
             chatViewInputBar.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
             chatViewInputBar.topAnchor.constraint(equalTo: containerView.bottomAnchor),
-            chatViewInputBar.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            chatViewInputBar.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
+            chatViewInputBar.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            chatViewInputBar.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
             //chatViewInputBar.heightAnchor.constraint(equalToConstant: 60)
         ]);
 
