@@ -75,7 +75,7 @@ class ChatTableViewCell: BaseChatTableViewCell, UITextViewDelegate {
         let attrText = NSMutableAttributedString(string: item.message);
             
         if let detect = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue | NSTextCheckingResult.CheckingType.phoneNumber.rawValue) {
-            let matches = detect.matches(in: item.message, options: .reportCompletion, range: NSMakeRange(0, item.message.count));
+            let matches = detect.matches(in: item.message, options: .reportCompletion, range: NSRange(item.message.startIndex..., in: item.message));
             for match in matches {
                 var url: URL? = nil;
                 if match.url != nil {
