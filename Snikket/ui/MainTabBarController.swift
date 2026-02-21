@@ -31,6 +31,10 @@ class MainTabBarController: CustomTabBarController, UITabBarControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad();
         
+        if #available(iOS 18.0, *) {
+            self.mode = .tabBar;
+        }
+        
         self.delegate = self;
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateMoreBadge), name: XmppService.ACCOUNT_STATE_CHANGED, object: nil);
