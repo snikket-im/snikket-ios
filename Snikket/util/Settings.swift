@@ -78,7 +78,7 @@ public enum Settings: String {
             "NotificationsFromUnknown" : true,
             "RecentsMessageLinesNo" : 2,
             "RecentsOrder" : "byTime",
-            "SendMessageOnReturn" : true,
+            "SendMessageOnReturn" : false,
             "messageEncryption": "omemo",
             "linkPreviews": true,
             "appearance": "auto",
