@@ -1,4 +1,5 @@
 {
+  "originHash" : "38b00a3bab062cae54d397a033d39d5e3d797c79f8dfb5ed34a7132da8535329",
   "pins" : [
     {
       "identity" : "flex",
@@ -32,8 +33,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/getsentry/sentry-cocoa/",
       "state" : {
-        "revision" : "74cf23b2946c92550fb1185612077151497e648e",
-        "version" : "8.17.1"
+        "revision" : "16cd512711375fa73f25ae5e373f596bdf4251ae",
+        "version" : "8.58.0"
       }
     },
     {
@@ -55,5 +56,5 @@
       }
     }
   ],
-  "version" : 2
+  "version" : 3
 }
