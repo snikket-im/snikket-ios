@@ -72,8 +72,7 @@ class BaseChatViewController: UIViewController, UITextViewDelegate, ChatViewInpu
         super.viewDidLoad()
         chatViewInputBar.placeholder = NSLocalizedString("New Message", comment: "Message input area placeholder when empty");
         chatViewInputBar.fontSize = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .body).pointSize;
-        navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem;
-        navigationItem.leftItemsSupplementBackButton = true;
+        configureSplitViewDisplayModeButton()
 
         self.view.addSubview(chatViewInputBar);
 
@@ -98,6 +97,16 @@ class BaseChatViewController: UIViewController, UITextViewDelegate, ChatViewInpu
         
         setColors();
         NotificationCenter.default.addObserver(self, selector: #selector(chatClosed(_:)), name: DBChatStore.CHAT_CLOSED, object: chat);
+    }
+
+    // Split-view/nav presentation can change at runtime (rotation, resizing, multitasking),
+    // so refresh the sidebar toggle decision when traits change.
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        guard previousTraitCollection != nil else {
+            return
+        }
+        configureSplitViewDisplayModeButton()
     }
 
     override func didReceiveMemoryWarning() {
@@ -165,6 +174,24 @@ class BaseChatViewController: UIViewController, UITextViewDelegate, ChatViewInpu
     private func setColors() {
         navigationController?.navigationBar.barTintColor = UIColor(named: "chatslistBackground");
         navigationController?.navigationBar.tintColor = UIColor(named: "tintColor");
+    }
+
+    private func configureSplitViewDisplayModeButton() {
+        guard let splitViewController else {
+            navigationItem.leftBarButtonItem = nil
+            return
+        }
+
+        // On newer split-view styles, the sidebar already exposes its own toggle.
+        // Keeping displayModeButtonItem in detail can render an empty button.
+        if #available(iOS 26.0, *) {
+            navigationItem.leftBarButtonItem = nil
+            navigationItem.leftItemsSupplementBackButton = false
+            return
+        }
+
+        navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
+        navigationItem.leftItemsSupplementBackButton = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
