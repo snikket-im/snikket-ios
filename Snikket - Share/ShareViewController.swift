@@ -106,8 +106,8 @@ class ShareViewController: SLComposeServiceViewController {
     
     override func didSelectPost() {
         if let provider = (self.extensionContext!.inputItems.first as? NSExtensionItem)?.attachments?.first {
-            if provider.hasItemConformingToTypeIdentifier(kUTTypeFileURL as String) {
-                provider.loadItem(forTypeIdentifier: kUTTypeFileURL as String, options: nil, completionHandler: { (item, error) in
+            if provider.hasItemConformingToTypeIdentifier(kUTTypeData as String) {
+                provider.loadItem(forTypeIdentifier: kUTTypeData as String, options: nil, completionHandler: { (item, error) in
                     if let localUrl = item as? URL {
                         let uti = try? localUrl.resourceValues(forKeys: [.typeIdentifierKey]).typeIdentifier;
                         let mimeType = uti != nil ? (UTTypeCopyPreferredTagWithClass(uti! as CFString, kUTTagClassMIMEType)?.takeRetainedValue() as String?) : nil;
