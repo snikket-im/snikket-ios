@@ -19,6 +19,113 @@
 // If not, see https://www.gnu.org/licenses/.
 //
 
+#if targetEnvironment(simulator)
+import UIKit
+import TigaseSwift
+import Shared
+
+class CallManager: NSObject {
+
+    static var isAvailable: Bool {
+        return false
+    }
+
+    private(set) static var instance: CallManager? = nil
+    private(set) var currentCall: Call? = nil
+
+    static func initializeCallManager() {
+        instance = nil
+    }
+
+    func endCall(on account: BareJID?, sid: String?, completionHandler: @escaping () -> Void) {
+        completionHandler()
+    }
+}
+
+class Call: Equatable {
+    static func == (lhs: Call, rhs: Call) -> Bool {
+        return lhs.account == rhs.account && lhs.jid == rhs.jid && lhs.sid == rhs.sid
+    }
+
+    let account: BareJID
+    let jid: BareJID
+    let uuid: UUID
+    let direction: Direction
+    let sid: String
+    let media: [Media]
+    var sessionId: String?
+    var state: State = .new
+
+    init(account: BareJID, with jid: BareJID, sid: String, direction: Direction, media: [Media], sessionId: String?) {
+        self.uuid = UUID()
+        self.account = account
+        self.sessionId = sessionId
+        self.jid = jid
+        self.media = media
+        self.sid = sid
+        self.direction = direction
+    }
+
+    enum Media: String {
+        case audio
+        case video
+
+        static func from(string: String?) -> Media? {
+            guard let v = string else {
+                return nil
+            }
+            return Media(rawValue: v)
+        }
+    }
+
+    enum Direction {
+        case incoming
+        case outgoing
+    }
+
+    enum State {
+        case new
+        case ringing
+        case connecting
+        case connected
+        case ended
+    }
+}
+
+protocol CallManagerDelegate: AnyObject {
+}
+
+class JingleManager {
+    static let instance = JingleManager()
+
+    enum ContentType {
+        case audio
+        case video
+        case filetransfer
+    }
+
+    func support(for jid: JID, on account: BareJID) -> Set<ContentType> {
+        return []
+    }
+}
+
+public class VideoCallController: UIViewController {
+    static func call(jid: BareJID, from account: BareJID, media: [Call.Media], sender: UIViewController) {
+        let alert = UIAlertController(
+            title: NSLocalizedString("Call failed", comment: ""),
+            message: NSLocalizedString("Calls are disabled in simulator builds.", comment: ""),
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil))
+        sender.present(alert, animated: true, completion: nil)
+    }
+
+    static func call(jid: BareJID, from account: BareJID, media: [Call.Media], completionHandler: @escaping (Result<Void, Error>) -> Void) {
+        completionHandler(.failure(ErrorCondition.not_allowed))
+    }
+}
+
+#else
 import UIKit
 import CallKit
 import PushKit
@@ -986,4 +1093,4 @@ extension CallManager: PKPushRegistryDelegate {
         }
     }
 }
-
+#endif

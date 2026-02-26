@@ -19,6 +19,7 @@
 // If not, see https://www.gnu.org/licenses/.
 //
 
+#if !targetEnvironment(simulator)
 import UIKit
 import WebRTC
 import TigaseSwift
@@ -489,3 +490,4 @@ public class VideoCallController: UIViewController, CallManagerDelegate {
     }
 
 }
+#endif

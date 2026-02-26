@@ -19,6 +19,7 @@
 // If not, see https://www.gnu.org/licenses/.
 //
 
+#if !targetEnvironment(simulator)
 import Foundation
 import WebRTC
 
@@ -59,3 +60,4 @@ extension RTCCameraVideoCapturer {
     }
         
 }
+#endif

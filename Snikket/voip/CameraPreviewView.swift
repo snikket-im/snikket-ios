@@ -19,6 +19,7 @@
 // If not, see https://www.gnu.org/licenses/.
 //
 
+#if !targetEnvironment(simulator)
 import UIKit
 import AVFoundation
 import WebRTC
@@ -127,3 +128,4 @@ class CameraPreviewView: UIView {
         }
     }
 }
+#endif

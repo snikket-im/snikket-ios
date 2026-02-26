@@ -24,7 +24,9 @@ import UserNotifications
 import TigaseSwift
 import Sentry
 import Shared
+#if !targetEnvironment(simulator)
 import WebRTC
+#endif
 import BackgroundTasks
 
 @UIApplicationMain
@@ -62,9 +64,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         try! DBConnection.migrateToGroupIfNeeded();
         ImageCache.convertToAttachments();
-//        RTCInitFieldTrialDictionary([:]);
+        #if !targetEnvironment(simulator)
+        //RTCInitFieldTrialDictionary([:]);
         RTCInitializeSSL();
         //RTCSetupInternalTracer();
+        #endif
         Log.initialize();
         Settings.initialize();
         
@@ -269,8 +273,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        #if !targetEnvironment(simulator)
         RTCShutdownInternalTracer();
         RTCCleanupSSL();
+        #endif
         print(NSDate(), "application terminated!")
     }
 
@@ -788,4 +794,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
-

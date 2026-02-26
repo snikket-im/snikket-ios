@@ -21,7 +21,6 @@
 
 import UIKit
 import Shared
-import WebRTC
 import TigaseSwift
 import UserNotifications
 
