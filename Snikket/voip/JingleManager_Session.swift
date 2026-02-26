@@ -19,6 +19,7 @@
 // If not, see https://www.gnu.org/licenses/.
 //
 
+#if !targetEnvironment(simulator)
 import Foundation
 import TigaseSwift
 import WebRTC
@@ -262,3 +263,4 @@ protocol JingleSessionDelegate: class {
     func sessionTerminated(session: JingleManager.Session);
     func session(_ session: JingleManager.Session, didReceive: RTCIceCandidate);
 }
+#endif

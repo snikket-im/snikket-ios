@@ -19,6 +19,7 @@
 // If not, see https://www.gnu.org/licenses/.
 //
 
+#if !targetEnvironment(simulator)
 import Foundation
 import TigaseSwift
 import WebRTC
@@ -314,3 +315,4 @@ extension JingleManager {
     }
         
 }
+#endif
