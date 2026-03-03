@@ -145,7 +145,13 @@ class JingleManager: JingleSessionManager, XmppServiceEventHandler {
                     }
                     self.sessionTerminated(account: account, sid: id);
                 case .proceed(let id):
-                    guard CallManager.isAvailable, let session = self.session(for: e.sessionObject.userBareJid!, with: e.jid, sid: id) else {
+                    let account = e.sessionObject.userBareJid!;
+                    // Another of our resources accepted this incoming call.
+                    if e.jid.bareJid == account {
+                        self.sessionTerminated(account: account, sid: id);
+                        return;
+                    }
+                    guard CallManager.isAvailable, let session = self.session(for: account, with: e.jid, sid: id) else {
                         return;
                     }
                     session.accepted(by: e.jid);
