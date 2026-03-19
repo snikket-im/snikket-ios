@@ -22,7 +22,7 @@
 import UIKit
 import AVKit
 
-protocol CellDelegate {
+protocol CellDelegate: AnyObject {
     func didPlayAudio(audioPlayer: AVAudioPlayer, audioTimer: Foundation.Timer, sliderTimer: Foundation.Timer, playButton: UIButton)
     func didStopAudio()
     func didTapResend(indexPath: IndexPath)
@@ -61,7 +61,7 @@ class BaseChatTableViewCell: UITableViewCell, UIDocumentInteractionControllerDel
     @IBOutlet weak var lockStateImageView: UIImageView?
     var indexPath: IndexPath?
     
-    var cellDelegate: CellDelegate?
+    weak var cellDelegate: CellDelegate?
 
     var originalTimestampColor: UIColor!;
         
