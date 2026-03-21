@@ -111,7 +111,8 @@ class MucEventHandler: XmppServiceEventHandler {
 
             DBChatHistoryStore.instance.append(for: room.account, message: e.message, source: .stream)
             
-            DBLastMessageSyncStore.instance.updateOrInsertLastMessage(account: room.account, jid: room.roomJid, receivedId: e.message.id, readId: nil)
+            let receivedId = e.message.stanzaId?[room.roomJid]
+            DBLastMessageSyncStore.instance.updateOrInsertLastMessage(account: room.account, jid: room.roomJid, receivedId: receivedId, readId: nil)
         case let e as MucModule.AbstractOccupantEvent:
             if let room = e.room as? DBRoom, room.isOMEMOCapable, let jid = e.occupant.jid {
                 if (e.occupant.affiliation == .none || e.occupant.affiliation == .outcast) {

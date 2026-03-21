@@ -883,6 +883,7 @@ class DBRoom: Room, DBChatProtocol {
         if lastActivity != nil {
             self.lastActivity = lastActivity;
             self.timestamp = timestamp;
+            self.lastMessageDate = timestamp;
         }
         
         return true;
