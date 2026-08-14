@@ -128,6 +128,7 @@
 		FE6545641E9E8B67006A14AC /* ServerSelectorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6545631E9E8B67006A14AC /* ServerSelectorTableViewCell.swift */; };
 		FE65D62822E9F8EB0065DEA5 /* Markdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE65D62722E9F8EB0065DEA5 /* Markdown.swift */; };
 		FE719E762271B2BA007CEEC9 /* OpenSSL_AES_GCM_Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE719E752271B2BA007CEEC9 /* OpenSSL_AES_GCM_Engine.swift */; };
+		A100000128A5000000000001 /* OpenSSLSocketTLSProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A100000228A5000000000001 /* OpenSSLSocketTLSProcessor.swift */; };
 		FE719E782271B439007CEEC9 /* MessageEncryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE719E772271B439007CEEC9 /* MessageEncryption.swift */; };
 		FE719E7A227307D0007CEEC9 /* OMEMOEncryptionSwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE719E79227307D0007CEEC9 /* OMEMOEncryptionSwitchTableViewCell.swift */; };
 		FE719E7C22730DC3007CEEC9 /* OMEMOIdentityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE719E7B22730DC3007CEEC9 /* OMEMOIdentityTableViewCell.swift */; };
@@ -524,6 +525,7 @@
 		FE759FC72370B2A4001E78D9 /* Shared.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shared.h; sourceTree = "<group>"; };
 		FE759FC82370B2A4001E78D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE759FDA2370B384001E78D9 /* Cipher+AES.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cipher+AES.swift"; sourceTree = "<group>"; };
+		A100000228A5000000000001 /* OpenSSLSocketTLSProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSSLSocketTLSProcessor.swift; sourceTree = "<group>"; };
 		FE759FDD2371988B001E78D9 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/libsqlite3.tbd; sourceTree = DEVELOPER_DIR; };
 		FE759FE12371C79E001E78D9 /* NotificationService.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotificationService.entitlements; sourceTree = "<group>"; };
 		FE759FE72371C966001E78D9 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/libxml2.tbd; sourceTree = DEVELOPER_DIR; };
@@ -928,6 +930,7 @@
 			isa = PBXGroup;
 			children = (
 				FE759FDA2370B384001E78D9 /* Cipher+AES.swift */,
+				A100000228A5000000000001 /* OpenSSLSocketTLSProcessor.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -1445,6 +1448,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A100000128A5000000000001 /* OpenSSLSocketTLSProcessor.swift in Sources */,
 				FE75A008237585DC001E78D9 /* NotificationEncryptionKeys.swift in Sources */,
 				FE75A00323743A5C001E78D9 /* NotificationManager.swift in Sources */,
 				FE759FDB2370B384001E78D9 /* Cipher+AES.swift in Sources */,

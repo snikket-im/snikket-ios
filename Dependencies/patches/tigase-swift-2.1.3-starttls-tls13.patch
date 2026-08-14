@@ -1,0 +1,173 @@
+diff --git a/Sources/TigaseSwift/SocketConnector.swift b/Sources/TigaseSwift/SocketConnector.swift
+index c6dbff4..a9c4a0a 100644
+--- a/Sources/TigaseSwift/SocketConnector.swift
++++ b/Sources/TigaseSwift/SocketConnector.swift
+@@ -20,10 +20,28 @@
+ //
+ import Foundation
+ 
++public protocol SocketConnectorTLSProcessorDelegate: AnyObject {
++    func tlsProcessor(_ processor: SocketConnectorTLSProcessor, didRead data: Data)
++    func tlsProcessor(_ processor: SocketConnectorTLSProcessor, didWrite data: Data, completionHandler: (() -> Void)?)
++    func tlsProcessor(_ processor: SocketConnectorTLSProcessor, shouldTrust trust: SecTrust) -> Bool
++    func tlsProcessor(_ processor: SocketConnectorTLSProcessor, didFail error: Error?)
++}
++
++public protocol SocketConnectorTLSProcessor: AnyObject {
++    var delegate: SocketConnectorTLSProcessorDelegate? { get set }
++
++    func start(serverName: String)
++    func read(encryptedData: Data)
++    func write(plainData: Data, completionHandler: (() -> Void)?)
++    func close()
++}
++
+ /**
+  Class responsible for connecting to XMPP server, sending and receiving data.
+  */
+-open class SocketConnector : XMPPDelegate, StreamDelegate {
++open class SocketConnector : XMPPDelegate, StreamDelegate, SocketConnectorTLSProcessorDelegate {
++
++    public static var tlsProcessorFactory: (() -> SocketConnectorTLSProcessor?)?
+     
+     /**
+      Key in `SessionObject` to store custom validator for SSL certificates 
+@@ -87,6 +105,7 @@ open class SocketConnector : XMPPDelegate, StreamDelegate {
+     var dnsResolver: DNSSrvResolver?;
+     weak var sessionLogic: XmppSessionLogic?;
+     var zlib: Zlib?;
++    private var tlsProcessor: SocketConnectorTLSProcessor?
+     /**
+      Stores information about SSL certificate validation and can
+      have following values:
+@@ -361,6 +380,24 @@ open class SocketConnector : XMPPDelegate, StreamDelegate {
+         outStream.delegate = self
+ 
+         let domain = self.sessionObject.domainName!;
++
++        if let factory = SocketConnector.tlsProcessorFactory {
++            guard let processor = factory() else {
++                log("configured TLS processor could not be initialized");
++                closeSocket(newState: .disconnected);
++                return;
++            }
++            sslCertificateValidated = nil;
++            tlsProcessor = processor;
++            processor.delegate = self;
++            self.context.sessionObject.setProperty(SessionObject.STARTTLS_ACTIVE, value: true, scope: SessionObject.Scope.stream);
++            processor.start(serverName: domain);
++            if directTls {
++                inStream.open();
++                outStream.open();
++            }
++            return;
++        }
+         
+         sslCertificateValidated = nil;
+         let settings:NSDictionary = NSDictionary(objects: [StreamSocketSecurityLevel.negotiatedSSL, 
+@@ -514,7 +551,10 @@ open class SocketConnector : XMPPDelegate, StreamDelegate {
+     fileprivate func sendSync(_ data:String, completionHandler: (()->Void)? = nil) {
+         self.log("sending stanza:", data);
+         let buf = data.data(using: String.Encoding.utf8)!;
+-        if zlib != nil {
++        if let tlsProcessor = tlsProcessor {
++            let plainData = zlib?.compress(data: buf) ?? buf;
++            tlsProcessor.write(plainData: plainData, completionHandler: completionHandler);
++        } else if zlib != nil {
+             let outBuf = zlib!.compress(data: buf);
+             outStreamBuffer?.append(data: outBuf, completionHandler: completionHandler);
+             outStreamBuffer?.writeData(to: self.outStream);
+@@ -608,7 +648,9 @@ open class SocketConnector : XMPPDelegate, StreamDelegate {
+                         }
+                         
+                         let data = Data(bytes: &buffer, count: read);
+-                        if let zlib = that.zlib {
++                        if let tlsProcessor = that.tlsProcessor {
++                            tlsProcessor.read(encryptedData: data);
++                        } else if let zlib = that.zlib {
+                             let decompressedData = zlib.decompress(data: data);
+                             that.parseXml(data: decompressedData);
+                         } else {
+@@ -619,7 +661,7 @@ open class SocketConnector : XMPPDelegate, StreamDelegate {
+             }
+         case Stream.Event.hasSpaceAvailable:
+             log("stream event: HasSpaceAvailable");
+-            if sslCertificateValidated == nil {
++            if tlsProcessor == nil && sslCertificateValidated == nil {
+                 let trustVal = self.inStream?.property(forKey: Stream.PropertyKey(rawValue: kCFStreamPropertySSLPeerTrust as String));
+                 guard trustVal != nil else {
+                     self.closeSocket(newState: .disconnected);
+@@ -697,12 +739,57 @@ open class SocketConnector : XMPPDelegate, StreamDelegate {
+         self.inStream = nil;
+         self.outStream = nil;
+         self.outStreamBuffer = nil;
++        tlsProcessor?.close();
++        tlsProcessor = nil;
+         inStream?.close();
+         outStream?.close();
+         inStream?.remove(from: RunLoop.current, forMode: RunLoop.Mode.default);
+         outStream?.remove(from: RunLoop.current, forMode: RunLoop.Mode.default);
+         sslCertificateValidated = false;
+     }
++
++    public func tlsProcessor(_ processor: SocketConnectorTLSProcessor, didRead data: Data) {
++        if let zlib = zlib {
++            parseXml(data: zlib.decompress(data: data));
++        } else {
++            parseXml(data: data);
++        }
++    }
++
++    public func tlsProcessor(_ processor: SocketConnectorTLSProcessor, didWrite data: Data, completionHandler: (() -> Void)?) {
++        guard !data.isEmpty else {
++            completionHandler?();
++            return;
++        }
++        outStreamBuffer?.append(data: data, completionHandler: completionHandler);
++        outStreamBuffer?.writeData(to: outStream);
++    }
++
++    public func tlsProcessor(_ processor: SocketConnectorTLSProcessor, shouldTrust trust: SecTrust) -> Bool {
++        let validator: ((SessionObject, SecTrust) -> Bool)? = context.sessionObject.getProperty(SocketConnector.SSL_CERTIFICATE_VALIDATOR);
++        let valid: Bool;
++        if let validator = validator {
++            valid = validator(sessionObject, trust);
++        } else if let domain = sessionObject.domainName {
++            let policy = SecPolicyCreateSSL(true, domain as CFString);
++            var result = SecTrustResultType.invalid;
++            SecTrustSetPolicies(trust, policy);
++            SecTrustEvaluate(trust, &result);
++            valid = result == .proceed || result == .unspecified;
++        } else {
++            valid = false;
++        }
++        sslCertificateValidated = valid;
++        if !valid {
++            context.eventBus.fire(CertificateErrorEvent(sessionObject: sessionObject, trust: trust));
++        }
++        return valid;
++    }
++
++    public func tlsProcessor(_ processor: SocketConnectorTLSProcessor, didFail error: Error?) {
++        log("TLS processor failed:", error as Any);
++        closeSocket(newState: .disconnected);
++    }
+     
+     /// Event fired when client establishes TCP connection to XMPP server.
+     open class ConnectedEvent: Event {
+diff --git a/Sources/TigaseSwift/util/SslCertificateValidator.swift b/Sources/TigaseSwift/util/SslCertificateValidator.swift
+index df78beb..2d0d3d8 100644
+--- a/Sources/TigaseSwift/util/SslCertificateValidator.swift
++++ b/Sources/TigaseSwift/util/SslCertificateValidator.swift
+@@ -34,7 +34,10 @@ open class SslCertificateValidator {
+     }
+     
+     public static func validateSslCertificate(_ sessionObject: SessionObject, trust: SecTrust) -> Bool {
+-        let policy = SecPolicyCreateSSL(false, sessionObject.userBareJid?.domain as CFString?);
++        guard let domain = sessionObject.domainName else {
++            return false;
++        }
++        let policy = SecPolicyCreateSSL(true, domain as CFString);
+         var secTrustResultType = SecTrustResultType.invalid;
+         SecTrustSetPolicies(trust, policy);
+         SecTrustEvaluate(trust, &secTrustResultType);

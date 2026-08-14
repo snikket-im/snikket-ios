@@ -119,6 +119,8 @@ open class XmppService: Logger, EventHandler {
         self.applicationState = UIApplication.shared.applicationState == .active ? .active : .inactive;
         
         super.init();
+
+        SocketConnector.tlsProcessorFactory = { OpenSSLSocketTLSProcessor() };
         
         NotificationCenter.default.addObserver(self, selector: #selector(XmppService.accountConfigurationChanged), name: AccountManager.ACCOUNT_CHANGED, object: nil);
         NotificationCenter.default.addObserver(self, selector: #selector(XmppService.connectivityChanged), name: Reachability.CONNECTIVITY_CHANGED, object: nil);
