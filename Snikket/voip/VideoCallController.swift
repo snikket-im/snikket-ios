@@ -28,21 +28,6 @@ import os
 
 public class VideoCallController: UIViewController, CallManagerDelegate {
 
-    #if targetEnvironment(simulator)
-    func didSendDTMF(_ sender: CallManager, digit: String) {
-    }
-    func callDidStart(_ sender: CallManager) {
-    }
-    func callDidEnd(_ sender: CallManager) {
-    }
-    func callManager(_ sender: CallManager, didReceiveRemoteVideoTrack remoteTrack: RTCVideoTrack) {
-    }
-    func callManager(_ sender: CallManager, didReceiveLocalVideoCapturer localCapturer: RTCCameraVideoCapturer) {
-    }
-    func callStateChanged(_ sender: CallManager) {
-    }
-    #else
-
     func didSendDTMF(_ sender: CallManager, digit: String) {
         if let pc = sender.currentConnection {
             for rtpSender in pc.senders {
@@ -464,8 +449,6 @@ public class VideoCallController: UIViewController, CallManagerDelegate {
             self.titleLabel?.text = NSLocalizedString("Call ended",comment: "")
         }
     }
-    #endif
-    
     static var peerConnectionFactory: RTCPeerConnectionFactory {
         return JingleManager.instance.connectionFactory;
     }

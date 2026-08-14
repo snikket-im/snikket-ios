@@ -374,8 +374,6 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
         DispatchQueue.main.async {
             self.titleView.connected = state != nil && state == .connected;
         }
-        #if targetEnvironment(simulator)
-        #else
         let jingleSupported = CallManager.isAvailable ? JingleManager.instance.support(for: JID(self.jid), on: self.account) : [];
         let alwaysShowAudio = true // TODO: Make this configurable (at build or runtime?)
         var count = (alwaysShowAudio || jingleSupported.contains(.audio)) ? 1 : 0;
@@ -397,7 +395,6 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
             }
             self.navigationItem.rightBarButtonItems = buttons;
         }
-        #endif
     }
     
     fileprivate func smallBarButtonItem(image: UIImage, action: Selector) -> UIBarButtonItem {
@@ -408,8 +405,6 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
         return UIBarButtonItem(customView: btn);
     }
     
-    #if targetEnvironment(simulator)
-    #else
     @objc func audioCall() {
         VideoCallController.call(jid: self.jid, from: self.account, media: [.audio], sender: self);
     }
@@ -417,7 +412,6 @@ class ChatViewController : BaseChatViewControllerWithDataSourceAndContextMenuAnd
     @objc func videoCall() {
         VideoCallController.call(jid: self.jid, from: self.account, media: [.audio, .video], sender: self);
     }
-    #endif
     
     @objc func refreshChatHistory() {
         let syncPeriod = AccountSettings.messageSyncPeriod(account).getDouble();

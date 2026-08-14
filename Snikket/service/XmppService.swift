@@ -48,11 +48,7 @@ open class XmppService: Logger, EventHandler {
     fileprivate var fetchClientsWaitingForReconnection: [BareJID] = [];
     fileprivate var fetchStart = NSDate();
         
-    #if targetEnvironment(simulator)
-    fileprivate let eventHandlers: [XmppServiceEventHandler] = [NewFeaturesDetector(), MessageEventHandler(), MucEventHandler.instance, PresenceRosterEventHandler(), TelephonyManager(), AvatarEventHandler(), NickChangeEventHandler(), DiscoEventHandler(), PushEventHandler.instance, BlockedEventHandler.instance, MixEventHandler.instance];
-    #else
     fileprivate let eventHandlers: [XmppServiceEventHandler] = [NewFeaturesDetector(), MessageEventHandler(), MucEventHandler.instance, PresenceRosterEventHandler(), TelephonyManager(), AvatarEventHandler(), NickChangeEventHandler(), DiscoEventHandler(), PushEventHandler.instance, JingleManager.instance, BlockedEventHandler.instance, MixEventHandler.instance];
-    #endif
     
     public let dbCapsCache: DBCapabilitiesCache;
     public let dbChatStore: DBChatStore;
@@ -699,14 +695,11 @@ open class XmppService: Logger, EventHandler {
             _ = client.modulesManager.register(HttpFileUploadModule());
             _ = client.modulesManager.register(MessageDeliveryReceiptsModule());
             _ = client.modulesManager.register(BlockingCommandModule());
-            #if targetEnvironment(simulator)
-            #else
             let jingleModule = client.modulesManager.register(JingleModule(sessionManager: JingleManager.instance));
             jingleModule.supportsMessageInitiation = true;
             jingleModule.register(transport: Jingle.Transport.ICEUDPTransport.self, features: [Jingle.Transport.ICEUDPTransport.XMLNS, "urn:xmpp:jingle:apps:dtls:0"]);
             jingleModule.register(description: Jingle.RTP.Description.self, features: ["urn:xmpp:jingle:apps:rtp:1", "urn:xmpp:jingle:apps:rtp:audio", "urn:xmpp:jingle:apps:rtp:video"]);
             _ = client.modulesManager.register(ExternalServiceDiscoveryModule());
-            #endif
             _ = client.modulesManager.register(InBandRegistrationModule());
             let capsModule = client.modulesManager.register(CapabilitiesModule(additionalFeatures: [.lastMessageCorrection, .messageRetraction]));
             capsModule.cache = dbCapsCache;
