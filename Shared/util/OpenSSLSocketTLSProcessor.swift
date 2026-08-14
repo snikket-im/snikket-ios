@@ -210,11 +210,27 @@ public final class OpenSSLSocketTLSProcessor: SocketConnectorTLSProcessor {
             case SSL_ERROR_WANT_WRITE:
                 drainEncryptedOutput(completionHandler: nil)
                 return
+            case SSL_ERROR_ZERO_RETURN:
+                closeCleanly()
+                return
             default:
                 drainEncryptedOutput(completionHandler: nil)
                 fail(.readFailed(error))
                 return
             }
+        }
+    }
+
+    private func closeCleanly() {
+        pendingWrites.removeAll()
+
+        // The peer sent close_notify. Complete the bidirectional TLS shutdown
+        // and close the owning socket only after its response has been written.
+        _ = SSL_shutdown(ssl)
+        drainEncryptedOutput { [weak self] in
+            guard let self = self, self.state != .closed else { return }
+            self.state = .closed
+            self.delegate?.tlsProcessorDidClose(self)
         }
     }
 

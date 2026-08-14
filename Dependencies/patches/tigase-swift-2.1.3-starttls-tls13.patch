@@ -2,7 +2,7 @@ diff --git a/Sources/TigaseSwift/SocketConnector.swift b/Sources/TigaseSwift/Soc
 index c6dbff4..a9c4a0a 100644
 --- a/Sources/TigaseSwift/SocketConnector.swift
 +++ b/Sources/TigaseSwift/SocketConnector.swift
-@@ -20,10 +20,28 @@
+@@ -20,10 +20,29 @@
  //
  import Foundation
  
@@ -10,6 +10,7 @@ index c6dbff4..a9c4a0a 100644
 +    func tlsProcessor(_ processor: SocketConnectorTLSProcessor, didRead data: Data)
 +    func tlsProcessor(_ processor: SocketConnectorTLSProcessor, didWrite data: Data, completionHandler: (() -> Void)?)
 +    func tlsProcessor(_ processor: SocketConnectorTLSProcessor, shouldTrust trust: SecTrust) -> Bool
++    func tlsProcessorDidClose(_ processor: SocketConnectorTLSProcessor)
 +    func tlsProcessor(_ processor: SocketConnectorTLSProcessor, didFail error: Error?)
 +}
 +
@@ -32,7 +33,7 @@ index c6dbff4..a9c4a0a 100644
      
      /**
       Key in `SessionObject` to store custom validator for SSL certificates 
-@@ -87,6 +105,7 @@ open class SocketConnector : XMPPDelegate, StreamDelegate {
+@@ -87,6 +106,7 @@ open class SocketConnector : XMPPDelegate, StreamDelegate {
      var dnsResolver: DNSSrvResolver?;
      weak var sessionLogic: XmppSessionLogic?;
      var zlib: Zlib?;
@@ -40,7 +41,7 @@ index c6dbff4..a9c4a0a 100644
      /**
       Stores information about SSL certificate validation and can
       have following values:
-@@ -361,6 +380,24 @@ open class SocketConnector : XMPPDelegate, StreamDelegate {
+@@ -361,6 +381,24 @@ open class SocketConnector : XMPPDelegate, StreamDelegate {
          outStream.delegate = self
  
          let domain = self.sessionObject.domainName!;
@@ -65,7 +66,7 @@ index c6dbff4..a9c4a0a 100644
          
          sslCertificateValidated = nil;
          let settings:NSDictionary = NSDictionary(objects: [StreamSocketSecurityLevel.negotiatedSSL, 
-@@ -514,7 +551,10 @@ open class SocketConnector : XMPPDelegate, StreamDelegate {
+@@ -514,7 +552,10 @@ open class SocketConnector : XMPPDelegate, StreamDelegate {
      fileprivate func sendSync(_ data:String, completionHandler: (()->Void)? = nil) {
          self.log("sending stanza:", data);
          let buf = data.data(using: String.Encoding.utf8)!;
@@ -77,7 +78,7 @@ index c6dbff4..a9c4a0a 100644
              let outBuf = zlib!.compress(data: buf);
              outStreamBuffer?.append(data: outBuf, completionHandler: completionHandler);
              outStreamBuffer?.writeData(to: self.outStream);
-@@ -608,7 +648,9 @@ open class SocketConnector : XMPPDelegate, StreamDelegate {
+@@ -608,7 +649,9 @@ open class SocketConnector : XMPPDelegate, StreamDelegate {
                          }
                          
                          let data = Data(bytes: &buffer, count: read);
@@ -88,7 +89,7 @@ index c6dbff4..a9c4a0a 100644
                              let decompressedData = zlib.decompress(data: data);
                              that.parseXml(data: decompressedData);
                          } else {
-@@ -619,7 +661,7 @@ open class SocketConnector : XMPPDelegate, StreamDelegate {
+@@ -619,7 +662,7 @@ open class SocketConnector : XMPPDelegate, StreamDelegate {
              }
          case Stream.Event.hasSpaceAvailable:
              log("stream event: HasSpaceAvailable");
@@ -97,7 +98,7 @@ index c6dbff4..a9c4a0a 100644
                  let trustVal = self.inStream?.property(forKey: Stream.PropertyKey(rawValue: kCFStreamPropertySSLPeerTrust as String));
                  guard trustVal != nil else {
                      self.closeSocket(newState: .disconnected);
-@@ -697,12 +739,57 @@ open class SocketConnector : XMPPDelegate, StreamDelegate {
+@@ -697,12 +740,62 @@ open class SocketConnector : XMPPDelegate, StreamDelegate {
          self.inStream = nil;
          self.outStream = nil;
          self.outStreamBuffer = nil;
@@ -146,6 +147,11 @@ index c6dbff4..a9c4a0a 100644
 +            context.eventBus.fire(CertificateErrorEvent(sessionObject: sessionObject, trust: trust));
 +        }
 +        return valid;
++    }
++
++    public func tlsProcessorDidClose(_ processor: SocketConnectorTLSProcessor) {
++        log("TLS processor closed cleanly");
++        closeSocket(newState: .disconnected);
 +    }
 +
 +    public func tlsProcessor(_ processor: SocketConnectorTLSProcessor, didFail error: Error?) {
