@@ -32,11 +32,8 @@ class ShareViewController: SLComposeServiceViewController {
     weak var handler: EventHandler?;
     
     lazy var xmppClient: XMPPClient = {
+        SocketConnector.tlsProcessorFactory = { OpenSSLSocketTLSProcessor() };
         let client = XMPPClient();
-        let sslHandler: ((SessionObject, SecTrust)->Bool) = {(sessionObject,secTrust) -> Bool in
-            return true;
-        };
-        client.sessionObject.setProperty(SocketConnector.SSL_CERTIFICATE_VALIDATOR, value: sslHandler);
         _ = client.modulesManager.register(AuthModule());
         _ = client.modulesManager.register(StreamFeaturesModule());
         _ = client.modulesManager.register(SaslModule());
