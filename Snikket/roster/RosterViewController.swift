@@ -261,8 +261,6 @@ class RosterViewController: AbstractRosterViewController, UIGestureRecognizerDel
             alert.addAction(UIAlertAction(title: NSLocalizedString("Chat", comment: ""), style: .default, handler: { (action) in
                 self.tableView(self.tableView, didSelectRowAt: indexPath);
             }));
-            #if targetEnvironment(simulator)
-            #else
             let jingleSupport = JingleManager.instance.support(for: item.jid, on: item.account);
             if jingleSupport.contains(.audio) && jingleSupport.contains(.video) {
                 alert.addAction(UIAlertAction(title: NSLocalizedString("Video call",comment: ""), style: .default, handler: { (action) in
@@ -274,7 +272,6 @@ class RosterViewController: AbstractRosterViewController, UIGestureRecognizerDel
                     VideoCallController.call(jid: item.jid.bareJid, from: item.account, media: [.audio], sender: self);
                 }));
             }
-            #endif
             alert.addAction(UIAlertAction(title: NSLocalizedString("Edit", comment: ""), style: .default, handler: {(action) in
                 self.openEditItem(for: item.account, jid: item.jid);
             }));
@@ -313,8 +310,6 @@ class RosterViewController: AbstractRosterViewController, UIGestureRecognizerDel
                 self.createChat(for: item);
             })
         ];
-        #if targetEnvironment(simulator)
-        #else
         let jingleSupport = JingleManager.instance.support(for: item.jid, on: item.account);
         if jingleSupport.contains(.audio) && jingleSupport.contains(.video) {
             items.append(UIAction(title: NSLocalizedString("Video call", comment: ""), image: UIImage(systemName: "video"), handler: { (action) in
@@ -326,7 +321,6 @@ class RosterViewController: AbstractRosterViewController, UIGestureRecognizerDel
                 VideoCallController.call(jid: item.jid.bareJid, from: item.account, media: [.audio], sender: self);
             }));
         }
-        #endif
         items.append(contentsOf: [
             UIAction(title: NSLocalizedString("Edit", comment: ""), image: UIImage(systemName: "pencil"), handler: {(action) in
                 self.openEditItem(for: item.account, jid: item.jid);
@@ -386,4 +380,3 @@ class RosterViewController: AbstractRosterViewController, UIGestureRecognizerDel
     }
     
 }
-

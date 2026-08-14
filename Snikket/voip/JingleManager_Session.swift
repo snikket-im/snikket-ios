@@ -184,10 +184,6 @@ extension JingleManager {
             receivedRemoteCandidates();
         }
         
-        #if targetEnvironment(simulator)
-        private func receivedRemoteCandidates() {
-        }
-        #else
         private func receivedRemoteCandidates() {
             guard let delegate = self.delegate, self.remoteDescription != nil else {
                 return;
@@ -217,7 +213,6 @@ extension JingleManager {
             }
             remoteCandidates.removeAll();
         }
-        #endif
                 
         fileprivate func onError(_ errorCondition: ErrorCondition) {
             

@@ -87,7 +87,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setUIAppearances()
         
         NotificationManager.instance.initialize(provider: MainNotificationManagerProvider());
+        #if DEBUG && targetEnvironment(simulator)
+        // Opt-in test account seeding for simulator integration runs. Credentials
+        // are supplied by the launch environment and are never stored in source.
+        if let jidValue = ProcessInfo.processInfo.environment["SNIKKET_TEST_JID"],
+           let password = ProcessInfo.processInfo.environment["SNIKKET_TEST_PASSWORD"] {
+            let jid = BareJID(jidValue)
+            let account = AccountManager.getAccount(for: jid) ?? AccountManager.Account(name: jid)
+            account.active = true
+            AccountManager.save(account: account, withPassword: password)
+        }
+        #endif
         xmppService.initialize();
+        #if DEBUG && targetEnvironment(simulator)
+        if ProcessInfo.processInfo.environment["SNIKKET_TEST_JID"] != nil {
+            xmppService.applicationState = .active
+        }
+        #endif
         Settings.setDefaultSettings()
         AccountSettings.initialize();
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in

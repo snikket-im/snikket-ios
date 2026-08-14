@@ -294,8 +294,6 @@ class NotificationCenterDelegate: NSObject, UNUserNotificationCenterDelegate {
     }
     
     func didReceive(call content: UNNotificationContent, withCompletionHandler completionHandler: @escaping () -> Void) {
-        #if targetEnvironment(simulator)
-        #else
         let userInfo = content.userInfo;
         let senderName = userInfo["senderName"] as! String;
         let senderJid = JID(userInfo["sender"] as! String);
@@ -335,7 +333,6 @@ class NotificationCenterDelegate: NSObject, UNUserNotificationCenterDelegate {
             
             topController?.present(alert, animated: true, completion: nil);
         }
-        #endif
         completionHandler();
     }
     

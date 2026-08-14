@@ -28,21 +28,6 @@ import os
 
 public class VideoCallController: UIViewController, CallManagerDelegate {
 
-    #if targetEnvironment(simulator)
-    func didSendDTMF(_ sender: CallManager, digit: String) {
-    }
-    func callDidStart(_ sender: CallManager) {
-    }
-    func callDidEnd(_ sender: CallManager) {
-    }
-    func callManager(_ sender: CallManager, didReceiveRemoteVideoTrack remoteTrack: RTCVideoTrack) {
-    }
-    func callManager(_ sender: CallManager, didReceiveLocalVideoCapturer localCapturer: RTCCameraVideoCapturer) {
-    }
-    func callStateChanged(_ sender: CallManager) {
-    }
-    #else
-
     func didSendDTMF(_ sender: CallManager, digit: String) {
         if let pc = sender.currentConnection {
             for rtpSender in pc.senders {
@@ -464,15 +449,13 @@ public class VideoCallController: UIViewController, CallManagerDelegate {
             self.titleLabel?.text = NSLocalizedString("Call ended",comment: "")
         }
     }
-    #endif
-    
     static var peerConnectionFactory: RTCPeerConnectionFactory {
         return JingleManager.instance.connectionFactory;
     }
 
     static let defaultCallConstraints = RTCMediaConstraints(mandatoryConstraints: nil, optionalConstraints: nil);
     
-    static func initiatePeerConnection(iceServers servers: [RTCIceServer], withDelegate delegate: RTCPeerConnectionDelegate) -> RTCPeerConnection {
+    static func initiatePeerConnection(iceServers servers: [RTCIceServer], withDelegate delegate: RTCPeerConnectionDelegate) -> RTCPeerConnection? {
         
         let iceServers = (servers.isEmpty && Settings.usePublicStunServers.bool()) ? [ RTCIceServer(urlStrings: ["stun:stun.l.google.com:19302","stun:stun1.l.google.com:19302","stun:stun2.l.google.com:19302","stun:stun3.l.google.com:19302","stun:stun4.l.google.com:19302"]), RTCIceServer(urlStrings: ["stun:stunserver.org:3478"]) ] : servers;
         os_log("using ICE servers: %s", log: .jingle, type: .debug, iceServers.map({ $0.urlStrings.description }).description);
