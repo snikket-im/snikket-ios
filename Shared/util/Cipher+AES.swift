@@ -153,7 +153,7 @@ extension Cipher {
             
             let ret = EVP_DecryptFinal_ex(ctx, &outbuf, &outbufLen);
             EVP_CIPHER_CTX_free(ctx);
-            guard ret >= 0 else {
+            guard ret > 0 else {
                 print("authentication of encrypted message failed:", ret);
                 return false;
             }
@@ -196,7 +196,7 @@ extension Cipher {
                     }
                     result = buffer.withUnsafeMutableBytes { (outbuf) -> Bool in
                         var outbufLen: Int32 = 0;
-                        return EVP_DecryptFinal_ex(ctx, outbuf.baseAddress!.assumingMemoryBound(to: UInt8.self), &outbufLen) >= 0;
+                        return EVP_DecryptFinal_ex(ctx, outbuf.baseAddress!.assumingMemoryBound(to: UInt8.self), &outbufLen) > 0;
                     }
                     ended = true;
                 }
