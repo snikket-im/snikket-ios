@@ -29,6 +29,7 @@
 		379D914A26E8A0E300B877CA /* db-schema-15.sql in Resources */ = {isa = PBXBuildFile; fileRef = 379D914926E8A0E300B877CA /* db-schema-15.sql */; };
 		379D914C26E8A29800B877CA /* DBLastMessageSyncStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379D914B26E8A29800B877CA /* DBLastMessageSyncStore.swift */; };
 		37B93BDF2711792300B943D0 /* TelephonyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B93BDE2711792300B943D0 /* TelephonyManager.swift */; };
+		A100000128A5000000000001 /* OpenSSLSocketTLSProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A100000228A5000000000001 /* OpenSSLSocketTLSProcessor.swift */; };
 		E928AD4326D6A08A00F29F93 /* db-schema-14.sql in Resources */ = {isa = PBXBuildFile; fileRef = E928AD4226D6A08A00F29F93 /* db-schema-14.sql */; };
 		E95AA70226D38B6F00A38D44 /* DisplayNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95AA70126D38B6E00A38D44 /* DisplayNameViewController.swift */; };
 		E963721026D786D000332482 /* BlockingCommandModuleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E963720F26D786D000332482 /* BlockingCommandModuleExtension.swift */; };
@@ -128,7 +129,6 @@
 		FE6545641E9E8B67006A14AC /* ServerSelectorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6545631E9E8B67006A14AC /* ServerSelectorTableViewCell.swift */; };
 		FE65D62822E9F8EB0065DEA5 /* Markdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE65D62722E9F8EB0065DEA5 /* Markdown.swift */; };
 		FE719E762271B2BA007CEEC9 /* OpenSSL_AES_GCM_Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE719E752271B2BA007CEEC9 /* OpenSSL_AES_GCM_Engine.swift */; };
-		A100000128A5000000000001 /* OpenSSLSocketTLSProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A100000228A5000000000001 /* OpenSSLSocketTLSProcessor.swift */; };
 		FE719E782271B439007CEEC9 /* MessageEncryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE719E772271B439007CEEC9 /* MessageEncryption.swift */; };
 		FE719E7A227307D0007CEEC9 /* OMEMOEncryptionSwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE719E79227307D0007CEEC9 /* OMEMOEncryptionSwitchTableViewCell.swift */; };
 		FE719E7C22730DC3007CEEC9 /* OMEMOIdentityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE719E7B22730DC3007CEEC9 /* OMEMOIdentityTableViewCell.swift */; };
@@ -407,6 +407,7 @@
 		59D7B86C276489C600412972 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = id; path = id.lproj/Info.plist; sourceTree = "<group>"; };
 		59D7B86D276489C600412972 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
 		59D7B86F27648A5700412972 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Account.strings; sourceTree = "<group>"; };
+		A100000228A5000000000001 /* OpenSSLSocketTLSProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSSLSocketTLSProcessor.swift; sourceTree = "<group>"; };
 		E928AD4226D6A08A00F29F93 /* db-schema-14.sql */ = {isa = PBXFileReference; lastKnownFileType = text; path = "db-schema-14.sql"; sourceTree = "<group>"; };
 		E95AA70126D38B6E00A38D44 /* DisplayNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayNameViewController.swift; sourceTree = "<group>"; };
 		E963720F26D786D000332482 /* BlockingCommandModuleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingCommandModuleExtension.swift; sourceTree = "<group>"; };
@@ -525,7 +526,6 @@
 		FE759FC72370B2A4001E78D9 /* Shared.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shared.h; sourceTree = "<group>"; };
 		FE759FC82370B2A4001E78D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE759FDA2370B384001E78D9 /* Cipher+AES.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cipher+AES.swift"; sourceTree = "<group>"; };
-		A100000228A5000000000001 /* OpenSSLSocketTLSProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenSSLSocketTLSProcessor.swift; sourceTree = "<group>"; };
 		FE759FDD2371988B001E78D9 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/libsqlite3.tbd; sourceTree = DEVELOPER_DIR; };
 		FE759FE12371C79E001E78D9 /* NotificationService.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotificationService.entitlements; sourceTree = "<group>"; };
 		FE759FE72371C966001E78D9 /* libxml2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libxml2.tbd; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/lib/libxml2.tbd; sourceTree = DEVELOPER_DIR; };
@@ -1855,7 +1855,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Snikket - Share/Snikket - Share.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 17;
 				DEVELOPMENT_TEAM = 2YH6MCD3C8;
 				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = (
@@ -1863,13 +1863,13 @@
 					"$(SDK_DIR)/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Snikket - Share/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.2.4;
+				MARKETING_VERSION = 1.2.5;
 				PRODUCT_BUNDLE_IDENTIFIER = org.snikket.ios.Share2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1888,7 +1888,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Snikket - Share/Snikket - Share.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 17;
 				DEVELOPMENT_TEAM = 2YH6MCD3C8;
 				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = (
@@ -1896,13 +1896,13 @@
 					"$(SDK_DIR)/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Snikket - Share/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.2.4;
+				MARKETING_VERSION = 1.2.5;
 				PRODUCT_BUNDLE_IDENTIFIER = org.snikket.ios.Share2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1923,7 +1923,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 17;
 				DEVELOPMENT_TEAM = 2YH6MCD3C8;
 				ENABLE_BITCODE = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1932,13 +1932,13 @@
 					"$(SDK_DIR)/usr/include/libxml2/**",
 				);
 				INFOPLIST_FILE = NotificationService/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.2.4;
+				MARKETING_VERSION = 1.2.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = org.snikket.ios.NotificationService2;
@@ -1963,7 +1963,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 17;
 				DEVELOPMENT_TEAM = 2YH6MCD3C8;
 				ENABLE_BITCODE = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1972,13 +1972,13 @@
 					"$(SDK_DIR)/usr/include/libxml2/**",
 				);
 				INFOPLIST_FILE = NotificationService/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.2.4;
+				MARKETING_VERSION = 1.2.5;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = org.snikket.ios.NotificationService2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2002,7 +2002,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 17;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2YH6MCD3C8;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -2016,13 +2016,13 @@
 				);
 				INFOPLIST_FILE = Shared/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.2;
+				MARKETING_VERSION = 1.2.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = org.snikket.ios.Shared;
@@ -2052,7 +2052,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 13;
+				CURRENT_PROJECT_VERSION = 17;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 2YH6MCD3C8;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -2066,13 +2066,13 @@
 				);
 				INFOPLIST_FILE = Shared/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.2;
+				MARKETING_VERSION = 1.2.5;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = org.snikket.ios.Shared;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -2141,7 +2141,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -2199,7 +2199,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
@@ -2221,7 +2221,7 @@
 				CODE_SIGN_ENTITLEMENTS = Snikket/Snikket.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 17;
 				DEAD_CODE_STRIPPING = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 2YH6MCD3C8;
@@ -2238,12 +2238,12 @@
 					"$(SDK_DIR)/usr/include/libxml2/**",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Snikket/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.4;
+				MARKETING_VERSION = 1.2.5;
 				PRODUCT_BUNDLE_IDENTIFIER = org.snikket.ios;
 				PRODUCT_NAME = Snikket;
 				PROVISIONING_PROFILE = "";
@@ -2264,7 +2264,7 @@
 				CODE_SIGN_ENTITLEMENTS = Snikket/Snikket.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 17;
 				DEAD_CODE_STRIPPING = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 2YH6MCD3C8;
@@ -2282,12 +2282,12 @@
 					"$(SDK_DIR)/usr/include/libxml2/**",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/Snikket/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.4;
+				MARKETING_VERSION = 1.2.5;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = org.snikket.ios;
 				PRODUCT_NAME = Snikket;
