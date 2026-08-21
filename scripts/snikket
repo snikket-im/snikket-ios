@@ -1,0 +1,770 @@
+#!/bin/bash
+
+set -euo pipefail
+
+SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+ROOT=$(CDPATH= cd -- "$SCRIPT_DIR/.." && pwd)
+PROJECT="$ROOT/Snikket.xcodeproj"
+SCHEME="Snikket"
+BUNDLE_ID="org.snikket.ios"
+TEAM_ID="2YH6MCD3C8"
+VERSION_CONFIG="$ROOT/Config/Version.xcconfig"
+PROJECT_FILE="$PROJECT/project.pbxproj"
+DERIVED_DATA="$ROOT/build/DerivedData"
+RELEASES_DIR="$ROOT/build/releases"
+EXPORT_OPTIONS="$ROOT/Config/AppStoreExportOptions.plist"
+ASC_CLIENT="$SCRIPT_DIR/app_store_connect.swift"
+ASC_BINARY="$DERIVED_DATA/Tools/app-store-connect"
+ENV_FILE="$ROOT/.env.local"
+
+if [ -f "$ENV_FILE" ]; then
+    # shellcheck disable=SC1090
+    . "$ENV_FILE"
+fi
+
+die() {
+    echo "error: $*" >&2
+    exit 1
+}
+
+note() {
+    echo "==> $*"
+}
+
+usage() {
+    cat <<'EOF'
+Usage: scripts/snikket COMMAND [ARGS]
+
+Development:
+  doctor                     Check the local toolchain, signing, and config
+  run                        Build, install, and launch in an iPhone simulator
+                             (fetches missing dependencies automatically)
+  logs                       Stream logs from Snikket in the booted simulator
+  deps                       Download frameworks, resolve packages, apply patches
+  clean [--all]              Remove build products; --all also removes packages
+
+Reports (App Store Connect):
+  reports crashes [--limit N]        List redacted TestFlight crash feedback
+  reports crash-log SUBMISSION_ID    Save one crash log under build/crashes
+
+Versioning:
+  version                    Show the source-controlled version
+  version set VERSION        Change MARKETING_VERSION in Version.xcconfig
+  version check              Reject Xcode GUI overrides and malformed settings
+
+Release (TestFlight):
+  release status             Show the App Store release, testable TestFlight
+                             builds and their groups, pending uploads, and the
+                             next build number (--all: include expired builds;
+                             --raw: raw upload operations)
+  release archive [OPTIONS]  Build and verify a signed release archive
+  release upload ARCHIVE     Upload an existing .xcarchive and wait for it
+  release publish [OPTIONS]  Choose a build, archive, upload, and wait
+  release cleanup [OPTIONS]  Delete stale AWAITING_UPLOAD reservations
+  release next-build         Print the chosen next build number (for scripts)
+
+Archive/publish options:
+  --build NUMBER             Use an explicit build instead of querying TestFlight
+  --allow-dirty              Permit tracked or untracked source changes
+  --yes                      Skip the publish confirmation (publish only)
+
+Cleanup options:
+  --older-than HOURS         Treat AWAITING_UPLOAD reservations as stale (default: 24)
+  --dry-run                  List stale reservations without deleting them
+  --yes                      Delete stale reservations without prompting
+
+Typical use:
+  First time:   scripts/snikket doctor && scripts/snikket run
+  Daily loop:   scripts/snikket run    (then: scripts/snikket logs)
+  Ship a beta:  scripts/snikket version set 1.2.6 && scripts/snikket release publish
+
+Local settings are read from .env.local; start from .env.example.
+EOF
+}
+
+read_setting() {
+    local name=$1
+    awk -F= -v wanted="$name" '
+        $1 ~ "^[[:space:]]*" wanted "[[:space:]]*$" {
+            value = $2
+            sub(/^[[:space:]]+/, "", value)
+            sub(/[[:space:]]+$/, "", value)
+            print value
+            exit
+        }
+    ' "$VERSION_CONFIG"
+}
+
+marketing_version() {
+    read_setting MARKETING_VERSION
+}
+
+local_build_number() {
+    read_setting CURRENT_PROJECT_VERSION
+}
+
+validate_marketing_version() {
+    local value=$1
+    [[ "$value" =~ ^[0-9]+([.][0-9]+){1,2}$ ]] || \
+        die "marketing version must contain two or three numeric components (for example 1.2.6)"
+}
+
+validate_build_number() {
+    local value=$1
+    [[ "$value" =~ ^[0-9]+$ ]] || die "build number must be a positive integer"
+    [ "$value" -gt 0 ] || die "build number must be greater than zero"
+}
+
+version_check() {
+    [ -f "$VERSION_CONFIG" ] || die "missing $VERSION_CONFIG"
+
+    local version build version_count build_count override_lines reference_count plist
+    version=$(marketing_version)
+    build=$(local_build_number)
+    validate_marketing_version "$version"
+    validate_build_number "$build"
+
+    version_count=$(grep -Ec '^[[:space:]]*MARKETING_VERSION[[:space:]]*=' "$VERSION_CONFIG" || true)
+    build_count=$(grep -Ec '^[[:space:]]*CURRENT_PROJECT_VERSION[[:space:]]*=' "$VERSION_CONFIG" || true)
+    [ "$version_count" -eq 1 ] || die "Version.xcconfig must define MARKETING_VERSION exactly once"
+    [ "$build_count" -eq 1 ] || die "Version.xcconfig must define CURRENT_PROJECT_VERSION exactly once"
+    [ "$build" = 1 ] || \
+        die "CURRENT_PROJECT_VERSION must remain 1; release commands choose the TestFlight build number"
+
+    override_lines=$(grep -nE '^[[:space:]]*(MARKETING_VERSION|CURRENT_PROJECT_VERSION)[[:space:]]*=' "$PROJECT_FILE" || true)
+    if [ -n "$override_lines" ]; then
+        echo "$override_lines" >&2
+        die "project.pbxproj contains a manual version override; remove it in Xcode and use 'version set'"
+    fi
+
+    reference_count=$(grep -c 'baseConfigurationReference = A20000010000000000000001 /\* Version.xcconfig \*/;' "$PROJECT_FILE" || true)
+    [ "$reference_count" -eq 2 ] || \
+        die "the project Debug and Release configurations must both use Version.xcconfig"
+
+    for plist in \
+        "$ROOT/Snikket/Info.plist" \
+        "$ROOT/Snikket - Share/Info.plist" \
+        "$ROOT/NotificationService/Info.plist" \
+        "$ROOT/Shared/Info.plist"
+    do
+        [ "$(/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' "$plist")" = '$(MARKETING_VERSION)' ] || \
+            die "$plist does not inherit MARKETING_VERSION"
+        [ "$(/usr/libexec/PlistBuddy -c 'Print :CFBundleVersion' "$plist")" = '$(CURRENT_PROJECT_VERSION)' ] || \
+            die "$plist does not inherit CURRENT_PROJECT_VERSION"
+    done
+
+    echo "Version configuration is valid: $version ($build Xcode development build)"
+}
+
+version_show() {
+    version_check >/dev/null
+    echo "Marketing version: $(marketing_version)"
+    echo "Xcode development build: $(local_build_number)"
+    echo "TestFlight releases choose a remote build number at archive time."
+}
+
+version_set() {
+    [ "$#" -eq 1 ] || die "usage: scripts/snikket version set VERSION"
+    local new_version=$1 current temporary
+    validate_marketing_version "$new_version"
+    version_check >/dev/null
+    current=$(marketing_version)
+    if [ "$current" = "$new_version" ]; then
+        echo "Marketing version is already $new_version"
+        return
+    fi
+
+    temporary=$(mktemp "${TMPDIR:-/tmp}/snikket-version.XXXXXX")
+    awk -F= -v replacement="$new_version" '
+        /^[[:space:]]*MARKETING_VERSION[[:space:]]*=/ {
+            print "MARKETING_VERSION = " replacement
+            next
+        }
+        { print }
+    ' "$VERSION_CONFIG" > "$temporary"
+    mv "$temporary" "$VERSION_CONFIG"
+    echo "Marketing version: $current -> $new_version"
+}
+
+require_command() {
+    command -v "$1" >/dev/null 2>&1 || die "required command not found: $1"
+}
+
+require_swift_toolchain() {
+    require_command xcrun
+    xcrun --find swiftc >/dev/null 2>&1 || \
+        die "the Xcode Swift compiler is required for App Store Connect access"
+}
+
+ensure_asc_client() {
+    require_swift_toolchain
+    if [ ! -x "$ASC_BINARY" ] || [ "$ASC_CLIENT" -nt "$ASC_BINARY" ]; then
+        note "Compiling the App Store Connect helper with Xcode Swift"
+        mkdir -p "$(dirname "$ASC_BINARY")" "$DERIVED_DATA/SwiftModuleCache"
+        env -i \
+            PATH="$PATH" \
+            HOME="$HOME" \
+            TMPDIR="${TMPDIR:-/tmp}" \
+            USER="${USER:-}" \
+            LANG="${LANG:-en_US.UTF-8}" \
+            xcrun swiftc \
+                -parse-as-library \
+                -O \
+                -module-cache-path "$DERIVED_DATA/SwiftModuleCache" \
+                "$ASC_CLIENT" \
+                -o "$ASC_BINARY"
+    fi
+}
+
+normalise_key_path() {
+    case "${ASC_KEY_PATH:-}" in
+        "") return ;;
+        /*) ;;
+        *) ASC_KEY_PATH="$ROOT/$ASC_KEY_PATH"; export ASC_KEY_PATH ;;
+    esac
+}
+
+require_asc() {
+    local missing=""
+    [ -n "${ASC_KEY_PATH:-}" ] || missing="$missing ASC_KEY_PATH"
+    [ -n "${ASC_KEY_ID:-}" ] || missing="$missing ASC_KEY_ID"
+    [ -n "${ASC_ISSUER_ID:-}" ] || missing="$missing ASC_ISSUER_ID"
+    [ -z "$missing" ] || die "set these values in .env.local:$missing"
+    normalise_key_path
+    [ -f "$ASC_KEY_PATH" ] || die "App Store Connect key file not found: $ASC_KEY_PATH"
+    require_swift_toolchain
+}
+
+asc() {
+    require_asc
+    ensure_asc_client
+    (cd "$ROOT" && env -i \
+        PATH="$PATH" \
+        HOME="$HOME" \
+        TMPDIR="${TMPDIR:-/tmp}" \
+        LANG="${LANG:-en_US.UTF-8}" \
+        ASC_KEY_PATH="$ASC_KEY_PATH" \
+        ASC_KEY_ID="$ASC_KEY_ID" \
+        ASC_ISSUER_ID="$ASC_ISSUER_ID" \
+        SNIKKET_LOCAL_VERSION="${SNIKKET_LOCAL_VERSION:-}" \
+        "$ASC_BINARY" "$@")
+}
+
+xcodebuild_safe() {
+    local clean_environment=(
+        "PATH=$PATH"
+        "HOME=$HOME"
+        "TMPDIR=${TMPDIR:-/tmp}"
+        "USER=${USER:-}"
+        "LANG=${LANG:-en_US.UTF-8}"
+    )
+    if [ -n "${DEVELOPER_DIR:-}" ]; then
+        clean_environment+=("DEVELOPER_DIR=$DEVELOPER_DIR")
+    fi
+    env -i "${clean_environment[@]}" xcodebuild "$@"
+}
+
+doctor() {
+    local failures=0 identity_summary key_mode
+    echo "Repository: $ROOT"
+
+    if command -v xcodebuild >/dev/null 2>&1; then
+        xcodebuild -version
+        echo "Developer directory: $(xcode-select -p)"
+    else
+        echo "FAIL: xcodebuild is unavailable"
+        failures=$((failures + 1))
+    fi
+
+    if command -v xcrun >/dev/null 2>&1; then
+        echo "iPhoneOS SDK: $(xcrun --sdk iphoneos --show-sdk-version 2>/dev/null || echo unavailable)"
+    else
+        echo "FAIL: xcrun is unavailable"
+        failures=$((failures + 1))
+    fi
+
+    if identity_summary=$(security find-identity -v -p codesigning 2>/dev/null | grep -Eo '[0-9]+ valid identities found' | tail -1); then
+        case "$identity_summary" in
+            "0 valid identities found") echo "WARN: Code signing: $identity_summary (TestFlight archives need a certificate and private key in this VM's keychain)" ;;
+            *) echo "Code signing: $identity_summary" ;;
+        esac
+    else
+        echo "Code signing: unable to inspect the login keychain"
+    fi
+
+    if xcrun --find swiftc >/dev/null 2>&1; then
+        ensure_asc_client
+        echo "App Store Connect JWT support: Xcode Swift and CryptoKit available"
+    else
+        echo "FAIL: Xcode Swift compiler is unavailable"
+        failures=$((failures + 1))
+    fi
+
+    if [ -f "$ENV_FILE" ]; then
+        echo "Local configuration: .env.local found"
+    else
+        echo "Local configuration: .env.local missing (copy .env.example)"
+    fi
+
+    if [ -n "${ASC_KEY_PATH:-}" ] && [ -n "${ASC_KEY_ID:-}" ] && [ -n "${ASC_ISSUER_ID:-}" ]; then
+        normalise_key_path
+        if [ -f "$ASC_KEY_PATH" ]; then
+            key_mode=$(stat -f '%Lp' "$ASC_KEY_PATH" 2>/dev/null || echo unknown)
+            echo "App Store Connect credentials: configured (key file mode $key_mode)"
+            case "$key_mode" in
+                unknown|600|400) ;;
+                *) echo "WARN: private key should normally be readable only by its owner (chmod 600)" ;;
+            esac
+        else
+            echo "FAIL: configured ASC_KEY_PATH does not exist"
+            failures=$((failures + 1))
+        fi
+    else
+        local missing_asc=""
+        [ -n "${ASC_KEY_PATH:-}" ] || missing_asc="$missing_asc ASC_KEY_PATH"
+        [ -n "${ASC_KEY_ID:-}" ] || missing_asc="$missing_asc ASC_KEY_ID"
+        [ -n "${ASC_ISSUER_ID:-}" ] || missing_asc="$missing_asc ASC_ISSUER_ID"
+        echo "App Store Connect credentials: incomplete (missing:$missing_asc)"
+    fi
+
+    if plutil -lint "$EXPORT_OPTIONS" >/dev/null 2>&1; then
+        echo "Export options: valid"
+    else
+        echo "FAIL: missing or invalid Config/AppStoreExportOptions.plist"
+        failures=$((failures + 1))
+    fi
+
+    if ! version_check; then
+        failures=$((failures + 1))
+    fi
+
+    [ "$failures" -eq 0 ] || die "$failures doctor check(s) failed"
+}
+
+choose_simulator() {
+    local selector=${SNIKKET_SIMULATOR:-} devices line
+    devices=$(xcrun simctl list devices available)
+    if [ -n "$selector" ]; then
+        line=$(printf '%s\n' "$devices" | awk -v wanted="$selector" '
+            {
+                value = $0
+                sub(/^[[:space:]]+/, "", value)
+                if (index(value, "iPhone") != 1) next
+                marker = index(value, " (")
+                name = marker ? substr(value, 1, marker - 1) : value
+                if (name == wanted || index(value, "(" wanted ")") > 0) {
+                    print value
+                    exit
+                }
+            }
+        ')
+    else
+        line=$(printf '%s\n' "$devices" | awk '/iPhone/ && /\(Booted\)$/ { print; exit }')
+        if [ -z "$line" ]; then
+            line=$(printf '%s\n' "$devices" | awk '/iPhone/ { print; exit }')
+        fi
+    fi
+    [ -n "$line" ] || die "could not select an iPhone simulator${selector:+ matching '$selector'}"
+    SIMULATOR_UDID=$(printf '%s\n' "$line" | sed -E 's/.*\(([0-9A-Fa-f-]{36})\).*/\1/')
+    [[ "$SIMULATOR_UDID" =~ ^[0-9A-Fa-f-]{36}$ ]] || \
+        die "could not parse the selected simulator: $line"
+    case "$line" in
+        *"(Booted)"*) SIMULATOR_STATE=Booted ;;
+        *) SIMULATOR_STATE=Shutdown ;;
+    esac
+}
+
+boot_simulator() {
+    choose_simulator
+    if [ "$SIMULATOR_STATE" != "Booted" ]; then
+        note "Booting simulator $SIMULATOR_UDID"
+        xcrun simctl boot "$SIMULATOR_UDID"
+    fi
+    open -a Simulator
+    xcrun simctl bootstatus "$SIMULATOR_UDID" -b
+}
+
+xcode_common_args() {
+    XCODE_COMMON_ARGS=(
+        -project "$PROJECT"
+        -scheme "$SCHEME"
+        -derivedDataPath "$DERIVED_DATA"
+        -clonedSourcePackagesDirPath "$DERIVED_DATA/SourcePackages"
+        -onlyUsePackageVersionsFromResolvedFile
+        IPHONEOS_DEPLOYMENT_TARGET=13.0
+    )
+}
+
+resolve_dependencies() {
+    require_command xcodebuild
+    note "Checking binary frameworks"
+    (cd "$ROOT" && /bin/bash "$ROOT/update-frameworks.sh")
+    note "Resolving the versions pinned in Package.resolved"
+    mkdir -p "$DERIVED_DATA/SourcePackages"
+    xcodebuild_safe \
+        -resolvePackageDependencies \
+        -project "$PROJECT" \
+        -scheme "$SCHEME" \
+        -derivedDataPath "$DERIVED_DATA" \
+        -clonedSourcePackagesDirPath "$DERIVED_DATA/SourcePackages" \
+        -onlyUsePackageVersionsFromResolvedFile
+    "$ROOT/Dependencies/apply-tigase-tls13-patch.sh" "$DERIVED_DATA"
+}
+
+ensure_dependencies() {
+    if [ -d "$ROOT/Frameworks/OpenSSL.xcframework" ] \
+        && [ -d "$ROOT/Frameworks/WebRTC.xcframework" ] \
+        && [ -d "$DERIVED_DATA/SourcePackages/checkouts/tigase-swift" ]; then
+        return
+    fi
+    note "Dependencies are missing; fetching them first"
+    resolve_dependencies
+}
+
+run_simulator() {
+    require_command xcodebuild
+    require_command xcrun
+    version_check >/dev/null
+    ensure_dependencies
+    boot_simulator
+    xcode_common_args
+
+    note "Building Snikket for simulator $SIMULATOR_UDID"
+    xcodebuild_safe "${XCODE_COMMON_ARGS[@]}" \
+        -quiet \
+        -configuration Debug \
+        -destination "platform=iOS Simulator,id=$SIMULATOR_UDID" \
+        build
+
+    local app="$DERIVED_DATA/Build/Products/Debug-iphonesimulator/Snikket.app"
+    [ -d "$app" ] || die "simulator app was not produced at $app"
+    note "Installing and launching Snikket"
+    xcrun simctl install "$SIMULATOR_UDID" "$app"
+    xcrun simctl terminate "$SIMULATOR_UDID" "$BUNDLE_ID" >/dev/null 2>&1 || true
+
+    local launch_environment=()
+    if [ -n "${SNIKKET_TEST_JID:-}" ]; then
+        launch_environment+=("SIMCTL_CHILD_SNIKKET_TEST_JID=$SNIKKET_TEST_JID")
+    fi
+    if [ -n "${SNIKKET_TEST_PASSWORD:-}" ]; then
+        launch_environment+=("SIMCTL_CHILD_SNIKKET_TEST_PASSWORD=$SNIKKET_TEST_PASSWORD")
+    fi
+    local launch_result launch_pid
+    # Expanding an empty array under 'set -u' fails on macOS bash 3.2, so
+    # launch_environment is only used on the branch where it has entries.
+    if [ -n "${SNIKKET_TEST_JID:-}" ] || [ -n "${SNIKKET_TEST_PASSWORD:-}" ]; then
+        launch_result=$(env "${launch_environment[@]}" xcrun simctl launch "$SIMULATOR_UDID" "$BUNDLE_ID")
+    else
+        launch_result=$(xcrun simctl launch "$SIMULATOR_UDID" "$BUNDLE_ID")
+    fi
+    echo "$launch_result"
+    launch_pid=${launch_result##*: }
+    [[ "$launch_pid" =~ ^[0-9]+$ ]] || die "could not determine the launched Snikket process ID"
+    sleep 3
+    kill -0 "$launch_pid" >/dev/null 2>&1 || \
+        die "Snikket exited during startup; use 'scripts/snikket logs' for details"
+    echo "Snikket is still running after startup (PID $launch_pid)"
+}
+
+stream_logs() {
+    require_command xcrun
+    xcrun simctl spawn booted log stream --style compact --predicate 'process == "Snikket"'
+}
+
+assert_generated_path() {
+    case "$1" in
+        "$ROOT/build"/*) ;;
+        *) die "refusing to remove unexpected path: $1" ;;
+    esac
+}
+
+clean_build() {
+    local path
+    for path in \
+        "$DERIVED_DATA/Build" \
+        "$DERIVED_DATA/Index.noindex" \
+        "$DERIVED_DATA/Logs" \
+        "$DERIVED_DATA/ModuleCache.noindex"
+    do
+        assert_generated_path "$path"
+        rm -rf -- "$path"
+    done
+    echo "Removed build products; preserved $DERIVED_DATA/SourcePackages"
+}
+
+clean_dependencies() {
+    assert_generated_path "$DERIVED_DATA"
+    rm -rf -- "$DERIVED_DATA"
+    echo "Removed $DERIVED_DATA, including Swift package checkouts"
+}
+
+require_clean_tree() {
+    local allow_dirty=$1 status
+    [ "$allow_dirty" = "yes" ] && return
+    status=$(git -C "$ROOT" status --porcelain --untracked-files=normal)
+    if [ -n "$status" ]; then
+        echo "$status" >&2
+        die "release source is not clean; commit/stash it or pass --allow-dirty"
+    fi
+}
+
+auth_args() {
+    require_asc
+    AUTH_ARGS=(
+        -allowProvisioningUpdates
+        -authenticationKeyPath "$ASC_KEY_PATH"
+        -authenticationKeyID "$ASC_KEY_ID"
+        -authenticationKeyIssuerID "$ASC_ISSUER_ID"
+    )
+}
+
+verify_plist_version() {
+    local plist=$1 expected_version=$2 expected_build=$3 actual_version actual_build
+    actual_version=$(/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' "$plist")
+    actual_build=$(/usr/libexec/PlistBuddy -c 'Print :CFBundleVersion' "$plist")
+    [ "$actual_version" = "$expected_version" ] || \
+        die "$plist has version $actual_version; expected $expected_version"
+    [ "$actual_build" = "$expected_build" ] || \
+        die "$plist has build $actual_build; expected $expected_build"
+}
+
+verify_archive() {
+    local archive=$1 version=$2 build=$3 app plugin shared
+    app=$(find "$archive/Products/Applications" -maxdepth 1 -type d -name '*.app' -print | head -1)
+    [ -n "$app" ] && [ -d "$app" ] || die "archive contains no application"
+    verify_plist_version "$app/Info.plist" "$version" "$build"
+
+    for plugin in "$app"/PlugIns/*.appex; do
+        [ -d "$plugin" ] || continue
+        verify_plist_version "$plugin/Info.plist" "$version" "$build"
+    done
+    shared="$app/Frameworks/Shared.framework"
+    if [ -d "$shared" ]; then
+        verify_plist_version "$shared/Info.plist" "$version" "$build"
+    fi
+
+    codesign --verify --deep --strict --verbose=2 "$app"
+    note "Verified archive versions and code signatures"
+}
+
+write_manifest() {
+    local directory=$1 version=$2 build=$3 dirty=$4 git_sha xcode sdk timestamp
+    git_sha=$(git -C "$ROOT" rev-parse HEAD)
+    xcode=$(xcodebuild_safe -version | paste -sd ' ' -)
+    sdk=$(xcrun --sdk iphoneos --show-sdk-version)
+    timestamp=$(date -u '+%Y-%m-%dT%H:%M:%SZ')
+    printf '%s\n' \
+        "version=$version" \
+        "build=$build" \
+        "git_sha=$git_sha" \
+        "dirty=$dirty" \
+        "xcode=$xcode" \
+        "iphoneos_sdk=$sdk" \
+        "created_at=$timestamp" > "$directory/release-manifest.txt"
+}
+
+archive_release() {
+    local build=$1 allow_dirty=$2 version directory archive dirty=no
+    validate_build_number "$build"
+    version_check >/dev/null
+    require_clean_tree "$allow_dirty"
+    [ "$allow_dirty" = "yes" ] && dirty=yes
+    auth_args
+    version=$(marketing_version)
+    directory="$RELEASES_DIR/$version-$build"
+    archive="$directory/Snikket.xcarchive"
+    [ ! -e "$directory" ] || die "release directory already exists: $directory"
+    mkdir -p "$directory"
+    xcode_common_args
+
+    note "Archiving Snikket $version ($build)"
+    xcodebuild_safe "${XCODE_COMMON_ARGS[@]}" \
+        -configuration Release \
+        -destination 'generic/platform=iOS' \
+        -archivePath "$archive" \
+        "${AUTH_ARGS[@]}" \
+        DEVELOPMENT_TEAM="$TEAM_ID" \
+        CODE_SIGN_STYLE=Automatic \
+        MARKETING_VERSION="$version" \
+        CURRENT_PROJECT_VERSION="$build" \
+        archive 2>&1 | tee "$directory/archive.log"
+
+    verify_archive "$archive" "$version" "$build"
+    write_manifest "$directory" "$version" "$build" "$dirty"
+    ARCHIVE_RESULT_PATH="$archive"
+    echo "Archive: $archive"
+}
+
+upload_archive() {
+    local archive=$1 app version build export_path
+    [ -d "$archive" ] || die "archive not found: $archive"
+    [ -f "$archive/Info.plist" ] || die "not an Xcode archive: $archive"
+    app=$(find "$archive/Products/Applications" -maxdepth 1 -type d -name '*.app' -print | head -1)
+    [ -n "$app" ] || die "archive contains no application"
+    version=$(/usr/libexec/PlistBuddy -c 'Print :CFBundleShortVersionString' "$app/Info.plist")
+    build=$(/usr/libexec/PlistBuddy -c 'Print :CFBundleVersion' "$app/Info.plist")
+    validate_marketing_version "$version"
+    validate_build_number "$build"
+    auth_args
+    export_path="$(dirname "$archive")/export"
+    [ ! -e "$export_path" ] || die "a previous upload attempt left $export_path behind; remove it and retry"
+
+    note "Uploading Snikket $version ($build) to App Store Connect"
+    xcodebuild_safe \
+        -exportArchive \
+        -archivePath "$archive" \
+        -exportOptionsPlist "$EXPORT_OPTIONS" \
+        -exportPath "$export_path" \
+        "${AUTH_ARGS[@]}"
+
+    note "Waiting for App Store Connect to finish the upload"
+    asc wait --version "$version" --build "$build"
+}
+
+parse_release_options() {
+    RELEASE_BUILD=""
+    RELEASE_ALLOW_DIRTY=no
+    RELEASE_YES=no
+    while [ "$#" -gt 0 ]; do
+        case "$1" in
+            --build)
+                [ "$#" -ge 2 ] || die "--build requires a number"
+                RELEASE_BUILD=$2
+                shift 2
+                ;;
+            --allow-dirty)
+                RELEASE_ALLOW_DIRTY=yes
+                shift
+                ;;
+            --yes)
+                RELEASE_YES=yes
+                shift
+                ;;
+            *) die "unknown release option: $1" ;;
+        esac
+    done
+    if [ -n "$RELEASE_BUILD" ]; then
+        validate_build_number "$RELEASE_BUILD"
+    fi
+}
+
+choose_release_build() {
+    if [ -n "$RELEASE_BUILD" ]; then
+        CHOSEN_BUILD=$RELEASE_BUILD
+    else
+        note "Finding the highest build previously uploaded to TestFlight"
+        CHOSEN_BUILD=$(asc next-build)
+    fi
+}
+
+cmd_release_archive() {
+    parse_release_options "$@"
+    [ "$RELEASE_YES" = no ] || die "--yes is only valid with release publish"
+    choose_release_build
+    archive_release "$CHOSEN_BUILD" "$RELEASE_ALLOW_DIRTY"
+}
+
+cmd_release_publish() {
+    parse_release_options "$@"
+    version_check >/dev/null
+    require_clean_tree "$RELEASE_ALLOW_DIRTY"
+    choose_release_build
+    local version answer
+    version=$(marketing_version)
+    echo "Ready to archive and upload Snikket $version ($CHOSEN_BUILD)."
+    if [ "$RELEASE_YES" != yes ]; then
+        [ -t 0 ] || die "publish needs an interactive terminal or --yes"
+        printf 'Continue? [y/N] '
+        read -r answer
+        case "$answer" in y|Y|yes|YES) ;; *) die "publish cancelled" ;; esac
+    fi
+    archive_release "$CHOSEN_BUILD" "$RELEASE_ALLOW_DIRTY"
+    upload_archive "$ARCHIVE_RESULT_PATH"
+}
+
+cmd_version() {
+    [ "$#" -gt 0 ] || { version_show; return; }
+    local command=$1
+    shift
+    case "$command" in
+        show) [ "$#" -eq 0 ] || die "version show takes no arguments"; version_show ;;
+        set) version_set "$@" ;;
+        check) [ "$#" -eq 0 ] || die "version check takes no arguments"; version_check ;;
+        *) die "unknown version command: $command" ;;
+    esac
+}
+
+cmd_clean() {
+    if [ "$#" -eq 0 ]; then
+        clean_build
+    elif [ "$#" -eq 1 ] && [ "$1" = "--all" ]; then
+        clean_dependencies
+    else
+        die "usage: scripts/snikket clean [--all]"
+    fi
+}
+
+cmd_release_status() {
+    if [ "$#" -eq 0 ]; then
+        SNIKKET_LOCAL_VERSION=$(marketing_version) asc status
+    elif [ "$#" -eq 1 ] && [ "$1" = "--all" ]; then
+        SNIKKET_LOCAL_VERSION=$(marketing_version) asc status --all
+    elif [ "$#" -eq 1 ] && [ "$1" = "--raw" ]; then
+        asc uploads
+    else
+        die "usage: scripts/snikket release status [--all|--raw]"
+    fi
+}
+
+cmd_release() {
+    [ "$#" -gt 0 ] || die "usage: scripts/snikket release {status|archive|upload|publish|cleanup|next-build}"
+    local command=$1
+    shift
+    case "$command" in
+        status) cmd_release_status "$@" ;;
+        cleanup) asc cleanup "$@" ;;
+        next-build) [ "$#" -eq 0 ] || die "release next-build takes no arguments"; asc next-build ;;
+        archive) cmd_release_archive "$@" ;;
+        upload) [ "$#" -eq 1 ] || die "usage: scripts/snikket release upload ARCHIVE"; upload_archive "$1" ;;
+        publish) cmd_release_publish "$@" ;;
+        *) die "unknown release command: $command" ;;
+    esac
+}
+
+cmd_reports() {
+    [ "$#" -gt 0 ] || die "usage: scripts/snikket reports {crashes|crash-log}"
+    local command=$1
+    shift
+    case "$command" in
+        crashes) asc testflight-crashes "$@" ;;
+        crash-log)
+            [ "$#" -eq 1 ] || die "usage: scripts/snikket reports crash-log SUBMISSION_ID"
+            asc testflight-crash-log \
+                --id "$1" \
+                --output "$ROOT/build/crashes/$1.crash"
+            ;;
+        *) die "unknown reports command: $command" ;;
+    esac
+}
+
+main() {
+    [ "$#" -gt 0 ] || { usage; exit 2; }
+    local command=$1
+    shift
+    case "$command" in
+        help|-h|--help) usage ;;
+        doctor) [ "$#" -eq 0 ] || die "doctor takes no arguments"; doctor ;;
+        run) [ "$#" -eq 0 ] || die "run takes no arguments"; run_simulator ;;
+        logs) [ "$#" -eq 0 ] || die "logs takes no arguments"; stream_logs ;;
+        deps) [ "$#" -eq 0 ] || die "deps takes no arguments"; resolve_dependencies ;;
+        clean) cmd_clean "$@" ;;
+        clean-deps) die "'clean-deps' was renamed; use: scripts/snikket clean --all" ;;
+        version) cmd_version "$@" ;;
+        reports) cmd_reports "$@" ;;
+        release) cmd_release "$@" ;;
+        testflight) die "'testflight' commands moved; use: scripts/snikket release (see --help)" ;;
+        *) usage >&2; die "unknown command: $command" ;;
+    esac
+}
+
+main "$@"

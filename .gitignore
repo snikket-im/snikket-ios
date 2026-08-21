@@ -112,3 +112,14 @@ xcuserdata
 
 *.moved-aside
 .sentryclirc
+
+#####
+# Local credentials and developer-specific release configuration
+
+.env
+.env.*
+!.env.example
+*.p8
+*.p12
+*.developerprofile
+*.mobileprovision
