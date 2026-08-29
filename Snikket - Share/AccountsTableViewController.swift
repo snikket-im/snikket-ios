@@ -30,35 +30,39 @@ class AccountsTableViewController: UITableViewController {
     var selected: String? = nil;
     
     override func viewDidLoad() {
-        accounts = getAccounts();
-        super.viewDidLoad();
-        //tableView.register(AccountTableViewCell.self, forCellReuseIdentifier: "accountTableViewCell");
+        super.viewDidLoad()
+        
+        accounts = getAccounts()
+        self.tableView.reloadData()
     }
     
     func getAccounts() -> [String] {
         var accounts = [String]();
-        let query = [ String(kSecClass) : kSecClassGenericPassword, String(kSecMatchLimit) : kSecMatchLimitAll, String(kSecReturnAttributes) : kCFBooleanTrue as Any, String(kSecAttrService) : "xmpp" ] as [String : Any];
-        var result:AnyObject?;
+        let query = [ String(kSecClass) : kSecClassGenericPassword,
+                      String(kSecMatchLimit) : kSecMatchLimitAll,
+                      String(kSecReturnAttributes) : kCFBooleanTrue!,
+                      String(kSecAttrService) : "xmpp" as NSObject] as [String : Any]
         
-        let lastResultCode: OSStatus = withUnsafeMutablePointer(to: &result) {
-            SecItemCopyMatching(query as CFDictionary, UnsafeMutablePointer($0));
+        var result:CFTypeRef?;
+        
+        guard SecItemCopyMatching(query as CFDictionary, &result) == noErr else {
+            return []
         }
         
-        if lastResultCode == noErr {
-            if let results = result as? [[String:NSObject]] {
-                for r in results {
-                    let name = r[String(kSecAttrAccount)] as! String;
-                    if let data = r[String(kSecAttrGeneric)] as? NSData {
-                        let dict = NSKeyedUnarchiver.unarchiveObject(with: data as Data) as? [String:AnyObject];
-                        if dict!["active"] as? Bool ?? false {
-                            accounts.append(name);
-                        }
-                    }
+        if let results = result as? [[String:NSObject]] {
+            print(results)
+            for r in results {
+                let name = r[String(kSecAttrAccount)] as! String;
+                if let data = r[String(kSecAttrGeneric)] as? NSData {
+                    let dict = NSKeyedUnarchiver.unarchiveObject(with: data as Data) as? [String:AnyObject];
+                    accounts.append(name)
+//                    if dict!["active"] as? Bool ?? false {
+//                        accounts.append(name)
+//                    }
                 }
             }
-            
         }
-        return accounts;
+        return accounts
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
