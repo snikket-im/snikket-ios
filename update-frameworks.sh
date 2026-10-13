@@ -49,7 +49,9 @@ downloadIfNeeded () {
 	fi
 }
 
-cd Frameworks
+SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd) || exit 1
+mkdir -p "$SCRIPT_DIR/Frameworks" || exit 1
+cd "$SCRIPT_DIR/Frameworks" || exit 1
 
 downloadIfNeeded $OPENSSL_FRAMEWORK $OPENSSL_CHECKSUM $OPENSSL_REPO $OPENSSL_VERSION
 result=$?
