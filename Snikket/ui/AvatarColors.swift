@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import TigaseSwift
-import HSLuvSwift
+import HSLuv
 
 class AvatarColors {
     
@@ -37,12 +37,8 @@ class XEP0392Helper {
     }
     
     static func rgbFromNick(name: String) -> UIColor {
-        var hsluv : [Double] = []
-        hsluv.append(angle(name)*360)
-        hsluv.append(100)
-        hsluv.append(50)
-        
-        return UIColor(hue: hsluv[0], saturation: hsluv[1], lightness: hsluv[2], alpha: 1.0)
+        let rgb = hsluvToRgb(angle(name) * 360, 100, 50)
+        return UIColor(red: CGFloat(rgb.red), green: CGFloat(rgb.green), blue: CGFloat(rgb.blue), alpha: 1.0)
     }
 }
 
