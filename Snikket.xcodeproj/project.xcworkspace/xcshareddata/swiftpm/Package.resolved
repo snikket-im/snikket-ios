@@ -15,8 +15,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/hsluv/hsluv-swift.git",
       "state" : {
-        "revision" : "9dee4378180f2a9a33c96bc20284cf64158dbe1b",
-        "version" : "2.1.0"
+        "revision" : "991aabe9a1d79fd6b9c8d3e9110410fe50f53ebf",
+        "version" : "3.0.0"
       }
     },
     {
