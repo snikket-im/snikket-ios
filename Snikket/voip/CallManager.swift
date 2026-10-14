@@ -20,6 +20,7 @@
 //
 
 import UIKit
+import AVFoundation
 import CallKit
 import PushKit
 import WebRTC
@@ -74,6 +75,8 @@ class CallManager: NSObject, CXProviderDelegate {
     }
     
     private var establishingSessions: [JingleManager.Session] = [];
+
+    private let ringback = RingbackPlayer();
     
     private(set) var session: JingleManager.Session?;
     
@@ -110,6 +113,11 @@ class CallManager: NSObject, CXProviderDelegate {
     
     private func changeCallState(_ state: Call.State) {
         currentCall?.state = state;
+        if state == .ringing && currentCall?.direction == .outgoing {
+            ringback.start();
+        } else {
+            ringback.stop();
+        }
         delegate?.callStateChanged(self);
     }
     
@@ -233,6 +241,7 @@ class CallManager: NSObject, CXProviderDelegate {
     
     func reset() {
         print("resetting call manager");
+        ringback.stop();
         DispatchQueue.main.async {
             UIApplication.shared.isIdleTimerDisabled = false;
         }
@@ -987,3 +996,74 @@ extension CallManager: PKPushRegistryDelegate {
     }
 }
 
+/// Plays the North American ringback (440+480 Hz, 2 s on, 4 s off) while an outgoing call rings,
+/// so the caller hears that the call is progressing instead of silence.
+class RingbackPlayer {
+
+    private static let sampleRate = 8000;
+
+    private var player: AVAudioPlayer?;
+
+    func start() {
+        DispatchQueue.main.async {
+            guard self.player == nil, let player = try? AVAudioPlayer(data: RingbackPlayer.makeWav()) else {
+                return;
+            }
+            player.numberOfLoops = -1;
+            self.player = player;
+            self.play(attempt: 0);
+        }
+    }
+
+    func stop() {
+        DispatchQueue.main.async {
+            self.player?.stop();
+            self.player = nil;
+        }
+    }
+
+    // CallKit activates the audio session shortly after the start-call action, so the first play() can fail.
+    private func play(attempt: Int) {
+        guard let player = self.player, !player.isPlaying else {
+            return;
+        }
+        if !player.play() && attempt < 10 {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                self.play(attempt: attempt + 1);
+            }
+        }
+    }
+
+    // One 6 s cycle as 16-bit mono PCM WAV, generated so no audio resource has to be bundled.
+    private static func makeWav() -> Data {
+        let toneSamples = sampleRate * 2;
+        let totalSamples = sampleRate * 6;
+        let fadeSamples = sampleRate / 50;
+        var data = Data();
+        func append<T: FixedWidthInteger>(_ value: T) {
+            withUnsafeBytes(of: value.littleEndian) { data.append(contentsOf: $0) };
+        }
+        data.append(contentsOf: Array("RIFF".utf8));
+        append(UInt32(36 + totalSamples * 2));
+        data.append(contentsOf: Array("WAVEfmt ".utf8));
+        append(UInt32(16));
+        append(UInt16(1));
+        append(UInt16(1));
+        append(UInt32(sampleRate));
+        append(UInt32(sampleRate * 2));
+        append(UInt16(2));
+        append(UInt16(16));
+        data.append(contentsOf: Array("data".utf8));
+        append(UInt32(totalSamples * 2));
+        for i in 0..<totalSamples {
+            var sample = 0.0;
+            if i < toneSamples {
+                let t = Double(i) / Double(sampleRate);
+                let envelope = min(1.0, Double(min(i, toneSamples - 1 - i)) / Double(fadeSamples));
+                sample = envelope * 0.25 * (sin(2 * Double.pi * 440 * t) + sin(2 * Double.pi * 480 * t));
+            }
+            append(Int16(sample * Double(Int16.max)));
+        }
+        return data;
+    }
+}
